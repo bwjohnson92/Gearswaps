@@ -1,3 +1,4 @@
+include('displayBox.lua')
 include('organizer-lib.lua')
 -- Local Settings, setting the zones prior to use
 toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","Periqia","Ilrusi Atoll",
@@ -16,9 +17,12 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 capeLocked = false
 weaponLocked = false
 nextTH = false
-hasPet = true
+hasPet = false
+Idle_Index = 1
 -- Start Functions here
 -- Gear Sets
+
+capeDT={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}}
 
 nukingStaff = "Raetic"
 
@@ -66,28 +70,33 @@ function get_sets()
 	    back={ name="Lifestream Cape", augments={'Geomancy Skill +7','Indi. eff. dur. +17','Pet: Damage taken -4%',}},
 	}
 
-	sets.aftercast_PetRegen = {
-		main="Idris",	
-		sub="Genmei Shield",
-		head="Azimuth Hood +1",
-		body="Telchine Chasuble", hands="Telchine Gloves",
-    	back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
-		waist="Isa Belt", legs="Telchine Braconi", feet="Bagua Sandals +1",
-		lear="Handler's Earring +1",
-		rear="Handler's Earring",
-		neck="Twilight Torque",
-		ring1="Defending Ring",
-		ring2="Dark Ring"
-	}
+	sets.Idle = {}
+    sets.Idle.index = {"Standard", "DamageTaken", "PetRegen"}
 
-	sets.aftercast_Idle = {main="Idris",sub="Genmei Shield",ranged="Dunna",
-		head="Azimuth Hood +1",neck="Twilight Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
+	sets.Idle.Standard = {main="Idris",sub="Genmei Shield",ranged="Dunna",
+		head="Azimuth Hood +1",neck="Twilight Torque",ear1="Etiolation Earring",ear2="Odnowa Earring",
 		body="Azimuth Coat +1",hands="Geomancy Mitaines +3",ring1="Defending Ring",ring2="Dark Ring",
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Geomancy Sandals +3"}
 
-	sets.aftercast_DT = set_combine(sets.aftercast_Idle, {
-		})
+	sets.Idle.PetRegen = set_combine(sets.Idle.DT, {
+		head="Azimuth Hood +1",
+		body="Telchine Chasuble", 
+		hands="Telchine Gloves",
+    	back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
+		waist="Isa Belt", 
+		legs="Telchine Braconi", 
+		feet="Bagua Sandals +1",
+		lear="Handler's Earring +1",
+		rear="Handler's Earring"
+	})
+
+	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
+		waist="Slipor Sash",
+		legs="Gyve Trousers",
+		feet="Azimuth Gaiters +1",
+		back=capeDT
+	})
 
 	sets.Speed = {feet="Geomancy Sandals +3"}	
 		
@@ -197,11 +206,27 @@ function get_sets()
 
 	windower.register_event('zone change', function()
 		hasPet = false
-		equip(sets.aftercast_Idle)
+		equip(sets.Idle.Standard)
 		end)
 
+	send_command('bind f12 gs c switch pdt')
+
+	text_setup()
+    addTextPairs()
+    updateTable()
 end
 
+function addTextPairs()
+    addTextColorPair("Standard", "green")
+    addTextColorPair("Potency", "green")
+    addTextColorPair("Accuracy", "yellow")
+    addTextColorPair("DamageTaken", "yellow")
+end
+
+function updateTable()
+    addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
+    update_message()
+end
 -- --- Precast ---
 
 function precast(spell)
@@ -295,22 +320,16 @@ function aftercast(spell)
 
     --if player.status == 'Engaged' then
     --        equip(sets.Melee)
-    if hasPet then
-		equip(sets.aftercast_PetRegen)
-		-- equip(sets.aftercast_Idle)
-	
-	else
-		equip(sets.aftercast_Idle)
+    equip_idle()    
+	if spell.english == 'Sleep' or spell.english == 'Sleepga' then
+		send_command('@wait 50;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
+	elseif spell.english == 'Sleep II' or spell.english == 'Sleepga II' then
+		send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
+	elseif spell.english == 'Break' or spell.english == 'Breakga' then
+		send_command('@wait 20;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
+	elseif spell.english == 'Repose' then
+		send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
 	end
-		if spell.english == 'Sleep' or spell.english == 'Sleepga' then
-			send_command('@wait 50;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-		elseif spell.english == 'Sleep II' or spell.english == 'Sleepga II' then
-			send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-		elseif spell.english == 'Break' or spell.english == 'Breakga' then
-			send_command('@wait 20;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-		elseif spell.english == 'Repose' then
-			send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-		end
 end
 
 -- Status Change - ie. Resting
@@ -320,9 +339,13 @@ function status_change(new,tab)
 	--	equip(sets['Melee'])
 		--disable("Main")
 	else
-		equip(sets['aftercast_Idle'])
+		equip(sets.Idle['Standard'])
 		--enable("Main")
 	end
+end
+
+function equip_idle()
+	equip(sets.Idle[sets.Idle.index[Idle_Index]])
 end
 
 function pet_change(pet,gain_or_loss)
@@ -335,126 +358,13 @@ function pet_change(pet,gain_or_loss)
 end
 
 function self_command(command)
-	if command == 'coffer' then
-		cycle = 0
-		invCount = windower.ffxi.get_bag_info(0).count
-		if invCount == 80 then
-			add_to_chat(140,'Inv. full. Ending cycle')
-		elseif player.inventory["Velkk Coffer"] then
-			send_command('input /item "Velkk Coffer" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No Coffers found in inv.')
-			send_command('findall Velkk Coffer')
-		end
-		if cycle == 1 then
-			send_command('wait 2;gs c coffer')
-		end
-	elseif command == 'gcoffer' then
-		cycle = 0
-		invCount = windower.ffxi.get_bag_info(0).count
-		if invCount == 80 then
-			add_to_chat(140,'Inv. full. Ending cycle')
-		elseif player.inventory["Grand Velkk Coffer"] then
-			send_command('input /item "Grand Velkk Coffer" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No Coffers found in inv.')
-			send_command('findall Grand Velkk Coffer')
-		end
-		if cycle == 1 then
-			send_command('wait 2;gs c gcoffer')
-		end
-	
-	elseif command == 'pouch' then
-		cycle = 0
-		if player.inventory["Silt Pouch"] then
-			send_command('input /item "Silt Pouch" <me> ')
-			cycle = 1
-		elseif player.inventory["Bead Pouch"] then
-			send_command('input /item "Bead Pouch" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No pouches found in inv.')
-			send_command('findall Silt Pouch')
-		end
-		if cycle == 1 then
-			send_command('wait 3;gs c pouch')
-		end
-	elseif command == 'bpouch' then
-		cycle = 0
-		invCount = windower.ffxi.get_bag_info(0).count
-		if invCount == 80 then
-			add_to_chat(140,'Inv. full. Ending cycle')
-		elseif player.inventory["Bead Pouch"] then
-			send_command('input /item "Bead Pouch" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No Coffers found in inv.')
-			send_command('findall Bead Pouch')
-		end
-		if cycle == 1 then
-			send_command('wait 3;gs c bpouch')
-		end	
-	elseif command == 'codex' then
-		cycle = 0
-		if player.inventory["Codex of Etchings"] then
-			send_command('input /item "Codex of Etchings" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No pouches found in inv.')
-			send_command('findall Codex of Etchings')
-		end
-		if cycle == 1 then
-			send_command('wait 3;gs c codex')
-		end
-	elseif command == 'book' then
-		cycle = 0
-		if player.inventory["Mikhe's Memo"] then
-			send_command('input /item "Mikhe\'s Memo" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No books found in inv.')
-			send_command('findall Mikhe')
-		end
-		if cycle == 1 then
-			send_command('wait 3;gs c book')
-		end
-	elseif command == 'lockCape' then
-		if capeLocked == false then
-			capeLocked = true
-			equip({back="Mecistopins Mantle"})
-			disable("back")
-			add_to_chat(140,'Back is being locked')
-		else
-			capeLocked = false
-			enable("back")
-			add_to_chat(140,'Back is being unlocked')
-		end
-	elseif command == 'nextTH' then
-		nextTH = not nextTH
-		add_to_chat(140, 'TH Next Attack: '..(nextTH and 'On' or 'Off'))
-	elseif command == 'lockWeapon' then
-		if weaponLocked == false then
-			weaponLocked = true
-			--equip{{back="Mecistopins Mantle"}}
-			disable("Main")
-			disable("Sub")
-			add_to_chat(140,'Weapon is being locked')
-		else
-			weaponLocked = false
-			enable("Main")
-			enable("Sub")
-			add_to_chat(140,'Weapon is being unlocked')
-		end
-	elseif command == 'changeStaff' then
-		if nukingStaff == "Raetic" then
-			nukingStaff = "Grioavolr"
-		else
-			nukingStaff = "Raetic"
-		end
-		add_to_chat(140, "Nuking Staff: "..(nukingStaff))
+	if command == 'switch pdt' then
+		Idle_Index = Idle_Index +1
+        if Idle_Index > #sets.Idle.index then Idle_Index = 1 end
+        add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
+        equip(sets.Idle[sets.Idle.index[Idle_Index]])
 	end
+    updateTable()
 end
 
 function buff_change(buff, gain)

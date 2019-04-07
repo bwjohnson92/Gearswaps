@@ -329,68 +329,7 @@ function status_change(new,tab)
 end
 
 function self_command(command)
-	if command == 'coffer' then
-		cycle = 0
-		invCount = windower.ffxi.get_bag_info(0).count
-		if invCount == 80 then
-			add_to_chat(140,'Inv. full. Ending cycle')
-		elseif player.inventory["Velkk Coffer"] then
-			send_command('input /item "Velkk Coffer" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No Coffers found in inv.')
-			send_command('findall Velkk Coffer')
-		end
-		if cycle == 1 then
-			send_command('wait 2;gs c coffer')
-		end
-	elseif command == 'gcoffer' then
-		cycle = 0
-		invCount = windower.ffxi.get_bag_info(0).count
-		if invCount == 80 then
-			add_to_chat(140,'Inv. full. Ending cycle')
-		elseif player.inventory["Grand Velkk Coffer"] then
-			send_command('input /item "Grand Velkk Coffer" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No Coffers found in inv.')
-			send_command('findall Grand Velkk Coffer')
-		end
-		if cycle == 1 then
-			send_command('wait 2;gs c gcoffer')
-		end
-	
-	elseif command == 'pouch' then
-		cycle = 0
-		invCount = windower.ffxi.get_bag_info(0).count
-		if invCount == 80 then
-			add_to_chat(140,'Inv. full. Ending cycle')
-		elseif player.inventory["Silt Pouch"] then
-			send_command('input /item "Silt Pouch" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No Coffers found in inv.')
-			send_command('findall Silt Pouch')
-		end
-		if cycle == 1 then
-			send_command('wait 3;gs c pouch')
-		end
-	elseif command == 'bpouch' then
-		cycle = 0
-		invCount = windower.ffxi.get_bag_info(0).count
-		if invCount == 80 then
-			add_to_chat(140,'Inv. full. Ending cycle')
-		elseif player.inventory["Bead Pouch"] then
-			send_command('input /item "Bead Pouch" <me> ')
-			cycle = 1
-		else
-			add_to_chat(140,'No Coffers found in inv.')
-			send_command('findall Bead Pouch')
-		end
-		if cycle == 1 then
-			send_command('wait 3;gs c bpouch')
-		end	
-	elseif command == 'switch MP' then
+	if command == 'switch MP' then
 		if (MPSet) then
 			MPSet = false
 			add_to_chat(140,'Elemental Magic: Damage')
