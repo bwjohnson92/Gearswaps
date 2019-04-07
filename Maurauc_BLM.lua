@@ -1,7 +1,7 @@
 require('closetCleaner')
 include('organizer-lib.lua')
 include('Grioavolr.lua')
-include('Merlinic.lua')
+include('MaurMerlinic.lua')
 include('displayBox.lua')
 
 -- Local Settings, setting the zones prior to use

@@ -1,7 +1,7 @@
 require('closetCleaner')
-    include('organizer-lib.lua')
-    include('Grioavolr.lua')
-    include('Merlinic.lua')
+include('organizer-lib.lua')
+include('Grioavolr.lua')
+include('MaurMerlinic.lua')
     
 -- Local Settings, setting the zones prior to use
 toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","Periqia","Ilrusi Atoll",
