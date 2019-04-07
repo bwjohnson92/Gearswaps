@@ -1,6 +1,6 @@
 require('ClosetCleaner')
 include('organizer-lib.lua')
-include('Merlinic.lua')
+include('VilMerlinic.lua')
 -- Local Settings, setting the zones prior to use
 Nuke_Index = 1
 Idle_Index = 1

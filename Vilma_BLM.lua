@@ -1,5 +1,5 @@
 require('ClosetCleaner')
-include('Merlinic.lua')
+include('VilMerlinic.lua')
 include('displayBox.lua')
 include('organizeritems.lua')
 -- Local Settings, setting the zones prior to use
