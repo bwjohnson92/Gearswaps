@@ -103,7 +103,7 @@ function init_gear_sets()
     sets.precast.FC.BardSong = {main="Kali",range="Gjallarhorn",
         head="Fili Calot +1",neck="Fili Matinee",ear1="Enchanter Earring +1",ear2="Etiolation Earring",
         body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring1="Weatherspoon Ring", ring2="Kishar Ring",
-        back="Intarabus's Cape",waist="Witful Belt",legs="Ayanmo cosciales",feet="Telchine Pigaches"}
+        back="Intarabus's Cape",waist="Witful Belt",legs="Ayanmo cosciales +1",feet="Telchine Pigaches"}
 
 	sets.precast.FC["Honor March"] = set_combine(sets.precast.FC.BardSong,{range="Marsyas"})
 
@@ -170,21 +170,21 @@ function init_gear_sets()
     sets.midcast.SongEffect = {main="Kali",range="Gjallarhorn",
         head="Fili Calot +1",neck="Moonbow Whistle",ear2="Loquacious Earring",
         body="Fili Hongreline +1",hands="Fili Manchettes +1",ring1="Prolix Ring",
-        back="Intarabus's Cape",waist="Flume belt",legs="Inyanga Shalwar +2",feet="Brioso Slippers +2"}
+        back="Intarabus's Cape",waist="Flume belt",legs="Inyanga Shalwar +2",feet="Brioso Slippers +3"}
 
 
 
     -- For song defbuffs (duration primary, accuracy secondary)
     sets.midcast.SongDebuff = {main="Kali",sub="Ammurapi Shield",range="Gjallarhorn",
-        head="Brioso Roundlet +1",neck="Moonbow whistle",ear1="Dignitary's Earring",ear2="Enchanter Earring +1",
+        head="Brioso Roundlet +3",neck="Moonbow whistle",ear1="Dignitary's Earring",ear2="Enchanter Earring +1",
         body="Fili Hongreline +1",hands="Fili Manchettes +1",ring1="Stikini Ring",ring2="Sangoma Ring",
-        back="Kumbira Cape",waist="Goading Belt",legs="Marduk's Shalwar +1",feet="Brioso Slippers +2"}
+        back="Kumbira Cape",waist="Goading Belt",legs="Marduk's Shalwar +1",feet="Brioso Slippers +3"}
 
     -- For song defbuffs (accuracy primary, duration secondary)
     sets.midcast.ResistantSongDebuff = {main="Lehbrailg",sub="Mephitis Grip",range="Gjallarhorn",
         neck="Moonbow Whistle",ear1="Digitary'sEarring",ear2="Enchanter Earring +1",
-        body="Brioso Justaucorps +1",hands="Brioso Cuffs +2",ring1="Stikini Ring",ring2="Stikini Ring",
-        back="Kumbira Cape",waist="Luminary Sash",legs="Brioso Cannions 1",feet="Brioso Slippers +2"}
+        body="Brioso Justaucorps +2",hands="Brioso Cuffs +2",ring1="Stikini Ring",ring2="Stikini Ring",
+        back="Kumbira Cape",waist="Luminary Sash",legs="Brioso Cannions 2",feet="Brioso Slippers +3"}
 
     -- Song-specific recast reduction
     sets.midcast.SongRecast = {ear2="Loquacious Earring",
@@ -199,7 +199,7 @@ function init_gear_sets()
     -- Dummy song with Daurdabla; minimize duration to make it easy to overwrite.
     sets.midcast.DaurdablaDummy = {main="Malevolence",range=info.ExtraSongInstrument,
         head="Nahtirah Hat",neck="Moonbow Whistle",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Brioso Justaucorps +1",hands="Fili Manchettes +1",ring1="Prolix Ring",ring2="Sangoma Ring",
+        body="Brioso Justaucorps +2",hands="Fili Manchettes +1",ring1="Prolix Ring",ring2="Sangoma Ring",
         back="Swith Cape +1",waist="Goading Belt",legs="Gendewitha Spats",feet="Fili Cothurnes +1"}
 
     -- Other general spells and classes.
@@ -279,25 +279,35 @@ function init_gear_sets()
     -- EG: sets.engaged.Dagger.Accuracy.Evasion
     
     -- Basic set for if no TP weapon is defined.
-        sets.engaged = {}
-        sets.engaged.Dagger = {}
-        sets.engaged.DW = {}
-    -- sets.engaged = {range="Angel Lyre",
-    --     head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-    --     body="Bihu Justaucorps",hands="Buremte Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-    --     back="Atheling Mantle",waist="Goading Belt",legs="Brioso Cannions +1",feet="Gendewitha Galoshes"}
+      --  sets.engaged = {}
+     --   sets.engaged.Dagger = {}
+     --   sets.engaged.DW = {}
+    sets.engaged = {
+    main={ name="Kali", augments={'MP+60','Mag. Acc.+20','"Refresh"+1',}},
+    sub="Ammurapi Shield",
+    range="Oneiros Harp",
+    head="Aya. Zucchetto +1",
+    body="Ayanmo Corazza +1",
+    hands="Aya. Manopolas +1",
+    legs="Aya. Cosciales +1",
+    feet="Aya. Gambieras +1",
+    neck="Sanctity Necklace",
+    waist="Windbuffet Belt +1",
+    left_ear="Digni. Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Ilabrat Ring",
+    right_ring="Rajas Ring",
+    back="Kayapa Cape",
+}
 
-    -- -- Sets with weapons defined.
-    -- sets.engaged.Dagger = {range="Angel Lyre",
-    --     head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-    --     body="Bihu Justaucorps",hands="Buremte Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-    --     back="Atheling Mantle",waist="Goading Belt",legs="Brioso Cannions +1",feet="Gendewitha Galoshes"}
+    -- Sets with weapons defined.
+    sets.engaged.Dagger = sets.engaged
 
-    -- -- Set if dual-wielding
-    -- sets.engaged.DW = {range="Angel Lyre",
-    --     head="Nahtirah Hat",neck="Asperity Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-    --     body="Bihu Justaucorps",hands="Buremte Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-    --     back="Atheling Mantle",waist="Goading Belt",legs="Brioso Cannions +1",feet="Gendewitha Galoshes"}
+    -- Set if dual-wielding
+    sets.engaged.DW = {range="Angel Lyre",
+        head="Nahtirah Hat",neck="Asperity Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
+        body="Bihu Justaucorps",hands="Buremte Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
+        back="Atheling Mantle",waist="Goading Belt",legs="Brioso Cannions +1",feet="Gendewitha Galoshes"}
 
     organizer_items = {
         echos="Echo Drops",
@@ -522,11 +532,11 @@ function calculate_duration(spellName, spellMap)
     if player.equipment.neck == "Moonbow Whistle" then mult = mult + 0.2 end
     if player.equipment.body == "Fili Hngrln. +1" then mult = mult + 0.1 end
     if player.equipment.legs == "Mdk. Shalwar +1" then mult = mult + 0.1 end
-    if player.equipment.feet == "Brioso Slippers +1" then mult = mult + 0.1 end
-    if player.equipment.feet == "Brioso Slippers +1" then mult = mult + 0.11 end
+    if player.equipment.feet == "Brioso Slippers +2" then mult = mult + 0.1 end
+    if player.equipment.feet == "Brioso Slippers +2" then mult = mult + 0.11 end
     
-    if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +1" then mult = mult + 0.1 end
-    if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +1" then mult = mult + 0.1 end
+    if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +3" then mult = mult + 0.1 end
+    if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +3" then mult = mult + 0.1 end
     if spellMap == 'Madrigal' and player.equipment.head == "Fili Calot +1" then mult = mult + 0.1 end
     if spellMap == 'Minuet' and player.equipment.body == "Fili Hngrln. +1" then mult = mult + 0.1 end
     if spellMap == 'March' and player.equipment.hands == 'Ad. Mnchtte.' then mult = mult + 0.1 end

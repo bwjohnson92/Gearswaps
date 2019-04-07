@@ -16,8 +16,15 @@ function get_sets()
         reraise="Instant Reraise",
         ramen="Miso Ramen",
         sushi="Sublime Sushi",
-        pizza="Marinara Slice"
-    }
+        pizza="Marinara Slice",
+        holy="Holy Water",
+        RREar="Reraise Earring",
+        Warp="Warp Ring",
+        Exp="Echad Ring",
+        CPMantle="Mecistopins Mantle",
+        Prism="Prism Powder",
+        Oils="Silent Oil",
+ }
     --Idle Sets--
     sets.Idle = { ammo="Homiliary",
         head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Hearty Earring",ear2="Ethereal Earring",   
@@ -74,20 +81,20 @@ function get_sets()
         waist="Windbuffet Belt +1",
         left_ear="Sherida Earring",
         right_ear="Telos Earring",
-        left_ring="Epona's Ring",
-        right_ring="Petrov Ring",
+        left_ring="Moonbeam Ring",
+        right_ring="Defending Ring",
         back={ name="Ogma's cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }                                          
     --full DT melee set
-    sets.TP.DT = {sub="Mensch Strap", ammo="Yamarang",          
+    sets.TP.DT = {sub="Mensch Strap", ammo="Staunch Tathlum",          
         head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
-        body="Erilaz Surcoat +1",hands="Erilaz Gauntlets +1",ring1="Dark Ring",ring2="Defending Ring",   
+        body="Erilaz Surcoat +1",hands="Erilaz Gauntlets +1",ring1="Gelatinous Ring",ring2="Defending Ring",   
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}                                          
     --MDT melee set
     sets.TP.MDTacc = {sub="Mensch Strap", ammo="Yamarang",          
-        head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",         
+        head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
         body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Dark Ring",ring2="Defending Ring",         
-        back="Agema Cape",waist="Olseni Belt",legs="Runeist Trousers",feet="Taeon Boots"}         
+        back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runeist Trousers +1",feet="Taeon Boots"}         
     sets.TP.HP = {
         sub="Balarama Grip",ammo="Aqreqaq Bomblet",
         head="Erilaz Galea +1",neck="Sanctity Necklace",ear1="Odnowa Earring",ear2="Odnowa Earring +1", --Halitus Helm
@@ -108,8 +115,8 @@ function get_sets()
         waist="Fotia Belt",
         left_ear="Sherida Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +25',}},
-        left_ring="Epona's Ring",
-        right_ring="Petrov Ring",
+        left_ring="Ifrit Ring",
+        right_ring="Niqmaddu Ring",
         back={ name="Ogma's cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
     }
 
@@ -124,14 +131,14 @@ function get_sets()
         waist="Fotia Belt",
         left_ear="Sherida Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +25',}},
-        left_ring="Epona's Ring",
-        right_ring="Petrov Ring",
+        left_ring="Ilabrat Ring",
+        right_ring="Niqmaddu Ring",
         back={ name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
     }
 
     --single, doesn't carry FTP
     sets.Single = {
-        ammo="Seething Bomblet",
+        ammo="Seething Bomblet +1",
         head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
         body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands={ name="Herculean Gloves", augments={'Accuracy+18 Attack+18','"Triple Atk."+3','Attack+1',}},
@@ -146,7 +153,7 @@ function get_sets()
         back={ name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
     }
     --single hit, benefits from DA
-    sets.Cleave = { ammo="Seething Bomblet",
+    sets.Cleave = { ammo="Seething Bomblet +1",
         head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Zennaroi Earring",
         body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
@@ -157,7 +164,7 @@ function get_sets()
         body="Samnuha Coat",hands="Leyline Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
         back=capeStandard,waist="Eschan Stone",legs="Lustratio Subligar",feet="Taeon Boots"} 
     --Requiescat
-    sets.Req = { ammo="Seething Bomblet",
+    sets.Req = { ammo="Seething Bomblet +1",
         head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Moonshade Earring",
         body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
@@ -169,7 +176,7 @@ function get_sets()
         hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
         back=capeWSDex,waist="Fotia Belt",legs="Lustratio Subligar +1",feet="Herculean Boots"}
     --magic WS
-    sets.HercSlash = {  ammo="Seething Bomblet",
+    sets.HercSlash = {  ammo="Seething Bomblet +1",
         head="Highwing Helm",neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",
         body="Samnuha Coat",hands="Leyline Gloves",ring1="Acumen Ring",
         back="Argochampsa Mantle",waist="Eschan Stone",legs="Limbo Trousers",feet="Adhemar Gamashes"}  
@@ -184,7 +191,7 @@ function get_sets()
     sets.Utility.MDT = { ammo="Vanir Battery",
         head="Dampening Tam",neck="loricate torque +1",ear1="Hearty Earring",ear2="Zennaroi Earring",          
         body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Vengeful Ring",ring2="Defending Ring",             
-        back="Engulfer Cape +1",waist="Olseni Belt",legs="Runeist Trousers",feet="Erilaz Greaves +1"}        
+        back="Engulfer Cape +1",waist="Olseni Belt",legs="Runeist Trousers +1",feet="Erilaz Greaves +1"}        
              
     --Job Ability Sets--
     sets.JA = {}
@@ -198,7 +205,7 @@ function get_sets()
     sets.JA.Rayke = {feet="Futhark boots"}  
     sets.JA.Battuta = {head="Futhark bandeau +1"}      
     sets.JA.Pflug = {feet="Runeist bottes"}              
-    sets.JA.Pulse = {head="Erilaz Galea +1",legs="Runeist Trousers"}
+    sets.JA.Pulse = {head="Erilaz Galea +1",legs="Runeist Trousers +1"}
                     
     --Precast Sets--
     --Fast Cast set

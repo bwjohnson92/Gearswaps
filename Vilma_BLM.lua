@@ -76,9 +76,9 @@ function get_sets()
 		hands="Amalric Gages +1", feet="Amalric Nails +1", ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",back=TaranusMP,})
 		
 	sets.midcast.EnfeeblingMagic = {main=currentWeapon,sub="Enki Strap",ammo="pemphredo tathlum",
-		head="Befouled Crown",neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
-		body="Spaekona's Coat +2",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Kishar Ring",
-		back=TaranusINT,waist="Refoccilation Stone",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Skaoi Boots"}
+		head="Archmage's Petasos +3",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Digni. Earring",
+		body="Spaekona's Coat +2",hands="Spaekona's Gloves +3",ring1="Sangoma Ring",ring2="Kishar Ring",
+		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +2"}
 
 	sets.midcast.ElementalMagic = {main=currentWeapon,sub="Niobid Strap", ammo="Pemphredo Tathlum",
 		head="Archmage's Petasos +3",neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
@@ -111,6 +111,7 @@ function get_sets()
 	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body="Spaekona's Coat +2"})
 		
 	sets.midcast.Impact = set_combine(sets.midcast.ElementalMagicAcc, {head=empty, body="Twilight Cloak", feet="Archmage's Sabots +2"})	
+	-- sets.midcast.Impact = set_combine(sets.midcast.OccultAcumen, {head=empty, body="Twilight Cloak"})	
 		
 	sets.midcast.Stun = {main=currentWeapon,sub="Enki Strap",ammo="pemphredo tathlum",
 		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
@@ -148,7 +149,7 @@ function get_sets()
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 	
 	sets.midcast.DeathHighMPMB = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
-		head="Pixie Hairpin +1",neck="Mizukage-no-Kubikazari",ear1="Barkarole Earring",ear2="Static Earring",
+		head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Static Earring",
 		body="Ea Houppelande",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric slops +1",feet="Amalric Nails +1"}
 	
@@ -156,6 +157,21 @@ function get_sets()
 	head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Gwati Earring", ear2="Barkarole Earring",	
 	ring2="Archon Ring",back="Taranus's Cape", waist="Fucho-no-obi",feet=MerlinicFeet})
 	
+	sets.midcast.OccultAcumen = {
+	    main="Khatvanga",
+	    sub="Clerisy Strap",
+	    ammo="Pemphredo Tathlum",
+	    body="Spaekona's Coat +2",
+	    hands="Ea Cuffs",
+	    legs="Perdition Slops",
+	    feet={ name="Helios Boots", augments={'Mag. Acc.+17 "Mag.Atk.Bns."+17','"Occult Acumen"+9','Magic burst dmg.+9%',}},
+	    neck="Lissome Necklace",
+	    waist="Oneiros Rope",
+	    left_ear="Telos Earring",
+	    right_ear="Dedition Earring",
+	    left_ring="K'ayres Ring",
+	    right_ring="Petrov Ring",
+	}
 	sets.WS.Myrkr = set_combine(sets.Idle.HighMP, {})
 
 	organizer_items = organizerItems()
@@ -165,7 +181,14 @@ function get_sets()
 	sets.extra = {neck="Sorcerer's Stole"}
 
 	text_setup()
+	addNewColors()
 	updateTable()
+end
+
+function addNewColors()
+	addTextColorPair("HighMP", "blue")
+	addTextColorPair("PDT", "yellow")
+	addTextColorPair("Standard", "green")
 end
 
 function updateTable()
@@ -245,6 +268,7 @@ function midcast(spell)
 			equip(sets.midcast.EnfeeblingMagic)	
 	
 		elseif string.find(spell.skill,'Elemental Magic') then
+			-- equip(sets.midcast.OccultAcumen)
 			if DotDebuffs:contains(spell.english) then 
 				equip(set_combine(sets.midcast.EnfeeblingMagic, sets.ElementalDebuff))
 			elseif (MPSet) then
@@ -288,6 +312,14 @@ end
 -- Status Change - ie. Resting
 
 function status_change(new,tab)
+
+end
+
+function job_buff_change(buff, gain)
+	if buff == "Mana Wall" and gain == false then
+		enable("feet")
+		enable("back")
+	end
 end
 
 function self_command(command)

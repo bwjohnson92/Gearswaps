@@ -432,6 +432,8 @@ function init_gear_sets()
 
         sets.LastStand = {
             back=BelenusTP,
+            ear2="Ishvara Earring",
+            ring1="Ilabrat ring"
             ring2="Dingir Ring"
         }
 
@@ -452,7 +454,7 @@ function init_gear_sets()
             legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+20','Weapon skill damage +4%','INT+10',}},
             feet={ name="Herculean Boots", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','Weapon skill damage +4%','STR+7','Mag. Acc.+1','"Mag.Atk.Bns."+5',}},
             neck="Sanctity Necklace",
-            waist="Yamabuki-no-Obi",
+            waist="Yamabuki-no-obi",
             left_ear="Friomisi Earring",
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             left_ring="Shiva Ring +1",

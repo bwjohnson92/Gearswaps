@@ -4,9 +4,6 @@ include('displayBox.lua')
 
 Idle_Index = 1
 Run_Index = 1
-Melee_Index = 1
-Ranged_Index = 1
-
 autoShoot = false
 weaponLocked = false
 
@@ -76,9 +73,7 @@ sets.Idle.DT = set_combine(sets.Idle.Standard, {
     back=capeDT
 })
 
-sets.Melee = {}
-sets.Melee.index = {"Standard", "Acc"}
-sets.Melee.Standard = {
+sets.Melee = {
     head={name="Herculean Helm", augments={'Accuracy +16','"Dual Wield"+4',}},
     neck="Sanctity Necklace",
     ear1="Dignitary's Earring",
@@ -93,8 +88,6 @@ sets.Melee.Standard = {
     feet="Taeon Boots"
     -- feet="Herculean Boots",
 }
-
-sets.Melee.Acc = set_combine(sets.Melee.Standard, {})
 
 sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
     head="Taeon Chapeau",
@@ -111,6 +104,7 @@ sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
 sets.RA = {}
 sets.RA.index = {'Standard', 'Accuracy'}
 rangedSets = {'Standard', 'Accuracy'}
+rangedIndex = 1
 
 sets.RA.Standard = { --RAcc and STP
     head="Meghanada Visor +2",
@@ -168,7 +162,7 @@ sets.WS.LastStand = { --Generic Physical WS
 }
 
 sets.WS.Wildfire = {
-    head={ name="Herculean Helm", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','"Fast Cast"+2','"Mag.Atk.Bns."+15',}},
+    head={ name="Herculean Helm", augments={'Mag. Acc.+15,"Mag.Atk.Bns."+30','"Fast Cast"+2%',}},
     body="Lanun Frac +3",
     hands="Carmine finger gauntlets +1",
     legs=HercLegsMAB,
@@ -213,14 +207,14 @@ sets.roll["Caster's Roll"] = {
     -- legs="Chasseur's Culottes"
 }
 sets.roll["Tactician's Roll"] = {
-    body="Chasseur's Frac"
+    -- body="Chasseur's Frac"
 }
 sets.RandomDeal = {body="Lanun Frac +3"}
 sets.Fold = {
     -- hands="Lanun Gauntlets"
 }
 sets.SnakeEye = {
-    legs="Lanun Trews"
+    -- legs="Lanun Culottes"
 }
 sets.WildCard = {feet="Lanun Bottes +2"}
 
@@ -256,8 +250,7 @@ function addNewColors()
 end
 
 function updateTable()
-    addToTable("(F10) Ranged Set", sets.RA.index[Ranged_Index])
-    addToTable("(F11) Melee Set", sets.RA.index[Melee_Index])
+    addToTable("(F10) Ranged Set", sets.RA.index[rangedIndex])
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
     addToTable("Auto Shooting", autoShoot)
     update_message()
@@ -282,15 +275,15 @@ function precast(spell)
         equip(sets.preshot)
     elseif spell.type:lower() == 'weaponskill' then
         if (spell.english == "Leaden Salute") then
-            equip(use_obi(spell, sets.WS.LeadenSalute))
+        	equip(use_obi(spell, sets.WS.LeadenSalute))
         elseif (spell.english == "Savage Blade") then
               equip(sets.WS.SavageBlade)
         elseif (spell.english == "Wildfire") then
-            equip(sets.WS.Generic)
+        	equip(sets.WS.Generic)
         elseif (spell.english == "Last Stand") then
-            equip(sets.WS.Generic)
+        	equip(sets.WS.Generic)
         else
-            equip(sets.WS.Generic)
+        	equip(sets.WS.Generic)
         end
         -- add_to_chat(140, "Blah")
     end
@@ -312,7 +305,7 @@ function midcast(spell)
         equip(set_combine(sets.roll, sets.roll[spell.name]))
     end
     if spell.action_type == 'Ranged Attack' then
-        equip(sets.RA[rangedSets[Ranged_Index]])
+        equip(sets.RA[rangedSets[rangedIndex]])
     end
 end 
 
@@ -336,7 +329,7 @@ function equip_current()
 end
 
 function equip_TP()
-    equip(sets.Melee[sets.Melee.index[Melee_Index]])
+    equip(sets.Melee)
 end
 
 function equip_idle()
@@ -345,24 +338,17 @@ end
 
 function self_command(command)
     if command == 'toggle RA set' then
-        Ranged_Index = Ranged_Index +1
-        if Ranged_Index > #sets.RA.index then 
-            Ranged_Index = 1 
+        rangedIndex = rangedIndex +1
+        if rangedIndex > #sets.RA.index then 
+            rangedIndex = 1 
         end
-        send_command('@input /echo <----- RA Set changed to '..sets.RA.index[Ranged_Index]..' ----->')
-        equip(sets.RA[sets.RA.index[Ranged_Index]])
-    elseif command == 'toggle melee set' then
-        Melee_Index = Melee_Index +1
-        if Melee_Index > #sets.RA.index then 
-            Melee_Index = 1 
-        end
-        send_command('@input /echo <----- RA Set changed to '..sets.Melee.index[Melee_Index]..' ----->')
-        equip_TP()
+        send_command('@input /echo <----- RA Set changed to '..sets.RA.index[rangedIndex]..' ----->')
+        equip(sets.RA[sets.RA.index[rangedIndex]])
     elseif command == 'toggle dt' then
         Idle_Index = Idle_Index +1
         if Idle_Index > #sets.Idle.index then Idle_Index = 1 end
         add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
-        equip_idle()
+        equip(sets.Idle[sets.Idle.index[Idle_Index]])
     elseif command == 'auto' then
         if autoShoot then
             send_command('@input /echo <----TURNING OFF AUTORA ----->')

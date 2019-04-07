@@ -28,6 +28,9 @@ include('organizer-lib.lua')
     windower.send_command('bind f10 gs c toggle auto')
     windower.send_command('bind f12 gs c toggle melee')
 
+capeMagic = { name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20',}}
+capeAtk = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10',}}
+
 function get_sets()
   
 --grioavolr = { name="Grioavolr", augments={'Blood Pact Dmg.+7','Pet: INT+11','Pet: Mag. Acc.+18','Pet: "Mag.Atk.Bns."+24',}}
@@ -66,7 +69,7 @@ function get_sets()
         lear="Etiolation Earring",
         rear="Loquacious Earring",
         body="Witching Robe",
-        hands="Inyanga Dastanas +1",
+        hands="Inyanga Dastanas +2",
         lring="Defending Ring",
         rring="Dark Ring",
         back="Repulse Mantle",
@@ -93,10 +96,10 @@ function get_sets()
         lear="Etiolation Earring",
         rear="Evans Earring",
         body="Witching Robe",
-        hands="Inyanga Dastanas +1",
+        hands="Inyanga Dastanas +2",
         lring="Defending Ring",
         rring="Evoker's Ring",
-        back="Campestres's Cape",
+        back=capeMagic,
         waist="Lucidity Sash",
         legs="Assiduity Pants +1",
         feet="Apogee Pumps +1"
@@ -142,10 +145,10 @@ function get_sets()
         lear="Rimeice Earring",
         rear="Domesticator's Earring",
         body="Beckoner's Doublet +1",
-        hands="Inyanga Dastanas +1",
+        hands="Inyanga Dastanas +2",
         lring="Stikini Ring",
         rring="Evoker's Ring",
-        back="Campestres's Cape",
+        back=capeAtk,
         waist="Lucidity Sash",
         legs="Apogee Slacks +1",
         feet="Apogee Pumps +1"
@@ -166,9 +169,10 @@ function get_sets()
         hands={ name="Merlinic Dastanas", augments={'Pet: Accuracy+21 Pet: Rng. Acc.+21','Blood Pact Dmg.+8','Pet: INT+1','Pet: Mag. Acc.+6',}},
         lring="Varar Ring +1",
         rring="Varar Ring",
-        back="Campestres's Cape",
+        back=capeAtk,
         waist="Incarnation Sash",
-        legs="Enticer's Pants",
+        -- legs="Enticer's Pants",
+        legs="Apogee Slacks +1",
         feet="Apogee Pumps +1"
     })
     sets.avatar.pacc = set_combine(sets.avatar.atk,{
@@ -180,7 +184,7 @@ function get_sets()
         hands={ name="Merlinic Dastanas", augments={'Pet: Accuracy+21 Pet: Rng. Acc.+21','Blood Pact Dmg.+8','Pet: INT+1','Pet: Mag. Acc.+6',}},
         lring="Varar Ring +1",
         rring="Varar Ring",
-        back="Campestres's Cape",
+        back=capeAtk,
         waist="Incarnation Sash",
         legs="Enticer's Pants",
         feet="Convoker's pigaches +2"
@@ -197,7 +201,7 @@ function get_sets()
         hands={ name="Merlinic Dastanas", augments={'Blood Pact Dmg.+10','Pet: "Mag.Atk.Bns."+14',}},
         lring="Varar Ring +1",
         rring="Varar Ring",
-        back="Campestres's Cape",
+        back=capeMagic,
         waist="Regal Belt",
         legs="Apogee Slacks +1",
         feet="Apogee Pumps +1"
@@ -214,7 +218,7 @@ function get_sets()
         hands={ name="Merlinic Dastanas", augments={'Pet: Accuracy+21 Pet: Rng. Acc.+21','Blood Pact Dmg.+8','Pet: INT+1','Pet: Mag. Acc.+6',}},
         lring="Varar Ring +1",
         rring="Varar Ring",
-        back="Campestres's Cape",
+        back=capeMagic,
         waist="Regal Belt",
         legs="Apogee Slacks +1",
         feet="Apogee Pumps +1"
@@ -231,7 +235,7 @@ function get_sets()
         hands="Tali'ah Gages +1",
         lring="Varar Ring +1",
         rring="Varar Ring",
-        back="Campestres's Cape",
+        back=capeMagic,
         waist="Regal Belt",
         legs="Tali'ah Seraweels",
         feet="Tali'ah Crackows +1"
@@ -240,7 +244,7 @@ function get_sets()
     -- Buffs
     sets.avatar.buff = set_combine(sets.avatar.skill,{
         body="Shomonjijoe +1",
-        back="Campestres's Cape",
+        back=capeMagic,
     })
       
     -- Other
@@ -285,8 +289,8 @@ function get_sets()
         neck="Orunmila's Torque",
         lear="Etiolation Earring",
         rear="Loquacious Earring",
-        body="Inyanga Jubbah +1",
-        hands="Inyanga Dastanas +1",
+        body="Inyanga Jubbah +2",
+        hands="Inyanga Dastanas +2",
         lring="Prolix Ring",
         rring="Etana Ring",
         back="Swith Cape",
@@ -303,8 +307,8 @@ function get_sets()
         neck="Orunmila's Torque",
         lear="Etiolation Earring",
         rear="Loquacious Earring",
-        body="Inyanga Jubbah +1",
-        hands="Inyanga Dastanas +1",
+        body="Inyanga Jubbah +2",
+        hands="Inyanga Dastanas +2",
         lring="Prolix Ring",
         rring="Etana Ring",
         back="Swith Cape",
