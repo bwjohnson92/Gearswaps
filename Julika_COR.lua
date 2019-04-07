@@ -26,6 +26,8 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}}
 capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}}
 capeSavage={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+capeTPMelee={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
+capeDT={ name="Camulus's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Damage taken-5%',}}
 
 HercLegsMAB={ name="Herculean Trousers", augments={'Mag. Acc.+13 "Mag.Atk.Bns."+13','Weapon skill damage +3%','MND+5','Mag. Acc.+12','"Mag.Atk.Bns."+14',}}
 
@@ -50,7 +52,7 @@ sets.roll={
 sets.Idle = {}
 sets.Idle.index = {"Standard", "DT"}
 sets.Idle.Standard = {
-    main="Lanun knife",
+
     --range="Compensator",
     -- ammo="Eminent Bullet",
     head="Meghanada Visor +2",
@@ -60,7 +62,7 @@ sets.Idle.Standard = {
     neck="Twilight Torque",
     waist="Flume Belt",
     left_ear="Etiolation Earring",
-    right_ear="Loquac. Earring",
+    right_ear="Hearty Earring",
     left_ring="Gelatinous Ring +1",
     right_ring="Defending Ring",
     back="Iximulew cape",
@@ -68,22 +70,24 @@ sets.Idle.Standard = {
 }
 
 sets.Idle.DT = set_combine(sets.Idle.Standard, {
-    legs="Herculean Trousers",
-    feet="Lanun Bottes +2"
-    })
+    body="Lanun frac +3",
+    legs="Mummu kecks +2",
+    feet="Lanun Bottes +2",
+    back=capeDT
+})
 
 sets.Melee = {}
 sets.Melee.index = {"Standard", "Acc"}
 sets.Melee.Standard = {
     head={name="Herculean Helm", augments={'Accuracy +16','"Dual Wield"+4',}},
     neck="Sanctity Necklace",
-    ear1="Steelflash Earring",
-    ear2="Bladeborn Earring",
-    body="Herculean Vest",
-    hands="Adhemar Wristbands +1",
+    ear1="Dignitary's Earring",
+    ear2="Suppanomimi",
+    body="Lanun Frac +3",
+    hands="Floral Gauntlets",
     ring1="Petrov Ring",
     ring2="Epona's Ring",
-    back=capeTP,
+    back=capeTPMelee,
     waist="Reiki Yotai",
     legs="Adhemar Kecks +1",
     feet="Taeon Boots"
@@ -133,7 +137,7 @@ sets.RA.Accuracy = set_combine(sets.RA, { --RAcc and STP
 
 sets.WS = {}
 
-sets.WS.SavageBlade ={
+sets.WS.SavageBlade = {
     head="Meghanada Visor +2",
     neck="Caro Necklace",
     ear1="Moonshade Earring",
@@ -151,7 +155,7 @@ sets.WS.SavageBlade ={
 sets.WS.LastStand = { --Generic Physical WS
     head="Meghanada Visor +2",
     body="Laksamana's Frac +3",
-    hands="Meghanada Gloves +2", --+2
+    hands="Meghanada Gloves +1", --+2
     legs="Laksamana's trews +3",
     feet="Lanun bottes +2",
     neck="Commodore Charm",
@@ -241,15 +245,7 @@ sets.Luzaf = {ring1="Luzaf's Ring"}
         -- gun1="Doomsday",
     }
 
-    send_command('bind f10 gs c toggle RA set')
-    send_command('bind f11 gs c toggle melee set') 
-    send_command('bind f12 gs c toggle dt')
-    send_command('bind end send @others /follow Julika')
-    send_command('lua l autora')
-
-    text_setup()
-    addNewColors()
-    updateTable()
+    user_setup()
 end
 
 function addNewColors()
@@ -286,15 +282,15 @@ function precast(spell)
         equip(sets.preshot)
     elseif spell.type:lower() == 'weaponskill' then
         if (spell.english == "Leaden Salute") then
-        	equip(use_obi(spell, sets.WS.LeadenSalute))
+            equip(use_obi(spell, sets.WS.LeadenSalute))
         elseif (spell.english == "Savage Blade") then
               equip(sets.WS.SavageBlade)
         elseif (spell.english == "Wildfire") then
-        	equip(sets.WS.Generic)
+            equip(sets.WS.Generic)
         elseif (spell.english == "Last Stand") then
-        	equip(sets.WS.Generic)
+            equip(sets.WS.Generic)
         else
-        	equip(sets.WS.Generic)
+            equip(sets.WS.Generic)
         end
         -- add_to_chat(140, "Blah")
     end
@@ -388,6 +384,23 @@ function self_command(command)
         send_command('autora start')
     end
     updateTable()
+end
+
+function user_setup()
+    add_to_chat(140, "Loading Julika's Gearswap")
+    send_command('bind f10 gs c toggle RA set')
+    send_command('bind f12 gs c toggle dt')
+    send_command('bind pause send @others /follow Julika')
+    send_command('lua l autora')
+
+    text_setup()
+    addNewColors()
+    updateTable()
+end
+
+function file_unload()
+    add_to_chat(140, "Unloading Julika's COR gearswap.")
+    send_command('lua u autora')
 end
 
 function use_obi(spell, equip_set)
