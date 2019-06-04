@@ -99,13 +99,16 @@ function get_sets()
 	})
 
 	sets.Speed = {feet="Geomancy Sandals +3"}	
-		
-	sets.precast_FastCast = { main="Solstice", sub="Genmei Shield", 
+	
+	sets.precast = {}
+	sets.midcast = {}
+
+	sets.precast.FastCast = { main="Solstice", sub="Genmei Shield", 
 		head="Merlinic Hood", neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Anhur Robe",hands="Repartie Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring",
 		back="Lifestream Cape",waist="Witful Belt",legs="Geomancy Pants +1",feet="Merlinic Crackows"}
 	
-	sets.precast_FastCure = set_combine(sets.precast_FastCast, {	ear2="Loquacious Earring",
+	sets.precast.FastCure = set_combine(sets.precast.FastCast, {	ear2="Loquacious Earring",
 		ring2="Weatherspoon Ring",	back="Disperser's Cape",waist="Witful Belt",legs="Geomancy Pants +1"})
 
 	--sets.Melee = {main="Buramenk'ah",sub="Genmei Shield",
@@ -113,7 +116,7 @@ function get_sets()
 	--	body="Artsieq Jubbah",hands="Umuthi Gloves", 
 	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
 		
-	sets.midcast_EnfeeblingMagic = {
+	sets.midcast.EnfeeblingMagic = {
 	    main={ name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}},
 	    sub="Niobid Strap",
 	    ammo="Pemphredo Tathlum",
@@ -131,7 +134,7 @@ function get_sets()
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
 
-	sets.midcast_ElementalMagic = {
+	sets.midcast.ElementalMagic = {
 	    -- main={ name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}},
 	    -- main=sets.nukingStaves[nukingStaff],
 	    main="Grioavolr",
@@ -150,35 +153,35 @@ function get_sets()
 	    right_ring="Shiva Ring",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
-	--sets.midcast_Stun = {main="Twebuliij",sub="Benthos Grip",ammo="Plumose Sachet",
+	--sets.midcast.Stun = {main="Twebuliij",sub="Benthos Grip",ammo="Plumose Sachet",
 		--head="Atrophy Chapeau +1",neck="Voltsurge Torque",ear1="Lifestorm Earring",ear2="Psystorm Earring",
 		--body="Vanir Cotehardie",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Weatherspoon Ring",
 		--back="Ogapepo Cape",waist="Ovate Rope",legs="Artsieq Hose",feet="Helios Boots"}
 		
-	sets.midcast_EnhancingMagic = {
+	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",neck="Colossus's Torque",ear1="Lifestorm Earring",ear2="Loquacious Earring",
 		ring2="Weatherspoon Ring",
 		waist="Cascade Belt"}
 
 		
-	sets.midcast_IndiSpells = {main="Idris",
+	sets.midcast.IndiSpells = {main="Idris",
 	head="Azimuth Hood +1", 
 	body="Azimuth Coat +1",	hands="Azimuth Gloves +1", 
 	back="Lifestream Cape", legs="Bagua Pants",feet="Azimuth Gaiters +1"}
 	
-	sets.midcast_GeoSpells = set_combine(sets.midcast_IndiSpells, {legs="Azimuth Tights +1"})
+	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs="Azimuth Tights +1"})
 	
-	--sets.midcast_Cursna = {main="Beneficus",
+	--sets.midcast.Cursna = {main="Beneficus",
 	--	head="Orison Cap +2",neck="Malison medallion", ear2="Loquacious Earring",
 	--	body="Orison Bliaud +2",hands="Orison Mitts +2",ring1="Ephedra ring", ring2="Sirona's ring",
 	--	back="Mending cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
 		
-	--sets.midcast_DebuffRemoval = {
+	--sets.midcast.DebuffRemoval = {
 	--	head="Orison Cap +2",neck="Malison medallion",ear2="Loquacious Earring",
 	--	body="Orison Bliaud +2",hands="Orison Mitts +2",
 	--	back="Swith Cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
 
-	sets.midcast_Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Plumose Sachet",
+	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Plumose Sachet",
 			head="Gendewitha Caubeen",neck="Fylgja Torque",lear="Novia Earring",
 			hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
 			back="Pahtli Cape",waist="Porous Rope",legs="Gyve Trousers",feet="Umbani Boots"}
@@ -233,14 +236,14 @@ function precast(spell)
 	if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') or string.find(spell.type, 'Geomancy') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cur') then 
-				equip(sets.precast_FastCure)
+				equip(sets.precast.FastCure)
 				--send_command('input /echo "Cure"')
 			else		
-				equip(sets['precast_FastCast'])
+				equip(sets.precast['FastCast'])
 				--send_command('input /echo "FC"')
 			end
 		else		
-			equip(sets['precast_FastCast'])
+			equip(sets.precast['FastCast'])
 			--send_command('input /echo "FC"')
 		end
 		if string.find(spell.skill,'Enhancing Magic') then
@@ -251,7 +254,7 @@ function precast(spell)
 		end
 	end
 	if (string.find(spell.type,'Trust')) then
-		equip(sets['precast_FastCast'])
+		equip(sets.precast['FastCast'])
 	end
 	if (string.find(spell.name,'Bolster')) then
 		equip({body="Bagua Tunic +1"})
@@ -272,37 +275,37 @@ function midcast(spell)
 	if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
-				set = set_combine(sets.midcast_Cure, {})
+				set = set_combine(sets.midcast.Cure, {})
 			elseif string.find(spell.english,'Cursna') then
-				set = set_combine(sets.precast_FastCast, {})
+				set = set_combine(sets.precast.FastCast, {})
 			elseif string.find(spell.english, 'na') then 
-				set = set_combine(sets.precast_FastCast, {})
+				set = set_combine(sets.precast.FastCast, {})
 			elseif string.find(spell.english, 'Erase') then
-				set = set_combine(sets.precast_FastCast, {})
+				set = set_combine(sets.precast.FastCast, {})
 			elseif string.find(spell.english, 'Raise') then
-				set = set_combine(sets.precast_FastCast	, {})
+				set = set_combine(sets.precast.FastCast	, {})
 			else
-				set = set_combine(sets.precast_FastCast, {})
+				set = set_combine(sets.precast.FastCast, {})
 			end
 		
 		elseif string.find(spell.skill,'Enhancing Magic') then
-			set = set_combine(sets.midcast_EnhancingMagic, {})
+			set = set_combine(sets.midcast.EnhancingMagic, {})
 
 		elseif string.find(spell.skill,'Enfeebling Magic') or string.find(spell.skill, 'Divine Magic') then
-			set = set_combine(sets.midcast_EnfeeblingMagic, {})
+			set = set_combine(sets.midcast.EnfeeblingMagic, {})
 			
 		elseif string.find(spell.skill,'Elemental Magic') then
-			set = use_obi(spell, sets.midcast_ElementalMagic)
+			set = use_obi(spell, sets.midcast.ElementalMagic)
 		elseif string.find(spell.skill,'Dark Magic') then
-			set = use_obi(spell, sets.midcast_EnfeeblingMagic, {})
+			set = use_obi(spell, sets.midcast.EnfeeblingMagic, {})
 		else
-			set = set_combine(sets.precast_FastCast, {})
+			set = set_combine(sets.precast.FastCast, {})
 		end
 	elseif string.find(spell.type, 'Geomancy') then
 		if string.find(spell.english, 'Indi') then
-			set = set_combine(sets.midcast_IndiSpells, {})
+			set = set_combine(sets.midcast.IndiSpells, {})
 		else
-			set = set_combine(sets.midcast_GeoSpells, {})
+			set = set_combine(sets.midcast.GeoSpells, {})
 		end
 		
 	end

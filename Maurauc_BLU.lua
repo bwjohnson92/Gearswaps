@@ -1,5 +1,6 @@
 require('closetCleaner')
 include('organizer-lib.lua')
+include('displayBox.lua')
 
 trigger = false
 capeLocked = false
@@ -64,18 +65,20 @@ function get_sets()
       back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Carmine Greaves"}
                                              
     sets.Idle.DT = {
-        ammo="Ginsen",
+        ammo="Staunch Tathlum +1",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
-        hands="Umuthi Gloves",
-        legs="Aya. Cosciales +2",
-        feet={ name="Carmine Greaves", augments={'HP+60','MP+60','Phys. dmg. taken -3',}},
+        hands="Ayanmo Manopolas +2",
+        -- legs="Aya. Cosciales +2",
+        legs="Carmine Cuisses +1",
+        feet="Ayanmo Gambieras +2",
+        waist="Flume Belt +1",
         neck="Loricate Torque +1",
-        left_ear="Etiolation Earring",
+        left_ear="Novia Earring",
         right_ear="Telos Earring",
         left_ring="Gelatinous Ring +1",
         right_ring="Defending Ring",
-        back="Reiki Cloak",
+        back="Repulse Mantle",
     }
    
     --TP Sets--
@@ -88,13 +91,16 @@ function get_sets()
     sets.TP.Standard = {
         ammo="Ginsen",
         head={ name="Adhemar Bonnet +1"},
-        body={ name="Herculean Vest", augments={'Accuracy+28','"Triple Atk."+4',}},
+        -- body={ name="Herculean Vest", augments={'Accuracy+28','"Triple Atk."+4',}},
+        body="Adhemar Jacket +1",
         -- hands={ name="Herculean Gloves", augments={'Accuracy+19','"Triple Atk."+4','STR+3',}},
         hands="Adhemar Wristbands +1",
         legs={ name="Herculean Trousers", augments={'Accuracy+13 Attack+13','"Triple Atk."+4','DEX+3','Attack+13',}},
         feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
-        neck="Asperity Necklace",
+        -- neck="Asperity Necklace",
+        neck="Mirage Stole +1",
         waist="Windbuffet Belt +1",
+        -- waist="Reiki Yotai",
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
         left_ring="Epona's Ring",
@@ -233,8 +239,12 @@ function get_sets()
                                                                      
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
         head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Dignitary's earring",ear2="Gwati earring",
-        body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +1",ring1="Weatherspoon ring +1",ring2="Stikini ring",
-        back="Cornflower cape",waist="Ovate rope",legs="Psycloth Lappas",feet="Jhakri Pigaches +2"}
+        body="Ayanmo Corazza +2",hands="Ayanmo Manopolas +2",ring1="Weatherspoon ring +1",ring2="Stikini ring",
+        back="Cornflower cape",waist="Ovate rope",legs="Ayanmo Cosciales +2",feet="Ayanmo Gambieras +2"}
+
+    -- sets.BlueMagic.DT = set_combine(sets.BlueMagic.MagicAccuracy, {
+    --     body="Ayanmo Corazza +2",
+    -- })
     
     sets.BlueMagic.Stun = set_combine(sets.BlueMagic.MagicAccuracy, {})
     
@@ -245,7 +255,7 @@ function get_sets()
                                                                      
     sets.BlueMagic.Skill = {ammo="Mavi tathlum",
         head="Carmine Mask",ear1="Loquac. earring",
-        body="Assim. jubbah +2",hands="Ayao's gages",ring1="Weatherspoon ring +1", ring2="Stikini Ring",
+        body="Assim. jubbah +3",hands="Ayao's gages",ring1="Weatherspoon ring +1", ring2="Stikini Ring",
         back="Cornflower cape",waist="Twilight belt",legs="Mavi tayt +2",feet="Luhlaza charuqs +1"}
                                                   
     sets.BlueMagic.BatteryCharge = {
@@ -261,9 +271,11 @@ function get_sets()
      --                                                 body="Assim. jubbah +1",hands="Stone Mufflers",ring1="Prolix ring",
      --                                                 back="Swith cape",waist="Siegel sash",legs="Haven hose",feet="Iuitl gaiters"}
                                                      
-   -- sets.Utility.Phalanx = {head="Haruspex hat",neck="Colossus's torque",ear1="Loquac. earring",ear2="Augment. earring",
-   --                                             body="Assim. jubbah +1",hands="Ayao's gages",ring1="Prolix ring",
- --                                                   back="Swith cape",waist="Pythia sash +1",legs="Portent pants",feet="Iuitl gaiters"}
+    sets.Utility.Phalanx = {
+        head="Taeon Chapeau",neck="Melic torque",ear1="Loquac. earring",ear2="Augment. earring",
+        body="Taeon Tabard",hands="Taeon Gloves",ring1="Stikini ring",
+        back="Swith cape",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
+    }
                                                    
    -- sets.Utility.Steps = {ammo="Honed tathlum",
     --                                          head="Whirlpool mask",ear2="Heartseeker earring",
@@ -275,14 +287,10 @@ function get_sets()
     --                                        back="Rosmerta's Cape",legs="Iuitl Tights +1"}
                                            
     --sets.Utility.MDT = {head="Whirlpool mask",neck="Loricate Torque +1",
-    --                                        body="Assim. jubbah +2",hands="Umuthi gloves",ring1="Defending ring",ring2="Gelatinous Ring +1",
+    --                                        body="Assim. jubbah +3",hands="Umuthi gloves",ring1="Defending ring",ring2="Gelatinous Ring +1",
     --                                        back="Reiki Cloak",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
                                                    
-   
-   
-   
-   
-   
+
     --Job Ability Sets--
    
     sets.JA = {}
@@ -296,11 +304,6 @@ function get_sets()
     --sets.JA.AzureLore = {hands="Luh. bazubands +1"}
    
     sets.JA.Diffusion = {feet="Luhlaza Charuqs +1"}
-                                                           
-                                                           
-                   
-                   
-                   
                    
     --Precast Sets--
     sets.precast = {}
@@ -312,15 +315,36 @@ function get_sets()
      body="Dread Jupon",hands="Leyline Gloves",ring1="Weatherspoon Ring +1", ring2="Kishar Ring",
      back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Carmine Greaves"}
    
+    sets.precast.FC.PDT = {}
+
+    sets.precast.FC.Acc = {}
+
+    sets.precast.FC.PDTAcc = {}
+
     sets.BlueMagic.SkillRecast = set_combine(sets.precast.FC.Standard, {})
        
+    text_setup()
+    addTextPairs()
+    updateTable()
 end
- 
- 
- 
- 
- 
- 
+
+function addTextPairs()
+    addTextColorPair("Standard", "green")
+    addTextColorPair("Potency", "green")
+    addTextColorPair("Accuracy", "yellow")
+    addTextColorPair("PDT", "yellow")
+end
+
+function updateTable()
+    addToTable("(F9) TP Set", sets.TP.index[TP_ind])
+    -- addToTable("Enfeeble Potency", not EnfeebSet)
+    addToTable("(F10) Idle Set", sets.Idle.index[Idle_ind])
+    addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
+    addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
+    addToTable("(END) Weapon Locked", weaponLocked)
+    update_message()
+end
+
 function precast(spell)
         if spell.action_type == 'Magic' then
                 equip(sets.precast.FC.Standard)
@@ -466,6 +490,10 @@ function midcast(spell,act)
                         equip(sets.JA.Diffusion)
                 end
         end
+
+        if spell.english == "Phalanx" then
+            equip(sets.Utility.Phalanx)
+        end
 end
  
 function aftercast(spell)
@@ -586,6 +614,7 @@ function self_command(command)
             add_to_chat(140,'Weapon is being unlocked')
         end
     end
+    updateTable()
 end
 
 function buff_change(buff, gain)

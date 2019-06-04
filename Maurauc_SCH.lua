@@ -23,17 +23,6 @@ MPSet = false
 MBSet = false
 perpOn = false
 
--- MerlinicHoodBurst = { name="Merlinic Hood", augments={'"Mag.Atk.Bns."+6','Magic burst dmg.+9%','INT+3','Mag. Acc.+15',}}
--- MerlinicHoodNuke =  {name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}}
-
--- MerlinicBodyNuke = {name="Merlinic Jubbah", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','"Fast Cast"+1','MND+3','Mag. Acc.+11','"Mag.Atk.Bns."+14'}}
--- MerlinicBodyBurst = {name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+29','Magic burst dmg.+7%','Mag. Acc.+9',}}
-
--- MerlinicFeetNuke = { name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}}
--- MerlinicFeetBurst = {  name="Merlinic Crackows", augments={'Mag. Acc.+8','Magic burst dmg.+11%','MND+7','"Mag.Atk.Bns."+8',}}
-
--- Start Functions here
--- Gear Sets
 function get_sets()
 
     sets.precast = {}
@@ -52,8 +41,8 @@ function get_sets()
         
     sets.precast.FastCast = {main="Oranyan", sub="Clerisy Strap", ammo="Incantor Stone",
         head="Nahtirah Hat" ,neck="Voltsurge Torque", ear1="Etiolation Earring", ear2="Loquacious Earring",
-        body=MerlinicBodyNuke, ring1="Kishar Ring", ring2="Weatherspoon Ring +1",
-        back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas", feet=MerlinicFeetNuke}
+        body="Shango Robe", hands="Telchine Gloves", ring1="Kishar Ring", ring2="Weatherspoon Ring +1",
+        back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas", feet="Amalric Nails +1"}
     
     sets.precast.FastCure = {
         neck="Voltsurge Torque",ear2="Loquacious Earring",
@@ -85,7 +74,9 @@ function get_sets()
         back="Toro Cape"
     }
     
-    sets.midcast.ElementalMagic = {    
+    sets.midcast.ElementalMagic = { 
+    main="Akademos",
+    sub="Niobid Strap",
     ammo="Pemphredo Tathlum",
     head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
     body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},

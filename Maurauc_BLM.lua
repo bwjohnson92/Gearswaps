@@ -86,7 +86,7 @@ function get_sets()
 
     sets.midcast.EnfeeblingMagic = {sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head=MerlinicHoodNuke,neck="Voltsurge Torque",ear1="Digni. Earring",ear2="Barkarole Earring",
-        body="Vanya Robe",hands="Lurid Mitts",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
+        body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
         back=TaranusNuke,waist="Rumination Sash",legs="Psycloth Lappas",feet="Skaoi Boots"}
 
     sets.midcast.ElementalMagic = {sub="Niobid Strap", ammo="Pemphredo Tathlum",

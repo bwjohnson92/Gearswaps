@@ -54,23 +54,40 @@ function get_sets()
 	    waist="Ioskeha Belt"
 	}
 
-	sets.Hybrid = {
-	    ammo="Staunch Tathlum +1",
-	    head="Flam. Zucchetto +2",
-	    neck="Loricate Torque +1",
-	    ear1="Darkness Earring",
-	    ear2="Genmei Earring",
-	    body="Souv. Cuirass +1",
+	sets.DT = {
+		ammo="Vanir Battery",
+	    head="Sulevia's Mask +2",
+	    body="Sulevia's Plate. +2",
 	    hands="Sulev. Gauntlets +2",
-	    ring1="Moonlight Ring",
-	    ring2="Defending Ring",
-	    back="Cichol's Mantle",
-	    waist="Ioskeha Belt +1",
-	    legs="Sulev. Cuisses +2",
-	    feet="Pumm. Calligae +3"
+	    legs="Pumm. Cuisses +3",
+	    feet="Pumm. Calligae +3",
+	    neck="Loricate Torque +1",
+	    waist="Ioskeha Belt",
+	    left_ear="Cessance Earring",
+	    right_ear="Brutal Earring",
+	    left_ring="Defending Ring",
+	    right_ring="Regal Ring",
+	    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
 	}
 
-	sets.WS= {
+
+	-- sets.Hybrid = {
+	--     ammo="Staunch Tathlum +1",
+	--     head="Flam. Zucchetto +2",
+	--     neck="Loricate Torque +1",
+	--     ear1="Darkness Earring",
+	--     ear2="Genmei Earring",
+	--     body="Souv. Cuirass +1",
+	--     hands="Sulev. Gauntlets +2",
+	--     ring1="Moonlight Ring",
+	--     ring2="Defending Ring",
+	--     back="Cichol's Mantle",
+	--     waist="Ioskeha Belt",
+	--     legs="Sulev. Cuisses +2",
+	--     feet="Pumm. Calligae +3"
+	-- }
+
+	sets.WS = {
 	    ammo="Knobkierrie",
 	    head="Sulevia's Mask +2",
 	    body="Dagon Breastplate",
@@ -84,25 +101,49 @@ function get_sets()
 	    left_ring="Regal Ring",
 	    right_ring="Niqmaddu Ring",
 	}
-	sets.Upheaval = {
+
+-- 	sets.WS.Upheaval = {
+-- 	    ammo="Knobkierrie",
+-- 		head="Flamma Zucchetto +2",
+-- 	    body="Dagon Breastplate",
+-- 	    hands="Sulevia's Gauntlets +2",
+-- 	    legs="Pummeler's Cuisses +3",
+-- 	    feet="Sulevia's Leggings +2",
+-- 	    neck="Fotia Gorget",
+-- 	    -- waist="Fotia Belt",
+-- 	    waist="Ioskeha Belt",
+-- 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+-- 	    right_ear="Brutal Earring",
+-- 	    left_ring="Regal Ring",
+-- 	    right_ring="Niqmaddu Ring",
+-- 	    back=CapeVitWS
+-- 	}
+
+	sets.WS.Upheaval = {
 	    ammo="Knobkierrie",
---	    head="Sulevia's Mask +2",
-		head="Flamma Zucchetto +2",
-	    body="Dagon Breastplate",
-	    hands="Sulevia's Gauntlets +2",
-	    legs="Pummeler's Cuisses +3",
-	    feet="Sulevia's Leggings +2",
+	    head="Agoge Mask +2",
 	    neck="Fotia Gorget",
-	    -- waist="Fotia Belt",
-	    waist="Ioskeha Belt",
-	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	    right_ear="Brutal Earring",
-	    left_ring="Regal Ring",
-	    right_ring="Niqmaddu Ring",
-	    back=CapeVitWS
+	    ear1="Moonshade Earring",
+	    ear2="Telos Earring",
+	    body="Pumm. Lorica +3",
+	    hands="Sulev. Gauntlets +2",
+	    ring1="Niqmaddu Ring",
+	    ring2="Regal Ring",
+	    back=CapeVitWS,
+	    waist="Fotia Belt",
+	    legs="Sulev. Cuisses +2",
+	    feet="Pumm. Calligae +3"
 	}
 
-	sets.Upheaval.Mid = set_combine(sets.Upheaval, {
+	sets.WS.Upheaval.HighTP = set_combine(sets.WS.Upheaval, {
+		neck="War. Beads +1",
+		hands="Odyssean Gauntlets",
+		legs="Odyssean Cuisses",
+		feet="Sulevia's Leggings +2",
+		ear2="Ishvara Earring"
+	})
+
+	sets.WS.Upheaval.Mid = set_combine(sets.WS.Upheaval, {
 		right_ear="Telos Earring",
 		legs="Pummeler's Cuisses +3",
 		feet="Pummeler's Calligae +3"
@@ -162,7 +203,7 @@ function get_sets()
 	}
 
 	sets.Berserk = {
-		body="Pummeler's Lorica +2",
+		body="Pummeler's Lorica +3",
 		feet="Agoge Calligae"
 	}
 
@@ -171,7 +212,7 @@ function get_sets()
 	}
 
 	sets.Warcry = {
-		head="Agoge Mask +1"
+		head="Agoge Mask +2"
 	}
 
 	windower.register_event('zone change', function()
@@ -185,7 +226,11 @@ end
 function precast(spell)
 	if spell.english == 'Upheaval' then
 		add_to_chat(140,'Upheaval')
-		equip(sets.Upheaval)
+		if (player.tp < 1250) then 
+			equip(sets.WS.Upheaval)
+		else
+			equip(sets.WS.Upheaval.HighTP)
+		end
 	elseif spell.action_type == 'WeaponSkill' then
 		add_to_chat(140,'Weaponskill!')
 		equip(sets.WS)
@@ -217,7 +262,7 @@ end
 
 function aftercast(spell)
 	if player.status == 'Engaged' then
-            equip(sets.Melee)
+            equip_TP()
     else
     	equip(customize_idle_set(sets.Idle))
     end
@@ -225,9 +270,15 @@ end
 
 -- Status Change - ie. Resting
 
+function equip_TP()
+	-- equip(sets.Melee)
+	equip(sets.DT)
+end
+
 function status_change(new,tab)
 	if new == 'Engaged' then
-		equip(sets.Melee)
+		-- equip(sets.Melee)
+		equip_TP()
 		--disable("Main")
 	else
 		equip(sets.Idle)
