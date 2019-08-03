@@ -46,11 +46,11 @@ function get_sets()
 		body="Pillager's Vest +2",hands="Raider's Armlets +2",legs="Pillager's Culottes +1", feet="Plunderer's Poulaines +1"})
         
     sets.WS.Exenterator = {head="Lithelimb Cap",neck="Houyi's Gorget",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-        body="Pillager's Vest +1",hands="Herculean Gloves",ring1="Garuda Ring +1",ring2="Epona's Ring",
+        body="Pillager's Vest +1",hands="Herculean Gloves",ring1="Garuda Ring +1",ring2="Gere Ring",
         back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Nahtirah Trousers",feet="Plunderer's Poulaines +1"}
 
     sets.WS.TA.Exenterator = {head="Lithelimb Cap",neck="Houyi's Gorget",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-        body="Pillager's Vest +2",hands="Pillager's Armlets",ring1="Garuda Ring +1",ring2="Epona's Ring",
+        body="Pillager's Vest +2",hands="Pillager's Armlets",ring1="Garuda Ring +1",ring2="Gere Ring",
         back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +1"}
         
     sets.WS.SATA.Exenterator = set_combine(sets.WS.TA.Exenterator, {})
@@ -59,22 +59,22 @@ function get_sets()
     sets.TP = {}
     sets.TP['Low Man'] = {sub="Jugo Kukri +1",range="Raider's Bmrng.",
         head="Skulker's bonnet +1",neck="Erudition Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Herculean Vest",hands=TaeonHands,ring1="Petrov Ring",ring2="Epona's Ring",
+        body="Herculean Vest",hands=TaeonHands,ring1="Petrov Ring",ring2="Gere Ring",
         back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Taeon Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},} --I think it goes in here and party and acc?
          
 	sets.TP['Party'] = {sub="Jugo Kukri +1",range="Raider's Bmrng.",
         head="Skulker's bonnet +1", neck="Erudition Necklace",ear1="Suppanomimi",ear2="Brutal Earring",
-        body="Herculean Vest",hands=TaeonHands,ring1="Petrov Ring",ring2="Epona's Ring",
+        body="Herculean Vest",hands=TaeonHands,ring1="Petrov Ring",ring2="Gere Ring",
         back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Taeon Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
     
 	sets.TP['TH'] = {sub="Jugo Kukri +1",range="Raider's Bmrng.",
         head="Skulker's bonnet +1",neck="Asperity Necklace",ear1="Suppanomimi",ear2="Brutal Earring",
-        body="Herculean Vest",hands="Plun. Armlets +1",ring1="Petrov Ring",ring2="Epona's Ring",
+        body="Herculean Vest",hands="Plun. Armlets +1",ring1="Petrov Ring",ring2="Gere Ring",
        back="Toutatis's Cape",waist="Chaac Belt",legs="Pill. Culottes +1",feet="Skulker's poulaines +1"}
         
-    sets.TP['Acc'] = {sub="Jugo Kukri +1",ammo="Honed Tathlum",
-        head="Skulker's bonnet +1",neck="Erudition Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Pillager's Vest +2",hands="Rawhide Gloves",ring1="Petrov Ring",ring2="Epona's Ring",
+    sets.TP['Acc'] = {sub="Jugo Kukri +1",ammo="Yamarang",
+        head="Meghanada visor +2",neck="Erudition Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
+        body="Pillager's Vest +2",hands="Meghanada Gloves +2",ring1="Petrov Ring",ring2="Gere Ring",
         back="Toutatis's Cape",waist="Anguinus Belt",legs="Pill. Culottes +1",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
         
     --sets.TP.Evasion = {

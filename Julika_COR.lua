@@ -69,7 +69,7 @@ sets.Idle.Standard = {
 sets.Idle.DT = set_combine(sets.Idle.Standard, {
     body="Lanun frac +3",
     legs="Mummu kecks +2",
-    feet="Lanun Bottes +2",
+    feet="Lanun Bottes +3",
     back=capeDT
 })
 
@@ -115,7 +115,7 @@ sets.RA.Standard = { --RAcc and STP
     neck="Ocachi gorget",
     waist="Yemaya Belt",
     left_ear="Neritic Earring",
-    right_ear="Volley Earring",
+    right_ear="Enervating Earring",
     back=capeTP,
     ring1="Dingir Ring",
     ring2="Ilabrat Ring",
@@ -143,7 +143,7 @@ sets.WS.SavageBlade = {
     back=capeSavage,
     waist="Metalsinger Belt", --Prosilio Belt
     legs="Laksamana's Trews +3",
-    feet="Lanun Bottes +2",
+    feet="Lanun Bottes +3",
 }
 
 sets.WS.LastStand = { --Generic Physical WS
@@ -151,7 +151,7 @@ sets.WS.LastStand = { --Generic Physical WS
     body="Laksamana's Frac +3",
     hands="Meghanada Gloves +1", --+2
     legs="Laksamana's trews +3",
-    feet="Lanun bottes +2",
+    feet="Lanun Bottes +3",
     neck="Commodore Charm",
     waist="Eschan Stone",
     left_ear="Ishvara Earring",
@@ -166,7 +166,7 @@ sets.WS.Wildfire = {
     body="Lanun Frac +3",
     hands="Carmine finger gauntlets +1",
     legs=HercLegsMAB,
-    feet="Lanun bottes +2",
+    feet="Lanun Bottes +3",
     neck="Commodore Charm",
     waist="Eschan Stone",
     left_ear="Moonshade Earring",
@@ -182,7 +182,7 @@ sets.WS.LeadenSalute = { --AGI Weaponskill
     body="Lanun Frac +3",
     hands="Carmine finger gauntlets +1",
     legs=HercLegsMAB,
-    feet="Lanun Bottes +2",
+    feet="Lanun Bottes +3",
     -- neck="Commodore Charm",
     neck="Stoicheion Medal",
     waist="Eschan Stone",
@@ -216,7 +216,7 @@ sets.Fold = {
 sets.SnakeEye = {
     -- legs="Lanun Culottes"
 }
-sets.WildCard = {feet="Lanun Bottes +2"}
+sets.WildCard = {feet="Lanun Bottes +3"}
 
 sets.Luzaf = {ring1="Luzaf's Ring"}
 

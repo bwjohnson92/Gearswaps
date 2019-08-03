@@ -47,8 +47,22 @@
 		gs c Weather		--]]
 
 include('organizer-lib')
-organizer_items = {CPring = "Capacity Ring"}
-send_command('input /macro book 2;input /macro set 8;wait 1;input /lockstyleset 21')--Automatically sets lockstyle and macro book/set one time upon loading.
+organizer_items = {CPring = "Capacity Ring",
+        echos="Echo Drops",
+        holy="Holy Water",
+        RREar="Reraise Earring",
+        InstRR="Instant Reraise",
+        Warp="Warp Ring",
+        WarpItem="Instant Warp",
+        CP="Trizek Ring",
+        Exp="Echad Ring",
+        CPMantle="Mecistopins Mantle",
+        Prism="Prism Powder",
+        Oils="Silent Oil",
+        remedy="Remedy",
+        Crepe="Pear Crepe",}
+
+-- send_command('input /macro book 2;input /macro set 8;wait 1;input /lockstyleset 21')--Automatically sets lockstyle and macro book/set one time upon loading.
 function get_sets()
 	--Automatically swap to movement speed shoes in town. Equips refresh feet after first cast of any spell besides Sneak, Invisible or Trusts.
 	Cities = S{"Ru'Lude Gardens","Upper Jeuno","Lower Jeuno","Port Jeuno","Port Windurst","Windurst Waters","Windurst Woods","Windurst Walls","Heavens Tower",
@@ -62,33 +76,68 @@ function get_sets()
 		end
     end)
 --Precast sets
-	FC_head = {name="Merlinic Hood",augments={'Mag. Acc.+6','"Fast Cast"+7','MND+8'}}
-	FC_legs = {name="Psycloth Lappas",augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}}
-	FC_feet = {name="Merlinic Crackows",augments={'"Fast Cast"+7','Mag. Acc.+9'}}
-	FC_back = {name="Lugh's Cape",augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','MND+5'}}
-	
-	sets.precast = {main="Sucellus",ammo="Sapience Orb",head=FC_head,neck="Voltsurge Torque",lear="Etiolation Earring",rear="Loquac. Earring",body="Anhur Robe",
-		hands="Otomi Gloves",lring="Prolix Ring",back=FC_back,waist="Channeler's Stone",legs=FC_legs,feet=FC_feet}--74%; w/ Kishar Ring 78%; Mer hands?
+	-- FC_head = {name="Merlinic Hood",augments={'Mag. Acc.+6','"Fast Cast"+7','MND+8'}}
+	FC_head = "Nahtirah Hat"
+	-- FC_legs = {name="Psycloth Lappas",augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}}
+	FC_legs = "Psycloth Lappas"
+	FC_feet = { name="Merlinic Crackows", augments={'Mag. Acc.+5 "Mag.Atk.Bns."+5','"Fast Cast"+4','Mag. Acc.+13','"Mag.Atk.Bns."+6',}}
+	-- FC_feet = {name="Merlinic Crackows",augments={'"Fast Cast"+7','Mag. Acc.+9'}}
+	-- FC_back = {name="Lugh's Cape",augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','MND+5'}}
+	FC_back = "Swith Cape +1"
+
+	sets.precast = {
+	-- main="Sucellus",
+	ammo="Incantor Stone",
+	head=FC_head,
+	neck="Voltsurge Torque",
+	lear="Etiolation Earring",
+	rear="Loquac. Earring",
+	body="Merlinic Jubbah",
+	-- hands="Otomi Gloves",
+	hands="Gendewitha Gages +1",
+	lring="Weatherspoon Ring",
+	rring="Kishar Ring",
+	back=FC_back,
+	waist="Channeler's Stone",
+	legs=FC_legs,
+	feet=FC_feet
+		}--74%; w/ Kishar Ring 78%; Mer hands?
 	
 	sets.precast.Elemental = {lear="Barkaro. Earring"}
     sets.precast.Cure = {lear="Mendi. Earring"}
     sets.precast.Impact = {head=empty,body="Twilight Cloak"}
 --Midcast sets
-	Nuke_head = {name="Merlinic Hood",augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Mag. crit. hit dmg. +6%','INT+10','Mag. Acc.+7','"Mag.Atk.Bns."+15'}}
-	Nuke_legs = {name="Merlinic Shalwar",augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','Magic Damage +8','Mag. Acc.+12','"Mag.Atk.Bns."+14'}}
-	Nuke_feet = {name="Merlinic Crackows",augments={'Mag. Acc.+16 "Mag.Atk.Bns."+16','INT+15','"Mag.Atk.Bns."+15'}}
+
+	Nuke_head = { name="Merlinic Hood", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+2','MND+9','Mag. Acc.+7',}}
+	Nuke_body = { name="Merlinic Jubbah", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','MND+5','"Mag.Atk.Bns."+15',}}
+	Nuke_hands = { name="Amalric Gages", augments={'INT+10','Mag. Acc.+15','"Mag.Atk.Bns."+15',}}
+	Nuke_legs = "Gyve Trousers"
+	Nuke_feet = { name="Merlinic Crackows", augments={'Mag. Acc.+24 "Mag.Atk.Bns."+24','Enmity-3','CHR+9','Mag. Acc.+3','"Mag.Atk.Bns."+5',}}
 	Nuke_back = {name="Lugh's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','INT+10'}}
-	MB_legs = {name="Merlinic Shalwar",augments={'"Mag.Atk.Bns."+29','Magic burst dmg.+9%','MND+2','Mag. Acc.+13'}}
-	MB_feet = {name="Merlinic Crackows",augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Magic burst dmg.+10%','"Mag.Atk.Bns."+10'}}
+	MB_feet = { name="Merlinic Crackows", augments={'Mag. Acc.+29','Magic burst dmg.+8%','"Mag.Atk.Bns."+5',}}
 	
 	sets.midcast = {}
 	
 	sets.midcast.ConserveMP = {head="Vanya Hood",neck="Incanter's Torque",lear="Gifted Earring",rear="Magnetic Earring",body="Vanya Robe",
 		back="Solemnity Cape",waist="Austerity Belt +1",legs="Lengo Pants",feet="Medium's Sabots"}--28 base + 44 gear + 12 Grioavolr
 	
-	sets.midcast.Nuke = {main="Grioavolr",sub="Enki Strap",ammo="Ghastly Tathlum +1",head=Nuke_head,neck="Mizu. Kubikazari",lear="Barkaro. Earring",
-		rear="Friomisi Earring",body="Jhakri Robe +2",hands="Amalric Gages +1",lring="Shiva Ring",rring="Shiva Ring +1",back=Nuke_back,waist="Channeler's Stone",
-		legs=Nuke_legs,feet=Nuke_feet}
+	sets.midcast.Nuke = {
+		-- main="Grioavolr",
+		-- sub="Enki Strap",
+		ammo="Phantom Tathlum",
+		head=Nuke_head,
+		neck="Mizu. Kubikazari",
+		lear="Barkaro. Earring",
+		rear="Friomisi Earring",
+		body=Nuke_body,
+		hands=Nuke_hands,
+		lring="Shiva Ring",
+		rring="Shiva Ring +1",
+		back=Nuke_back,
+		waist="Channeler's Stone",
+		legs=Nuke_legs,
+		feet=Nuke_feet
+	}
 	
 	sets.midcast.NukeMP = {body="Seidr Cotehardie"}
 	NukeMP_ind = 1
@@ -99,7 +148,7 @@ function get_sets()
 	
 	sets.midcast.Day = {lring="Zodiac Ring"}
 	
-	sets.midcast.MB = {neck="Mizu. Kubikazari",lring="Locus Ring",rring="Mujin Band",back="Seshaw Cape",legs=MB_legs,feet=MB_feet} -- 39% + 10% II
+	sets.midcast.MB = {neck="Mizu. Kubikazari",lring="Locus Ring",rring="Mujin Band",back="Seshaw Cape",feet=MB_feet} -- 39% + 10% II
 	
 	sets.midcast.Impact = {head=empty,neck="Incanter's Torque",lear="Barkaro. Earring",rear="Gwati Earring",body="Twilight Cloak",hands="Amalric Gages +1",
 		rring="Stikini Ring",lring="Stikini Ring",back=Nuke_back,waist="Channeler's Stone",legs=Nuke_legs,feet=Nuke_feet}
@@ -344,11 +393,11 @@ function buff_change(buff,gain_or_loss)
 	end
 	if buff=="Light Arts" then
 		if buffactive['Light Arts'] then
-			send_command('input /lockstyleset 23')
+			-- send_command('input /lockstyleset 23')
 		end
 	elseif buff=="Dark Arts" then
 		if buffactive['Dark Arts'] then
-			send_command('input /lockstyleset 22')
+			-- send_command('input /lockstyleset 22')
 		end
 	end
 end

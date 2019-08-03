@@ -1,5 +1,6 @@
 require('ClosetCleaner')
 include('organizer-lib.lua')
+include('displayBox.lua')
 function get_sets()
 
     sets.Aettir = {
@@ -28,7 +29,7 @@ function get_sets()
     --Idle Sets--
     sets.Idle = { ammo="Homiliary",
         head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Hearty Earring",ear2="Ethereal Earring",   
-        body="Futhark coat +1",hands="Erilaz Gauntlets +1",ring1="Dark Ring",ring2="Defending Ring",     
+        body="Futhark coat +1",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",     
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Skadi's Jambeaux +1"}   
 
     --TP Sets--
@@ -37,8 +38,10 @@ function get_sets()
     TP_ind = 1
     --offensive melee set
     sets.TP.Standard = {
+        sub="Tzacab grip",
         ammo="Yamarang",
-        head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
+        -- head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
+        head="Adhemar Bonnet +1",
         --body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         body="Ayanmo Corazza +2",
         hands={ name="Adhemar Wristbands", augments={'STR+10','DEX+10','Attack+15',}},
@@ -48,7 +51,7 @@ function get_sets()
         waist="Windbuffet Belt +1",
         left_ear="Sherida Earring",
         right_ear="Telos Earring",
-        left_ring="Epona's Ring",
+        left_ring="Ilabrat Ring",
         right_ring="Petrov Ring",
         back={ name="Ogma's cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
     }
@@ -70,15 +73,21 @@ function get_sets()
     }
 
     sets.TP.Hybrid = {
+        sub="Mensch strap",
+        -- ammo="Yamarang",
         ammo="Yamarang",
-        head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
+        -- head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
+        head="Ayanmo Zucchetto +2",
         --body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         body="Ayanmo Corazza +2",
         hands="Turms Mittens",
-        legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+        -- legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
+        legs="Erilaz Leg Guards +1",
         feet="Turms Leggings",
-        neck="Anu Torque",
+        -- neck="Anu Torque",
+        neck="Futhark Torque +1",
         waist="Windbuffet Belt +1",
+        -- waist="Ioskeha Belt",
         left_ear="Sherida Earring",
         right_ear="Telos Earring",
         left_ring="Moonbeam Ring",
@@ -93,8 +102,8 @@ function get_sets()
     --MDT melee set
     sets.TP.MDTacc = {sub="Mensch Strap", ammo="Yamarang",          
         head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
-        body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Dark Ring",ring2="Defending Ring",         
-        back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runeist Trousers +1",feet="Taeon Boots"}         
+        body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",         
+        back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runeist's Trousers +2",feet="Taeon Boots"}         
     sets.TP.HP = {
         sub="Balarama Grip",ammo="Aqreqaq Bomblet",
         head="Erilaz Galea +1",neck="Sanctity Necklace",ear1="Odnowa Earring",ear2="Odnowa Earring +1", --Halitus Helm
@@ -105,8 +114,8 @@ function get_sets()
     sets.WS = {}     
     --multi, carries FTP
     sets.Resolution = {
-        ammo="Knobkierrie",
-        head="Adhemar Bonnet",
+        ammo="Seething Bomblet +1",
+        head="Adhemar Bonnet +1",
         body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
         hands="Meghanada Gloves +2",
         legs="Meghanada Chausses +2",
@@ -114,15 +123,15 @@ function get_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Sherida Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +25',}},
-        left_ring="Ifrit Ring",
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        left_ring="Epona's Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Ogma's cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
     }
 
     sets.Dimidiation = {
         ammo="Knobkierrie",
-        head={ name="Herculean Helm", augments={'Accuracy+30','Weapon skill damage +4%','DEX+1','Attack+8',}},
+        head="Adhemar Bonnet +1",
         body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
         hands="Meg. Gloves +2",
         legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%','DEX+14','Accuracy+3','Attack+9',}},
@@ -130,7 +139,7 @@ function get_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Sherida Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +25',}},
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Ilabrat Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
@@ -147,7 +156,7 @@ function get_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Ishvara Earring",
-        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +25',}},
+        right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Apate Ring",
         right_ring="Petrov Ring",
         back={ name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
@@ -178,7 +187,7 @@ function get_sets()
     --magic WS
     sets.HercSlash = {  ammo="Seething Bomblet +1",
         head="Highwing Helm",neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Acumen Ring",
+        body="Samnuha Coat",hands="Leyline Gloves",ring1="Shiva Ring +1",
         back="Argochampsa Mantle",waist="Eschan Stone",legs="Limbo Trousers",feet="Adhemar Gamashes"}  
      
     sets.Utility = {}   
@@ -191,13 +200,13 @@ function get_sets()
     sets.Utility.MDT = { ammo="Vanir Battery",
         head="Dampening Tam",neck="loricate torque +1",ear1="Hearty Earring",ear2="Zennaroi Earring",          
         body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Vengeful Ring",ring2="Defending Ring",             
-        back="Engulfer Cape +1",waist="Olseni Belt",legs="Runeist Trousers +1",feet="Erilaz Greaves +1"}        
+        back="Engulfer Cape +1",waist="Olseni Belt",legs="Runeist's Trousers +2",feet="Erilaz Greaves +1"}        
              
     --Job Ability Sets--
     sets.JA = {}
     sets.JA.Lunge = {ammo="Seething Bomblet +1",
         head="Highwing Helm",neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",      
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Acumen Ring",                         
+        body="Samnuha Coat",hands="Leyline Gloves",ring1="Shiva Ring +1",                         
         back="Argochampsa Mantle",waist="Eschan Stone",legs="Limbo Trousers",feet="Adhemar Gamashes"}  
 
     sets.JA.Vallation = {body="Runeist Coat",legs="Futhark Trousers"}       
@@ -205,7 +214,7 @@ function get_sets()
     sets.JA.Rayke = {feet="Futhark boots"}  
     sets.JA.Battuta = {head="Futhark bandeau +1"}      
     sets.JA.Pflug = {feet="Runeist bottes"}              
-    sets.JA.Pulse = {head="Erilaz Galea +1",legs="Runeist Trousers +1"}
+    sets.JA.Pulse = {head="Erilaz Galea +1",legs="Runeist's Trousers +2"}
                     
     --Precast Sets--
     --Fast Cast set
@@ -215,7 +224,13 @@ function get_sets()
         back="Ogma's Cape",waist="Rumination Sash",legs="Limbo Trousers"}
 
     sets.Phalanx = {
-    head="Futhark bandeau +1",body="Taeon Tabard",legs="Futhark Trousers"}
+    head="Futhark bandeau +1",
+    body={ name="Taeon Tabard", augments={'"Phalanx"+3',}},
+    hands={ name="Taeon gloves", augments ={'"Phalanx"+3',}},
+    right_ear="Augmenting earring",
+    right_ring="Stikini ring",
+    legs="Futhark Trousers",
+    feet={ name="Taeon boots", augments={'"Phalanx"+3',}}}
 
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {
@@ -226,14 +241,29 @@ function get_sets()
     --Magic acc for enfeebles, handy for VW
     sets.MagicAcc = {
         head="Dampening Tam",ear1="Gwati Earring",
-        body="Samnuha Coat",hands="Leyline Gloves",
-        waist="Salire Belt",legs="Runeist Trousers",feet="Iuitl Gaiters +1"}             
+        body="Samnuha Coat",hands="Leyline Gloves",ring1="Sangoma Ring",ring2="Kishar Ring",
+        waist="Salire Belt",legs="Runeist's Trousers +2"}
      
     --Toggle TP sets button, change if you want; currently ALT+F9 toggles forward, CTRL+F9 toggles backwards
     send_command('bind f10 gs c toggle TP set')
     send_command('bind ^f10 gs c reverse TP set')
     --other stuff, don't touch
     ShadowType = 'None'
+
+    text_setup()
+    addNewColors()
+    updateTable()
+end
+
+function addNewColors()
+    addTextColorPair("HighMP", "blue")
+    addTextColorPair("PDT", "yellow")
+    addTextColorPair("Standard", "green")
+end
+
+function updateTable()
+    addToTable("(F10) TP Set", sets.TP.index[TP_ind])
+    update_message()
 end
  
 --the following section looks at the weather/day to see if the Hachirin-no-Obi is worth using
@@ -532,4 +562,5 @@ function self_command(command)
                 send_command('@input /echo <----- TP Set changed to '..sets.TP.index[TP_ind]..' ----->')
                 equip_current()
         end
+        updateTable()
 end

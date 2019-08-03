@@ -187,7 +187,7 @@ function updateTable()
     addToTable("", "")
     addToTable("DEL", "Julika Ranged Attack")
     addToTable("END", "Julika Leaden Salute")
-    addToTable("PGDown", "Julika Last Stand")
+    addToTable("PGDown", "Julika Savage Blade")
     update_message()
 end
 -- --- Precast ---

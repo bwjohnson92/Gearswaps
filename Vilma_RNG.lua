@@ -223,12 +223,13 @@ function init_gear_sets()
         ------------------------------------------------------------------
         sets.precast.RA = {
             head="Amini Gapette +1", -- 5
+            neck="Scout's Gorget +1",
             body={name="Pursuer's Doublet", augments={'HP+50','Crit. hit rate+4%','"Snapshot"+6',}},-- 6
 			hands="Carmine Finger Gauntlets +1",
             back="Lutian Cape", -- 3
             legs="Pursuer's pants", -- 9
             waist="Impulse Belt", -- 2
-            feet="Meghanada Jambeaux +1",
+            feet="Meghanada Jambeaux +2",
         }
         
         ------------------------------------------------------------------
@@ -258,7 +259,7 @@ function init_gear_sets()
             head="Orion Beret +3",
             body="Orion Jerkin +2",
             hands="Mummu Wrists +1",
-            feet="Meghanada Jambeaux +1",
+            feet="Meghanada Jambeaux +2",
             neck= "Iskur Gorget",
             left_ring="Hajduk Ring",
             right_ring="Cacoethic Ring +1",
@@ -410,7 +411,7 @@ function init_gear_sets()
         -- Weaponskill sets  
         sets.precast.WS = {
             head="Orion Beret +3",
-            neck="Fotia Gorget",
+            neck="Scout's Gorget +1",
             ear1="Moonshade Earring",
             ear2="Enervating Earring",
             body=HerculeanBodyWS,
@@ -419,7 +420,7 @@ function init_gear_sets()
             ring2="Petrov Ring",
             back=BelenusWS,
             waist="Fotia Belt",
-            legs=HerculeanLegsWS, 
+            legs="Arcadian Braccae +2", 
             feet=HerculeanFeetWS
         }
         sets.precast.WS.Mid = set_combine(sets.precast.WS, {
@@ -431,9 +432,9 @@ function init_gear_sets()
         })
 
         sets.LastStand = {
-            back=BelenusTP,
+            back=BelenusWS,
             ear2="Ishvara Earring",
-            ring1="Ilabrat ring"
+            ring1="Ilabrat ring",
             ring2="Dingir Ring"
         }
 
@@ -453,11 +454,11 @@ function init_gear_sets()
             hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
             legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+20','Weapon skill damage +4%','INT+10',}},
             feet={ name="Herculean Boots", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','Weapon skill damage +4%','STR+7','Mag. Acc.+1','"Mag.Atk.Bns."+5',}},
-            neck="Sanctity Necklace",
-            waist="Yamabuki-no-obi",
+            neck="Scout's Gorget +1",
+            waist="Eschan Stone",
             left_ear="Friomisi Earring",
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-            left_ring="Shiva Ring +1",
+            left_ring="Ilabrat ring",
             right_ring="Dingir Ring",
             back=BelenusMW
         }
@@ -482,7 +483,7 @@ function init_gear_sets()
             feet="Thereoid Greaves",
             neck="Fotia Gorget",
             waist="Fotia Belt",
-            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +25',}},
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Sherida Earring",
             left_ring="Ilabrat Ring",
             right_ring="Begrudging Ring",
@@ -498,10 +499,10 @@ function init_gear_sets()
             body="Mummu Jacket +1",
             hands="Mummu Wrists +1",
             legs="Meghanada Chausses +2",
-            feet="Meg. Jam. +1",
+            feet="Meg. Jam. +2",
             neck="Marked Gorget",
             waist="Kwahu Kachina Belt",
-            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +25',}},
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Enervating Earring",
             left_ring="Paqichikaji Ring",
             right_ring="Cacoethic Ring +1",
@@ -607,6 +608,9 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         if state.CapacityMode.value then
             equip(sets.CapacityMantle)
         end
+        -- if (spell.name == "Last Stand") then
+        --     equip (sets.precast.WS.LastStand)
+        -- end
     end
 end
  

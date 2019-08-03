@@ -81,12 +81,12 @@ function get_sets()
 		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +2"}
 
 	sets.midcast.ElementalMagic = {main=currentWeapon,sub="Niobid Strap", ammo="Pemphredo Tathlum",
-		head="Archmage's Petasos +3",neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
+		head="Archmage's Petasos +3",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Friomisi Earring",
+		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Freke Ring",
 		back=TaranusINT,waist="Refoccilation Stone",legs="Amalric slops +1",feet="Amalric Nails +1"}
 		
 	sets.midcast.ElementalMagicHighMP = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
-		head=MerlinicHead, neck="Eddy Necklace",ear1="Etiolation Earring",ear2="Barkarole Earring",
+		head=MerlinicHead, neck="Sorcerer's Stole",ear1="Etiolation Earring",ear2="Barkarole Earring",
 		body="Spaekona's Coat +2",hands="Spaekona's gloves +3",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
@@ -99,7 +99,7 @@ function get_sets()
 	    hands="Jhakri Cuffs +2",
 	    legs=MerlinicLegs,
 	    feet="Archmage's Sabots +2",
-	    neck="Sanctity Necklace",
+	    neck="Sorcerer's Stole",
 	    waist="Refoccilation Stone",
 	    left_ear="Barkaro. Earring",
 	    right_ear="Digni. Earring",
@@ -132,9 +132,9 @@ function get_sets()
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
 		
 	sets.midcast.Cure = {main="Chatoyant Staff",sub="Achaq Grip",ammo="pemphredo tathlum",
-			neck="Lasaia Pendant",
-			body="Vanir Cotehardie",ring1="Sirona's Ring",ring2="Haoma's Ring",
-			waist="Cascade Belt",feet="Umbani Boots"}
+			neck="Fylgja Torque +1",
+			body="Merlinic Jubbah",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Haoma's Ring",
+			waist="Cascade Belt",legs="Nares Trews",feet="Vanya Clogs"}
 			
 	sets.JA.ManaWall = {back=TaranusMP, feet="Wicce Sabots +1"}
 	

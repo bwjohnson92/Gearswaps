@@ -16,6 +16,14 @@ defaults.yellow_R = 255
 defaults.yellow_G = 255
 defaults.yellow_B = 0
 
+defaults.blue_R = 0
+defaults.blue_G = 0
+defaults.blue_B = 255
+
+defaults.bluelite_R = 60
+defaults.bluelite_G = 60
+defaults.bluelite_B = 255
+
 defaults.pos_x = 0
 defaults.pos_y = 0
 defaults.font_size = 11
@@ -24,6 +32,8 @@ defaults.bg_alpha = 255
 green_col = "\\cs("..tostring(defaults.green_R)..","..tostring(defaults.green_G)..","..tostring(defaults.green_B)..")"
 red_col = "\\cs("..tostring(defaults.red_R)..","..tostring(defaults.red_G)..","..tostring(defaults.red_B)..")"
 yellow_col = "\\cs("..tostring(defaults.yellow_R)..","..tostring(defaults.yellow_G)..","..tostring(defaults.yellow_B)..")"
+blue_col = "\\cs("..tostring(defaults.blue_R)..","..tostring(defaults.blue_G)..","..tostring(defaults.blue_B)..")"
+bluelite_col = "\\cs("..tostring(defaults.bluelite_R)..","..tostring(defaults.bluelite_G)..","..tostring(defaults.bluelite_B)..")"
 
 white_col = "\\cs("..tostring(defaults.text_R)..","..tostring(defaults.text_G)..","..tostring(defaults.text_B)..")"
 
@@ -40,6 +50,8 @@ function setupColors()
 	colorMaps["yellow"] = yellow_col
 	colorMaps["green"] = green_col
 	colorMaps["red"] = red_col
+	colorMaps["blue"] = blue_col
+	colorMaps["bluelite"] = bluelite_col
 	colorMaps["white"] = white_col
 end
 
