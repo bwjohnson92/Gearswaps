@@ -17,17 +17,18 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 capeLocked = false
 weaponLocked = false
 
-Ragnarok = "Ragnarok"
-Chango = "Chango"
-Grip = "Utu Grip"
-
-CapeTP = {name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
-    
-CapeVitWS = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+3','Weapon skill damage +10%','Damage taken-5%',}}
-
 -- Start Functions here
 -- Gear Sets
 function get_sets()
+
+	Ragnarok = "Ragnarok"
+	Chango = "Chango"
+	Grip = "Utu Grip"
+
+	CapeTP = {name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
+	    
+	CapeVitWS = { name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+3','Weapon skill damage +10%','Damage taken-5%',}}
+
 
 	areas = {}
 	areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}

@@ -20,198 +20,197 @@ elements.use_on_single_conflict = false
 elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 
-capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}}
-capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+7','Weapon skill damage +10%',}}
-capeMeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
-
-
-
 -- Start Functions here
 -- Gear Sets
 function get_sets()
-sets.roll={
-    head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
-    body="Lanun Frac +1",
-    -- hands="Chasseur's Gants +1", --Chasseur's Gants
-    hands="Navarch's Gants +1",
-    legs="Lanun Culottes",
-    feet="Meg. Jam. +2",
-    -- neck="Regal Necklace",
-    waist="Chaac Belt",
-    left_ear="Etiolation Earring",
-    right_ear="Loquac. Earring",
-    left_ring="Luzaf's Ring",
-    right_ring="Barataria Ring",
-    back=capeTP, --AMBUSCADE
-}
 
-sets.Idle = {
-    -- main="Eletta Sword",
-    head="Herculean Helm",
-    body="Lanun Frac +1",
-    hands="Carmine finger gauntlets +1",
-    legs="Feast Hose",
-    feet="Skadi's Jambeaux +1",
-    neck="Loricate Torque +1",
-    waist="Chaac Belt",
-    left_ear="Etiolation Earring",
-    right_ear="Loquac. Earring",
-    left_ring="Defending Ring",
-    right_ring="Barataria Ring",
-    back="Repulse Mantle",
-}
+    capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}}
+    capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+7','Weapon skill damage +10%',}}
+    capeMeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
+    capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
 
-sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
-    head="Taeon Chapeau",
-    body="Laksamana's frac +1", --Need
-    -- body="Oshosi Vest",
-    hands="Carmine Finger Gauntlets +1",
-    waist="Yemaya Belt",
-    legs="Navarch's Culottes +1", --Need
-    feet="Meg. Jam. +2",
-    back="Navarch's Mantle",
-    neck="Commodore Charm",
-}
+    sets.roll={
+        head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
+        body="Lanun Frac +1",
+        -- hands="Chasseur's Gants +1", --Chasseur's Gants
+        hands="Navarch's Gants +1",
+        legs="Lanun Culottes",
+        feet="Meg. Jam. +2",
+        -- neck="Regal Necklace",
+        waist="Chaac Belt",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Luzaf's Ring",
+        right_ring="Barataria Ring",
+        back=capeTP, --AMBUSCADE
+    }
 
-sets.Melee = {
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body={ name="Herculean Vest", augments={'Accuracy+28','"Triple Atk."+4',}},
-    hands={ name="Herculean Gloves", augments={'Accuracy+19','"Triple Atk."+4','STR+3',}},
-    legs={ name="Herculean Trousers", augments={'Accuracy+13 Attack+13','"Triple Atk."+4','DEX+3','Attack+13',}},
-    feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
-    neck="Asperity Necklace",
-    waist="Windbuffet Belt +1",
-    left_ear="Suppanomimi",
-    right_ear="Telos Earring",
-    left_ring="Epona's Ring",
-    right_ring="Petrov Ring",
-    back=capeMeleeTP
-}
+    sets.Idle = {
+        -- main="Eletta Sword",
+        head="Herculean Helm",
+        body="Lanun Frac +1",
+        hands="Carmine finger gauntlets +1",
+        legs="Feast Hose",
+        feet="Skadi's Jambeaux +1",
+        neck="Loricate Torque +1",
+        waist="Chaac Belt",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Defending Ring",
+        right_ring="Barataria Ring",
+        back="Repulse Mantle",
+    }
 
-sets.RA = {}
-rangedSets = {'Standard', 'Acc'}
-rangedIndex = 1
+    sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
+        head="Taeon Chapeau",
+        body="Laksamana's frac +1", --Need
+        -- body="Oshosi Vest",
+        hands="Carmine Finger Gauntlets +1",
+        waist="Yemaya Belt",
+        legs="Navarch's Culottes +1", --Need
+        feet="Meg. Jam. +2",
+        back="Navarch's Mantle",
+        neck="Commodore Charm",
+    }
 
-sets.RA.Standard = { --RAcc and STP
-    head="Meghanada Visor +2",
-    body="Mummu Jacket +2",
-    -- hands="Adhemar Wristbands +1",
-    hands="Meghanada Gloves +2",
-    -- legs="Adhemar Kecks +1",
-    legs="Meghanada Chausses +2",
-    feet="Meg. Jam. +2",
-    neck="Ocachi gorget",
-    waist="Yemaya Belt",
-    left_ear="Enervating Earring",
-    right_ear="Telos Earring",
-    back=capeTP,
-    ring1="Rajas Ring",
-    ring2="Ilabrat Ring",
-}
+    sets.Melee = {
+        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body={ name="Herculean Vest", augments={'Accuracy+28','"Triple Atk."+4',}},
+        hands={ name="Herculean Gloves", augments={'Accuracy+19','"Triple Atk."+4','STR+3',}},
+        legs={ name="Herculean Trousers", augments={'Accuracy+13 Attack+13','"Triple Atk."+4','DEX+3','Attack+13',}},
+        feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
+        neck="Asperity Necklace",
+        waist="Windbuffet Belt +1",
+        left_ear="Suppanomimi",
+        right_ear="Telos Earring",
+        left_ring="Epona's Ring",
+        right_ring="Petrov Ring",
+        back=capeMeleeTP
+    }
 
-sets.RA.Acc = set_combine(sets.RA, { --RAcc and STP
-    -- body="Laksamana's Frac +1",
-    -- legs="Laksamana's Trews +3",
-    -- neck="Commodore Charm",
-    -- ring1="Hajduk Ring",
-    -- ring2="Hajduk Ring",
-    head="Meghanada Visor +2",
-    body="Meghanada Cuirie +2",
-    hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
-    feet="Meghanada Jambeaux +2",
-    neck="Sanctity Necklace",
-    waist="Yemaya Belt",
-    left_ear="Enervating Earring",
-    right_ear="Telos Earring",
-    left_ring="Cacoethic Ring",
-    right_ring="Regal Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}},
-})
+    sets.RA = {}
+    rangedSets = {'Standard', 'Acc'}
+    rangedIndex = 1
 
-sets.WS = {}
+    sets.RA.Standard = { --RAcc and STP
+        head="Meghanada Visor +2",
+        body="Mummu Jacket +2",
+        -- hands="Adhemar Wristbands +1",
+        hands="Meghanada Gloves +2",
+        -- legs="Adhemar Kecks +1",
+        legs="Meghanada Chausses +2",
+        feet="Meg. Jam. +2",
+        neck="Ocachi gorget",
+        waist="Yemaya Belt",
+        left_ear="Enervating Earring",
+        right_ear="Telos Earring",
+        back=capeTP,
+        ring1="Rajas Ring",
+        ring2="Ilabrat Ring",
+    }
 
-sets.WS.Generic = { --Generic Physical WS
-    head="Meghanada Visor +2",
-    body="Herculean Vest",
-    hands="Meghanada Gloves +2",
-    legs="Feast Hose",
-    feet="Meg. Jam. +2",
-    neck="Sanctity Necklace",
-    waist="Eschan Stone",
-    left_ear="Digni. Earring",
-    right_ear="Friomisi Earring",
-    ring1="Meghanada Ring",
-    ring2="Arvina Ringlet +1",
-    back=capeWS,
-}
+    sets.RA.Acc = set_combine(sets.RA, { --RAcc and STP
+        -- body="Laksamana's Frac +1",
+        -- legs="Laksamana's Trews +3",
+        -- neck="Commodore Charm",
+        -- ring1="Hajduk Ring",
+        -- ring2="Hajduk Ring",
+        head="Meghanada Visor +2",
+        body="Meghanada Cuirie +2",
+        hands="Meg. Gloves +2",
+        legs="Meg. Chausses +2",
+        feet="Meghanada Jambeaux +2",
+        neck="Sanctity Necklace",
+        waist="Yemaya Belt",
+        left_ear="Enervating Earring",
+        right_ear="Telos Earring",
+        left_ring="Cacoethic Ring",
+        right_ring="Regal Ring",
+        back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}},
+    })
 
-sets.WS.SavageBlade = {
-    head="Meghanada Visor +2",
-    neck="Caro Necklace",
-    ear1="Moonshade Earring",
-    ear2="Ishvara Earring",
-    body="Laksamana's Frac +3",
-    hands="Meg. Gloves +2",
-    ring1="Petrov Ring", --Shukuyu
-    ring2="Ilabrat Ring", --Rufescent 
-    back=capeMeleeWS,
-    waist="Prosilio Belt",
-    legs="Laksamana's Trews +3",
-    feet="Lanun Bottes +2",
-}
+    sets.WS = {}
 
-sets.WS.LeadenSalute = { --AGI Weaponskill
-    head="Pixie Hairpin +1",
-    -- body={ name="Herculean Vest", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Magic dmg. taken -2%','Mag. Acc.+12','"Mag.Atk.Bns."+12',}},
-    hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
-    body="Rawhide Vest",
-    -- legs=""
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
-    feet={ name="Lanun Bottes +1", augments={'Enhances "Wild Card" effect',}},
-    neck="Sanctity Necklace",
-    waist="Yemaya Belt",
-    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    right_ear="Friomisi Earring",
-    left_ring="Shiva Ring +1",
-    right_ring="Archon Ring",
-    back=capeWS,
-}
+    sets.WS.Generic = { --Generic Physical WS
+        head="Meghanada Visor +2",
+        body="Herculean Vest",
+        hands="Meghanada Gloves +2",
+        legs="Feast Hose",
+        feet="Meg. Jam. +2",
+        neck="Sanctity Necklace",
+        waist="Eschan Stone",
+        left_ear="Digni. Earring",
+        right_ear="Friomisi Earring",
+        ring1="Meghanada Ring",
+        ring2="Arvina Ringlet +1",
+        back=capeWS,
+    }
 
-sets.WS.LastStand = {
-    head="Lanun Tricorne +1",
-    neck="Fotia Gorget",
-    ear1="Moonshade Earring",
-    ear2="Ishvara Earring",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    ring1="Dingir Ring",
-    ring2="Apate Ring",
-    back="Camulus's Mantle",
-    waist="Fotia Belt",
-    legs="Meg. Chausses +2",
-    feet="Lanun Bottes +1"
-}
+    sets.WS.SavageBlade = {
+        head="Meghanada Visor +2",
+        neck="Caro Necklace",
+        ear1="Moonshade Earring",
+        ear2="Ishvara Earring",
+        body="Laksamana's Frac +3",
+        hands="Meg. Gloves +2",
+        ring1="Petrov Ring", --Shukuyu
+        ring2="Ilabrat Ring", --Rufescent 
+        back=capeMeleeWS,
+        waist="Prosilio Belt",
+        legs="Laksamana's Trews +3",
+        feet="Lanun Bottes +2",
+    }
 
-sets.FastCast = {
-    head="Carmine Mask",
-    body="Taeon Tabard",
-    feet="Carmine Greaves",
-    neck="Orunmila's Torque",
-    left_ear="Etiolation Earring",
-    right_ear="Loquac. Earring",
-    right_ring="Weather. Ring +1",
-}
+    sets.WS.LeadenSalute = { --AGI Weaponskill
+        head="Pixie Hairpin +1",
+        -- body={ name="Herculean Vest", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Magic dmg. taken -2%','Mag. Acc.+12','"Mag.Atk.Bns."+12',}},
+        hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+        body="Rawhide Vest",
+        -- legs=""
+        legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
+        feet={ name="Lanun Bottes +1", augments={'Enhances "Wild Card" effect',}},
+        neck="Sanctity Necklace",
+        waist="Yemaya Belt",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Shiva Ring +1",
+        right_ring="Archon Ring",
+        back=capeWS,
+    }
 
-sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
-sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +1"}
-sets.RandomDeal = {body="Lanun Frac +1"}
-sets.Fold = {hands="Lanun Gauntlets"}
-sets.SnakeEye = {legs="Lanun Culottes"}
-sets.WildCard = {feet="Lanun Bottes +1"}
+    sets.WS.LastStand = {
+        head="Lanun Tricorne +1",
+        neck="Fotia Gorget",
+        ear1="Moonshade Earring",
+        ear2="Ishvara Earring",
+        body="Meg. Cuirie +2",
+        hands="Meg. Gloves +2",
+        ring1="Dingir Ring",
+        ring2="Apate Ring",
+        back="Camulus's Mantle",
+        waist="Fotia Belt",
+        legs="Meg. Chausses +2",
+        feet="Lanun Bottes +1"
+    }
 
-sets.Luzaf = {ring1="Luzaf's Ring"}
+    sets.FastCast = {
+        head="Carmine Mask",
+        body="Taeon Tabard",
+        feet="Carmine Greaves",
+        neck="Orunmila's Torque",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        right_ring="Weather. Ring +1",
+    }
+
+    sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
+    sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +1"}
+    sets.RandomDeal = {body="Lanun Frac +1"}
+    sets.Fold = {hands="Lanun Gauntlets"}
+    sets.SnakeEye = {legs="Lanun Culottes"}
+    sets.WildCard = {feet="Lanun Bottes +1"}
+
+    sets.Luzaf = {ring1="Luzaf's Ring"}
 
     organizer_items = {
         echos="Echo Drops",

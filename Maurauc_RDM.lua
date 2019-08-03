@@ -25,16 +25,16 @@ PDTSet = false
 capeLocked = false
 weaponLocked = false
 
+-- Start Functions here
+-- Gear Sets
+function get_sets()
+
 staff="Raetic Staff +1"
 -- staff=GrioavolrEnfeeble
-
 
 MerlinicHoodAcc={name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}}
 SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Cure" potency +10%',}}
 SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
--- Start Functions here
--- Gear Sets
-function get_sets()
 
 	sets.precast = {}
 	sets.midcast = {}
@@ -53,9 +53,9 @@ function get_sets()
 	    ammo="Homiliary",
 	    head="Aya. Zucchetto +2",
 	    body="Ayanmo Corazza +2",
-	    hands="Aya. Manopolas +1",
+	    hands="Aya. Manopolas +2",
 	    legs="Aya. Cosciales +2",
-	    feet={ name="Carmine Greaves", augments={'HP+60','MP+60','Phys. dmg. taken -3',}},
+	    feet="Ayanmo Gambieras +2",
 	    neck="Loricate Torque +1",
 	    waist="Fucho-no-Obi",
 	    left_ear="Etiolation Earring",
@@ -105,12 +105,12 @@ function get_sets()
 		
 	sets.midcast.ElementalMagic = {main=staff,sub="Niobid Strap", ammo="Ghastly Tathlum +1",
 		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Novio Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
+		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosINT,waist="Yamabuki-no-obi",legs="Merlinic Shalwar",feet="Merlinic Crackows"}	
 
 	sets.midcast.ElementalMagicAcc = {main=staff,sub="Niobid Strap", ammo="Ghastly Tathlum +1",
 		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Novio Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
+		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosINT,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}	
 	
 	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})

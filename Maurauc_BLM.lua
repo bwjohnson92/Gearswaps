@@ -16,13 +16,6 @@ PDTSet = false
 capeLocked = false
 weaponLocked = false
 
-MerlinicHoodBurst = { name="Merlinic Hood", augments={'"Mag.Atk.Bns."+6','Magic burst dmg.+9%','INT+3','Mag. Acc.+15',}}
-
-MerlinicBodyBurst = {name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+29','Magic burst dmg.+7%','Mag. Acc.+9',}}
-
-MerlinicFeetBurst = {  name="Merlinic Crackows", augments={'Mag. Acc.+8','Magic burst dmg.+11%','MND+7','"Mag.Atk.Bns."+8',}}
-
-
 toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","Periqia","Ilrusi Atoll",
         "Nyzul Isle","Bhaflau Remnants","Arrapago Remnants","Silver Sea Remnants","Zhayolm Remnants"}
 
@@ -36,13 +29,18 @@ elements.use_on_single_conflict = false
 elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 
-TaranusNuke = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
-TaranusMP = {name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
-
 -- Start Functions here
 -- Gear Sets
 function get_sets()
     
+    MerlinicHoodBurst = { name="Merlinic Hood", augments={'"Mag.Atk.Bns."+6','Magic burst dmg.+9%','INT+3','Mag. Acc.+15',}}
+
+    MerlinicBodyBurst = {name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+29','Magic burst dmg.+7%','Mag. Acc.+9',}}
+
+    MerlinicFeetBurst = {  name="Merlinic Crackows", augments={'Mag. Acc.+8','Magic burst dmg.+11%','MND+7','"Mag.Atk.Bns."+8',}}
+    TaranusNuke = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
+    TaranusMP = {name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
+
     sets.Reive = {neck="Arciela's Grace +1"}
     sets.Idle = {}
     sets.precast = {}
@@ -55,6 +53,10 @@ function get_sets()
         main = "Lathi",
         sub = "Raetic Staff +1",
         ammo = "Grioavolr"
+    }
+
+    sets.Melee = {
+        head="Jhakri"
     }
 
     sets.Idle.PDT = {main="Earth Staff", ammo="Vanir Battery",
@@ -76,7 +78,7 @@ function get_sets()
         
     sets.precast.FastCast = {
         head="Nahtirah Hat" ,neck="Voltsurge Torque", ear1="Etiolation Earring", ear2="Loquacious Earring",
-        body="Anhur Robe",hands="Merlinic Dastanas", ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
+        body="Eirene's Manteel",hands="Merlinic Dastanas", ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
         back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas", feet=MerlinicFeetNuke}
 
     sets.precast.FastCastHighMP = set_combine(sets.precast.FastCast, {
@@ -85,12 +87,12 @@ function get_sets()
     sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
 
     sets.midcast.EnfeeblingMagic = {sub="Mephitis Grip",ammo="Pemphredo Tathlum",
-        head=MerlinicHoodNuke,neck="Voltsurge Torque",ear1="Digni. Earring",ear2="Barkarole Earring",
+        head=MerlinicHoodNuke,neck="Sorcerer's Stole",ear1="Digni. Earring",ear2="Barkarole Earring",
         body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
         back=TaranusNuke,waist="Rumination Sash",legs="Psycloth Lappas",feet="Skaoi Boots"}
 
     sets.midcast.ElementalMagic = {sub="Niobid Strap", ammo="Pemphredo Tathlum",
-        head={ name="Arch. Petasos +3", augments={'Increases Ancient Magic II damage',}},neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
+        head={ name="Arch. Petasos +3"},neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Friomisi Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
         back=TaranusNuke,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
@@ -102,14 +104,14 @@ function get_sets()
         hands="Ea Cuffs",
         legs=MerlinicLegsNuke,
         feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
-        neck="Sanctity Necklace", waist="Yamabuki-no-obi",
+        neck="Sorcerer's Stole", waist="Yamabuki-no-obi",
         left_ear="Barkaro. Earring", right_ear="Digni. Earring",
         ring2="Weather. Ring +1",ring1="Stikini Ring",
         back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
     }
 
     sets.midcast.ElementalMagicHighMP = {sub="Niobid Strap", ammo="Strobilus",
-        head={ name="Arch. Petasos +3", augments={'Increases Ancient Magic II damage',}}, neck="Eddy Necklace",ear1="Etiolation Earring",ear2="Barkarole Earring",
+        head={ name="Arch. Petasos +3"}, neck="Eddy Necklace",ear1="Etiolation Earring",ear2="Barkarole Earring",
         body="Spaekona's Coat +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
 
@@ -149,7 +151,7 @@ function get_sets()
         back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
     
     sets.midcast.DeathHighMPMB = {main="Lathi",sub="Niobid Strap", ammo="Strobilus",
-        head="Pixie Hairpin +1",neck="Mizukage-no-Kubikazari",ear1="Etiolation Earring",ear2="Barkarole Earring",
+        head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Etiolation Earring",ear2="Barkarole Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric slops +1",feet="Amalric Nails +1"}
         

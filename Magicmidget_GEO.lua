@@ -146,7 +146,7 @@ function get_sets()
 	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
 	    feet="Jhakri Pigaches +1",
 	    neck="Deviant Necklace",
-	    waist="Isa Belt",
+	    waist="Refpccilation Stone",
 	    left_ear="Friomisi Earring",
 	    right_ear="Barkaro. Earring",
 	    left_ring="Shiva Ring",
@@ -181,10 +181,10 @@ function get_sets()
 	--	body="Orison Bliaud +2",hands="Orison Mitts +2",
 	--	back="Swith Cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
 
-	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Plumose Sachet",
+	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
 			head="Gendewitha Caubeen",neck="Fylgja Torque",lear="Novia Earring",
-			hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
-			back="Pahtli Cape",waist="Porous Rope",legs="Gyve Trousers",feet="Umbani Boots"}
+			body="Annointed Kalasiris",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
+			back="Pahtli Cape",waist="Porous Rope",legs="Gyve Trousers",feet="Medium's Sabot"}
 		
 	sets.TH = {waist="Chaac Belt"}
 

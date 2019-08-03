@@ -70,7 +70,7 @@ function get_sets()
         feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
         neck="Sanctity Necklace", waist="Yamabuki-no-obi",
         left_ear="Barkaro. Earring", right_ear="Digni. Earring",
-        ring2="Weather. Ring +1",ring1="Stikini Ring",
+        ring2="Freke Ring",ring1="Weatherspoon Ring +1",
         back="Toro Cape"
     }
     
