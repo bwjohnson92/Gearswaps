@@ -212,6 +212,8 @@ function get_sets()
 		equip(sets.Idle.Standard)
 		end)
 
+	sets.Aspir = set_combine(sets.midcast.EnfeeblingMagic, {ring1="Archon Ring"})
+
 	send_command('bind f12 gs c switch pdt')
 
 	text_setup()
@@ -297,7 +299,7 @@ function midcast(spell)
 		elseif string.find(spell.skill,'Elemental Magic') then
 			set = use_obi(spell, sets.midcast.ElementalMagic)
 		elseif string.find(spell.skill,'Dark Magic') then
-			set = use_obi(spell, sets.midcast.EnfeeblingMagic, {})
+			set = use_obi(spell, sets.Aspir, {})
 		else
 			set = set_combine(sets.precast.FastCast, {})
 		end

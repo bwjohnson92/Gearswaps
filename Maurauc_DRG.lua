@@ -25,9 +25,15 @@ weaponLocked = false
 -- Gear Sets
 function get_sets()
 
-	Ragnarok = "Ragnarok"
+	Trishula = "Trishula"
 	Chango = "Chango"
 	Grip = "Utu Grip"
+
+	AFHead = "Vishap Armet +1"
+	AFBody = "Vishap Mail +1"
+	AFHands = "Vishap Finger Gauntlets +1"
+	AFLegs = "Vishap Brais +1"
+	AFFeet = "Vishap Greaves +1"
 
 	CapeTP = {name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
 	    
@@ -52,14 +58,14 @@ function get_sets()
 --	    hands={ name="Odyssean Gauntlets", augments={'Accuracy+25 Attack+25','Weapon Skill Acc.+3','DEX+5','Accuracy+1','Attack+12',}},
 --		hands="Emicho Gauntlets",
 		hands="Sulevia's Gauntlets +2",
-	    legs="Pummeler's Cuisses +3",
-	    feet="Pummeler's Calligae +3",
+	    legs="Sulevia's Cuisses +2",
+	    feet="Flamma Gambieras +2",
 	    neck="Lissome Necklace",
 	    right_ear="Brutal Earring",
 	    left_ear="Cessance Earring",
 	    left_ring="Flamma Ring",
 	    right_ring="Niqmaddu Ring",
-	    back=CapeTP,
+	    back="Mecistopins Mantle",
 	    waist="Ioskeha Belt"
 	}
 
@@ -116,148 +122,40 @@ function get_sets()
 
 	sets.WS = {
 	    ammo="Knobkierrie",
-	    head="Sulevia's Mask +2",
-	    body="Dagon Breastplate",
-	    hands="Sulevia's Gauntlets +2",
-	    legs="Sulevia's Cuisses +2",
-	    feet="Sulevia's Leggings +2",
+	    head="Flam. Zucchetto +2",
+	    body="Dagon Breast.",
+	    hands="Sulev. Gauntlets +2",
+	    legs="Sulevia Cuisses +2",
+	    feet="Sulev. Leggings +2",
 	    neck="Fotia Gorget",
 	    waist="Fotia Belt",
-	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	    right_ear="Ishvara Earring",
-	    left_ring="Regal Ring",
-	    right_ring="Niqmaddu Ring",
+	    left_ear="Sherida Earring",
+	    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	    left_ring="Niqmaddu Ring",
+	    right_ring="Regal Ring",
 	}
 
 	sets.Impulse = {
 	    main="Shining One",
 	    sub="Utu Grip",
 	    ammo="Knobkierrie",
-	    head={ name="Agoge Mask +2", augments={'Enhances "Savagery" effect',}},
-	    body="Pumm. Lorica +3",
-	    hands={ name="Odyssean Gauntlets", augments={'Attack+27','Accuracy+8','Weapon skill damage +6%','Mag. Acc.+19 "Mag.Atk.Bns."+19',}},
-	    legs={ name="Odyssean Cuisses", augments={'Potency of "Cure" effect received+3%','Weapon skill damage +4%','Accuracy+18 Attack+18',}},
+	    head="Flam. Zucchetto +2",
+	    body="Dagon Breast.",
+	    hands="Sulev. Gauntlets +2",
 	    feet="Sulev. Leggings +2",
-	    neck="War. Beads +1",
+	    neck="Fotia Gorget",
 	    waist="Metalsinger Belt",
 	    left_ear="Ishvara Earring",
 	    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	    left_ring="Niqmaddu Ring",
 	    right_ring="Regal Ring",
-	    back=CapeWS
 	}
 
--- 	sets.WS.Upheaval = {
--- 	    ammo="Knobkierrie",
--- 		head="Flamma Zucchetto +2",
--- 	    body="Dagon Breastplate",
--- 	    hands="Sulevia's Gauntlets +2",
--- 	    legs="Pummeler's Cuisses +3",
--- 	    feet="Sulevia's Leggings +2",
--- 	    neck="Fotia Gorget",
--- 	    -- waist="Fotia Belt",
--- 	    waist="Ioskeha Belt",
--- 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
--- 	    right_ear="Brutal Earring",
--- 	    left_ring="Regal Ring",
--- 	    right_ring="Niqmaddu Ring",
--- 	    back=CapeWS
--- 	}
-
-	sets.WS.Upheaval = {
-	    ammo="Knobkierrie",
-	    head="Agoge Mask +2",
-	    neck="Fotia Gorget",
-	    ear1="Moonshade Earring",
-	    ear2="Telos Earring",
-	    body="Pumm. Lorica +3",
-	    hands="Sulev. Gauntlets +2",
-	    ring1="Niqmaddu Ring",
-	    ring2="Regal Ring",
-	    back=CapeWS,
-	    waist="Fotia Belt",
-	    legs="Sulev. Cuisses +2",
-	    feet="Pumm. Calligae +3"
-	}
-
-	sets.WS.Upheaval.HighTP = set_combine(sets.WS.Upheaval, {
-		neck="War. Beads +1",
-		hands="Odyssean Gauntlets",
-		legs="Odyssean Cuisses",
-		feet="Sulevia's Leggings +2",
-		ear2="Ishvara Earring"
-	})
-
-	sets.WS.Upheaval.Mid = set_combine(sets.WS.Upheaval, {
-		right_ear="Telos Earring",
-		legs="Pummeler's Cuisses +3",
-		feet="Pummeler's Calligae +3"
-	})
-
-	-- sets.TP.GS =  {
-	--     ammo="Ginsen",
-	--     head="Flam. Zucchetto +2",
-	--     neck="Lissome Necklace",
-	--     ear1="Brutal Earring",
-	--     ear2="Cessance Earring",
-	--     body="Valorous Mail",
-	--     hands="Sulev. Gauntlets +2",
-	--     --ring1="Niqmaddu Ring",
-	--     ring1="Regal Ring",
-	--     ring2="Flamma Ring",
-	--     back=CapeTP,
-	--     waist="Ioskeha Belt",
-	--     legs="Pumm. Cuisses +3",
-	--     feet="Pumm. Calligae +3"
-	-- }
-
-	-- sets["HighEndResolution"] = { --The ultimate goal
-	--     ammo="Seeth. Bomblet +1",
-	--     head="Flam. Zucchetto +2",
-	--     neck="Fotia Gorget",
-	--     ear1="Cessance Earring",
-	--     ear2="Moonshade Earring",
-	--     body="Argosy Hauberk +1",
-	--     hands="Argosy Mufflers +1",
-	--     ring1="Regal Ring",
-	--     ring2="Niqmaddu Ring",
-	--     back=CapeTP,
-	--     waist="Fotia Belt",
-	--     legs="Argosy Breeches +1",
-	--     feet="Flam. Gambieras +2"
-	-- }
-
-	-- sets["MontaWS"] = { --A good start
-	--     ammo="Knobkierrie",
-	--     head="Flam. Zucchetto +2",
-	--     neck="Fotia Gorget",
-	--     ear1="Moonshade Earring",
-	--     ear2="Brutal Earring",
-	--     body="Pumm. Lorica +2",
-	--     hands="Sulev. Gauntlets +2",
-	--     ring1="Flamma Ring",
-	--     ring2="Regal Ring",
-	--     back=CapeTP,
-	--     waist="Fotia Belt",
-	--     legs="Pumm. Cuisses +3",
-	--     feet="Pumm. Calligae +3"
-	-- }
-
-	sets.Aggressor = {
-		head="Pummeler's Mask +1"
-	}
-
-	sets.Berserk = {
-		body="Pummeler's Lorica +3",
-		feet="Agoge Calligae"
-	}
-
-	sets.MightyStrikes = {
-		hands="Agoge Mufflers"
-	}
-
-	sets.Warcry = {
-		head="Agoge Mask +2"
+	sets.Jump = {
+		body=AFBody,
+		hands=AFHands,
+		legs=AFLegs,
+		feet=AFFeet
 	}
 
 	sets.Reraise = {
@@ -291,14 +189,7 @@ end
 -- --- Precast ---
 
 function precast(spell)
-	if spell.english == 'Upheaval' then
-		add_to_chat(140,'Upheaval')
-		if (player.tp < 1250) then 
-			equip(sets.WS.Upheaval)
-		else
-			equip(sets.WS.Upheaval.HighTP)
-		end
-	elseif spell.english == "Impulse Drive" then
+	if spell.english == "Impulse Drive" then
 		equip(sets.Impulse)
 		add_to_chat(140,'Impulse!')
 	elseif spell.action_type == 'WeaponSkill' then	
@@ -306,20 +197,8 @@ function precast(spell)
 			equip(sets.WS)
 	end
 
-	if spell.english == 'Aggressor' then
-		equip(sets.Aggressor)
-	end
-
-	if spell.english == 'Berserk' then
-		equip(sets.Berserk)
-	end
-
-	if spell.english == 'Mighty Strikes' then
-		equip(sets.MightyStrikes)
-	end
-
-	if spell.english == 'Warcry' then
-		equip(sets.Warcry)
+	if string.find(spell.english, "Jump") then
+		equip(sets.Jump)
 	end
 end
 -- --- MidCast ---

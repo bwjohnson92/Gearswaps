@@ -22,6 +22,9 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 
 -- Start Functions here
 -- Gear Sets
+wsHerc= {name="Herculean Boots", augments={'Accuracy+1','Pet: DEX+4','Weapon skill damage +7%','Accuracy+13 Attack+13','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
+
+
 function get_sets()
 
     capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}}
@@ -36,21 +39,21 @@ function get_sets()
         hands="Navarch's Gants +1",
         legs="Lanun Culottes",
         feet="Meg. Jam. +2",
-        -- neck="Regal Necklace",
+        neck="Regal Necklace",
         waist="Chaac Belt",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
-        left_ring="Luzaf's Ring",
+        -- left_ring="Luzaf's Ring",
         right_ring="Barataria Ring",
         back=capeTP, --AMBUSCADE
     }
 
     sets.Idle = {
         -- main="Eletta Sword",
-        head="Herculean Helm",
+        -- head="Herculean Helm",
         body="Lanun Frac +1",
         hands="Carmine finger gauntlets +1",
-        legs="Feast Hose",
+        -- legs="Feast Hose",
         feet="Skadi's Jambeaux +1",
         neck="Loricate Torque +1",
         waist="Chaac Belt",
@@ -63,21 +66,21 @@ function get_sets()
 
     sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
         head="Taeon Chapeau",
-        body="Laksamana's frac +1", --Need
+        body="Laksamana's frac +2", --Need
         -- body="Oshosi Vest",
         hands="Carmine Finger Gauntlets +1",
         waist="Yemaya Belt",
-        legs="Navarch's Culottes +1", --Need
+        legs="Adhemar Kecks +1",
         feet="Meg. Jam. +2",
-        back="Navarch's Mantle",
+        --back="Navarch's Mantle",
         neck="Commodore Charm",
     }
 
     sets.Melee = {
-        head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body={ name="Herculean Vest", augments={'Accuracy+28','"Triple Atk."+4',}},
-        hands={ name="Herculean Gloves", augments={'Accuracy+19','"Triple Atk."+4','STR+3',}},
-        legs={ name="Herculean Trousers", augments={'Accuracy+13 Attack+13','"Triple Atk."+4','DEX+3','Attack+13',}},
+        head={ name="Adhemar Bonnet +1"},
+        body="Adhemar Jacket +1",
+        hands="Adhemar Wristbands +1",
+        legs="Adhemar Kecks +1",
         feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
         neck="Asperity Necklace",
         waist="Windbuffet Belt +1",
@@ -110,7 +113,7 @@ function get_sets()
     }
 
     sets.RA.Acc = set_combine(sets.RA, { --RAcc and STP
-        -- body="Laksamana's Frac +1",
+        -- body="Laksamana's Frac +2",
         -- legs="Laksamana's Trews +3",
         -- neck="Commodore Charm",
         -- ring1="Hajduk Ring",
@@ -135,7 +138,7 @@ function get_sets()
         head="Meghanada Visor +2",
         body="Herculean Vest",
         hands="Meghanada Gloves +2",
-        legs="Feast Hose",
+        -- legs="Feast Hose",
         feet="Meg. Jam. +2",
         neck="Sanctity Necklace",
         waist="Eschan Stone",
@@ -147,33 +150,34 @@ function get_sets()
     }
 
     sets.WS.SavageBlade = {
-        head="Meghanada Visor +2",
+        head="Lilitu Headpiece",
         neck="Caro Necklace",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
-        body="Laksamana's Frac +3",
+        body="Laksamana's Frac +2",
         hands="Meg. Gloves +2",
-        ring1="Petrov Ring", --Shukuyu
-        ring2="Ilabrat Ring", --Rufescent 
+        ring1="Rufescent Ring", --Shukuyu
+        ring2="Regal Ring", --Rufescent 
         back=capeMeleeWS,
         waist="Prosilio Belt",
-        legs="Laksamana's Trews +3",
-        feet="Lanun Bottes +2",
+        legs="Meghanada Chausses +2",
+        feet=wsHerc,
     }
 
     sets.WS.LeadenSalute = { --AGI Weaponskill
         head="Pixie Hairpin +1",
         -- body={ name="Herculean Vest", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Magic dmg. taken -2%','Mag. Acc.+12','"Mag.Atk.Bns."+12',}},
         hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
-        body="Rawhide Vest",
+        -- body="Rawhide Vest",
+        body="Laksamana's Frac +2",
         -- legs=""
         legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
-        feet={ name="Lanun Bottes +1", augments={'Enhances "Wild Card" effect',}},
+        feet=wsHerc,
         neck="Sanctity Necklace",
         waist="Yemaya Belt",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
-        left_ring="Shiva Ring +1",
+        left_ring="Dingir Ring",
         right_ring="Archon Ring",
         back=capeWS,
     }
@@ -196,8 +200,10 @@ function get_sets()
     sets.FastCast = {
         head="Carmine Mask",
         body="Taeon Tabard",
+        hands="Leyline Gloves",
+        legs="Carmine Cuisses +1",
         feet="Carmine Greaves",
-        neck="Orunmila's Torque",
+        neck="Voltsurge Torque",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         right_ring="Weather. Ring +1",
@@ -206,12 +212,12 @@ function get_sets()
     sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
     sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +1"}
     sets.RandomDeal = {body="Lanun Frac +1"}
-    sets.Fold = {hands="Lanun Gauntlets"}
-    sets.SnakeEye = {legs="Lanun Culottes"}
+    sets.Fold = {}--{hands="Lanun Gauntlets"}
+    sets.SnakeEye = {}--{legs="Lanun Culottes"}
     sets.WildCard = {feet="Lanun Bottes +1"}
 
-    sets.Luzaf = {ring1="Luzaf's Ring"}
-
+    -- sets.Luzaf = {ring1="Luzaf's Ring"}
+sets.Luzaf = {}
     organizer_items = {
         echos="Echo Drops",
         holy="Holy Water",
@@ -236,6 +242,8 @@ sets.QuickDraw = set_combine(sets.WS.LeadenSalute, {
     ring2="Weatherspoon Ring +1"
     })
 
+    sets.midcast_ElementalDay = {waist="Hachirin-no-obi"}
+
     -- send_command('bind f10 gs c toggle RA set')
 
 end
@@ -253,13 +261,15 @@ function precast(spell)
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
+    elseif (spell.english == "Double Up") then
+        equip(sets.Luzaf)
     end
 
     if spell.action_type == 'Ranged Attack' then
         equip(sets.preshot)
     elseif spell.type:lower() == 'weaponskill' then
         if (spell.english == "Leaden Salute") then
-        	equip(sets.WS.LeadenSalute)
+        	equip(use_obi(spell, sets.WS.LeadenSalute))
         elseif (spell.english == "Wildfire") then
         	equip(sets.WS.LeadenSalute)
         elseif (spell.english == "Last Stand") then
@@ -275,7 +285,8 @@ function precast(spell)
     if string.find(spell.english, ' Shot') then
         equip(sets.QuickDraw)
     end
-    if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
+    if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') or string.find(spell.type, "Ninjutsu") then
+        add_to_chat(140, "Casting")
         equip(sets.FastCast)
     end
 end
@@ -291,6 +302,8 @@ function midcast(spell)
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
+    elseif (spell.english == "Double Up") then
+        equip(sets.Luzaf)
     end
     if spell.action_type == 'Ranged Attack' then
         equip(sets.RA[rangedSets[rangedIndex]])
@@ -373,6 +386,9 @@ end
 
 function use_obi(spell, equip_set)
     local use_obi = false
+    if (spell.name == "Leaden Salute") then
+        spell.element = "Dark"
+    end
     -- first check to see if any elemental obi rule matches
     if(S{world.day_element, world.weather_element}:contains(spell.element)) then
             -- If at least one matches, try to find out if there is also a weak element involved

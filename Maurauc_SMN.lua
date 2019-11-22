@@ -1,4 +1,5 @@
  include('Maur_SMN_Gearsets.lua')
+ include('organizer-lib.lua')
  require('closetCleaner')   
  -- Blood Pacts Groupings:	
 --[[

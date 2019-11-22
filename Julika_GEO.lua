@@ -54,7 +54,7 @@ function get_sets()
     sub="Genmei Shield",
     head="Azimuth Hood +1",
     body={ name="Telchine Chas.", augments={'Pet: DEF+5','Pet: "Regen"+2',}},
-    hands="Geomancy mittaines +1",
+    hands="Geomancy Mitaines +1",
     legs={ name="Telchine Braconi", augments={'Pet: "Regen"+3',}},
     feet={ name="Bagua Sandals +1", augments={'Enhances "Radial Arcana" effect',}},
     neck="Twilight Torque",
@@ -89,7 +89,7 @@ function get_sets()
 		
 	sets.midcast.EnfeeblingMagic = {main="Grioavolr",sub="Clerisy Strap",ammo="Hydrocera",
 		head="Merlinic Hood",neck="Incanter's torque",ear1="Enchanter Earring +1",ear2="Gwati Earring",
-		body="Merlinic Jubbah",hands="EmpyHands",ring1="Stikini Ring",ring2="Stikini Ring",
+		body="Merlinic Jubbah",hands=EmpyHands,ring1="Stikini Ring",ring2="Stikini Ring",
 		back="Lifestream Cape",waist="Yamabuki-no-Obi",legs=EmpyLegs,feet="Merlinic Crackows"}
 
 	sets.midcast.ElementalMagic = {main="Grioavolr",sub="Niobid Strap", ammo="Hydrocera",

@@ -27,27 +27,27 @@ function get_sets()
 
 	sets.Idle = {}
 	sets.Idle.index = {"Standard", "DT", "Move"}
-	sets.Idle.Standard =  {
-		main={ name="Queller Rod", augments={'MP+80','"Cure" potency +15%','Enmity-5',}},
-	    sub={ name="Genbu's Shield", augments={'"Cure" potency +3%','Light resistance+9','Mag. Acc.+5',}},
-	    ammo="Homiliary",
-	    head="Befouled Crown",
-	    body={ name="Witching Robe", augments={'MP+50','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Refresh"+1',}},
-	    hands="Serpentes Cuffs",
-	    legs="Assid. Pants +1",
-	    feet="Serpentes Sabots",
-	    neck="Loricate Torque +1",
-	    waist="Fucho-no-Obi",
-	    left_ear="Etiolation Earring",
-	    right_ear="Enervating Earring",
-	    left_ring="Defending Ring",
-	    right_ring="Fortified Ring",
-	    back="Repulse Mantle"
-	}
+	sets.Idle.Standard = {
+    main={ name="Queller Rod", augments={'Healing magic skill +14','"Cure" potency +9%','"Cure" spellcasting time -7%',}},
+    sub="Ammurapi Shield",
+    ammo="Homiliary",
+    head="Befouled Crown",
+    body={ name="Witching Robe", augments={'MP+5','"Refresh"+1',}},
+    hands="Aya. Manopolas +2",
+    legs="Assid. Pants +1",
+    feet="Aya. Gambieras +2",
+    neck="Loricate Torque +1",
+    waist="Fucho-no-Obi",
+    left_ear="Etiolation Earring",
+    right_ear="Enervating Earring",
+    left_ring="Defending Ring",
+    right_ring="Gelatinous Ring +1",
+    back="Repulse Mantle",
+}
 
 	sets.Idle.DT = {
-	    main="Bolelabunga",
-	    sub={ name="Genbu's Shield", augments={'"Cure" potency +3%','Light resistance+9','Mag. Acc.+5',}},
+	    main="Daybreak",
+	    sub="Ammurapi Shield",
 	    ammo="Staunch Tathlum",
 	    head="Inyanga Tiara +2",
 	    body="Ayanmo Corazza +2",
@@ -65,13 +65,24 @@ function get_sets()
 
 	sets.Idle.Move = set_combine(sets.Idle.Standard,{feet="Herald's Gaiters"})
 	
-	sets.precast.FastCast = {ammo="Incantor Stone",
-		head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquacious Earring",
-		body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring2="Prolix Ring",
-		back="Alaunus's Cape", waist="Witful Belt"}
+	sets.precast.FastCast = {
+	    main={ name="Queller Rod", augments={'Healing magic skill +14','"Cure" potency +9%','"Cure" spellcasting time -7%',}},
+	    sub={ name="Genbu's Shield", augments={'"Cure" potency +2%','"Cure" spellcasting time -8%',}},
+	    ammo="Incantor Stone",
+	    head="Nahtirah Hat",
+	    body="Shango Robe",
+	    hands={ name="Telchine Gloves", augments={'"Fast Cast"+2','Enh. Mag. eff. dur. +7',}},
+	    legs="Aya. Cosciales +2",
+	    feet={ name="Medium's Sabots", augments={'MP+35','MND+7','"Cure" potency +1%',}},
+	    neck="Voltsurge Torque",
+	    left_ear="Nourish. Earring",
+	    right_ear="Loquac. Earring",
+	    right_ring="Weather. Ring +1",
+	    back="Swith Cape",
+	}
 	
 	sets.precast.FastCure = set_combine(sets.precast.FastCast, {
-		legs="Ebers Pantaloons +1",feet="Kaykaus Boots"}
+		legs="Orison Pantaloons +2",feet="Kaykaus Boots"}
 	)
 
 	sets.midcast.EnfeeblingMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
@@ -80,36 +91,36 @@ function get_sets()
 		back="Alaunus's Cape",waist="Rumination Sash", legs="Theophany Pantaloons +2",feet="Skaoi Boots"}
 
 	sets.midcast.BarSpells_Solace = {main="Beneficus",
-		head="Ebers Cap +1",neck="Colossus's Torque",
-		body="Ebers Bliaud +1",hands="Ebers Mitts +1",ring1="Kishar Ring",ring2="Stikini Ring",
-		waist="Cascade Belt",legs="Piety Pantaloons +1",feet="Ebers Duckbills +1"}
+		head="Orison Cap +2",neck="Colossus's Torque",
+		body="Orison Bliaud +2",hands="Orison Mitts +1",ring1="Kishar Ring",ring2="Stikini Ring",
+		waist="Cascade Belt",legs="Piety Pantaloons +1",feet="Orison Duckbills +2"}
 	--sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Briault"})
 
 	sets.midcast.EnhancingMagic = {main="Gada", sub="Ammurapi Shield", ammo="Incantor Stone",
 		head="Befouled Crown",neck="Colossus's Torque",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Gendewitha Bliaut",hands="Gendewitha Gages +1",ring2="Prolix Ring",
-		back="Swith Cape",waist="Cascade Belt",legs="Piety Pantaloons +1",feet="Ebers Duckbills +1"}
+		back="Swith Cape",waist="Cascade Belt",legs="Piety Pantaloons +1",feet="Orison Duckbills +2"}
 
 	sets.midcast.Regen = set_combine(sets.precast.FastCast, {
-		main="Bolelabunga", sub="Ammurapi Shield",
+		main="Daybreak", sub="Ammurapi Shield",
 		head="Inyanga Tiara +2",body="Piety Briault +1",
-		hands="Ebers Mitts +1",legs="Theophany pantaloons +2"})
+		hands="Orison Mitts +1",legs="Theophany pantaloons +2"})
 	
 	sets.midcast.Auspice = {feet="Orison Duckbills +2"}
 	
 	sets.midcast.Cursna = {main="Yagrush",
 		head="Nahtirah Hat",neck="debilis medallion", ear1= "Healing Earring", ear2="Beatific Earring",
-		body="Ebers Bliaud +1",hands="Fanatic Gloves",ring1="Menelaus's ring", ring2="Haoma's ring",
+		body="Orison Bliaud +2",hands="Fanatic Gloves",ring1="Menelaus's ring", ring2="Haoma's ring",
 		back="Mending cape",waist="Bishop's Sash",legs="Theophany Pantaloons +2",feet="Gendewitha Galoshes"	}
 		
 	sets.midcast.DebuffRemoval = {
 		main="Yagrush",
 		head="Nahtirah Hat", neck="Cleric's Torque",ear2="Loquacious Earring",
-		body="Ebers Bliaud +1",hands="Ebers Mitts +1",
+		body="Orison Bliaud +2",hands="Orison Mitts +1",
 		back="Swith Cape",waist="Witful Belt",legs="Theophany Pantaloons +2",feet='Gendewitha Galoshes'	}
 
 	sets.midcast.DivineCaress = set_combine(sets.midcast.DebuffRemoval, {
-		hands="Ebers Mitts +1",
+		hands="Orison Mitts +1",
 		back="Mending Cape"
 	})
 
@@ -123,15 +134,25 @@ function get_sets()
 		left_ring="Defending Ring"
 	}
 
-	sets.Cure.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
-			head="Ebers Cap +1",neck="Lasaia Pendant",ear1="Glorious Earring",ear2="Nourishing Earring",--10% 3%--
-			body="Ebers Bliaud +1",hands="Theophany Mitts +2",ring1="Janniston ring +1",ring2="Sirona's Ring", --13%--
-			back="Alaunus's Cape",waist="Cascade Belt",legs="Ebers Pantaloons +1",feet="Kaykaus Boots"}
+	sets.Cure.Standard = {
+	    main={ name="Queller Rod", augments={'Healing magic skill +14','"Cure" potency +9%','"Cure" spellcasting time -7%',}},
+	    ammo="Pemphredo Tathlum",
+	    head="Orison Cap +2",
+	    body="Orison Bliaud +2",
+	    hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
+	    legs="Orsn. Pantaln. +2",
+	    feet={ name="Medium's Sabots", augments={'MP+35','MND+7','"Cure" potency +1%',}},
+	    neck="Cleric's Torque",
+	    waist="Cascade Belt",
+	    left_ear="Glorious Earring",
+	    right_ear="Nourish. Earring",
+	    back="Oretania's Cape",
+	}
 
 	sets.Curaga.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
-			head="Ebers Cap +1",neck="Nuna Gorget +1",ear1="Glorious Earring",ear2="Sortiarius Earring",--10% 3%--
+			head="Orison Cap +2",neck="Nuna Gorget +1",ear1="Glorious Earring",ear2="Sortiarius Earring",--10% 3%--
 			body="Theophany briault +2",hands="Theophany Mitts +2",ring1="Aquasoul Ring",ring2="Sirona's Ring", --13%--
-			back="Alaunus's Cape",waist="Cascade Belt",legs="Ebers Pantaloons +1",feet="Kaykaus Boots"}
+			back="Alaunus's Cape",waist="Cascade Belt",legs="Orison Pantaloons +2",feet="Kaykaus Boots"}
 
 	sets.Cure.DT = set_combine(sets.Cure.Standard, sets.baseCureDT)
 
@@ -170,7 +191,7 @@ function get_sets()
 
 	send_command('bind f10 gs c toggle cure')
 	send_command('bind f12 gs c toggle pdt')
-	send_command('exec mulera.txt')
+	-- send_command('exec mulera.txt')
 	text_setup()
     addNewColors()
     updateTable()
@@ -184,10 +205,6 @@ end
 function updateTable()
     addToTable("(F10) Cure Set", sets.Cure.index[Cure_Index])
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
-    addToTable("", "")
-    addToTable("DEL", "Julika Ranged Attack")
-    addToTable("END", "Julika Leaden Salute")
-    addToTable("PGDown", "Julika Last Stand")
     update_message()
 end
 -- --- Precast ---
@@ -247,7 +264,7 @@ if string.find(spell.type,'Magic') then
 		elseif string.find(spell.english, 'Boost') then
 			equip(sets.midcast.EnhancingMagic)
 		else
-			equip(sets.midcast.Recast)
+			equip(sets.midcast.EnhancingMagic)
 		end
 		
 	elseif string.find(spell.skill,'Enfeebling Magic') or string.find(spell.skill, 'Divine Magic') then

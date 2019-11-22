@@ -46,6 +46,7 @@ function get_sets()
 
     DEXCape = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
     STRCape = { name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
+    INTCape = { name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Haste+10','Phys. dmg. taken-10%',}}
     
     organizer_items = { main="Echo Drops", ranged="Sublime Sushi",
         body="Trizek Ring", ear1="Reraise Earring",
@@ -79,7 +80,7 @@ function get_sets()
         right_ear="Telos Earring",
         left_ring="Gelatinous Ring +1",
         right_ring="Defending Ring",
-        back="Repulse Mantle",
+        back=INTCape,
     }
    
     --TP Sets--
@@ -200,7 +201,7 @@ function get_sets()
                                                    
     sets.BlueMagic.STRVIT = {ammo="Mavi tathlum",
         head="Lilitu Headpiece",neck="Caro Necklace",
-        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Spiral ring",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Petrov Ring",
         back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
                                                      
     sets.BlueMagic.STRMND = {ammo="Mavi tathlum",
@@ -216,7 +217,7 @@ function get_sets()
     sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
-        back="Cornflower cape",waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
+        back=INTCape,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
                                              
     sets.BlueMagic.Cures = {ammo="Hydrocera",
         head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
@@ -246,18 +247,13 @@ function get_sets()
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
         head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Dignitary's earring",ear2="Gwati earring",
         body="Ayanmo Corazza +2",hands="Ayanmo Manopolas +2",ring1="Weatherspoon ring +1",ring2="Stikini ring",
-        back="Cornflower cape",waist="Ovate rope",legs="Ayanmo Cosciales +2",feet="Ayanmo Gambieras +2"}
+        back="Cornflower cape",waist="Sacro Cord",legs="Ayanmo Cosciales +2",feet="Ayanmo Gambieras +2"}
 
     -- sets.BlueMagic.DT = set_combine(sets.BlueMagic.MagicAccuracy, {
     --     body="Ayanmo Corazza +2",
     -- })
     
     sets.BlueMagic.Stun = set_combine(sets.BlueMagic.MagicAccuracy, {})
-    
---  sets.BlueMagic.Stun = {ammo="Mavi tathlum",
---      head="Assim. keffiyeh",neck="Eddy necklace",ear1="Loquac. earring",
---      body="Assim. jubbah +1",hands="Mv. bazubands +2",ring1="Prolix ring",ring2="Stikini ring",
---      back="Cornflower cape",waist="Twilight belt",legs="Mavi tayt +2",feet="Luhlaza charuqs +1"}
                                                                      
     sets.BlueMagic.Skill = {ammo="Mavi tathlum",
         head="Carmine Mask",ear1="Loquac. earring",
@@ -484,7 +480,7 @@ function midcast(spell,act)
                 end
         end
        
-        if spell.english == 'Frightful Roar' or spell.english == 'Blank Gaze' or spell.enligh == 'Geist Wall' or spell.english == 'Infrasonics' or spell.english == 'Barbed Crescent' or spell.english == 'Tourbillion' or spell.english == 'Cimicine Discharge' or spell.english == 'Sub-zero smash' or spell.english == 'Filamented Hold' or spell.english == 'Mind Blast' or spell.english == 'Sandspin' or spell.english == 'Hecatomb Wave' or spell.english == 'Cold Wave' or spell.english == 'Terror Touch' then
+        if spell.english == 'Frightful Roar' or spell.english == 'Feather Tickle' or spell.english == 'Reaving Wind' or spell.english == 'Blank Gaze' or spell.enligh == 'Geist Wall' or spell.english == 'Infrasonics' or spell.english == 'Barbed Crescent' or spell.english == 'Tourbillion' or spell.english == 'Cimicine Discharge' or spell.english == 'Sub-zero smash' or spell.english == 'Filamented Hold' or spell.english == 'Mind Blast' or spell.english == 'Sandspin' or spell.english == 'Hecatomb Wave' or spell.english == 'Cold Wave' or spell.english == 'Terror Touch' then
                 equip(sets.BlueMagic.MagicAccuracy)
         end
        
@@ -502,6 +498,10 @@ function midcast(spell,act)
                 if buffactive['Diffusion'] then
                         equip(sets.JA.Diffusion)
                 end
+                if (spell.english == "Carcharian Verve") then
+                    equip({head="Amalric Coif +1"})
+                end
+
         end
 
         if spell.english == "Phalanx" then

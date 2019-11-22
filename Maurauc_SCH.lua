@@ -39,7 +39,7 @@ function get_sets()
         body="Vrikodara Jupon", ring1="Defending Ring", ring2="Patricius Ring",
         back="Repulse Mantle", waist="Siegel Sash", legs="Merlinic Shalwar", feet="Merlinic Crackows"}
         
-    sets.precast.FastCast = {main="Oranyan", sub="Clerisy Strap", ammo="Incantor Stone",
+    sets.precast.FastCast = {ammo="Incantor Stone",
         head="Nahtirah Hat" ,neck="Voltsurge Torque", ear1="Etiolation Earring", ear2="Loquacious Earring",
         body="Shango Robe", hands="Telchine Gloves", ring1="Kishar Ring", ring2="Weatherspoon Ring +1",
         back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas", feet="Amalric Nails +1"}
@@ -55,28 +55,28 @@ function get_sets()
         body="Vanya Robe",hands="Lurid Mitts", ring1="Kishar Ring", ring2="Weatherspoon Ring +1",
         back="Ghostfyre Cape",waist="Rumination Sash",legs="Psycloth Lappas",feet="Medium's Sabots"}
 
---    sets.midcast.ElementalMagic = {main="Grioavolr",sub="Niobid Strap", ammo="Pemphredo Tathlum",
---        head=MerlinicHoodNuke,neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
+--    sets.midcast.ElementalMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
+--        head=MerlinicHoodNuke,neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Malignance Earring",
 --        body="Merlinic Jubbah",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
---        back="Toro Cape",waist="Yamabuki-no-obi",legs="Merlinic Shalwar",feet=MerlinicFeetNuke} 
+--        back="Lugh's Cape",waist="Sacro Cord",legs="Merlinic Shalwar",feet=MerlinicFeetNuke} 
     sets.midcast.ElementalMagicAcc = {
         main="Akademos",
-        sub="Niobid Strap",ammo="Strobilus",
+        sub="Enki Strap",ammo="Strobilus",
         ammo="Pemphredo Tathlum",
         head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
         body="Merlinic Jubbah",
         hands="Jhakri Cuffs +2",
         legs="Merlinic Shalwar",
         feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
-        neck="Sanctity Necklace", waist="Yamabuki-no-obi",
+        neck="Sanctity Necklace", waist="Sacro Cord",
         left_ear="Barkaro. Earring", right_ear="Digni. Earring",
         ring2="Freke Ring",ring1="Weatherspoon Ring +1",
-        back="Toro Cape"
+        back="Lugh's Cape"
     }
     
     sets.midcast.ElementalMagic = { 
     main="Akademos",
-    sub="Niobid Strap",
+    sub="Enki Strap",
     ammo="Pemphredo Tathlum",
     head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
     body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
@@ -84,11 +84,11 @@ function get_sets()
     legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -2%','CHR+8','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
     feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
     neck="Eddy Necklace",
-    waist="Yamabuki-no-Obi",
+    waist="Sacro Cord",
     left_ear="Barkaro. Earring",
-    right_ear="Friomisi Earring",
+    right_ear="Malignance Earring",
     left_ring="Shiva Ring +1",
-    right_ring="Shiva Ring +1",
+    right_ring="Freke Ring",
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+5','"Mag.Atk.Bns."+10',}},}      
 
     sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
@@ -99,7 +99,7 @@ function get_sets()
         back="Ogapepo Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Merlinic Crackows"}
         
     sets.midcast.EnhancingMagic = {
-        main="Oranyan",
+        main="Bolelabunga", sub="Ammurapi Shield",
         head="Telchine Cap",neck="Colossus's Torque",ear1="Dignitary's Earring",ear2="Loquacious Earring",
         hands="Telchine Gloves",ring2="Weatherspoon Ring +1",
         back="Ghostfyre Cape",waist="Cascade Belt",legs="Telchine Braconi",feet="Telchine Pigaches"}
@@ -108,13 +108,14 @@ function get_sets()
         neck="Colossus's Torque",
         body="Vrikodara Jupon",
         hands="Telchine Gloves",ring1="Stikini Ring",ring2="Ephedra Ring",
-        back="Oretania's Cape",waist="Cascade Belt",legs="Chironic Hose",feet="Skaoi Boots"}
+        back="Oretania's Cape",waist="Cascade Belt",legs="Chironic Hose",feet="Medium's Sabots"}
 
     sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
         head=MerlinicHoodBurst,
         body=MerlinicBodyBurst,hands="Amalric Gages +1", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
         back="Seshaw Cape", feet=MerlinicFeetNuke} --5, 9 
         
+    sets.precast.Impact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
     sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak"}) 
     
     sets.TabulaRasa = {legs="Pedagogy Pants"}
@@ -144,7 +145,9 @@ end
 -- --- Precast ---
 
 function precast(spell)
-    if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
+    if (spell.name == "Impact") then
+        equip(sets.precast.Impact)
+    elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
         equip(sets.precast.FastCast)
         if string.find(spell.skill,'Enhancing Magic') then
             equip({waist="Siegel Sash"})
@@ -160,7 +163,9 @@ function precast(spell)
 end
 -- --- MidCast ---
 function midcast(spell)
-    if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
+    if (spell.name == "Impact") then
+        equip(sets.midcast.Impact)
+    elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
         if string.find(spell.skill,'Healing Magic') then
             if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
                 equip(sets.midcast.Cure)

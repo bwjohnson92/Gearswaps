@@ -184,7 +184,7 @@ function init_gear_sets()
     sets.midcast.ResistantSongDebuff = {main="Lehbrailg",sub="Mephitis Grip",range="Gjallarhorn",
         neck="Moonbow Whistle",ear1="Digitary'sEarring",ear2="Enchanter Earring +1",
         body="Brioso Justaucorps +2",hands="Brioso Cuffs +2",ring1="Stikini Ring",ring2="Stikini Ring",
-        back="Kumbira Cape",waist="Luminary Sash",legs="Brioso Cannions 2",feet="Brioso Slippers +3"}
+        back="Kumbira Cape",waist="Luminary Sash",legs="Brioso Cannions 3",feet="Brioso Slippers +3"}
 
     -- Song-specific recast reduction
     sets.midcast.SongRecast = {ear2="Loquacious Earring",
@@ -307,7 +307,7 @@ function init_gear_sets()
     sets.engaged.DW = {range="Angel Lyre",
         head="Nahtirah Hat",neck="Asperity Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
         body="Bihu Justaucorps",hands="Buremte Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Atheling Mantle",waist="Goading Belt",legs="Brioso Cannions +1",feet="Gendewitha Galoshes"}
+        back="Atheling Mantle",waist="Goading Belt",legs="Brioso Cannions +3",feet="Gendewitha Galoshes"}
 
     organizer_items = {
         echos="Echo Drops",
