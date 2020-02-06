@@ -37,7 +37,8 @@ function get_sets()
 
     MerlinicBodyBurst = {name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+29','Magic burst dmg.+7%','Mag. Acc.+9',}}
 
-    MerlinicFeetBurst = {  name="Merlinic Crackows", augments={'Mag. Acc.+8','Magic burst dmg.+11%','MND+7','"Mag.Atk.Bns."+8',}}
+    -- MerlinicFeetBurst = {  name="Merlinic Crackows", augments={'Mag. Acc.+8','Magic burst dmg.+11%','MND+7','"Mag.Atk.Bns."+8',}}
+    MerlinicFeetBurst = MerlinicFeetNuke00000000000000000000000
     TaranusNuke = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
     TaranusMP = {name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
 
@@ -189,20 +190,20 @@ function get_sets()
     back={ name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
     }
             
-    sets.midcast.OccultAcumen = {
-    ammo="Seraphic Ampulla",
-    head="Mallquis Chapeau +1",
-    body="Spaekona's Coat +3",  
-    hands="Ea Cuffs",
-    legs="Perdition Slops",
-    feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
-    neck="Lissome Necklace",
-    waist="Oneiros Rope",
-    left_ear="Tripudio Earring",
-    right_ear="Telos Earring",
-    left_ring="Rajas Ring",
-    right_ring="Petrov Ring",
-    }
+    -- sets.midcast.OccultAcumen = {
+    -- ammo="Seraphic Ampulla",
+    -- head="Mallquis Chapeau +1",
+    -- body="Spaekona's Coat +3",  
+    -- hands="Ea Cuffs",
+    -- legs="Perdition Slops",
+    -- feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
+    -- neck="Lissome Necklace",
+    -- waist="Oneiros Rope",
+    -- left_ear="Tripudio Earring",
+    -- right_ear="Telos Earring",
+    -- left_ring="Rajas Ring",
+    -- right_ring="Petrov Ring",
+    -- }
 
     sets.Melee = {    
         ammo="Vanir Battery",

@@ -20,6 +20,8 @@ capeLocked = false
 weaponLocked = false
 
 
+capeTP = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
+capeWS = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 
 -- Start Functions here
 -- Gear Sets
@@ -65,7 +67,7 @@ function get_sets()
 	    left_ear="Cessance Earring",
 	    left_ring="Flamma Ring",
 	    right_ring="Niqmaddu Ring",
-	    back="Mecistopins Mantle",
+	    back=CapeTP,
 	    waist="Ioskeha Belt"
 	}
 
@@ -125,7 +127,7 @@ function get_sets()
 	    head="Flam. Zucchetto +2",
 	    body="Dagon Breast.",
 	    hands="Sulev. Gauntlets +2",
-	    legs="Sulevia Cuisses +2",
+	    legs="Sulevia's Cuisses +2",
 	    feet="Sulev. Leggings +2",
 	    neck="Fotia Gorget",
 	    waist="Fotia Belt",
@@ -133,6 +135,7 @@ function get_sets()
 	    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	    left_ring="Niqmaddu Ring",
 	    right_ring="Regal Ring",
+	    back=capeWS
 	}
 
 	sets.Impulse = {
@@ -149,13 +152,15 @@ function get_sets()
 	    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	    left_ring="Niqmaddu Ring",
 	    right_ring="Regal Ring",
+	    back=capeWS
 	}
 
 	sets.Jump = {
 		body=AFBody,
 		hands=AFHands,
 		legs=AFLegs,
-		feet=AFFeet
+		feet=AFFeet,
+		back=capeTP
 	}
 
 	sets.Reraise = {

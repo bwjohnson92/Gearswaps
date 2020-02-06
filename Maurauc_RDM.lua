@@ -1,6 +1,7 @@
 require('closetCleaner')
 include('organizer-lib.lua')
 include('Grioavolr.lua')
+include('MaurMerlinic.lua')
 
 include('displayBox.lua')
 -- Local Settings, setting the zones prior to use
@@ -45,7 +46,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.aftercast.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Atrophy Tabard +3",hands="Volte Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back="Repulse Mantle",waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Vitiation Boots +3"}
+		back="Repulse Mantle",waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet=RefreshFeet}
 	
 	sets.aftercast.PDT = set_combine(sets.aftercast.Idle, {
 	    ammo="Homiliary",
@@ -213,7 +214,43 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
 	}
 
-	sets.MeleeEnspell = {
+	sets.WS.SavageBlade = {
+	    head="Viti. Chapeau +3",
+	    neck="Caro Necklace",
+	    ear1="Moonshade Earring",
+	    ear2="Malignance Earring",
+	    body="Viti. Tabard +3",
+	    hands="Jhakri Cuffs +2",
+	    ring1="Apate Ring",
+	    ring2="Rufescent Ring",
+	    -- back="Sucellos's Cape",
+	    waist="Metalsinger Belt",
+	    legs="Jhakri Slops +2",
+	    feet="Jhakri Pigaches +2"
+	}
+
+	sets.Melee = {}
+	sets.Melee.index = {'Standard', 'Enspell'}
+	Melee_Ind = 1
+
+	sets.Melee.Standard = {
+		head="Malignance Chapeau",
+		body="Malignance Tabard",
+
+		hands="Ayanmo Manopolas +2",
+		legs="Ayanmo Cosciales +2",
+		feet="Carmine Greaves",
+		neck="Lissome Necklace",
+		ear1="Telos Earring",
+		ear2="Sherida Earring",
+		ring1="Ilabrat Ring",
+		ring2="Petrov Ring",
+		waist="Olseni Belt",
+		ammo="Ginsen"
+
+	}
+
+	sets.Melee.Enspell = {
 		-- head="Umuthi Hat",
 		head="Ayanmo Zucchetto +2",
 	    body="Volte Jupon",
@@ -238,6 +275,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	send_command('bind f9 gs c switch enf')
 	send_command('bind f11 gs c switch mb')
 	send_command('bind f12 gs c switch pdt')
+	send_command('bind pageup gs c switch tp')
 	send_command('bind pagedown gs c lockWeapon')
 
     text_setup()
@@ -258,6 +296,7 @@ function updateTable()
     addToTable("(F10) MP Body", MPSet)
     addToTable("(F11) MB Set", MBSet)
     addToTable("(F12) Idle Set", PDTSet and "PDT" or "Standard")
+    addToTable("(PGUP) TP Set", sets.Melee.index[Melee_Ind])
     addToTable("(PGDN) Weapon Locked", weaponLocked)
     update_message()
 end
@@ -293,6 +332,8 @@ function precast(spell)
 			equip(sets.WS.SeraphBlade)
 		elseif spell.english == "Sanguine Blade" then	
 			equip(sets.WS.SanguineBlade)
+		elseif spell.english == "Savage Blade" then
+			equip(sets.WS.SavageBlade)
 		else
 			equip(sets.WS.PhysicalWS)
 		end
@@ -387,7 +428,7 @@ function aftercast(spell)
 end
 
 function equip_TP()
-	equip(sets.MeleeEnspell)
+	equip(sets.Melee[sets.Melee.index[Melee_Ind]])
 end
 
 function equip_Idle()
@@ -412,7 +453,12 @@ function status_change(new,tab)
 end
 
 function self_command(command)
-	if command == 'switch MP' then
+	if command == 'switch tp' then
+        Melee_Ind = Melee_Ind +1
+        if Melee_Ind > #sets.Melee.index then Melee_Ind = 1 end
+        send_command('@input /echo <----- TP Set changed to '..sets.Melee.index[Melee_Ind]..' ----->')
+        equip_TP()
+	elseif command == 'switch MP' then
 		if (MPSet) then
 			MPSet = false
 			add_to_chat(140,'Elemental Magic: Damage')

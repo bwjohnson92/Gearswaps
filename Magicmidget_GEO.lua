@@ -73,14 +73,22 @@ function get_sets()
 	sets.Idle = {}
     sets.Idle.index = {"Standard", "DamageTaken", "PetRegen"}
 
-	sets.Idle.Standard = {main="Idris",sub="Genmei Shield",ranged="Dunna",
-		head="Azimuth Hood +1",neck="Twilight Torque",ear1="Etiolation Earring",ear2="Odnowa Earring",
-		body="Azimuth Coat +1",hands="Geomancy Mitaines +3",ring1="Defending Ring",ring2="Dark Ring",
+	sets.Idle.Standard = {main="Idris", sub="Genmei Shield", ranged="Dunna", 
+		head="Azimuth Hood +1", neck="Twilight Torque", ear1="Etiolation Earring", ear2="Odnowa Earring", 
+		body="Azimuth Coat +1", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Dark Ring", 
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
-		waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Geomancy Sandals +3"}
+		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
 
-	sets.Idle.PetRegen = set_combine(sets.Idle.DT, {
+	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
+		waist="Slipor Sash",
+		legs="Gyve Trousers",
+		feet="Azimuth Gaiters +1",
+		back=capeDT
+	})
+
+	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		head="Azimuth Hood +1",
+		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 
 		hands="Telchine Gloves",
     	back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
@@ -89,13 +97,6 @@ function get_sets()
 		feet="Bagua Sandals +1",
 		lear="Handler's Earring +1",
 		rear="Handler's Earring"
-	})
-
-	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
-		waist="Slipor Sash",
-		legs="Gyve Trousers",
-		feet="Azimuth Gaiters +1",
-		back=capeDT
 	})
 
 	sets.Speed = {feet="Geomancy Sandals +3"}	
@@ -165,7 +166,7 @@ function get_sets()
 
 		
 	sets.midcast.IndiSpells = {main="Idris",
-	head="Azimuth Hood +1", 
+	head="Azimuth Hood +1", neck="Bagua Charm +1",
 	body="Azimuth Coat +1",	hands="Azimuth Gloves +1", 
 	back="Lifestream Cape", legs="Bagua Pants",feet="Azimuth Gaiters +1"}
 	
@@ -344,12 +345,13 @@ function status_change(new,tab)
 	--	equip(sets['Melee'])
 		--disable("Main")
 	else
-		equip(sets.Idle['Standard'])
+		-- equip(sets.Idle['Standard'])
 		--enable("Main")
 	end
 end
 
 function equip_idle()
+	add_to_chat(123, 'Equipping '..sets.Idle.index[Idle_Index])
 	equip(sets.Idle[sets.Idle.index[Idle_Index]])
 end
 
@@ -367,7 +369,7 @@ function self_command(command)
 		Idle_Index = Idle_Index +1
         if Idle_Index > #sets.Idle.index then Idle_Index = 1 end
         add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
-        equip(sets.Idle[sets.Idle.index[Idle_Index]])
+        equip_idle()
 	end
     updateTable()
 end

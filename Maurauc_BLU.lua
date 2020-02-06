@@ -86,7 +86,7 @@ function get_sets()
     --TP Sets--
     sets.TP = {}
 
-    sets.TP.index = {'Standard', 'Mid', 'Accuracy',} --'Safe', 'AccuracyLite', 'AccuracyFull', 'AccuracyExtreme', 'DT', 'DTAccuracy'}
+    sets.TP.index = {'Standard', 'Hybrid', 'Accuracy',} --'Safe', 'AccuracyLite', 'AccuracyFull', 'AccuracyExtreme', 'DT', 'DTAccuracy'}
     --1=Standard, 2=Solo, 3=Marches, 4=AccuracyLite, 5=AccuracyFull, 6=DT, 7=DTAccuracy--
     TP_ind = 1
    
@@ -121,12 +121,13 @@ function get_sets()
 --      body="Qaaxo harness",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Rajas ring",
 --      back="Atheling mantle",waist="Shetal Stone",legs="Iuitl Tights +1",feet="Qaaxo leggings"}
        
-    sets.TP.Mid = set_combine(sets.TP.Standard, {
-        neck="Lissome Necklace",
+    sets.TP.Hybrid = set_combine(sets.TP.Standard, {
+        head="Malignance Chapeau",
         })
 
     sets.TP.Accuracy = {ammo="Ginsen",
-        head="Carmine Mask",neck="Sanctity Necklace", ear1="Dignitary's earring", ear2="Telos earring",
+        head="Malignance Chapeau",
+        neck="Sanctity Necklace", ear1="Dignitary's earring", ear2="Telos earring",
         -- ring1="Cacoethic ring",
         ring2="Patricius Ring",
         back=DEXCape,

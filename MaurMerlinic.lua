@@ -11,5 +11,9 @@ MerlinicHoodBurst = { name="Merlinic Hood", augments={'"Mag.Atk.Bns."+6','Magic 
 --INT32, MAcc30, MAB16, MBD9, FC8
 MerlinicBodyBurst = { name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+29','Magic burst dmg.+7%','Mag. Acc.+9'}} --MAcc9, MAB29, MBD7
 --INT40, MAcc29, MAB49, MBD7, FC6
-MerlinicFeetBurst = { name="Merlinic Crackows", augments={'Mag. Acc.+8','Magic burst dmg.+11%','MND+7','"Mag.Atk.Bns."+8'}} --MAcc8, MAB8, MBD11
+-- MerlinicFeetBurst = { name="Merlinic Crackows", augments={'Mag. Acc.+8','Magic burst dmg.+11%','MND+7','"Mag.Atk.Bns."+8'}} --MAcc8, MAB8, MBD11
 --INT24, MAcc8, MAB23, MBD11, FC5
+MerlinicFeetBurst = MerlinicFeetNuke
+
+
+RefreshFeet = { name="Merlinic Crackows", augments={'"Drain" and "Aspir" potency +1','VIT+1','"Refresh"+1',}}
