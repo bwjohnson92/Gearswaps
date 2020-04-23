@@ -51,10 +51,11 @@ function get_sets()
     sets.Idle = {
         -- main="Eletta Sword",
         -- head="Herculean Helm",
-        body="Lanun Frac +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
         hands="Carmine finger gauntlets +1",
         -- legs="Feast Hose",
-        feet="Skadi's Jambeaux +1",
+        feet="Meghanada Jambeaux +2",
         neck="Loricate Torque +1",
         waist="Chaac Belt",
         left_ear="Etiolation Earring",
@@ -77,8 +78,10 @@ function get_sets()
     }
 
     sets.Melee = {
-        head={ name="Adhemar Bonnet +1"},
-        body="Adhemar Jacket +1",
+        -- head={ name="Adhemar Bonnet +1"},
+        -- body="Adhemar Jacket +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
         hands="Adhemar Wristbands +1",
         legs="Adhemar Kecks +1",
         feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
@@ -96,8 +99,9 @@ function get_sets()
     rangedIndex = 1
 
     sets.RA.Standard = { --RAcc and STP
-        head="Meghanada Visor +2",
-        body="Mummu Jacket +2",
+        head="Malignance Chapeau",
+        -- body="Laksamana's Frac +2",
+        body="Malignance Tabard",
         -- hands="Adhemar Wristbands +1",
         hands="Meghanada Gloves +2",
         -- legs="Adhemar Kecks +1",
@@ -108,8 +112,8 @@ function get_sets()
         left_ear="Enervating Earring",
         right_ear="Telos Earring",
         back=capeTP,
-        ring1="Rajas Ring",
-        ring2="Ilabrat Ring",
+        ring1="Regal Ring",
+        ring2="Cacoethic Ring",
     }
 
     sets.RA.Acc = set_combine(sets.RA, { --RAcc and STP
@@ -181,21 +185,21 @@ function get_sets()
         right_ring="Archon Ring",
         back=capeWS,
     }
-
-    sets.WS.LastStand = {
-        head="Lanun Tricorne +1",
-        neck="Fotia Gorget",
-        ear1="Moonshade Earring",
-        ear2="Ishvara Earring",
-        body="Meg. Cuirie +2",
-        hands="Meg. Gloves +2",
-        ring1="Dingir Ring",
-        ring2="Apate Ring",
-        back="Camulus's Mantle",
-        waist="Fotia Belt",
-        legs="Meg. Chausses +2",
-        feet="Lanun Bottes +1"
-    }
+    sets.WS.LastStand = sets.RA.Standard
+    -- sets.WS.LastStand = {
+    --     head="Lanun Tricorne +1",
+    --     neck="Fotia Gorget",
+    --     ear1="Moonshade Earring",
+    --     ear2="Ishvara Earring",
+    --     body="Meg. Cuirie +2",
+    --     hands="Meg. Gloves +2",
+    --     ring1="Dingir Ring",
+    --     ring2="Apate Ring",
+    --     back="Camulus's Mantle",
+    --     waist="Fotia Belt",
+    --     legs="Meg. Chausses +2",
+    --     feet="Lanun Bottes +1"
+    -- }
 
     sets.FastCast = {
         head="Carmine Mask",

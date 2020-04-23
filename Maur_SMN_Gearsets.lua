@@ -14,7 +14,7 @@ function get_sets()
       
     sets.weapons = {
         main = "Nirvana",
-        sub = "Elan Strap",
+        sub = "Elan Strap +1",
     }
 
     CampestresAttack = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10',}}
@@ -39,6 +39,7 @@ function get_sets()
     sets.me.idle = set_combine(sets.avatar.perp, {
         ammo="Sancus Sachet +1",
         hands="Inyanga Dastanas +1",
+        ear2="Cath Palug Earring",
         ring1="Defending Ring",
         ring2="Gelatinous Ring +1",
         feet="Herald's Gaiters",
@@ -96,15 +97,15 @@ function get_sets()
     sets.avatar.skill = {
         main="Nirvana",
         ammo="Sancus Sachet +1",
-        head="Apogee Crown +1",
+        head="Beckoner's Horn +1",
         body="Convoker's Doublet +2",
         neck="Melic Torque",
         lear="Gelos Earring",
         rear="Lugalbanda Earring",
         hands="Baayami Cuffs",
         ring1={name="Globidonta Ring"},
-        ring2={name="Varar Ring", bag="wardrobe4"},
-        back=CampestresAttack,
+        ring2={name="Varar Ring +1"},
+        back="Conveyance Cape",
         waist="Regal Belt",
         legs="Apogee Slacks +1",
         feet="Apogee Pumps +1"
@@ -116,30 +117,34 @@ function get_sets()
       
     -- Physical damage
     sets.avatar.atk = set_combine(sets.avatar.skill,{
-        ring1="Varar Ring",
+        head="Apogee Crown +1",
+        ring1="Cath Palug Ring",
         ammo="Sancus Sachet +1",
         lear="Gelos Earring",
         rear="Lugalbanda Earring",
         back=CampestresAttack,
         neck="Shulmanu Collar",
         hands="Apogee Mitts +1",
-        -- feet="Convoker's Pigaches +2",
+        feet="Convoker's Pigaches +3",
         waist="Regal Belt"
     })
 
     sets.avatar.pacc = set_combine(sets.avatar.atk,{
-        ring1="Varar Ring",
+        head="Apogee Crown +1",
+        -- ring1="Varar Ring",
         ammo="Sancus Sachet +1",
         lear="Gelos Earring",
         rear="Lugalbanda Earring",
         --rear="Esper Earring",
         back=CampestresAttack,
-        waist="Regal Belt",
+        waist="Incarnation Sash",
+        feet="Convoker's Pigaches +3"
 
     })
       
     -- Magic Attack
     sets.avatar.mab = set_combine(sets.avatar.skill,{
+        head="Apogee Crown +1",
         ring1="Varar Ring",
         main=Grioavolr,
         ammo="Sancus Sachet +1",
@@ -153,16 +158,20 @@ function get_sets()
     sets.avatar.mb = set_combine(sets.avatar.mab,{hands="Glyphic Bracers +1"})
     -- Hybrid
     sets.avatar.hybrid = set_combine(sets.avatar.skill,{
-        ring1="Varar Ring",
+        head="Cath Palug Crown",
+        -- ring1="Varar Ring",
+        ring1="Cath Palug Ring",
+        hands="Baayami Cuffs",
         ammo="Sancus Sachet +1",
         lear="Gelos Earring",
         rear="Lugalbanda Earring",
         feet="Apogee Pumps +1",
-        back=CampestresAttack,
+        back=CampestresMagic,
     })
       
     -- Magic Accuracy
     sets.avatar.macc = set_combine(sets.avatar.skill,{
+        head="Apogee Crown +1",
         ring1="Varar Ring",
         main=Grioavolr,
         hands="Apogee Mitts +1",
@@ -219,7 +228,7 @@ function get_sets()
     sets.precast.casting = {
         head="Amalric Coif +1",
         body="Shango Robe",
-        hands={ name="Telchine Gloves", augments={'"Fast Cast"+2','Enh. Mag. eff. dur. +7',}},
+        hands="Volte Gloves",
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
         feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
         neck="Voltsurge Torque",

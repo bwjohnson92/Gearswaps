@@ -126,8 +126,8 @@ function get_sets()
 	    waist="Fotia Belt",
 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	    right_ear="Ishvara Earring",
-	    left_ring="Regal Ring",
-	    right_ring="Niqmaddu Ring",
+	    right_ring="Regal Ring",
+	    left_ring="Niqmaddu Ring",
 	}
 
 	sets.Impulse = {
@@ -173,8 +173,8 @@ function get_sets()
 	    ear2="Telos Earring",
 	    body="Pumm. Lorica +3",
 	    hands="Sulev. Gauntlets +2",
-	    ring1="Niqmaddu Ring",
-	    ring2="Regal Ring",
+	    ring2="Niqmaddu Ring",
+	    ring1="Regal Ring",
 	    back=CapeWS,
 	    waist="Fotia Belt",
 	    legs="Sulev. Cuisses +2",

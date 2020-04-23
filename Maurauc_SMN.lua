@@ -54,7 +54,7 @@
 		
 bp_physical=S{	'Punch','Rock Throw','Barracuda Dive','Claw','Axe Kick','Shock Strike','Camisado','Regal Scratch','Poison Nails',
 				'Moonlit Charge','Crescent Fang','Rock Buster','Tail Whip','Double Punch','Megalith Throw','Double Slap','Eclipse Bite',
-				'Mountain Buster','Spinning Dive','Predator Claws','Rush','Chaotic Strike','Crag Throw','Volt Strike'}
+				'Mountain Buster','Spinning Dive','Predator Claws','Rush','Chaotic Strike','Crag Throw','Volt Strike','Hysteric Assault'}
 
 bp_hybrid=S{	'Burning Strike','Flaming Crush'}
 
@@ -74,7 +74,7 @@ bp_buff=S{		'Shining Ruby','Frost Armor','Rolling Thunder','Crimson Howl','Light
 bp_other=S{		'Healing Ruby','Raise II','Aerial Armor','Reraise II','Whispering Wind','Glittering Ruby','Earthen Ward','Spring Water','Healing Ruby II'} 
 
 AvatarList=S{	'Shiva','Ramuh','Garuda','Leviathan','Diabolos','Titan','Fenrir','Ifrit','Carbuncle','Fire Spirit','Air Spirit','Ice Spirit',
-				'Thunder Spirit','Light Spirit','Dark Spirit','Earth Spirit','Water Spirit','Cait Sith','Alexander','Odin','Atomos'}
+				'Thunder Spirit','Light Spirit','Dark Spirit','Earth Spirit','Water Spirit','Cait Sith','Alexander','Odin','Atomos','Siren'}
 				
 spirit_element={Fire='Fire Spirit',Earth='Earth Spirit',Water='Water Spirit',Wind='Air Spirit',Ice='Ice Spirit',Lightning='Thunder Spirit',
 				Light='Light Spirit',Dark='Dark Spirit'}spirit_conflict={Fire='Ice',Earth='Lightning',Water='Fire',Wind='Earth',Ice='Wind',
@@ -266,6 +266,7 @@ function pet_midcast(spell)
             if mode == 'acc' then
                 equip(sets.avatar.pacc)		
 			else
+                add_to_chat(140, "Avatar Attack Set")
 				equip(sets.avatar.atk)
             end
         elseif bp_hybrid:contains(spell.name) then
@@ -302,7 +303,7 @@ function pet_midcast(spell)
             equip(sets.avatar.skill)
              
         else
-         
+            add_to_chat(140, "Avatar Skill set")
             equip(sets.avatar.skill)
              
         end

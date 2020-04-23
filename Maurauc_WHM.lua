@@ -49,11 +49,11 @@ function get_sets()
 	    main="Daybreak",
 	    sub="Ammurapi Shield",
 	    ammo="Staunch Tathlum",
-	    head="Inyanga Tiara +2",
+	    head="Inyanga Tiara +1",
 	    body="Ayanmo Corazza +2",
-	    hands="Inyan. Dastanas +2",
-	    legs="Inyanga Shalwar +2",
-	    feet="Inyan. Crackows +2",
+	    hands="Inyan. Dastanas +1",
+	    legs="Inyanga Shalwar +1",
+	    feet="Inyan. Crackows +1",
 	    neck="Loricate Torque +1",
 	    waist="Lieutenant's sash",
 	    left_ear="Etiolation Earring",
@@ -71,7 +71,7 @@ function get_sets()
 	    ammo="Incantor Stone",
 	    head="Nahtirah Hat",
 	    body="Shango Robe",
-	    hands={ name="Telchine Gloves", augments={'"Fast Cast"+2','Enh. Mag. eff. dur. +7',}},
+	    hands="Volte Gloves",
 	    legs="Aya. Cosciales +2",
 	    feet={ name="Medium's Sabots", augments={'MP+35','MND+7','"Cure" potency +1%',}},
 	    neck="Voltsurge Torque",
@@ -87,7 +87,7 @@ function get_sets()
 
 	sets.midcast.EnfeeblingMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
 		head="Theophany Cap +2",neck="Erra Pendant",ear1="Lifestorm Earring",ear2="Psystorm Earring",
-		body="Theophany Briault +2",hands="Inyanga Dastanas +2",ring1="Kishar Ring",ring2="Sangoma Ring",
+		body="Theophany Briault +2",hands="Inyanga Dastanas +1",ring1="Kishar Ring",ring2="Sangoma Ring",
 		back="Alaunus's Cape",waist="Rumination Sash", legs="Theophany Pantaloons +2",feet="Skaoi Boots"}
 
 	sets.midcast.BarSpells_Solace = {main="Beneficus",
@@ -97,13 +97,13 @@ function get_sets()
 	--sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Briault"})
 
 	sets.midcast.EnhancingMagic = {main="Gada", sub="Ammurapi Shield", ammo="Incantor Stone",
-		head="Befouled Crown",neck="Colossus's Torque",ear1="Novia Earring",ear2="Loquacious Earring",
-		body="Gendewitha Bliaut",hands="Gendewitha Gages +1",ring2="Prolix Ring",
-		back="Swith Cape",waist="Cascade Belt",legs="Piety Pantaloons +1",feet="Orison Duckbills +2"}
+		head="Telchine Cap",neck="Colossus's Torque",ear1="Novia Earring",ear2="Loquacious Earring",
+		body="Gendewitha Bliaut",hands="Telchine Gloves",ring2="Prolix Ring",
+		back="Swith Cape",waist="Cascade Belt",legs="Telchine Braconi",feet="Telchine Pigaches"}
 
-	sets.midcast.Regen = set_combine(sets.precast.FastCast, {
+	sets.midcast.Regen = set_combine(sets.midcast.EnhancingMagic, {
 		main="Daybreak", sub="Ammurapi Shield",
-		head="Inyanga Tiara +2",body="Piety Briault +1",
+		head="Inyanga Tiara +1",body="Piety Briault +1",
 		hands="Orison Mitts +1",legs="Theophany pantaloons +2"})
 	
 	sets.midcast.Auspice = {feet="Orison Duckbills +2"}
@@ -140,7 +140,7 @@ function get_sets()
 	    head="Orison Cap +2",
 	    body="Orison Bliaud +2",
 	    hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-	    legs="Orsn. Pantaln. +2",
+	    legs="Ebers Pantaloons",
 	    feet={ name="Medium's Sabots", augments={'MP+35','MND+7','"Cure" potency +1%',}},
 	    neck="Cleric's Torque",
 	    waist="Cascade Belt",
@@ -160,7 +160,7 @@ function get_sets()
 			
 	sets.midcast.Stoneskin = {main="Kirin's Pole",neck="Stone Gorget",waist="Siegel Sash",legs="Shedir Seraweels"}
 
-	sets.midcast.Shellra = {legs="Piety Pantaloons +2"}
+	sets.midcast.Shellra = sets.midcast.EnhancingMagic
 	
 	sets.midcast.Recast = {head="Nahtirah Hat",ear2="Loquacious Earring",
 	hands="Fanatic Gloves",ring2="Prolix Ring",

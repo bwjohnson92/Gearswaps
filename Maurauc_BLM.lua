@@ -90,7 +90,7 @@ function get_sets()
 
     sets.midcast.ElementalMagic = {sub="Niobid Strap", ammo="Pemphredo Tathlum",
         head={ name="Arch. Petasos +3"},neck="Sorcerer's Stole",ear1="Malignance Earring",ear2="Barkarole Earring",
-        body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
+        body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Freke Ring",
         back=TaranusNuke,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
     sets.midcast.ElementalMagicAcc = {

@@ -100,7 +100,7 @@ function get_sets()
     
     sets.midcast.Cursna = set_combine(sets.precast.FastCast, {main="Beneficius",
         head="Nahtirah Hat",neck="Debilis medallion", ear1= "Healing Earring", ear2="Beatific Earring",
-        body="Ebers Bliaud +1",hands="Inyanga Dastanas +1",ring1="Menelaus's ring", ring2="Haoma's ring",
+        body="Ebers Bliaud +1",hands="Fanatic Gloves",ring1="Menelaus's ring", ring2="Haoma's ring",
         back=AlaunusFC,legs="Theophany Pantaloons +2",feet="Vanya Clogs" })
         
     sets.midcast.DebuffRemoval = {
@@ -126,7 +126,7 @@ function get_sets()
 
     sets.Cure.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
             head="Vanya Hood",neck="Cleric's Torque",ear1="Roundel Earring",ear2="Nourishing Earring",--10% 3%--
-            body="Inyanga Jubbah +1",hands="Inyanga Dastanas +1",ring1="Janniston ring +1",ring2="Sirona's Ring", --13%--
+            body="Inyanga Jubbah +1",hands="Inyanga Dastanas +1",ring1="Lebeche ring",ring2="Sirona's Ring", --13%--
             back="Alaunus's Cape",waist="Cascade Belt",legs="Ebers Pantaloons +1",feet="Vanya Clogs"}
 
     sets.Curaga.Standard = set_combine(sets.Cure.Standard, {})
@@ -137,7 +137,7 @@ function get_sets()
             
     sets.midcast.Stoneskin = {main="Kirin's Pole",neck="Stone Gorget",waist="Siegel Sash",legs="Shedir Seraweels"}
 
-    sets.midcast.Shellra = {legs="Piety Pantaloons +1"}
+    sets.midcast.Shellra = sets.midcast.EnhancingMagic
     
     sets.midcast.Recast = {head="Nahtirah Hat",ear2="Loquacious Earring",
     hands="Fanatic Gloves",ring2="Prolix Ring",
@@ -235,12 +235,8 @@ if string.find(spell.type,'Magic') then
             equip(sets.midcast.BarSpells_Solace)
         elseif string.find(spell.english, 'Regen') then 
             equip(sets.midcast.Regen)
-        elseif string.find(spell.english, 'Shellra') then
-            equip(sets.midcast.Shellra)
-        elseif string.find(spell.english, 'Boost') then
-            equip(sets.midcast.EnhancingMagic)
         else
-            equip(sets.midcast.Recast)
+            equip(sets.midcast.EnhancingMagic)
         end
         
     elseif string.find(spell.skill,'Enfeebling Magic') or string.find(spell.skill, 'Divine Magic') then

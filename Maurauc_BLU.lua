@@ -123,6 +123,7 @@ function get_sets()
        
     sets.TP.Hybrid = set_combine(sets.TP.Standard, {
         head="Malignance Chapeau",
+        body="Malignance Tabard"
         })
 
     sets.TP.Accuracy = {ammo="Ginsen",
@@ -215,10 +216,15 @@ function get_sets()
         body="Dread Jupon",hands="Adhemar Wristbands +1",ring1="Apate ring",ring2="Petrov ring",
         back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
                                              
+    -- sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
+    --     head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
+    --     body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
+    --     back=INTCape,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
+
     sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
-        back=INTCape,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
+        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"}
                                              
     sets.BlueMagic.Cures = {ammo="Hydrocera",
         head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
@@ -246,9 +252,9 @@ function get_sets()
         back="Oretania's cape", waist="Oneiros Belt",legs="Carmine Cuisses +1",feet="Medium's Sabots"}
                                                                      
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
-        head="Amalric Coif +1",neck="Voltsurge Torque",ear1="Dignitary's earring",ear2="Gwati earring",
+        head="Amalric Coif +1",neck="Mirage Stole +1",ear1="Dignitary's earring",ear2="Gwati earring",
         body="Ayanmo Corazza +2",hands="Ayanmo Manopolas +2",ring1="Weatherspoon ring +1",ring2="Stikini ring",
-        back="Cornflower cape",waist="Sacro Cord",legs="Ayanmo Cosciales +2",feet="Ayanmo Gambieras +2"}
+        back="Cornflower cape",waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Ayanmo Gambieras +2"}
 
     -- sets.BlueMagic.DT = set_combine(sets.BlueMagic.MagicAccuracy, {
     --     body="Ayanmo Corazza +2",
@@ -277,9 +283,11 @@ function get_sets()
      --                                                 back="Swith cape",waist="Siegel sash",legs="Haven hose",feet="Iuitl gaiters"}
                                                      
     sets.Utility.Phalanx = {
+        main="Pukulatmuj +1",sub="Pukulatmuj",
         head="Herculean Helm",neck="Melic torque",ear1="Loquac. earring",
         -- ear2="Augment. earring",
-        body="Taeon Tabard",hands="Taeon Gloves",ring1="Stikini ring",
+        body={ name="Herculean Vest", augments={'Pet: CHR+5','MND+1','Phalanx +5',}},
+        hands="Taeon Gloves",ring1="Stikini ring",
         back="Swith cape",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
     }
                                                    
@@ -481,7 +489,7 @@ function midcast(spell,act)
                 end
         end
        
-        if spell.english == 'Frightful Roar' or spell.english == 'Feather Tickle' or spell.english == 'Reaving Wind' or spell.english == 'Blank Gaze' or spell.enligh == 'Geist Wall' or spell.english == 'Infrasonics' or spell.english == 'Barbed Crescent' or spell.english == 'Tourbillion' or spell.english == 'Cimicine Discharge' or spell.english == 'Sub-zero smash' or spell.english == 'Filamented Hold' or spell.english == 'Mind Blast' or spell.english == 'Sandspin' or spell.english == 'Hecatomb Wave' or spell.english == 'Cold Wave' or spell.english == 'Terror Touch' then
+        if spell.english == 'Frightful Roar' or spell.english == "Sheep Song" or spell.english == "Dream Flower" or spell.english == 'Feather Tickle' or spell.english == 'Reaving Wind' or spell.english == 'Blank Gaze' or spell.enligh == 'Geist Wall' or spell.english == 'Infrasonics' or spell.english == 'Barbed Crescent' or spell.english == 'Tourbillion' or spell.english == 'Cimicine Discharge' or spell.english == 'Sub-zero smash' or spell.english == 'Filamented Hold' or spell.english == 'Mind Blast' or spell.english == 'Sandspin' or spell.english == 'Hecatomb Wave' or spell.english == 'Cold Wave' or spell.english == 'Terror Touch' then
                 equip(sets.BlueMagic.MagicAccuracy)
         end
        
@@ -511,7 +519,9 @@ function midcast(spell,act)
 end
  
 function aftercast(spell)
-    if player.status == 'Engaged' then
+    if (spell.name == "Phalanx") then
+        equip(set_combine(sets.Idle[sets.Idle.index[Idle_ind]]), {main="Naegling", sub="Nibiru Cudgel"})
+    elseif player.status == 'Engaged' then
             equip(sets.TP[sets.TP.index[TP_ind]])
     else
             equip(sets.Idle[sets.Idle.index[Idle_ind]])

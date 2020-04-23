@@ -50,8 +50,8 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	
 	sets.aftercast.PDT = set_combine(sets.aftercast.Idle, {
 	    ammo="Homiliary",
-	    head="Aya. Zucchetto +2",
-	    body="Ayanmo Corazza +2",
+	    head="Malignance Chapeau",
+	    body="Malignance Tabard",
 	    hands="Volte Gloves",
 	    legs="Aya. Cosciales +2",
 	    feet="Ayanmo Gambieras +2",
@@ -84,7 +84,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
 		
 	sets.midcast.Enfeebling = {main=staff2,sub="Enki Strap",ammo="Regal Gem",
-		head="Vitiation Chapeau +3",neck="Duelist's Torque +1",ear1="Gwati Earring",ear2="Dignitary's Earring",
+		head="Vitiation Chapeau +3",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
 		body="Lethargy Sayon +1",hands="Kaykaus Cuffs +1",ring1="Stikini Ring",ring2="Kishar Ring",
 		back=SucellosINT,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
