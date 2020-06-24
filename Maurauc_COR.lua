@@ -31,10 +31,11 @@ function get_sets()
     capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+7','Weapon skill damage +10%',}}
     capeMeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
+    capeSnapshot = { name="Camulus's Mantle", augments={'"Snapshot"+10',}}
 
     sets.roll={
         head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
-        body="Lanun Frac +1",
+        body="Lanun Frac +3",
         -- hands="Chasseur's Gants +1", --Chasseur's Gants
         hands="Navarch's Gants +1",
         legs="Lanun Culottes",
@@ -44,7 +45,7 @@ function get_sets()
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         -- left_ring="Luzaf's Ring",
-        right_ring="Barataria Ring",
+        right_ring="Luzaf's Ring",
         back=capeTP, --AMBUSCADE
     }
 
@@ -68,7 +69,7 @@ function get_sets()
     sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
         head="Taeon Chapeau",
         body="Laksamana's frac +2", --Need
-        -- body="Oshosi Vest",
+        body="Oshosi Vest",
         hands="Carmine Finger Gauntlets +1",
         waist="Yemaya Belt",
         legs="Adhemar Kecks +1",
@@ -84,7 +85,8 @@ function get_sets()
         body="Malignance Tabard",
         hands="Adhemar Wristbands +1",
         legs="Adhemar Kecks +1",
-        feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
+        -- feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
+        feet="Malignance Boots",
         neck="Asperity Necklace",
         waist="Windbuffet Belt +1",
         left_ear="Suppanomimi",
@@ -95,8 +97,8 @@ function get_sets()
     }
 
     sets.RA = {}
-    rangedSets = {'Standard', 'Acc'}
-    rangedIndex = 1
+    rangedSets = {'Standard', 'Acc', "Enmity"}
+    rangedIndex = 3
 
     sets.RA.Standard = { --RAcc and STP
         head="Malignance Chapeau",
@@ -136,6 +138,13 @@ function get_sets()
         back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}},
     })
 
+    sets.RA.Enmity = set_combine(sets.RA.Standard, {
+        ring1="Cacoethic Ring +1",
+        waist="Elanid Belt",
+        ear2="Novia Earring",
+        feet="Oshosi Leggings"
+    })
+
     sets.WS = {}
 
     sets.WS.Generic = { --Generic Physical WS
@@ -160,7 +169,8 @@ function get_sets()
         ear2="Ishvara Earring",
         body="Laksamana's Frac +2",
         hands="Meg. Gloves +2",
-        ring1="Rufescent Ring", --Shukuyu
+        -- ring1="Rufescent Ring", --Shukuyu
+        ring1="Metamorph Ring +1",
         ring2="Regal Ring", --Rufescent 
         back=capeMeleeWS,
         waist="Prosilio Belt",
@@ -185,7 +195,7 @@ function get_sets()
         right_ring="Archon Ring",
         back=capeWS,
     }
-    sets.WS.LastStand = sets.RA.Standard
+    sets.WS.LastStand = sets.RA.Enmity
     -- sets.WS.LastStand = {
     --     head="Lanun Tricorne +1",
     --     neck="Fotia Gorget",
@@ -215,14 +225,20 @@ function get_sets()
 
     sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
     sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +1"}
-    sets.RandomDeal = {body="Lanun Frac +1"}
+    sets.RandomDeal = {body="Lanun Frac +3"}
     sets.Fold = {}--{hands="Lanun Gauntlets"}
     sets.SnakeEye = {}--{legs="Lanun Culottes"}
     sets.WildCard = {feet="Lanun Bottes +1"}
 
+    sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
+
+    }) 
+
     -- sets.Luzaf = {ring1="Luzaf's Ring"}
-sets.Luzaf = {}
+-- sets.Luzaf = {}
     organizer_items = {
+        trump="Trump Card",
+        case="Trump Card Case",
         echos="Echo Drops",
         holy="Holy Water",
         RREar="Reraise Earring",
@@ -266,7 +282,7 @@ function precast(spell)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
     elseif (spell.english == "Double Up") then
-        equip(sets.Luzaf)
+        equip(sets.roll)
     end
 
     if spell.action_type == 'Ranged Attack' then
@@ -310,7 +326,7 @@ function midcast(spell)
         equip(sets.Luzaf)
     end
     if spell.action_type == 'Ranged Attack' then
-        equip(sets.RA[rangedSets[rangedIndex]])
+        equip(sets.RA.Enmity)
     end
 end 
 

@@ -40,7 +40,7 @@ function get_sets()
 	    range="Dunna",
 	    head="Jhakri Coronal +1",
 	    body="Jhakri Robe",
-	    hands="Jhakri Cuffs +1",
+	    hands="Jhakri Cuffs +2",
 	    legs="Querkening Brais",
 	    feet="Battlecast Gaiters",
 	    neck="Clotharius Torque",
@@ -58,9 +58,9 @@ function get_sets()
 	    range="Dunna",
 	    head="Jhakri Coronal +1",
 	    body="Jhakri Robe",
-	    hands="Jhakri Cuffs +1",
+	    hands="Jhakri Cuffs +2",
 	    legs="Jhakri Slops +1",
-	    feet="Jhakri Pigaches +1",
+	    feet="Jhakri Pigaches +2",
 	    neck="Imbodla Necklace",
 	    waist="Luminary Sash",
 	    left_ear="Digni. Earring",
@@ -75,11 +75,13 @@ function get_sets()
 
 	sets.Idle.Standard = {main="Idris", sub="Genmei Shield", ranged="Dunna", 
 		head="Azimuth Hood +1", neck="Twilight Torque", ear1="Etiolation Earring", ear2="Odnowa Earring", 
-		body="Azimuth Coat +1", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Dark Ring", 
+		body="Witching Robe", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Dark Ring", 
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
+		main="Malignance Pole",
+		sub="Alber Strap",
 		waist="Slipor Sash",
 		legs="Gyve Trousers",
 		feet="Azimuth Gaiters +1",
@@ -87,6 +89,7 @@ function get_sets()
 	})
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
+		main="Idris", sub="Genmei Shield",
 		head="Azimuth Hood +1",
 		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 
@@ -104,13 +107,13 @@ function get_sets()
 	sets.precast = {}
 	sets.midcast = {}
 
-	sets.precast.FastCast = { main="Solstice", sub="Genmei Shield", 
+	sets.precast.FastCast = { main="Idris", sub="Genmei Shield", 
 		head="Merlinic Hood", neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Anhur Robe",hands="Repartie Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring",
+		body="Anhur Robe",hands="Repartie Gloves",ring1="Kishar Ring",ring2="Rahab Ring",
 		back="Lifestream Cape",waist="Witful Belt",legs="Geomancy Pants +1",feet="Merlinic Crackows"}
 	
 	sets.precast.FastCure = set_combine(sets.precast.FastCast, {	ear2="Loquacious Earring",
-		ring2="Weatherspoon Ring",	back="Disperser's Cape",waist="Witful Belt",legs="Geomancy Pants +1"})
+		ring2="Rahab Ring",	back="Disperser's Cape",waist="Witful Belt",legs="Geomancy Pants +1"})
 
 	--sets.Melee = {main="Buramenk'ah",sub="Genmei Shield",
 	--	head="Umuthi Hat",neck="Asperity Necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
@@ -125,43 +128,41 @@ function get_sets()
 	    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+27','Attack+6','Quadruple Attack +2','Accuracy+4 Attack+4','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
 	    hands="Azimuth Gloves +1",
 	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
-	    feet="Jhakri Pigaches +1",
+	    feet="Jhakri Pigaches +2",
 	    neck="Erra Pendant",
 	    waist="Luminary Sash",
 	    left_ear="Digni. Earring",
 	    right_ear="Barkaro. Earring",
 	    left_ring="Kishar Ring",
-	    right_ring="Weather. Ring",
+	    right_ring="Vertigo Ring",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
 
 	sets.midcast.ElementalMagic = {
-	    -- main={ name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}},
-	    -- main=sets.nukingStaves[nukingStaff],
 	    main="Grioavolr",
 	    sub="Niobid Strap",
 	    ammo="Pemphredo Tathlum",
 	    head={ name="Merlinic Hood", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+3','Mag. Acc.+11','"Mag.Atk.Bns."+10',}},
 	    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+27','Attack+6','Quadruple Attack +2','Accuracy+4 Attack+4','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
-	    hands="Jhakri Cuffs +1",
+	    hands="Jhakri Cuffs +2",
 	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
-	    feet="Jhakri Pigaches +1",
-	    neck="Deviant Necklace",
-	    waist="Refpccilation Stone",
-	    left_ear="Friomisi Earring",
+	    feet="Jhakri Pigaches +2",
+	    neck="Sanctity Necklace",
+	    waist="Refoccilation Stone",
+	    left_ear="Malignance Earring",
 	    right_ear="Barkaro. Earring",
-	    left_ring="Shiva Ring",
+	    left_ring="Freke Ring",
 	    right_ring="Shiva Ring",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
 	--sets.midcast.Stun = {main="Twebuliij",sub="Benthos Grip",ammo="Plumose Sachet",
 		--head="Atrophy Chapeau +1",neck="Voltsurge Torque",ear1="Lifestorm Earring",ear2="Psystorm Earring",
-		--body="Vanir Cotehardie",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Weatherspoon Ring",
+		--body="Vanir Cotehardie",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Rahab Ring",
 		--back="Ogapepo Cape",waist="Ovate Rope",legs="Artsieq Hose",feet="Helios Boots"}
 		
 	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",neck="Colossus's Torque",ear1="Lifestorm Earring",ear2="Loquacious Earring",
-		ring2="Weatherspoon Ring",
+		ring2="Rahab Ring",
 		waist="Cascade Belt"}
 
 		

@@ -36,6 +36,8 @@ staff2=GrioavolrEnfeeble
 MerlinicHoodAcc={name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}}
 SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Cure" potency +10%','Damage taken-5%',}}
 SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
+SucellosTP={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Mag. Evasion+15',}}
+SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20','MND+5','Weapon skill damage +10%',}}
 
 	sets.precast = {}
 	sets.midcast = {}
@@ -54,7 +56,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    body="Malignance Tabard",
 	    hands="Volte Gloves",
 	    legs="Aya. Cosciales +2",
-	    feet="Ayanmo Gambieras +2",
+	    feet="Malignance Boots",
 	    neck="Loricate Torque +1",
 	    waist="Fucho-no-Obi",
 	    left_ear="Etiolation Earring",
@@ -84,7 +86,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
 		
 	sets.midcast.Enfeebling = {main=staff2,sub="Enki Strap",ammo="Regal Gem",
-		head="Vitiation Chapeau +3",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
+		head="Vitiation Chapeau +3",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Snotra Earring",
 		body="Lethargy Sayon +1",hands="Kaykaus Cuffs +1",ring1="Stikini Ring",ring2="Kishar Ring",
 		back=SucellosINT,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
@@ -120,7 +122,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		
 	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Lethargy Sayon +1",hands="Atrophy Gloves +1",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
+		body="Lethargy Sayon +1",hands="Atrophy Gloves +3",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
 		back=SucellosMND,waist="Cascade Belt",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +1"}
 
 		
@@ -132,12 +134,12 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
 		neck="Duelist's Torque +1",
 		head="Telchine Cap", legs="Telchine Braconi", feet="Lethargy Houseaux +1",
-		hands="Atrophy Gloves +1"})
+		hands="Atrophy Gloves +3"})
 
 	sets.midcast.Refresh = set_combine(sets.precast.FastCast, {
 		main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Amalric Coif +1", neck="Duelist's Torque +1",
-		body="Atrophy Tabard +3",hands="Atrophy Gloves +1",
+		body="Atrophy Tabard +3",hands="Atrophy Gloves +3",
 		back="Sucellos's Cape", waist="Gishdubar Sash", legs="Lethargy Fuseau +1", feet="Lethargy Houseaux +1"})
 
 	--sets.midcast.Cursna = {main="Beneficus",
@@ -220,13 +222,45 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    ear1="Moonshade Earring",
 	    ear2="Malignance Earring",
 	    body="Viti. Tabard +3",
-	    hands="Jhakri Cuffs +2",
+	    hands="Atrophy Gloves +3",
 	    ring1="Apate Ring",
 	    ring2="Rufescent Ring",
-	    -- back="Sucellos's Cape",
+	    back=SucellosWS,
 	    waist="Metalsinger Belt",
 	    legs="Jhakri Slops +2",
 	    feet="Jhakri Pigaches +2"
+	}
+
+	sets.WS.BlackHalo = {
+	    ammo="Regal Gem",
+	    head="Viti. Chapeau +3",
+	    neck="Dls. Torque +1",
+	    ear1="Moonshade Earring",
+	    ear2="Sherida Earring",
+	    body="Viti. Tabard +3",
+	    hands="Atrophy Gloves +3",
+	    ring1="Rufescent Ring",
+	    ring2="Apate Ring",
+	    back=SucellosWS,
+	    waist="Luminary Sash",
+	    legs="Viti. Tights +3",
+	    feet="Jhakri Pigaches +2"
+	}
+
+	sets.WS.Evisceration = {
+	    ammo="Yetshila +1",
+	    head="Malignance Chapeau",
+	    neck="Fotia Gorget",
+	    ear2="Moonshade Earring",
+	    ear1="Sherida Earring",
+	    body="Ayanmo Corazza +2",
+	    hands="Atrophy Gloves +3",
+	    ring1="Begrudging Ring",
+	    ring2="Ilabrat Ring",
+	    back=SucellosWS,
+	    waist="Fotia Belt",
+	    legs="Vitiation Tights +3",
+	    feet="Thereoid Greaves"
 	}
 
 	sets.Melee = {}
@@ -236,16 +270,16 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.Melee.Standard = {
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
-
 		hands="Ayanmo Manopolas +2",
 		legs="Ayanmo Cosciales +2",
-		feet="Carmine Greaves",
+		feet="Malignance Boots",
 		neck="Lissome Necklace",
+		back=SucellosTP,
 		ear1="Telos Earring",
 		ear2="Sherida Earring",
 		ring1="Ilabrat Ring",
 		ring2="Petrov Ring",
-		waist="Olseni Belt",
+		waist="Windbuffet Belt +1	",
 		ammo="Ginsen"
 
 	}
@@ -334,6 +368,10 @@ function precast(spell)
 			equip(sets.WS.SanguineBlade)
 		elseif spell.english == "Savage Blade" then
 			equip(sets.WS.SavageBlade)
+		elseif  spell.english == "Black Halo" then
+			equip(sets.WS.BlackHalo)
+		elseif spell.english == "Evisceration" then
+			equip(sets.WS.Evisceration)
 		else
 			equip(sets.WS.PhysicalWS)
 		end
@@ -508,7 +546,6 @@ function self_command(command)
 			disable("Main")
 			disable("Sub")
 			disable('Ranged')
-			disable('Ammo')
 			add_to_chat(140,'Weapon is being locked')
 		else
 			weaponLocked = false

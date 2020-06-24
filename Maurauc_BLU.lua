@@ -64,7 +64,7 @@ function get_sets()
     sets.Idle.Standard = {ammo="Ginsen",
       head="Adhemar Bonnet +1",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
       body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Gelatinous Ring +1",ring2="Defending ring",
-      back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Carmine Greaves"}
+      back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Malignance Boots"}
                                              
     sets.Idle.DT = {
         ammo="Staunch Tathlum +1",
@@ -73,7 +73,7 @@ function get_sets()
         hands="Ayanmo Manopolas +2",
         -- legs="Aya. Cosciales +2",
         legs="Carmine Cuisses +1",
-        feet="Ayanmo Gambieras +2",
+        feet="Malignance Boots",
         waist="Flume Belt +1",
         neck="Loricate Torque +1",
         left_ear="Novia Earring",
@@ -123,16 +123,17 @@ function get_sets()
        
     sets.TP.Hybrid = set_combine(sets.TP.Standard, {
         head="Malignance Chapeau",
-        body="Malignance Tabard"
+        body="Malignance Tabard",
+        feet="Malignance Boots"
         })
 
-    sets.TP.Accuracy = {ammo="Ginsen",
+    sets.TP.Accuracy = set_combine(sets.TP.Hybrid, {ammo="Ginsen",
         head="Malignance Chapeau",
         neck="Sanctity Necklace", ear1="Dignitary's earring", ear2="Telos earring",
         -- ring1="Cacoethic ring",
         ring2="Patricius Ring",
         back=DEXCape,
-        waist="Olseni Belt", feet=HercBootsAcc}
+        waist="Olseni Belt", feet=HercBootsAcc})
                                                    
     -- sets.TP.DT = {ammo="Ginsen",
     --     head="Carmine Mask",neck="Loricate Torque +1", ear1="Dudgeon earring", ear2="Heartseeker earring",
@@ -224,7 +225,7 @@ function get_sets()
     sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
-        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"}
+        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"}
                                              
     sets.BlueMagic.Cures = {ammo="Hydrocera",
         head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
@@ -283,7 +284,7 @@ function get_sets()
      --                                                 back="Swith cape",waist="Siegel sash",legs="Haven hose",feet="Iuitl gaiters"}
                                                      
     sets.Utility.Phalanx = {
-        main="Pukulatmuj +1",sub="Pukulatmuj",
+        -- main="Pukulatmuj +1",sub="Pukulatmuj",
         head="Herculean Helm",neck="Melic torque",ear1="Loquac. earring",
         -- ear2="Augment. earring",
         body={ name="Herculean Vest", augments={'Pet: CHR+5','MND+1','Phalanx +5',}},
@@ -520,7 +521,7 @@ end
  
 function aftercast(spell)
     if (spell.name == "Phalanx") then
-        equip(set_combine(sets.Idle[sets.Idle.index[Idle_ind]]), {main="Naegling", sub="Nibiru Cudgel"})
+        equip(set_combine(sets.Idle[sets.Idle.index[Idle_ind]]))
     elseif player.status == 'Engaged' then
             equip(sets.TP[sets.TP.index[TP_ind]])
     else
