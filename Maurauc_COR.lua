@@ -27,7 +27,7 @@ wsHerc= {name="Herculean Boots", augments={'Accuracy+1','Pet: DEX+4','Weapon ski
 
 function get_sets()
 
-    capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}}
+    capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
     capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+7','Weapon skill damage +10%',}}
     capeMeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
@@ -56,7 +56,7 @@ function get_sets()
         body="Malignance Tabard",
         hands="Carmine finger gauntlets +1",
         -- legs="Feast Hose",
-        feet="Meghanada Jambeaux +2",
+        feet="Malignance Boots",
         neck="Loricate Torque +1",
         waist="Chaac Belt",
         left_ear="Etiolation Earring",
@@ -68,7 +68,7 @@ function get_sets()
 
     sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
         head="Taeon Chapeau",
-        body="Laksamana's frac +2", --Need
+        body="Laksamana's frac +3", --Need
         body="Oshosi Vest",
         hands="Carmine Finger Gauntlets +1",
         waist="Yemaya Belt",
@@ -102,7 +102,7 @@ function get_sets()
 
     sets.RA.Standard = { --RAcc and STP
         head="Malignance Chapeau",
-        -- body="Laksamana's Frac +2",
+        -- body="Laksamana's Frac +3",
         body="Malignance Tabard",
         -- hands="Adhemar Wristbands +1",
         hands="Meghanada Gloves +2",
@@ -119,7 +119,7 @@ function get_sets()
     }
 
     sets.RA.Acc = set_combine(sets.RA, { --RAcc and STP
-        -- body="Laksamana's Frac +2",
+        -- body="Laksamana's Frac +3",
         -- legs="Laksamana's Trews +3",
         -- neck="Commodore Charm",
         -- ring1="Hajduk Ring",
@@ -139,6 +139,8 @@ function get_sets()
     })
 
     sets.RA.Enmity = set_combine(sets.RA.Standard, {
+        body="Laksamana's Frac +3",
+        legs="Laksamana's Trews +3",
         ring1="Cacoethic Ring +1",
         waist="Elanid Belt",
         ear2="Novia Earring",
@@ -158,7 +160,7 @@ function get_sets()
         left_ear="Digni. Earring",
         right_ear="Friomisi Earring",
         ring1="Meghanada Ring",
-        ring2="Arvina Ringlet +1",
+        -- ring2="Arvina Ringlet +1",
         back=capeWS,
     }
 
@@ -167,7 +169,7 @@ function get_sets()
         neck="Caro Necklace",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
-        body="Laksamana's Frac +2",
+        body="Laksamana's Frac +3",
         hands="Meg. Gloves +2",
         -- ring1="Rufescent Ring", --Shukuyu
         ring1="Metamorph Ring +1",
@@ -183,7 +185,7 @@ function get_sets()
         -- body={ name="Herculean Vest", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Magic dmg. taken -2%','Mag. Acc.+12','"Mag.Atk.Bns."+12',}},
         hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
         -- body="Rawhide Vest",
-        body="Laksamana's Frac +2",
+        body="Laksamana's Frac +3",
         -- legs=""
         legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
         feet=wsHerc,
@@ -195,21 +197,24 @@ function get_sets()
         right_ring="Archon Ring",
         back=capeWS,
     }
-    sets.WS.LastStand = sets.RA.Enmity
-    -- sets.WS.LastStand = {
-    --     head="Lanun Tricorne +1",
-    --     neck="Fotia Gorget",
-    --     ear1="Moonshade Earring",
-    --     ear2="Ishvara Earring",
-    --     body="Meg. Cuirie +2",
-    --     hands="Meg. Gloves +2",
-    --     ring1="Dingir Ring",
-    --     ring2="Apate Ring",
-    --     back="Camulus's Mantle",
-    --     waist="Fotia Belt",
-    --     legs="Meg. Chausses +2",
-    --     feet="Lanun Bottes +1"
-    -- }
+    sets.WS.LastStand = set_combine(sets.RA.Enmity, {
+        ear2="Moonshade Earring",
+        -- feet="Lanun Bottes +3"
+    })
+    sets.WS.LastStand.Acc = {
+        head="Lanun Tricorne +1",
+        neck="Fotia Gorget",
+        ear1="Moonshade Earring",
+        ear2="Ishvara Earring",
+        body="Meg. Cuirie +2",
+        hands="Meg. Gloves +2",
+        ring1="Dingir Ring",
+        ring2="Apate Ring",
+        back="Camulus's Mantle",
+        waist="Fotia Belt",
+        legs="Meg. Chausses +2",
+        feet="Lanun Bottes +3"
+    }
 
     sets.FastCast = {
         head="Carmine Mask",
@@ -228,7 +233,7 @@ function get_sets()
     sets.RandomDeal = {body="Lanun Frac +3"}
     sets.Fold = {}--{hands="Lanun Gauntlets"}
     sets.SnakeEye = {}--{legs="Lanun Culottes"}
-    sets.WildCard = {feet="Lanun Bottes +1"}
+    sets.WildCard = {feet="Lanun Bottes +3"}
 
     sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
 
@@ -253,13 +258,15 @@ function get_sets()
         remedy="Remedy",
         Crepe="Pear Crepe",
         gun1="Doomsday",
+        dagger="Lanun Knife",
+        gunpouch="Chrono Bullet Pouch"
     }
 
-sets.QuickDraw = set_combine(sets.WS.LeadenSalute, {
-    head="Laksamana's Hat",
-    feet="Navarch's Bottes +2",
-    lear="Dignitary's Earring",
-    ring2="Weatherspoon Ring +1"
+    sets.QuickDraw = set_combine(sets.WS.LeadenSalute, {
+        head="Laksamana's Hat",
+        feet="Navarch's Bottes +2",
+        lear="Dignitary's Earring",
+        ring2="Weatherspoon Ring +1"
     })
 
     sets.midcast_ElementalDay = {waist="Hachirin-no-obi"}
@@ -281,7 +288,7 @@ function precast(spell)
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
-    elseif (spell.english == "Double Up") then
+    elseif (spell.english == "Double-Up") then
         equip(sets.roll)
     end
 
@@ -322,7 +329,7 @@ function midcast(spell)
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
-    elseif (spell.english == "Double Up") then
+    elseif (spell.english == "Double-Up") then
         equip(sets.Luzaf)
     end
     if spell.action_type == 'Ranged Attack' then

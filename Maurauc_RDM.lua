@@ -55,7 +55,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    head="Malignance Chapeau",
 	    body="Malignance Tabard",
 	    hands="Volte Gloves",
-	    legs="Aya. Cosciales +2",
+	    legs="Carmine Cuisses +1",
 	    feet="Malignance Boots",
 	    neck="Loricate Torque +1",
 	    waist="Fucho-no-Obi",
@@ -194,12 +194,23 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    hands="Jhakri Cuffs +2",
 	    ring1="Freke Ring",
 	    ring2="Weather. Ring +1",
-	    back="Sucellos's Cape",
-	    -- waist="Orpheus's Sash",
+	    back=SucellosWS,
+	    -- waist="Orpheus's Sash"
+	    neck="Sanctity Necklace",
 	    waist="Sacro Cord",
 	    legs="Amalric Slops +1",
 	    feet="Vitiation Boots +3"
 	}
+
+	sets.WS.SanguineBlade = set_combine(sets.WS.SeraphBlade, {
+
+		ear1="Malignance Earring",
+		head="Pixie Hairpin +1",
+		body="Amalric Doublet +1",
+		ring2="Archon Ring",
+		back=SucellosWS,
+		feet="Amalric Nails +1",
+	})
 
 	sets.WS.PhysicalWS = {
 	    head={ name="Viti. Chapeau +3"},
