@@ -26,6 +26,8 @@ PDTSet = false
 capeLocked = false
 weaponLocked = false
 
+    Idle_ind = 1   
+
 -- Start Functions here
 -- Gear Sets
 function get_sets()
@@ -41,21 +43,24 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 
 	sets.precast = {}
 	sets.midcast = {}
-	sets.aftercast = {}
+	sets.Idle = {}
 
+
+    sets.Idle.index = {'Idle','PDT', 'PDT_Move'}
+    
 	sets.desperation = {body="Seidr Cotehardie"}
 
-	sets.aftercast.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
+	sets.Idle.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Atrophy Tabard +3",hands="Volte Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet=RefreshFeet}
 	
-	sets.aftercast.PDT = set_combine(sets.aftercast.Idle, {
+	sets.Idle.PDT = set_combine(sets.Idle.Idle, {
 	    ammo="Homiliary",
 	    head="Malignance Chapeau",
 	    body="Malignance Tabard",
-	    hands="Volte Gloves",
-	    legs="Carmine Cuisses +1",
+	    hands="Malignance Gloves",
+	    legs="Malignance Tights",
 	    feet="Malignance Boots",
 	    neck="Loricate Torque +1",
 	    waist="Fucho-no-Obi",
@@ -64,9 +69,13 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    left_ring="Defending Ring",
 	    right_ring="Ilabrat Ring",
 	    back=SucellosMND,
-	})		
+	})
 
-	--[[sets.aftercast.Idle = {main="Bolelabunga",sub="Genbu's Shield", ammo="Homiliary",
+	sets.Idle.PDT_Move = set_combine(sets.Idle.PDT, {
+		legs="Carmine Cuisses +1"
+	})
+
+	--[[sets.Idle.Idle = {main="Bolelabunga",sub="Genbu's Shield", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
 		body={name="Witching Robe", augments={'MP+5', '"Refresh"+1',}},hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Lengo Pants",feet="Serpentes Sabots"}]]--
@@ -100,7 +109,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		back=SucellosMND
 		})
 		
-	sets.midcast.ElementalMagic = {main="Daybreak",sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
+	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Ghastly Tathlum +1",
 		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosINT,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +3"}	
@@ -128,7 +137,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Befouled Crown",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Vitiation Tabard +3",hands="Vitiation Gloves",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
+		body="Vitiation Tabard +3",hands="Vitiation Gloves +2",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
 		back=SucellosMND,waist="Gishdubar Sash",legs="Carmine Cuisses +1",feet="Lethargy Houseaux +1"}
 
 	sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
@@ -281,8 +290,8 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	sets.Melee.Standard = {
 		head="Malignance Chapeau",
 		body="Malignance Tabard",
-		hands="Ayanmo Manopolas +2",
-		legs="Ayanmo Cosciales +2",
+		hands="Malignance Gloves",
+		legs="Malignance Tights",
 		feet="Malignance Boots",
 		neck="Lissome Necklace",
 		back=SucellosTP,
@@ -340,7 +349,7 @@ function updateTable()
     -- addToTable("Enfeeble Potency", not EnfeebSet)
     addToTable("(F10) MP Body", MPSet)
     addToTable("(F11) MB Set", MBSet)
-    addToTable("(F12) Idle Set", PDTSet and "PDT" or "Standard")
+    addToTable("(F12) Idle Set", sets.Idle.index[Idle_ind])
     addToTable("(PGUP) TP Set", sets.Melee.index[Melee_Ind])
     addToTable("(PGDN) Weapon Locked", weaponLocked)
     update_message()
@@ -355,12 +364,8 @@ function precast(spell)
 		equip(sets.precast.Dispelga)
 	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
 		if string.find(spell.skill,'Healing Magic') then
-			if string.find(spell.english, 'Cur') then 
-				equip(sets.precast.FastCure)
-				--send_command('input /echo "Cure"')
-			else		
+			if string.find(spell.english, 'Cur') then 	
 				equip(sets.precast.FastCast)
-				--send_command('input /echo "FC"')
 			end
 		else		
 			equip(sets.precast.FastCast)
@@ -457,8 +462,6 @@ function midcast(spell)
 	end
 end	
 
--- --- Aftercast ---
-
 function aftercast(spell)
 		if player.status == 'Engaged' then
 	        equip_TP()
@@ -481,11 +484,8 @@ function equip_TP()
 end
 
 function equip_Idle()
-	if (PDTSet) then
-		equip(sets.aftercast.PDT)
-	else
-		equip(sets.aftercast.Idle)
-	end
+
+    equip(sets.Idle[sets.Idle.index[Idle_ind]])
 end
 
 
@@ -496,7 +496,7 @@ function status_change(new,tab)
 		--disable("Main")
 	else
 		equip_Idle()
-		-- equip(sets['aftercast.Idle'])
+		-- equip(sets['idle.Idle'])
 		--enable("Main")
 	end
 end
@@ -527,18 +527,10 @@ function self_command(command)
 			add_to_chat(140,'Magic Burst: On')
 		end
 	elseif command == 'switch pdt' then
-		if (PDTSet) then
-			PDTSet = false
-			add_to_chat(140,'PDT Set Off')
-			if not buffactive["Mana Wall"] then
-				enable("Feet")
-			end
-			equip(sets.aftercast.Idle)
-		else
-			PDTSet = true
-			add_to_chat(140,'PDT Set On')
-			equip(sets.aftercast.PDT)
-		end
+        Idle_ind = Idle_ind +1
+        if Idle_ind > #sets.Idle.index then Idle_ind = 1 end
+        send_command('@input /echo <----- Idle Set changed to '..sets.Idle.index[Idle_ind]..' ----->')
+        equip(sets.Idle[sets.Idle.index[Idle_ind]])
 	elseif command == 'lockCape' then
 		if capeLocked == false then
 			capeLocked = true

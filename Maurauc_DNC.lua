@@ -44,9 +44,9 @@ function get_sets()
     HercBootsWS = { name="Herculean Boots", augments={'Accuracy+1','Pet: DEX+4','Weapon skill damage +7%','Accuracy+13 Attack+13','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
     HercBootsTA = { name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}}
 
-    DEXCape = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
-    STRCape = { name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-    INTCape = { name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Haste+10','Phys. dmg. taken-10%',}}
+    DEXCape = { name="Senuna's Mantle" }
+    STRCape = { name="Senuna's Mantle" }
+    INTCape = { name="Senuna's Mantle" }
     
     organizer_items = { main="Echo Drops", ranged="Sublime Sushi",
         body="Trizek Ring", ear1="Reraise Earring",
@@ -63,7 +63,7 @@ function get_sets()
    
     sets.Idle.Standard = {ammo="Ginsen",
       head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
-      body="Jhakri Robe +2",hands="Malignance Gloves",ring1="Gelatinous Ring +1",ring2="Defending ring",
+      body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Gelatinous Ring +1",ring2="Defending ring",
       back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Malignance Boots"}
                                              
     sets.Idle.DT = {
@@ -91,7 +91,7 @@ function get_sets()
     TP_ind = 1
    
     sets.TP.Standard = {
-        ammo="Ginsen",
+        ammo="Charis Feather",
         head={ name="Adhemar Bonnet +1"},
         -- body={ name="Herculean Vest", augments={'Accuracy+28','"Triple Atk."+4',}},
         body="Adhemar Jacket +1",
@@ -101,14 +101,15 @@ function get_sets()
         legs="Adhemar Kecks +1",
         feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
         -- neck="Asperity Necklace",
-        neck="Mirage Stole +1",
+        -- neck="Mirage Stole +1",
+        neck="Etoile Gorget",
         waist="Windbuffet Belt +1",
         -- waist="Reiki Yotai",
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
         left_ring="Epona's Ring",
         right_ring="Hetairoi Ring",
-        back=DEXCape,
+        back="Senuna's Mantle",
     }
            
     --sets.TP.Solo = {ammo="Ginsen",
@@ -124,8 +125,6 @@ function get_sets()
     sets.TP.Hybrid = set_combine(sets.TP.Standard, {
         head="Malignance Chapeau",
         body="Malignance Tabard",
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
         feet="Malignance Boots"
         })
 
@@ -134,7 +133,7 @@ function get_sets()
         neck="Sanctity Necklace", ear1="Dignitary's earring", ear2="Telos earring",
         -- ring1="Cacoethic ring",
         ring2="Patricius Ring",
-        back=DEXCape,
+        -- back=DEXCape,
         waist="Olseni Belt", feet=HercBootsAcc})
                                                    
     -- sets.TP.DT = {ammo="Ginsen",
@@ -160,7 +159,7 @@ function get_sets()
     sets.Requiescat.Attack = {ammo="Floestone",
         head="Carmine Mask",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
         body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Epona's ring",ring2="Rufescent Ring",
-        back="Rosmerta's Cape",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +1"}
+        back="Senuna's Mantle",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +1"}
                                                              
     --sets.Requiescat.Accuracy = {ammo="Honed tathlum",
         --head="Whirlpool mask",neck="Soil gorget",ear1="Brutal earring",ear2="Moonshade earring",
@@ -187,8 +186,23 @@ function get_sets()
         ammo="Floestone",
         head="Jhakri Coronal +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Metamorph Ring +1",
-        back=STRCape,waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"
+        back="Senuna's Mantle",waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"
     }
+
+    sets.WS.RudrasStorm = {
+        ammo="Charis Feather",
+        head="Mummu Bonnet +2",neck="Etoile Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
+        body="Meghanada Cuirie +2",hands="Meghanada Gloves +2",ring1="Regal Ring",ring2="Mummu Ring",
+        back=STRCape,waist="Fotia Belt",legs="Mummu Kecks +2",feet="Mummu Gamashes +2"
+    }
+
+    sets.WS.Evisceration = {
+        ammo="Charis Feather",
+        head="Adhemar Bonnet +1",neck="Etoile Gorget",ear1="Sherida Earring",ear2="Brutal Earring",
+        body="Meghanada Cuirie +2",hands="Meghanada Gloves +2",ring1="Regal Ring",ring2="Mummu Ring",
+        back=STRCape,waist="Fotia Belt",legs="Mummu Kecks +2",feet="Mummu Gamashes +2"
+    }
+
                                                                            
     --Blue Magic Sets--
     sets.BlueMagic = {}
@@ -283,15 +297,6 @@ function get_sets()
     --sets.Utility.Stoneskin = {head="Haruspex hat",neck="Stone Gorget",ear1="Loquac. earring",ear2="Earthcry earring",
      --                                                 body="Assim. jubbah +1",hands="Stone Mufflers",ring1="Prolix ring",
      --                                                 back="Swith cape",waist="Siegel sash",legs="Haven hose",feet="Iuitl gaiters"}
-                                                     
-    sets.Utility.Phalanx = {
-        -- main="Pukulatmuj +1",sub="Pukulatmuj",
-        head="Herculean Helm",neck="Melic torque",ear1="Loquac. earring",
-        -- ear2="Augment. earring",
-        body={ name="Herculean Vest", augments={'Pet: CHR+5','MND+1','Phalanx +5',}},
-        hands="Taeon Gloves",ring1="Stikini ring",
-        back="Swith cape",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
-    }
                                                    
    -- sets.Utility.Steps = {ammo="Honed tathlum",
     --                                          head="Whirlpool mask",ear2="Heartseeker earring",
@@ -300,7 +305,7 @@ function get_sets()
                                              
     --sets.Utility.PDT = {head="Whirlpool mask",neck="Loricate Torque +1",
     --                                        body="Vrikodara Jupon",hands="Umuthi gloves",ring1="Defending ring",ring2="Gelatinous Ring +1",
-    --                                        back="Rosmerta's Cape",legs="Iuitl Tights +1"}
+    --                                        back="Senuna's Mantle",legs="Iuitl Tights +1"}
                                            
     --sets.Utility.MDT = {head="Whirlpool mask",neck="Loricate Torque +1",
     --                                        body="Assim. jubbah +3",hands="Umuthi gloves",ring1="Defending ring",ring2="Gelatinous Ring +1",
@@ -311,9 +316,7 @@ function get_sets()
    
     sets.JA = {}
    
-    sets.JA.ChainAffinity = {
-        feet="Assim. charuqs +1"
-    }
+    sets.JA.ChainAffinity = {feet="Assim. charuqs +1"}
    
     --sets.JA.BurstAffinity = {feet="Mavi Basmak +2"}
    
@@ -407,6 +410,15 @@ function precast(spell)
         if spell.english == 'Flash Nova' then
                 equip(sets.WS.FlashNova)
         end
+
+        if spell.english == 'Rudra\'s Storm' then
+                equip(sets.WS.RudrasStorm)
+        elseif spell.english == 'Evisceration' then
+                equip(sets.WS.Evisceration)
+        else
+            equip(sets.WS.Evisceration)
+        end
+
 end
        
 function midcast(spell,act)
@@ -571,6 +583,52 @@ function self_command(command)
             equip(sets.TP[sets.TP.index[TP_ind]])
     elseif command == 'equip Idle set' then
             equip(sets.Idle[sets.Idle.index[Idle_ind]])
+    elseif command == 'coffer' then
+        cycle = 0
+        invCount = windower.ffxi.get_bag_info(0).count
+        if invCount == 80 then
+            add_to_chat(140,'Inv. full. Ending cycle')
+        elseif player.inventory["Velkk Coffer"] then
+            send_command('input /item "Velkk Coffer" <me> ')
+            cycle = 1
+        else
+            add_to_chat(140,'No Coffers found in inv.')
+            send_command('findall Velkk Coffer')
+        end
+        if cycle == 1 then
+            send_command('wait 2;gs c coffer')
+        end
+    elseif command == 'pouch' then
+        cycle = 0
+        if player.inventory["Silt Pouch"] then
+            send_command('input /item "Silt Pouch" <me> ')
+            cycle = 1
+        elseif player.inventory["Bead Pouch"] then
+            send_command('input /item "Bead Pouch" <me> ')
+            cycle = 1
+        else
+            add_to_chat(140,'No pouches found in inv.')
+            send_command('findall Silt Pouch')
+            send_command('findall Bead Pouch')
+        end
+        if cycle == 1 then
+            send_command('wait 3; gs c pouch')
+        end
+    elseif command == 'bpouch' then
+        cycle = 0
+        invCount = windower.ffxi.get_bag_info(0).count
+        if invCount == 80 then
+            add_to_chat(140,'Inv. full. Ending cycle')
+        elseif player.inventory["Bead Pouch"] then
+            send_command('input /item "Bead Pouch" <me> ')
+            cycle = 1
+        else
+            add_to_chat(140,'No Coffers found in inv.')
+            send_command('findall Bead Pouch')
+        end
+        if cycle == 1 then
+            send_command('wait 3;gs c bpouch')
+        end 
     elseif command == 'lockCape' then
         if capeLocked == false then
             capeLocked = true

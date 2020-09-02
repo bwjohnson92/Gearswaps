@@ -1,2 +1,2 @@
-GrioavolrNuke = { name="Grioavolr", augments={'Magic burst dmg.+9%','Mag. Acc.+27','"Mag.Atk.Bns."+21','Magic Damage +6',}}
+GrioavolrNuke = "Marin Staff +1"
 GrioavolrEnfeeble = { name="Grioavolr", augments={'Enfb.mag. skill +12','INT+13','Mag. Acc.+24','"Mag.Atk.Bns."+25',}}
