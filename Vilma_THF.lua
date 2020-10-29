@@ -1,5 +1,7 @@
 require('ClosetCleaner')
 include('organizer-lib.lua')
+include('organizeritems.lua')
+
 function get_sets()
 	send_command('bind f10 gs c toggle TP set')
     TP_Index = 1
@@ -7,22 +9,21 @@ function get_sets()
 
     sets.weapons = {}
     sets.weapons[1] ={main="Aeneas"}
-    sets.weapons[2]={sub="Taming Sari"}
-    sets.weapons[3]={main="Jugo Kukri +1"}
-    sets.weapons[4]={main="Odium"}
+    sets.weapons[2]={sub="Tauret"}
+    sets.weapons[3]={main="Odium"}
 
     
     sets.JA = {}
 --    sets.JA.Conspirator = {body="Raider's Vest +2"}
 --    sets.JA.Accomplice = {head="Raider's Bonnet +2"}
 --    sets.JA.Collaborator = {head="Raider's Bonnet +2"}
-    sets.JA['Perfect Dodge'] = {hands="Plun. Armlets +1"}
+    sets.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
     sets.JA.Steal = {feet="Rogue's Poulaines"}
     sets.JA.Flee = {feet="Rogue's Poulaines"}
 --    sets.JA.Despoil = {legs="Raider's Culottes +2",feet="Raider's Poulaines +2"}
 --    sets.JA.Mug = {head="Assassin's Bonnet +2"}
-    sets.JA.Waltz = {head="",neck="Dualism Collar +1",body="Iuitl Vest",hands="Slither Gloves +1",ring1="Valseur's Ring",ring2="Carbuncle Ring +1",
-        waist="Aristo Belt",legs="Desultor Tassets",feet="Dance Shoes"}
+    -- sets.JA.Waltz = {head="",neck="Dualism Collar +1",body="Iuitl Vest",hands="Slither Gloves +1",ring1="Valseur's Ring",ring2="Carbuncle Ring +1",
+    --     waist="Aristo Belt",legs="Desultor Tassets",feet="Dance Shoes"}
     
     sets.WS = {}
     sets.WS.SA = {}
@@ -31,51 +32,57 @@ function get_sets()
 	
 	TaeonHands = {name="Taeon Gloves",augments={'Accuracy+17 Attack+17','"Triple Atk."+2','Crit. hit damage +2%'}}
     
-    sets.WS.Evisceration = {head="Uk'uxkaj Cap",neck="Asperity Necklace",ear1="Moonshade Earring",ear2="Brutal Earring",
-        body="Pillager's Vest +2",hands="Herculean Gloves",ring1="Petrov Ring",ring2="Thundersoul Ring",
-        back="Toutatis's Cape",waist="Artful Belt",legs="Lustratio Subligar",feet="Plunderer's Poulaines +1"}
+    sets.WS.Evisceration = {head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Mache earring +1",
+        body="Pillager's Vest +2",hands="Mummu wrists +2",ring1="Ilabrat Ring",ring2="Mummu Ring",
+        back="Toutatis's Cape",waist="Fotia Belt",legs="Pillager's Culottes +1",feet="Mummu Gamashes +2"}
         
     sets.WS.SA.Evisceration = set_combine(sets.WS.Evisceration,{hands="Raider's Armlets +2"})
 
     sets.WS["Rudra's Storm"] = {
-		head="Skulker's Bonnet +1",neck="Asperity Necklace",ear1="Moonshade Earring",ear2="Brutal Earring",
-        body="Adhemar Jacket",hands="Herculean Gloves",ring1="Petrov Ring",ring2="Thundersoul Ring",
-        back="Toutatis's Cape",waist="Artful Belt",legs="Lustratio Subligar",feet="Plunderer's Poulaines +1"}
+		head="Pillager's Bonnet +2",neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
+        body="Meghanada cuirie +2",hands="Meghanada gloves +2",ring1="Ilabrat Ring",ring2="Thundersoul ring",
+        back="Toutatis's Cape",waist="Grunfeld Rope",legs="Lustratio Subligar",feet="Plunderer's Poulaines +1"}
+        Ammo="Cath Palug stone"
         
     sets.WS.SA["Rudra's Storm"] = set_combine(sets.WS["Rudra's Storm"],{head="Imperial Wing Hairpin",
 		body="Pillager's Vest +2",hands="Raider's Armlets +2",legs="Pillager's Culottes +1", feet="Plunderer's Poulaines +1"})
         
-    sets.WS.Exenterator = {head="Lithelimb Cap",neck="Houyi's Gorget",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-        body="Pillager's Vest +1",hands="Herculean Gloves",ring1="Garuda Ring +1",ring2="Gere Ring",
-        back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Nahtirah Trousers",feet="Plunderer's Poulaines +1"}
+    sets.WS.Exenterator = {head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Sherida Earring",
+        body="Pillager's Vest +2",hands="Herculean Gloves",ring1="Ilabrat ring",ring2="Mummu Ring",
+        back="Toutatis's Cape",waist="Fotia Belt",legs="Nahtirah Trousers",feet="Mummu gamashes +2"}
 
-    sets.WS.TA.Exenterator = {head="Lithelimb Cap",neck="Houyi's Gorget",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-        body="Pillager's Vest +2",hands="Pillager's Armlets",ring1="Garuda Ring +1",ring2="Gere Ring",
+    sets.WS.TA.Exenterator = {ear1="Steelflash Earring",ear2="Bladeborn Earring", --head neck ring1
+        body="Pillager's Vest +2",ring2="Gere Ring", --hands
         back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +1"}
         
     sets.WS.SATA.Exenterator = set_combine(sets.WS.TA.Exenterator, {})
 
-    TP_Set_Names = {"Low Man","Party","TH","Acc"}
+    TP_Set_Names = {"Low Man","Party","Acc","TH","TH Acc"}
     sets.TP = {}
-    sets.TP['Low Man'] = {sub="Jugo Kukri +1",range="Raider's Bmrng.",
-        head="Skulker's bonnet +1",neck="Erudition Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
+    sets.TP['Low Man'] = {ammo="Yamarang",
+        head="Adhemar bonnet +1",neck="Erudition Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
         body="Herculean Vest",hands=TaeonHands,ring1="Petrov Ring",ring2="Gere Ring",
         back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Taeon Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},} --I think it goes in here and party and acc?
          
-	sets.TP['Party'] = {sub="Jugo Kukri +1",range="Raider's Bmrng.",
-        head="Skulker's bonnet +1", neck="Erudition Necklace",ear1="Suppanomimi",ear2="Brutal Earring",
+	sets.TP['Party'] = {range="Raider's Bmrng.",
+        head="Adhemar bonnet +1", neck="Erudition Necklace",ear1="Suppanomimi",ear2="Brutal Earring",
         body="Herculean Vest",hands=TaeonHands,ring1="Petrov Ring",ring2="Gere Ring",
         back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Taeon Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
     
-	sets.TP['TH'] = {sub="Jugo Kukri +1",range="Raider's Bmrng.",
-        head="Skulker's bonnet +1",neck="Asperity Necklace",ear1="Suppanomimi",ear2="Brutal Earring",
-        body="Herculean Vest",hands="Plun. Armlets +1",ring1="Petrov Ring",ring2="Gere Ring",
-       back="Toutatis's Cape",waist="Chaac Belt",legs="Pill. Culottes +1",feet="Skulker's poulaines +1"}
-        
-    sets.TP['Acc'] = {sub="Jugo Kukri +1",ammo="Yamarang",
-        head="Meghanada visor +2",neck="Erudition Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
+    sets.TP['Acc'] = {ammo="Yamarang",
+        head="Meghanada visor +2",neck="Erudition Necklace",ear1="Sherida Earring",ear2="Telos Earring",
         body="Pillager's Vest +2",hands="Meghanada Gloves +2",ring1="Petrov Ring",ring2="Gere Ring",
-        back="Toutatis's Cape",waist="Anguinus Belt",legs="Pill. Culottes +1",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
+        back="Toutatis's Cape",waist="Kentarch Belt +1",legs="Pill. Culottes +1",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
+
+	sets.TP['TH'] = set_combine(sets.TP['Low Man'], {
+        hands="Plunderer's Armlets +3",
+        waist="Chaac Belt"
+        })
+
+    sets.TP['TH Acc'] = set_combine(sets.TP['TH'], {
+        legs="Meghanada Chausses +2", feet="Meghanada Jambeaux +2"
+        })
+        
         
     --sets.TP.Evasion = {
     --  head="Skulker's bonnet +1",neck="Ej Necklace +1",ear1="Novia Earring",ear2="Phawaylla Earring",
@@ -84,31 +91,15 @@ function get_sets()
     
     Idle_Set_Names = {'Normal','MDT'}
     sets.Idle = {}
-    sets.Idle.Normal = {head="Skulker's bonnet +1",neck="Twilight Torque",--ear1="Merman's Earring",ear2="Bladeborn Earring",
-        body="Qaaxo Harness",hands="Rawhide Gloves",ring1="Dark Ring",ring2="Defending Ring",
-        back="Repulse Mantle",waist="Kasiri Belt",legs="Ighwa Trousers",feet="Skadi's Jambeaux +1"}
+    sets.Idle.Normal = {head="Skulker's bonnet +1",neck="Loricate Torque +1",--ear1="Merman's Earring",ear2="Bladeborn Earring",
+        body="Emet Harness +1",hands="Plunderer's Armlets +3",ring1="Dark Ring",ring2="Defending Ring",
+        back="Repulse Mantle",waist="Chaac Belt",legs="Ighwa Trousers",feet="Skadi's Jambeaux +1"}
                 
-    sets.Idle.MDT = {head="Skulker's bonnet +1",neck="Twilight Torque",ear1="Merman's Earring",ear2="Bladeborn Earring",
-        body="Avalon Breastplate",hands="Iuitl Wristbands +1",ring1="Defending Ring",ring2="Dark Ring",
-        back="Mollusca Mantle",waist="Wanion Belt",legs="Nahtirah Trousers",feet="Skadi's Jambeaux +1"}
-    send_command('input /macro book 11;wait .1;input /macro set 8')
+    -- sets.Idle.MDT = {head="Skulker's bonnet +1",neck="Twilight Torque",ear1="Merman's Earring",ear2="Bladeborn Earring",
+    --     body="Avalon Breastplate",hands="Iuitl Wristbands +1",ring1="Defending Ring",ring2="Dark Ring",
+    --     back="Mollusca Mantle",waist="Wanion Belt",legs="Nahtirah Trousers",feet="Skadi's Jambeaux +1"}
 	
-	organizer_items = {
-	echos="Echo Drops",
-	holy="Holy Water",
-	RREar="Reraise Earring",
-	RRHair="Reraise Hairpin",
-	InstRR="Instant Reraise",
-	Warp="Warp Ring",
-	WarpItem="Instant Warp",
-	CP="Trizek Ring",
-	Exp="Echad Ring",
-	CPMantle="Mecistopins Mantle",
-	Prism="Prism Powder",
-	Oils="Silent Oil",
-	Sushi="Sole Sushi",
-	Puffs="Cream Puffs",
-	}
+	organizer_items = organizerItems()
     
 end
 

@@ -73,7 +73,7 @@ function get_sets()
         Idle_ind = 1                   
        
         sets.Idle.Standard = {ammo="Ginsen",
-		  head="Adhemar Bonnet",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
+		  head="Adhemar Bonnet +1",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
 		  body="Amalric Doublet +1",hands="Serpentes cuffs",ring1="Dark ring",ring2="Defending ring",
 		  back="Repulse mantle",waist="Fucho-no-obi",legs="Crimson cuisses",feet="Serpentes sabots"}
                                                  
@@ -94,7 +94,7 @@ function get_sets()
 	    sub="Colada",
 	    ammo="Ginsen",
 	    --head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
-	    head="Adhemar Bonnet",
+	    head="Adhemar Bonnet +1",
 	    body=HercBodyTP,
 	    hands=HercHandsTP,
 	    legs="Samnuha Tights",
@@ -293,7 +293,7 @@ function get_sets()
                                                  
         sets.Utility.PDT = {head="Whirlpool mask",neck="Loricate Torque +1",ear1="Ethereal earring",
                                                 body="Iuitl vest",hands="Umuthi gloves",ring1="Dark ring",ring2="Dark ring",
-                                                back="Mollusca mantle",waist="Flume belt",legs="Iuitl Tights +1",feet="Iuitl gaiters"}
+                                                back="Mollusca mantle",waist="Flume belt +1",legs="Iuitl Tights +1",feet="Iuitl gaiters"}
                                                
         sets.Utility.MDT = {head="Whirlpool mask",neck="Loricate Torque +1",
                                                 body="Assim. jubbah +1",hands="Umuthi gloves",ring1="Dark ring",ring2="Dark ring",

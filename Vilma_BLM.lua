@@ -41,7 +41,7 @@ function get_sets()
 	send_command('bind f11 gs c switch mb')
 	send_command('bind f12 gs c switch pdt')
 	send_command('bind end gs c lockWeapon')
-	send_command('bind ^f11 gs c acc')
+	send_command('bind f9 gs c acc')
 
 	sets.Idle = {}
 	sets.precast = {}
@@ -55,11 +55,11 @@ function get_sets()
 		body="Witching Robe",hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Assiduity pants +1",feet="Herald's Gaiters"}
 		
-	sets.Idle.PDT = set_combine(sets.Idle.Standard, {ammo="Staunch Tathlum", neck="Loricate Torque +1", ring1="defending Ring", ring2="Dark Ring", 
+	sets.Idle.PDT = set_combine(sets.Idle.Standard, {ammo="Staunch Tathlum +1", neck="Loricate Torque +1", ring1="defending Ring", ring2="Dark Ring", 
 		body="Vrikodara Jupon", feet="Wicce Sabots +1"  })
 	
 	sets.Idle.HighMP = set_combine(sets.Idle.Standard, { ammo="Strobilus",
-		head="Pixie Hairpin +1", body="Amalric Doublet +1", hands="Amalric Gages +1", legs="Amalric Slops +1", feet="Amalric Nails +1",
+		head="Pixie Hairpin +1", body="Amalric Doublet +1", hands="Amalric Gages +1", legs="Spaekona's Tonban +3", feet="Amalric Nails +1",
 		neck="Sanctity Necklace", ear1="Etiolation Earring", ear2="Loquacious Earring", ring1="Mephitas's Ring +1", ring2="Mephitas's Ring",
 		back=TaranusMP, waist="Yamabuki-no-obi"})
 
@@ -77,17 +77,17 @@ function get_sets()
 		
 	sets.midcast.EnfeeblingMagic = {main=currentWeapon,sub="Enki Strap",ammo="pemphredo tathlum",
 		head="Archmage's Petasos +3",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Digni. Earring",
-		body="Spaekona's Coat +2",hands="Spaekona's Gloves +3",ring1="Sangoma Ring",ring2="Kishar Ring",
-		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +2"}
+		body="Spaekona's Coat +3",hands="Spaekona's Gloves +3",ring1="Sangoma Ring",ring2="Kishar Ring",
+		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +3"}
 
 	sets.midcast.ElementalMagic = {main=currentWeapon,sub="Niobid Strap", ammo="Pemphredo Tathlum",
 		head="Archmage's Petasos +3",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Freke Ring",
-		back=TaranusINT,waist="Refoccilation Stone",legs="Amalric slops +1",feet="Amalric Nails +1"}
+		back=TaranusINT,waist="Sacro Cord",legs="Amalric slops +1",feet="Amalric Nails +1"}
 		
 	sets.midcast.ElementalMagicHighMP = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
 		head=MerlinicHead, neck="Sorcerer's Stole",ear1="Etiolation Earring",ear2="Barkarole Earring",
-		body="Spaekona's Coat +2",hands="Spaekona's gloves +3",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
+		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
 	sets.midcast.ElementalMagicAcc = {
@@ -95,12 +95,12 @@ function get_sets()
 	    sub="Enki Strap",
 	    ammo="Pemphredo Tathlum",
 	    head="Archmage's Petasos +3",
-	    body="Amalric Doublet +1",
-	    hands="Jhakri Cuffs +2",
-	    legs=MerlinicLegs,
-	    feet="Archmage's Sabots +2",
+	    body="Spaekona's Coat +3",
+	    hands="Spaekona's Gloves +3",
+	    legs="Spaekona's Tonban +3",
+	    feet="Spaekona's Sabots +3",
 	    neck="Sorcerer's Stole",
-	    waist="Refoccilation Stone",
+	    waist="Sacro Cord",
 	    left_ear="Barkaro. Earring",
 	    right_ear="Digni. Earring",
 	    left_ring="Jhakri Ring",
@@ -108,15 +108,15 @@ function get_sets()
 	    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
 
-	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body="Spaekona's Coat +2"})
+	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body="Spaekona's Coat +3"})
 		
 	sets.midcast.Impact = set_combine(sets.midcast.ElementalMagicAcc, {head=empty, body="Twilight Cloak", feet="Archmage's Sabots +2"})	
 	-- sets.midcast.Impact = set_combine(sets.midcast.OccultAcumen, {head=empty, body="Twilight Cloak"})	
 		
 	sets.midcast.Stun = {main=currentWeapon,sub="Enki Strap",ammo="pemphredo tathlum",
 		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
-		body="Vanir Cotehardie",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Prolix Ring",
-		back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas",feet=MerlinicFeet}
+		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Sangoma Ring",ring2="Prolix Ring",
+		back="Swith Cape",waist="Witful Belt",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"}
 		
 	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",neck="Colossus's Torque",ear1="Lifestorm Earring",ear2="Loquacious Earring",
@@ -139,19 +139,19 @@ function get_sets()
 	sets.JA.ManaWall = {back=TaranusMP, feet="Wicce Sabots +1"}
 	
 	sets.midcast.Death = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
-		head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Static Earring",
+		head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Static Earring",
 		body="Ea Houppelande",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
-		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric slops +1",feet="Amalric Nails +1"}
+		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Amalric Nails +1"}
 	
 	sets.midcast.DeathHighMP = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
-		head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
+		head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
-		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
+		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Amalric Nails +1"}
 	
 	sets.midcast.DeathHighMPMB = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
 		head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Static Earring",
-		body="Ea Houppelande",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
-		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric slops +1",feet="Amalric Nails +1"}
+		body="Ea Houppelande",hands="Spaekona's Gloves +3",ring1="Mephitas's Ring +1",ring2="Archon Ring",
+		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"}
 	
 	sets.midcast.DrainAspir = set_combine(sets.midcast.ElementalMagic, {
 	head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Gwati Earring", ear2="Barkarole Earring",	
@@ -161,7 +161,7 @@ function get_sets()
 	    main="Khatvanga",
 	    sub="Clerisy Strap",
 	    ammo="Pemphredo Tathlum",
-	    body="Spaekona's Coat +2",
+	    body="Spaekona's Coat +3",
 	    hands="Ea Cuffs",
 	    legs="Perdition Slops",
 	    feet={ name="Helios Boots", augments={'Mag. Acc.+17 "Mag.Atk.Bns."+17','"Occult Acumen"+9','Magic burst dmg.+9%',}},
@@ -192,6 +192,7 @@ function addNewColors()
 end
 
 function updateTable()
+	addToTable("(F9) Nuking Accuracy", AccSet)
 	addToTable("(F10) MP Body", MPSet)
 	addToTable("(F11) MB Set", MBSet)
 	addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
@@ -225,8 +226,6 @@ else
 	end
 	if spell.english == 'Mana Wall' then
         equip(sets.JA.ManaWall)
-		disable("Feet")
-		disable("back")
     end
 end
 end
@@ -291,6 +290,10 @@ end
 -- --- Aftercast ---
 
 function aftercast(spell)
+	if spell.english == 'Mana Wall' then
+		disable("Feet")
+		disable("back")
+    end
 	equip(sets.Idle[sets.Idle.index[Idle_Index]])
 	check_spell(spell)
 end

@@ -34,7 +34,7 @@ capeAtk = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet
 function get_sets()
   
 --grioavolr = { name="Grioavolr", augments={'Blood Pact Dmg.+7','Pet: INT+11','Pet: Mag. Acc.+18','Pet: "Mag.Atk.Bns."+24',}}
-    Nirvana = "Nirvana"
+    Espiritus = "Espiritus"
     Grioavolr = { name="Grioavolr", augments={'Blood Pact Dmg.+5','Pet: Mag. Acc.+28','Pet: "Mag.Atk.Bns."+30',}}
     
     organizer_items = {
@@ -61,23 +61,23 @@ function get_sets()
       
     -- Your idle set when you DON'T have an avatar out
     sets.me.idle = {
-        main=Nirvana,
-        sub="Elan Strap",
-        ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
-        neck="Loricate Torque +1",
-        lear="Etiolation Earring",
-        rear="Cath Palug //gEarring",
-        body="Witching Robe",
-        hands="Inyanga Dastanas +2",
-        lring="Defending Ring",
-        rring="Dark Ring",
-        back="Repulse Mantle",
-        waist="Fucho-no-obi",
-        legs="Assiduity Pants +1",
-        feet="Herald's Gaiters"
-    }
-      
+	    main="Espiritus",
+	    sub="Alber Strap",
+	    ammo="Seraphicaller",
+	    head="Accord Hat +1",
+	    body="Shomonjijoe",
+	    hands="Inyan. Dastanas +1",
+	    legs="Assid. Pants +1",
+	    feet={ name="Vanya Clogs", augments={'MP+50','"Cure" potency +7%','Enmity-6',}},
+	    neck="Twilight Torque",
+	    waist="Chaac Belt",
+	    left_ear="Evans Earring",
+	    right_ear="Handler's Earring +1",
+	    left_ring="Defending Ring",
+	    right_ring="Stikini Ring",
+	    back={ name="Conveyance Cape", augments={'Summoning magic skill +4','Blood Pact ab. del. II -3',}},
+	}
+	      
     -- Your MP Recovered Whilst Resting Set
     sets.me.resting = set_combine(sets.me.idle, {})
       
@@ -88,7 +88,7 @@ function get_sets()
     -- Avatar's Out --  
     -- This is the base for all perpetuation scenarios, as seen below
     sets.avatar.perp = {
-        main=Nirvana,
+        main=Espiritus,
         sub="Elan Strap",
         ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
@@ -137,8 +137,8 @@ function get_sets()
       
     -- + Summoning Magic. This is a base set for max skill and blood pacts and we'll overwrite later as and when we need to
     sets.avatar.skill = {
-        main=Nirvana,
-        sub="Elan Strap +1",
+        main=Espiritus,
+        sub="Elan Strap",
         ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
         neck="Caller's Pendant",
@@ -160,7 +160,7 @@ function get_sets()
       
     -- Physical damage
     sets.avatar.atk = set_combine(sets.avatar.skill,{
-        main="Nirvana",
+        main="Espiritus",
         head="Apogee Crown +1",
         neck="Shulmanu Collar",
         lear="Lugalbanda Earring",
@@ -168,7 +168,7 @@ function get_sets()
         body="Convoker's Doublet +2",
         hands={ name="Merlinic Dastanas", augments={'Pet: Accuracy+21 Pet: Rng. Acc.+21','Blood Pact Dmg.+8','Pet: INT+1','Pet: Mag. Acc.+6',}},
         lring="Varar Ring +1",
-        rring="Cath Palug Ring",
+        rring="Varar Ring",
         back=capeAtk,
         waist="Incarnation Sash",
         -- legs="Enticer's Pants",
@@ -181,12 +181,12 @@ function get_sets()
         lear="Lugalbanda Earring",
         rear="Kyrene's Earring",
         body="Convoker's Doublet +2",
-        hands="Convoker's Bracers +1",
+        hands={ name="Merlinic Dastanas", augments={'Pet: Accuracy+21 Pet: Rng. Acc.+21','Blood Pact Dmg.+8','Pet: INT+1','Pet: Mag. Acc.+6',}},
         lring="Varar Ring +1",
-        rring="Cath Palug Ring",
+        rring="Varar Ring",
         back=capeAtk,
         waist="Incarnation Sash",
-        legs="Apogee Slacks +1",
+        legs="Enticer's Pants",
         feet="Convoker's pigaches +2"
     })
       
@@ -214,6 +214,7 @@ function get_sets()
         lear="Lugalbanda Earring",
         rear="Gelos Earring",
         body="Convoker's Doublet +2",
+
         hands={ name="Merlinic Dastanas", augments={'Pet: Accuracy+21 Pet: Rng. Acc.+21','Blood Pact Dmg.+8','Pet: INT+1','Pet: Mag. Acc.+6',}},
         lring="Varar Ring +1",
         rring="Varar Ring",
@@ -235,7 +236,7 @@ function get_sets()
         lring="Varar Ring +1",
         rring="Varar Ring",
         back=capeMagic,
-        waist="Incarnation sash",
+        waist="Regal Belt",
         legs="Tali'ah Seraweels",
         feet="Tali'ah Crackows +1"
     })
@@ -281,40 +282,24 @@ function get_sets()
       
     -- Generic Casting Set that all others take off of. Here you should add all your fast cast  
     sets.precast.casting = {
-        main=Nirvana,
-        sub="Clerisy Strap",
-        ammo="Sancus Sachet +1",
-        head="Nahtirah Hat",
-        neck="Orunmila's Torque",
-        lear="Etiolation Earring",
-        rear="Loquacious Earring",
-        body="Inyanga Jubbah +2",
-        hands="Inyanga Dastanas +2",
-        lring="Prolix Ring",
-        rring="Etana Ring",
-        back="Swith Cape",
-        waist="Witful Belt",
-        legs="Amalric Slops",
-        feet="Merlinic Crackows"
-    }
+	    main="Grioavolr",
+	    sub="Clerisy Strap",
+	    ammo="Seraphicaller",
+	    head="Nahtirah Hat",
+	    body="Vrikodara Jupon",
+	    hands="Repartie Gloves",
+	    legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
+	    feet={ name="Merlinic Crackows", augments={'Mag. Acc.+5 "Mag.Atk.Bns."+5','"Fast Cast"+4','Mag. Acc.+13','"Mag.Atk.Bns."+6',}},
+	    neck="Voltsurge Torque",
+	    waist="Channeler's Stone",
+	    left_ear="Loquac. Earring",
+	    right_ear="Enchntr. Earring +1",
+	    left_ring="Stikini Ring",
+	    right_ring="Kishar Ring",
+	    back="Swith Cape +1",
+	}
 
-    sets.pre = {
-        main=Nirvana,
-        sub="Clerisy Strap",
-        ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
-        neck="Caller's pendant",
-        lear="Etiolation Earring",
-        rear="Loquacious Earring",
-        body="Convoker's Doublet +2",
-        hands="Inyanga Dastanas +2",
-        lring="Prolix Ring",
-        rring="Etana Ring",
-        back="Swith Cape",
-        waist="Witful Belt",
-        legs="Amalric Slops",
-        feet="Merlinic Crackows"
-    }
+    sets.pre = sets.precast.casting
       
     -- Summoning Magic Cast time - gear
     sets.precast.summoning = sets.pre
@@ -338,16 +323,21 @@ function get_sets()
       
     -- Blood Pact Ability Delay
     sets.precast.bp = {
-        main=Nirvana,
-        sub="Elan Strap +1",
-        ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
-        lear="Evans Earring",
-        body="Convoker's Doublet +2",
-        hands="Convoker's Bracers +1",
-        back="Conveyance Cape",
-        legs="Glyphic Spats +1",
-        feet="Glyphic Pigaches +1"
+        main="Espiritus",
+	    sub="Enki Strap",
+	    ammo="Seraphicaller",
+	    head="Accord Hat +1",
+	    body={ name="Glyphic Doublet +1", augments={'Reduces Sp. "Blood Pact" MP cost',}},
+	    hands={ name="Glyphic Bracers", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+	    legs="Assid. Pants +1",
+	    feet={ name="Glyph. Pigaches +1", augments={'Inc. Sp. "Blood Pact" magic crit. dmg.',}},
+	    neck="Incanter's Torque",
+	    waist="Witful Belt",
+	    left_ear="Evans Earring",
+	    right_ear="Handler's Earring +1",
+	    left_ring="Kishar Ring",
+	    right_ring="Gelatinous Ring +1",
+	    back={ name="Conveyance Cape", augments={'Summoning magic skill +4','Blood Pact ab. del. II -3',}},
     }
       
     -- Mana Cede
@@ -424,8 +414,7 @@ end
 		
 bp_physical=S{	'Punch','Rock Throw','Barracuda Dive','Claw','Axe Kick','Shock Strike','Camisado','Regal Scratch','Poison Nails',
 				'Moonlit Charge','Crescent Fang','Rock Buster','Tail Whip','Double Punch','Megalith Throw','Double Slap','Eclipse Bite',
-				'Mountain Buster','Spinning Dive','Predator Claws','Rush','Chaotic Strike','Crag Throw','Volt Strike','Hysteric Assault',
-                'Roundhouse','Welt'}
+				'Mountain Buster','Spinning Dive','Predator Claws','Rush','Chaotic Strike','Crag Throw','Volt Strike'}
 
 bp_hybrid=S{	'Burning Strike','Flaming Crush'}
 
@@ -433,19 +422,19 @@ bp_magical=S{	'Inferno','Earthen Fury','Tidal Wave','Aerial Blast','Diamond Dust
 				'Ruinous Omen','Fire II','Stone II','Water II','Aero II','Blizzard II','Thunder II','Thunderspark','Somnolence',
 				'Meteorite','Fire IV','Stone IV','Water IV','Aero IV','Blizzard IV','Thunder IV','Nether Blast','Meteor Strike',
 				'Geocrush','Grand Fall','Wind Blade','Heavenly Strike','Thunderstorm','Level ? Holy','Holy Mist','Lunar Bay',
-				'Night Terror','Conflagration Strike', 'Zantetsuken', 'Tornado II', 'Sonic Buffet'}
+				'Night Terror','Conflagration Strike', 'Zantetsuken'}
 				
 bp_debuff=S{	'Lunar Cry','Mewing Lullaby','Nightmare','Lunar Roar','Slowga','Ultimate Terror','Sleepga','Eerie Eye','Tidal Roar',
-				'Diamond Storm','Shock Squall','Pavor Nocturnus','Lunatic Voice','Bitter Elegy'}
+				'Diamond Storm','Shock Squall','Pavor Nocturnus'}
 				
 bp_buff=S{		'Shining Ruby','Frost Armor','Rolling Thunder','Crimson Howl','Lightning Armor','Ecliptic Growl','Hastega','Noctoshield',
 				'Ecliptic Howl','Dream Shroud','Earthen Armor','Fleet Wind','Inferno Howl','Soothing Ruby','Heavenward Howl',
-				'Soothing Current','Hastega II','Crystal Blessing','Katabatic Blades', 'Chinook', 'Wind\'s Blessing'}
+				'Soothing Current','Hastega II','Crystal Blessing'}
 
 bp_other=S{		'Healing Ruby','Raise II','Aerial Armor','Reraise II','Whispering Wind','Glittering Ruby','Earthen Ward','Spring Water','Healing Ruby II'} 
 
 AvatarList=S{	'Shiva','Ramuh','Garuda','Leviathan','Diabolos','Titan','Fenrir','Ifrit','Carbuncle','Fire Spirit','Air Spirit','Ice Spirit',
-				'Thunder Spirit','Light Spirit','Dark Spirit','Earth Spirit','Water Spirit','Cait Sith','Alexander','Odin','Atomos','Siren'}
+				'Thunder Spirit','Light Spirit','Dark Spirit','Earth Spirit','Water Spirit','Cait Sith','Alexander','Odin','Atomos'}
 				
 spirit_element={Fire='Fire Spirit',Earth='Earth Spirit',Water='Water Spirit',Wind='Air Spirit',Ice='Ice Spirit',Lightning='Thunder Spirit',
 				Light='Light Spirit',Dark='Dark Spirit'}spirit_conflict={Fire='Ice',Earth='Lightning',Water='Fire',Wind='Earth',Ice='Wind',

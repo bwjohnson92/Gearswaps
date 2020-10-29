@@ -1,4 +1,7 @@
 require('ClosetCleaner')
+include('displayBox.lua')
+include('organizeritems.lua')
+
 -- Owner: AlanWarren, aka ~ Orestes 
 -- current file resides @ https://github.com/AlanWarren/gearswap
 --[[ 
@@ -50,7 +53,7 @@ end
 function user_setup()
         -- Options: Override default values
         state.OffenseMode:options('Normal', 'Melee')
-        state.RangedMode:options('Normal', 'Mid', 'Acc')
+        state.RangedMode:options('Normal', 'Acc')
         state.HybridMode:options('Normal', 'PDT')
         state.IdleMode:options('Normal', 'PDT')
         state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
@@ -59,7 +62,7 @@ function user_setup()
  
         state.Buff.Barrage = buffactive.Barrage or false
         state.Buff.Camouflage = buffactive.Camouflage or false
-        state.Buff.Overkill = buffactive.Overkill or false
+        state.Buff.Overkill = false
 
         -- settings
         state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -70,6 +73,7 @@ function user_setup()
 
         gear.Gun = "Fomalhaut"
         gear.Bow = "Yoichinoyumi"
+        gear.Gun = "Annihilator"
         --gear.Bow = "Steinthor"
        
         rng_sub_weapons = S{'Perun +1','Nusku Shield', 
@@ -79,8 +83,10 @@ function user_setup()
         sam_sj = player.sub_job == 'SAM' or false
 
         BelenusTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Rng.Acc.+10','"Store TP"+10',}}
-        BelenusWS = { name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10',}}
-        BelenusMW = { name="Belenus's Cape", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
+        BelenusDexCrit = { name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10',}}
+        BelenusMagicWS = { name="Belenus's Cape", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
+        BelenusPreshot = { name="Belenus's Cape", augments={'"Snapshot"+10',}}
+        BelenusAgiWS = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
 
         HerculeanBodyWS={ name="Herculean Vest", augments={'Rng.Acc.+22 Rng.Atk.+22','Weapon skill damage +2%'}}
         HerculeanLegsWS={ name="Herculean Trousers", augments={'Rng.Acc.+24 Rng.Atk.+24','Weapon skill damage +3%'}}
@@ -99,8 +105,21 @@ function user_setup()
         send_command('bind ^f9 gs c cycle HybridMode')
         send_command('bind f10 gs c cycle WeaponskillMode')
         
-        -- Testing 
         --windower.register_event('incoming text', detect_cor_rolls)
+    text_setup()
+    addTextPairs()
+    updateTable()
+end
+
+function addTextPairs()
+    addTextColorPair("Standard", "green")
+    addTextColorPair("HighMP", "yellow")
+end
+
+function updateTable()
+    addToTable("(F9)  Ranged Mode", state.RangedMode.value)
+    addToTable("(F10) Weaponskill Mode", state.WeaponskillMode.value)
+    update_message()
 end
 
 -- Called when this job file is unloaded (eg: job change)
@@ -121,28 +140,16 @@ function init_gear_sets()
         --TaeonHands.TA = {name="Taeon Gloves", augments={'STR+9','Accuracy+17 Attack+17','"Triple Atk."+2'}}
         --TaeonHands.DW = {name="Taeon Gloves", augments={'STR+3 VIT+3', 'Attack+22','"Dual Wield" +5'}}
 
-        organizer_items = {
-            main="Perun +1",
-            sub="Oneiros knife",
-            ranged="Yoichinoyumi",
-			warp="Instant Warp",
-			RR="Instant Reraise",
-			RRE="Reraise Earring",
-			CapRing="Capacity Ring",
-			CapBack="Mecistopins Mantle",
-			Holy="Holy Water",
-            Prism="Prism Powder",
-            Oils="Silent Oils",
-            CP="Trizek Ring"
-			
-        }
+        organizer_items = organizerItems()
+
         -- Misc. Job Ability precasts
         sets.precast.JA['Bounty Shot'] = {hands="Amini Glovelettes +1"}
         sets.precast.JA['Double Shot'] = {head="Amini Gapette +1"}
         sets.precast.JA['Camouflage'] = {body="Orion Jerkin +2"}
-        sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +1"}
+        sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +2"}
         sets.precast.JA['Velocity Shot'] = {body="Amini Caban +1"}
-        sets.precast.JA['Scavenge'] = {feet="Orion Socks +1"}
+        sets.precast.JA['Scavenge'] = {feet="Orion Socks +2"}
+        sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +2"}
 
         sets.CapacityMantle = {back="Mecistopins Mantle"}
 
@@ -159,7 +166,7 @@ function init_gear_sets()
         sets.precast.JA['Eagle Eye Shot'].Mid = set_combine(sets.precast.JA['Eagle Eye Shot'], {
             back="Lutian Cape",
             ring2="Paqichikaji Ring",
-            feet="Orion Socks +1"
+            feet="Orion Socks +2"
         })
         sets.precast.JA['Eagle Eye Shot'].Acc = set_combine(sets.precast.JA['Eagle Eye Shot'].Mid, {
             neck="Iqabi Necklace",
@@ -176,8 +183,8 @@ function init_gear_sets()
         sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, { neck="Magoraga Beads" })
         
         sets.idle = {
-            head="Arcadian beret +1",
-            neck="Twilight Torque",
+            head="Malignance Chapeau",
+            neck="Loricate Torque +1",
             ear1="Enervating Earring",
             ear2="Telos Earring",
             body="Amini Caban +1",
@@ -199,7 +206,7 @@ function init_gear_sets()
  
         -- Engaged sets
         sets.engaged =  {
-            head="Arcadian beret +1",
+            head="Arcadian beret +2",
             neck="Twilight Torque",
             ear1="Enervating Earring",
             ear2="Telos Earring",
@@ -209,10 +216,10 @@ function init_gear_sets()
             ring2="Defending Ring",
             waist="Impulse Belt",
             legs="Nahtirah Trousers", 
-            feet="Orion Socks +1"
+            feet="Orion Socks +2"
         }
         sets.engaged.PDT = set_combine(sets.engaged, {
-            neck="Twilight Torque",
+            neck="Loricate Torque +1",
             ring1="Dark Ring",
             ring2="Patricius Ring"
         })
@@ -226,29 +233,30 @@ function init_gear_sets()
             neck="Scout's Gorget +1",
             body={name="Pursuer's Doublet", augments={'HP+50','Crit. hit rate+4%','"Snapshot"+6',}},-- 6
 			hands="Carmine Finger Gauntlets +1",
-            back="Lutian Cape", -- 3
-            legs="Pursuer's pants", -- 9
-            waist="Impulse Belt", -- 2
-            feet="Meghanada Jambeaux +2",
+            back=BelenusPreshot, -- 3
+            legs="Orion Braccae +2", -- 9
+            waist="Yemaya Belt", -- 2
+            feet="Meghanada Jambeaux +2"
         }
         
         ------------------------------------------------------------------
         -- Default Base Gear Sets for Ranged Attacks. Geared for BOW
         ------------------------------------------------------------------
         sets.midcast.RA = {
-            head={ name="Arcadian Beret +1", augments={'Enhances "Recycle" effect',}},
+            head={ name="Arcadian Beret +2", augments={'Enhances "Recycle" effect',}},
             body="Mummu jacket +1", 
             hands="Carmine Finger Gauntlets +1",
-            legs="Amini Brague +1",
-            feet="Tatenashi sune-ate +1",
+            legs="Adhemar Kecks",
+            feet="Orion socks +2",
             waist="Elanid Belt",
             neck="Iskur Gorget",
             left_ear="Telos Earring",
             right_ear="Enervating Earring",
             left_ring="Rajas Ring",
-            right_ring="Petrov Ring",
+            right_ring="Ilabrat Ring",
             back=BelenusTP
         }
+
         sets.midcast.RA.Mid = set_combine(sets.midcast.RA, {
             waist="Kwahu Kachina Belt",
             feet={ name="Herculean Boots", augments={'Rng.Acc.+14 Rng.Atk.+14','Enmity-6','DEX+8','Rng.Acc.+13','Rng.Atk.+7',}}
@@ -258,157 +266,15 @@ function init_gear_sets()
         sets.midcast.RA.Acc = set_combine(sets.midcast.RA.Mid, {
             head="Orion Beret +3",
             body="Orion Jerkin +2",
-            hands="Mummu Wrists +1",
-            feet="Meghanada Jambeaux +2",
+            hands="Orion Socks +2",
+            feet="Orion Socks +2",
             neck= "Iskur Gorget",
             left_ring="Hajduk Ring",
             right_ring="Cacoethic Ring +1",
             legs="Adhemar Kecks",
+            waist="Kwahu Kachina Belt",
             })
-        ------------------------------------------------------------------
-        -- Specialized Gear Sets
-        ------------------------------------------------------------------
-        --[[
-        -- Stave sets 
-        sets.midcast.RA.Stave = set_combine(sets.midcast.RA, {
-            body="Arcadian Jerkin +1",
-            back="Lutian Cape",
-            legs="Amini Brague +1", 
-        })
 
-        sets.midcast.RA.Stave.Mid = set_combine(sets.midcast.RA.Stave, {})
-		
-        sets.midcast.RA.Stave.Acc = set_combine(sets.midcast.RA.Stave.Mid, {
-            neck="Iqabi Necklace",
-            legs="Aetosaur Trousers +1",
-            ring1="Paqichikaji Ring"
-        })
-        
-        -- Samurai Roll sets 
-        sets.midcast.RA.SamRoll = set_combine(sets.midcast.RA, {
-            body="Arcadian Jerkin +1",
-            ring2="Paqichikaji Ring",
-        })
-        sets.midcast.RA.Mid.SamRoll = set_combine(sets.midcast.RA.SamRoll, {})
-		
-        sets.midcast.RA.Acc.SamRoll = set_combine(sets.midcast.RA.Mid.SamRoll, {
-            neck="Iqabi Necklace", 
-            ring1="Hajduk Ring", 
-            ring2="Paqichikaji Ring",
-            legs="Arcadian Braccae +1"
-        })
-        -- Stave Sam Roll
-        sets.midcast.RA.Stave.SamRoll = set_combine(sets.midcast.RA.Stave, {
-            body="Arcadian Jerkin +1",
-            waist="Elanid Belt"
-        })
-        sets.midcast.RA.Stave.Mid.SamRoll = set_combine(sets.midcast.RA.Stave.Mid, {})
-		
-        sets.midcast.RA.Stave.Acc.SamRoll = set_combine(sets.midcast.RA.Stave.Acc, {})
-        
-        -- SAM Subjob
-        sets.midcast.RA.SAM = set_combine(sets.midcast.RA, {
-            head="Arcadian beret +1",
-            neck="Ocachi Gorget",
-            ear1="Enervating Earring",
-            ear2="Tripudio Earring", 
-            body="Kyujutsugi",
-            hands="Amini Glovelettes",
-            ring1="Apate Ring", 
-            ring2="pernicious Ring",
-            back="Sylvan Chlamys",
-            waist="Elanid Belt",
-            legs="Amini Brague +1", 
-            feet="Orion Socks +1"
-        })
-        sets.midcast.RA.SAM.Mid = set_combine(sets.midcast.RA.SAM, { 
-            hands="Amini Glovelettes",
-        })
-        sets.midcast.RA.SAM.Acc = set_combine(sets.midcast.RA.SAM.Mid, {
-            back="Lutian Cape", 
-            neck="Iqabi Necklace", 
-            ring2="Paqichikaji Ring"
-        })
-
-        -- Stave set for SAM
-        sets.midcast.RA.SAM.Stave = set_combine(sets.midcast.RA.SAM, {
-            hands="Amini Glovelettes"
-        })
-        sets.midcast.RA.SAM.Stave.Mid = set_combine(sets.midcast.RA.SAM.Mid, {
-            hands="Sigyn's Bazubands",
-            legs="Amini Brague +1", 
-        })
-        sets.midcast.RA.SAM.Stave.Acc = set_combine(sets.midcast.RA.SAM.Acc, {})
-        
-        -- Samurai Roll for /sam, assume we're using a staff
-        sets.midcast.RA.SAM.Stave.SamRoll = set_combine(sets.midcast.RA.SAM.Stave, {
-            hands="Amini Glovelettes"
-        })
-        sets.midcast.RA.SAM.Stave.Mid.SamRoll = set_combine(sets.midcast.RA.SAM.Stave.Mid, {
-            ear1="Enervating Earring",
-            hands="Sigyn's Bazubands",
-            legs="Amini Brague +1", 
-        })
-        sets.midcast.RA.SAM.Stave.Acc.SamRoll = set_combine(sets.midcast.RA.SAM.Stave.Acc, {
-            hands="Sigyn's Bazubands",
-        })
-
-        -- Bow base set.
-        sets.midcast.RA.Nobility = set_combine(sets.midcast.RA, {})
-		
-        sets.midcast.RA.Nobility.Mid = set_combine(sets.midcast.RA.Mid, {})
-        sets.midcast.RA.Nobility.Acc = set_combine(sets.midcast.RA.Acc, {})
-		
-        sets.midcast.RA.Falubeza = set_combine(sets.midcast.RA.Nobility, {})
-        sets.midcast.RA.Falubeza.Mid = set_combine(sets.midcast.RA.Nobility.Mid, {})
-        sets.midcast.RA.Falubeza.Acc = set_combine(sets.midcast.RA.Nobility.Acc, {})
-
-        -- Stave
-        sets.midcast.RA.Stave.Nobility = set_combine(sets.midcast.RA.Nobility, { hands="Amini Glovelettes" })
-        sets.midcast.RA.Stave.Nobility.Mid = set_combine(sets.midcast.RA.Nobility.Mid, { 
-            legs="Amini Brague +1", 
-        })
-        sets.midcast.RA.Stave.Nobility.Acc = set_combine(sets.midcast.RA.Nobility.Acc, {})
-       
-        -- Stave with Sam roll
-        sets.midcast.RA.Stave.Nobility.SamRoll = set_combine(sets.midcast.RA.Stave.Nobility, {
-            body="Arcadian Jerkin +1",
-            hands="Amini Glovelettes",
-            ring2="Paqichikaji Ring",
-            back="Lutian Cape"
-        })
-        sets.midcast.RA.Stave.Nobility.Mid.SamRoll = set_combine(sets.midcast.RA.Stave.Nobility.SamRoll, {
-            body="Kyujutsugi",
-        })
-        sets.midcast.RA.Stave.Nobility.Acc.SamRoll = set_combine(sets.midcast.RA.Stave.Nobility.Mid.SamRoll, {
-            neck="Iqabi Necklace",
-            hands="Amini Glovelettes",
-            ring1="Paqichikaji Ring",
-            feet="Orion Socks +1"
-        })
-        
-        -- Sam SJ / Bow - assuming you'll use a Stave here..
-        sets.midcast.RA.SAM.Stave.Nobility = set_combine(sets.midcast.RA.SAM, {
-            feet="Arcadian Socks +1"
-        })
-        sets.midcast.RA.SAM.Stave.Nobility.Mid = set_combine(sets.midcast.RA.SAM.Mid, {
-            feet="Orion Socks +1"
-        })
-        sets.midcast.RA.SAM.Stave.Nobility.Acc = set_combine(sets.midcast.RA.SAM.Acc, {})
-
-        -- Sam SJ / Bow / Sam's Roll
-        sets.midcast.RA.SAM.Stave.Nobility.SamRoll = set_combine(sets.midcast.RA.SAM.Stave.Nobility, {
-            waist="Elanid Belt",
-            feet="Orion Socks +1"
-        })
-
-        sets.midcast.RA.SAM.Stave.Nobility.Mid.SamRoll = set_combine(sets.midcast.RA.SAM.Stave.Nobility.Mid, {
-            waist="Elanid Belt",
-        })
-        sets.midcast.RA.SAM.Stave.Nobility.Acc.SamRoll = set_combine(sets.midcast.RA.SAM.Stave.Nobility.Acc, {})
-
-        ]]--
-        -- Weaponskill sets  
         sets.precast.WS = {
             head="Orion Beret +3",
             neck="Scout's Gorget +1",
@@ -418,9 +284,9 @@ function init_gear_sets()
             hands="Meghanada Gloves +2",
             ring1="Apate Ring",
             ring2="Petrov Ring",
-            back=BelenusWS,
+            back=BelenusDexCrit,
             waist="Fotia Belt",
-            legs="Arcadian Braccae +2", 
+            legs="Arcadian Braccae +3", 
             feet=HerculeanFeetWS
         }
         sets.precast.WS.Mid = set_combine(sets.precast.WS, {
@@ -432,10 +298,18 @@ function init_gear_sets()
         })
 
         sets.LastStand = {
-            back=BelenusWS,
-            ear2="Ishvara Earring",
-            ring1="Ilabrat ring",
-            ring2="Dingir Ring"
+            head="Orion Beret +3",
+            body={ name="Herculean Vest", augments={'Rng.Acc.+22 Rng.Atk.+22','Weapon skill damage +2%',}},
+            hands="Meghanada Gloves +2",
+            legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
+            feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
+            neck="Scout's Gorget +1",
+            waist="Fotia Belt",
+            left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+            right_ear="Ishvara Earring",
+            left_ring="Ilabrat Ring",
+            right_ring="Dingir Ring",
+            back=BelenusAgiWS,
         }
 
         sets.precast.WS['Last Stand'] = set_combine(sets.precast.WS, sets.LastStand)
@@ -460,7 +334,7 @@ function init_gear_sets()
             right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             left_ring="Ilabrat ring",
             right_ring="Dingir Ring",
-            back=BelenusMW
+            back=BelenusMagicWS
         }
 
         sets.precast.WS['Trueflight'] = set_combine(sets.precast.WS, sets.Trueflight)
@@ -486,7 +360,7 @@ function init_gear_sets()
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Sherida Earring",
             left_ring="Ilabrat Ring",
-            right_ring="Begrudging Ring",
+            right_ring="Begruding Ring",
             back={ name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10',}},
         }
         sets.precast.WS['Jishnu\'s Radiance'] = set_combine(sets.precast.WS, sets.Jishnus)
@@ -497,7 +371,7 @@ function init_gear_sets()
         sets.ApexArrow = {
             head={ name="Herculean Helm", augments={'Rng.Acc.+15 Rng.Atk.+15','DEX+12','Rng.Acc.+10','Rng.Atk.+10',}},
             body="Mummu Jacket +1",
-            hands="Mummu Wrists +1",
+            hands="Mummu Wrists +2",
             legs="Meghanada Chausses +2",
             feet="Meg. Jam. +2",
             neck="Marked Gorget",
@@ -506,12 +380,51 @@ function init_gear_sets()
             right_ear="Enervating Earring",
             left_ring="Paqichikaji Ring",
             right_ring="Cacoethic Ring +1",
-            back={ name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10',}},
+            back=BelenusAgiWS,
         }
 
         sets.precast.WS['Apex Arrow'] = set_combine(sets.precast.WS, sets.ApexArrow)
         sets.precast.WS['Apex Arrow'].Mid = set_combine(sets.precast.WS.Mid, sets.ApexArrow)
         sets.precast.WS['Apex Arrow'].Acc = set_combine(sets.precast.WS.Acc, sets.ApexArrow)
+
+
+        sets.NamasArrow = set_combine(sets.ApexArrow, {
+            waist="Fotia Belt",
+            neck="Fotia Gorget",
+            ear1="Ishvara Earring",
+            ear2="Sherida Earring",
+            hands="Meghanada Gloves +2",
+            head="Orion Beret +3",
+            legs="Arcadian Braccae +3",
+            body="Meghanada Cuirie +2",
+            feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
+            ring1="Dingir Ring",
+            ring2="Ilabrat Ring",
+            back=BelenusAgiWS
+            })
+        sets.precast.WS['Namas Arrow'] = set_combine(sets.precast.WS, sets.NamasArrow)
+        sets.precast.WS['Namas Arrow'].Mid = set_combine(sets.precast.WS.Mid, sets.NamasArrow)
+        sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS.Acc, sets.NamasArrow)
+
+        sets.Coronach = {
+            head="Orion Beret +3",
+            neck="Scout's gorget +1",
+            ear1="Sherida Earring",
+            ear2="Ishvara Earring",
+            body="Meghanada cuirie +2",
+            hands="Meg. Gloves +2",
+            ring1="Dingir Ring",
+            -- ring2="Karieyh Ring",
+            ring2="Ilabrat Ring",
+            back=BelenusAgiWS,
+            waist="Fotia Belt",
+            legs="Arc. Braccae +3",
+            feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
+        }
+
+        sets.precast.WS['Coronach'] = set_combine(sets.precast.WS, sets.Coronach)
+        sets.precast.WS['Coronach'].Mid = set_combine(sets.precast.WS.Mid, sets.Coronach)
+        sets.precast.WS['Coronach'].Acc = set_combine(sets.precast.WS.Acc, sets.Coronach)
 
         -- Resting sets
         sets.resting = {}
@@ -533,16 +446,17 @@ function init_gear_sets()
             back="Lutian Cape",
             waist="Kwahu Kachina Belt",
             legs="Amini Brague +1", 
-            feet="Orion Socks +1"
+            feet="Orion Socks +2"
         })
-        -- placeholder until I can get to it
         sets.buff.Barrage.Mid = set_combine(sets.buff.Barrage, {})
         sets.buff.Barrage.Acc = set_combine(sets.buff.Barrage, {})
 
         sets.buff.Camouflage =  {body="Orion Jerkin +2"}
 
+        sets.Shadowbind = {hands="Orion Bracers +2"}
+
         sets.Overkill =  {
-            body="Arcadian Jerkin +1"
+            -- body="Arcadian Jerkin +1"
         }
         sets.Overkill.Preshot = set_combine(sets.precast.RA, sets.Overkill)
 
@@ -577,7 +491,7 @@ function job_precast(spell, action, spellMap, eventArgs)
                     eventArgs.cancel = true
                     return
             end
-            if ((spell.target.distance >8 and spell.skill ~= 'Archery' and spell.skill ~= 'Marksmanship') or (spell.target.distance >21)) then
+            if ((spell.target.distance >8 and spell.skill ~= 'Archery' and spell.skill ~= 'Marksmanship') or (spell.target.distance >23)) then
                 -- Cancel Action if distance is too great, saving TP
                 add_to_chat(122,"Outside WS Range! /Canceling")
                 eventArgs.cancel = true
@@ -757,13 +671,16 @@ function job_update(cmdParams, eventArgs)
     sam_sj = player.sub_job == 'SAM' or false
     -- called here incase buff_change failed to update value
     state.Buff.Camouflage = buffactive.camouflage or false
-    state.Buff.Overkill = buffactive.overkill or false
+    -- state.Buff.Overkill = buffactive.overkill or false
+    state.Buff.Overkill = false --Overkill FIX
 
     if camo_active() then
         disable('body')
     else
         enable('body')
     end
+    updateTable()
+
 end
  
 -- Set eventArgs.handled to true if we don't want the automatic display to be run.
@@ -880,5 +797,5 @@ end
 -- Select default macro book on initial load or subjob change.
 function select_default_macro_book()
 	-- Default macro set/book
-    set_macro_page(3, 9)
+    set_macro_page(1, 9)
 end

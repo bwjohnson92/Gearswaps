@@ -4,10 +4,13 @@ include('organizeritems.lua')
 
 function get_sets()
 
+    backTP = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Store TP"+10',}}
+    backWS = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     send_command('bind f9 gs c toggle MTP set')
-    send_command('bind f12 gs c toggle Idle set')
     send_command('bind f10 gs c toggle Shoha set')
     send_command('bind f11 gs c toggle Fudo set')
+    send_command('bind f12 gs c toggle Idle set')
+
     send_command('bind ^f11 gs c toggle Apex set')
     send_command('bind ^f12 gs c toggle Kaiten set')
     
@@ -50,6 +53,7 @@ function get_sets()
         
         --TP Sets--
         sets.TP = {main="Ichigohitofuri"}
+        sets.Polearm = {main="Shining One"}
 
         -- sets.TP.index = {'Standard', 'AccuracyLite', 'AccuracyFull', 'DT', 'DTAccuracy'}
         sets.TP.index = {'Standard', 'AccuracyLite', 'AccuracyFull' }
@@ -57,44 +61,43 @@ function get_sets()
         TP_ind = 1
     
         sets.TP.Standard = {
-            -- range={ name="Cibitshavore", augments={'STR+12','Rng.Acc.+10','"Store TP"+6',}},
             ammo="Ginsen",
             head="Flam. Zucchetto +2",
             body="Kasuga Domaru +1",
-            hands="Wakido Kote +2",
+            hands="Wakido Kote +3",
             legs="Hiza. Hizayoroi +2", --Swap for lower haste? Wakido?
             feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
             neck="Sam. Nodowa +1",
-            waist="Ioskeha Belt",
+            waist="Ioskeha Belt +1",
             ear1="Dignitary's Earring",
-            ear2="Neritic Earring",
+            ear2="Cessance Earring",
             left_ring="Flamma Ring",
             right_ring="Ilabrat Ring",
-            back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Store TP"+10',}},
+            back=backTP
         }
                             
         sets.TP.AccuracyLite = {
             ammo="Ginsen",
             head="Flam. Zucchetto +2",
-            body="Flamma Korazin +1",
-            hands="Wakido Kote +2",
+            body="Flamma Korazin +2",
+            hands="Wakido Kote +3",
             legs="Hiza. Hizayoroi +2",
             -- feet={ name="Valorous Greaves", augments={'Accuracy+14','Weapon skill damage +5%',}}, --Something
-            feet="Flamma Dirs +1",
+            feet="Flamma Gambieras +2",
             neck="Sam. Nodowa +1",
-            waist="Ioskeha Belt",
+            waist="Ioskeha Belt +1",
             ear1="Digni. Earring",
-            ear2="Steelflash Earring",
+            ear2="Telos Earring",
             left_ring="Flamma Ring",
             right_ring="Ilabrat Ring",
-            back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Store TP"+10',}},
+            back=backTP
         }
     
         sets.TP.AccuracyFull = {
                                 ammo="Ginsen",
-                                head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Steelflash earring", ear2="Bladeborn earring",
-                                body="Flamma Korazin +1",hands="Wakido kote +2",ring1="Flamma ring",ring2="Hizamaru ring",
-                                back="Takaha mantle",waist="Eschan Stone",legs="Hizamaru Hizayoroi +2",feet="Flamma Gambieras +1"}
+                                head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Telos earring", ear2="Dignitary's earring",
+                                body="Flamma Korazin +2",hands="Wakido kote +3",ring1="Flamma ring",ring2="Hizamaru ring",
+                                back=backTP,waist="Ioskeha belt +1",legs="Wakido Haidate +3",feet="Flamma Gambieras +2"}
                             
         -- sets.TP.DT = {
         --               head="Yaoyotl helm",neck="Asperity necklace", ear1="Steelflash earring", ear2="Bladeborn earring",
@@ -135,15 +138,15 @@ function get_sets()
         sets.Shoha.index = {'Attack','Accuracy'}
         Shoha_ind = 1
     
-        sets.Shoha.Attack = {range="Cibitshavore",
-                             head="Valorous Mask",neck="Samurai's Nodowa +1",ear1="Ishvara Earring",ear2="Moonshade earring",
-                             body="Flamma Korazin +1",hands="Valorous mitts",ring1="Flamma Ring",ring2="Apate ring",
-                             back="Smertrios's Mantle",waist="Fotia belt",legs="Hizamaru Hizayoroi +2",feet="Valorous Greaves"}
+        sets.Shoha.Attack = {ammo="Knobkierrie", 
+        head="Valorous Mask",neck="Samurai's Nodowa +1",ear1="Ishvara Earring",ear2="Moonshade earring",
+                             body="Sakonji Domaru +2",hands="Valorous mitts",ring1="Karieyh Ring",ring2="Flamma ring",
+                             back=backWS,waist="Fotia belt",legs="Wakido Haidate +3",feet="Valorous Greaves"}
                                   
-        sets.Shoha.Accuracy = {range="Cibitshavore",
-                               head="Valorous Mask",neck="Samurai's Nodowa +1",ear1="Ishvara Earring",ear2="Moonshade earring",
-                               body="Flamma Korazin +1",hands="Valorous Mitts",ring1="Flamma Ring",ring2="Apate ring",
-                               back="Smertrios's Mantle",waist="Fotia belt",legs="Hizamaru Hizayoroi +2",feet="Flamma Gambieras +1"}
+        sets.Shoha.Accuracy = {ammo="Knobkierrie",
+        head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Ishvara Earring",ear2="Moonshade earring",
+                               body="Sakonji Domaru +2",hands="Valorous Mitts",ring1="Karieyh Ring",ring2="Flamma ring",
+                               back=backWS,waist="Fotia belt",legs="Wakido Haidate +3",feet="Flamma Gambieras +2"}
                              
         sets.Fudo = {} -- Fudo, Rana
     
@@ -151,25 +154,62 @@ function get_sets()
         Fudo_ind = 1
     
         sets.Fudo.Attack ={
+            ammo="Knobkierrie",
             head="Valorous Mask",
-            body="Flamma Korazin +1",
+            body="Sakonji domaru +2",
             hands="Valorous Mitts",
-            legs="Hiza. Hizayoroi +2",
+            legs="Wakido Haidate +3",
             feet="Valorous Greaves",
             neck="Sam. Nodowa +1",
             waist="Fotia Belt",
             ear1={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
             ear2="Ishvara Earring",
-            left_ring="Flamma Ring",
+            left_ring="Karieyh Ring",
             right_ring="Apate Ring",
-            back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Store TP"+10',}},
+            back=backWS,
         }
                                
-        sets.Fudo.Accuracy = {range="Cibitshavore",
-                              head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Dignitary's earring",ear2="Moonshade earring",
-                              body="Flamma Korazin +1",hands="Wakido Kote +2",ring1="Apate ring",ring2="Rajas ring",
-                              back="Smertrios's Mantle",waist="Fotia belt",legs="Hizamaru Hizayoroi +2",feet="Flamma Gambieras +1"}
-                              
+        sets.Fudo.Accuracy = {
+        ammo="Knobkierrie",
+        head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Dignitary's earring",ear2="Moonshade earring",
+        body="Sakonji Domaru +2",hands="Wakido Kote +3",ring1="Apate ring",ring2="Rajas ring",
+        back=backWS,waist="Fotia belt",legs="Wakido Haidate +3",feet="Flamma Gambieras +2"}
+                          
+        sets.ImpulseDrive = {}
+        sets.ImpulseDrive.index = {'Attack','Accuracy'}
+        Impulse_ind = 1
+
+        sets.ImpulseDrive.Attack = {
+            ammo="Knobkierrie",
+            head="Valorous Mask",
+            body="Sakonji domaru +2",
+            hands="Valorous Mitts",
+            legs="Wakido Haidate +3",
+            feet="Valorous Greaves",
+            neck="Sam. Nodowa +1",
+            waist="Fotia Belt",
+            ear1={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+            ear2="Ishvara Earring",
+            left_ring="Karieyh Ring",
+            right_ring="Apate Ring",
+            back=backWS,
+        }
+
+        sets.ImpulseDrive.Accuracy = {
+            ammo="Knobkierrie",
+            head="Valorous Mask",
+            body="Sakonji domaru +2",
+            hands="Valorous Mitts",
+            legs="Wakido Haidate +3",
+            feet="Valorous Greaves",
+            neck="Sam. Nodowa +1",
+            waist="Fotia Belt",
+            ear1={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+            ear2="Ishvara Earring",
+            left_ring="Karieyh Ring",
+            right_ring="Apate Ring",
+            back=backWS,
+        }
         -- sets.Kaiten = {}
         
         -- sets.Kaiten.index = {'Attack','Accuracy'}
@@ -177,12 +217,12 @@ function get_sets()
     
         -- sets.Kaiten.Attack = {range="Cibitshavore",
         --                       head="Otomi helm",neck="Light gorget",ear1="Steelflash earring", ear2="Bladeborn earring",
-        --                       body="Flamma Korazin +1",hands="Phorcys mitts",ring1="Flamma Ring",ring2="Apate ring",
+        --                       body="Flamma Korazin +1",hands="Phorcys mitts",ring1="Karieyh Ring",ring2="Apate ring",
         --                       back="Buquwik cape",waist="Light belt",legs="Wakido haidate +1",feet="Sakonji sune-ate"}
                                
         -- sets.Kaiten.Accuracy = {range="Cibitshavore",
         --                         head="Yaoyotl helm",neck="Light gorget",ear1="Steelflash earring", ear2="Bladeborn earring",
-        --                         body="Flamma Korazin +1",hands="Phorcys mitts",ring1="Flamma Ring",ring2="Apate ring",
+        --                         body="Flamma Korazin +1",hands="Phorcys mitts",ring1="Karieyh Ring",ring2="Apate ring",
         --                         back="Buquwik cape",waist="Light belt",legs="Wakido haidate +1",feet="Sakonji sune-ate"}        
         -- sets.Jinpu = {}
         
@@ -241,6 +281,7 @@ function get_sets()
         sets.JA = {}
     
         sets.JA.Meditate = {head="Myochin Kabuto",
+                            back="Takaha mantle",
                             hands="Sakonji Kote"}
                             
         sets.JA.Meikyo = {feet="Sakonji sune-ate"}
@@ -301,6 +342,10 @@ function precast(spell)
 
     if spell.english == 'Namas Arrow' then
         equip(sets.Namas[sets.Namas.index[Namas_ind]])
+    end
+
+    if spell.english == 'Impulse Drive' then
+        equip(sets.ImpulseDrive[sets.ImpulseDrive.index[Impulse_ind]])
     end
 
     if spell.name == "Ranged" then

@@ -203,7 +203,7 @@ function init_gear_sets()
         back="Swith Cape +1",waist="Goading Belt",legs="Gendewitha Spats",feet="Fili Cothurnes +1"}
 
     -- Other general spells and classes.
-    sets.midcast.Cure = {main="Light Staff",sub='Curatio Grip',
+    sets.midcast.Cure = {main="Chatoyant Staff",sub='Clerisy Strap',
         head="Gendewitha Caubeen +1",neck="Noden's gorget",
         body="Gendewitha Bliaut",hands="Telchine Gloves",ear1="Beatific earring",ear2="Healing earring",ring1="Ephedra Ring",ring2="Sirona's Ring",
         back="Tempered Cape +1",waist="Bishop's Sash",legs="Chironic Hose",feet="Vanya Clogs"}
