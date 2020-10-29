@@ -185,7 +185,7 @@ function get_sets()
 
     sets.WS.ExpSavage = {
         ammo="Floestone",
-        head="Jhakri Coronal +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
+        head="Jhakri Coronal +2",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Metamorph Ring +1",
         back=STRCape,waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"
     }

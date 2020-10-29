@@ -74,32 +74,46 @@ function get_sets()
     sets.Idle.index = {"Standard", "DamageTaken", "PetRegen"}
 
 	sets.Idle.Standard = {main="Idris", sub="Genmei Shield", ranged="Dunna", 
-		head="Azimuth Hood +1", neck="Twilight Torque", ear1="Etiolation Earring", ear2="Odnowa Earring", 
+		head="Azimuth Hood +1", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Odnowa Earring +1", 
 		body="Witching Robe", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Dark Ring", 
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
-		main="Malignance Pole",
-		sub="Alber Strap",
-		waist="Slipor Sash",
-		legs="Gyve Trousers",
-		feet="Azimuth Gaiters +1",
-		back=capeDT
+	    main="Malignance Pole",
+	    sub="Alber Strap",
+	    range={ name="Dunna", augments={'MP+19','Mag. Acc.+9','"Fast Cast"+2',}},
+	    head="Azimuth Hood +1",
+	    body="Mallquis Saio +2",
+	    hands="Geo. Mitaines +3",
+	    legs={ name="Telchine Braconi", augments={'Mag. Acc.+23','Pet: "Regen"+3','Pet: Damage taken -4%',}},
+	    feet="Azimuth Gaiters +1",
+	    neck={ name="Bagua Charm +1", augments={'Path: A',}},
+	    waist="Isa Belt",
+	    left_ear="Etiolation Earring",
+	    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+	    left_ring="Defending Ring",
+	    right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Breath dmg. taken -5%','Phys. dmg. taken -6%',}},
+	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	})
+
+	-- sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
+		
+	-- })
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
 		head="Azimuth Hood +1",
 		neck="Bagua Charm +1",
-		body="Telchine Chasuble", 
+		body="Mallquis Saio +2", 
 		hands="Telchine Gloves",
-    	back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
+    	-- back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
+	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
-		feet="Bagua Sandals +1",
-		lear="Handler's Earring +1",
-		rear="Handler's Earring"
+		feet="Bagua Sandals +3",
+		lear="Etiolation Earring",
+		rear="Odnowa Earring +1"
 	})
 
 	sets.Speed = {feet="Geomancy Sandals +3"}	
@@ -169,7 +183,7 @@ function get_sets()
 	sets.midcast.IndiSpells = {main="Idris",
 	head="Azimuth Hood +1", neck="Bagua Charm +1",
 	body="Azimuth Coat +1",	hands="Azimuth Gloves +1", 
-	back="Lifestream Cape", legs="Bagua Pants",feet="Azimuth Gaiters +1"}
+	back="Lifestream Cape", legs="Bagua Pants +2",feet="Azimuth Gaiters +1"}
 	
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs="Azimuth Tights +1"})
 	
@@ -186,12 +200,16 @@ function get_sets()
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
 			head="Gendewitha Caubeen",neck="Fylgja Torque",lear="Novia Earring",
 			body="Annointed Kalasiris",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
-			back="Pahtli Cape",waist="Porous Rope",legs="Gyve Trousers",feet="Medium's Sabot"}
+			back="Pahtli Cape",waist="Porous Rope",legs="Gyve Trousers",feet="Medium's Sabots"}
 		
 	sets.TH = {waist="Chaac Belt"}
 
+	sets.MendingHalation = {
+		legs="Bagua Pants +2"
+	}
+
 	sets.RadialArcana = {
-		feet="Bagua Sandals +1"
+		feet="Bagua Sandals +3"
 	}
 
 	sets.LifeCycle = {
@@ -265,6 +283,9 @@ function precast(spell)
 	end
 	if (spell.english == "Life Cycle") then 
 		equip(sets.LifeCycle)
+	end
+	if (spell.english == "Mending Halation") then
+		equip(sets.MendingHalation)
 	end
 	if (spell.english == "Radial Arcana") then
 		equip(sets.RadialArcana)

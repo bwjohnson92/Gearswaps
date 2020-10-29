@@ -107,7 +107,7 @@ function get_sets()
     	back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
-		feet="Bagua Sandals +1",
+		feet="Bagua Sandals +2",
 		lear="Handler's Earring +1",
 		rear="Handler's Earring"
 	})
@@ -189,7 +189,7 @@ function get_sets()
 	sets.TH = {waist="Chaac Belt"}
 
 	sets.RadialArcana = {
-		feet="Bagua Sandals +1"
+		feet="Bagua Sandals +2"
 	}
 
 	sets.LifeCycle = {

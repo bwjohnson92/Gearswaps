@@ -92,7 +92,7 @@ end
 -- --- Precast ---
 
 function precast(spell)
-	if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
+	if string.find(spell.type,'White') or string.find(spell.type,'Black') then
 		equip(sets.precast.FastCast)
 			--send_command('input /echo "FC"')
 	end

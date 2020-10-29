@@ -82,7 +82,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 
 	sets.precast.FastCast = {
 		head="Atrophy Chapeau +3",neck="Voltsurge Torque", ear2="Loquacious Earring",
-		body="Vitiation Tabard +3",hands="Leyline Gloves",ring2="Weatherspoon Ring +1",
+		body="Vitiation Tabard +3",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
 		back="Swith Cape",legs="Psycloth Lappas",feet="Merlinic Crackows"}
 	
 	sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
@@ -108,6 +108,16 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		ring2="Weatherspoon Ring +1",
 		back=SucellosMND
 		})
+
+	sets.midcast.Sleepga = set_combine(sets.midcast.Enfeebling, {
+		body="Lethargy Sayon +1",
+		hands="Lethargy Gantherots +1",
+		legs="Lethargy Fuseau +1",
+		feet="Lethargy Houseaux +1",
+		neck="Duelist's Torque +1",
+		ring2="Kishar Ring",
+		ammo="Regal Gem"
+	})
 		
 	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Ghastly Tathlum +1",
 		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
@@ -268,7 +278,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	}
 
 	sets.WS.Evisceration = {
-	    ammo="Yetshila +1",
+	    -- ammo="Yetshila +1",
 	    head="Malignance Chapeau",
 	    neck="Fotia Gorget",
 	    ear2="Moonshade Earring",
@@ -440,6 +450,9 @@ function midcast(spell)
 				setToEquip = set_combine(setToEquip, set_combine(sets.midcast.Enfeebling.Acc, {neck="Duelist's Torque +1"}))
 			-- elseif (spell.name == "Sleep") or (spell.name == "Sleep II") then
 			-- 	setToEquip = set_combine(setToEquip, sets.midcast.Enfeebling.Acc)
+			elseif (spell.name == "Sleepga") then
+				add_to_chat(140, "Sleepga")
+				setToEquip = set_combine(setToEquip, sets.midcast.Sleepga)
 			elseif (EnfeebSet) and not ((string.find(spell.english, 'Dia') or string.find(spell.english, 'Bio') or string.find(spell.english, 'Inundation'))) then
 				setToEquip = set_combine(setToEquip, sets.midcast.Enfeebling.Acc)
 			else
