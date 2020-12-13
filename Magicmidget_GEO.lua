@@ -97,17 +97,12 @@ function get_sets()
 	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	})
 
-	-- sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
-		
-	-- })
-
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
 		head="Azimuth Hood +1",
 		neck="Bagua Charm +1",
 		body="Mallquis Saio +2", 
 		hands="Telchine Gloves",
-    	-- back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
 	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
@@ -126,13 +121,12 @@ function get_sets()
 		body="Anhur Robe",hands="Repartie Gloves",ring1="Kishar Ring",ring2="Rahab Ring",
 		back="Lifestream Cape",waist="Witful Belt",legs="Geomancy Pants +1",feet="Merlinic Crackows"}
 	
-	sets.precast.FastCure = set_combine(sets.precast.FastCast, {	ear2="Loquacious Earring",
-		ring2="Rahab Ring",	back="Disperser's Cape",waist="Witful Belt",legs="Geomancy Pants +1"})
-
-	--sets.Melee = {main="Buramenk'ah",sub="Genmei Shield",
-	--	head="Umuthi Hat",neck="Asperity Necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-	--	body="Artsieq Jubbah",hands="Umuthi Gloves", 
-	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
+	sets.precast.FastCure = set_combine(sets.precast.FastCast, {
+		ring2="Rahab Ring", 
+		back="Disperser's Cape",
+		waist="Witful Belt",
+		legs="Geomancy Pants +1"
+	})
 		
 	sets.midcast.EnfeeblingMagic = {
 	    main={ name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}},
@@ -169,10 +163,6 @@ function get_sets()
 	    right_ring="Shiva Ring",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
-	--sets.midcast.Stun = {main="Twebuliij",sub="Benthos Grip",ammo="Plumose Sachet",
-		--head="Atrophy Chapeau +1",neck="Voltsurge Torque",ear1="Lifestorm Earring",ear2="Psystorm Earring",
-		--body="Vanir Cotehardie",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Rahab Ring",
-		--back="Ogapepo Cape",waist="Ovate Rope",legs="Artsieq Hose",feet="Helios Boots"}
 		
 	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",neck="Colossus's Torque",ear1="Lifestorm Earring",ear2="Loquacious Earring",
@@ -186,16 +176,6 @@ function get_sets()
 	back="Lifestream Cape", legs="Bagua Pants +2",feet="Azimuth Gaiters +1"}
 	
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs="Azimuth Tights +1"})
-	
-	--sets.midcast.Cursna = {main="Beneficus",
-	--	head="Orison Cap +2",neck="Malison medallion", ear2="Loquacious Earring",
-	--	body="Orison Bliaud +2",hands="Orison Mitts +2",ring1="Ephedra ring", ring2="Sirona's ring",
-	--	back="Mending cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
-		
-	--sets.midcast.DebuffRemoval = {
-	--	head="Orison Cap +2",neck="Malison medallion",ear2="Loquacious Earring",
-	--	body="Orison Bliaud +2",hands="Orison Mitts +2",
-	--	back="Swith Cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
 
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
 			head="Gendewitha Caubeen",neck="Fylgja Torque",lear="Novia Earring",
