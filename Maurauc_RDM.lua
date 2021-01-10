@@ -294,7 +294,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	}
 
 	sets.Melee = {}
-	sets.Melee.index = {'Standard', 'Enspell'}
+	sets.Melee.index = {'Standard', 'SingleWieldSB', 'Enspell'}
 	Melee_Ind = 1
 
 	sets.Melee.Standard = {
@@ -309,9 +309,28 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		ear2="Sherida Earring",
 		ring1="Ilabrat Ring",
 		ring2="Petrov Ring",
-		waist="Windbuffet Belt +1	",
+		waist="Windbuffet Belt +1",
 		ammo="Ginsen"
 
+	}
+
+	sets.Melee.SingleWieldSB = {
+		main="Vitiation Sword",
+		sub="Ammurapi Shield",
+		ranged="Kaja Bow",
+	    head="Umuthi Hat",
+	    neck="Bathy Choker",
+	    ear1="Digni. Earring",
+	    ear2="Andoaa Earring",
+	    body="Viti. Tabard +3",
+	    hands="Aya. Manopolas +2",
+	    ring1="Chirich Ring +1",
+	    ring2="Chirich Ring +1",
+	    back="Ghostfyre Cape",
+	    -- waist="Hachirin-no-obi",
+	    waist="Eschan Stone",
+	    legs="Malignance Tights",
+	    feet="Malignance Boots"
 	}
 
 	sets.Melee.Enspell = {
@@ -398,6 +417,8 @@ function precast(spell)
 			equip(sets.WS.BlackHalo)
 		elseif spell.english == "Evisceration" then
 			equip(sets.WS.Evisceration)
+		elseif spell.english == "Chant du Cygne" then
+			equip(sets.Melee.Standard)
 		else
 			equip(sets.WS.PhysicalWS)
 		end
@@ -468,6 +489,8 @@ function midcast(spell)
 			else
 				equip(use_MB(use_obi(spell, sets.midcast.ElementalMagic)))
 			end
+		elseif string.find(spell.name, "Stun") then
+			equip(sets.midcast.Stun)
 		else
 			equip(sets.precast.FastCast)
 		end
@@ -562,6 +585,7 @@ function self_command(command)
 			disable("Main")
 			disable("Sub")
 			disable('Ranged')
+			disable('Ammo')
 			add_to_chat(140,'Weapon is being locked')
 		else
 			weaponLocked = false

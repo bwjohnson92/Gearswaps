@@ -8,10 +8,6 @@ function get_sets()
     OgmaTank = { name="Ogma's cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}
     OgmaDEX = { name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Damage taken-5%',}}
 
-    sets.Aettir = {
-       main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
-    }
-
    capeStandard = "Ogma's cape"
    capeWSDex = "Ogma's cape"
 
@@ -34,12 +30,18 @@ function get_sets()
     --Idle Sets--
     sets.Idle = { ammo="Homiliary",
         head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Ethereal Earring",   
-        body="Futhark coat +1",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",     
+        body="Futhark coat +1",hands="Regal Gauntlets",ring1="Moonbeam Ring",ring2="Defending Ring",     
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Skadi's Jambeaux +1"}   
 
     --TP Sets--
     sets.TP = {}
-    sets.TP.index = {'Standard', 'Accuracy', 'Hybrid', 'DT', 'MDTacc', 'HP'}
+    sets.TP.index = {
+        'Standard', 
+        -- 'Accuracy', 
+        'Hybrid', 
+        'DT', 
+        'HP'
+    }
     TP_ind = 1
     --offensive melee set
     sets.TP.Standard = {
@@ -48,7 +50,7 @@ function get_sets()
         -- head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
         head="Ayanmo Zucchetto +2",
         body="Ayanmo Corazza +2",
-        hands="Turms Mittens",
+        hands="Turms Mittens +1",
         legs="Samnuha Tights",
         feet="Herculean Boots",
         neck="Defiant Collar",
@@ -83,8 +85,9 @@ function get_sets()
         -- head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
         head="Ayanmo Zucchetto +2",
         --body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
-        body="Ayanmo Corazza +2",
-        hands="Turms Mittens",
+        -- body="Ayanmo Corazza +2",
+        body="Ashera Harness",
+        hands="Turms Mittens +1",
         -- legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
         legs="Erilaz Leg Guards +1",
         feet="Turms Leggings",
@@ -97,17 +100,18 @@ function get_sets()
         left_ring="Moonbeam Ring",
         right_ring="Defending Ring",
         back={ name="Ogma's cape",}
-    }                                          
+    }                        
     --full DT melee set
-    sets.TP.DT = {sub="Mensch Strap", ammo="Staunch Tathlum",          
+    sets.TP.DT = {ammo="Staunch Tathlum",          
         head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
-        body="Erilaz Surcoat +1",hands="Turms Mittens",ring1="Moonbeam Ring",ring2="Defending Ring",   
-        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Turms Leggings"}                                          
+        body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonbeam Ring",ring2="Defending Ring",   
+        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Ahosi Leggings"}
     --MDT melee set
-    sets.TP.MDTacc = {sub="Mensch Strap", ammo="Yamarang",          
-        head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
-        body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",         
-        back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runeist's Trousers +2",feet="Taeon Boots"}         
+    -- sets.TP.MDTacc = {ammo="Yamarang",          
+    --     head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
+    --     body="Runeist's Coat +3",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",         
+    --     back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runeist's Trousers +2",feet="Taeon Boots"}    
+
     sets.TP.HP = {
         sub="Balarama Grip",ammo="Aqreqaq Bomblet",
         head="Erilaz Galea +1",neck="Sanctity Necklace",ear1="Odnowa Earring",ear2="Odnowa Earring +1", --Halitus Helm
@@ -118,31 +122,31 @@ function get_sets()
     sets.WS = {}     
     --multi, carries FTP
     sets.Resolution = {
-        ammo="Seething Bomblet",
+        ammo="Aurgelmir Orb",
         head="Adhemar Bonnet +1",
-        body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
-        hands="Meghanada Gloves +2",
-        legs="Meghanada Chausses +2",
-        feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},
+        body="Adhemar Jacket +1",
+        hands="Adhemar Wristbands +1",
+        legs="Samnuha Tights",
+        feet="Herculean Boots",
         neck="Fotia Gorget",
         waist="Fotia Belt",
         left_ear="Sherida Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        left_ring="Epona's Ring",
-        right_ring="Niqmaddu Ring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Regal Ring",
         back=OgmaSTR
     }
 
     sets.Dimidiation = {
         ammo="Knobkierrie",
-        head="Dampening Tam",
-        body="Sayadio's Kaftan",
+        head={ name="Herculean Helm", augments={'Accuracy+12 Attack+12','Weapon skill damage +3%','AGI+5','Accuracy+2',}},
+        body={ name="Herculean Vest", augments={'Accuracy+17 Attack+17','Weapon skill damage +3%','Accuracy+7',}},
         hands="Meg. Gloves +2",
         -- legs="",
         feet={ name="Lustratio Leggings", augments={'HP+50','STR+10','DEX+10',}},
-        neck="Fotia Gorget",
+        neck="Caro Necklace",
         waist="Grunfeld Rope",
-        left_ear="Sherida Earring",
+        left_ear="Ishvara Earring",
         right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         left_ring="Ilabrat Ring",
         right_ring="Regal Ring",
@@ -151,7 +155,7 @@ function get_sets()
 
     --single, doesn't carry FTP
     sets.Single = {
-        ammo="Seething Bomblet +1",
+        ammo="Seething Bomblet",
         head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
         body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands={ name="Herculean Gloves", augments={'Accuracy+18 Attack+18','"Triple Atk."+3','Attack+1',}},
@@ -166,7 +170,7 @@ function get_sets()
         back={ name="Ogma's cape",}
     }
     --single hit, benefits from DA
-    sets.Cleave = { ammo="Seething Bomblet +1",
+    sets.Cleave = { ammo="Seething Bomblet",
         head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Zennaroi Earring",
         body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
@@ -177,7 +181,7 @@ function get_sets()
         body="Samnuha Coat",hands="Leyline Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
         back=capeStandard,waist="Eschan Stone",legs="Lustratio Subligar",feet="Taeon Boots"} 
     --Requiescat
-    sets.Req = { ammo="Seething Bomblet +1",
+    sets.Req = { ammo="Seething Bomblet",
         head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Moonshade Earring",
         body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
@@ -189,7 +193,7 @@ function get_sets()
         hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
         back=capeWSDex,waist="Fotia Belt",legs="Lustratio Subligar +1",feet="Herculean Boots"}
     --magic WS
-    sets.HercSlash = {  ammo="Seething Bomblet +1",
+    sets.HercSlash = {  ammo="Seething Bomblet",
         head="Highwing Helm",neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",
         body="Samnuha Coat",hands="Leyline Gloves",ring1="Shiva Ring +1",
         back="Argochampsa Mantle",waist="Eschan Stone",legs="Limbo Trousers",feet="Adhemar Gamashes"}  
@@ -208,12 +212,12 @@ function get_sets()
              
     --Job Ability Sets--
     sets.JA = {}
-    sets.JA.Lunge = {ammo="Seething Bomblet +1",
+    sets.JA.Lunge = {ammo="Seething Bomblet",
         head="Highwing Helm",neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",      
         body="Samnuha Coat",hands="Leyline Gloves",ring1="Shiva Ring +1",                         
         back="Argochampsa Mantle",waist="Eschan Stone",legs="Limbo Trousers",feet="Adhemar Gamashes"}  
 
-    sets.JA.Vallation = {body="Runeist's Coat +2",legs="Futhark Trousers +1"}       
+    sets.JA.Vallation = {body="Runeist's Coat +3",legs="Futhark Trousers +1"}       
     sets.JA.Gambit = {hands="Runeist mitons +1"}
     sets.JA.Rayke = {feet="Futhark boots +1"}  
     sets.JA.Battuta = {head="Futhark bandeau +1"}      
@@ -223,7 +227,8 @@ function get_sets()
     --Precast Sets--
     --Fast Cast set
     sets.precast = {
-        head="Runeist bandeau +1",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
+        ammo="Sapience Orb",
+        head="Runeist's bandeau +2",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
         body="Dread Jupon",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Moonbeam Ring",
         back="Ogma's Cape",waist="Rumination Sash",legs="Ayanmo Cosciales +2", feet="Carmine Greaves +1"}
 
@@ -238,9 +243,10 @@ function get_sets()
 
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {
-        head="Rabid Visor",neck="Unmoving Collar",ear1="Trux Earring",ear2="Friomisi earring",         
-        body="Emet Harness",hands="Kurys Gloves",ring1="Provocare Ring",ring2="Petrov Ring",
-        back=OgmaTank,waist="Goading Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}  
+        ammo="Sapience Orb",
+        head="Rabid Visor",neck="Futhark Torque",ear1="Trux Earring",ear2="Friomisi earring",         
+        body="Emet Harness",hands="Kurys Gloves",ring1="Supershear Ring",ring2="Petrov Ring",
+        back=OgmaTank,waist="Sinew Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}  
 
     --Magic acc for enfeebles, handy for VW
     sets.MagicAcc = {
@@ -326,7 +332,7 @@ end
 function precast(spell,abil)
         --equips favorite weapon if disarmed
         if player.equipment.main == "empty" or player.equipment.sub == "empty" then
-                equip({main="Aettir",sub="Bloodrain Strap"})
+                equip({main="Epeolatry",sub="Utu Grip"})
         end
         if spell.action_type == 'Magic' then 
                 equip(sets.Utility.PDT,sets.precast)            
@@ -430,10 +436,10 @@ end
   
 function midcast(spell,act,arg) 
         if spell.action_type == 'Magic' then 
-                equip(sets.Utility.PDT,{head="Runeist bandeau +1"})         
+                equip(sets.Utility.PDT,{head="Runeist bandeau +2",hands="Regal Gauntlets"})         
         end  
         if spell.skill == 'Enhancing Magic' then
-                equip({head="Erilaz Galea +1",legs="Futhark Trousers +1"})
+                equip({head="Erilaz Galea +1",legs="Futhark Trousers +1",hands="Regal Gaunlets"})
                 if spell.name == "Blink" or spell.name == "Stoneskin" or string.find(spell.name,'Utsusemi') then
                     equip(sets.Utility.PDT,{head="Runeist bandeau",hands="Leyline Gloves"})
                 elseif string.find(spell.name,'Bar') or spell.name=="Temper" then
@@ -444,13 +450,13 @@ function midcast(spell,act,arg)
                 end 
         end
         if spell.name == 'Foil' or spell.name == 'Flash' or spell.name == "Stun" then 
-                equip(sets.Enmity,{head="Runeist bandeau +1"})
+                equip(sets.Enmity,{head="Runeist bandeau +2"})
         end 
         if spell.name == 'Phalanx' then
                 equip(sets.Phalanx)
         end      
         if string.find(spell.name,'Regen') then
-                equip({head="Runeist bandeau +1"})
+                equip({head="Runeist bandeau +2",neck='Sacro Gorget'})
         end
         if spell.name == "Repose" or spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
                 equip(sets.MagicAcc)
@@ -458,6 +464,9 @@ function midcast(spell,act,arg)
         if spell.skill == 'Elemental Magic' then
                 equip(sets.JA.Lunge)
                 mid_obi(spell.element,spell.name)
+        end
+        if spell.skill == 'Blue Magic' and spell.name ~= "Cocoon" then
+            equip(sets.Utility.PDT, sets.Enmity)
         end
         --cancels Ni shadows (if there are only 1 or 2) when casting Ichi
         if spell.name == 'Utsusemi: Ichi' and ShadowType == 'Ni' and (buffactive['Copy Image'] or buffactive['Copy Image (2)']) then
@@ -483,43 +492,43 @@ end
   
 function equip_TP()
     equip(sets.TP[sets.TP.index[TP_ind]])
-        --equips offensive gear despite being on defensive set if you have shadows
-        if TP_ind == 4 and ((buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)']) or buffactive['Third Eye'] or buffactive['Blink']) then
-            equip(sets.TP.Accuracy)
-        end
-        --equips DW gear if using two weapons
-        if player.equipment.sub == "Tramontane Axe" or player.equipment.sub == "Pukulatmuj" or player.equipment.sub == "Anahera Sword" then
-            equip({ear2="Suppanomimi"})
-        end
-        --equips offensive gear and relic boots during Battuta
-        if buffactive.battuta then
-            --remains on defensive set if Avoidance Down is active
-            if buffactive['Avoidance Down'] then
-            else
-                if TP_ind == 4 then
-                    equip(sets.TP.Accuracy)
-                end
-            equip({feet="Futhark Boots"})
-            end
-        end
-        --equip defensive gear when hit with terror/petrify/stun/sleep
-        if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
-                if TP_ind == 5 then
-                equip(sets.Utility.MDT) else
-                equip(sets.Utility.PDT)
-                end
-        end
-        --equip Frenzy Sallet (will wake you up) if engaged, slept, and over 100 HP
-        if buffactive.sleep and player.hp > 100 then 
-            equip({head="Frenzy Sallet"})
-        end
+        -- --equips offensive gear despite being on defensive set if you have shadows
+        -- if TP_ind == 4 and ((buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)']) or buffactive['Third Eye'] or buffactive['Blink']) then
+        --     equip(sets.TP.Accuracy)
+        -- end
+        -- --equips DW gear if using two weapons
+        -- if player.equipment.sub == "Tramontane Axe" or player.equipment.sub == "Pukulatmuj" or player.equipment.sub == "Anahera Sword" then
+        --     equip({ear2="Suppanomimi"})
+        -- end
+        -- --equips offensive gear and relic boots during Battuta
+        -- if buffactive.battuta then
+        --     --remains on defensive set if Avoidance Down is active
+        --     if buffactive['Avoidance Down'] then
+        --     else
+        --         if TP_ind == 4 then
+        --             equip(sets.TP.Accuracy)
+        --         end
+        --     equip({feet="Futhark Boots"})
+        --     end
+        -- end
+        -- --equip defensive gear when hit with terror/petrify/stun/sleep
+        -- if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
+        --         if TP_ind == 5 then
+        --         equip(sets.Utility.MDT) else
+        --         equip(sets.Utility.PDT)
+        --         end
+        -- end
+        -- --equip Frenzy Sallet (will wake you up) if engaged, slept, and over 100 HP
+        -- if buffactive.sleep and player.hp > 100 then 
+        --     equip({head="Frenzy Sallet"})
+        -- end
 end
  
 function equip_idle()
     equip(sets.Idle)
         --equips extra refresh gear when MP is below 75%
         if player.mpp < 75 then
-            equip({body="Runeist's Coat +2"})
+            equip({body="Runeist's Coat +3"})
         end
         --auto-equip defensive gear when hit with terror/petrify/stun/sleep
         if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then

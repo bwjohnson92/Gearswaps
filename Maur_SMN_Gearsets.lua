@@ -32,7 +32,7 @@ function get_sets()
         legs="Assiduity Pants +1",
         back=CampestresAttack,
         waist="Lucidity Sash",
-        feet="Convoker's Pigaches +1",
+        feet="Convoker's Pigaches +3",
     }
 
     -- Your idle set when you DON'T have an avatar out
@@ -144,7 +144,7 @@ function get_sets()
       
     -- Magic Attack
     sets.avatar.mab = set_combine(sets.avatar.skill,{
-        head="Apogee Crown +1",
+        head="Cath Palug Crown",
         ring1="Varar Ring",
         main=Grioavolr,
         ammo="Sancus Sachet +1",
@@ -152,8 +152,11 @@ function get_sets()
         rear="Esper Earring",
         body="Apogee Dalmatica +1",
         feet="Apogee Pumps +1",
+        -- hands="Apogee Mitts +1",
+        hands="Merlinic Dastanas",
         waist="Regal Belt",
         back=CampestresMagic,
+        neck="Adad Amulet"
     })
     sets.avatar.mb = set_combine(sets.avatar.mab,{hands="Glyphic Bracers +1"})
     -- Hybrid
@@ -171,11 +174,13 @@ function get_sets()
       
     -- Magic Accuracy
     sets.avatar.macc = set_combine(sets.avatar.skill,{
-        head="Apogee Crown +1",
+        head="Cath Palug Crown",
         ring1="Varar Ring",
         main=Grioavolr,
-        hands="Apogee Mitts +1",
+        hands="Inyanga Dastanas +1",
         ammo="Sancus Sachet +1",
+        legs="Glyphic Spats",
+        feet="Convoker's Pigaches +3",
         rear="Lugalbanda Earring",
         back=CampestresMagic,
     })

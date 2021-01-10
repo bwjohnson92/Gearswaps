@@ -52,7 +52,7 @@ function get_sets()
 
     sets.availableWeapons = {
         main = "Lathi",
-        sub = "Raetic Staff +1",
+        sub = "Marin Staff +1",
         ammo = "Grioavolr"
     }
 
@@ -88,14 +88,14 @@ function get_sets()
         body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
         back=TaranusNuke,waist="Rumination Sash",legs="Psycloth Lappas",feet="Skaoi Boots"}
 
-    sets.midcast.ElementalMagic = {sub="Niobid Strap", ammo="Pemphredo Tathlum",
+    sets.midcast.ElementalMagic = {sub="Enki Strap", ammo="Pemphredo Tathlum",
         head={ name="Arch. Petasos +3"},neck="Sorcerer's Stole",ear1="Malignance Earring",ear2="Barkarole Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Freke Ring",
         back=TaranusNuke,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
     sets.midcast.ElementalMagicAcc = {
         --main={  name="Grioavolr", augments={'Magic burst dmg.+9%','Mag. Acc.+27','"Mag.Atk.Bns."+21','Magic Damage +6',}},
-        sub="Niobid Strap",ammo="Strobilus",
+        sub="Enki Strap",ammo="Strobilus",
         head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
         body=MerlinicBodyNuke,
         hands="Ea Cuffs",
@@ -107,7 +107,7 @@ function get_sets()
         back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
     }
 
-    sets.midcast.ElementalMagicHighMP = {sub="Niobid Strap", ammo="Strobilus",
+    sets.midcast.ElementalMagicHighMP = {sub="Enki Strap", ammo="Strobilus",
         head={ name="Arch. Petasos +3"}, neck="Eddy Necklace",ear1="Etiolation Earring",ear2="Malignance Earring",
         body="Spaekona's Coat +3",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
@@ -137,17 +137,17 @@ function get_sets()
         ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
         back="Mecistopins Mantle"}
         
-    sets.midcast.Death = {main="Lathi",sub="Niobid Strap", ammo="Strobilus",
+    sets.midcast.Death = {main="Lathi",sub="Enki Strap", ammo="Strobilus",
         head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Malignance Earring",ear2="Static Earring",
         body=MerlinicBodyBurst,hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
     
-    sets.midcast.DeathHighMP = {main="Lathi",sub="Niobid Strap", ammo="Strobilus",
+    sets.midcast.DeathHighMP = {main="Lathi",sub="Enki Strap", ammo="Strobilus",
         head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Malignance Earring",ear2="Barkarole Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
     
-    sets.midcast.DeathHighMPMB = {main="Lathi",sub="Niobid Strap", ammo="Strobilus",
+    sets.midcast.DeathHighMPMB = {main="Lathi",sub="Enki Strap", ammo="Strobilus",
         head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Etiolation Earring",ear2="Malignance Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric slops +1",feet="Amalric Nails +1"}
@@ -165,7 +165,7 @@ function get_sets()
     sets.ManaWall = {back=TaranusMP, feet="Wicce Sabots +1"}
         
     sets.midcast.DeathMagicBurst = {
-    main={ name="Lathi", augments={'MP+80', 'INT+20','"Mag.Atk.Bns."+20'}}, sub="Niobid Strap",  ammo="Strobilus",
+    main={ name="Lathi", augments={'MP+80', 'INT+20','"Mag.Atk.Bns."+20'}}, sub="Enki Strap",  ammo="Strobilus",
     head="Pixie Hairpin +1",   body="Amalric Doublet +1",
     hands={ name="Amalric Gages +1"},  legs="Amalric Slops +1",
     feet=MerlinicFeetBurst,
@@ -174,7 +174,7 @@ function get_sets()
 
     sets.superTank = {
     main="Earth Staff",
-    sub="Niobid Strap",
+    sub="Enki Strap",
     ammo="Strobilus",
     head="Pixie Hairpin +1",
     body={ name="Amalric Doublet +1"},

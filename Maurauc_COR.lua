@@ -63,7 +63,7 @@ function get_sets()
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         left_ring="Defending Ring",
-        right_ring="Barataria Ring",
+        -- right_ring="Barataria Ring",
         back="Repulse Mantle",
     }
 
@@ -180,6 +180,10 @@ function get_sets()
         feet=wsHerc,
     }
 
+    sets.WS.SavageBladeAcc = set_combine(sets.WS.SavageBlade, {
+        head="Malignance Chapeau"
+    })
+
     sets.WS.LeadenSalute = { --AGI Weaponskill
         head="Pixie Hairpin +1",
         -- body={ name="Herculean Vest", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Magic dmg. taken -2%','Mag. Acc.+12','"Mag.Atk.Bns."+12',}},
@@ -228,6 +232,21 @@ function get_sets()
         right_ring="Weather. Ring +1",
     }
 
+    sets.WS.Evisceration = {
+        left_ear="Moonshade Earring",
+        right_ear="Brutal Earring",
+        head="Mummu Bonnet +2",
+        body="Mummu Jacket +2",
+        hands="Meg. Gloves +2",
+        legs="Mummu Kecks +2",
+        feet="Mummu Gamash. +2",
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        left_ring="Mummu Ring",
+        right_ring="Regal Ring",
+        back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    }
+
     sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
     sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +1"}
     sets.RandomDeal = {body="Lanun Frac +3"}
@@ -263,7 +282,7 @@ function get_sets()
     }
 
     sets.QuickDraw = set_combine(sets.WS.LeadenSalute, {
-        head="Laksamana's Hat",
+        head="Laksamana's Tricorne",
         feet="Navarch's Bottes +2",
         lear="Dignitary's Earring",
         ring2="Weatherspoon Ring +1"
@@ -299,10 +318,12 @@ function precast(spell)
         	equip(use_obi(spell, sets.WS.LeadenSalute))
         elseif (spell.english == "Wildfire") then
         	equip(sets.WS.LeadenSalute)
-        elseif (spell.english == "Last Stand") then
+        elseif (spell.english == "Last Stand") or (spell.english == "Detonator") then
         	equip(sets.WS.LastStand)
         elseif (spell.english == "Savage Blade") then
           equip(sets.WS.SavageBlade)
+        elseif (spell.english == "Evisceration") then
+            equip(sets.WS.Evisceration)
         else
         	-- equip(sets.WS.LastStand)
             -- equip(sets.RA.Acc)
