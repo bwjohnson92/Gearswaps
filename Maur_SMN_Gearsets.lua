@@ -17,7 +17,7 @@ function get_sets()
         sub = "Elan Strap +1",
     }
 
-    CampestresAttack = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10',}}
+    CampestresAttack = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10','Fast Cast +10%'}}
     CampestresMagic = { name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Pet: Magic Damage+10',}} 
     Grioavolr = { name="Grioavolr", augments={'Blood Pact Dmg.+5','Pet: VIT+13','Pet: Mag. Acc.+24','Pet: "Mag.Atk.Bns."+30',}}
 
@@ -33,6 +33,7 @@ function get_sets()
         back=CampestresAttack,
         waist="Lucidity Sash",
         feet="Convoker's Pigaches +3",
+        rear="Cath Palug Earring"
     }
 
     -- Your idle set when you DON'T have an avatar out
@@ -100,11 +101,11 @@ function get_sets()
         head="Beckoner's Horn +1",
         body="Convoker's Doublet +2",
         neck="Melic Torque",
-        lear="Gelos Earring",
-        rear="Lugalbanda Earring",
+        lear="Andoaa Earring",
+        rear="Cath Palug Earring",
         hands="Baayami Cuffs",
         ring1={name="Globidonta Ring"},
-        ring2={name="Varar Ring +1"},
+        ring2={name="Stikini Ring"},
         back="Conveyance Cape",
         waist="Regal Belt",
         legs="Apogee Slacks +1",
@@ -123,7 +124,7 @@ function get_sets()
         lear="Gelos Earring",
         rear="Lugalbanda Earring",
         back=CampestresAttack,
-        neck="Shulmanu Collar",
+        neck="Summoner's Collar +1",
         hands="Apogee Mitts +1",
         feet="Convoker's Pigaches +3",
         waist="Regal Belt"
@@ -135,7 +136,7 @@ function get_sets()
         ammo="Sancus Sachet +1",
         lear="Gelos Earring",
         rear="Lugalbanda Earring",
-        --rear="Esper Earring",
+        rear="Gelos Earring",
         back=CampestresAttack,
         waist="Incarnation Sash",
         feet="Convoker's Pigaches +3"
@@ -144,19 +145,19 @@ function get_sets()
       
     -- Magic Attack
     sets.avatar.mab = set_combine(sets.avatar.skill,{
-        head="Cath Palug Crown",
-        ring1="Varar Ring",
         main=Grioavolr,
         ammo="Sancus Sachet +1",
         lear="Gelos Earring",
-        rear="Esper Earring",
+        rear="Lugalbanda Earring",
         body="Apogee Dalmatica +1",
         feet="Apogee Pumps +1",
-        -- hands="Apogee Mitts +1",
+        legs="Enticer's Pants",
         hands="Merlinic Dastanas",
         waist="Regal Belt",
         back=CampestresMagic,
-        neck="Adad Amulet"
+        neck="Summoner's Collar +1",
+        head="Cath Palug Crown",
+        ring1="Varar Ring"
     })
     sets.avatar.mb = set_combine(sets.avatar.mab,{hands="Glyphic Bracers +1"})
     -- Hybrid
@@ -170,6 +171,7 @@ function get_sets()
         rear="Lugalbanda Earring",
         feet="Apogee Pumps +1",
         back=CampestresMagic,
+        neck="Summoner's Collar +1"
     })
       
     -- Magic Accuracy
@@ -231,17 +233,19 @@ function get_sets()
       
     -- Generic Casting Set that all others take off of. Here you should add all your fast cast  
     sets.precast.casting = {
+        main="Grioavolr",
+        sub="Clerisy Strap",
         head="Amalric Coif +1",
-        body="Shango Robe",
+        body="Inyanga Jubbah +2",
         hands="Volte Gloves",
         legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7',}},
-        feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
+        feet="Regal Pumps +1",
         neck="Voltsurge Torque",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         left_ring="Weather. Ring +1",
         right_ring="Kishar Ring",
-        back="Swith Cape",
+        back=CampestresAttack
     }
       
     -- Summoning Magic Cast time - gear
@@ -251,7 +255,10 @@ function get_sets()
       
     -- Enhancing Magic, eg. Siegal Sash, etc
     sets.precast.enhancing = set_combine(sets.precast.casting,{
-        ammo="Sancus Sachet +1",head="Amalric Coif +1"
+        ammo="Sancus Sachet +1",
+        head="Telchine Cap",neck="Colossus's Torque",ear1="Dignitary's Earring",ear2="Loquacious Earring",
+        hands="Telchine Gloves",ring2="Weatherspoon Ring +1",
+        waist="Cascade Belt",legs="Telchine Braconi",feet="Telchine Pigaches"
     })
 
     sets.precast.refresh = set_combine(sets.precast.enhancing,{

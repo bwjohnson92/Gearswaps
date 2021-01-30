@@ -33,7 +33,7 @@ weaponLocked = false
 function get_sets()
 
 staff1="Raetic Staff +1"
-staff2=GrioavolrEnfeeble
+staff2="Contemplator +1"
 
 MerlinicHoodAcc={name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}}
 SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Cure" potency +10%','Damage taken-5%',}}

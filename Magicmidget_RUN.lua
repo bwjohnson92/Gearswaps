@@ -27,12 +27,25 @@ function get_sets()
         Prism="Prism Powder",
         Oils="Silent Oil",
  }
+
+    sets.Idle = {}
+    sets.Idle.index = {
+        'Standard',
+        'DT'
+    }
+    Idle_ind = 1
     --Idle Sets--
-    sets.Idle = { ammo="Homiliary",
+    sets.Idle.Standard = { ammo="Homiliary",
         head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Ethereal Earring",   
         body="Futhark coat +1",hands="Regal Gauntlets",ring1="Moonbeam Ring",ring2="Defending Ring",     
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Skadi's Jambeaux +1"}   
 
+    sets.Idle.DT = {
+        ammo="Staunch Tathlum",          
+        head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
+        body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonbeam Ring",ring2="Defending Ring",   
+        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Ahosi Leggings"
+    }
     --TP Sets--
     sets.TP = {}
     sets.TP.index = {
@@ -68,7 +81,8 @@ function get_sets()
         body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands="Meg. Gloves +2",
         legs="Meg. Chausses +2",
-        feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},
+        -- feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},
+        feet="Turms Leggings +1",
         neck="Iqabi Necklace",
         waist="Olseni Belt",
         left_ear="Digni. Earring",
@@ -90,7 +104,7 @@ function get_sets()
         hands="Turms Mittens +1",
         -- legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
         legs="Erilaz Leg Guards +1",
-        feet="Turms Leggings",
+        feet="Turms Leggings +1",
         -- neck="Anu Torque",
         neck="Futhark Torque",
         waist="Windbuffet Belt +1",
@@ -102,7 +116,8 @@ function get_sets()
         back={ name="Ogma's cape",}
     }                        
     --full DT melee set
-    sets.TP.DT = {ammo="Staunch Tathlum",          
+    sets.TP.DT = {
+        ammo="Staunch Tathlum",          
         head="Futhark Bandeau +1",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
         body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonbeam Ring",ring2="Defending Ring",   
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Ahosi Leggings"}
@@ -113,10 +128,17 @@ function get_sets()
     --     back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runeist's Trousers +2",feet="Taeon Boots"}    
 
     sets.TP.HP = {
-        sub="Balarama Grip",ammo="Aqreqaq Bomblet",
-        head="Erilaz Galea +1",neck="Sanctity Necklace",ear1="Odnowa Earring",ear2="Odnowa Earring +1", --Halitus Helm
-        body="Erilaz Surcoat +1",hands="Runeist mitons +1",ring1="K'ayres Ring",ring2="Etana Ring",
-        back="Agema Cape",waist="Oneiros Belt",legs="Eri. Leg Guards +1",feet="Erilaz Greaves +1" --Reiki Cloak, Runeist Bottes
+       head="Rune. Bandeau +2",
+        body="Runeist's Coat +3",
+        hands="Regal Gauntlets",
+        legs="Eri. Leg Guards +1",
+        feet="Erilaz Greaves +1",
+        waist="Flume Belt +1",
+        neck="Loricate Torque +1",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ring="K'ayres Ring",
+        right_ring="Regal Ring",
+        back="Moonbeam Cape",
     }
     --Weaponskill Sets--
     sets.WS = {}     
@@ -177,9 +199,9 @@ function get_sets()
         back=capeStandard,waist="Fotia Belt",legs="Lustratio Subligar",feet="Herculean Boots"}
     --added effect
     sets.Shockwave = { ammo="Falcon Eye",
-        head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Zennaroi Earring",
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
-        back=capeStandard,waist="Eschan Stone",legs="Lustratio Subligar",feet="Taeon Boots"} 
+        head="Runeist's Bandeau +3",neck="Sanctity Necklace",ear1="Cessance earring",ear2="Digni. Earring",
+        body="Samnuha Coat",hands="Leyline Gloves",ring1="Regal Ring",ring2="Niqmaddu Ring",
+        back=capeStandard,waist="Eschan Stone",legs="Ayanmo Cosciales +2",feet="Taeon Boots"} 
     --Requiescat
     sets.Req = { ammo="Seething Bomblet",
         head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Moonshade Earring",
@@ -218,7 +240,7 @@ function get_sets()
         back="Argochampsa Mantle",waist="Eschan Stone",legs="Limbo Trousers",feet="Adhemar Gamashes"}  
 
     sets.JA.Vallation = {body="Runeist's Coat +3",legs="Futhark Trousers +1"}       
-    sets.JA.Gambit = {hands="Runeist mitons +1"}
+    sets.JA.Gambit = {hands="Runeist mitons +3"}
     sets.JA.Rayke = {feet="Futhark boots +1"}  
     sets.JA.Battuta = {head="Futhark bandeau +1"}      
     sets.JA.Pflug = {feet="Runeist bottes +1"}              
@@ -228,7 +250,7 @@ function get_sets()
     --Fast Cast set
     sets.precast = {
         ammo="Sapience Orb",
-        head="Runeist's bandeau +2",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
+        head="Runeist's bandeau +3",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
         body="Dread Jupon",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Moonbeam Ring",
         back="Ogma's Cape",waist="Rumination Sash",legs="Ayanmo Cosciales +2", feet="Carmine Greaves +1"}
 
@@ -240,6 +262,14 @@ function get_sets()
     right_ring="Stikini ring",
     legs="Futhark Trousers +1",
     feet={ name="Taeon boots", augments={'"Phalanx"+3',}}}
+
+    sets.Interrupt = set_combine(sets.Idle.DT, {
+        hands="Rawhide Gloves",
+        legs="Carmine Cuisses +1",
+        neck="Moonbeam Necklace",
+        body={ name="Taeon Tabard", augments={'Pet: Mag. Evasion+22','Spell interruption rate down -5%','Phalanx +3',}},
+        feet={ name="Taeon Boots", augments={'Spell interruption rate down -7%','Phalanx +3',}},
+    })
 
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {
@@ -256,8 +286,12 @@ function get_sets()
      
     --Toggle TP sets button, change if you want; currently ALT+F9 toggles forward, CTRL+F9 toggles backwards
     send_command('bind end send @others input /follow Magicmidget')
-    send_command('bind f10 gs c toggle TP set')
-    send_command('bind ^f10 gs c reverse TP set')
+    send_command('bind f11 gs c toggle TP set')
+    send_command('bind ^f11 gs c reverse TP set')
+
+    send_command('bind f10 gs c toggle Idle set')
+    send_command('bind ^f10 gs c reverse Idle set')
+    
     --other stuff, don't touch
     ShadowType = 'None'
 
@@ -273,7 +307,8 @@ function addNewColors()
 end
 
 function updateTable()
-    addToTable("(F10) TP Set", sets.TP.index[TP_ind])
+    addToTable("(F10) Idle Set", sets.Idle.index[Idle_ind])
+    addToTable("(F11) TP Set", sets.TP.index[TP_ind])
     update_message()
 end
  
@@ -423,12 +458,6 @@ function precast(spell,abil)
         if spell.name == 'Utsusemi: Ichi' and ShadowType == 'Ni' and (buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)']) then
             cancel_spell()
         end
-        if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
-                if TP_ind == 4 then
-                equip(sets.Utility.MDT) else
-                equip(sets.Utility.PDT)
-                end
-        end
         if buffactive.sleep and player.hp > 100 and player.status == "Engaged" then 
                 equip({head="Frenzy Sallet"})
         end
@@ -440,10 +469,10 @@ function midcast(spell,act,arg)
         end  
         if spell.skill == 'Enhancing Magic' then
                 equip({head="Erilaz Galea +1",legs="Futhark Trousers +1",hands="Regal Gaunlets"})
-                if spell.name == "Blink" or spell.name == "Stoneskin" or string.find(spell.name,'Utsusemi') then
-                    equip(sets.Utility.PDT,{head="Runeist bandeau",hands="Leyline Gloves"})
+                if spell.name == "Blink" or spell.name == "Stoneskin" or spell.name == "Aquaveil" or string.find(spell.name,'Utsusemi') then
+                    equip(sets.Interrupt)
                 elseif string.find(spell.name,'Bar') or spell.name=="Temper" then
-                    equip({hands="Runeist Mitons +1"})
+                    equip({hands="Runeist Mitons +3"})
                 end
                 if buffactive.embolden then
                     equip({back="Evasionist's Cape"})
@@ -465,8 +494,8 @@ function midcast(spell,act,arg)
                 equip(sets.JA.Lunge)
                 mid_obi(spell.element,spell.name)
         end
-        if spell.skill == 'Blue Magic' and spell.name ~= "Cocoon" then
-            equip(sets.Utility.PDT, sets.Enmity)
+        if spell.skill == 'Blue Magic' then
+            equip(sets.Enmity, sets.Interrupt)
         end
         --cancels Ni shadows (if there are only 1 or 2) when casting Ichi
         if spell.name == 'Utsusemi: Ichi' and ShadowType == 'Ni' and (buffactive['Copy Image'] or buffactive['Copy Image (2)']) then
@@ -525,18 +554,20 @@ function equip_TP()
 end
  
 function equip_idle()
-    equip(sets.Idle)
-        --equips extra refresh gear when MP is below 75%
-        if player.mpp < 75 then
-            equip({body="Runeist's Coat +3"})
-        end
-        --auto-equip defensive gear when hit with terror/petrify/stun/sleep
-        if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
-                if TP_ind == 4 then
-                equip(sets.Utility.MDT) else
-                equip(sets.Utility.PDT)
-                end
-        end
+    equip(sets.Idle[sets.Idle.index[Idle_ind]])
+
+    -- equip(sets.Idle)
+    --     --equips extra refresh gear when MP is below 75%
+    --     if player.mpp < 75 then
+    --         equip({body="Runeist's Coat +3"})
+    --     end
+    --     --auto-equip defensive gear when hit with terror/petrify/stun/sleep
+    --     if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
+    --             if TP_ind == 4 then
+    --             equip(sets.Utility.MDT) else
+    --             equip(sets.Utility.PDT)
+    --             end
+    --     end
 end
  
 function buff_change(buff,gain)
@@ -575,6 +606,17 @@ function self_command(command)
                 if TP_ind == 0 then TP_ind = #sets.TP.index end
                 send_command('@input /echo <----- TP Set changed to '..sets.TP.index[TP_ind]..' ----->')
                 equip_current()
+        elseif command == 'toggle Idle set' then
+                Idle_ind = Idle_ind +1
+                if Idle_ind > #sets.Idle.index then Idle_ind = 1 end
+                send_command('@input /echo <----- Idle Set changed to '..sets.Idle.index[Idle_ind]..' ----->')
+                equip(sets.Idle[sets.Idle.index[Idle_ind]])
+        elseif command == 'reverse Idle set' then
+                Idle_ind = Idle_ind -1
+                if Idle_ind == 0 then Idle_ind = #sets.Idle.index end
+                send_command('@input /echo <----- Idle Set changed to '..sets.Idle.index[Idle_ind]..' ----->')
+                equip_current()
         end
+
         updateTable()
 end

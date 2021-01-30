@@ -202,8 +202,13 @@ function get_sets()
         back=capeWS,
     }
     sets.WS.LastStand = set_combine(sets.RA.Enmity, {
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        head="Meghanada Visor +2",
         ear2="Moonshade Earring",
-        -- feet="Lanun Bottes +3"
+        feet="Lanun Bottes +3",
+        ring1="Regal Ring",
+        ring2="Dingir Ring"
     })
     sets.WS.LastStand.Acc = {
         head="Lanun Tricorne +1",
