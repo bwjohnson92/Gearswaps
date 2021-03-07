@@ -255,8 +255,8 @@ function get_sets()
                                                                      
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
         head="Amalric Coif +1",neck="Mirage Stole +1",ear1="Dignitary's earring",ear2="Gwati earring",
-        body="Ayanmo Corazza +2",hands="Ayanmo Manopolas +2",ring1="Weatherspoon ring +1",ring2="Stikini ring",
-        back="Cornflower cape",waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Ayanmo Gambieras +2"}
+        body="Malignance Tabard",hands="Malignance Gloves",ring1="Weatherspoon ring +1",ring2="Stikini ring",
+        back="Cornflower cape",waist="Sacro Cord",legs="Malignance Tights",feet="Malignance Boots"}
 
     -- sets.BlueMagic.DT = set_combine(sets.BlueMagic.MagicAccuracy, {
     --     body="Ayanmo Corazza +2",
@@ -493,7 +493,7 @@ function midcast(spell,act)
                 end
         end
        
-        if spell.english == 'Frightful Roar' or spell.english == "Sheep Song" or spell.english == "Dream Flower" or spell.english == 'Feather Tickle' or spell.english == 'Reaving Wind' or spell.english == 'Blank Gaze' or spell.enligh == 'Geist Wall' or spell.english == 'Infrasonics' or spell.english == 'Barbed Crescent' or spell.english == 'Tourbillion' or spell.english == 'Cimicine Discharge' or spell.english == 'Sub-zero smash' or spell.english == 'Filamented Hold' or spell.english == 'Mind Blast' or spell.english == 'Sandspin' or spell.english == 'Hecatomb Wave' or spell.english == 'Cold Wave' or spell.english == 'Terror Touch' then
+        if spell.english == 'Frightful Roar' or spell.english == "Cruel Joke" or spell.english == "Sheep Song" or spell.english == "Dream Flower" or spell.english == 'Feather Tickle' or spell.english == 'Reaving Wind' or spell.english == 'Blank Gaze' or spell.enligh == 'Geist Wall' or spell.english == 'Infrasonics' or spell.english == 'Barbed Crescent' or spell.english == 'Tourbillion' or spell.english == 'Cimicine Discharge' or spell.english == 'Sub-zero smash' or spell.english == 'Filamented Hold' or spell.english == 'Mind Blast' or spell.english == 'Sandspin' or spell.english == 'Hecatomb Wave' or spell.english == 'Cold Wave' or spell.english == 'Terror Touch' then
                 equip(sets.BlueMagic.MagicAccuracy)
         end
        

@@ -25,6 +25,8 @@ weaponLocked = false
 -- Gear Sets
 function get_sets()
 
+
+
 	Ragnarok = "Ragnarok"
 	Chango = "Chango"
 	Grip = "Utu Grip"
@@ -38,9 +40,9 @@ function get_sets()
 	areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
 
 	sets.desperation = {body="Seidr Cotehardie"}
-	sets.Idle = {
+	sets.Idle = set_combine(sets.DT, {
 		feet="Hermes' Sandals"
-	}
+	})
 
 	sets.TP  ={};
 	sets.TP.index = {'Standard', 'DT'}
@@ -64,29 +66,44 @@ function get_sets()
 	    waist="Ioskeha Belt"
 	}
 
-	sets.DT = {
-		ammo="Vanir Battery",
-	    head="Hjarrandi Helm",
-	    body="Hjarrandi Breast.",
-	    hands="Sulev. Gauntlets +2",
-	    legs="Pumm. Cuisses +3",
-	    feet="Pumm. Calligae +3",
-	    neck="Loricate Torque +1",
-	    waist="Ioskeha Belt",
-	    left_ear="Cessance Earring",
-	    right_ear="Brutal Earring",
-	    left_ring="Defending Ring",
-	    right_ring="Regal Ring",
-	    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
-	}
+	-- sets.DT = {
+	-- 	ammo="Vanir Battery",
+	--     head="Hjarrandi Helm",
+	--     body="Hjarrandi Breast.",
+	--     hands="Sulev. Gauntlets +2",
+	--     legs="Pumm. Cuisses +3",
+	--     feet="Pumm. Calligae +3",
+	--     neck="Loricate Torque +1",
+	--     waist="Ioskeha Belt",
+	--     left_ear="Cessance Earring",
+	--     right_ear="Brutal Earring",
+	--     left_ring="Defending Ring",
+	--     right_ring="Regal Ring",
+	--     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
+	-- }
 
-	sets.DT2 = {    
-		ammo="Staunch Tathlum",
-    	head="Hjarrandi Helm",
-	    body="Hjarrandi Breast.",
-	    hands="Sulev. Gauntlets +2",
-	    legs="Pumm. Cuisses +3",
-	    feet="Pumm. Calligae +3",
+	-- sets.DT2 = {    
+	-- 	ammo="Staunch Tathlum",
+ --    	head="Hjarrandi Helm",
+	--     body="Hjarrandi Breast.",
+	--     hands="Sulev. Gauntlets +2",
+	--     legs="Pumm. Cuisses +3",
+	--     feet="Pumm. Calligae +3",
+	--     neck="War. Beads +1",
+	--     waist="Ioskeha Belt",
+	--     left_ear="Cessance Earring",
+	--     right_ear="Brutal Earring",
+	--     left_ring="Defending Ring",
+	--     right_ring="Regal Ring",
+	--     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
+	-- }
+
+	sets.DT = {
+	    head="Sakpata's Helm",
+	    body="Sakpata's Plate",
+	    hands="Sakpata's Gauntlets",
+	    legs="Sakpata's Cuisses",
+	    feet="Sakpata's Leggings",
 	    neck="War. Beads +1",
 	    waist="Ioskeha Belt",
 	    left_ear="Cessance Earring",
@@ -96,7 +113,7 @@ function get_sets()
 	    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
 	}
 
-	sets.TP.DT = sets.DT2
+	sets.TP.DT = sets.DT
 
 
 	-- sets.Hybrid = {
@@ -171,20 +188,23 @@ function get_sets()
 	    neck="Fotia Gorget",
 	    ear1="Moonshade Earring",
 	    ear2="Telos Earring",
-	    body="Pumm. Lorica +3",
-	    hands="Sulev. Gauntlets +2",
+		body="Sakpata's Plate",		
+	    hands="Sakpata's Gauntlets",
+	    legs="Sakpata's Cuisses",
+	    -- body="Pumm. Lorica +3",
+	    -- hands="Sulev. Gauntlets +2",
+	    -- legs="Sulev. Cuisses +2",
 	    ring2="Niqmaddu Ring",
 	    ring1="Regal Ring",
 	    back=CapeWS,
 	    waist="Fotia Belt",
-	    legs="Sulev. Cuisses +2",
 	    feet="Pumm. Calligae +3"
 	}
 
 	sets.WS.Upheaval.HighTP = set_combine(sets.WS.Upheaval, {
 		neck="War. Beads +1",
-		hands="Odyssean Gauntlets",
-		legs="Odyssean Cuisses",
+		-- hands="Odyssean Gauntlets",
+		-- legs="Odyssean Cuisses",
 		feet="Sulevia's Leggings +2",
 		ear2="Ishvara Earring"
 	})
@@ -195,54 +215,21 @@ function get_sets()
 		feet="Pummeler's Calligae +3"
 	})
 
-	-- sets.TP.GS =  {
-	--     ammo="Ginsen",
-	--     head="Flam. Zucchetto +2",
-	--     neck="Lissome Necklace",
-	--     ear1="Brutal Earring",
-	--     ear2="Cessance Earring",
-	--     body="Valorous Mail",
-	--     hands="Sulev. Gauntlets +2",
-	--     --ring1="Niqmaddu Ring",
-	--     ring1="Regal Ring",
-	--     ring2="Flamma Ring",
-	--     back=CapeTP,
-	--     waist="Ioskeha Belt",
-	--     legs="Pumm. Cuisses +3",
-	--     feet="Pumm. Calligae +3"
-	-- }
-
-	-- sets["HighEndResolution"] = { --The ultimate goal
-	--     ammo="Seeth. Bomblet +1",
-	--     head="Flam. Zucchetto +2",
-	--     neck="Fotia Gorget",
-	--     ear1="Cessance Earring",
-	--     ear2="Moonshade Earring",
-	--     body="Argosy Hauberk +1",
-	--     hands="Argosy Mufflers +1",
-	--     ring1="Regal Ring",
-	--     ring2="Niqmaddu Ring",
-	--     back=CapeTP,
-	--     waist="Fotia Belt",
-	--     legs="Argosy Breeches +1",
-	--     feet="Flam. Gambieras +2"
-	-- }
-
-	-- sets["MontaWS"] = { --A good start
-	--     ammo="Knobkierrie",
-	--     head="Flam. Zucchetto +2",
-	--     neck="Fotia Gorget",
-	--     ear1="Moonshade Earring",
-	--     ear2="Brutal Earring",
-	--     body="Pumm. Lorica +2",
-	--     hands="Sulev. Gauntlets +2",
-	--     ring1="Flamma Ring",
-	--     ring2="Regal Ring",
-	--     back=CapeTP,
-	--     waist="Fotia Belt",
-	--     legs="Pumm. Cuisses +3",
-	--     feet="Pumm. Calligae +3"
-	-- }
+	sets.WS.Resolution = {
+		ammo="Seeth. Bomblet +1",
+		neck="Fotia Gorget",
+		ear1="Brutal Earring",
+		ear2="Moonshade Earring",
+		ring1="Regal Ring",
+		ring2="Niqmaddu Ring",
+		back="Cichol's Mantle",
+		waist="Fotia Belt",
+		head="Sakpata's Helm",
+		body="Sakpata's Plate",		
+	    hands="Sakpata's Gauntlets",
+	    legs="Sakpata's Cuisses",
+		feet="Sakpata's Leggings"
+	}
 
 	sets.Aggressor = {
 		head="Pummeler's Mask +1"
@@ -259,6 +246,10 @@ function get_sets()
 
 	sets.Warcry = {
 		head="Agoge Mask +2"
+	}
+
+	sets.Tomahawk = {
+		ammo="Throwing Tomahawk"
 	}
 
 	sets.Reraise = {
@@ -302,6 +293,8 @@ function precast(spell)
 	elseif spell.english == "Impulse Drive" then
 		equip(sets.Impulse)
 		add_to_chat(140,'Impulse!')
+	elseif spell.english == "Resolution" then
+		equip(sets.WS.Resolution)
 	elseif spell.action_type == 'WeaponSkill' then	
 			add_to_chat(140,'Weaponskill!')
 			equip(sets.WS)
@@ -321,6 +314,10 @@ function precast(spell)
 
 	if spell.english == 'Warcry' then
 		equip(sets.Warcry)
+	end
+
+	if spell.english == "Tomahawk" then
+		equip(sets.Tomahawk)
 	end
 end
 -- --- MidCast ---

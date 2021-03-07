@@ -28,7 +28,7 @@ wsHerc= {name="Herculean Boots", augments={'Accuracy+1','Pet: DEX+4','Weapon ski
 function get_sets()
 
     capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
-    capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+7','Weapon skill damage +10%',}}
+    capeWSMAB={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+7','Weapon skill damage +10%',}}
     capeMeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
     capeSnapshot = { name="Camulus's Mantle", augments={'"Snapshot"+10',}}
@@ -161,7 +161,7 @@ function get_sets()
         right_ear="Friomisi Earring",
         ring1="Meghanada Ring",
         -- ring2="Arvina Ringlet +1",
-        back=capeWS,
+        back=capeWSMAB,
     }
 
     sets.WS.SavageBlade = {
@@ -199,7 +199,7 @@ function get_sets()
         right_ear="Friomisi Earring",
         left_ring="Dingir Ring",
         right_ring="Archon Ring",
-        back=capeWS,
+        back=capeWSMAB,
     }
     sets.WS.LastStand = set_combine(sets.RA.Enmity, {
         neck="Fotia Gorget",
@@ -208,7 +208,8 @@ function get_sets()
         ear2="Moonshade Earring",
         feet="Lanun Bottes +3",
         ring1="Regal Ring",
-        ring2="Dingir Ring"
+        ring2="Dingir Ring",
+        back=capeWSMAB
     })
     sets.WS.LastStand.Acc = {
         head="Lanun Tricorne +1",

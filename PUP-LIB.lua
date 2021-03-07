@@ -775,9 +775,9 @@ function job_buff_change(status, gain, eventArgs)
         equip(set_combine(sets.defense.PDT, {neck = "Opo-opo Necklace"}))
         eventArgs.handled = true
     elseif status == "doom" and gain then
-        send_command("input /p I have befallen to ~~~DOOM~~~ may my end not come to quickly.")
+        -- send_command("input /p I have befallen to ~~~DOOM~~~ may my end not come to quickly.")
     elseif status == "doom" and gain == false then
-        send_command("input /p I have avoided the grips of ~~~DOOM~~~ may Altana be praised! ")
+        -- send_command("input /p I have avoided the grips of ~~~DOOM~~~ may Altana be praised! ")
     end
 
     if status:contains("Maneuver") and gain == false then

@@ -122,7 +122,9 @@ function get_sets()
         hands="Amalric Gages +1", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
         back=TaranusNuke, feet=MerlinicFeetNuke} --5, 9 
         
-    sets.midcast.Stun = {main="Lathi",sub="Mephitis Grip",ammo="Pemphredo Tathlum",
+    sets.midcast.Stun = {
+        -- main="Lathi",
+        sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head=MerlinicHoodNuke,neck="Voltsurge Torque",ear1="Digni. Earring",ear2="Malignance Earring",
         body=MerlinicBodyNuke,hands="Lurid Mitts",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
         back="Swith Cape",waist="Witful Belt",legs="Merlinic Shalwar",feet=MerlinicFeetNuke}
@@ -137,17 +139,23 @@ function get_sets()
         ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
         back="Mecistopins Mantle"}
         
-    sets.midcast.Death = {main="Lathi",sub="Enki Strap", ammo="Strobilus",
+    sets.midcast.Death = {
+        -- main="Lathi",
+        sub="Enki Strap", ammo="Strobilus",
         head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Malignance Earring",ear2="Static Earring",
         body=MerlinicBodyBurst,hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
     
-    sets.midcast.DeathHighMP = {main="Lathi",sub="Enki Strap", ammo="Strobilus",
+    sets.midcast.DeathHighMP = {
+        -- main="Lathi",
+        sub="Enki Strap", ammo="Strobilus",
         head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Malignance Earring",ear2="Barkarole Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
     
-    sets.midcast.DeathHighMPMB = {main="Lathi",sub="Enki Strap", ammo="Strobilus",
+    sets.midcast.DeathHighMPMB = {
+        -- main="Lathi",
+        sub="Enki Strap", ammo="Strobilus",
         head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Etiolation Earring",ear2="Malignance Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric slops +1",feet="Amalric Nails +1"}

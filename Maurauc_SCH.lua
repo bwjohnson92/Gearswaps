@@ -50,7 +50,7 @@ function get_sets()
         back="Pahtli Cape",waist="Witful Belt",legs="Psycloth Lappas"}
 
         
-    sets.midcast.EnfeeblingMagic = {main=GrioavolrEnfeeble,sub="Clerisy Strap",ammo="Hydrocera",
+    sets.midcast.EnfeeblingMagic = {main="Contemplator +1",sub="Clerisy Strap",ammo="Hydrocera",
         head="Merlinic Hood",neck="Imbodla Necklace",ear1="Dignitary's Earring",ear2="Barkarole Earring",
         body="Vanya Robe",hands="Lurid Mitts", ring1="Kishar Ring", ring2="Weatherspoon Ring +1",
         back="Ghostfyre Cape",waist="Rumination Sash",legs="Psycloth Lappas",feet="Medium's Sabots"}
@@ -75,21 +75,22 @@ function get_sets()
     }
     
     sets.midcast.ElementalMagic = { 
-    main="Akademos",
-    sub="Enki Strap",
-    ammo="Pemphredo Tathlum",
-    head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
-    body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-    hands={ name="Amalric Gages +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -2%','CHR+8','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
-    feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
-    neck="Eddy Necklace",
-    waist="Sacro Cord",
-    left_ear="Barkaro. Earring",
-    right_ear="Malignance Earring",
-    left_ring="Shiva Ring +1",
-    right_ring="Freke Ring",
-    back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+5','"Mag.Atk.Bns."+10',}},}      
+        main="Marin Staff +1",
+        sub="Enki Strap",
+        ammo="Pemphredo Tathlum",
+        head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
+        body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        hands={ name="Amalric Gages +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -2%','CHR+8','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
+        feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
+        neck="Eddy Necklace",
+        waist="Sacro Cord",
+        left_ear="Barkaro. Earring",
+        right_ear="Malignance Earring",
+        left_ring="Shiva Ring +1",
+        right_ring="Freke Ring",
+        back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+5','"Mag.Atk.Bns."+10',}}
+    }      
 
     sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
         
