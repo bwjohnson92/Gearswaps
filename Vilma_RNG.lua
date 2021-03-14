@@ -73,7 +73,7 @@ function user_setup()
 
         gear.Gun = "Fomalhaut"
         gear.Bow = "Yoichinoyumi"
-        gear.Gun = "Annihilator"
+        gear.Gun2 = "Annihilator"
         --gear.Bow = "Steinthor"
        
         rng_sub_weapons = S{'Perun +1','Nusku Shield', 
@@ -252,7 +252,7 @@ function init_gear_sets()
             neck="Iskur Gorget",
             left_ear="Telos Earring",
             right_ear="Enervating Earring",
-            left_ring="Rajas Ring",
+            left_ring="Regal Ring",
             right_ring="Ilabrat Ring",
             back=BelenusTP
         }
@@ -308,7 +308,7 @@ function init_gear_sets()
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Ishvara Earring",
             left_ring="Ilabrat Ring",
-            right_ring="Dingir Ring",
+            right_ring="Regal Ring",
             back=BelenusAgiWS,
         }
 
@@ -359,7 +359,7 @@ function init_gear_sets()
             waist="Fotia Belt",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Sherida Earring",
-            left_ring="Ilabrat Ring",
+            left_ring="Regal Ring",
             right_ring="Begruding Ring",
             back={ name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10',}},
         }
@@ -442,7 +442,7 @@ function init_gear_sets()
             body="Orion Jerkin +2",
             hands="Orion Bracers +2",
             ring1="Cacoethic Ring +1",
-            ring2="Paqichikaji Ring",
+            ring2="Regal Ring",
             back="Lutian Cape",
             waist="Kwahu Kachina Belt",
             legs="Amini Brague +1", 
@@ -487,19 +487,10 @@ function job_precast(spell, action, spellMap, eventArgs)
         end
         -- Safety checks for weaponskills 
         if spell.type:lower() == 'weaponskill' then
-            if player.tp < 1000 then
-                    eventArgs.cancel = true
-                    return
-            end
             if ((spell.target.distance >8 and spell.skill ~= 'Archery' and spell.skill ~= 'Marksmanship') or (spell.target.distance >23)) then
                 -- Cancel Action if distance is too great, saving TP
                 add_to_chat(122,"Outside WS Range! /Canceling")
-                eventArgs.cancel = true
                 return
-            
-            elseif state.DefenseMode.value ~= 'None' then
-                -- Don't gearswap for weaponskills when Defense is on.
-                eventArgs.handled = true
             end
         end
         -- Ammo checks

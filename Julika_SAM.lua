@@ -42,7 +42,7 @@ function get_sets()
         Idle_ind = 1
         
         sets.Idle.Standard = {
-                              neck="Twilight torque",
+                              neck="Loricate torque +1",
                               ring1="Gelatinous ring +1",ring2="Defending ring",
                               feet="Danzo Sune-Ate"}
                               
@@ -65,14 +65,14 @@ function get_sets()
             head="Flam. Zucchetto +2",
             body="Kasuga Domaru +1",
             hands="Wakido Kote +3",
-            legs="Hiza. Hizayoroi +2", --Swap for lower haste? Wakido?
+            legs="Ryup hakama +1", --Jinxed Hakama when abjuration
             feet={ name="Ryuo Sune-Ate +1", augments={'HP+65','"Store TP"+5','"Subtle Blow"+8',}},
             neck="Sam. Nodowa +1",
             waist="Ioskeha Belt +1",
-            ear1="Dignitary's Earring",
-            ear2="Cessance Earring",
+            ear1="Telos Earring",
+            ear2="Dedition Earring", --Dignitary when you get it
             left_ring="Flamma Ring",
-            right_ring="Ilabrat Ring",
+            right_ring="Niqmaddu Ring",
             back=backTP
         }
                             
@@ -139,14 +139,13 @@ function get_sets()
         Shoha_ind = 1
     
         sets.Shoha.Attack = {ammo="Knobkierrie", 
-        head="Valorous Mask",neck="Samurai's Nodowa +1",ear1="Ishvara Earring",ear2="Moonshade earring",
-                             body="Sakonji Domaru +2",hands="Valorous mitts",ring1="Karieyh Ring",ring2="Flamma ring",
-                             back=backWS,waist="Fotia belt",legs="Wakido Haidate +3",feet="Valorous Greaves"}
+            head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Ishvara Earring",ear2="Moonshade earring",
+                             body="Sakonji Domaru +3",hands="Valorous mitts",ring1="Karieyh Ring",ring2="Flamma ring",
+                             back=backWS,waist="Fotia belt",legs="Wakido Haidate +3",feet="Flamma Gambieras +2"}
                                   
-        sets.Shoha.Accuracy = {ammo="Knobkierrie",
-        head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Ishvara Earring",ear2="Moonshade earring",
-                               body="Sakonji Domaru +2",hands="Valorous Mitts",ring1="Karieyh Ring",ring2="Flamma ring",
-                               back=backWS,waist="Fotia belt",legs="Wakido Haidate +3",feet="Flamma Gambieras +2"}
+        sets.Shoha.Accuracy = set_combine(sets.Shoha.Attack, {
+            ring2="Regal Ring"
+            })
                              
         sets.Fudo = {} -- Fudo, Rana
     
@@ -156,23 +155,23 @@ function get_sets()
         sets.Fudo.Attack ={
             ammo="Knobkierrie",
             head="Valorous Mask",
-            body="Sakonji domaru +2",
+            body="Sakonji domaru +3",
             hands="Valorous Mitts",
             legs="Wakido Haidate +3",
             feet="Valorous Greaves",
             neck="Sam. Nodowa +1",
             waist="Fotia Belt",
             ear1={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-            ear2="Ishvara Earring",
+            ear2="Thrud Earring",
             left_ring="Karieyh Ring",
-            right_ring="Apate Ring",
+            right_ring="Regal Ring",
             back=backWS,
         }
                                
         sets.Fudo.Accuracy = {
         ammo="Knobkierrie",
         head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Dignitary's earring",ear2="Moonshade earring",
-        body="Sakonji Domaru +2",hands="Wakido Kote +3",ring1="Apate ring",ring2="Rajas ring",
+        body="Sakonji Domaru +3",hands="Wakido Kote +3",ring1="Apate ring",ring2="Karieyh ring",
         back=backWS,waist="Fotia belt",legs="Wakido Haidate +3",feet="Flamma Gambieras +2"}
                           
         sets.ImpulseDrive = {}
@@ -182,14 +181,14 @@ function get_sets()
         sets.ImpulseDrive.Attack = {
             ammo="Knobkierrie",
             head="Valorous Mask",
-            body="Sakonji domaru +2",
+            body="Sakonji domaru +3",
             hands="Valorous Mitts",
             legs="Wakido Haidate +3",
             feet="Valorous Greaves",
             neck="Sam. Nodowa +1",
             waist="Fotia Belt",
             ear1={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-            ear2="Ishvara Earring",
+            ear2="Thrud Earring",
             left_ring="Karieyh Ring",
             right_ring="Apate Ring",
             back=backWS,
@@ -198,14 +197,14 @@ function get_sets()
         sets.ImpulseDrive.Accuracy = {
             ammo="Knobkierrie",
             head="Valorous Mask",
-            body="Sakonji domaru +2",
+            body="Sakonji domaru +3",
             hands="Valorous Mitts",
             legs="Wakido Haidate +3",
             feet="Valorous Greaves",
             neck="Sam. Nodowa +1",
             waist="Fotia Belt",
             ear1={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-            ear2="Ishvara Earring",
+            ear2="Thrud Earring",
             left_ring="Karieyh Ring",
             right_ring="Apate Ring",
             back=backWS,

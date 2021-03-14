@@ -30,6 +30,7 @@ include('organizer-lib.lua')
 
 capeMagic = { name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20',}}
 capeAtk = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Pet: Accuracy+10 Pet: Rng. Acc.+10',}}
+capeFC = { name="Campestres's Cape", augments={'"Fast Cast"+10',}}
 
 function get_sets()
   
@@ -62,12 +63,12 @@ function get_sets()
     -- Your idle set when you DON'T have an avatar out
     sets.me.idle = {
         main=Nirvana,
-        sub="Elan Strap",
+        sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
         neck="Loricate Torque +1",
         lear="Etiolation Earring",
-        rear="Cath Palug //gEarring",
+        rear="Cath Palug Earring",
         body="Witching Robe",
         hands="Inyanga Dastanas +2",
         lring="Defending Ring",
@@ -89,7 +90,7 @@ function get_sets()
     -- This is the base for all perpetuation scenarios, as seen below
     sets.avatar.perp = {
         main=Nirvana,
-        sub="Elan Strap",
+        sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
         neck="Caller's Pendant",
@@ -142,8 +143,8 @@ function get_sets()
         ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
         neck="Caller's Pendant",
-        lear="Rimeice Earring",
-        rear="Domesticator's Earring",
+        lear="Cath Palug Earring",
+        rear="Andoaa Earring",
         body="Beckoner's Doublet +1",
         hands="Inyanga Dastanas +2",
         lring="Stikini Ring",
@@ -181,7 +182,7 @@ function get_sets()
         lear="Lugalbanda Earring",
         rear="Kyrene's Earring",
         body="Convoker's Doublet +2",
-        hands="Convoker's Bracers +1",
+        hands="Convoker's Bracers +2",
         lring="Varar Ring +1",
         rring="Cath Palug Ring",
         back=capeAtk,
@@ -194,7 +195,7 @@ function get_sets()
     sets.avatar.mab = set_combine(sets.avatar.skill,{
         main=Grioavolr,
         head="Apogee Crown +1",
-        neck="Adad Amulet",
+        neck="Summoner's Collar +1",
         lear="Lugalbanda Earring",
         rear="Gelos Earring",
         body="Apogee Dalmatica +1",
@@ -203,14 +204,15 @@ function get_sets()
         rring="Varar Ring",
         back=capeMagic,
         waist="Regal Belt",
-        legs="Apogee Slacks +1",
+        -- legs="Apogee Slacks +1",
+        legs="Enticer's Pants",
         feet="Apogee Pumps +1"
     })
     sets.avatar.mb = set_combine(sets.avatar.mab,{hands="Glyphic Bracers +1"})
     -- Hybrid
     sets.avatar.hybrid = set_combine(sets.avatar.skill,{
         head="Apogee Crown +1",
-        neck="Adad Amulet",
+        neck="Summoner's Collar +1",
         lear="Lugalbanda Earring",
         rear="Gelos Earring",
         body="Convoker's Doublet +2",
@@ -227,7 +229,7 @@ function get_sets()
     sets.avatar.macc = set_combine(sets.avatar.skill,{
         main=Grioavolr,
         head="Tali'ah Turban +1",
-        neck="Adad Amulet",
+        neck="Summoner's collar +1",
         lear="Lugalbanda Earring",
         rear="Gelos Earring",
         body="Convoker's Doublet +2",
@@ -281,7 +283,7 @@ function get_sets()
       
     -- Generic Casting Set that all others take off of. Here you should add all your fast cast  
     sets.precast.casting = {
-        main=Nirvana,
+        main="Grioavolr",
         sub="Clerisy Strap",
         ammo="Sancus Sachet +1",
         head="Nahtirah Hat",
@@ -289,38 +291,24 @@ function get_sets()
         lear="Etiolation Earring",
         rear="Loquacious Earring",
         body="Inyanga Jubbah +2",
-        hands="Inyanga Dastanas +2",
+        hands="Telchine Gloves",
         lring="Prolix Ring",
-        rring="Etana Ring",
-        back="Swith Cape",
-        waist="Witful Belt",
-        legs="Amalric Slops",
-        feet="Merlinic Crackows"
+        rring="Kishar Ring",
+        back=capeFC,
+        waist="Embla Sash",
+        legs="Psycloth Lappas",
+        feet="Regal Pumps +1"
     }
 
-    sets.pre = {
-        main=Nirvana,
-        sub="Clerisy Strap",
-        ammo="Sancus Sachet +1",
-        head="Beckoner's Horn +1",
-        neck="Caller's pendant",
-        lear="Etiolation Earring",
-        rear="Loquacious Earring",
-        body="Convoker's Doublet +2",
-        hands="Inyanga Dastanas +2",
-        lring="Prolix Ring",
-        rring="Etana Ring",
-        back="Swith Cape",
-        waist="Witful Belt",
-        legs="Amalric Slops",
-        feet="Merlinic Crackows"
-    }
+    sets.pre = set_combine(sets.precast.casting, {
+    })
       
     -- Summoning Magic Cast time - gear
     sets.precast.summoning = sets.pre
       
     -- Enhancing Magic, eg. Siegal Sash, etc
     sets.precast.enhancing = set_combine(sets.precast.casting,{
+        waist="Embla Sash"
     })
   
     -- Stoneskin casting time -, works off of enhancing -
@@ -342,12 +330,16 @@ function get_sets()
         sub="Elan Strap +1",
         ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
-        lear="Evans Earring",
+        lear="Cath Palug Earring",
         body="Convoker's Doublet +2",
-        hands="Convoker's Bracers +1",
+        hands="Inyanga Dastanas +2",
         back="Conveyance Cape",
         legs="Glyphic Spats +1",
-        feet="Glyphic Pigaches +1"
+        feet="Glyphic Pigaches +1",
+        neck="Caller's Pendant",
+        lring="Evoker's Ring",
+        rring="Stikini Ring",
+        waist="Lucidity Sash"
     }
       
     -- Mana Cede
@@ -888,7 +880,7 @@ function self_command(command)
                     idle(pet)
                 else
                     meleeing=true
-                    disable('main','sub','ranged')
+                    -- disable('main','sub','ranged')
                     windower.add_to_chat(8,'----- Weapons Locked, WILL NOT LOSE TP -----')
                     idle(pet)
                 end

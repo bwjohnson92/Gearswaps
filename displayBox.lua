@@ -62,6 +62,16 @@ function addToTable(key, value)
 	msgTable[key] = value
 end
 
+function clearTable()
+	clear_table()
+end
+
+function clear_table()
+	for k in pairs (msgKeys) do
+	    msgKeys[k] = nil
+	end
+end
+
 function addTextColorPair(key, color)
 	if (noValue(key, textColorKeys)) then
 		table.insert(textColorKeys, key)

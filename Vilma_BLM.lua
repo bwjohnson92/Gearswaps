@@ -120,7 +120,7 @@ function get_sets()
 		
 	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",neck="Colossus's Torque",ear1="Lifestorm Earring",ear2="Loquacious Earring",
-		waist="Cascade Belt",}
+		waist="Embla Sash",}
 
 	sets.midcast.MagicBurst = { 
 		head="Merlinic Hood",neck="Mizukage-no-Kubikazari", ear2="Static Earring",

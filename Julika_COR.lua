@@ -7,6 +7,7 @@ Run_Index = 1
 Leaden_Index = 1
 Savage_Index = 1
 Roll_Index = 2
+Gun_Index = 1
 autoShoot = false
 weaponLocked = false
 
@@ -29,29 +30,52 @@ capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20'
 capeSavage={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 capeTPMelee={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}}
 capeDT={ name="Camulus's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Damage taken-5%',}}
+capeLastStand={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
 
 HercLegsMAB={ name="Herculean Trousers", augments={'Mag. Acc.+13 "Mag.Atk.Bns."+13','Weapon skill damage +3%','MND+5','Mag. Acc.+12','"Mag.Atk.Bns."+14',}}
+HercLegsWS={ name="Herculean Trousers", augments={'Rng.Atk.+18','Weapon skill damage +4%','AGI+10',}}
 
 -- Start Functions here
 -- Gear Sets
 function get_sets()
 sets.roll = {}
-sets.roll.index = {"Short", "Long"}
+sets.roll.index = {"Short", "Long", "ShortGun", "LongGun"}
 sets.roll.Short = {
     head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
     body="Lanun Frac +3",
-    hands="Chasseur's Gants +1", --Chasseur's Gants
-    -- legs="Lanun Culottes",
+    hands="Chasseur's Gants +1",
     feet="Meg. Jam. +2",
     neck="Regal Necklace",
-    waist="Chaac Belt",
+    waist="Flume Belt",
     left_ear="Etiolation Earring",
-    right_ear="Loquac. Earring",
-    -- right_ring="Barataria Ring",
-    back=capeTP, --AMBUSCADE
+    right_ear="Novia Earring",
+    right_ring="Defending Ring",
+    back=capeDT, --AMBUSCADE
 }
 
 sets.roll.Long = set_combine(sets.roll.Short, {left_ring="Luzaf's Ring"})
+
+sets.roll.ShortGun = set_combine(sets.roll.Short, {
+    ranged="Compensator"
+    })
+
+sets.roll.LongGun = set_combine(sets.roll.ShortGun, {
+    left_ring="Luzaf's Ring"
+    })
+
+sets.Gun = {}
+sets.Gun.index = {"Death Penalty", "Fomalhaut", "Anarchy"}
+sets.Gun["Death Penalty"] = {
+    ranged="Death Penalty"
+}
+
+sets.Gun["Fomalhaut"] = {
+    ranged="Fomalhaut"
+}
+
+sets.Gun["Anarchy"] = {
+    ranged="Anarchy +2"
+}
 
 sets.Idle = {}
 sets.Idle.index = {"Standard", "DT"}
@@ -111,8 +135,8 @@ sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
 }
 
 sets.RA = {}
-sets.RA.index = {'Standard', 'Accuracy'}
-rangedSets = {'Standard', 'Accuracy'}
+sets.RA.index = {'Standard', 'Accuracy', 'Enmity'}
+rangedSets = {'Standard', 'Accuracy', 'Enmity'}
 rangedIndex = 1
 
 sets.RA.Standard = { --RAcc and STP
@@ -136,6 +160,15 @@ sets.RA.Accuracy = set_combine(sets.RA, { --RAcc and STP
     neck="Iskur gorget",
     ring1="Hajduk Ring",
     ring2="Hajduk Ring",
+})
+
+sets.RA.Enmity = set_combine(sets.RA.Standard, {
+    body="Laksamana's Frac +3",
+    legs="Laksamana's Trews +3",
+    ring1="Cacoethic Ring +1",
+    waist="Elanid Belt",
+    ear2="Novia Earring",
+    feet="Oshosi Leggings"
 })
 
 sets.WS = {}
@@ -168,16 +201,30 @@ sets.WS.LastStand = { --Generic Physical WS
     head="Meghanada Visor +2",
     body="Laksamana's Frac +3",
     hands="Meghanada Gloves +2",
-    legs="Laksamana's trews +3",
+    legs=HercLegsWS,
     feet="Lanun Bottes +3",
-    neck="Commodore Charm",
-    waist="Eschan Stone",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear="Moonshade Earring",
-    ring1="Hajduk Ring",
+    ring1="Dingir Ring",
     ring2="Regal Ring",
-    back=capeWS,
+    back=capeLastStand,
 }
+
+sets.WS.LastStand.Standard = sets.WS.LastStand
+
+sets.WS.LastStand.Accuracy = set_combine(sets.WS.LastStand, {
+    legs="Meghanada Chausses +2",
+    lear="Telos Earring",
+})
+
+sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
+    legs="Laksamana's Trews +3",
+    ring1="Cacoethic Ring +1", --+1
+    ear1="Novia Earring",
+    waist="Reiki Yotai"
+})
 
 sets.WS.Wildfire = {
     head={ name="Herculean Helm", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','"Fast Cast"+2','"Mag.Atk.Bns."+15',}},
@@ -236,7 +283,7 @@ sets.roll["Caster's Roll"] = {
     -- legs="Chasseur's Culottes"
 }
 sets.roll["Tactician's Roll"] = {
-    -- body="Chasseur's Frac"
+    body="Chasseur's Frac"
 }
 sets.RandomDeal = {body="Lanun Frac +3"}
 sets.Fold = {
@@ -272,10 +319,14 @@ organizer_items = {
 }
 
     user_setup()
+    equip_current()
 end
 
 function addNewColors()
     -- addTextColorPair("HighMP", "blue")
+    addTextColorPair("Death Penalty", "red")
+    addTextColorPair("Fomalhaut", "red")
+    addTextColorPair("Anarchy", "red")
     addTextColorPair("DT", "yellow")
     addTextColorPair("Standard", "green")
     addTextColorPair("Short", "green")
@@ -285,6 +336,7 @@ function addNewColors()
 end
 
 function updateTable()
+    addToTable("Ctrl+G  Gun Set", sets.Gun.index[Gun_Index])
     addToTable("(F7)  Roll  Set", sets.roll.index[Roll_Index])
     addToTable("(F9)  Savage Set", sets.WS.SavageBlade.index[Savage_Index])
     addToTable("(F10) Ranged Set", sets.RA.index[rangedIndex])
@@ -304,8 +356,10 @@ function precast(spell)
         equip(sets.SnakeEye)
     elseif spell.english == 'Wild Card' then
         equip(sets.WildCard)
-    elseif (spell.type == 'CorsairRoll') or (spell.name == 'Double-Up') then
+    elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll[sets.roll.index[Roll_Index]], sets.roll[spell.name]))
+    elseif (spell.type == 'Double Up') then
+
     end
 
     if spell.action_type == 'Ranged Attack' then
@@ -316,9 +370,11 @@ function precast(spell)
         elseif (spell.english == "Savage Blade") then
               equip(sets.WS.SavageBlade[sets.WS.SavageBlade.index[Savage_Index]])
         elseif (spell.english == "Wildfire") then
-        	equip(sets.WS.Generic)
+        	equip(sets.WS.Wildfire)
+        elseif (spell.english == "Detonator") then
+            equip(sets.RA.Accuracy)
         elseif (spell.english == "Last Stand") then
-        	equip(sets.WS.Generic)
+        	equip(sets.WS.LastStand[rangedSets[rangedIndex]])
         else
         	equip(sets.WS.Generic)
         end
@@ -368,10 +424,12 @@ end
 
 function equip_TP()
     equip(sets.Melee)
+    equip(sets.Gun[sets.Gun.index[Gun_Index]])
 end
 
 function equip_idle()
     equip(sets.Idle[sets.Idle.index[Idle_Index]])
+    equip(sets.Gun[sets.Gun.index[Gun_Index]])
 end
 
 function self_command(command)
@@ -393,36 +451,27 @@ function self_command(command)
         Roll_Index = Roll_Index +1
         if Roll_Index > #sets.roll.index then Roll_Index = 1 end
         add_to_chat(140, '<----- Roll Set changed to '..sets.roll.index[Roll_Index]..' ----->')
+    elseif command == 'toggle gun' then
+        Gun_Index = Gun_Index +1
+        if Gun_Index > #sets.Gun.index then Gun_Index = 1 end
+        add_to_chat(141, 'Gun now set to: !!!       '..sets.Gun.index[Gun_Index]..'     !!!')
     elseif command == 'toggle leaden' then
         Leaden_Index = Leaden_Index +1
         if Leaden_Index > #sets.WS.LeadenSalute.index then Leaden_Index = 1 end
         add_to_chat(140, '<----- Leaden Set changed to '..sets.WS.LeadenSalute.index[Leaden_Index]..' ----->') 
-        elseif command == 'toggle savage' then
+    elseif command == 'toggle savage' then
         Savage_Index = Savage_Index +1
         if Savage_Index > #sets.WS.SavageBlade.index then Savage_Index = 1 end
         add_to_chat(140, '<----- Savage Set changed to '..sets.WS.SavageBlade.index[Savage_Index]..' ----->') 
     end
 
-
-    if command == 'aimAtTarget' then
-        send_command('input /attack on')
-        send_command('setkey numpad2 down')
-        send_command('wait 0.1; gs c finishAiming')
-    elseif command == 'finishAiming' then
-        send_command('setkey numpad2 up')
-        send_command('autora start')
-    elseif command == 'equipmelee' then
-        equip({main="Naegling", sub="Lanun Knife", ranged="Anarchy +2"})
-    elseif command == 'equipranged' then
-        equip({main="Lanun Knife", sub="Naegling", ranged="Death Penalty", ammo="Living Bullet"})
-    elseif command == 'unequip' then
-        equip({main="", sub=""})
-    end
+    equip_current()
     updateTable()
 end
 
 function user_setup()
     add_to_chat(140, "Loading Julika's Gearswap")
+    send_command('bind ^g gs c toggle gun')
     send_command('bind f7 gs c toggle roll')
     send_command('bind f9 gs c toggle savage')
     send_command('bind f10 gs c toggle RA set')

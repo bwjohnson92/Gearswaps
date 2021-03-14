@@ -77,7 +77,7 @@ function get_sets()
         head="Ayanmo Zucchetto +2",
         --body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         body="Ayanmo Corazza +2",
-        hands="Turms Mittens",
+        hands="Turms Mittens +1",
         -- legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
         legs="Erilaz Leg Guards +1",
         feet="Turms Leggings",
