@@ -33,7 +33,8 @@ function get_sets()
     sets.Idle.index = {
         'Standard',
         'DT',
-        'MagicDT'
+        -- 'MagicDT'
+        'Evasion'
     }
     Idle_ind = 1
     --Idle Sets--
@@ -64,6 +65,22 @@ function get_sets()
         -- body="Erilaz Surcoat +1",
         feet="Erilaz Greaves +1",
         hands="Erilaz Gauntlets +1"
+    })
+
+    sets.Idle.Evasion = set_combine(sets.Idle.DT, {
+        ammo="Yamarang",
+        head="Nyame Helm",
+        body="Ashera Harness",
+        hands="Turms Mittens +1",
+        legs="Nyame Flanchard",
+        feet="Turms Leggings +1",
+        neck="Bathy Choker +1",
+        waist="Flume Belt +1",
+        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        right_ear="Infused Earring",
+        left_ring="Moonbeam Ring",
+        right_ring="Defending Ring",
+        back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},
     })
     --TP Sets--
     sets.TP = {}
@@ -308,22 +325,37 @@ function get_sets()
     })
 
     sets.Interrupt = set_combine(sets.Idle.DT, {
-        head="Taeon Chapeau",
-        hands="Rawhide Gloves",
-        legs="Carmine Cuisses +1",
-        neck="Moonbeam Necklace",
-        body={ name="Taeon Tabard", augments={'Pet: Mag. Evasion+22','Spell interruption rate down -5%','Phalanx +3',}},
-        feet={ name="Taeon Boots", augments={'Spell interruption rate down -7%','Phalanx +3',}},
-        -- ear2="Halasz Earring",
-        ring1="Evanescence Ring",
-        back=OgmaCasting
+        -- Merits - 10
+        ammo="Staunch Tathlum", --10
+        head="Taeon Chapeau", --10
+        neck="Moonbeam Necklace", --10
+        ear2="Halasz Earring", --5 --Magnetic?
+        hands="Rawhide Gloves", --15
+        legs="Carmine Cuisses +1", --20
+        body="Ashera Harness", --0
+        feet="Erilaz Greaves +1", --0
+        ring1="Gelatinous Ring +1", --0
+        waist="Rumination Sash", --10
+        back=OgmaCasting --10
+        -- hands="Regal Gauntlets", --10
+        -- ring1="Evanescence Ring", --5
+        -- feet={ name="Taeon Boots", augments={'Phalanx +3',}}, -- 10
+        -- body={ name="Taeon Tabard", augments={'Phalanx +3',}}, --10
     })
+
+    sets.Taeon = {
+        head="Taeon Chapeau",
+        body="Taeon Tabard",
+        hands="Taeon Gloves",
+        legs="Taeon Tights",
+        feet="Taeon Boots"
+    }
 
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {
         ammo="Sapience Orb",
         head="Rabid Visor",neck="Moonbeam Necklace",ear1="Trux Earring",ear2="Friomisi earring",    
-        body="Emet Harness",hands="Kurys Gloves",ring1="Supershear Ring",ring2="Petrov Ring",
+        body="Emet Harness +1",hands="Kurys Gloves",ring1="Supershear Ring",ring2="Petrov Ring",
         back=OgmaTank,waist="Sinew Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}  
 
     --Magic acc for enfeebles, handy for VW
@@ -544,9 +576,9 @@ function midcast(spell,act,arg)
         end
         if spell.skill == 'Blue Magic' then
             if spell.name == "Jettuara" or spell.name == "Geist Wall" then
-                equip(sets.Enmity)
-            else
                 equip(sets.Enmity, sets.Interrupt)
+                -- equip(sets.Enmity)
+            -- else
             end
         end
         --cancels Ni shadows (if there are only 1 or 2) when casting Ichi

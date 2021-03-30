@@ -205,7 +205,7 @@ function get_sets()
         neck="Fotia Gorget",
         waist="Fotia Belt",
         head="Meghanada Visor +2",
-        ear2="Moonshade Earring",
+        ear1="Moonshade Earring",
         feet="Lanun Bottes +3",
         ring1="Regal Ring",
         ring2="Dingir Ring",

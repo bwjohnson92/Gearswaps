@@ -78,26 +78,27 @@ function get_sets()
     Idle_ind = 1                   
 
     sets.Idle.Standard = {ammo="Ginsen",
-      head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
-      body="Jhakri Robe +2",hands="Malignance Gloves",ring1="Gelatinous Ring +1",ring2="Defending ring",
-  back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Malignance Boots"}
+        head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
+        body="Jhakri Robe +2",hands="Malignance Gloves",ring1="Gelatinous Ring +1",ring2="Defending ring",
+        back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Malignance Boots"
+    }
 
-  sets.Idle.DT = {
-    ammo="Staunch Tathlum +1",
-    head="Aya. Zucchetto +2",
-    body="Ayanmo Corazza +2",
-    hands="Ayanmo Manopolas +2",
-    -- legs="Aya. Cosciales +2",
-    legs="Carmine Cuisses +1",
-    feet="Malignance Boots",
-    waist="Flume Belt +1",
-    neck="Loricate Torque +1",
-    left_ear="Novia Earring",
-    right_ear="Telos Earring",
-    left_ring="Gelatinous Ring +1",
-    right_ring="Defending Ring",
-    back=INTCape,
-}
+    sets.Idle.DT = {
+        ammo="Staunch Tathlum +1",
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        -- legs="Aya. Cosciales +2",
+        legs="Carmine Cuisses +1",
+        feet="Malignance Boots",
+        waist="Flume Belt +1",
+        neck="Loricate Torque +1",
+        left_ear="Novia Earring",
+        right_ear="Telos Earring",
+        left_ring="Gelatinous Ring +1",
+        right_ring="Defending Ring",
+        back=DEXCape,
+    }
 
 --TP Sets--
 sets.TP = {}
@@ -151,7 +152,7 @@ sets.TP.Accuracy = set_combine(sets.TP.Hybrid, {ammo="Ginsen",
     -- ring1="Cacoethic ring",
     ring2="Patricius Ring",
     back=DEXCape,
-waist="Olseni Belt", feet=HercBootsAcc})
+    waist="Olseni Belt", feet=HercBootsAcc})
 
 -- sets.TP.DT = {ammo="Ginsen",
     --     head="Carmine Mask",neck="Loricate Torque +1", ear1="Dudgeon earring", ear2="Heartseeker earring",
@@ -305,13 +306,8 @@ sets.BlueMagic.BatteryCharge = {
 sets.WS.SanguineBlade = set_combine(sets.BlueMagic.INT, {})
 
 --Utility Sets--
-sets.Utility = {}
 
---sets.Utility.Stoneskin = {head="Haruspex hat",neck="Stone Gorget",ear1="Loquac. earring",ear2="Earthcry earring",
-   --                                                 body="Assim. jubbah +1",hands="Stone Mufflers",ring1="Prolix ring",
---                                                 back="Swith cape",waist="Siegel sash",legs="Haven hose",feet="Iuitl gaiters"}
-
-sets.Utility.Phalanx = {
+sets.Phalanx = {
     -- main="Pukulatmuj +1",sub="Pukulatmuj",
     head="Herculean Helm",neck="Melic torque",ear1="Loquac. earring",
     -- ear2="Augment. earring",
@@ -319,20 +315,6 @@ sets.Utility.Phalanx = {
     hands="Taeon Gloves",ring1="Stikini ring",
     back="Swith cape",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
 }
-
--- sets.Utility.Steps = {ammo="Honed tathlum",
-    --                                          head="Whirlpool mask",ear2="Heartseeker earring",
-    --                                         body="Thaumas coat",hands="Umuthi gloves",
---                                        back="Letalis cape",waist="Chaac belt",legs="Samnuha Tights",feet="Manibozho boots"}
-
---sets.Utility.PDT = {head="Whirlpool mask",neck="Loricate Torque +1",
-    --                                        body="Vrikodara Jupon",hands="Umuthi gloves",ring1="Defending ring",ring2="Gelatinous Ring +1",
---                                        back="Rosmerta's Cape",legs="Iuitl Tights +1"}
-
---sets.Utility.MDT = {head="Whirlpool mask",neck="Loricate Torque +1",
-    --                                        body="Assim. jubbah +3",hands="Umuthi gloves",ring1="Defending ring",ring2="Gelatinous Ring +1",
---                                        back="Reiki Cloak",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
-
 
 --Job Ability Sets--
 
@@ -363,12 +345,6 @@ sets.precast.FC.Standard =
     waist="Witful Belt",
     legs="Psycloth Lappas",feet="Carmine Greaves"
 }
-
-sets.precast.FC.PDT = {}
-
-sets.precast.FC.Acc = {}
-
-sets.precast.FC.PDTAcc = {}
 
 sets.BlueMagic.SkillRecast = set_combine(sets.precast.FC.Standard, {})
 
@@ -415,7 +391,7 @@ function precast(spell)
         equip(sets.WS.CircleBlade)
     end
 
-    if spell.english == 'Expiacion' or spell.english == 'Savage Blade' then
+    if spell.english == 'Expiacion' or spell.english == 'Savage Blade' or spell.english == 'Black Halo' then
         equip(sets.WS.ExpSavage)
     end
 
@@ -424,7 +400,7 @@ function precast(spell)
     end
 
     if spell.english == 'Box Step' then
-        equip(sets.Utility.Steps)
+        equip(sets.Steps)
     end
 
     if spell.english == 'Realmrazer' then
@@ -546,7 +522,7 @@ function midcast(spell,act)
     end
 
     if spell.english == "Phalanx" then
-        equip(sets.Utility.Phalanx)
+        equip(sets.Phalanx)
     end
 end
 
