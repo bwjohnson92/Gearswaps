@@ -92,6 +92,26 @@ sets.FastCast = {
     right_ring="Weather. Ring",
 }
 
+    sets.WS= { --AGI Weaponskill
+        head="Pixie Hairpin +1",
+        -- body={ name="Herculean Vest", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Magic dmg. taken -2%','Mag. Acc.+12','"Mag.Atk.Bns."+12',}},
+        hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+        -- body="Rawhide Vest",
+        body="Laksamana's Frac +3",
+        -- legs=""
+        legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
+        -- feet=wsHerc,
+        feet="Lanun Bottes +3",
+        neck="Sanctity Necklace",
+        -- waist="Yemaya Belt",
+        waist="Eschan Stone",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Dingir Ring",
+        right_ring="Archon Ring",
+        back=capeWSMAB,
+    }
+
 sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
 sets.roll["Tactician's Roll"] = {body="Chasseur's Frac"}
 sets.RandomDeal = {body="Lanun Frac"}
@@ -121,7 +141,7 @@ function precast(spell)
     if spell.action_type == 'Ranged Attack' then
         equip(sets.RA)
     elseif spell.action_type == 'Weapon Skill' then
-        equip(sets.RA)
+        equip(sets.WS)
     end
     if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
         equip(sets.FastCast)

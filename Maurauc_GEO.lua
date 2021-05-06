@@ -74,6 +74,8 @@ function get_sets()
     sets.Idle.index = {"Standard", "DamageTaken", "PetRegen"}
 
 	sets.Idle.Standard = {    
+		main="Idris",
+	    sub="Genmei Shield",
 		range="Dunna",
 	    head={ name="Telchine Cap", augments={'Pet: "Regen"+1','Enh. Mag. eff. dur. +9',}},
 	    body="Jhakri Robe +2",
@@ -84,9 +86,9 @@ function get_sets()
 	    waist="Sacro Cord",
 	    left_ear="Malignance Earring",
 	    right_ear="Barkaro. Earring",
-	    left_ring="Warp Ring",
-	    right_ring="Endorsement Ring",
-	    back={ name="Mecisto. Mantle", augments={'Cap. Point+48%','HP+28','DEF+10',}}
+		ring1="Defending Ring", 
+		ring2="Dark Ring",
+	    back="Nantosuelta's Cape"
 	}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
@@ -99,12 +101,12 @@ function get_sets()
 	})
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
-		-- main="Idris", sub="Genmei Shield",
+		main="Idris", sub="Genmei Shield",
 		head="Azimuth Hood +1",
 		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 
 		hands="Telchine Gloves",
-    	back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
+    	back={ name="Nantosuelta's Cape"},
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
 		feet="Bagua Sandals +2",
@@ -118,8 +120,8 @@ function get_sets()
 	sets.midcast = {}
 
 	sets.precast.FastCast = { main="Idris", sub="Genmei Shield", 
-		head="Merlinic Hood", neck="Voltsurge Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Merlinic Jubbah",hands="Volte Gloves",ring1="Kishar Ring",ring2="Rahab Ring",
+		head="Nahtirah Hat", neck="Voltsurge Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
+		body="Shango Robe",hands="Volte Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
 		back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Merlinic Crackows"}
 	
 	sets.precast.FastCure = set_combine(sets.precast.FastCast, {	ear2="Loquacious Earring",
@@ -131,21 +133,21 @@ function get_sets()
 	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
 		
 	sets.midcast.EnfeeblingMagic = {
-	    main={ name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}},
+	    main="Contemplator +1",
 	    sub="Niobid Strap",
 	    ammo="Pemphredo Tathlum",
-	    head={ name="Merlinic Hood", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+3','Mag. Acc.+11','"Mag.Atk.Bns."+10',}},
-	    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+27','Attack+6','Quadruple Attack +2','Accuracy+4 Attack+4','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
+	    head="Amalric Coif +1",
+	    body="Amalric Doublet +1",
 	    hands="Azimuth Gloves +1",
-	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
+	    legs="Psycloth Lappas",
 	    feet="Jhakri Pigaches +2",
 	    neck="Erra Pendant",
 	    waist="Luminary Sash",
 	    left_ear="Digni. Earring",
 	    right_ear="Barkaro. Earring",
 	    left_ring="Kishar Ring",
-	    right_ring="Vertigo Ring",
-	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
+	    right_ring="Weatherspoon Ring +1",
+	    back="Pahtli Cape"
 	}
 
 	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap",
@@ -164,7 +166,7 @@ function get_sets()
 		waist="Cascade Belt"}
 
 		
-	sets.midcast.IndiSpells = {main="Idris",
+	sets.midcast.IndiSpells = {main="Idris",range="Dunna",
 	head="Azimuth Hood +1", neck="Bagua Charm +1",
 	body="Azimuth Coat +1",	hands="Azimuth Gloves +1", 
 	back="Lifestream Cape", legs="Bagua Pants",feet="Azimuth Gaiters +1"}
@@ -204,7 +206,7 @@ function get_sets()
 	send_command('bind f12 input /equip Feet "Geomancy Sandals +3"')
 
 	send_command('bind f9 gs c nextTH')
-	send_command('bind end send @others "input /follow Magicmidget"')
+	send_command('bind end send @others "input /follow Maurauc"')
 	send_command('bind f10 gs c changeStaff')
 
 	windower.register_event('zone change', function()
@@ -235,7 +237,9 @@ end
 -- --- Precast ---
 
 function precast(spell)
-	if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') or string.find(spell.type, 'Geomancy') then
+	if (spell.english == "Dispelga") then
+		equip(set_combine(sets.precast.FastCast, {main="Daybreak"}))
+	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') or string.find(spell.type, 'Geomancy') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cur') then 
 				equip(sets.precast.FastCure)
@@ -274,7 +278,9 @@ end
 -- --- MidCast ---
 function midcast(spell)
 	set = {}
-	if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
+	if (spell.english == "Dispelga") then
+		equip(set_combine(sets.midcast.EnfeeblingMagic, {main="Daybreak"}))
+	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
 				set = set_combine(sets.midcast.Cure, {})

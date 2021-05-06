@@ -103,11 +103,8 @@ function get_sets()
 
     sets.RA.Standard = { --RAcc and STP
         head="Malignance Chapeau",
-        -- body="Laksamana's Frac +3",
         body="Malignance Tabard",
-        -- hands="Adhemar Wristbands +1",
         hands="Meghanada Gloves +2",
-        -- legs="Adhemar Kecks +1",
         legs="Meghanada Chausses +2",
         feet="Meg. Jam. +2",
         neck="Iskur gorget",
@@ -192,9 +189,11 @@ function get_sets()
         body="Laksamana's Frac +3",
         -- legs=""
         legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
-        feet=wsHerc,
+        -- feet=wsHerc,
+        feet="Lanun Bottes +3",
         neck="Sanctity Necklace",
-        waist="Yemaya Belt",
+        -- waist="Yemaya Belt",
+        waist="Eschan Stone",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
         left_ring="Dingir Ring",
@@ -326,6 +325,7 @@ function precast(spell)
         	equip(sets.WS.LeadenSalute)
         elseif (spell.english == "Last Stand") or (spell.english == "Detonator") then
         	equip(sets.WS.LastStand)
+        -- equip(sets.RA.Standard)
         elseif (spell.english == "Savage Blade") then
           equip(sets.WS.SavageBlade)
         elseif (spell.english == "Evisceration") then
@@ -360,7 +360,7 @@ function midcast(spell)
         equip(sets.Luzaf)
     end
     if spell.action_type == 'Ranged Attack' then
-        equip(sets.RA.Enmity)
+        equip(sets.RA.Standard)
     end
 end 
 

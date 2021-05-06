@@ -1,6 +1,7 @@
 require('ClosetCleaner')
 include('organizer-lib.lua')
 include('displayBox.lua')
+
 function get_sets()
 
 
@@ -39,19 +40,21 @@ function get_sets()
     Idle_ind = 1
     --Idle Sets--
     sets.Idle.Standard = { ammo="Homiliary",
-        head="Futhark Bandeau +3",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Ethereal Earring",   
-        body="Futhark coat +1",hands="Regal Gauntlets",ring1="Moonbeam Ring",ring2="Defending Ring",     
-        back="Evasionist's Cape",waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Skadi's Jambeaux +1"}   
+        head="Nyame Helm",neck="Futhark Torque +2",ear1="Odnowa Earring +1",ear2="Ethereal Earring",   
+        body="Nyame Mail",hands="Regal Gauntlets",ring1="Moonbeam Ring",ring2="Defending Ring",     
+        back=OgmaTank,waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Skadi's Jambeaux +1"}   
 
     sets.Idle.DT = {
         ammo="Staunch Tathlum",          
-        head="Futhark Bandeau +3",
+        -- head="Futhark Bandeau +3",
+        head="Nyame Helm",
         neck="Futhark Torque +2",
         ear1="Odnowa Earring +1",ear2="Sanare Earring",          
         body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonbeam Ring",ring2="Defending Ring",   
         back="Moonbeam Cape",
         waist="Flume Belt +1",
-        legs="Erilaz Leg Guards +1",
+        -- legs="Erilaz Leg Guards +1",
+        legs="Nyame Flanchard",
         -- legs="Dashing Subligar",
         -- feet="Turms Leggings +1"
         feet="Erilaz Greaves +1"
@@ -70,13 +73,13 @@ function get_sets()
     sets.Idle.Evasion = set_combine(sets.Idle.DT, {
         ammo="Yamarang",
         head="Nyame Helm",
-        body="Ashera Harness",
+        body="Nyame Mail",
         hands="Turms Mittens +1",
         legs="Nyame Flanchard",
         feet="Turms Leggings +1",
         neck="Bathy Choker +1",
         waist="Flume Belt +1",
-        left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+        left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Moonbeam Ring",
         right_ring="Defending Ring",
@@ -114,6 +117,7 @@ function get_sets()
     sets.TP.Accuracy = {
         ammo="Falcon Eye",
         -- head=
+        head="Nyame Helm",
         body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands="Meg. Gloves +2",
         legs="Meg. Chausses +2",
@@ -154,24 +158,30 @@ function get_sets()
     --full DT melee set
     sets.TP.DT = {
         ammo="Staunch Tathlum",          
-        head="Futhark Bandeau +3",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
+        -- head="Futhark Bandeau +3",
+        head="Nyame Helm",
+        neck="Futhark Torque +2",
+        ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
         body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonbeam Ring",ring2="Defending Ring",   
-        back="Moonbeam Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",
+        back="Moonbeam Cape",waist="Flume Belt +1",
+        -- legs="Erilaz Leg Guards +1",
+        legs="Nyame Flanchard",
         feet="Turms Leggings +1"}
     --MDT melee set
     -- sets.TP.MDTacc = {ammo="Yamarang",          
-    --     head="Futhark Bandeau +3",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
+    --     head="Futhark Bandeau +3",neck="Futhark Torque +2",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
     --     body="Runeist's Coat +3",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",         
     --     back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runeist's Trousers +2",feet="Taeon Boots"}    
 
     sets.TP.HP = {
-       head="Rune. Bandeau +3",
+       -- head="Rune. Bandeau +3",
+       head="Nyame Helm",
         body="Runeist's Coat +3",
         hands="Regal Gauntlets",
         legs="Eri. Leg Guards +1",
         feet="Erilaz Greaves +1",
         waist="Flume Belt +1",
-        neck="Loricate Torque +1",
+        neck="Futhark Torque +2",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
         left_ring="K'ayres Ring",
         right_ring="Regal Ring",
@@ -277,12 +287,12 @@ function get_sets()
     sets.Utility = {}   
     --full PDT set for when stunned, etc.
     sets.Utility.PDT = { ammo="Vanir Battery",
-        head="Erilaz Galea +1",neck="loricate torque +1",ear1="Hearty Earring",ear2="Ethereal Earring",            
+        head="Erilaz Galea +1",neck="Futhark Torque +2",ear1="Hearty Earring",ear2="Ethereal Earring",            
         body="Futhark coat +1",hands="Erilaz Gauntlets +1",ring1="Patricius Ring",ring2="Defending Ring",       
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}       
     --full MDT set for when stunned, etc
     sets.Utility.MDT = { ammo="Vanir Battery",
-        head="Dampening Tam",neck="loricate torque +1",ear1="Hearty Earring",ear2="Zennaroi Earring",          
+        head="Dampening Tam",neck="Futhark Torque +2",ear1="Hearty Earring",ear2="Zennaroi Earring",          
         body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Vengeful Ring",ring2="Defending Ring",             
         back="Engulfer Cape +1",waist="Olseni Belt",legs="Runeist's Trousers +2",feet="Erilaz Greaves +1"}        
              
@@ -371,6 +381,7 @@ function get_sets()
 
     send_command('bind f10 gs c toggle Idle set')
     send_command('bind ^f10 gs c reverse Idle set')
+    send_command('bind f12 gs c equip gear')
     
     --other stuff, don't touch
     ShadowType = 'None'
@@ -515,7 +526,7 @@ function precast(spell,abil)
                 equip(sets.Single)
         end
         if spell.name == 'Shockwave' then
-            equip(sets.Shockwave)
+            -- equip(sets.Shockwave)
         end
         if spell.name == 'Fell Cleave' or spell.name == 'Circle Blade' then
                 equip(sets.Cleave)
@@ -700,6 +711,8 @@ function self_command(command)
                 if Idle_ind == 0 then Idle_ind = #sets.Idle.index end
                 send_command('@input /echo <----- Idle Set changed to '..sets.Idle.index[Idle_ind]..' ----->')
                 equip_current()
+        elseif command == 'equip gear' then
+            equip_current()
         end
 
         updateTable()
