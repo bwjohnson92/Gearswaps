@@ -99,10 +99,10 @@ function get_sets()
                                 body="Flamma Korazin +2",hands="Wakido kote +3",ring1="Flamma ring",ring2="Hizamaru ring",
                                 back=backTP,waist="Ioskeha belt +1",legs="Wakido Haidate +3",feet="Flamma Gambieras +2"}
                             
-        -- sets.TP.DT = {
-        --               head="Yaoyotl helm",neck="Asperity necklace", ear1="Steelflash earring", ear2="Bladeborn earring",
-        --               body="Miki. breastplate",hands="Wakido kote +2",ring1="K'ayres ring",ring2="Rajas ring",
-        --               back="Takaha mantle",waist="Cetl belt",legs="Otronif brais",feet="Waki. Sune-Ate +1"}
+        sets.TP.DT = {
+                       head="Flamma Zucchetto +2",neck="Asperity necklace", ear1="Steelflash earring", ear2="Bladeborn earring",
+                       body="Miki. breastplate",hands="Wakido kote +3",ring1="Gelatinous ring +1",ring2="Defending ring",
+                       back=backTP,waist="Ioskeha belt +1",legs="Otronif brais",feet="Waki. Sune-Ate +1"}
                   
         -- sets.TP.DTAccuracy = {
         --                       head="Yaoyotl helm",neck="Asperity necklace", ear1="Steelflash earring", ear2="Bladeborn earring",
@@ -171,7 +171,7 @@ function get_sets()
         sets.Fudo.Accuracy = {
         ammo="Knobkierrie",
         head="Flamma Zucchetto +2",neck="Samurai's Nodowa +1",ear1="Dignitary's earring",ear2="Moonshade earring",
-        body="Sakonji Domaru +3",hands="Wakido Kote +3",ring1="Apate ring",ring2="Karieyh ring",
+        body="Sakonji Domaru +3",hands="Wakido Kote +3",ring1="Regal ring",ring2="Karieyh ring",
         back=backWS,waist="Fotia belt",legs="Wakido Haidate +3",feet="Flamma Gambieras +2"}
                           
         sets.ImpulseDrive = {}

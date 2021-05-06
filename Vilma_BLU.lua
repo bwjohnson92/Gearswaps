@@ -1,4 +1,6 @@
+require('closetCleaner')
 include('organizer-lib.lua')
+include('displayBox.lua')
 
 trigger = false
 capeLocked = false
@@ -28,8 +30,10 @@ HercLegsTP={ name="Herculean Trousers", augments={'Accuracy+25 Attack+25','"Trip
 HercLegsMAB={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+20','Weapon skill damage +4%','INT+10',}}
 HercFeetMAB={ name="Herculean Boots", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','Weapon skill damage +4%','STR+7','Mag. Acc.+1','"Mag.Atk.Bns."+5',}}
 HercFeetTP={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}}
+
 CapeINT = { name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}}
 CapeDEXTP = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
+CapeWS = { name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 
 function get_sets()
 
@@ -55,7 +59,7 @@ function get_sets()
         send_command('unbind f12')
     end
 
-    sets.Weapons = {main="Sequence", sub="Colada",}
+    sets.Weapons = {main="Sequence", sub="Colada",ranged="Naegling",ammo="Kaja Rod"}
     organizer_items = {
         echos="Echo Drops",
         holy="Holy Water",
@@ -84,10 +88,10 @@ function get_sets()
     back="Repulse mantle",waist="Fucho-no-obi",legs="Crimson cuisses",feet="Serpentes sabots"}
 
     sets.Idle.DT = {ammo="Ginsen",
-    head="Rabid Visor",neck="Loricate Torque +1", ear1="Ethereal earring", ear2="Heartseeker earring",
-    body="Ayanmo Corazza +2",hands="Umuthi gloves",ring1="Dark ring",ring2="Defending ring",
-    back="Agema Cape",waist="Flume belt +1",legs="Herculean Trousers",feet="Herculean Boots"}
-
+        head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Ethereal earring", ear2="Heartseeker earring",
+        body="Malignance Tabard",hands="Umuthi gloves",ring1="Dark ring",ring2="Defending ring",
+        back="Agema Cape",waist="Flume belt +1",legs="Herculean Trousers",feet="Malignance Boots"
+    }
     --TP Sets--
     sets.TP = {}
 
@@ -96,28 +100,28 @@ function get_sets()
     TP_ind = 1
 
     sets.TP.Standard = {
-        main="Sequence",
-        sub="Colada",
+        -- main="Sequence",
+        -- sub="Colada",
         ammo="Ginsen",
         --head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
         head="Adhemar Bonnet +1",
         body=HercBodyTP,
-        hands=HercHandsTP,
+        hands="Adhemar Wristbands +1",
         legs="Samnuha Tights",
         feet=HercFeetTP,
         neck="Lissome Necklace",
         waist="Windbuffet Belt +1",
-        left_ear="Brutal Earring",
-        right_ear="Suppanomimi",
+        left_ear="Telos Earring",
+        right_ear="Brutal Earring",
         left_ring="Epona's Ring",
         right_ring="Petrov Ring",
         back=CapeDEXTP,
     }
 
     sets.TP.Accuracy = {ammo="Ginsen",
-    head="Dampening Tam",neck="Sanctity Necklace", ear1="Dudgeon earring", ear2="Heartseeker earring",
-    body=HercBodyTP,hands=HercHandsTP,ring1="Epona's ring",ring2="Patricius Ring",
-    back=CapeDEXTP,waist="Windbuffet Belt +1",legs=HercLegsTP,feet="Assimilator's Charuqs +1"}
+    head="Adhemar Bonnet +1",neck="Sanctity Necklace", ear1="Telos earring", ear2="Dignitary's earring",
+    body=HercBodyTP,hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Patricius Ring",
+    back=CapeDEXTP,waist="Windbuffet Belt +1",legs=HercLegsTP,feet="Malignance Boots"}
 
     --Weaponskill Sets--
     sets.WS = {}
@@ -130,7 +134,7 @@ function get_sets()
     sets.Requiescat.Attack = {ammo="Cheruski needle",
     head="Whirlpool mask",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
     body="Telchine Chasuble",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Rufescent Ring",
-    back=CapeDEXTP,waist="Fotia belt",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
+    back=CapeWS,waist="Fotia belt",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
 
     sets.ChantDuCygne = {}
 
@@ -140,13 +144,14 @@ function get_sets()
     sets.ChantDuCygne.Attack = {ammo="Jukukik feather",
     head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Moonshade earring",
     body=HercBodyTP,hands="Adhemar Wristbands",ring1="Epona's ring",ring2="Apate ring",
-    back="Rosmerta's cape",waist="Fotia Belt",legs="Samnuha Tights",feet=HercFeetTP}
+    back=CapeWS,waist="Fotia Belt",legs="Samnuha Tights",feet=HercFeetTP}
 
-    sets.WS.Expiacion = {ammo="Ginsen",
-        head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Brutal earring",
-        body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Rufescent ring",ring2="Apate ring",
-        back="Atheling mantle",waist="Fotia Belt", feet="Thereoid Greaves",
-        legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%','DEX+14','Accuracy+3','Attack+9',}}
+    sets.WS.ExpSavage = {ammo="Ginsen",
+        head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
+        body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Rufescent ring",ring2="Metamorph ring +1",
+        back=CapeWS,waist="Grunfeld Rope",
+        legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%','DEX+14','Accuracy+3','Attack+9',}},
+        feet={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
     }
 
 
@@ -156,22 +161,22 @@ function get_sets()
     sets.BlueMagic.STR = {ammo="Floestone",
     head="Lilitu Headpiece",neck="Caro Necklace",ear1="Flame pearl",ear2="Flame pearl",
     body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
-    back="Cornflower cape",waist="Wanion belt",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
+    back=CapeWS,waist="Wanion belt",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.STRDEX = {ammo="Cheruski needle",
     head="Lilitu Headpiece",neck="Caro Necklace",ear1="Flame pearl",ear2="Flame pearl",
     body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
-    back="Cornflower cape",waist="Wanion belt",legs="Manibozho brais",feet="Luhlaza charuqs +1"}
+    back=CapeWS,waist="Wanion belt",legs="Manibozho brais",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.STRVIT = {ammo="Mavi tathlum",
     head="Lilitu Headpiece",neck="Caro Necklace",ear1="Flame pearl",ear2="Flame pearl",
     body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Spiral ring",
-    back="Cornflower cape",waist="Latria Sash",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
+    back=CapeWS,waist="Latria Sash",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.STRMND = {ammo="Mavi tathlum",
     head="Luh. Keffiyeh +1",neck="Caro Necklace",ear1="Flame pearl",ear2="Flame pearl",
     body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Levia. ring",
-    back="Cornflower cape",waist="Latria Sash",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
+    back=CapeWS,waist="Latria Sash",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.AGI = {ammo="Mavi tathlum",
     head="Luh. Keffiyeh +1",neck="Caro Necklace",ear1="Flame pearl",ear2="Flame pearl",
@@ -271,6 +276,25 @@ function get_sets()
     body="Dread Jupon",hands="Leyline Gloves", ring1="Prolix Ring",ring2="Kishar Ring",
     back="Swith Cape",waist="Witful Belt",legs="Psycloth lappas",feet="Amalric Nails +1"}
 
+    text_setup()
+    addTextPairs()
+    updateTable()
+end
+
+function addTextPairs()
+    addTextColorPair("Standard", "green")
+    addTextColorPair("Potency", "green")
+    addTextColorPair("Accuracy", "yellow")
+    addTextColorPair("PDT", "yellow")
+end
+
+function updateTable()
+    addToTable("(F9) TP Set", sets.TP.index[TP_ind])
+    -- addToTable("Enfeeble Potency", not EnfeebSet)
+    addToTable("(F10) Idle Set", sets.Idle.index[Idle_ind])
+    addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
+    addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
+    update_message()
 end
 
 function precast(spell)
