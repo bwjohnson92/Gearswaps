@@ -457,9 +457,7 @@ end
                 
 function precast(spell,abil)
         --equips favorite weapon if disarmed
-        if player.equipment.main == "empty" or player.equipment.sub == "empty" then
-                equip({main="Epeolatry",sub="Irenic Strap"})
-        end
+        equip_weapon()
         if spell.action_type == 'Magic' then 
                 equip(sets.Utility.PDT,sets.precast)            
         end  
@@ -616,6 +614,7 @@ end
   
 function equip_TP()
     equip(sets.TP[sets.TP.index[TP_ind]])
+    equip_weapon()
         -- --equips offensive gear despite being on defensive set if you have shadows
         -- if TP_ind == 4 and ((buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)']) or buffactive['Third Eye'] or buffactive['Blink']) then
         --     equip(sets.TP.Accuracy)
@@ -682,12 +681,18 @@ function buff_change(buff,gain)
         end
 end
  
+ function equip_weapon() 
+    if player.equipment.main == "empty" or player.equipment.sub == "empty" then
+            equip({main="Epeolatry",sub="Utu Grip"})
+    end
+ end
+
 function equip_current()
-        if player.status == 'Engaged' then
-        equip_TP()
-        else
-        equip_idle()
-        end
+    if player.status == 'Engaged' then
+    equip_TP()
+    else
+    equip_idle()
+    end
 end
              
 function self_command(command)
