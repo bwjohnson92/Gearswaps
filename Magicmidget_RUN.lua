@@ -50,8 +50,11 @@ function get_sets()
         head="Nyame Helm",
         neck="Futhark Torque +2",
         ear1="Odnowa Earring +1",ear2="Sanare Earring",          
-        body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonbeam Ring",ring2="Defending Ring",   
-        back="Moonbeam Cape",
+        body="Ashera Harness",
+        hands="Turms Mittens +1",
+        ring1="Moonbeam Ring",ring2="Defending Ring",   
+        -- back="Moonbeam Cape",
+        back=OgmaTank,
         waist="Flume Belt +1",
         -- legs="Erilaz Leg Guards +1",
         legs="Nyame Flanchard",
@@ -314,9 +317,13 @@ function get_sets()
     --Fast Cast set
     sets.precast = {
         ammo="Sapience Orb",
-        head="Runeist's bandeau +3",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
-        body="Dread Jupon",hands="Leyline Gloves",ring1="Moonbeam Ring",ring2="Kishar Ring",
-        back=OgmaCasting,waist="Rumination Sash",legs="Ayanmo Cosciales +2", feet="Carmine Greaves +1"}
+        head="Runeist's bandeau +3",neck="Orunmila's Torque",
+        ear1="Odnowa Earring +1",ear2="Etiolation Earring",
+        body="Dread Jupon",hands="Leyline Gloves",
+        ring1="Moonbeam Ring",ring2="Kishar Ring",
+        -- back=OgmaCasting,
+        back="Moonbeam Cape",
+        waist="Rumination Sash",legs="Ayanmo Cosciales +2", feet="Carmine Greaves +1"}
 
     sets.Phalanx = {
         head="Futhark bandeau +3",
@@ -364,9 +371,14 @@ function get_sets()
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {
         ammo="Sapience Orb",
-        head="Rabid Visor",neck="Moonbeam Necklace",ear1="Trux Earring",ear2="Friomisi earring",    
-        body="Emet Harness +1",hands="Kurys Gloves",ring1="Supershear Ring",ring2="Petrov Ring",
-        back=OgmaTank,waist="Sinew Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}  
+        head="Rabid Visor",neck="Moonbeam Necklace",
+        body="Emet Harness +1",hands="Kurys Gloves",
+        ear1="Odnowa Earring +1",ear2="Trux earring",    
+        -- ring1="Supershear Ring",ring2="Petrov Ring",
+        -- back=OgmaTank,
+        ring1="Moonbeam Ring", ring2="Supershear Ring",
+        back="Moonbeam Cape",
+        waist="Sinew Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}  
 
     --Magic acc for enfeebles, handy for VW
     sets.MagicAcc = {
@@ -666,19 +678,23 @@ end
  
 function buff_change(buff,gain)
     local buff = string.lower(buff)
-        if buff == "terror" or buff == "petrification" or buff == "stun" or buff == "sleep" then
-            if gain then  
-                if TP_ind == 4 then
-                equip(sets.Utility.MDT) else
-                equip(sets.Utility.PDT)
-                end
-                if buff == "sleep" and player.hp > 100 and player.status == "Engaged" then 
-                equip({head="Frenzy Sallet"})
-                end
-            else 
-            equip_current()
-            end
-        end
+    if buff == "terror" or buff == "petrification" or buff == "stun" or buff == "sleep" then
+        -- if gain then  
+        --     -- if TP_ind == 4 then
+        --     -- equip(sets.Utility.MDT) else
+        --     -- equip(sets.Utility.PDT)
+        --     -- end
+        --     -- if buff == "sleep" and player.hp > 100 and player.status == "Engaged" then 
+        --     -- equip({head="Frenzy Sallet"})
+        --     -- end
+        -- else 
+        equip_current()
+        -- end
+    end
+    if not gain then
+        add_to_chat(140, "Lost "..buff)
+    end
+
 end
  
  function equip_weapon() 

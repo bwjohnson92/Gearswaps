@@ -18,6 +18,7 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 
 capeLocked = false
 weaponLocked = false
+Weapon_Index = 1
 
 
 
@@ -25,27 +26,46 @@ weaponLocked = false
 -- Gear Sets
 function get_sets()
 
-
-
 	Ragnarok = "Ragnarok"
 	Chango = "Chango"
 	Grip = "Utu Grip"
 
 	CapeTP = {name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
-	    
 	CapeWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Damage taken-5%',}}
 
+
+	sets.Weapons = {}
+	sets.Weapons.index = {"Chango", "Montante", "Naegling", "Shining One"}
+
+	sets.Weapons["Chango"] = {
+		main="Chango",
+		sub="Utu Grip"
+	}
+
+	sets.Weapons["Montante"] = {
+		main="Montante +1",
+		sub="Utu Grip"
+	}
+
+	sets.Weapons["Naegling"] = {
+		main="Naegling",
+		sub="Blurred Shield +1"
+	}
+
+	sets.Weapons["Shining One"] = {
+		main="Shining One",
+		sub="Utu Grip"
+	}
 
 	areas = {}
 	areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
 
-	sets.desperation = {body="Seidr Cotehardie"}
 	sets.Idle = set_combine(sets.DT, {
 		feet="Hermes' Sandals"
 	})
 
 	sets.TP  ={};
-	sets.TP.index = {'Standard', 'DT'}
+	sets.TP.index = {'Standard', 'DT', 'TH'}
 	TP_ind = 1
 	sets.TP.Standard = {
 	    ammo="Ginsen",
@@ -66,38 +86,6 @@ function get_sets()
 	    waist="Ioskeha Belt"
 	}
 
-	-- sets.DT = {
-	-- 	ammo="Vanir Battery",
-	--     head="Hjarrandi Helm",
-	--     body="Hjarrandi Breast.",
-	--     hands="Sulev. Gauntlets +2",
-	--     legs="Pumm. Cuisses +3",
-	--     feet="Pumm. Calligae +3",
-	--     neck="Loricate Torque +1",
-	--     waist="Ioskeha Belt",
-	--     left_ear="Cessance Earring",
-	--     right_ear="Brutal Earring",
-	--     left_ring="Defending Ring",
-	--     right_ring="Regal Ring",
-	--     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
-	-- }
-
-	-- sets.DT2 = {    
-	-- 	ammo="Staunch Tathlum",
- --    	head="Hjarrandi Helm",
-	--     body="Hjarrandi Breast.",
-	--     hands="Sulev. Gauntlets +2",
-	--     legs="Pumm. Cuisses +3",
-	--     feet="Pumm. Calligae +3",
-	--     neck="War. Beads +1",
-	--     waist="Ioskeha Belt",
-	--     left_ear="Cessance Earring",
-	--     right_ear="Brutal Earring",
-	--     left_ring="Defending Ring",
-	--     right_ring="Regal Ring",
-	--     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
-	-- }
-
 	sets.DT = {
 	    head="Sakpata's Helm",
 	    body="Sakpata's Plate",
@@ -116,22 +104,12 @@ function get_sets()
 
 	sets.TP.DT = sets.DT
 
+	sets.TP.TH = set_combine(sets.DT, {
+		body="Volte Jupon",
+		legs="Volte Hose",
+		waist="Chaac Belt"
+	})
 
-	-- sets.Hybrid = {
-	--     ammo="Staunch Tathlum",
-	--     head="Flam. Zucchetto +2",
-	--     neck="Loricate Torque +1",
-	--     ear1="Darkness Earring",
-	--     ear2="Genmei Earring",
-	--     body="Souv. Cuirass +1",
-	--     hands="Sulev. Gauntlets +2",
-	--     ring1="Moonlight Ring",
-	--     ring2="Defending Ring",
-	--     back="Cichol's Mantle",
-	--     waist="Ioskeha Belt",
-	--     legs="Sulev. Cuisses +2",
-	--     feet="Pumm. Calligae +3"
-	-- }
 
 	sets.WS = {
 	    ammo="Knobkierrie",
@@ -148,7 +126,7 @@ function get_sets()
 	    left_ring="Niqmaddu Ring",
 	}
 
-	sets.Impulse = {
+	sets.WS["Impulse Drive"] = {
 	    main="Shining One",
 	    sub="Utu Grip",
 	    ammo="Knobkierrie",
@@ -183,7 +161,7 @@ function get_sets()
 -- 	    back=CapeWS
 -- 	}
 
-	sets.WS.Upheaval = {
+	sets.WS["Upheaval"] = {
 	    ammo="Knobkierrie",
 	    head="Agoge Mask +2",
 	    neck="Fotia Gorget",
@@ -216,7 +194,25 @@ function get_sets()
 		feet="Pummeler's Calligae +3"
 	})
 
-	sets.WS.Resolution = {
+	sets.WS["SavageBlade"] = {
+
+	    ammo="Knobkierrie",
+	    head="Sakpata Helm",
+	    neck="War. Beads +1",
+	    ear1="Telos Earring",
+	    ear2="Moonshade Earring",
+	    body="Pumm. Lorica +3",
+	    hands="Sakpata's Gauntlets",
+	    ring1="Niqmaddu Ring",
+	    ring2="Regal Ring",
+	    back="Cichol's Mantle",
+	    -- waist="Sailfi Belt +1",
+	    waist="Prosilio Belt +1",
+	    legs="Sakpata's Cuisses",
+	    feet="Sulev. Leggings +2"
+	}
+
+	sets.WS["Resolution"] = {
 		ammo="Seeth. Bomblet +1",
 		neck="Fotia Gorget",
 		ear1="Brutal Earring",
@@ -232,24 +228,26 @@ function get_sets()
 		feet="Sakpata's Leggings"
 	}
 
-	sets.Aggressor = {
+	sets.JA = {}
+
+	sets.JA["Aggressor"] = {
 		head="Pummeler's Mask +1"
 	}
 
-	sets.Berserk = {
+	sets.JA["Berserk"] = {
 		body="Pummeler's Lorica +3",
 		feet="Agoge Calligae"
-	}
+	} 
 
-	sets.MightyStrikes = {
+	sets.JA["Mighty Strikes"] = {
 		hands="Agoge Mufflers"
 	}
 
-	sets.Warcry = {
+	sets.JA["Warcry"] = {
 		head="Agoge Mask +2"
 	}
 
-	sets.Tomahawk = {
+	sets.JA["Tomahawk"] = {
 		ammo="Throwing Tomahawk"
 	}
 
@@ -262,9 +260,10 @@ function get_sets()
 		equip(customize_idle_set(sets.Idle))
 	end)
 
+	send_command('bind f9 gs c toggle weapon')
     send_command('bind f10 gs c toggle TP set')
 
- text_setup()
+ 	text_setup()
     addTextPairs()
     updateTable()
 end
@@ -277,6 +276,7 @@ function addTextPairs()
 end
 
 function updateTable()
+	addToTable("(F9)  Weapon", sets.Weapons.index[Weapon_Index])
     addToTable("(F10) TP Set", sets.TP.index[TP_ind])
     update_message()
 end
@@ -284,42 +284,26 @@ end
 -- --- Precast ---
 
 function precast(spell)
-	if spell.english == 'Upheaval' then
-		add_to_chat(140,'Upheaval')
-		if (player.tp < 1250) then 
-			equip(sets.WS.Upheaval)
+	if spell.type:lower() == 'weaponskill' then
+
+		if spell.english == 'Upheaval' then
+			if (player.tp < 1250) then 
+				equip(sets.WS.Upheaval)
+			else
+				equip(sets.WS.Upheaval.HighTP)
+			end
+		
+		elseif (sets.WS[spell.english]) then
+			equip(sets.WS[spell.english])
+		
 		else
-			equip(sets.WS.Upheaval.HighTP)
-		end
-	elseif spell.english == "Impulse Drive" then
-		equip(sets.Impulse)
-		add_to_chat(140,'Impulse!')
-	elseif spell.english == "Resolution" then
-		equip(sets.WS.Resolution)
-	elseif spell.action_type == 'WeaponSkill' then	
-			add_to_chat(140,'Weaponskill!')
 			equip(sets.WS)
-	end
+		
+		end
 
-	if spell.english == 'Aggressor' then
-		equip(sets.Aggressor)
-	end
-
-	if spell.english == 'Berserk' then
-		equip(sets.Berserk)
-	end
-
-	if spell.english == 'Mighty Strikes' then
-		equip(sets.MightyStrikes)
-	end
-
-	if spell.english == 'Warcry' then
-		equip(sets.Warcry)
-	end
-
-	if spell.english == "Tomahawk" then
-		equip(sets.Tomahawk)
-	end
+	elseif sets.JA[spell.english] then
+        equip(sets.JA[spell.english])
+    end
 end
 -- --- MidCast ---
 function midcast(spell)
@@ -330,27 +314,33 @@ end
 
 
 function aftercast(spell)
-	if player.status == 'Engaged' then
-            equip_TP()
+	equip_current()
+end
+
+function equip_current()
+    if player.status == 'Engaged' then
+        equip_TP()
     else
-    	equip(customize_idle_set(sets.Idle))
+        equip_idle()
     end
 end
 
--- Status Change - ie. Resting
-
 function equip_TP()
-	-- equip(sets.TP)
+	equip(sets.Weapons[sets.Weapons.index[Weapon_Index]])
 	equip(sets.TP[sets.TP.index[TP_ind]])
 end
 
+function equip_idle()
+	equip(sets.Weapons[sets.Weapons.index[Weapon_Index]])
+	equip(customize_idle_set(sets.Idle))
+end
+
+
 function status_change(new,tab)
 	if new == 'Engaged' then
-		equip(sets.TP[sets.TP.index[TP_ind]])
-		--disable("Main")
+		equip_TP()
 	else
-		equip(sets.Idle)
-		--enable("Main")
+		equip_idle()
 	end
 end
 
@@ -364,12 +354,17 @@ end
 
 function self_command(command)
 	 if command == 'toggle TP set' then
-            TP_ind = TP_ind + 1
-            if TP_ind > #sets.TP.index then TP_ind = 1 end
-            send_command('@input /echo <----- TP Set changed to '..sets.TP.index[TP_ind]..' ----->')
-            equip(sets.TP[sets.TP.index[TP_ind]])
-        end
-        updateTable()
+        TP_ind = TP_ind + 1
+        if TP_ind > #sets.TP.index then TP_ind = 1 end
+        send_command('@input /echo <----- TP Set changed to '..sets.TP.index[TP_ind]..' ----->')
+        equip(sets.TP[sets.TP.index[TP_ind]])
+    elseif command == 'toggle weapon' then
+        Weapon_Index = Weapon_Index +1
+        if Weapon_Index > #sets.Weapons.index then Weapon_Index = 1 end
+        add_to_chat(141, 'Weapon now set to: !!!       '..sets.Weapons.index[Weapon_Index]..'     !!!')
+    end
+    equip_current()
+    updateTable()
 end
 
 function use_obi(spell, equip_set)
