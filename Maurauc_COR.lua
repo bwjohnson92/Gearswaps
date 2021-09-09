@@ -182,9 +182,7 @@ function get_sets()
 
     --MELEE----------
 
-    sets.WS.SavageBlade = {}
-    sets.WS.SavageBlade.index = { 'Standard' }
-    sets.WS.SavageBlade.Standard = {
+    sets.WS.SavageBlade = {
         head="Lilitu Headpiece",
         neck="Caro Necklace",
         ear1="Moonshade Earring",
@@ -196,12 +194,17 @@ function get_sets()
         ring2="Regal Ring", --Rufescent 
         back=capeMeleeWS,
         waist="Prosilio Belt +1",
-        legs="Meghanada Chausses +2",
+        -- legs="Meghanada Chausses +2",
+        legs="Nyame Flanchard",
         -- feet=wsHerc,
         feet="Lanun Bottes +3"
     }
+    sets.WS.SavageBlade.index = { 'Standard' }
+    sets.WS.SavageBlade.Standard = set_combine(sets.WS.SavageBlade, {
 
-    sets.WS.SavageBladeAcc = set_combine(sets.WS.SavageBlade, {
+    })
+
+    sets.WS.SavageBlade.Acc = set_combine(sets.WS.SavageBlade.Standard, {
         head="Malignance Chapeau"
     })
 
@@ -419,7 +422,8 @@ function precast(spell)
         	equip(sets.WS.LastStand[sets.RA.index[Ranged_Index]])
         -- equip(sets.RA.Standard)
         elseif (spell.english == "Savage Blade") then
-          equip(sets.WS.SavageBlade[sets.WS.SavageBlade.index[Savage_Index]])
+          -- equip(sets.WS.SavageBlade[sets.WS.SavageBlade.index[Savage_Index]])
+          equip(sets.WS.SavageBlade)
         elseif (spell.english == "Evisceration") then
             equip(sets.WS.Evisceration)
         else
