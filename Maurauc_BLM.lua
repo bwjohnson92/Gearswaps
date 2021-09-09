@@ -134,10 +134,12 @@ function get_sets()
         body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Kishar Ring",ring2="Ephedra Ring",
         back="Oretania's Cape",waist="Cascade Belt",feet="Skaoi Boots"}
 
-    organizer_items = {main="Echo Drops", sub="Cehuetzi Snow Cone",ranged="Cream Puff",ammo="Pear Crepe", 
-    head="Crepe b. Helene", body="Trizek Ring", ear1="Reraise Earring",
+    organizer_items = {
+        main="Echo Drops", sub="Cehuetzi Snow Cone",ranged="Remedy",ammo="Pear Crepe", 
+        head="Tropical Crepe", body="Trizek Ring", ear1="Reraise Earring",
         ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
-        back="Mecistopins Mantle"}
+        back="Mecistopins Mantle"
+    }
         
     sets.midcast.Death = {
         -- main="Lathi",

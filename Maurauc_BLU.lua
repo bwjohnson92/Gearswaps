@@ -12,8 +12,8 @@ spells.STRDEX = S{'Disseverment', 'Hysteric Barrage', 'Frenetic Rip', 'Seedspray
 spells.STRVIT = S{'Quad. Continuum', 'Delta Thrust', 'Cannonball', 'Glutinous Dart'}
 spells.STRMND = S{'Whirl of Rage'}
 spells.AGI = S{'Benthic Typhoon', 'Final Sting', 'Spiral Spin'}
-spells.INT = S{'Gates of Hades', 'Leafstorm', 'Firespit', 'Acrid Stream', 'Regurgitation', 'Corrosive Ooze', 'Thermal Pulse', 'Magic Hammer', 'Evryone. Grudge', 'Water Bomb', 'Dark Orb', 'Thunderbolt', 'Tem. Upheaval', 'Embalming Earth', 'Foul Waters', 'Rending Deluge', 'Droning Whirlwind', 'Subduction', 'Searing Tempest', 'Blinding Fulgor', 'Spectral Floe', 'Scouring Spate', 'Anvil Lightning', 'Silent Storm', 'Entomb', 'Tenebral Crush', 'Palling Salvo', 'Atramentous Libations', 'Molting Plumage', 'Nectarous Deluge', 'Diffusion Ray'}
-spells.MagicAccuracy = S{'Frightful Roar', "Cruel Joke", "Sheep Song", "Dream Flower", 'Feather Tickle', 'Reaving Wind', 'Blank Gaze' or spell.enligh == 'Geist Wall', 'Infrasonics', 'Barbed Crescent', 'Tourbillion', 'Cimicine Discharge', 'Sub-zero smash', 'Filamented Hold', 'Mind Blast', 'Sandspin', 'Hecatomb Wave', 'Cold Wave', 'Terror Touch'}
+spells.INT = S{'Gates of Hades', 'Leafstorm', 'Firespit', 'Acrid Stream', 'Regurgitation', 'Corrosive Ooze', 'Thermal Pulse', 'Magic Hammer', 'Evryone. Grudge', 'Water Bomb', 'Dark Orb', 'Thunderbolt', 'Tem. Upheaval', 'Embalming Earth', 'Foul Waters', 'Rending Deluge', 'Droning Whirlwind', 'Subduction', 'Searing Tempest', 'Blinding Fulgor', 'Spectral Floe', 'Scouring Spate', 'Anvil Lightning', 'Entomb', 'Tenebral Crush', 'Palling Salvo', 'Atramentous Libations', 'Molting Plumage', 'Nectarous Deluge', 'Diffusion Ray'}
+spells.MagicAccuracy = S{ 'Silent Storm', 'Frightful Roar', "Cruel Joke", "Sheep Song", "Dream Flower", 'Feather Tickle', 'Reaving Wind', 'Blank Gaze', 'Geist Wall', 'Infrasonics', 'Barbed Crescent', 'Tourbillion', 'Cimicine Discharge', 'Sub-zero smash', 'Filamented Hold', 'Mind Blast', 'Sandspin', 'Hecatomb Wave', 'Cold Wave', 'Terror Touch'}
 spells.Cures = S{'Magic Fruit', 'Plenilune Embrace', 'Wild Carrot', 'Pollen', 'Cure III', 'Cure IV'}
 spells.WhiteWind = S{'White Wind'}
 spells.Stun = S{'Head Butt', 'Sudden Lunge', 'Blitzstrahl'}
@@ -60,15 +60,13 @@ function get_sets()
     HercBootsWS = { name="Herculean Boots", augments={'Accuracy+1','Pet: DEX+4','Weapon skill damage +7%','Accuracy+13 Attack+13','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
     HercBootsTA = { name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}}
 
-    DEXCape = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Crit.hit rate+10',}}
+    DEXCape = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
     STRCape = { name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
-    INTCape = { name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Haste+10','Phys. dmg. taken-10%',}}
+    INTCape = { name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Fast Cast"+10','Phys. dmg. taken-10%',}}
     
     organizer_items = { main="Echo Drops", ranged="Sublime Sushi",
-        body="Trizek Ring", ear1="Reraise Earring",
-        pizza="Marinara Slice",
-        ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
-    back="Mecistopins Mantle"}
+        grape="Grape Daifuku", rolanberry="Rolanberry Daifuku"
+    }
     --Idle Sets--   
     sets.Idle = {}
     
@@ -100,257 +98,269 @@ function get_sets()
         back=DEXCape,
     }
 
---TP Sets--
-sets.TP = {}
+    --TP Sets--
+    sets.TP = {}
 
-sets.TP.index = {'Standard', 'Hybrid', 'Accuracy',} --'Safe', 'AccuracyLite', 'AccuracyFull', 'AccuracyExtreme', 'DT', 'DTAccuracy'}
---1=Standard, 2=Solo, 3=Marches, 4=AccuracyLite, 5=AccuracyFull, 6=DT, 7=DTAccuracy--
-TP_ind = 1
+    sets.TP.index = {'Standard', 'Hybrid', 'Accuracy', 'Subtle Blow'} --'Safe', 'AccuracyLite', 'AccuracyFull', 'AccuracyExtreme', 'DT', 'DTAccuracy'}
+    --1=Standard, 2=Solo, 3=Marches, 4=AccuracyLite, 5=AccuracyFull, 6=DT, 7=DTAccuracy--
+    TP_ind = 1
 
-sets.TP.Standard = {
-    ammo="Ginsen",
-    head={ name="Adhemar Bonnet +1"},
-    -- body={ name="Herculean Vest", augments={'Accuracy+28','"Triple Atk."+4',}},
-    body="Adhemar Jacket +1",
-    -- hands={ name="Herculean Gloves", augments={'Accuracy+19','"Triple Atk."+4','STR+3',}},
-    hands="Adhemar Wristbands +1",
-    -- legs={ name="Herculean Trousers", augments={'Accuracy+13 Attack+13','"Triple Atk."+4','DEX+3','Attack+13',}},
-    legs="Adhemar Kecks +1",
-    feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
-    -- neck="Asperity Necklace",
-    neck="Mirage Stole +1",
-    waist="Windbuffet Belt +1",
-    -- waist="Reiki Yotai",
-    left_ear="Cessance Earring",
-    right_ear="Telos Earring",
-    left_ring="Epona's Ring",
-    right_ring="Hetairoi Ring",
-    back=DEXCape,
-}
+    sets.TP.Standard = {
+        ammo="Ginsen",
+        head={ name="Adhemar Bonnet +1"},
+        -- body={ name="Herculean Vest", augments={'Accuracy+28','"Triple Atk."+4',}},
+        body="Adhemar Jacket +1",
+        -- hands={ name="Herculean Gloves", augments={'Accuracy+19','"Triple Atk."+4','STR+3',}},
+        hands="Adhemar Wristbands +1",
+        -- legs={ name="Herculean Trousers", augments={'Accuracy+13 Attack+13','"Triple Atk."+4','DEX+3','Attack+13',}},
+        -- legs="Adhemar Kecks +1",
+        legs="Malignance Tights",
+        feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
+        -- neck="Asperity Necklace",
+        neck="Mirage Stole +1",
+        waist="Windbuffet Belt +1",
+        -- waist="Reiki Yotai",
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Epona's Ring",
+        right_ring="Hetairoi Ring",
+        back=DEXCape,
+    }
 
---sets.TP.Solo = {ammo="Ginsen",
-    --  head="Carmine Mask",neck="Asperity necklace", ear1="Dudgeon earring", ear2="Heartseeker earring",
-    --  body="Luhlaza jubbah +1",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Rajas ring",
---  back="Atheling mantle",waist="Shetal Stone",legs="Iuitl Tights +1",feet="Qaaxo leggings"}
+    --sets.TP.Solo = {ammo="Ginsen",
+        --  head="Carmine Mask",neck="Asperity necklace", ear1="Dudgeon earring", ear2="Heartseeker earring",
+        --  body="Luhlaza jubbah +1",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Rajas ring",
+    --  back="Atheling mantle",waist="Shetal Stone",legs="Iuitl Tights +1",feet="Qaaxo leggings"}
 
---  sets.TP.Safe = {ammo="Ginsen",
-    --      head="Carmine Mask",neck="Asperity necklace", ear1="Dudgeon earring", ear2="Heartseeker earring",
-    --      body="Qaaxo harness",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Rajas ring",
---      back="Atheling mantle",waist="Shetal Stone",legs="Iuitl Tights +1",feet="Qaaxo leggings"}
+    --  sets.TP.Safe = {ammo="Ginsen",
+        --      head="Carmine Mask",neck="Asperity necklace", ear1="Dudgeon earring", ear2="Heartseeker earring",
+        --      body="Qaaxo harness",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Rajas ring",
+    --      back="Atheling mantle",waist="Shetal Stone",legs="Iuitl Tights +1",feet="Qaaxo leggings"}
 
-sets.TP.Hybrid = set_combine(sets.TP.Standard, {
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots"
-})
+    sets.TP.Hybrid = set_combine(sets.TP.Standard, {
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots"
+    })
 
-sets.TP.Accuracy = set_combine(sets.TP.Hybrid, {ammo="Ginsen",
-    head="Malignance Chapeau",
-    neck="Sanctity Necklace", ear1="Dignitary's earring", ear2="Telos earring",
-    -- ring1="Cacoethic ring",
-    ring2="Patricius Ring",
-    back=DEXCape,
-    waist="Olseni Belt", feet=HercBootsAcc})
+    sets.TP.Accuracy = set_combine(sets.TP.Hybrid, {ammo="Ginsen",
+        head="Malignance Chapeau",
+        neck="Sanctity Necklace", ear1="Dignitary's earring", ear2="Telos earring",
+        -- ring1="Cacoethic ring",
+        ring2="Patricius Ring",
+        back=DEXCape,
+        waist="Olseni Belt", feet=HercBootsAcc})
 
--- sets.TP.DT = {ammo="Ginsen",
-    --     head="Carmine Mask",neck="Loricate Torque +1", ear1="Dudgeon earring", ear2="Heartseeker earring",
-    --     body="Ayanmo Corazza +2",hands="Buremte gloves",ring1="Gelatinous Ring +1",ring2="Defending Ring",
---     back="Reiki Cloak",waist="Twilight belt",legs="Ayanmo Cosciales +2",}
+        sets.TP["Subtle Blow"] = set_combine(sets.TP.Hybrid, {
+            left_ear="Dignitary's Earring",
+            ring1="Chirich Ring +1",
+            ring2="Chirich Ring +1"
+        })
 
--- sets.TP.DTAccuracy = {ammo="Honed Tathlum",
-    --     head="Carmine Mask",neck="Loricate Torque +1", ear1="Dudgeon earring", ear2="Heartseeker earring",
-    --     body="Luhlaza jubbah +1",hands="Buremte gloves",ring1="Gelatinous Ring +1",ring2="Defending Ring",
---     back="Reiki Cloak",waist="Hurch'lan sash",legs="Iuitl Tights +1",feet="Iuitl gaiters"}
+    -- sets.TP.DT = {ammo="Ginsen",
+        --     head="Carmine Mask",neck="Loricate Torque +1", ear1="Dudgeon earring", ear2="Heartseeker earring",
+        --     body="Ayanmo Corazza +2",hands="Buremte gloves",ring1="Gelatinous Ring +1",ring2="Defending Ring",
+    --     back="Reiki Cloak",waist="Twilight belt",legs="Ayanmo Cosciales +2",}
 
-
---Weaponskill Sets--
-sets.WS = {}
-sets.WS.CircleBlade = {}
-
-sets.Requiescat = {}
-
-sets.Requiescat.index = {'Attack','Accuracy'}
-Requiescat_ind = 1
-
-sets.Requiescat.Attack = {ammo="Floestone",
-    head="Carmine Mask",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
-    body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Epona's ring",ring2="Rufescent Ring",
-back="Rosmerta's Cape",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +1"}
-
---sets.Requiescat.Accuracy = {ammo="Honed tathlum",
-    --head="Whirlpool mask",neck="Soil gorget",ear1="Brutal earring",ear2="Moonshade earring",
-    --body="Luhlaza jubbah +1",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Stikini Ring",
---back="Letalis mantle",waist="Soil belt",legs="Quiahuiz trousers",feet="Assim. charuqs +1"}
-
-sets.ChantDuCygne = {}
-
-sets.ChantDuCygne.index = {'Attack','Accuracy'}
-ChantDuCygne_ind = 1
-
-sets.ChantDuCygne.Attack = {ammo="Jukukik feather",
-    head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
-    body="Assimilator's Jubbah +3",hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Begrudging ring",
-    back=DEXCape,
-waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Thereoid Greaves"}
-
-sets.ChantDuCygne.Accuracy = set_combine(sets.ChantDuCygne.Attack, {
-    waist="Olseni Belt"
-})
+    -- sets.TP.DTAccuracy = {ammo="Honed Tathlum",
+        --     head="Carmine Mask",neck="Loricate Torque +1", ear1="Dudgeon earring", ear2="Heartseeker earring",
+        --     body="Luhlaza jubbah +1",hands="Buremte gloves",ring1="Gelatinous Ring +1",ring2="Defending Ring",
+    --     back="Reiki Cloak",waist="Hurch'lan sash",legs="Iuitl Tights +1",feet="Iuitl gaiters"}
 
 
-sets.WS.ExpSavage = {
-    ammo="Floestone",
-    head="Jhakri Coronal +2",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
-    body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Metamorph Ring +1",
-    back=STRCape,waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"
-}
+    --Weaponskill Sets--
+    sets.WS = {}
+    sets.WS.CircleBlade = {}
 
---Blue Magic Sets--
-sets.BlueMagic = {}
+    sets.Requiescat = {}
 
-sets.BlueMagic.STR = {ammo="Floestone",
-    head="Lilitu Headpiece",neck="Caro Necklace",
-    body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
-back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    sets.Requiescat.index = {'Attack','Accuracy'}
+    Requiescat_ind = 1
 
-sets.BlueMagic.STRDEX = {ammo="Jukukik Feather",
-    head="Lilitu Headpiece",neck="Caro Necklace",
-    body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
-back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    sets.Requiescat.Attack = {ammo="Floestone",
+        head="Carmine Mask",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
+        body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Epona's ring",ring2="Rufescent Ring",
+    back="Rosmerta's Cape",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +1"}
 
-sets.BlueMagic.STRVIT = {ammo="Mavi tathlum",
-    head="Lilitu Headpiece",neck="Caro Necklace",
-    body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Petrov Ring",
-back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    --sets.Requiescat.Accuracy = {ammo="Honed tathlum",
+        --head="Whirlpool mask",neck="Soil gorget",ear1="Brutal earring",ear2="Moonshade earring",
+        --body="Luhlaza jubbah +1",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Stikini Ring",
+    --back="Letalis mantle",waist="Soil belt",legs="Quiahuiz trousers",feet="Assim. charuqs +1"}
 
-sets.BlueMagic.STRMND = {ammo="Mavi tathlum",
-    head="Carmine Mask",neck="Caro Necklace",
-    body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Stikini Ring",
-back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    sets.ChantDuCygne = {}
 
-sets.BlueMagic.AGI = {ammo="Mavi tathlum",
-    head="Carmine Mask",neck="Caro Necklace",
-    body="Dread Jupon",hands="Adhemar Wristbands +1",ring1="Apate ring",ring2="Petrov ring",
-back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    sets.ChantDuCygne.index = {'Attack','Accuracy'}
+    ChantDuCygne_ind = 1
 
--- sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
-    --     head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
-    --     body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
---     back=INTCape,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
+    sets.ChantDuCygne.Attack = {ammo="Jukukik feather",
+        head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
+        body="Assimilator's Jubbah +3",hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Begrudging ring",
+        back=DEXCape,
+    waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Thereoid Greaves"}
 
-sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
-    head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
-    body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
-back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"}
+    sets.ChantDuCygne.Accuracy = set_combine(sets.ChantDuCygne.Attack, {
+        waist="Olseni Belt"
+    })
 
-sets.BlueMagic.Cures = {ammo="Hydrocera",
-    head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
-    body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
-back="Oretania's cape",waist="Cascade Belt",legs="Psycloth Lappas",feet="Medium's Sabots"}
 
-sets.BlueMagic.SelfCures = {ammo="Hydrocera",
-    head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
-    body="Vrikodara Jupon",
-    -- hands="Buremte Gloves",
-    ring2="Weatherspoon Ring +1",
-back="Oretania's cape",waist="Gishdubar Sash",legs="Psycloth Lappas",feet="Medium's Sabots"}
+    sets.WS.ExpSavage = {
+        ammo="Floestone",
+        head="Jhakri Coronal +2",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
+        body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Metamorph Ring +1",
+        back=STRCape,waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"
+    }
 
-sets.BlueMagic.HeavyStrike = set_combine(sets.BlueMagic.STR, {})
+    --Blue Magic Sets--
+    sets.BlueMagic = {}
 
-sets.BlueMagic.ChargedWhisker = set_combine(sets.BlueMagic.INT, {}) --{ammo="Pemphredo Tathlum",, {})
---head="Uk'uxkaj cap",neck="Eddy necklace",ear1="Hecate's earring",ear2="Friomisi earring",
---body="Hagondes Coat +1",hands="Umuthi gloves",ring1="Acumen ring",ring2="Rajas ring",
---back="Cornflower cape",waist="Latria Sash",legs="Hagondes Pants +1",feet="Hagondes Sabots"}
+    sets.BlueMagic.STR = {ammo="Floestone",
+        head="Lilitu Headpiece",neck="Caro Necklace",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
+    back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
-sets.BlueMagic.WhiteWind = {
-    head="Carmine Mask",neck="Dualism Collar",ear1="Etiolation Earring",
-    -- ear2="Thureous earring",
-    body="Vrikodara Jupon",hands="Telchine Gloves",ring2="Ilabrat ring",ring1="Gelatinous Ring +1",
-back="Oretania's cape", waist="Oneiros Belt",legs="Carmine Cuisses +1",feet="Medium's Sabots"}
+    sets.BlueMagic.STRDEX = {ammo="Jukukik Feather",
+        head="Lilitu Headpiece",neck="Caro Necklace",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
+    back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
-sets.BlueMagic.MagicAccuracy = {
-    ammo="Pemphredo Tathlum",
-    head={ name="Amalric Coif +1", augments={'INT+12','Mag. Acc.+25','Enmity-6',}},
-    body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck={ name="Mirage Stole +1", augments={'Path: A',}},
-    waist="Sacro Cord",
-    left_ear="Digni. Earring",
-    right_ear="Gwati Earring",
-    left_ring="Weather. Ring +1",
-    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','Haste+10','Phys. dmg. taken-10%',}},
-}
+    sets.BlueMagic.STRVIT = {ammo="Mavi tathlum",
+        head="Lilitu Headpiece",neck="Caro Necklace",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Petrov Ring",
+    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
--- sets.BlueMagic.DT = set_combine(sets.BlueMagic.MagicAccuracy, {
-    --     body="Ayanmo Corazza +2",
--- })
+    sets.BlueMagic.STRMND = {ammo="Mavi tathlum",
+        head="Carmine Mask",neck="Caro Necklace",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Stikini Ring",
+    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
-sets.BlueMagic.Stun = set_combine(sets.BlueMagic.MagicAccuracy, {})
+    sets.BlueMagic.AGI = {ammo="Mavi tathlum",
+        head="Carmine Mask",neck="Caro Necklace",
+        body="Dread Jupon",hands="Adhemar Wristbands +1",ring1="Apate ring",ring2="Petrov ring",
+    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
-sets.BlueMagic.Skill = {ammo="Mavi tathlum",
-    head="Carmine Mask",ear1="Loquac. earring",
-    body="Assim. jubbah +3",
-    -- hands="Ayao's gages",
-    ring1="Weatherspoon ring +1", ring2="Stikini Ring",
-back="Cornflower cape",waist="Twilight belt",legs="Mavi tayt +2",feet="Luhlaza charuqs +1"}
+    -- sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
+        --     head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
+        --     body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
+    --     back=INTCape,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
-sets.BlueMagic.BatteryCharge = {
-    head="Amalric Coif +1", waist="Gishdubar Sash"
-}
+    sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
+        head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
+        body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
+    back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"}
 
-sets.WS.SanguineBlade = set_combine(sets.BlueMagic.INT, {})
+    sets.BlueMagic.Cures = {ammo="Hydrocera",
+        head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
+        body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
+    back="Oretania's cape",waist="Cascade Belt",legs="Psycloth Lappas",feet="Medium's Sabots"}
 
---Utility Sets--
+    sets.BlueMagic.SelfCures = {ammo="Hydrocera",
+        head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
+        body="Vrikodara Jupon",
+        -- hands="Buremte Gloves",
+        ring2="Weatherspoon Ring +1",
+    back="Oretania's cape",waist="Gishdubar Sash",legs="Psycloth Lappas",feet="Medium's Sabots"}
 
-sets.Phalanx = {
-    -- main="Pukulatmuj +1",sub="Pukulatmuj",
-    head="Herculean Helm",neck="Melic torque",ear1="Loquac. earring",
-    -- ear2="Augment. earring",
-    body={ name="Herculean Vest", augments={'Pet: CHR+5','MND+1','Phalanx +5',}},
-    hands="Taeon Gloves",ring1="Stikini ring",
-    back="Swith cape",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
-}
+    sets.BlueMagic.HeavyStrike = set_combine(sets.BlueMagic.STR, {})
 
---Job Ability Sets--
+    sets.BlueMagic.ChargedWhisker = set_combine(sets.BlueMagic.INT, {}) --{ammo="Pemphredo Tathlum",, {})
+    --head="Uk'uxkaj cap",neck="Eddy necklace",ear1="Hecate's earring",ear2="Friomisi earring",
+    --body="Hagondes Coat +1",hands="Umuthi gloves",ring1="Acumen ring",ring2="Rajas ring",
+    --back="Cornflower cape",waist="Latria Sash",legs="Hagondes Pants +1",feet="Hagondes Sabots"}
 
-sets.JA = {}
+    sets.BlueMagic.WhiteWind = {
+        head="Carmine Mask",neck="Dualism Collar",ear1="Etiolation Earring",
+        -- ear2="Thureous earring",
+        body="Vrikodara Jupon",hands="Telchine Gloves",ring2="Ilabrat ring",ring1="Gelatinous Ring +1",
+    back="Oretania's cape", waist="Oneiros Belt",legs="Carmine Cuisses +1",feet="Medium's Sabots"}
 
-sets.JA.ChainAffinity = {
-    feet="Assim. charuqs +1"
-}
+    sets.BlueMagic.MagicAccuracy = {
+        ammo="Pemphredo Tathlum",
+        -- head={ name="Amalric Coif +1", augments={'INT+12','Mag. Acc.+25','Enmity-6',}},
+        -- body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        body="Malignance Tabard",
+        hands="Malignance Gloves",
+        -- legs="Malignance Tights",
+        -- legs="Psycloth Lappas", 
+        -- legs="Ayanmo Cosciales +2",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck={ name="Mirage Stole +1", augments={'Path: A',}},
+        waist="Sacro Cord",
+        left_ear="Digni. Earring",
+        right_ear="Gwati Earring",
+        -- left_ring="Weather. Ring +1",
+        left_ring="Defending Ring",
+        right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+        back=INTCape
+    }
 
---sets.JA.BurstAffinity = {feet="Mavi Basmak +2"}
+    -- sets.BlueMagic.DT = set_combine(sets.BlueMagic.MagicAccuracy, {
+        --     body="Ayanmo Corazza +2",
+    -- })
 
--- sets.JA.Efflux = {legs="Mavi tayt +2"}
+    sets.BlueMagic.Stun = set_combine(sets.BlueMagic.MagicAccuracy, {})
 
---sets.JA.AzureLore = {hands="Luh. bazubands +1"}
+    sets.BlueMagic.Skill = {ammo="Mavi tathlum",
+        head="Carmine Mask",ear1="Loquac. earring",
+        body="Assim. jubbah +3",
+        -- hands="Ayao's gages",
+        ring1="Weatherspoon ring +1", ring2="Stikini Ring",
+    back="Cornflower cape",waist="Twilight belt",legs="Mavi tayt +2",feet="Luhlaza charuqs +1"}
 
-sets.JA.Diffusion = {feet="Luhlaza Charuqs +1"}
+    sets.BlueMagic.BatteryCharge = {
+        head="Amalric Coif +1", waist="Gishdubar Sash"
+    }
 
---Precast Sets--
-sets.precast = {}
+    sets.WS.SanguineBlade = set_combine(sets.BlueMagic.INT, {})
 
-sets.precast.FC = {}
+    --Utility Sets--
 
-sets.precast.FC.Standard = 
-{
-    head="Carmine Mask", neck="Voltsurge Torque", ear1="Loquac. Earring", ear2="Etiolation Earring", 
-    body="Dread Jupon",hands="Leyline Gloves",ring1="Weatherspoon Ring +1", ring2="Kishar Ring",
-    back="Swith Cape",
-    waist="Witful Belt",
-    legs="Psycloth Lappas",feet="Carmine Greaves"
-}
+    sets.Phalanx = {
+        -- main="Pukulatmuj +1",sub="Pukulatmuj",
+        head="Herculean Helm",neck="Melic torque",ear1="Loquac. earring",
+        -- ear2="Augment. earring",
+        body={ name="Herculean Vest", augments={'Pet: CHR+5','MND+1','Phalanx +5',}},
+        hands="Taeon Gloves",ring1="Stikini ring",
+        back="Swith cape",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
+    }
 
-sets.BlueMagic.SkillRecast = set_combine(sets.precast.FC.Standard, {})
+    --Job Ability Sets--
 
-text_setup()
-addTextPairs()
-updateTable()
+    sets.JA = {}
+
+    sets.JA.ChainAffinity = {
+        feet="Assim. charuqs +1"
+    }
+
+    --sets.JA.BurstAffinity = {feet="Mavi Basmak +2"}
+
+    -- sets.JA.Efflux = {legs="Mavi tayt +2"}
+
+    --sets.JA.AzureLore = {hands="Luh. bazubands +1"}
+
+    sets.JA.Diffusion = {feet="Luhlaza Charuqs +1"}
+
+    --Precast Sets--
+    sets.precast = {}
+
+    sets.precast.FC = {}
+
+    sets.precast.FC.Standard = 
+    {
+        head="Carmine Mask", neck="Voltsurge Torque", ear1="Loquac. Earring", ear2="Etiolation Earring", 
+        body="Dread Jupon",hands="Leyline Gloves",ring1="Weatherspoon Ring +1", ring2="Kishar Ring",
+        back="Swith Cape",
+        waist="Witful Belt",
+        legs="Psycloth Lappas",feet="Carmine Greaves"
+    }
+
+    sets.BlueMagic.SkillRecast = set_combine(sets.precast.FC.Standard, {})
+
+    text_setup()
+    addTextPairs()
+    updateTable()
 end
 
 function addTextPairs()
@@ -540,6 +550,14 @@ function aftercast(spell)
     end
 end
 
+function equip_current()
+    if player.status == 'Engaged' then
+        equip(sets.TP[sets.TP.index[TP_ind]])
+    else
+        equip(sets.Idle[sets.Idle.index[Idle_ind]])
+    end
+end
+
 function status_change(new,old)
     if new == 'Engaged' then
         equip(sets.TP[sets.TP.index[TP_ind]])
@@ -560,9 +578,10 @@ function self_command(command)
         send_command('@input /echo <----- Idle Set changed to '..sets.Idle.index[Idle_ind]..' ----->')
         equip(sets.Idle[sets.Idle.index[Idle_ind]])
     elseif command == 'toggle Req set' then
-        Requiescat_ind = Requiescat_ind +1
-        if Requiescat_ind > #sets.Requiescat.index then Requiescat_ind = 1 end
-        send_command('@input /echo <----- Requiescat Set changed to '..sets.Requiescat.index[Requiescat_ind]..' ----->')
+        equip_current()
+        -- Requiescat_ind = Requiescat_ind +1
+        -- if Requiescat_ind > #sets.Requiescat.index then Requiescat_ind = 1 end
+        -- send_command('@input /echo <----- Requiescat Set changed to '..sets.Requiescat.index[Requiescat_ind]..' ----->')
     elseif command == 'toggle CDC set' then
         ChantDuCygne_ind = ChantDuCygne_ind +1
         if ChantDuCygne_ind > #sets.ChantDuCygne.index then ChantDuCygne_ind = 1 end

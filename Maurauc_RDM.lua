@@ -81,9 +81,17 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Lengo Pants",feet="Serpentes Sabots"}]]--
 
 	sets.precast.FastCast = {
-		head="Atrophy Chapeau +3",neck="Voltsurge Torque", ear2="Loquacious Earring",
-		body="Vitiation Tabard +3",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
-		back="Swith Cape",legs="Psycloth Lappas",feet="Merlinic Crackows"}
+		head={name="Atrophy Chapeau +3",priority=1},
+		neck="Voltsurge Torque",
+		ear2="Loquacious Earring",
+		body={name="Vitiation Tabard +3",priority=1},
+		hands="Leyline Gloves",
+		ring1="Kishar Ring",
+		ring2="Weatherspoon Ring +1",
+		back={name="Swith Cape",priority=15},
+		legs="Psycloth Lappas",
+		feet="Merlinic Crackows"
+	}
 	
 	sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
 	
@@ -191,10 +199,14 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
 	
-	organizer_items = { main="Echo Drops", ranged="Cream Puff", sub="Pear Crepe", ammo="Crepe B. Helene",
-			body="Trizek Ring", ear1="Reraise Earring",
-			ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
-			back="Mecistopins Mantle"}
+	organizer_items = { 
+		echo="Echo Drops", 
+		food="Tropical Crepe",
+		holy="Holy Water",
+		remedy="Remedy",
+		panacea="Panacea",
+		antacid="Antacid"
+	}
 
 	sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
 		head="Merlinic Hood",
@@ -350,6 +362,12 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +8','Enha.mag. skill +8','Mag. Acc.+7','Enh. Mag. eff. dur. +14',}}
 	}
 
+	sets.Bio = {
+		body="Volte Jupon",
+		waist="Chaac Belt",
+		legs="Volte Hose"
+	}
+
 	sets.Enspell = {
 		head="Umuthi Hat",
 	}
@@ -391,15 +409,9 @@ function precast(spell)
 		equip(sets.precast.FastCastImpact)
 	elseif spell.english == "Dispelga" then
 		equip(sets.precast.Dispelga)
-	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
-		if string.find(spell.skill,'Healing Magic') then
-			if string.find(spell.english, 'Cur') then 	
-				equip(sets.precast.FastCast)
-			end
-		else		
-			equip(sets.precast.FastCast)
+	elseif string.find(spell.type,'Magic') or string.find(spell.type,'Trust') then
+		equip(sets.precast.FastCast)
 			--send_command('input /echo "FC"')
-		end
 		if string.find(spell.skill,'Enhancing Magic') then
 			equip({waist="Siegel Sash"})
 			if string.find(spell.english,'Stoneskin') then
@@ -433,6 +445,8 @@ function midcast(spell)
 		equip(sets.midcast.Impact)
 	elseif spell.english == "Dispelga" then
 		equip(sets.midcast.Dispelga)
+	elseif spell.english == "Dia" or spell.english == "Bio" then
+		equip(set_combine(sets.midcast.Enfeebling, sets.Bio))
 	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 

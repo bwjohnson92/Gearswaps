@@ -19,6 +19,7 @@ function get_sets()
         warp="Instant Warp",
         reraise="Instant Reraise",
         ramen="Miso Ramen",
+        ramen1="Miso Ramen +!",
         sushi="Sublime Sushi",
         pizza="Marinara Slice",
         holy="Holy Water",
@@ -50,8 +51,8 @@ function get_sets()
         head="Nyame Helm",
         neck="Futhark Torque +2",
         ear1="Odnowa Earring +1",ear2="Sanare Earring",          
-        body="Ashera Harness",
-        hands="Turms Mittens +1",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
         ring1="Moonbeam Ring",ring2="Defending Ring",   
         -- back="Moonbeam Cape",
         back=OgmaTank,
@@ -60,7 +61,7 @@ function get_sets()
         legs="Nyame Flanchard",
         -- legs="Dashing Subligar",
         -- feet="Turms Leggings +1"
-        feet="Erilaz Greaves +1"
+        feet="Nyame Sollerets"
     }
 
     sets.Idle.MagicDT = set_combine(sets.Idle.DT, {
@@ -77,25 +78,29 @@ function get_sets()
         ammo="Yamarang",
         head="Nyame Helm",
         body="Nyame Mail",
-        hands="Turms Mittens +1",
+        -- hands="Turms Mittens +1",
+        hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
-        feet="Turms Leggings +1",
+        -- feet="Turms Leggings +1",
+        feet="Nyame Sollerets",
         neck="Bathy Choker +1",
-        waist="Flume Belt +1",
+        -- waist="Flume Belt +1",
+        waist="Sveltesse Gouriz +1",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Moonbeam Ring",
-        right_ring="Defending Ring",
+        right_ring="Vengeful Ring",
         back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},
     })
     --TP Sets--
     sets.TP = {}
     sets.TP.index = {
-        'Standard', 
+        'Standard',
         -- 'Accuracy', 
-        'Hybrid', 
-        'DT', 
-        'HP'
+        'Hybrid',
+        'DT',
+        'HP',
+        'MEva'
     }
     TP_ind = 1
     --offensive melee set
@@ -192,19 +197,19 @@ function get_sets()
     }
 
     sets.TP.MEva = {
-        sub="Irenic Strap +1",
+        -- sub="Irenic Strap +1",
         ammo="Staunch Tathlum +1",
-        head="Futhark Bandeau +3",
         neck="Futhark Torque +2",
-        ear1="Tuisto Earring",
-        ear2="Odnowa Earring +1",
-        body="Runeist's Coat +3",
+        ear1="Tuisto Earring +1",
+        ear2="Tuisto Earring",
+        head="Nyame Helm",
+        body="Nyame Mail",
         hands="Turms Mittens +1",
         ring1="Moonbeam Ring",
         ring2="Defending Ring",
         back=OgmaTank,
         waist="Flume Belt +1",
-        legs="Eri. Leg Guards +1",
+        legs="Nyame Flanchard",
         feet="Turms Leggings +1"
     }
     --Weaponskill Sets--
@@ -218,7 +223,7 @@ function get_sets()
         legs="Samnuha Tights",
         feet="Herculean Boots",
         neck="Fotia Gorget",
-        waist="Fotia Belt",
+        waist="Soil Belt",
         left_ear="Sherida Earring",
         right_ear="Moonshade Earring",
         left_ring="Niqmaddu Ring",
@@ -317,13 +322,19 @@ function get_sets()
     --Fast Cast set
     sets.precast = {
         ammo="Sapience Orb",
-        head="Runeist's bandeau +3",neck="Orunmila's Torque",
-        ear1="Odnowa Earring +1",ear2="Etiolation Earring",
-        body="Dread Jupon",hands="Leyline Gloves",
-        ring1="Moonbeam Ring",ring2="Kishar Ring",
+        head={name="Runeist's bandeau +3", priority=1},
+        neck="Orunmila's Torque",
+        ear1={name="Odnowa Earring +1",priority=1},
+        ear2={name="Etiolation Earring",priority=1},
+        body="Dread Jupon",
+        hands="Leyline Gloves",
+        ring1={name="Moonbeam Ring", priority=1},
+        ring2="Kishar Ring",
         -- back=OgmaCasting,
-        back="Moonbeam Cape",
-        waist="Rumination Sash",legs="Ayanmo Cosciales +2", feet="Carmine Greaves +1"}
+        back={name="Moonbeam Cape", priority=1},
+        waist="Rumination Sash",
+        legs="Ayanmo Cosciales +2", 
+        feet={name="Carmine Greaves +1", priority=1}}
 
     sets.Phalanx = {
         head="Futhark bandeau +3",
@@ -332,6 +343,7 @@ function get_sets()
         right_ear="Augmenting earring",
         right_ring="Stikini ring",
         legs="Taeon Tights",
+        back="Moonbeam Cape",
         -- legs="Futhark Trousers +2",
         feet={ name="Taeon boots", augments={'"Phalanx"+3',}}
     }
@@ -371,14 +383,25 @@ function get_sets()
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {
         ammo="Sapience Orb",
-        head="Rabid Visor",neck="Moonbeam Necklace",
-        body="Emet Harness +1",hands="Kurys Gloves",
-        ear1="Odnowa Earring +1",ear2="Trux earring",    
+        -- head="Rabid Visor",
+        -- neck="Moonbeam Necklace",
+        neck="Futhark Torque +2",
+        body={name="Emet Harness +1", priority=2},
+        hands="Kurys Gloves",
+        ear1="Odnowa Earring +1",
+        ear2="Trux earring",    
         -- ring1="Supershear Ring",ring2="Petrov Ring",
         -- back=OgmaTank,
-        ring1="Moonbeam Ring", ring2="Supershear Ring",
+        ring1="Moonbeam Ring", 
+        -- ring2={name="Supershear Ring", priority=1},
+        ring2="Defending Ring",
         back="Moonbeam Cape",
-        waist="Sinew Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}  
+        -- waist="Sinew Belt",
+        waist="Trance Belt",
+        legs={name="Erilaz Leg Guards +1",priority=1},
+        -- feet="Erilaz Greaves +1"
+        feet={name="Carmine Greaves +1",priority=1}
+    }  
 
     --Magic acc for enfeebles, handy for VW
     sets.MagicAcc = {
@@ -394,6 +417,8 @@ function get_sets()
     send_command('bind f10 gs c toggle Idle set')
     send_command('bind ^f10 gs c reverse Idle set')
     send_command('bind f12 gs c equip gear')
+
+    send_command('bind numpad. shockwave')
     
     --other stuff, don't touch
     ShadowType = 'None'
@@ -536,6 +561,7 @@ function precast(spell,abil)
                 equip(sets.Single)
         end
         if spell.name == 'Shockwave' then
+            equip(sets.Idle.Evasion)
             -- equip(sets.Shockwave)
         end
         if spell.name == 'Fell Cleave' or spell.name == 'Circle Blade' then

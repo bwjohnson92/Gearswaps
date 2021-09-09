@@ -36,7 +36,8 @@ function get_sets()
     capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','"Store TP"+10',}}
     capeWSMAB={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+7','Weapon skill damage +10%',}}
     capeMeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
-    capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
+    capeMeleeTP={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    -- capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
     capeSnapshot = { name="Camulus's Mantle", augments={'"Snapshot"+10',}}
 
     sets.Gun = {}
@@ -53,14 +54,24 @@ function get_sets()
         ranged="Anarchy +2"
     }
 
+    sets.Weapons = {}
+
+    sets.Weapons["Sword"] = {
+        main="Naegling",
+        sub="Lanun Knife",
+        ranged="Nusku Shield"
+    }
+
     sets.Idle = {
         -- main="Eletta Sword",
         -- head="Herculean Helm",
         head="Malignance Chapeau",
         body="Malignance Tabard",
-        hands="Carmine finger gauntlets +1",
+        -- hands="Carmine finger gauntlets +1",
+        hands="Malignance Gloves",
         -- legs="Feast Hose",
-        legs="Carmine Cuisses +1",
+        -- legs="Carmine Cuisses +1",
+        legs="Malignance Tights",
         feet="Malignance Boots",
         neck="Loricate Torque +1",
         waist="Chaac Belt",
@@ -88,15 +99,17 @@ function get_sets()
         -- body="Adhemar Jacket +1",
         head="Malignance Chapeau",
         body="Malignance Tabard",
-        hands="Adhemar Wristbands +1",
-        legs="Adhemar Kecks +1",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        -- hands="Adhemar Wristbands +1",
+        -- legs="Adhemar Kecks +1",
         -- feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
         feet="Malignance Boots",
         neck="Asperity Necklace",
         waist="Windbuffet Belt +1",
         left_ear="Suppanomimi",
         right_ear="Telos Earring",
-        left_ring="Epona's Ring",
+        left_ring="Defending Ring",
         right_ring="Petrov Ring",
         back=capeMeleeTP
     }
@@ -306,7 +319,9 @@ function get_sets()
         food="Grape Daifuku",
         dagger="Lanun Knife",
         gunpouch="Chrono Bullet Pouch",
-        gunpouch2="Living Bullet Pouch"
+        gunpouch2="Living Bullet Pouch",
+        bullet1="Chrono Bullet",
+        bullet2="Living Bullet"
     }
 
     sets.QuickDraw = set_combine(sets.WS.LeadenSalute, {
@@ -399,7 +414,7 @@ function precast(spell)
         	equip(use_obi(spell, sets.WS.LeadenSalute[sets.WS.LeadenSalute.index[Leaden_Index]]))
             add_to_chat(140, "Leaden Salute Index: "..sets.WS.LeadenSalute.index[Leaden_Index])
         elseif (spell.english == "Wildfire") then
-        	equip(sets.WS.LeadenSalute.index[Leaden_Index])
+        	equip(sets.WS.LeadenSalute.index[sets.WS.LeadenSalute.index[Leaden_Index]])
         elseif (spell.english == "Last Stand") or (spell.english == "Detonator") then
         	equip(sets.WS.LastStand[sets.RA.index[Ranged_Index]])
         -- equip(sets.RA.Standard)

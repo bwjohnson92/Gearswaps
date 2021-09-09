@@ -136,6 +136,8 @@ function precast(spell)
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
+    elseif (spell.name == 'Double-Up') then
+        equip(sets.roll)
     end
 
     if spell.action_type == 'Ranged Attack' then
@@ -159,6 +161,8 @@ function midcast(spell)
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
+    elseif (spell.name == 'Double-Up') then
+        equip(sets.roll)
     end
     if spell.action_type == 'Ranged Attack' then
         equip(sets.RA)

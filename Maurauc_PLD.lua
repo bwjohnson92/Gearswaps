@@ -34,7 +34,9 @@ function get_sets()
 	sets.midcast = {}
 	sets.aftercast = {}
 
-	sets.desperation = {body="Seidr Cotehardie"}
+	sets.other = {
+		sub="Ochain"
+	}
 
 	-- sets.aftercast.Idle = {
 	--     main="Naegling",
@@ -82,22 +84,31 @@ function get_sets()
 
 	sets.WS = {}
 
-	sets.WS.SavageBlade = set_combine(sets.Melee,{
 
-	})
 
 	sets.Melee = {
-		ammo="Ginsen",
-		head="Sakpata's Helm",
+	    ammo="Ginsen",
+	    head={ name="Sakpata's Helm", augments={'Path: A',}},
 	    body="Sakpata's Plate",
 	    hands="Sakpata's Gauntlets",
-    	legs="Sakpata's Cuisses",
+	    legs="Sakpata's Cuisses",
 	    feet="Sakpata's Leggings",
-	    ring1="Petrov Ring",
-	    ring2="Apate Ring",
-	    waist="Celt Belt",
+	    neck="Asperity Necklace",
+	    waist="Sailfi Belt +1",
+	    left_ear="Cessance Earring",
+	    right_ear="Telos Earring",
+	    left_ring="Petrov Ring",
+	    right_ring="Apate Ring",
+	    back={ name="Mecisto. Mantle", augments={'Cap. Point+48%','HP+28','DEF+10',}},
 
 	}
+
+	sets.WS.SavageBlade = set_combine(sets.Melee,{
+		ear1="Moonshade Earring",
+		ear2="Ishvara Earring",
+		neck="Fotia Gorget",
+		waist="Fotia Belt"
+	})
 	
 end
 
@@ -109,13 +120,13 @@ function addTextPairs()
 end
 
 function updateTable()
-    addToTable("(F9) Enfeebling", EnfeebSet and "Accuracy" or "Potency")
+    -- addToTable("(F9) Enfeebling", EnfeebSet and "Accuracy" or "Potency")
     -- addToTable("Enfeeble Potency", not EnfeebSet)
-    addToTable("(F10) MP Body", MPSet)
-    addToTable("(F11) MB Set", MBSet)
-    addToTable("(F12) Idle Set", PDTSet and "PDT" or "Standard")
+    -- addToTable("(F10) MP Body", MPSet)
+    -- addToTable("(F11) MB Set", MBSet)
+    -- addToTable("(F12) Idle Set", PDTSet and "PDT" or "Standard")
     addToTable("(PGUP) TP Set", sets.Melee.index[Melee_Ind])
-    addToTable("(PGDN) Weapon Locked", weaponLocked)
+    -- addToTable("(PGDN) Weapon Locked", weaponLocked)
     update_message()
 end
 

@@ -34,8 +34,12 @@ function get_sets()
 	CapeWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Damage taken-5%',}}
 
 
+	organizer_items = {
+		grape="Grape Daifuku"
+	}
+
 	sets.Weapons = {}
-	sets.Weapons.index = {"Chango", "Montante", "Naegling", "Shining One"}
+	sets.Weapons.index = {"Chango", "Montante", "Naegling", "Shining One", "Loxotic"}
 
 	sets.Weapons["Chango"] = {
 		main="Chango",
@@ -57,15 +61,16 @@ function get_sets()
 		sub="Utu Grip"
 	}
 
+	sets.Weapons["Loxotic"] = {
+		main="Loxotic Mace +1",
+		sub="Blurred Shield +1"
+	}
+
 	areas = {}
 	areas.AdoulinCity = S{'Eastern Adoulin','Western Adoulin','Mog Garden','Celennia Memorial Library'}
 
-	sets.Idle = set_combine(sets.DT, {
-		feet="Hermes' Sandals"
-	})
-
 	sets.TP  ={};
-	sets.TP.index = {'Standard', 'DT', 'TH'}
+	sets.TP.index = {'Standard', 'DT', 'TH', 'Subtle Blow'}
 	TP_ind = 1
 	sets.TP.Standard = {
 	    ammo="Ginsen",
@@ -144,23 +149,6 @@ function get_sets()
 	    back=CapeWS
 	}
 
--- 	sets.WS.Upheaval = {
--- 	    ammo="Knobkierrie",
--- 		head="Flamma Zucchetto +2",
--- 	    body="Dagon Breastplate",
--- 	    hands="Sulevia's Gauntlets +2",
--- 	    legs="Pummeler's Cuisses +3",
--- 	    feet="Sulevia's Leggings +2",
--- 	    neck="Fotia Gorget",
--- 	    -- waist="Fotia Belt",
--- 	    waist="Ioskeha Belt",
--- 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
--- 	    right_ear="Brutal Earring",
--- 	    left_ring="Regal Ring",
--- 	    right_ring="Niqmaddu Ring",
--- 	    back=CapeWS
--- 	}
-
 	sets.WS["Upheaval"] = {
 	    ammo="Knobkierrie",
 	    head="Agoge Mask +2",
@@ -170,9 +158,6 @@ function get_sets()
 		body="Sakpata's Plate",		
 	    hands="Sakpata's Gauntlets",
 	    legs="Sakpata's Cuisses",
-	    -- body="Pumm. Lorica +3",
-	    -- hands="Sulev. Gauntlets +2",
-	    -- legs="Sulev. Cuisses +2",
 	    ring2="Niqmaddu Ring",
 	    ring1="Regal Ring",
 	    back=CapeWS,
@@ -194,22 +179,23 @@ function get_sets()
 		feet="Pummeler's Calligae +3"
 	})
 
-	sets.WS["SavageBlade"] = {
+	sets.WS["Savage Blade"] = {
 
 	    ammo="Knobkierrie",
-	    head="Sakpata Helm",
+	    -- head="Sakpata's Helm",
+	    head="Agoge Mask +2",
 	    neck="War. Beads +1",
 	    ear1="Telos Earring",
 	    ear2="Moonshade Earring",
 	    body="Pumm. Lorica +3",
 	    hands="Sakpata's Gauntlets",
+	    legs="Sakpata's Cuisses",
+	    feet="Sulev. Leggings +2",
 	    ring1="Niqmaddu Ring",
 	    ring2="Regal Ring",
 	    back="Cichol's Mantle",
 	    -- waist="Sailfi Belt +1",
-	    waist="Prosilio Belt +1",
-	    legs="Sakpata's Cuisses",
-	    feet="Sulev. Leggings +2"
+	    waist="Prosilio Belt +1"
 	}
 
 	sets.WS["Resolution"] = {
@@ -256,12 +242,18 @@ function get_sets()
 		body="Twilight Mail"
 	}
 
+
+	sets.Idle = set_combine(sets.DT, {
+		feet="Hermes' Sandals"
+	})
+
 	windower.register_event('zone change', function()
 		equip(customize_idle_set(sets.Idle))
 	end)
 
 	send_command('bind f9 gs c toggle weapon')
     send_command('bind f10 gs c toggle TP set')
+    send_command('bind f12 gs c equip current')
 
  	text_setup()
     addTextPairs()
@@ -278,6 +270,7 @@ end
 function updateTable()
 	addToTable("(F9)  Weapon", sets.Weapons.index[Weapon_Index])
     addToTable("(F10) TP Set", sets.TP.index[TP_ind])
+    addToTable("(F12)", "Reset Gear")
     update_message()
 end
 
@@ -362,6 +355,8 @@ function self_command(command)
         Weapon_Index = Weapon_Index +1
         if Weapon_Index > #sets.Weapons.index then Weapon_Index = 1 end
         add_to_chat(141, 'Weapon now set to: !!!       '..sets.Weapons.index[Weapon_Index]..'     !!!')
+    elseif command == 'equip_current' then
+    	equip_current()
     end
     equip_current()
     updateTable()
