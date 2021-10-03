@@ -96,20 +96,22 @@ function get_sets()
         neck="Caller's Pendant",
         lear="Etiolation Earring",
         rear="Evans Earring",
-        body="Witching Robe",
+        -- body="Witching Robe",
+        body="Inyanga Jubbah +2",
         hands="Inyanga Dastanas +2",
         lring="Defending Ring",
         rring="Evoker's Ring",
         back=capeMagic,
         waist="Lucidity Sash",
         legs="Assiduity Pants +1",
-        feet="Apogee Pumps +1"
+        -- feet="Apogee Pumps +1"
+        feet="Inyanga Crackows +2"
     }
   
     -- The following sets base off of perpetuation, so you can consider them idle sets.
     -- Set the relevant gear, bearing in mind it will overwrite the perpetuation item for that slot!
-    sets.avatar["Carbuncle"] = {hands="Asteria Mitts +1"}
-    sets.avatar["Cait Sith"] = {hands="Lamassu Mitts +1"}
+    -- sets.avatar["Carbuncle"] = {hands="Asteria Mitts +1"}
+    -- sets.avatar["Cait Sith"] = {hands="Lamassu Mitts +1"}
     -- When we want our avatar to stay alive
     sets.avatar.tank = set_combine(sets.avatar.perp,{
         lear="Handler's Earring +1",
@@ -151,8 +153,8 @@ function get_sets()
         rring="Evoker's Ring",
         back=capeAtk,
         waist="Lucidity Sash",
-        legs="Apogee Slacks +1",
-        feet="Apogee Pumps +1"
+        -- legs="Apogee Slacks +1",
+        -- feet="Apogee Pumps +1"
     }
       
     -------------------------
@@ -208,7 +210,9 @@ function get_sets()
         legs="Enticer's Pants",
         feet="Apogee Pumps +1"
     })
-    sets.avatar.mb = set_combine(sets.avatar.mab,{hands="Glyphic Bracers +1"})
+    sets.avatar.mb = set_combine(sets.avatar.mab,{
+        -- hands="Glyphic Bracers +1"
+        })
     -- Hybrid
     sets.avatar.hybrid = set_combine(sets.avatar.skill,{
         head="Apogee Crown +1",
@@ -238,7 +242,7 @@ function get_sets()
         rring="Varar Ring",
         back=capeMagic,
         waist="Incarnation sash",
-        legs="Tali'ah Seraweels",
+        legs="Tali'ah Seraweels +1",
         feet="Tali'ah Crackows +1"
     })
       
@@ -338,7 +342,8 @@ function get_sets()
         feet="Glyphic Pigaches +1",
         neck="Caller's Pendant",
         lring="Evoker's Ring",
-        rring="Stikini Ring",
+        -- rring="Stikini Ring",
+        rring={name="K'ayres Ring", priority=1},
         waist="Lucidity Sash"
     }
       

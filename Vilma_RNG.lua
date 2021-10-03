@@ -38,6 +38,7 @@ include('organizeritems.lua')
 
 --]]
  
+
 function get_sets()
         mote_include_version = 2
         -- Load and initialize the include file.
@@ -72,6 +73,7 @@ function user_setup()
 
 
         gear.Gun = "Fomalhaut"
+        gear.Crossbow = "Gastraphetes"
         gear.Bow = "Yoichinoyumi"
         gear.Gun2 = "Annihilator"
         --gear.Bow = "Steinthor"
@@ -140,7 +142,18 @@ function init_gear_sets()
         --TaeonHands.TA = {name="Taeon Gloves", augments={'STR+9','Accuracy+17 Attack+17','"Triple Atk."+2'}}
         --TaeonHands.DW = {name="Taeon Gloves", augments={'STR+3 VIT+3', 'Attack+22','"Dual Wield" +5'}}
 
-        organizer_items = organizerItems()
+        organizer_items = set_combine(organizerItems(), {
+            gun1=gear.Gun,
+            crossbow=gear.Crossbow,
+            ammo1="Chrono Bullet",
+            ammo2="Quelling Bolt",
+            waist1="Quelling Bolt Quiver",
+            waist2="Chrono Bullet Pouch"
+            })
+
+        sets.gunAndAmmo = {}
+        sets.gunAndAmmo.Gun = {ranged="Fomalhaut", ammo="Chrono Bullet", waist="Chrono Bullet Pouch"}
+        sets.gunAndAmmo.Crossbow = {ranged="Gastraphetes", ammo="Quelling Bolt", waist="Quelling Bolt Quiver"}
 
         -- Misc. Job Ability precasts
         sets.precast.JA['Bounty Shot'] = {hands="Amini Glovelettes +1"}
@@ -154,13 +167,13 @@ function init_gear_sets()
         sets.CapacityMantle = {back="Mecistopins Mantle"}
 
         sets.precast.JA['Eagle Eye Shot'] = set_combine(sets.midcast.RA, {
-            head="Uk'uxkaj Cap", 
-            neck="Rancor Collar",
-            back="Buquwik Cape",
+            -- head="Uk'uxkaj Cap", 
+            -- neck="Rancor Collar",
+            -- back="Buquwik Cape",
             hands="Amini Glovelettes +1",
             ring1="Ifrit Ring",
             ring2="Apate ring",
-            legs="Amini Brague +1" 
+            -- legs="Amini Brague +1" 
             --feet="Arcadian Socks +1"
         })
         sets.precast.JA['Eagle Eye Shot'].Mid = set_combine(sets.precast.JA['Eagle Eye Shot'], {
@@ -174,26 +187,28 @@ function init_gear_sets()
         })
 
         sets.precast.FC = {
-            head="Ejekamal Mask",
+            -- head="Ejekamal Mask",
             ear1="Loquacious Earring",
-            legs="Quiahuiz Trousers",
-            hands="Buremte Gloves",
+            -- legs="Quiahuiz Trousers",
+            -- hands="Buremte Gloves",
             ring1="Prolix Ring"
         }
-        sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, { neck="Magoraga Beads" })
+        sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, { 
+            -- neck="Magoraga Beads" 
+        })
         
         sets.idle = {
             head="Malignance Chapeau",
             neck="Loricate Torque +1",
             ear1="Enervating Earring",
             ear2="Telos Earring",
-            body="Amini Caban +1",
+            body="Malignance Tabard",
             hands="Floral Gauntlets",
             ring1="Dark Ring",
             ring2="Defending Ring",
             back="Repulse Mantle",
             waist="Elanid Belt",
-            legs="Amini Brague +1", 
+            legs="Nyame Flanchard", 
             feet="Skadi's Jambeaux +1"
         }
         sets.idle.Regen = set_combine(sets.idle, {})
@@ -206,22 +221,23 @@ function init_gear_sets()
  
         -- Engaged sets
         sets.engaged =  {
-            head="Arcadian beret +2",
-            neck="Twilight Torque",
+            head="Malignance Chapeau",
+            neck="Loricate Torque +1",
             ear1="Enervating Earring",
             ear2="Telos Earring",
             --body="Arcadian Jerkin +1", 
+            body="Malignance Tabard",
             hands="Carmine Finger Gauntlets +1",
             ring1="Dark Ring",
             ring2="Defending Ring",
             waist="Impulse Belt",
             legs="Nahtirah Trousers", 
-            feet="Orion Socks +2"
+            feet="Malignance Boots"
         }
         sets.engaged.PDT = set_combine(sets.engaged, {
             neck="Loricate Torque +1",
             ring1="Dark Ring",
-            ring2="Patricius Ring"
+            -- ring2="Patricius Ring"
         })
         sets.engaged.Nobility = set_combine(sets.engaged, {})
 
@@ -252,8 +268,8 @@ function init_gear_sets()
             neck="Iskur Gorget",
             left_ear="Telos Earring",
             right_ear="Enervating Earring",
-            left_ring="Regal Ring",
-            right_ring="Ilabrat Ring",
+            left_ring="Ilabrat Ring",
+            right_ring="Regal Ring",
             back=BelenusTP
         }
 
@@ -307,8 +323,8 @@ function init_gear_sets()
             waist="Fotia Belt",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Ishvara Earring",
-            left_ring="Ilabrat Ring",
             right_ring="Regal Ring",
+            left_ring="Ilabrat Ring",
             back=BelenusAgiWS,
         }
 
@@ -324,10 +340,14 @@ function init_gear_sets()
 
 
         sets.Trueflight = {
-            body={ name="Samnuha Coat", augments={'Mag. Acc.+13','"Mag.Atk.Bns."+14','"Fast Cast"+3','"Dual Wield"+4',}},
+            head="",
+            body="Cohort Cloak +1",
+            -- body={ name="Samnuha Coat", augments={'Mag. Acc.+13','"Mag.Atk.Bns."+14','"Fast Cast"+3','"Dual Wield"+4',}},
             hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
-            legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+20','Weapon skill damage +4%','INT+10',}},
-            feet={ name="Herculean Boots", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','Weapon skill damage +4%','STR+7','Mag. Acc.+1','"Mag.Atk.Bns."+5',}},
+            -- legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+20','Weapon skill damage +4%','INT+10',}},
+            -- feet={ name="Herculean Boots", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','Weapon skill damage +4%','STR+7','Mag. Acc.+1','"Mag.Atk.Bns."+5',}},
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
             neck="Scout's Gorget +1",
             waist="Eschan Stone",
             left_ear="Friomisi Earring",
@@ -359,8 +379,8 @@ function init_gear_sets()
             waist="Fotia Belt",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Sherida Earring",
-            left_ring="Regal Ring",
-            right_ring="Begruding Ring",
+            left_ring="Begrudging Ring",
+            right_ring="Regal Ring",
             back={ name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10',}},
         }
         sets.precast.WS['Jishnu\'s Radiance'] = set_combine(sets.precast.WS, sets.Jishnus)
@@ -426,6 +446,36 @@ function init_gear_sets()
         sets.precast.WS['Coronach'].Mid = set_combine(sets.precast.WS.Mid, sets.Coronach)
         sets.precast.WS['Coronach'].Acc = set_combine(sets.precast.WS.Acc, sets.Coronach)
 
+        sets.HotShot = set_combine(sets.Trueflight, {
+            head="Orion Beret +3", --wsd
+            body="Samnuha Coat",
+            hands="Meghanada Gloves +2", --wsd
+            legs="Nyame Flanchard", --wsd
+            feet="Nyame Sollerets", --wsd
+
+        })
+
+        sets.precast.WS["Hot Shot"] = set_combine(sets.precast.WS, sets.HotShot)
+        sets.precast.WS["Hot Shot"].Mid = set_combine(sets.precast.WS.Mid, sets.HotShot)
+        sets.precast.WS["Hot Shot"].Acc = set_combine(sets.precast.WS.Acc, sets.HotShot)
+        
+        sets.SavageBlade = set_combine(sets.precast.WS, {
+            head="Orion Beret +3",
+            -- neck="Fotia Gorget",
+            neck="Scout's Gorget +1",
+            ear1="Ishvara Earring",
+            ear2="Moonshade Earring",
+            hands="Meghanada Gloves +2",
+            ring1="Metamorph Ring +1",
+            ring2="Regal Ring",
+            back=BelenusAgiWS,
+            waist="Fotia Belt",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets"
+        })
+
+        sets.precast.WS["Savage Blade"] = sets.SavageBlade
+
         -- Resting sets
         sets.resting = {}
        
@@ -459,6 +509,8 @@ function init_gear_sets()
             -- body="Arcadian Jerkin +1"
         }
         sets.Overkill.Preshot = set_combine(sets.precast.RA, sets.Overkill)
+
+        sets.Obi = {waist="Hachirin-no-obi"}
 
 end
 
@@ -516,6 +568,10 @@ function job_post_precast(spell, action, spellMap, eventArgs)
         -- if (spell.name == "Last Stand") then
         --     equip (sets.precast.WS.LastStand)
         -- end
+        if (spell.name == "Trueflight" or spell.name == "Wildfire") then
+                use_obi(spell)
+        end
+
     end
 end
  
@@ -789,4 +845,37 @@ end
 function select_default_macro_book()
 	-- Default macro set/book
     set_macro_page(1, 9)
+end
+
+function use_obi(spell)
+
+elements = {}
+elements.use_on_single_conflict = false
+elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
+elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
+
+
+    local use_obi = false
+    -- first check to see if any elemental obi rule matches
+    if(S{world.day_element, world.weather_element}:contains(spell.element)) then
+            -- If at least one matches, try to find out if there is also a weak element involved
+            if (world.weather_element == elements.weak_against[spell.element] ) then
+                -- If weak weather is involved, but it is only single weather, check to see if use_on_single_conflict is set to true
+                if (world.weather_id % 2 == 0 and elements.use_on_single_conflict) then
+                    use_obi = true
+                end
+            elseif (world.day_element == elements.weak_against[spell.element]) then
+                -- If weak day is involved check for double weather or single weather + use_on_single_conflict set to true
+                if (world.weather_id % 2 == 1 or ( elements[use_on_single_conflict] and world.weather_id % 2 == 0) ) then
+                    use_obi = true
+                end
+            else
+                use_obi = true
+            end
+    end
+ 
+    if (use_obi) then
+        equip(sets.Obi)
+    end
+ 
 end

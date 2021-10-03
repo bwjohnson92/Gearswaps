@@ -26,14 +26,21 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 
 capeSS={ name="Camulus's Mantle", augments={'"Snapshot"+10',}}
 capeTP={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}}
-capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}}
+capeWS={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
 capeSavage={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
 capeTPMelee={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Phys. dmg. taken-10%',}}
 capeDT={ name="Camulus's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Damage taken-5%',}}
 capeLastStand={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
 
+HercHeadMAB = { name="Herculean Helm", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','"Fast Cast"+2','"Mag.Atk.Bns."+15',}}
+
 HercLegsMAB={ name="Herculean Trousers", augments={'Mag. Acc.+13 "Mag.Atk.Bns."+13','Weapon skill damage +3%','MND+5','Mag. Acc.+12','"Mag.Atk.Bns."+14',}}
 HercLegsWS={ name="Herculean Trousers", augments={'Rng.Atk.+18','Weapon skill damage +4%','AGI+10',}}
+
+MABullet = "Living Bullet"
+QDBullet = "Chrono Bullet"
+WSBullet = "Chrono Bullet"
+RABullet = "Chrono Bullet"
 
 -- Start Functions here
 -- Gear Sets
@@ -85,8 +92,8 @@ sets.Idle.Standard = {
     -- ammo="Eminent Bullet",
     head="Meghanada Visor +2",
     hands="Meghanada gloves +2",
-    legs="Feast Hose",
-    feet="Hermes' Sandals",
+    legs="Carmine Cuisses +1",
+    -- feet="Hermes' Sandals",
     neck="Loricate Torque +1",
     waist="Flume Belt",
     left_ear="Etiolation Earring",
@@ -108,13 +115,13 @@ sets.Idle.DT = set_combine(sets.Idle.Standard, {
 
 sets.Melee = {
     head="Malignance chapeau",
-    neck="Iqabi necklace",
+    neck="Loricate Torque +1",
     ear1="Telos Earring",
-    ear2="Suppanomimi",
+    ear2="Suppanomini",
     body="Adhemar jacket +1",
-    hands="Floral Gauntlets",
+    hands="Adhemar Wristbands +1",
     ring1="Chirich Ring +1",
-    ring2="Meghanada Ring",
+    ring2="Defending Ring",
     back=capeTPMelee,
     waist="Reiki Yotai",
     legs="Malignance tights",
@@ -123,6 +130,7 @@ sets.Melee = {
 }
 
 sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
+    ammo=RABullet,
     head="Taeon Chapeau",
     body="Laksamana's frac +3", --Need
     -- body="Oshosi Vest",
@@ -131,7 +139,7 @@ sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
     legs="Laksamana's trews +3", --Need
     feet="Meg. Jam. +2",
     back=capeSS,
-    neck="Commodore Charm",
+    neck="Commodore Charm +2",
 }
 
 sets.RA = {}
@@ -140,6 +148,7 @@ rangedSets = {'Standard', 'Accuracy', 'Enmity'}
 rangedIndex = 1
 
 sets.RA.Standard = { --RAcc and STP
+    ammo=RABullet,
     head="Meghanada Visor +2",
     body="Oshosi Vest",
     hands="Adhemar Wristbands +1",
@@ -173,6 +182,22 @@ sets.RA.Enmity = set_combine(sets.RA.Standard, {
 
 sets.WS = {}
 
+sets.WS.Evisceration = {
+    neck="Fotia Gorget",
+    ear1="Cessance Earring",
+    ear2="Moonshade Earring",
+    head="Mummu Bonnet +2",
+    body="Mummu Jacket +2",
+    hands="Mummu Wrists +2",
+    ring1="Mummu Ring",
+    ring2="Regal Ring",
+    back=capeTPMelee,
+    waist="Fotia Belt",
+    legs="Mummu Kecks +2",
+    -- legs="Herculean Trousers",
+    feet="Mummu Gamash. +2"
+}
+
 sets.WS.SavageBlade = {
     head="Meghanada Visor +2",
     neck="Caro Necklace",
@@ -198,6 +223,7 @@ sets.WS.SavageBlade.Accuracy = set_combine(sets.WS.SavageBlade, {
     })
 
 sets.WS.LastStand = { --Generic Physical WS
+    ammo=WSBullet,
     head="Meghanada Visor +2",
     body="Laksamana's Frac +3",
     hands="Meghanada Gloves +2",
@@ -227,12 +253,13 @@ sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
 })
 
 sets.WS.Wildfire = {
+    ammo=MABullet,
     head={ name="Herculean Helm", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','"Fast Cast"+2','"Mag.Atk.Bns."+15',}},
     body="Lanun Frac +3",
     hands="Carmine finger gauntlets +1",
     legs=HercLegsMAB,
     feet="Lanun Bottes +3",
-    neck="Commodore Charm",
+    neck="Commodore Charm +2",
     waist="Eschan Stone",
     left_ear="Moonshade Earring",
     right_ear="Friomisi Earring",
@@ -246,13 +273,14 @@ sets.WS.LeadenSalute = {}
 
 sets.WS.LeadenSalute.index = {"Standard", "Enmity"}
 sets.WS.LeadenSalute.Standard = { --AGI Weaponskill
+    ammo=MABullet,
     head="Pixie Hairpin +1",
     body="Lanun Frac +3",
     hands="Carmine finger gauntlets +1",
     legs=HercLegsMAB,
     feet="Lanun Bottes +3",
     -- neck="Commodore Charm",
-    neck="Commodore Charm",
+    neck="Commodore Charm +2",
     waist="Eschan Stone",
     left_ear="Moonshade Earring",
     right_ear="Friomisi Earring",
@@ -294,6 +322,22 @@ sets.SnakeEye = {
 }
 sets.WildCard = {feet="Lanun Bottes +3"}
 
+sets.QD = { --Quick Draw
+    ammo=QDBullet,
+    head=HercHeadMAB,
+    neck="Commodore Charm +2",
+    ear1="Friomisi Earring",
+    ear2="Sortiarius Earring",
+    body="Lanun Frac +3",
+    hands="Carmine Fin. Ga. +1",
+    ring1="Dingir Ring",
+    ring2="Arvina Ringlet +1",
+    back=capeWS,
+    waist="Eschan Stone",
+    legs=HercLegsMAB,
+    feet="Lanun Bottes +3"
+}
+
 -- sets.Luzaf = {ring1="Luzaf's Ring"}
 
 organizer_items = {
@@ -313,7 +357,7 @@ organizer_items = {
     gun1="Fomalhaut",
     gun2="Death Penalty",
     bullet="Living Bullet",
-    Food1="Cehuetzi Snow Cone",
+    Food1="Grape Daifuku",
     Food2="Sublime Sushi"
     -- gun1="Doomsday",
 }
@@ -345,9 +389,56 @@ function updateTable()
     update_message()
 end
 
+
+
+function bullet_check(spell)
+    local bullet_name
+    local bullet_min_count = 1
+    if spell.type == 'WeaponSkill' then
+        if spell.skill == "Marksmanship" then
+            if spell.english == 'Wildfire' or spell.english == 'Leaden Salute' then
+                -- magical weaponskills
+                bullet_name = MABullet
+            else
+                -- physical weaponskills
+                bullet_name = WSBullet
+            end
+        else
+            -- Ignore non-ranged weaponskills
+            return true
+        end
+    elseif spell.type == 'CorsairShot' then
+        bullet_name = QDBullet
+    elseif spell.action_type == 'Ranged Attack' then
+        bullet_name = RABullet
+        if buffactive['Triple Shot'] then
+            bullet_min_count = 3
+        end
+    end
+
+    local available_bullets = player.inventory[bullet_name] or player.wardrobe[bullet_name]
+
+    if not available_bullets then
+        if spell.type == 'CorsairShot' and player.equipment.ammo ~= 'empty' then
+            add_to_chat(104, 'No Quick Draw ammo left.  Using what\'s currently equipped ('..player.equipment.ammo..').')
+            return true
+        elseif spell.type == 'WeaponSkill' and player.equipment.ammo == RABullet then
+            add_to_chat(104, 'No weaponskill ammo left.  Using what\'s currently equipped (standard ranged bullets: '..player.equipment.ammo..').')
+            return true
+        else
+            add_to_chat(104, 'No ammo ('..tostring(bullet_name)..') available for that action.')
+            return false
+        end
+    end
+end
+
 -- --- Precast ---
 
 function precast(spell)
+    if spell.action_type == 'Ranged Attack' or spell.type == 'WeaponSkill' or spell.type == 'CorsairShot' then
+        bullet_check(spell)
+    end
+
     if spell.english == 'Random Deal' then
         equip(sets.RandomDeal)
     elseif spell.english == 'Fold' then
@@ -360,6 +451,8 @@ function precast(spell)
         equip(set_combine(sets.roll[sets.roll.index[Roll_Index]], sets.roll[spell.name]))
     elseif (spell.type == 'Double Up') then
 
+    elseif (spell.type == 'CorsairShot') then
+        equip(use_obi(spell,sets.QD))
     end
 
     if spell.action_type == 'Ranged Attack' then
@@ -369,6 +462,8 @@ function precast(spell)
         	equip(use_obi(spell, sets.WS.LeadenSalute[sets.WS.LeadenSalute.index[Leaden_Index]]))
         elseif (spell.english == "Savage Blade") then
               equip(sets.WS.SavageBlade[sets.WS.SavageBlade.index[Savage_Index]])
+        elseif (spell.english == "Evisceration") then
+            equip(sets.WS.Evisceration)
         elseif (spell.english == "Wildfire") then
         	equip(sets.WS.Wildfire)
         elseif (spell.english == "Detonator") then
