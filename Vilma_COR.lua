@@ -33,7 +33,7 @@ HercLegsMAB={ name="Herculean Trousers", augments={'Mag. Acc.+13 "Mag.Atk.Bns."+
 function get_sets()
 sets.roll={
     head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
-    body="Lanun Frac +3",
+    body="Lanun Frac +2",
     hands="Chasseur's Gants +1", --Chasseur's Gants
     -- legs="Lanun Culottes",
     feet="Meg. Jam. +2",
@@ -67,9 +67,9 @@ sets.Idle.Standard = {
 }
 
 sets.Idle.DT = set_combine(sets.Idle.Standard, {
-    body="Lanun frac +3",
+    body="Lanun frac +2",
     legs="Mummu kecks +2",
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +2",
     back=capeDT
 })
 
@@ -78,7 +78,7 @@ sets.Melee = {
     neck="Sanctity Necklace",
     ear1="Dignitary's Earring",
     ear2="Suppanomimi",
-    body="Lanun Frac +3",
+    body="Lanun Frac +2",
     hands="Floral Gauntlets",
     ring1="Petrov Ring",
     ring2="Epona's Ring",
@@ -148,10 +148,10 @@ sets.WS.SavageBlade = {
 
 sets.WS.LastStand = { --Generic Physical WS
     head="Meghanada Visor +2",
-    body="Laksamana's Frac +3",
+    body="Laksamana's Frac +2",
     hands="Meghanada Gloves +1", --+2
     legs="Laksamana's trews +3",
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +2",
     neck="Commodore Charm",
     waist="Eschan Stone",
     left_ear="Ishvara Earring",
@@ -166,7 +166,7 @@ sets.WS.Wildfire = {
     body="Lanun Frac +3",
     hands="Carmine finger gauntlets +1",
     legs=HercLegsMAB,
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +2",
     neck="Commodore Charm",
     waist="Eschan Stone",
     left_ear="Moonshade Earring",
@@ -179,10 +179,10 @@ sets.WS.Wildfire = {
 
 sets.WS.LeadenSalute = { --AGI Weaponskill
     head="Pixie Hairpin +1",
-    body="Lanun Frac +3",
+    body="Lanun Frac +2",
     hands="Carmine finger gauntlets +1",
     legs=HercLegsMAB,
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +2",
     -- neck="Commodore Charm",
     neck="Stoicheion Medal",
     waist="Eschan Stone",
@@ -209,14 +209,14 @@ sets.roll["Caster's Roll"] = {
 sets.roll["Tactician's Roll"] = {
     -- body="Chasseur's Frac"
 }
-sets.RandomDeal = {body="Lanun Frac +3"}
+sets.RandomDeal = {body="Lanun Frac +2"}
 sets.Fold = {
     -- hands="Lanun Gauntlets"
 }
 sets.SnakeEye = {
     -- legs="Lanun Culottes"
 }
-sets.WildCard = {feet="Lanun Bottes +3"}
+sets.WildCard = {feet="Lanun Bottes +2"}
 
 sets.Luzaf = {ring1="Luzaf's Ring"}
 
@@ -233,7 +233,7 @@ sets.Luzaf = {ring1="Luzaf's Ring"}
         Prism="Prism Powder",
         Oils="Silent Oil",
         remedy="Remedy",
-        Crepe="Pear Crepe",
+        Crepe="grape dafaiku",
         gun1="Fomalhaut",
         gun2="Death Penalty",
         -- gun1="Doomsday",
