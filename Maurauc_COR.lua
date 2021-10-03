@@ -1,8 +1,14 @@
 include('organizer-lib.lua')
--- Local Settings, setting the zones prior to use
+include('displayBox.lua')
 
-Nuke_Index = 1
+Idle_Index = 1
 Run_Index = 1
+Leaden_Index = 1
+Savage_Index = 1
+Roll_Index = 2
+Gun_Index = 1
+Ranged_Index = 1
+current_roll = ""
 
 weaponLocked = false
 
@@ -33,20 +39,18 @@ function get_sets()
     capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
     capeSnapshot = { name="Camulus's Mantle", augments={'"Snapshot"+10',}}
 
-    sets.roll={
-        head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
-        body="Lanun Frac +3",
-        -- hands="Chasseur's Gants +1", --Chasseur's Gants
-        hands="Navarch's Gants +1",
-        legs="Lanun Culottes",
-        feet="Meg. Jam. +2",
-        neck="Regal Necklace",
-        waist="Chaac Belt",
-        left_ear="Etiolation Earring",
-        right_ear="Loquac. Earring",
-        -- left_ring="Luzaf's Ring",
-        right_ring="Luzaf's Ring",
-        back=capeTP, --AMBUSCADE
+    sets.Gun = {}
+    sets.Gun.index = {"Death Penalty", "Fomalhaut", "Anarchy"}
+    sets.Gun["Death Penalty"] = {
+        ranged="Death Penalty"
+    }
+
+    sets.Gun["Fomalhaut"] = {
+        ranged="Fomalhaut"
+    }
+
+    sets.Gun["Anarchy"] = {
+        ranged="Anarchy +2"
     }
 
     sets.Idle = {
@@ -98,8 +102,7 @@ function get_sets()
     }
 
     sets.RA = {}
-    rangedSets = {'Standard', 'Acc', "Enmity"}
-    rangedIndex = 3
+    sets.RA.index = {'Standard', 'Acc', "Enmity"}
 
     sets.RA.Standard = { --RAcc and STP
         head="Malignance Chapeau",
@@ -144,7 +147,10 @@ function get_sets()
         feet="Oshosi Leggings"
     })
 
+
     sets.WS = {}
+
+
 
     sets.WS.Generic = { --Generic Physical WS
         head="Meghanada Visor +2",
@@ -161,7 +167,11 @@ function get_sets()
         back=capeWSMAB,
     }
 
-    sets.WS.SavageBlade = {
+    --MELEE----------
+
+    sets.WS.SavageBlade = {}
+    sets.WS.SavageBlade.index = { 'Standard' }
+    sets.WS.SavageBlade.Standard = {
         head="Lilitu Headpiece",
         neck="Caro Necklace",
         ear1="Moonshade Earring",
@@ -172,70 +182,16 @@ function get_sets()
         ring1="Metamorph Ring +1",
         ring2="Regal Ring", --Rufescent 
         back=capeMeleeWS,
-        waist="Prosilio Belt",
+        waist="Prosilio Belt +1",
         legs="Meghanada Chausses +2",
-        feet=wsHerc,
+        -- feet=wsHerc,
+        feet="Lanun Bottes +3"
     }
 
     sets.WS.SavageBladeAcc = set_combine(sets.WS.SavageBlade, {
         head="Malignance Chapeau"
     })
 
-    sets.WS.LeadenSalute = { --AGI Weaponskill
-        head="Pixie Hairpin +1",
-        -- body={ name="Herculean Vest", augments={'Mag. Acc.+19 "Mag.Atk.Bns."+19','Magic dmg. taken -2%','Mag. Acc.+12','"Mag.Atk.Bns."+12',}},
-        hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
-        -- body="Rawhide Vest",
-        body="Laksamana's Frac +3",
-        -- legs=""
-        legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
-        -- feet=wsHerc,
-        feet="Lanun Bottes +3",
-        neck="Sanctity Necklace",
-        -- waist="Yemaya Belt",
-        waist="Eschan Stone",
-        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-        right_ear="Friomisi Earring",
-        left_ring="Dingir Ring",
-        right_ring="Archon Ring",
-        back=capeWSMAB,
-    }
-    sets.WS.LastStand = set_combine(sets.RA.Enmity, {
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
-        head="Meghanada Visor +2",
-        ear1="Moonshade Earring",
-        feet="Lanun Bottes +3",
-        ring1="Regal Ring",
-        ring2="Dingir Ring",
-        back=capeWSMAB
-    })
-    sets.WS.LastStand.Acc = {
-        head="Lanun Tricorne +1",
-        neck="Fotia Gorget",
-        ear1="Moonshade Earring",
-        ear2="Ishvara Earring",
-        body="Meg. Cuirie +2",
-        hands="Meg. Gloves +2",
-        ring1="Dingir Ring",
-        ring2="Apate Ring",
-        back="Camulus's Mantle",
-        waist="Fotia Belt",
-        legs="Meg. Chausses +2",
-        feet="Lanun Bottes +3"
-    }
-
-    sets.FastCast = {
-        head="Carmine Mask",
-        body="Taeon Tabard",
-        hands="Leyline Gloves",
-        legs="Carmine Cuisses +1",
-        feet="Carmine Greaves",
-        neck="Voltsurge Torque",
-        left_ear="Etiolation Earring",
-        right_ear="Loquac. Earring",
-        right_ring="Weather. Ring +1",
-    }
 
     sets.WS.Evisceration = {
         left_ear="Moonshade Earring",
@@ -252,6 +208,85 @@ function get_sets()
         back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
     }
 
+
+
+    --RANGED------------------
+
+    sets.WS.LeadenSalute = {}
+    sets.WS.LeadenSalute.index = {"Standard", "Enmity"}
+
+    sets.WS.LeadenSalute.Standard = { --AGI Weaponskill
+        head="Pixie Hairpin +1",
+        body="Lanun Frac +3",
+        hands="Carmine Fin. Ga. +1",
+        legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
+        feet="Lanun Bottes +3",
+        neck="Sanctity Necklace",
+        waist="Eschan Stone",
+        left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+        right_ear="Friomisi Earring",
+        left_ring="Dingir Ring",
+        right_ring="Archon Ring",
+        back=capeWSMAB,
+    }
+
+    sets.WS.LeadenSalute.Enmity = set_combine(sets.WS.LeadenSalute.Standard, {
+
+    })
+
+    sets.WS.LastStand = set_combine(sets.RA.Enmity, {
+        neck="Fotia Gorget",
+        waist="Fotia Belt",
+        head="Meghanada Visor +2",
+        ear1="Moonshade Earring",
+        feet="Lanun Bottes +3",
+        ring1="Regal Ring",
+        ring2="Dingir Ring",
+        back=capeWSMAB
+    })
+
+    sets.WS.LastStand.Standard = sets.WS.LastStand
+
+    sets.WS.LastStand.Acc = {
+        head="Lanun Tricorne +1",
+        neck="Fotia Gorget",
+        ear1="Moonshade Earring",
+        ear2="Ishvara Earring",
+        body="Meg. Cuirie +2",
+        hands="Meg. Gloves +2",
+        ring1="Dingir Ring",
+        ring2="Apate Ring",
+        back="Camulus's Mantle",
+        waist="Fotia Belt",
+        legs="Meg. Chausses +2",
+        feet="Lanun Bottes +3"
+    }
+
+    sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
+
+    }) 
+
+
+    sets.roll = {}
+    sets.roll.index = {"Short", "Long"}
+
+    sets.roll.Short={
+        head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
+        body="Lanun Frac +3",
+        hands="Navarch's Gants +1",
+        legs="Lanun Culottes",
+        feet="Meg. Jam. +2",
+        neck="Regal Necklace",
+        waist="Chaac Belt",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        -- left_ring="Luzaf's Ring",
+        -- right_ring="Luzaf's Ring",
+        back=capeTP, --AMBUSCADE
+    }
+
+    sets.roll.Long = set_combine(sets.roll.Short, {left_ring="Luzaf's Ring"})
+
     sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
     sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +1"}
     sets.RandomDeal = {body="Lanun Frac +3"}
@@ -259,12 +294,6 @@ function get_sets()
     sets.SnakeEye = {}--{legs="Lanun Culottes"}
     sets.WildCard = {feet="Lanun Bottes +3"}
 
-    sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
-
-    }) 
-
-    -- sets.Luzaf = {ring1="Luzaf's Ring"}
--- sets.Luzaf = {}
     organizer_items = {
         trump="Trump Card",
         case="Trump Card Case",
@@ -272,18 +301,12 @@ function get_sets()
         holy="Holy Water",
         RREar="Reraise Earring",
         InstRR="Instant Reraise",
-        Warp="Warp Ring",
-        WarpItem="Instant Warp",
-        CP="Trizek Ring",
-        Exp="Echad Ring",
-        CPMantle="Mecistopins Mantle",
-        Prism="Prism Powder",
-        Oils="Silent Oil",
         remedy="Remedy",
         Crepe="Pear Crepe",
-        gun1="Doomsday",
+        food="Grape Daifuku",
         dagger="Lanun Knife",
-        gunpouch="Chrono Bullet Pouch"
+        gunpouch="Chrono Bullet Pouch",
+        gunpouch2="Living Bullet Pouch"
     }
 
     sets.QuickDraw = set_combine(sets.WS.LeadenSalute, {
@@ -293,15 +316,66 @@ function get_sets()
         ring2="Weatherspoon Ring +1"
     })
 
+
+    sets.FastCast = {
+        head="Carmine Mask",
+        body="Taeon Tabard",
+        hands="Leyline Gloves",
+        legs="Carmine Cuisses +1",
+        feet="Carmine Greaves",
+        neck="Voltsurge Torque",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        right_ring="Weather. Ring +1",
+    }
+    
     sets.midcast_ElementalDay = {waist="Hachirin-no-obi"}
+    user_setup()
+    equip_current()
+end
 
-    -- send_command('bind f10 gs c toggle RA set')
+function addNewColors()
+    -- addTextColorPair("HighMP", "blue")
+    addTextColorPair("Death Penalty", "red")
+    addTextColorPair("Fomalhaut", "red")
+    addTextColorPair("Anarchy", "red")
+    addTextColorPair("DT", "yellow")
+    addTextColorPair("Standard", "green")
+    addTextColorPair("Short", "green")
+    addTextColorPair("Accuracy", "yellow")
+    addTextColorPair("Long", "yellow")
+    addTextColorPair("Enmity", 'yellow')
+end
 
+function updateTable()
+    addToTable("Ctrl+G  Gun Set", sets.Gun.index[Gun_Index])
+    addToTable("(F7)  Roll  Set", sets.roll.index[Roll_Index])
+    -- addToTable("(F9)  Savage Set", sets.WS.SavageBlade.index[Savage_Index])
+    addToTable("(F10) Ranged Set", sets.RA.index[Ranged_Index])
+    addToTable("(F11) Leaden Set", sets.WS.LeadenSalute.index[Leaden_Index])
+    -- addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
+    update_message()
+end
+
+function user_setup()
+    add_to_chat(140, "Loading Maurauc's Gearswap")
+    send_command('bind ^g gs c toggle gun')
+    send_command('bind f7 gs c toggle roll')
+    send_command('bind f9 gs c toggle savage')
+    send_command('bind f10 gs c toggle RA set')
+    send_command('bind f11 gs c toggle leaden')
+    send_command('bind f12 gs c equip gear')
+    send_command('bind pause send @others /follow Maurauc')
+
+    text_setup()
+    addNewColors()
+    updateTable()
 end
 
 -- --- Precast ---
 
 function precast(spell)
+    --JA--
     if spell.english == 'Random Deal' then
         equip(sets.RandomDeal)
     elseif spell.english == 'Fold' then
@@ -311,23 +385,26 @@ function precast(spell)
     elseif spell.english == 'Wild Card' then
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
-        equip(set_combine(sets.roll, sets.roll[spell.name]))
-    elseif (spell.english == "Double-Up") then
-        equip(sets.roll)
+        current_roll = spell.english
+        equip(set_combine(sets.roll[sets.roll.index[Roll_Index]], sets.roll[current_roll]))
+    elseif (spell.type == 'Double-Up') then
+        equip(set_combine(sets.roll[sets.roll.index[Roll_Index]], sets.roll[current_roll]))
     end
+
 
     if spell.action_type == 'Ranged Attack' then
         equip(sets.preshot)
     elseif spell.type:lower() == 'weaponskill' then
         if (spell.english == "Leaden Salute") then
-        	equip(use_obi(spell, sets.WS.LeadenSalute))
+        	equip(use_obi(spell, sets.WS.LeadenSalute[sets.WS.LeadenSalute.index[Leaden_Index]]))
+            add_to_chat(140, "Leaden Salute Index: "..sets.WS.LeadenSalute.index[Leaden_Index])
         elseif (spell.english == "Wildfire") then
-        	equip(sets.WS.LeadenSalute)
+        	equip(sets.WS.LeadenSalute.index[Leaden_Index])
         elseif (spell.english == "Last Stand") or (spell.english == "Detonator") then
-        	equip(sets.WS.LastStand)
+        	equip(sets.WS.LastStand[sets.RA.index[Ranged_Index]])
         -- equip(sets.RA.Standard)
         elseif (spell.english == "Savage Blade") then
-          equip(sets.WS.SavageBlade)
+          equip(sets.WS.SavageBlade[sets.WS.SavageBlade.index[Savage_Index]])
         elseif (spell.english == "Evisceration") then
             equip(sets.WS.Evisceration)
         else
@@ -346,21 +423,8 @@ function precast(spell)
 end
 -- --- MidCast ---
 function midcast(spell)
-    if spell.english == 'Random Deal' then
-        equip(sets.RandomDeal)
-    elseif spell.english == 'Fold' then
-        equip(sets.Fold)
-    elseif spell.english == 'Snake Eye' then
-        equip(sets.SnakeEye)
-    elseif spell.english == 'Wild Card' then
-        equip(sets.WildCard)
-    elseif (spell.type == 'CorsairRoll') then
-        equip(set_combine(sets.roll, sets.roll[spell.name]))
-    elseif (spell.english == "Double-Up") then
-        equip(sets.Luzaf)
-    end
     if spell.action_type == 'Ranged Attack' then
-        equip(sets.RA.Standard)
+        equip(sets.RA[sets.RA.index[Ranged_Index]])
     end
 end 
 
@@ -370,32 +434,10 @@ function aftercast(spell)
     equip_current()
 end
 
--- Status Change - ie. Resting
-
-function check_spell(spell)
-    if spell.english == 'Sleep' or spell.english == 'Sleepga' then
-        send_command('@wait 50;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-    elseif spell.english == 'Sleep II' or spell.english == 'Sleepga II' then
-        send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-    elseif spell.english == 'Break' or spell.english == 'Breakga' then
-        send_command('@wait 20;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-    elseif spell.english == 'Repose' then
-        send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-    end
-end
-
 function status_change(new,old)
     equip_current()
 end 
-  
-function equip_TP()
-    equip(sets.Melee)
-end
- 
-function equip_idle()
-    equip(sets.Idle)
-end
- 
+
 function equip_current()
     if player.status == 'Engaged' then
         equip_TP()
@@ -403,29 +445,55 @@ function equip_current()
         equip_idle()
     end
 end
+  
+function equip_TP()
+    equip(sets.Melee)
+    equip(sets.Gun[sets.Gun.index[Gun_Index]])
+end
+ 
+function equip_idle()
+    equip(sets.Idle)
+    equip(sets.Gun[sets.Gun.index[Gun_Index]])
+end
+
 
 function self_command(command)
+
+    --toggles
     if command == 'toggle RA set' then
-        rangedIndex = rangedIndex +1
-        if rangedIndex > #sets.RA.index then rangedIndex = 1 end
-        send_command('@input /echo <----- RA Set changed to '..sets.RA.index[rangedIndex]..' ----->')
-        equip(sets.RA[sets.RA.index[rangedIndex]])
-    elseif command == 'book' then
-        cycle = 0
-        invCount = windower.ffxi.get_bag_info(0).count
-        if player.inventory["Barrels of Fun"] then
-            send_command('input /item "Barrels of Fun" <me> ')
-            cycle = 1
-        else
-            add_to_chat(140,'No Coffers found in inv.')
-            send_command('findall barrels of fun')
+        Ranged_Index = Ranged_Index +1
+        if Ranged_Index > #sets.RA.index then 
+            Ranged_Index = 1 
         end
-        if cycle == 1 then
-            send_command('wait 3;gs c book')
-        end
-    else
-        send_command('@input /echo hello')
+        send_command('@input /echo <----- RA Set changed to '..sets.RA.index[Ranged_Index]..' ----->')
+        equip(sets.RA[sets.RA.index[Ranged_Index]])
+    elseif command == 'toggle dt' then
+        Idle_Index = Idle_Index +1
+        if Idle_Index > #sets.Idle.index then Idle_Index = 1 end
+        add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
+        equip(sets.Idle[sets.Idle.index[Idle_Index]])
+    elseif command == 'toggle roll' then
+        Roll_Index = Roll_Index +1
+        if Roll_Index > #sets.roll.index then Roll_Index = 1 end
+        add_to_chat(140, '<----- Roll Set changed to '..sets.roll.index[Roll_Index]..' ----->')
+    elseif command == 'toggle gun' then
+        Gun_Index = Gun_Index +1
+        if Gun_Index > #sets.Gun.index then Gun_Index = 1 end
+        add_to_chat(141, 'Gun now set to: !!!       '..sets.Gun.index[Gun_Index]..'     !!!')
+    elseif command == 'toggle leaden' then
+        Leaden_Index = Leaden_Index +1
+        if Leaden_Index > #sets.WS.LeadenSalute.index then Leaden_Index = 1 end
+        add_to_chat(140, '<----- Leaden Set changed to '..sets.WS.LeadenSalute.index[Leaden_Index]..' ----->') 
+    elseif command == 'toggle savage' then
+        Savage_Index = Savage_Index +1
+        if Savage_Index > #sets.WS.SavageBlade.index then Savage_Index = 1 end
+        add_to_chat(140, '<----- Savage Set changed to '..sets.WS.SavageBlade.index[Savage_Index]..' ----->') 
+    elseif command == 'equip gear' then
+        equip_current()
     end
+
+    equip_current()
+    updateTable()
 end
 
 function buff_change(buff, gain)

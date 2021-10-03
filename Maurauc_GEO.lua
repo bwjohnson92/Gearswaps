@@ -77,17 +77,17 @@ function get_sets()
 		main="Idris",
 	    sub="Genmei Shield",
 		range="Dunna",
-	    head={ name="Telchine Cap", augments={'Pet: "Regen"+1','Enh. Mag. eff. dur. +9',}},
+	    head="Telchine Cap",
 	    body="Jhakri Robe +2",
 	    hands="Volte Gloves",
 	    legs="Assid. Pants +1",
-	    feet={ name="Telchine Pigaches", augments={'Pet: "Regen"+2','Enh. Mag. eff. dur. +8',}},
-	    neck="Mizu. Kubikazari",
+	    feet="Telchine Pigaches",
+	    neck="Loricate Torque +1",
 	    waist="Sacro Cord",
 	    left_ear="Malignance Earring",
 	    right_ear="Barkaro. Earring",
 		ring1="Defending Ring", 
-		ring2="Dark Ring",
+		ring2="Gelatinous Ring +1",
 	    back="Nantosuelta's Cape"
 	}
 
@@ -102,14 +102,16 @@ function get_sets()
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
-		head="Azimuth Hood +1",
+		-- head="Azimuth Hood +1",
+		head="Telchine Cap",
 		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 
 		hands="Telchine Gloves",
     	back={ name="Nantosuelta's Cape"},
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
-		feet="Bagua Sandals +2",
+		-- feet="Bagua Sandals +2",
+		feet="Telchine Pigaches",
 		lear="Handler's Earring +1",
 		rear="Handler's Earring"
 	})
@@ -357,14 +359,15 @@ end
 
 function equip_idle()
 
-	if (not hasPet and sets.Idle.index[Idle_Index] == "PetRegen") then
-		add_to_chat(123, 'Equipping '..sets.Idle.index[1])
-		equip(sets.Idle[sets.Idle.index[1]])
-	else
-		equip(sets.Idle[sets.Idle.index[Idle_Index]])
-		add_to_chat(123, 'Equipping '..sets.Idle.index[Idle_Index])
+	-- if (not hasPet and sets.Idle.index[Idle_Index] == "PetRegen") then
+		-- add_to_chat(123, 'Equipping '..sets.Idle.index[1])
+		-- equip(sets.Idle[sets.Idle.index[1]])
+	-- else
+		-- equip(sets.Idle[sets.Idle.index[Idle_Index]])
+		equip(sets.Idle.PetRegen)
+		-- add_to_chat(123, 'Equipping '..sets.Idle.index[Idle_Index])
 
-	end
+	-- end
 end
 
 function pet_change(pet,gain_or_loss)
