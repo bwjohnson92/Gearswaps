@@ -93,9 +93,10 @@ function get_sets()
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
 		main="Malignance Pole",
+		head="Nyame Helm",
 		sub="Alber Strap",
 		waist="Slipor Sash",
-		legs="Gyve Trousers",
+		legs="Nyame Flanchard",
 		feet="Azimuth Gaiters +1",
 		back=capeDT
 	})
@@ -364,7 +365,8 @@ function equip_idle()
 		-- equip(sets.Idle[sets.Idle.index[1]])
 	-- else
 		-- equip(sets.Idle[sets.Idle.index[Idle_Index]])
-		equip(sets.Idle.PetRegen)
+		-- equip(sets.Idle.PetRegen)
+		equip(sets.Idle[sets.Idle.index[Idle_Index]])
 		-- add_to_chat(123, 'Equipping '..sets.Idle.index[Idle_Index])
 
 	-- end

@@ -233,11 +233,14 @@ function get_sets()
 
     sets.Dimidiation = {
         ammo="Knobkierrie",
-        head={ name="Herculean Helm", augments={'Accuracy+12 Attack+12','Weapon skill damage +3%','AGI+5','Accuracy+2',}},
-        body={ name="Herculean Vest", augments={'Accuracy+17 Attack+17','Weapon skill damage +3%','Accuracy+7',}},
+        -- head={ name="Herculean Helm", augments={'Accuracy+12 Attack+12','Weapon skill damage +3%','AGI+5','Accuracy+2',}},
+        head="Nyame Helm",
+        body={ name="Herculean Vest", augments={'Weapon skill damage +5%','Mag. Acc.+15','STR+6 DEX+6','Accuracy+18 Attack+18','Mag. Acc.+11 "Mag.Atk.Bns."+11',}},
         hands="Meg. Gloves +2",
         -- legs="",
-        feet={ name="Lustratio Leggings", augments={'HP+50','STR+10','DEX+10',}},
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        -- feet={ name="Lustratio Leggings", augments={'HP+50','STR+10','DEX+10',}},
         neck="Caro Necklace",
         waist="Grunfeld Rope",
         left_ear="Ishvara Earring",

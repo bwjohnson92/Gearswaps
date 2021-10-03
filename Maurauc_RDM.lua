@@ -114,6 +114,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		body="Atrophy Tabard +3",
 		waist="Luminary Sash",
 		ring2="Weatherspoon Ring +1",
+		ear1="Regal Earring",
 		back=SucellosMND
 		})
 
@@ -145,7 +146,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 
 	sets.Dispelga = {main="Daybreak",sub="Ammurapi Shield"}
 	sets.precast.Dispelga = set_combine(sets.precast.FastCast, sets.Dispelga)
-	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebling.Acc, sets.Dispelga)
+	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebleling.Acc, sets.Dispelga)
 		
 	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",

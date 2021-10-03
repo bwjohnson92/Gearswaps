@@ -184,16 +184,17 @@ function get_sets()
 
     sets.WS.SavageBlade = {
         head="Lilitu Headpiece",
-        neck="Caro Necklace",
+        -- neck="Caro Necklace",
+        neck="Commodore Charm +1",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
         body="Laksamana's Frac +3",
         hands="Meg. Gloves +2",
         -- ring1="Rufescent Ring", --Shukuyu
-        ring1="Metamorph Ring +1",
+        ring1="Epaminondas's Ring",
         ring2="Regal Ring", --Rufescent 
         back=capeMeleeWS,
-        waist="Prosilio Belt +1",
+        waist="Sailfi Belt +1",
         -- legs="Meghanada Chausses +2",
         legs="Nyame Flanchard",
         -- feet=wsHerc,

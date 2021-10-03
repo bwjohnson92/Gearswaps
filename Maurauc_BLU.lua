@@ -13,7 +13,8 @@ spells.STRVIT = S{'Quad. Continuum', 'Delta Thrust', 'Cannonball', 'Glutinous Da
 spells.STRMND = S{'Whirl of Rage'}
 spells.AGI = S{'Benthic Typhoon', 'Final Sting', 'Spiral Spin'}
 spells.INT = S{'Gates of Hades', 'Leafstorm', 'Firespit', 'Acrid Stream', 'Regurgitation', 'Corrosive Ooze', 'Thermal Pulse', 'Magic Hammer', 'Evryone. Grudge', 'Water Bomb', 'Dark Orb', 'Thunderbolt', 'Tem. Upheaval', 'Embalming Earth', 'Foul Waters', 'Rending Deluge', 'Droning Whirlwind', 'Subduction', 'Searing Tempest', 'Blinding Fulgor', 'Spectral Floe', 'Scouring Spate', 'Anvil Lightning', 'Entomb', 'Tenebral Crush', 'Palling Salvo', 'Atramentous Libations', 'Molting Plumage', 'Nectarous Deluge', 'Diffusion Ray'}
-spells.MagicAccuracy = S{ 'Silent Storm', 'Frightful Roar', "Cruel Joke", "Sheep Song", "Dream Flower", 'Feather Tickle', 'Reaving Wind', 'Blank Gaze', 'Geist Wall', 'Infrasonics', 'Barbed Crescent', 'Tourbillion', 'Cimicine Discharge', 'Sub-zero smash', 'Filamented Hold', 'Mind Blast', 'Sandspin', 'Hecatomb Wave', 'Cold Wave', 'Terror Touch'}
+spells.MagicAccuracy = S{ 'Silent Storm', 'Frightful Roar', "Cruel Joke", "Sheep Song", "Dream Flower", 'Blank Gaze', 'Geist Wall', 'Infrasonics', 'Barbed Crescent', 'Tourbillion', 'Cimicine Discharge', 'Sub-zero smash', 'Filamented Hold', 'Mind Blast', 'Sandspin', 'Hecatomb Wave', 'Cold Wave', 'Terror Touch'}
+spells.MagicAccuracyFast = S{ 'Feather Tickle', 'Reaving Wind' }
 spells.Cures = S{'Magic Fruit', 'Plenilune Embrace', 'Wild Carrot', 'Pollen', 'Cure III', 'Cure IV'}
 spells.WhiteWind = S{'White Wind'}
 spells.Stun = S{'Head Butt', 'Sudden Lunge', 'Blitzstrahl'}
@@ -103,7 +104,7 @@ function get_sets()
 
     sets.TP.index = {'Standard', 'Hybrid', 'Accuracy', 'Subtle Blow'} --'Safe', 'AccuracyLite', 'AccuracyFull', 'AccuracyExtreme', 'DT', 'DTAccuracy'}
     --1=Standard, 2=Solo, 3=Marches, 4=AccuracyLite, 5=AccuracyFull, 6=DT, 7=DTAccuracy--
-    TP_ind = 1
+    TP_ind = 2
 
     sets.TP.Standard = {
         ammo="Ginsen",
@@ -207,9 +208,9 @@ function get_sets()
 
     sets.WS.ExpSavage = {
         ammo="Floestone",
-        head="Jhakri Coronal +2",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
-        body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Metamorph Ring +1",
-        back=STRCape,waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"
+        head="Nyame Helm",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
+        body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Epaminondas's Ring",
+        back=STRCape,waist="Sailfi Belt +1",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"
     }
 
     --Blue Magic Sets--
@@ -277,7 +278,7 @@ function get_sets()
 
     sets.BlueMagic.MagicAccuracy = {
         ammo="Pemphredo Tathlum",
-        -- head={ name="Amalric Coif +1", augments={'INT+12','Mag. Acc.+25','Enmity-6',}},
+        head={ name="Amalric Coif +1", augments={'INT+12','Mag. Acc.+25','Enmity-6',}},
         -- body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
         body="Malignance Tabard",
         hands="Malignance Gloves",
@@ -295,6 +296,10 @@ function get_sets()
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back=INTCape
     }
+
+    sets.BlueMagic.MagicAccuracyFast = set_combine(sets.BlueMagic.MagicAccuracy, {
+        
+    })
 
     -- sets.BlueMagic.DT = set_combine(sets.BlueMagic.MagicAccuracy, {
         --     body="Ayanmo Corazza +2",
@@ -509,6 +514,10 @@ function midcast(spell,act)
 
     if spells.MagicAccuracy:contains(spell.name) then
         equip(sets.BlueMagic.MagicAccuracy)
+    end
+
+    if spells.MagicAccuracyFast:contains(spell.name) then
+        equip(sets.BlueMagic.MagicAccuracyFast)
     end
 
     if spells.SkillRecast:contains(spell.name) then
