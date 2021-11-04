@@ -143,7 +143,8 @@ function get_sets()
         body="Malignance Tabard",
         hands="Malignance Gloves",
         legs="Malignance Tights",
-        feet="Malignance Boots"
+        feet="Malignance Boots",
+        ring1="Defending Ring"
     })
 
     sets.TP.Accuracy = set_combine(sets.TP.Hybrid, {ammo="Ginsen",
@@ -210,7 +211,7 @@ function get_sets()
         ammo="Floestone",
         head="Nyame Helm",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Epaminondas's Ring",
-        back=STRCape,waist="Sailfi Belt +1",legs="Luhlaza Shalwar +3",feet="Jhakri Pigaches +2"
+        back=STRCape,waist="Sailfi Belt +1",legs="Luhlaza Shalwar +3",feet="Nyame Sollerets"
     }
 
     --Blue Magic Sets--

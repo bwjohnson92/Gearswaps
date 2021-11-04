@@ -91,7 +91,7 @@ function get_sets()
         legs="Adhemar Kecks +1",
         feet="Meg. Jam. +2",
         --back="Navarch's Mantle",
-        neck="Commodore Charm",
+        neck="Commodore Charm +1",
     }
 
     sets.Melee = {
@@ -105,9 +105,11 @@ function get_sets()
         -- legs="Adhemar Kecks +1",
         -- feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
         feet="Malignance Boots",
-        neck="Asperity Necklace",
+        -- neck="Asperity Necklace",
+        neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
-        left_ear="Suppanomimi",
+        -- left_ear="Suppanomimi",
+        left_ear="Cessance Earring",
         right_ear="Telos Earring",
         left_ring="Defending Ring",
         right_ring="Petrov Ring",
@@ -135,7 +137,7 @@ function get_sets()
     sets.RA.Acc = set_combine(sets.RA, { --RAcc and STP
         -- body="Laksamana's Frac +3",
         -- legs="Laksamana's Trews +3",
-        -- neck="Commodore Charm",
+        -- neck="Commodore Charm +1",
         -- ring1="Hajduk Ring",
         -- ring2="Hajduk Ring",
         head="Meghanada Visor +2",
@@ -183,7 +185,8 @@ function get_sets()
     --MELEE----------
 
     sets.WS.SavageBlade = {
-        head="Lilitu Headpiece",
+        -- head="Lilitu Headpiece",
+        head="Nyame Helm",
         -- neck="Caro Necklace",
         neck="Commodore Charm +1",
         ear1="Moonshade Earring",

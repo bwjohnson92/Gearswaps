@@ -235,17 +235,21 @@ function get_sets()
         ammo="Knobkierrie",
         -- head={ name="Herculean Helm", augments={'Accuracy+12 Attack+12','Weapon skill damage +3%','AGI+5','Accuracy+2',}},
         head="Nyame Helm",
-        body={ name="Herculean Vest", augments={'Weapon skill damage +5%','Mag. Acc.+15','STR+6 DEX+6','Accuracy+18 Attack+18','Mag. Acc.+11 "Mag.Atk.Bns."+11',}},
+        -- body={ name="Herculean Vest", augments={'Weapon skill damage +5%','Mag. Acc.+15','STR+6 DEX+6','Accuracy+18 Attack+18','Mag. Acc.+11 "Mag.Atk.Bns."+11',}},
+        -- body="Ashera Harness",
+        body="Nyame Mail",
         hands="Meg. Gloves +2",
         -- legs="",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         -- feet={ name="Lustratio Leggings", augments={'HP+50','STR+10','DEX+10',}},
-        neck="Caro Necklace",
+        -- neck="Caro Necklace",
+        neck="Futhark Torque +2",
         waist="Grunfeld Rope",
         left_ear="Ishvara Earring",
         right_ear="Moonshade Earring",
-        left_ring="Ilabrat Ring",
+        -- left_ring="Ilabrat Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Regal Ring",
         back=OgmaDEX
     }
@@ -340,14 +344,20 @@ function get_sets()
         feet={name="Carmine Greaves +1", priority=1}}
 
     sets.Phalanx = {
+        ammo="Staunch Tathlum",
         head="Futhark bandeau +3",
         body={ name="Taeon Tabard", augments={'"Phalanx"+3',}},
         hands={ name="Taeon gloves", augments ={'"Phalanx"+3',}},
+        left_ear="Odnowa Earring +1",
         right_ear="Augmenting earring",
-        right_ring="Stikini ring",
+        -- right_ring="Stikini ring",
         legs="Taeon Tights",
         back="Moonbeam Cape",
+        neck="Futhark Torque +2",
         -- legs="Futhark Trousers +2",
+        waist="Flume Belt +1",
+        ring1="Moonbeam Ring",
+        ring2="Defending Ring",
         feet={ name="Taeon boots", augments={'"Phalanx"+3',}}
     }
 

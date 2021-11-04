@@ -71,7 +71,7 @@ function get_sets()
 
 	sets.TP  ={};
 	sets.TP.index = {'Standard', 'DT', 'TH', 'Subtle Blow'}
-	TP_ind = 1
+	TP_ind = 2
 	sets.TP.Standard = {
 	    ammo="Ginsen",
 	    head="Flam. Zucchetto +2",
@@ -151,18 +151,24 @@ function get_sets()
 
 	sets.WS["Upheaval"] = {
 	    ammo="Knobkierrie",
-	    head="Agoge Mask +2",
-	    neck="Fotia Gorget",
+	    -- head="Agoge Mask +2",
+	    head="Nyame Helm",
+	    -- neck="Fotia Gorget",
+	    neck="Warrior's Bead Necklace +1",
 	    ear1="Moonshade Earring",
 	    ear2="Telos Earring",
-		body="Sakpata's Plate",		
+		-- body="Sakpata's Plate",		
+		body="Pummeler's Lorica +3",
 	    hands="Sakpata's Gauntlets",
-	    legs="Sakpata's Cuisses",
-	    ring2="Niqmaddu Ring",
-	    ring1="Regal Ring",
+	    -- legs="Sakpata's Cuisses",
+	    legs="Nyame Flanchard",
+	    ring1="Niqmaddu Ring",
+	    ring2="Regal Ring",
 	    back=CapeWS,
-	    waist="Fotia Belt",
-	    feet="Pumm. Calligae +3"
+	    -- waist="Fotia Belt",
+	    waist="Sailfi Belt +1",
+	    -- feet="Pumm. Calligae +3"
+	    feet="Sulevia's Leggings +2"
 	}
 
 	sets.WS.Upheaval.HighTP = set_combine(sets.WS.Upheaval, {
@@ -203,8 +209,8 @@ function get_sets()
 		neck="Fotia Gorget",
 		ear1="Brutal Earring",
 		ear2="Moonshade Earring",
-		ring1="Regal Ring",
-		ring2="Niqmaddu Ring",
+		ring1="Niqmaddu Ring",
+		ring2="Regal Ring",
 		back=CapeWS,
 		waist="Fotia Belt",
 		head="Sakpata's Helm",

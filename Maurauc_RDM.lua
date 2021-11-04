@@ -146,7 +146,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 
 	sets.Dispelga = {main="Daybreak",sub="Ammurapi Shield"}
 	sets.precast.Dispelga = set_combine(sets.precast.FastCast, sets.Dispelga)
-	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebleling.Acc, sets.Dispelga)
+	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebling.Acc, sets.Dispelga)
 		
 	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
@@ -219,10 +219,10 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 
 	sets.WS.SeraphBlade = {
 	    ammo="Pemphredo Tathlum",
-	    head="Jhakri Coronal +2",
+	    head="Nyame Helm",
 	    ear1="Ishvara Earring",
 	    ear2="Moonshade Earring",
-	    body="Jhakri Robe +2",
+	    body="Amalric Doublet +1",
 	    hands="Jhakri Cuffs +2",
 	    ring1="Freke Ring",
 	    ring2="Weather. Ring +1",
@@ -231,17 +231,16 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    neck="Sanctity Necklace",
 	    waist="Sacro Cord",
 	    legs="Amalric Slops +1",
-	    feet="Vitiation Boots +3"
+	    feet="Nyame Sollerets"
 	}
 
 	sets.WS.SanguineBlade = set_combine(sets.WS.SeraphBlade, {
 
 		ear1="Malignance Earring",
 		head="Pixie Hairpin +1",
-		body="Amalric Doublet +1",
 		ring2="Archon Ring",
 		back=SucellosWS,
-		feet="Amalric Nails +1",
+		-- feet="Amalric Nails +1",
 	})
 
 	sets.WS.PhysicalWS = {
@@ -330,20 +329,22 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	sets.Melee.SingleWieldSB = {
 		main="Vitiation Sword",
 		sub="Ammurapi Shield",
-		ranged="Kaja Bow",
+		ammo="Hasty Pinion +1",
 	    head="Umuthi Hat",
 	    neck="Bathy Choker",
 	    ear1="Digni. Earring",
 	    ear2="Andoaa Earring",
-	    body="Viti. Tabard +3",
 	    hands="Aya. Manopolas +2",
 	    ring1="Chirich Ring +1",
 	    ring2="Chirich Ring +1",
 	    back="Ghostfyre Cape",
+	    waist="Orpheus's Sash",
 	    -- waist="Hachirin-no-obi",
-	    waist="Eschan Stone",
-	    legs="Malignance Tights",
-	    feet="Malignance Boots"
+	    legs="Vitiation Tights +3",
+	    --body="Vitiation Tabard +3",
+	    -- feet="Malignance Boots",
+	    body="Malignance Tabard",
+	    feet="Lethargy Houseaux +1"
 	}
 
 	sets.Melee.Enspell = {
@@ -467,10 +468,10 @@ function midcast(spell)
 		elseif string.find(spell.skill,'Enhancing Magic') then
 			if string.find(spell.english, 'Erase') then
 				equip(sets.precast.FastCast)
-			elseif string.find(spell.english,'Phal') then
+			elseif string.find(spell.english,'Phalanx') and spell.target.name == player.name then
 				add_to_chat(140, "Phalanx")
 				equip(set_combine(sets.midcast.EnhancingMagic, sets.Phalanx))
-			elseif string.find(spell.english,'Bar') or string.find(spell.english, "Gain") or string.find(spell.english, "Phal") or string.find(spell.english, "Temper") or string.find(spell.english, "En") then
+			elseif string.find(spell.english,'Bar') or string.find(spell.english, "Gain") or string.find(spell.english, "Temper") or string.find(spell.english, "En") then
 				equip(sets.midcast.EnhancingMagic)
 			elseif (string.find(spell.english, "Refresh")) then
 				equip(sets.midcast.Refresh)
