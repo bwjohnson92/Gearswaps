@@ -58,7 +58,7 @@ function get_sets()
 	sets.WS = {}
 	sets.Idle.index = {"Standard", "PDT", "HighMP"}
 
-	sets.Idle.Standard = {main="Bolelabunga",sub="Genbu's Shield",
+	sets.Idle.Standard = {main="Bolelabunga",sub="Genmei Shield",
 		head="Befouled Crown",neck="Sanctity Necklace",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Witching Robe",hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Assiduity pants +1",feet="Herald's Gaiters"}
@@ -162,7 +162,7 @@ function get_sets()
 	sets.midcast.Stun = {
 	-- main=currentWeapon,sub="Enki Strap",
 	ammo="pemphredo tathlum",
-		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
+		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Crepuscular Earring",
 		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Sangoma Ring",ring2="Prolix Ring",
 		back="Swith Cape",waist="Witful Belt",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"}
 		
@@ -193,7 +193,7 @@ function get_sets()
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"}
 	
 	sets.midcast.DrainAspir = set_combine(sets.midcast.ElementalMagic, {
-	head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Gwati Earring", ear2="Barkarole Earring",	
+	head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Crepuscular Earring", ear2="Barkarole Earring",	
 	ring2="Archon Ring",back="Taranus's Cape", waist="Fucho-no-obi",feet=MerlinicFeet})
 	
 	sets.midcast.OccultAcumen = {

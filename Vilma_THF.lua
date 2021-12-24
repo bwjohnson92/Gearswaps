@@ -11,6 +11,7 @@ function get_sets()
     sets.weapons[1] ={main="Aeneas"}
     sets.weapons[2]={sub="Tauret"}
     sets.weapons[3]={main="Odium"}
+    sets.weapons[4]={sub="Gleti's Knife"}
 
     
     sets.JA = {}
@@ -25,49 +26,24 @@ function get_sets()
     -- sets.JA.Waltz = {head="",neck="Dualism Collar +1",body="Iuitl Vest",hands="Slither Gloves +1",ring1="Valseur's Ring",ring2="Carbuncle Ring +1",
     --     waist="Aristo Belt",legs="Desultor Tassets",feet="Dance Shoes"}
     
-    sets.WS = {}
-    sets.WS.SA = {}
-    sets.WS.TA = {}
-    sets.WS.SATA = {}
-	
-	TaeonHands = {name="Taeon Gloves",augments={'Accuracy+17 Attack+17','"Triple Atk."+2','Crit. hit damage +2%'}}
-    
-    sets.WS.Evisceration = {head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Mache earring +1",
-        body="Pillager's Vest +2",hands="Mummu wrists +2",ring1="Ilabrat Ring",ring2="Mummu Ring",
-        back="Toutatis's Cape",waist="Fotia Belt",legs="Pillager's Culottes +1",feet="Mummu Gamashes +2"}
-        
-    sets.WS.SA.Evisceration = set_combine(sets.WS.Evisceration,{hands="Raider's Armlets +2"})
+	capeWS = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Damage taken-5%',}}
+    capeTP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dual Wield"+10','Phys. dmg. taken-10%',}}
+	TaeonHands = {name="Taeon Gloves",augments={'Accuracy+17 Attack+17','"Triple Atk."+2','Crit. hit damage +2%'}}    
 
-    sets.WS["Rudra's Storm"] = {
-		head="Pillager's Bonnet +2",neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
-        body="Meghanada cuirie +2",hands="Meghanada gloves +2",ring1="Ilabrat Ring",ring2="Thundersoul ring",
-        back="Toutatis's Cape",waist="Grunfeld Rope",legs="Lustratio Subligar",feet="Plunderer's Poulaines +1"}
-        Ammo="Cath Palug stone"
-        
-    sets.WS.SA["Rudra's Storm"] = set_combine(sets.WS["Rudra's Storm"],{head="Imperial Wing Hairpin",
-		body="Pillager's Vest +2",hands="Raider's Armlets +2",legs="Pillager's Culottes +1", feet="Plunderer's Poulaines +1"})
-        
-    sets.WS.Exenterator = {head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Sherida Earring",
-        body="Pillager's Vest +2",hands="Herculean Gloves",ring1="Ilabrat ring",ring2="Mummu Ring",
-        back="Toutatis's Cape",waist="Fotia Belt",legs="Nahtirah Trousers",feet="Mummu gamashes +2"}
+    TP_Set_Names = {"Low Haste","High Haste","TH"}
 
-    sets.WS.TA.Exenterator = {ear1="Steelflash Earring",ear2="Bladeborn Earring", --head neck ring1
-        body="Pillager's Vest +2",ring2="Gere Ring", --hands
-        back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +1"}
-        
-    sets.WS.SATA.Exenterator = set_combine(sets.WS.TA.Exenterator, {})
-
-    TP_Set_Names = {"Low Man","Party","Acc","TH","TH Acc"}
     sets.TP = {}
-    sets.TP['Low Man'] = {ammo="Yamarang",
-        head="Adhemar bonnet +1",neck="Erudition Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Herculean Vest",hands=TaeonHands,ring1="Petrov Ring",ring2="Gere Ring",
-        back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Taeon Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},} --I think it goes in here and party and acc?
+
+    sets.TP['Low Haste'] = {ammo="Yamarang",
+        head="Malignance Chapeau",neck="Erudition Necklace",ear2="Eabani Earring",ear1="Suppanomimi",
+        body="Malignance Tabard",hands="Adhemar Wristbands +1",ring1="Moonbeam Ring",ring2="Gere Ring",
+        back=capeTP,waist="Patentia Sash",legs="Samnuha Tights",
+        feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},} --I think it goes in here and party and acc?
          
-	sets.TP['Party'] = {range="Raider's Bmrng.",
-        head="Adhemar bonnet +1", neck="Erudition Necklace",ear1="Suppanomimi",ear2="Brutal Earring",
-        body="Herculean Vest",hands=TaeonHands,ring1="Petrov Ring",ring2="Gere Ring",
-        back="Toutatis's Cape",waist="Windbuffet Belt +1",legs="Taeon Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
+	sets.TP['High Haste'] = {range="Raider's Bmrng.",
+        head="Adhemar bonnet +1", neck="Erudition Necklace",ear1="Sherida Earring",ear2="Brutal Earring",
+        body="Herculean Vest",hands="Adhemar Wristbands +1",ring1="Epona's Ring",ring2="Gere Ring",
+        back=capeTP,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
     
     sets.TP['Acc'] = {ammo="Yamarang",
         head="Meghanada visor +2",neck="Erudition Necklace",ear1="Sherida Earring",ear2="Telos Earring",
@@ -75,27 +51,58 @@ function get_sets()
         back="Toutatis's Cape",waist="Kentarch Belt +1",legs="Pill. Culottes +1",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
 
 	sets.TP['TH'] = set_combine(sets.TP['Low Man'], {
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
         hands="Plunderer's Armlets +3",
-        waist="Chaac Belt"
+        waist="Chaac Belt",
+        neck="Loricate Torque +1",
+        ring1="Defending Ring"
         })
 
     sets.TP['TH Acc'] = set_combine(sets.TP['TH'], {
-        legs="Meghanada Chausses +2", feet="Meghanada Jambeaux +2"
+        legs="Meghanada Chausses +2", feet="Malignance Boots"
         })
         
+    sets.WS = {}
+    sets.WS.SA = {}
+    sets.WS.TA = {}
+    sets.WS.SATA = {}
+
+    sets.WS.Evisceration = {head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade Earring",ear2="Mache earring +1",
+        body="Pillager's Vest +2",hands="Mummu wrists +2",ring1="Ilabrat Ring",ring2="Mummu Ring",
+        back=capeWS,waist="Fotia Belt",legs="Pillager's Culottes +1",feet="Mummu Gamashes +2"}
+
+    sets.WS.Evisceration.SA = set_combine(sets.WS.Evisceration,{hands="Raider's Armlets +2"})
+
+    sets.WS["Rudra's Storm"] = { ammo="Cath Palug Stone",
+        head="Pillager's Bonnet +2",neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
+        body="Meghanada cuirie +2",hands="Meghanada gloves +2",ring1="Ilabrat Ring",ring2="Regal ring",
+        back=capeWS,waist="Grunfeld Rope",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+        Ammo="Cath Palug stone"
         
-    --sets.TP.Evasion = {
-    --  head="Skulker's bonnet +1",neck="Ej Necklace +1",ear1="Novia Earring",ear2="Phawaylla Earring",
-    --	body="Qaaxo Harness",hands="Pill. Armlets +1",ring1="Defending Ring",ring2="Epona's Ring",
-    --	back="Fugacity Mantle +1",waist="Kasiri Belt",legs="Pill. Culottes +1",feet="Plunderer's Poulaines +1"}
+    sets.WS["Rudra's Storm"].SA = set_combine(sets.WS["Rudra's Storm"],
+        {
+        -- head="Imperial Wing Hairpin",
+        body="Pillager's Vest +2",hands="Raider's Armlets +2",legs="Nyame Flanchard", feet="Nyame Sollerets"}
+    )
+        
+    sets.WS.Exenterator = {head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Sherida Earring",
+        body="Pillager's Vest +2",hands="Herculean Gloves",ring1="Ilabrat ring",ring2="Mummu Ring",
+        back=capeWS,waist="Fotia Belt",legs="Nahtirah Trousers",feet="Mummu gamashes +2"}
+
+    sets.WS.Exenterator.TA = {ear1="Steelflash Earring",ear2="Bladeborn Earring", --head neck ring1
+        body="Pillager's Vest +2",ring2="Gere Ring", --hands
+        back=capeWS,waist="Windbuffet Belt +1",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +1"}
+        
+    sets.WS.Exenterator.SATA = set_combine(sets.WS.TA.Exenterator, {})
     
-    Idle_Set_Names = {'Normal','MDT'}
+    Idle_Set_Names = {'Normal'}
     sets.Idle = {}
     sets.Idle.Normal = {head="Skulker's bonnet +1",neck="Loricate Torque +1",--ear1="Merman's Earring",ear2="Bladeborn Earring",
         body="Emet Harness +1",hands="Plunderer's Armlets +3",ring1="Dark Ring",ring2="Defending Ring",
-        back="Repulse Mantle",waist="Chaac Belt",legs="Ighwa Trousers",feet="Skadi's Jambeaux +1"}
+        back=capeTP,waist="Chaac Belt",legs="Ighwa Trousers",feet="Skadi's Jambeaux +1"}
                 
-    -- sets.Idle.MDT = {head="Skulker's bonnet +1",neck="Twilight Torque",ear1="Merman's Earring",ear2="Bladeborn Earring",
+    -- sets.Idle.MDT = {head="Skulker's bonnet +1",ear1="Merman's Earring",ear2="Bladeborn Earring",
     --     body="Avalon Breastplate",hands="Iuitl Wristbands +1",ring1="Defending Ring",ring2="Dark Ring",
     --     back="Mollusca Mantle",waist="Wanion Belt",legs="Nahtirah Trousers",feet="Skadi's Jambeaux +1"}
 	
@@ -107,10 +114,15 @@ function precast(spell)
     if sets.JA[spell.english] then
         equip(sets.JA[spell.english])
     elseif spell.type=="WeaponSkill" then
-        if sets.WS[spell.english] then equip(sets.WS[spell.english]) end
-        if buffactive['sneak attack'] and buffactive['trick attack'] and sets.WS.SATA[spell.english] then equip(sets.WS.SATA[spell.english])
-        elseif buffactive['sneak attack'] and sets.WS.SA[spell.english] then equip(sets.WS.SA[spell.english])
-        elseif buffactive['trick attack'] and sets.WS.TA[spell.english] then equip(sets.WS.TA[spell.english]) end
+        if sets.WS[spell.english] then 
+            equip(sets.WS[spell.english]) 
+        end
+        if buffactive['sneak attack'] and buffactive['trick attack'] and sets.WS[spell.english].SATA then 
+            equip(sets.WS[spell.english].SATA)
+        elseif buffactive['sneak attack'] and sets.WS[spell.english].SA then 
+            equip(sets.WS[spell.english].SA)
+        elseif buffactive['trick attack'] and sets.WS[spell.english].TA then 
+            equip(sets.WS[spell.english].TA) end
     elseif string.find(spell.english,'Waltz') then
         equip(sets.JA.Waltz)
     end

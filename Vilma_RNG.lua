@@ -80,7 +80,7 @@ function user_setup()
        
         rng_sub_weapons = S{'Perun +1','Nusku Shield', 
         { name="Malevolence", augments={'INT+9','Mag. Acc.+10','"Mag.Atk.Bns."+9','"Fast Cast"+4',}},
-    { name="Malevolence", augments={'INT+2','Mag. Acc.+1','"Mag.Atk.Bns."+3','"Fast Cast"+1',}}}
+        { name="Malevolence", augments={'INT+2','Mag. Acc.+1','"Mag.Atk.Bns."+3','"Fast Cast"+1',}}}
         
         sam_sj = player.sub_job == 'SAM' or false
 
@@ -90,9 +90,6 @@ function user_setup()
         BelenusPreshot = { name="Belenus's Cape", augments={'"Snapshot"+10',}}
         BelenusAgiWS = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
 
-        HerculeanBodyWS={ name="Herculean Vest", augments={'Rng.Acc.+22 Rng.Atk.+22','Weapon skill damage +2%'}}
-        HerculeanLegsWS={ name="Herculean Trousers", augments={'Rng.Acc.+24 Rng.Atk.+24','Weapon skill damage +3%'}}
-        HerculeanFeetWS={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14'}}
 
       	DefaultAmmo = {[gear.Bow] = "Achiyalabopa arrow", [gear.Gun] = "Achiyalabopa bullet"}
 	    U_Shot_Ammo = {[gear.Bow] = "Achiyalabopa arrow", [gear.Gun] = "Achiyalabopa bullet"} 
@@ -198,12 +195,12 @@ function init_gear_sets()
         })
         
         sets.idle = {
-            head="Malignance Chapeau",
+            head="Nyame Helm",
             neck="Loricate Torque +1",
             ear1="Enervating Earring",
             ear2="Telos Earring",
-            body="Malignance Tabard",
-            hands="Floral Gauntlets",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
             ring1="Dark Ring",
             ring2="Defending Ring",
             back="Repulse Mantle",
@@ -252,6 +249,7 @@ function init_gear_sets()
             back=BelenusPreshot, -- 3
             legs="Orion Braccae +2", -- 9
             waist="Yemaya Belt", -- 2
+            left_ring="Crepuscular Ring",
             feet="Meghanada Jambeaux +2"
         }
         
@@ -259,8 +257,8 @@ function init_gear_sets()
         -- Default Base Gear Sets for Ranged Attacks. Geared for BOW
         ------------------------------------------------------------------
         sets.midcast.RA = {
-            head={ name="Arcadian Beret +2", augments={'Enhances "Recycle" effect',}},
-            body="Mummu jacket +1", 
+            head={ name="Arcadian Beret +3", augments={'Enhances "Recycle" effect',}},
+            body="Mummu jacket +2", 
             hands="Carmine Finger Gauntlets +1",
             legs="Adhemar Kecks",
             feet="Orion socks +2",
@@ -268,7 +266,7 @@ function init_gear_sets()
             neck="Iskur Gorget",
             left_ear="Telos Earring",
             right_ear="Enervating Earring",
-            left_ring="Ilabrat Ring",
+            left_ring="Crepuscular Ring",
             right_ring="Regal Ring",
             back=BelenusTP
         }
@@ -297,13 +295,14 @@ function init_gear_sets()
             ear1="Moonshade Earring",
             ear2="Enervating Earring",
             body=HerculeanBodyWS,
-            hands="Meghanada Gloves +2",
+            -- hands="Meghanada Gloves +2",
+            hands="Nyame Gauntlets",
             ring1="Apate Ring",
             ring2="Petrov Ring",
             back=BelenusDexCrit,
             waist="Fotia Belt",
             legs="Arcadian Braccae +3", 
-            feet=HerculeanFeetWS
+            feet="Nyame Sollerets"
         }
         sets.precast.WS.Mid = set_combine(sets.precast.WS, {
             body="Orion Jerkin +2"
@@ -315,10 +314,11 @@ function init_gear_sets()
 
         sets.LastStand = {
             head="Orion Beret +3",
-            body={ name="Herculean Vest", augments={'Rng.Acc.+22 Rng.Atk.+22','Weapon skill damage +2%',}},
-            hands="Meghanada Gloves +2",
+            body="Nyame Mail",
+            -- hands="Meghanada Gloves +2",
+            hands="Nyame Gauntlets",
             legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},
-            feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
+            feet="Nyame Sollerets",
             neck="Scout's Gorget +1",
             waist="Fotia Belt",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -342,12 +342,11 @@ function init_gear_sets()
         sets.Trueflight = {
             head="",
             body="Cohort Cloak +1",
-            -- body={ name="Samnuha Coat", augments={'Mag. Acc.+13','"Mag.Atk.Bns."+14','"Fast Cast"+3','"Dual Wield"+4',}},
-            hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
-            -- legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+20','Weapon skill damage +4%','INT+10',}},
-            -- feet={ name="Herculean Boots", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','Weapon skill damage +4%','STR+7','Mag. Acc.+1','"Mag.Atk.Bns."+5',}},
+
+            hands="Nyame Gauntlets",
             legs="Nyame Flanchard",
             feet="Nyame Sollerets",
+
             neck="Scout's Gorget +1",
             waist="Eschan Stone",
             left_ear="Friomisi Earring",
@@ -390,11 +389,11 @@ function init_gear_sets()
 
         sets.ApexArrow = {
             head={ name="Herculean Helm", augments={'Rng.Acc.+15 Rng.Atk.+15','DEX+12','Rng.Acc.+10','Rng.Atk.+10',}},
-            body="Mummu Jacket +1",
+            body="Mummu Jacket +2",
             hands="Mummu Wrists +2",
             legs="Meghanada Chausses +2",
             feet="Meg. Jam. +2",
-            neck="Marked Gorget",
+            neck="Iskur Gorget",
             waist="Kwahu Kachina Belt",
             left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
             right_ear="Enervating Earring",
@@ -417,7 +416,8 @@ function init_gear_sets()
             head="Orion Beret +3",
             legs="Arcadian Braccae +3",
             body="Meghanada Cuirie +2",
-            feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
+            -- feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
+            feet="Nyame Sollerets",
             ring1="Dingir Ring",
             ring2="Ilabrat Ring",
             back=BelenusAgiWS
@@ -432,14 +432,15 @@ function init_gear_sets()
             ear1="Sherida Earring",
             ear2="Ishvara Earring",
             body="Meghanada cuirie +2",
-            hands="Meg. Gloves +2",
+            -- hands="Meg. Gloves +2",
+            hands="Nyame Gauntlets",
             ring1="Dingir Ring",
             -- ring2="Karieyh Ring",
-            ring2="Ilabrat Ring",
+            ring2="Regal Ring",
             back=BelenusAgiWS,
             waist="Fotia Belt",
             legs="Arc. Braccae +3",
-            feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
+            feet="Nyame Sollerets",
         }
 
         sets.precast.WS['Coronach'] = set_combine(sets.precast.WS, sets.Coronach)
@@ -447,11 +448,12 @@ function init_gear_sets()
         sets.precast.WS['Coronach'].Acc = set_combine(sets.precast.WS.Acc, sets.Coronach)
 
         sets.HotShot = set_combine(sets.Trueflight, {
-            head="Orion Beret +3", --wsd
-            body="Samnuha Coat",
-            hands="Meghanada Gloves +2", --wsd
-            legs="Nyame Flanchard", --wsd
+            
+            -- legs="Nyame Flanchard", --wsd
+            hands="Nyame Gauntlets",
+            legs="Arcadian Braccae +3",
             feet="Nyame Sollerets", --wsd
+            waist="Fotia Belt"
 
         })
 
@@ -459,13 +461,38 @@ function init_gear_sets()
         sets.precast.WS["Hot Shot"].Mid = set_combine(sets.precast.WS.Mid, sets.HotShot)
         sets.precast.WS["Hot Shot"].Acc = set_combine(sets.precast.WS.Acc, sets.HotShot)
         
+        sets.FlamingArrow = set_combine(sets.HotShot, {
+            
+            })
+
+        sets.precast.WS["Flaming Arrow"] = set_combine(sets.precast.WS, sets.FlamingArrow)
+        sets.precast.WS["Flaming Arrow"].Mid = set_combine(sets.precast.WS.Mid, sets.FlamingArrow)
+        sets.precast.WS["Flaming Arrow"].Acc = set_combine(sets.precast.WS.Acc, sets.FlamingArrow)
+
+        sets.EmpyrealArrow = set_combine(sets.ApexArrow, {
+
+        })
+
+        sets.precast.WS["Empyreal Arrow"] = set_combine(sets.precast.WS, sets.EmpyrealArrow)
+        sets.precast.WS["Empyreal Arrow"].Mid = set_combine(sets.precast.WS.Mid, sets.EmpyrealArrow)
+        sets.precast.WS["Empyreal Arrow"].Acc = set_combine(sets.precast.WS.Acc, sets.EmpyrealArrow)
+
+        sets.Detonator = set_combine(sets.LastStand, {
+
+        })
+
+        sets.precast.WS["Detonator"] = set_combine(sets.precast.WS, sets.Detonator)
+        sets.precast.WS["Detonator"].Mid = set_combine(sets.precast.WS.Mid, sets.Detonator)
+        sets.precast.WS["Detonator"].Acc = set_combine(sets.precast.WS.Acc, sets.Detonator)
+
         sets.SavageBlade = set_combine(sets.precast.WS, {
             head="Orion Beret +3",
             -- neck="Fotia Gorget",
             neck="Scout's Gorget +1",
             ear1="Ishvara Earring",
             ear2="Moonshade Earring",
-            hands="Meghanada Gloves +2",
+            -- hands="Meghanada Gloves +2",
+            hands="Nyame Gauntlets",
             ring1="Metamorph Ring +1",
             ring2="Regal Ring",
             back=BelenusAgiWS,
@@ -849,10 +876,10 @@ end
 
 function use_obi(spell)
 
-elements = {}
-elements.use_on_single_conflict = false
-elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
-elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
+    local elements = {}
+    elements.use_on_single_conflict = false
+    elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
+    elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 
 
     local use_obi = false

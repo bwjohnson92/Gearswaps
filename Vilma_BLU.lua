@@ -82,12 +82,12 @@ function get_sets()
     sets.Idle.index = {'Standard','DT'}
     Idle_ind = 1   
 
-    sets.Idle.Standard = {ammo="Ginsen",
+    sets.Idle.Standard = {ammo="Coiste Bodhar",
     head="Adhemar Bonnet +1",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
     body="Amalric Doublet +1",hands="Serpentes cuffs",ring1="Dark ring",ring2="Defending ring",
     back="Repulse mantle",waist="Fucho-no-obi",legs="Crimson cuisses",feet="Serpentes sabots"}
 
-    sets.Idle.DT = {ammo="Ginsen",
+    sets.Idle.DT = {ammo="Coiste Bodhar",
         head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Ethereal earring", ear2="Heartseeker earring",
         body="Malignance Tabard",hands="Umuthi gloves",ring1="Dark ring",ring2="Defending ring",
         back="Agema Cape",waist="Flume belt +1",legs="Herculean Trousers",feet="Malignance Boots"
@@ -102,7 +102,7 @@ function get_sets()
     sets.TP.Standard = {
         -- main="Sequence",
         -- sub="Colada",
-        ammo="Ginsen",
+        ammo="Coiste Bodhar",
         --head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
         head="Adhemar Bonnet +1",
         body=HercBodyTP,
@@ -118,7 +118,7 @@ function get_sets()
         back=CapeDEXTP,
     }
 
-    sets.TP.Accuracy = {ammo="Ginsen",
+    sets.TP.Accuracy = {ammo="Coiste Bodhar",
     head="Adhemar Bonnet +1",neck="Sanctity Necklace", ear1="Telos earring", ear2="Dignitary's earring",
     body=HercBodyTP,hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Patricius Ring",
     back=CapeDEXTP,waist="Windbuffet Belt +1",legs=HercLegsTP,feet="Malignance Boots"}
@@ -146,7 +146,7 @@ function get_sets()
     body=HercBodyTP,hands="Adhemar Wristbands",ring1="Epona's ring",ring2="Apate ring",
     back=CapeWS,waist="Fotia Belt",legs="Samnuha Tights",feet=HercFeetTP}
 
-    sets.WS.ExpSavage = {ammo="Ginsen",
+    sets.WS.ExpSavage = {ammo="Coiste Bodhar",
         head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
         body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Rufescent ring",ring2="Metamorph ring +1",
         back=CapeWS,waist="Grunfeld Rope",
@@ -210,7 +210,7 @@ function get_sets()
     back="Oretania's cape",waist="Chuq'aba Belt",legs="Quiahuiz trousers",feet="Skaoi Boots"}
 
     sets.BlueMagic.Stun = {ammo="Mavi tathlum",
-    head="Assim. keffiyeh",neck="Eddy necklace",ear1="Loquac. earring",
+    head="Assim. keffiyeh",neck="Sanctity necklace",ear1="Loquac. earring",
     body="Assim. jubbah +1",hands="Mv. bazubands +2",ring1="Prolix ring",ring2="Sangoma ring",
     back="Cornflower cape",waist="Twilight belt",legs="Mavi tayt +2",feet="Luhlaza charuqs +1"}
 
@@ -224,7 +224,7 @@ function get_sets()
     back="Oretania's cape",feet="Llwyd's clogs"}
 
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
-    head="Malignance Chapeau",neck="Eddy necklace",ear1="Dignitary's earring",ear2="Gwati earring",
+    head="Malignance Chapeau",neck="Sanctity necklace",ear1="Dignitary's earring",ear2="Crepuscular earring",
     body="Malignance Tabard",hands="Jhakri Cuffs +2",ring1="Stikini ring",ring2="Metamorph ring +1",
     back=CapeINT,waist="Sacro Cord",legs="Ayanmo Cosciales +2",feet="Malignance Boots"}
 
