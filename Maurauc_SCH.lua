@@ -56,7 +56,7 @@ function get_sets()
         back="Ghostfyre Cape",waist="Rumination Sash",legs="Psycloth Lappas",feet="Medium's Sabots"}
 
 --    sets.midcast.ElementalMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
---        head=MerlinicHoodNuke,neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Malignance Earring",
+--        head=MerlinicHoodNuke,neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Malignance Earring",
 --        body="Merlinic Jubbah",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
 --        back="Lugh's Cape",waist="Sacro Cord",legs="Merlinic Shalwar",feet=MerlinicFeetNuke} 
     sets.midcast.ElementalMagicAcc = {
@@ -83,7 +83,7 @@ function get_sets()
         hands={ name="Amalric Gages +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
         legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -2%','CHR+8','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
         feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
-        neck="Eddy Necklace",
+        neck="Sanctity Necklace",
         waist="Sacro Cord",
         left_ear="Barkaro. Earring",
         right_ear="Malignance Earring",

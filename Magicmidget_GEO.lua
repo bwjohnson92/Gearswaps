@@ -80,14 +80,16 @@ function get_sets()
 		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
-	    main="Malignance Pole",
-	    sub="Alber Strap",
+	    -- main="Malignance Pole",
+	    -- sub="Alber Strap",
 	    range={ name="Dunna", augments={'MP+19','Mag. Acc.+9','"Fast Cast"+2',}},
-	    head="Azimuth Hood +1",
-	    body="Mallquis Saio +2",
+	    head="Nyame Helm",
+	    -- body="Mallquis Saio +2",
+	    body="Nyame Mail",
 	    hands="Geo. Mitaines +3",
-	    legs={ name="Telchine Braconi", augments={'Mag. Acc.+23','Pet: "Regen"+3','Pet: Damage taken -4%',}},
-	    feet="Azimuth Gaiters +1",
+	    -- legs={ name="Telchine Braconi", augments={'Mag. Acc.+23','Pet: "Regen"+3','Pet: Damage taken -4%',}},
+	    legs="Nyame Flanchard",
+	    feet="Nyame Sollerets",
 	    neck={ name="Bagua Charm +1", augments={'Path: A',}},
 	    waist="Isa Belt",
 	    left_ear="Etiolation Earring",
@@ -101,9 +103,11 @@ function get_sets()
 		main="Idris", sub="Genmei Shield",
 		head="Azimuth Hood +1",
 		neck="Bagua Charm +1",
-		body="Mallquis Saio +2", 
+		-- body="Mallquis Saio +2", 
+		body="Nyame Mail",
 		hands="Telchine Gloves",
-	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
+	    -- back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
+	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
 		feet="Bagua Sandals +3",
@@ -127,6 +131,8 @@ function get_sets()
 		waist="Witful Belt",
 		legs="Geomancy Pants +1"
 	})
+
+	sets.precast.Dispelga = set_combine(sets.precast.FastCast, {main="Daybreak"})
 		
 	sets.midcast.EnfeeblingMagic = {
 	    main={ name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}},
@@ -145,6 +151,11 @@ function get_sets()
 	    right_ring="Vertigo Ring",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
+
+	sets.midcast.Dispelga = set_combine(sets.midcast.EnfeeblingMagic, {
+		main="Daybreak",
+		sub="Ammurapi Shield"
+	})
 
 	sets.midcast.ElementalMagic = {
 	    main="Grioavolr",
@@ -235,6 +246,10 @@ end
 -- --- Precast ---
 
 function precast(spell)
+	if (spell.name == "Dispelga") then
+		equip(sets.precast.Dispelga)
+		return
+	end
 	if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') or string.find(spell.type, 'Geomancy') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cur') then 
@@ -277,6 +292,10 @@ end
 -- --- MidCast ---
 function midcast(spell)
 	set = {}
+	if (spell.name == "Dispelga") then
+		equip(sets.midcast.Dispelga)
+		return
+	end
 	if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 

@@ -108,7 +108,7 @@ function get_sets()
     }
 
     sets.midcast.ElementalMagicHighMP = {sub="Enki Strap", ammo="Strobilus",
-        head={ name="Arch. Petasos +3"}, neck="Eddy Necklace",ear1="Etiolation Earring",ear2="Malignance Earring",
+        head={ name="Arch. Petasos +3"}, neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Malignance Earring",
         body="Spaekona's Coat +3",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
 
@@ -134,22 +134,24 @@ function get_sets()
         body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Kishar Ring",ring2="Ephedra Ring",
         back="Oretania's Cape",waist="Cascade Belt",feet="Skaoi Boots"}
 
-    organizer_items = {main="Echo Drops", sub="Cehuetzi Snow Cone",ranged="Cream Puff",ammo="Pear Crepe", 
-    head="Crepe b. Helene", body="Trizek Ring", ear1="Reraise Earring",
+    organizer_items = {
+        main="Echo Drops", sub="Cehuetzi Snow Cone",ranged="Remedy",ammo="Pear Crepe", 
+        head="Tropical Crepe", body="Trizek Ring", ear1="Reraise Earring",
         ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
-        back="Mecistopins Mantle"}
+        back="Mecistopins Mantle"
+    }
         
     sets.midcast.Death = {
         -- main="Lathi",
         sub="Enki Strap", ammo="Strobilus",
-        head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Malignance Earring",ear2="Static Earring",
+        head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Static Earring",
         body=MerlinicBodyBurst,hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
     
     sets.midcast.DeathHighMP = {
         -- main="Lathi",
         sub="Enki Strap", ammo="Strobilus",
-        head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Malignance Earring",ear2="Barkarole Earring",
+        head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Barkarole Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
     

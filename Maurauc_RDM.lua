@@ -50,6 +50,8 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
     
 	sets.desperation = {body="Seidr Cotehardie"}
 
+	sets.Crocea = {main="Crocea Mors"}
+
 	sets.Idle.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Atrophy Tabard +3",hands="Volte Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
@@ -75,15 +77,20 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		legs="Carmine Cuisses +1"
 	})
 
-	--[[sets.Idle.Idle = {main="Bolelabunga",sub="Genbu's Shield", ammo="Homiliary",
-		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-		body={name="Witching Robe", augments={'MP+5', '"Refresh"+1',}},hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
-		back="Repulse Mantle",waist="Fucho-no-obi",legs="Lengo Pants",feet="Serpentes Sabots"}]]--
-
 	sets.precast.FastCast = {
-		head="Atrophy Chapeau +3",neck="Voltsurge Torque", ear2="Loquacious Earring",
-		body="Vitiation Tabard +3",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
-		back="Swith Cape",legs="Psycloth Lappas",feet="Merlinic Crackows"}
+		main="Crocea Mors",
+		sub="",
+		head={name="Atrophy Chapeau +3",priority=1},
+		neck="Voltsurge Torque",
+		ear2="Loquacious Earring",
+		body={name="Vitiation Tabard +3",priority=1},
+		hands="Leyline Gloves",
+		ring1="Kishar Ring",
+		ring2="Weatherspoon Ring +1",
+		back={name="Swith Cape",priority=15},
+		legs="Psycloth Lappas",
+		feet="Merlinic Crackows"
+	}
 	
 	sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
 	
@@ -106,6 +113,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		body="Atrophy Tabard +3",
 		waist="Luminary Sash",
 		ring2="Weatherspoon Ring +1",
+		ear1="Regal Earring",
 		back=SucellosMND
 		})
 
@@ -119,13 +127,13 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		ammo="Regal Gem"
 	})
 		
-	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Ghastly Tathlum +1",
-		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
+	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
+		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosINT,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +3"}	
 
-	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
-		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
+	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosINT,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +3"}	
 	
@@ -142,13 +150,13 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Lethargy Sayon +1",hands="Atrophy Gloves +3",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
-		back=SucellosMND,waist="Cascade Belt",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +1"}
+		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +1"}
 
 		
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Befouled Crown",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Vitiation Tabard +3",hands="Vitiation Gloves +2",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
-		back=SucellosMND,waist="Gishdubar Sash",legs="Carmine Cuisses +1",feet="Lethargy Houseaux +1"}
+		back="Ghostfyre Cape",waist="Gishdubar Sash",legs="Carmine Cuisses +1",feet="Lethargy Houseaux +1"}
 
 	sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
 		neck="Duelist's Torque +1",
@@ -191,10 +199,14 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
 	
-	organizer_items = { main="Echo Drops", ranged="Cream Puff", sub="Pear Crepe", ammo="Crepe B. Helene",
-			body="Trizek Ring", ear1="Reraise Earring",
-			ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
-			back="Mecistopins Mantle"}
+	organizer_items = { 
+		echo="Echo Drops", 
+		food="Tropical Crepe",
+		-- holy="Holy Water",
+		remedy="Remedy",
+		-- panacea="Panacea",
+		antacid="Antacid"
+	}
 
 	sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
 		head="Merlinic Hood",
@@ -206,10 +218,10 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 
 	sets.WS.SeraphBlade = {
 	    ammo="Pemphredo Tathlum",
-	    head="Jhakri Coronal +2",
+	    head="Nyame Helm",
 	    ear1="Ishvara Earring",
 	    ear2="Moonshade Earring",
-	    body="Jhakri Robe +2",
+	    body="Amalric Doublet +1",
 	    hands="Jhakri Cuffs +2",
 	    ring1="Freke Ring",
 	    ring2="Weather. Ring +1",
@@ -218,17 +230,16 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    neck="Sanctity Necklace",
 	    waist="Sacro Cord",
 	    legs="Amalric Slops +1",
-	    feet="Vitiation Boots +3"
+	    feet="Nyame Sollerets"
 	}
 
 	sets.WS.SanguineBlade = set_combine(sets.WS.SeraphBlade, {
 
 		ear1="Malignance Earring",
 		head="Pixie Hairpin +1",
-		body="Amalric Doublet +1",
 		ring2="Archon Ring",
 		back=SucellosWS,
-		feet="Amalric Nails +1",
+		-- feet="Amalric Nails +1",
 	})
 
 	sets.WS.PhysicalWS = {
@@ -310,28 +321,52 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		ring1="Ilabrat Ring",
 		ring2="Petrov Ring",
 		waist="Windbuffet Belt +1",
-		ammo="Ginsen"
+		ammo="Coiste Bodhar"
 
 	}
 
 	sets.Melee.SingleWieldSB = {
-		main="Vitiation Sword",
+		main="Crocea Mors",
 		sub="Ammurapi Shield",
-		ranged="Kaja Bow",
+		ammo="Hasty Pinion +1",
 	    head="Umuthi Hat",
 	    neck="Bathy Choker",
 	    ear1="Digni. Earring",
 	    ear2="Andoaa Earring",
-	    body="Viti. Tabard +3",
 	    hands="Aya. Manopolas +2",
 	    ring1="Chirich Ring +1",
 	    ring2="Chirich Ring +1",
 	    back="Ghostfyre Cape",
+	    waist="Orpheus's Sash",
 	    -- waist="Hachirin-no-obi",
-	    waist="Eschan Stone",
-	    legs="Malignance Tights",
-	    feet="Malignance Boots"
+	    legs="Vitiation Tights +3",
+	    --body="Vitiation Tabard +3",
+	    -- feet="Malignance Boots",
+	    body="Malignance Tabard",
+	    feet="Lethargy Houseaux +1"
 	}
+
+	sets.Melee.SingleWieldSB = {
+		main="Crocea Mors",
+		sub="Ammurapi Shield",
+		ammo="Hasty Pinion +1",
+	    head="Umuthi Hat",
+	    neck="Bathy Choker",
+	    ear1="Digni. Earring",
+	    ear2="Andoaa Earring",
+	    hands="Aya. Manopolas +2",
+	    ring1="Chirich Ring +1",
+	    ring2="Chirich Ring +1",
+	    back="Ghostfyre Cape",
+	    waist="Orpheus's Sash",
+	    -- waist="Hachirin-no-obi",
+	    legs="Vitiation Tights +3",
+	    --body="Vitiation Tabard +3",
+	    -- feet="Malignance Boots",
+	    body="Malignance Tabard",
+	    feet="Lethargy Houseaux +1"
+	}
+
 
 	sets.Melee.Enspell = {
 		-- head="Umuthi Hat",
@@ -347,7 +382,14 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    right_ear="Sherida Earring",
 	    left_ring="Apate Ring",
 	    right_ring="Ilabrat Ring",
-	    back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +8','Enha.mag. skill +8','Mag. Acc.+7','Enh. Mag. eff. dur. +14',}}
+	    -- back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +8','Enha.mag. skill +8','Mag. Acc.+7','Enh. Mag. eff. dur. +14',}}
+	    back="Ghostfyre Cape"
+	}
+
+	sets.Bio = {
+		body="Volte Jupon",
+		waist="Chaac Belt",
+		legs="Volte Hose"
 	}
 
 	sets.Enspell = {
@@ -391,15 +433,9 @@ function precast(spell)
 		equip(sets.precast.FastCastImpact)
 	elseif spell.english == "Dispelga" then
 		equip(sets.precast.Dispelga)
-	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
-		if string.find(spell.skill,'Healing Magic') then
-			if string.find(spell.english, 'Cur') then 	
-				equip(sets.precast.FastCast)
-			end
-		else		
-			equip(sets.precast.FastCast)
+	elseif string.find(spell.type,'Magic') or string.find(spell.type,'Trust') then
+		equip(sets.precast.FastCast)
 			--send_command('input /echo "FC"')
-		end
 		if string.find(spell.skill,'Enhancing Magic') then
 			equip({waist="Siegel Sash"})
 			if string.find(spell.english,'Stoneskin') then
@@ -433,6 +469,8 @@ function midcast(spell)
 		equip(sets.midcast.Impact)
 	elseif spell.english == "Dispelga" then
 		equip(sets.midcast.Dispelga)
+	elseif spell.english == "Dia" or spell.english == "Bio" then
+		equip(set_combine(sets.midcast.Enfeebling, sets.Bio))
 	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
@@ -452,14 +490,14 @@ function midcast(spell)
 		elseif string.find(spell.skill,'Enhancing Magic') then
 			if string.find(spell.english, 'Erase') then
 				equip(sets.precast.FastCast)
-			elseif string.find(spell.english,'Phal') then
+			elseif string.find(spell.english,'Phalanx') and spell.target.name == player.name then
 				add_to_chat(140, "Phalanx")
 				equip(set_combine(sets.midcast.EnhancingMagic, sets.Phalanx))
-			elseif string.find(spell.english,'Bar') or string.find(spell.english, "Gain") or string.find(spell.english, "Phal") or string.find(spell.english, "Temper") or string.find(spell.english, "En") then
+			elseif string.find(spell.english,'Bar') or string.find(spell.english, "Gain") or string.find(spell.english, "Temper") or string.find(spell.english, "En") then
 				equip(sets.midcast.EnhancingMagic)
 			elseif (string.find(spell.english, "Refresh")) then
 				equip(sets.midcast.Refresh)
-			elseif buffactive['composure'] and spell.target.type == 'PLAYER' then
+			elseif buffactive['composure'] and spell.target.type == 'PLAYER' and not spell.target.name == player.name then
 				add_to_chat(140,'PLAYER')
 				equip(sets.midcast.EnhancingMagicComposure)
 			else

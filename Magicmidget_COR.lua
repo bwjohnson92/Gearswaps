@@ -45,12 +45,16 @@ sets.idle = {
     main="Fettering Blade",
     range="Compensator",
     ammo="Eminent Bullet",
-    head="Herculean Helm",
-    body="Meghanada Cuirie",
-    hands="Meghanada Gloves",
+    -- head="Herculean Helm",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    -- body="Meghanada Cuirie",
+    -- hands="Meghanada Gloves",
+    hands="Nyame Gauntlets",
     legs="Carmine Cuisses +1",
-    feet="Meg. Jambeaux",
-    neck="Twilight Torque",
+    -- feet="Meg. Jambeaux",
+    feet="Nyame Sollerets",
+    neck="Loricate Torque +1",
     waist="Chaac Belt",
     left_ear="Etiolation Earring",
     right_ear="Loquac. Earring",
@@ -136,6 +140,8 @@ function precast(spell)
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
+    elseif (spell.name == 'Double-Up') then
+        equip(sets.roll)
     end
 
     if spell.action_type == 'Ranged Attack' then
@@ -159,6 +165,8 @@ function midcast(spell)
         equip(sets.WildCard)
     elseif (spell.type == 'CorsairRoll') then
         equip(set_combine(sets.roll, sets.roll[spell.name]))
+    elseif (spell.name == 'Double-Up') then
+        equip(sets.roll)
     end
     if spell.action_type == 'Ranged Attack' then
         equip(sets.RA)
