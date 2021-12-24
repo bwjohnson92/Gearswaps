@@ -416,12 +416,14 @@ function precast(spell)
 
     if spell.action_type == 'Ranged Attack' then
         equip(sets.preshot)
-    elseif spell.type:lower() == 'weaponskill' then
+    elseif spell.type:lower() == 'weaponskill' or spell.action_type == "WeaponSkill" then
         if (spell.english == "Leaden Salute") then
-        	equip(use_obi(spell, sets.WS.LeadenSalute[sets.WS.LeadenSalute.index[Leaden_Index]]))
+        	-- equip(use_obi(spell, sets.WS.LeadenSalute[sets.WS.LeadenSalute.index[Leaden_Index]]))
+            equip(sets.WS.LeadenSalute.Standard)
             add_to_chat(140, "Leaden Salute Index: "..sets.WS.LeadenSalute.index[Leaden_Index])
         elseif (spell.english == "Wildfire") then
-        	equip(sets.WS.LeadenSalute.index[sets.WS.LeadenSalute.index[Leaden_Index]])
+        	-- equip(sets.WS.LeadenSalute.index[sets.WS.LeadenSalute.index[Leaden_Index]])
+            equip(sets.WS.LeadenSalute.Standard)
         elseif (spell.english == "Last Stand") or (spell.english == "Detonator") then
         	equip(sets.WS.LastStand[sets.RA.index[Ranged_Index]])
         -- equip(sets.RA.Standard)

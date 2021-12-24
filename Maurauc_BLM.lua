@@ -108,7 +108,7 @@ function get_sets()
     }
 
     sets.midcast.ElementalMagicHighMP = {sub="Enki Strap", ammo="Strobilus",
-        head={ name="Arch. Petasos +3"}, neck="Eddy Necklace",ear1="Etiolation Earring",ear2="Malignance Earring",
+        head={ name="Arch. Petasos +3"}, neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Malignance Earring",
         body="Spaekona's Coat +3",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
 
@@ -144,14 +144,14 @@ function get_sets()
     sets.midcast.Death = {
         -- main="Lathi",
         sub="Enki Strap", ammo="Strobilus",
-        head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Malignance Earring",ear2="Static Earring",
+        head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Static Earring",
         body=MerlinicBodyBurst,hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
     
     sets.midcast.DeathHighMP = {
         -- main="Lathi",
         sub="Enki Strap", ammo="Strobilus",
-        head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Malignance Earring",ear2="Barkarole Earring",
+        head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Barkarole Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
     

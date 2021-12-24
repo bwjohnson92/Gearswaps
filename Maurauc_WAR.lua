@@ -39,7 +39,7 @@ function get_sets()
 	}
 
 	sets.Weapons = {}
-	sets.Weapons.index = {"Chango", "Montante", "Naegling", "Shining One", "Loxotic"}
+	sets.Weapons.index = { "Naegling","Chango", "Montante", "Shining One", "Loxotic"}
 
 	sets.Weapons["Chango"] = {
 		main="Chango",
@@ -73,7 +73,7 @@ function get_sets()
 	sets.TP.index = {'Standard', 'DT', 'TH', 'Subtle Blow'}
 	TP_ind = 2
 	sets.TP.Standard = {
-	    ammo="Ginsen",
+	    ammo="Coiste Bodhar",
 	    head="Flam. Zucchetto +2",
 	    body="Valorous Mail",
 --	    hands={ name="Odyssean Gauntlets", augments={'Accuracy+25 Attack+25','Weapon Skill Acc.+3','DEX+5','Accuracy+1','Attack+12',}},
@@ -88,10 +88,11 @@ function get_sets()
 	    left_ring="Flamma Ring",
 	    right_ring="Niqmaddu Ring",
 	    back=CapeTP,
-	    waist="Ioskeha Belt"
+	    waist="Ioskeha Belt +1"
 	}
 
 	sets.DT = {
+		ammo="Coiste Bodhar",
 	    head="Sakpata's Helm",
 	    body="Sakpata's Plate",
 	    hands="Sakpata's Gauntlets",
@@ -99,7 +100,7 @@ function get_sets()
 	    legs="Pummeler's Cuisses +3",
 	    feet="Sakpata's Leggings",
 	    neck="War. Beads +1",
-	    waist="Ioskeha Belt",
+	    waist="Ioskeha Belt +1",
 	    left_ear="Cessance Earring",
 	    right_ear="Brutal Earring",
 	    left_ring="Defending Ring",
@@ -108,6 +109,11 @@ function get_sets()
 	}
 
 	sets.TP.DT = sets.DT
+
+	sets.TP.DT2 = set_combine(sets.TP.DT, {
+		ammo="Coiste Bodhar",
+		-- feet="Pummeler's Calligae +3"
+	})
 
 	sets.TP.TH = set_combine(sets.DT, {
 		body="Volte Jupon",
@@ -118,11 +124,14 @@ function get_sets()
 
 	sets.WS = {
 	    ammo="Knobkierrie",
-	    head="Sulevia's Mask +2",
+	    -- head="Sulevia's Mask +2",
+	    head="Nyame Helm",
 	    body="Dagon Breastplate",
 	    hands="Sulevia's Gauntlets +2",
-	    legs="Sulevia's Cuisses +2",
-	    feet="Sulevia's Leggings +2",
+	    -- legs="Sulevia's Cuisses +2",
+	    -- feet="Sulevia's Leggings +2",
+	    legs="Nyame Flanchard",
+	    feet="Nyame Sollerets",
 	    neck="Fotia Gorget",
 	    waist="Fotia Belt",
 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -138,7 +147,8 @@ function get_sets()
 	    head={ name="Agoge Mask +2", augments={'Enhances "Savagery" effect',}},
 	    body="Pumm. Lorica +3",
 	    hands={ name="Odyssean Gauntlets", augments={'Attack+27','Accuracy+8','Weapon skill damage +6%','Mag. Acc.+19 "Mag.Atk.Bns."+19',}},
-	    legs={ name="Odyssean Cuisses", augments={'Potency of "Cure" effect received+3%','Weapon skill damage +4%','Accuracy+18 Attack+18',}},
+	    -- legs={ name="Odyssean Cuisses", augments={'Potency of "Cure" effect received+3%','Weapon skill damage +4%','Accuracy+18 Attack+18',}},
+	    legs="Nyame Flanchard",
 	    feet="Sulev. Leggings +2",
 	    neck="War. Beads +1",
 	    waist="Metalsinger Belt",
@@ -189,20 +199,25 @@ function get_sets()
 
 	    ammo="Knobkierrie",
 	    -- head="Sakpata's Helm",
-	    head="Agoge Mask +2",
+	    -- head="Agoge Mask +2",
 	    neck="War. Beads +1",
 	    ear1="Telos Earring",
 	    ear2="Moonshade Earring",
-	    body="Pumm. Lorica +3",
+	    head="Nyame Helm",
+	    body="Sakpata's Breastplate",
 	    hands="Sakpata's Gauntlets",
 	    legs="Sakpata's Cuisses",
-	    feet="Sulev. Leggings +2",
+	    -- feet="Sulev. Leggings +2",
+	    feet="Nyame Sollerets",
 	    ring1="Niqmaddu Ring",
 	    ring2="Regal Ring",
-	    back="Cichol's Mantle",
-	    -- waist="Sailfi Belt +1",
-	    waist="Prosilio Belt +1"
+	    back=CapeWS,
+	    -- back="Cichol's Mantle",
+	    waist="Sailfi Belt +1",
+	    -- waist="Prosilio Belt +1"
 	}
+
+	sets.WS["Judgment"] = sets.WS["Savage Blade"]
 
 	sets.WS["Resolution"] = {
 		ammo="Seeth. Bomblet +1",

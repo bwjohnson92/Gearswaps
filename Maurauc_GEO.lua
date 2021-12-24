@@ -22,7 +22,8 @@ Idle_Index = 1
 -- Start Functions here
 -- Gear Sets
 
-capeDT={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}}
+-- capeDT={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}}
+capeRegen ={ name="Nantosuelta's Cape", augments={'Pet: "Regen"+10','Pet: "Regen"+5',}}
 
 nukingStaff = "Raetic"
 
@@ -98,7 +99,7 @@ function get_sets()
 		waist="Slipor Sash",
 		legs="Nyame Flanchard",
 		feet="Azimuth Gaiters +1",
-		back=capeDT
+		back=capeRegen
 	})
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
@@ -108,7 +109,7 @@ function get_sets()
 		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 
 		hands="Telchine Gloves",
-    	back={ name="Nantosuelta's Cape"},
+    	back="Nantosuelta's Cape",
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
 		-- feet="Bagua Sandals +2",

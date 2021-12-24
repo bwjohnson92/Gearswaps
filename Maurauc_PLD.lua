@@ -64,7 +64,7 @@ function get_sets()
 	    feet="Sakpata's Leggings",
 	    left_ring="Defending Ring",
 	    right_ring="Gelatinous Ring +1",
-	    waist="Flume Belt"
+	    waist="Flume Belt +1"
 
 	}
 
@@ -93,8 +93,10 @@ function get_sets()
 	    hands="Sakpata's Gauntlets",
 	    legs="Sakpata's Cuisses",
 	    feet="Sakpata's Leggings",
-	    neck="Asperity Necklace",
-	    waist="Sailfi Belt +1",
+	    -- neck="Asperity Necklace",
+	    neck="Loricate Torque +1",
+	    -- waist="Sailfi Belt +1",
+	    waist="Flume Belt +1",
 	    left_ear="Cessance Earring",
 	    right_ear="Telos Earring",
 	    left_ring="Petrov Ring",

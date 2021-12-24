@@ -50,6 +50,8 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
     
 	sets.desperation = {body="Seidr Cotehardie"}
 
+	sets.Crocea = {main="Crocea Mors"}
+
 	sets.Idle.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Atrophy Tabard +3",hands="Volte Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
@@ -75,12 +77,9 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		legs="Carmine Cuisses +1"
 	})
 
-	--[[sets.Idle.Idle = {main="Bolelabunga",sub="Genbu's Shield", ammo="Homiliary",
-		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-		body={name="Witching Robe", augments={'MP+5', '"Refresh"+1',}},hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
-		back="Repulse Mantle",waist="Fucho-no-obi",legs="Lengo Pants",feet="Serpentes Sabots"}]]--
-
 	sets.precast.FastCast = {
+		main="Crocea Mors",
+		sub="",
 		head={name="Atrophy Chapeau +3",priority=1},
 		neck="Voltsurge Torque",
 		ear2="Loquacious Earring",
@@ -128,13 +127,13 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		ammo="Regal Gem"
 	})
 		
-	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Ghastly Tathlum +1",
-		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
+	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
+		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosINT,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +3"}	
 
-	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
-		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
+	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosINT,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +3"}	
 	
@@ -151,13 +150,13 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Lethargy Sayon +1",hands="Atrophy Gloves +3",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
-		back=SucellosMND,waist="Cascade Belt",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +1"}
+		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +1"}
 
 		
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Befouled Crown",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Vitiation Tabard +3",hands="Vitiation Gloves +2",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
-		back=SucellosMND,waist="Gishdubar Sash",legs="Carmine Cuisses +1",feet="Lethargy Houseaux +1"}
+		back="Ghostfyre Cape",waist="Gishdubar Sash",legs="Carmine Cuisses +1",feet="Lethargy Houseaux +1"}
 
 	sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
 		neck="Duelist's Torque +1",
@@ -203,9 +202,9 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	organizer_items = { 
 		echo="Echo Drops", 
 		food="Tropical Crepe",
-		holy="Holy Water",
+		-- holy="Holy Water",
 		remedy="Remedy",
-		panacea="Panacea",
+		-- panacea="Panacea",
 		antacid="Antacid"
 	}
 
@@ -322,12 +321,12 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		ring1="Ilabrat Ring",
 		ring2="Petrov Ring",
 		waist="Windbuffet Belt +1",
-		ammo="Ginsen"
+		ammo="Coiste Bodhar"
 
 	}
 
 	sets.Melee.SingleWieldSB = {
-		main="Vitiation Sword",
+		main="Crocea Mors",
 		sub="Ammurapi Shield",
 		ammo="Hasty Pinion +1",
 	    head="Umuthi Hat",
@@ -347,6 +346,28 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    feet="Lethargy Houseaux +1"
 	}
 
+	sets.Melee.SingleWieldSB = {
+		main="Crocea Mors",
+		sub="Ammurapi Shield",
+		ammo="Hasty Pinion +1",
+	    head="Umuthi Hat",
+	    neck="Bathy Choker",
+	    ear1="Digni. Earring",
+	    ear2="Andoaa Earring",
+	    hands="Aya. Manopolas +2",
+	    ring1="Chirich Ring +1",
+	    ring2="Chirich Ring +1",
+	    back="Ghostfyre Cape",
+	    waist="Orpheus's Sash",
+	    -- waist="Hachirin-no-obi",
+	    legs="Vitiation Tights +3",
+	    --body="Vitiation Tabard +3",
+	    -- feet="Malignance Boots",
+	    body="Malignance Tabard",
+	    feet="Lethargy Houseaux +1"
+	}
+
+
 	sets.Melee.Enspell = {
 		-- head="Umuthi Hat",
 		head="Ayanmo Zucchetto +2",
@@ -361,7 +382,8 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    right_ear="Sherida Earring",
 	    left_ring="Apate Ring",
 	    right_ring="Ilabrat Ring",
-	    back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +8','Enha.mag. skill +8','Mag. Acc.+7','Enh. Mag. eff. dur. +14',}}
+	    -- back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +8','Enha.mag. skill +8','Mag. Acc.+7','Enh. Mag. eff. dur. +14',}}
+	    back="Ghostfyre Cape"
 	}
 
 	sets.Bio = {
@@ -475,7 +497,7 @@ function midcast(spell)
 				equip(sets.midcast.EnhancingMagic)
 			elseif (string.find(spell.english, "Refresh")) then
 				equip(sets.midcast.Refresh)
-			elseif buffactive['composure'] and spell.target.type == 'PLAYER' then
+			elseif buffactive['composure'] and spell.target.type == 'PLAYER' and not spell.target.name == player.name then
 				add_to_chat(140,'PLAYER')
 				equip(sets.midcast.EnhancingMagicComposure)
 			else
