@@ -40,34 +40,30 @@ function get_sets()
     }
     Idle_ind = 1
     --Idle Sets--
-    sets.Idle.Standard = { ammo="Homiliary",
-        head="Nyame Helm",neck="Futhark Torque +2",ear1="Odnowa Earring +1",ear2="Ethereal Earring",   
+    sets.Idle.Standard = { --ammo="Homiliary",
+        head="Nyame Helm",neck="Futhark Torque +2",ear1="Odnowa Earring +1", --ear2="Ethereal Earring",   
         body="Nyame Mail",hands="Regal Gauntlets",ring1="Moonbeam Ring",ring2="Defending Ring",     
-        back=OgmaTank,waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Skadi's Jambeaux +1"}   
+        back=OgmaTank,waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Nyame Sollerets"}   
 
     sets.Idle.DT = {
         ammo="Staunch Tathlum",          
-        -- head="Futhark Bandeau +3",
         head="Nyame Helm",
         neck="Futhark Torque +2",
-        ear1="Odnowa Earring +1",ear2="Sanare Earring",          
+        ear1="Odnowa Earring +1",
+        ear2="Sanare Earring",          
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         ring1="Moonbeam Ring",ring2="Defending Ring",   
-        -- back="Moonbeam Cape",
         back=OgmaTank,
         waist="Flume Belt +1",
-        -- legs="Erilaz Leg Guards +1",
         legs="Nyame Flanchard",
-        -- legs="Dashing Subligar",
-        -- feet="Turms Leggings +1"
         feet="Nyame Sollerets"
     }
 
     sets.Idle.MagicDT = set_combine(sets.Idle.DT, {
         neck="Futhark Torque +2",
         legs="Ayanmo Cosciales +2",
-        right_ear="Dominance Earring +1",
+        -- right_ear="Dominance Earring +1",
         legs="Runeist's Trousers +2",
         -- body="Erilaz Surcoat +1",
         feet="Erilaz Greaves +1",
@@ -122,46 +118,33 @@ function get_sets()
         back=OgmaSTR
     }
     --high accuracy/DT hybrid set
-    sets.TP.Accuracy = {
+    sets.TP.Accuracy = set_combine(sets.TP.Standard, {
         ammo="Falcon Eye",
-        -- head=
         head="Nyame Helm",
-        body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
         hands="Meg. Gloves +2",
         legs="Meg. Chausses +2",
-        -- feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},
         feet="Turms Leggings +1",
-        neck="Iqabi Necklace",
-        waist="Olseni Belt",
         left_ear="Digni. Earring",
         right_ear="Telos Earring",
         left_ring="Etana Ring",
-        right_ring="Cacoethic Ring +1",
+        -- right_ring="Cacoethic Ring +1",
         back={ name="Ogma's cape",}
-    }
+    })
 
     sets.TP.Hybrid = {
-        sub="Mensch strap",
-        -- ammo="Yamarang",
         ammo="Yamarang",
-        -- head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
         head="Ayanmo Zucchetto +2",
-        --body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
-        -- body="Ayanmo Corazza +2",
         body="Ashera Harness",
         hands="Turms Mittens +1",
-        -- legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
         legs="Erilaz Leg Guards +1",
         feet="Turms Leggings +1",
-        -- neck="Anu Torque",
         neck="Futhark Torque +2",
-        waist="Windbuffet Belt +1",
-        -- waist="Ioskeha Belt",
+        -- waist="Windbuffet Belt +1",
         left_ear="Sherida Earring",
         right_ear="Telos Earring",
         left_ring="Moonbeam Ring",
         right_ring="Defending Ring",
-        back={ name="Ogma's cape",}
+        back=OgmaTank
     }                        
     --full DT melee set
     sets.TP.DT = {
@@ -175,15 +158,9 @@ function get_sets()
         -- legs="Erilaz Leg Guards +1",
         legs="Nyame Flanchard",
         feet="Turms Leggings +1"}
-    --MDT melee set
-    -- sets.TP.MDTacc = {ammo="Yamarang",          
-    --     head="Futhark Bandeau +3",neck="Futhark Torque +2",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
-    --     body="Runeist's Coat +3",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",         
-    --     back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runeist's Trousers +2",feet="Taeon Boots"}    
 
     sets.TP.HP = {
-       -- head="Rune. Bandeau +3",
-       head="Nyame Helm",
+        head="Nyame Helm",
         body="Runeist's Coat +3",
         hands="Regal Gauntlets",
         legs="Eri. Leg Guards +1",
@@ -200,8 +177,8 @@ function get_sets()
         -- sub="Irenic Strap +1",
         ammo="Staunch Tathlum +1",
         neck="Futhark Torque +2",
-        ear1="Tuisto Earring +1",
-        ear2="Tuisto Earring",
+        ear1="Odnowa Earring +1",
+        ear2="Odnowa Earring",
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Turms Mittens +1",
@@ -212,8 +189,19 @@ function get_sets()
         legs="Nyame Flanchard",
         feet="Turms Leggings +1"
     }
+
+
     --Weaponskill Sets--
-    sets.WS = {}     
+    sets.WS = {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Fotia Gorget",
+        waist="Soil Belt",
+        back=OgmaDEX
+    }     
     --multi, carries FTP
     sets.Resolution = {
         ammo="Aurgelmir Orb",
@@ -233,10 +221,7 @@ function get_sets()
 
     sets.Dimidiation = {
         ammo="Knobkierrie",
-        -- head={ name="Herculean Helm", augments={'Accuracy+12 Attack+12','Weapon skill damage +3%','AGI+5','Accuracy+2',}},
         head="Nyame Helm",
-        -- body={ name="Herculean Vest", augments={'Weapon skill damage +5%','Mag. Acc.+15','STR+6 DEX+6','Accuracy+18 Attack+18','Mag. Acc.+11 "Mag.Atk.Bns."+11',}},
-        -- body="Ashera Harness",
         body="Nyame Mail",
         hands="Meg. Gloves +2",
         -- legs="",
@@ -255,68 +240,42 @@ function get_sets()
     }
 
     --single, doesn't carry FTP
-    sets.Single = {
+    sets.Single = set_combine(sets.WS, {
         ammo="Seething Bomblet",
-        head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
-        body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
-        hands={ name="Herculean Gloves", augments={'Accuracy+18 Attack+18','"Triple Atk."+3','Attack+1',}},
-        legs={ name="Lustratio Subligar", augments={'Accuracy+15','DEX+5','Crit. hit rate+2%',}},
         feet="Runeist Bottes +1",
-        neck="Fotia Gorget",
-        waist="Fotia Belt",
+        -- neck="Fotia Gorget",
+        -- waist="Fotia Belt",
         left_ear="Ishvara Earring",
         right_ear="Moonshade Earring",
         left_ring="Apate Ring",
-        right_ring="Petrov Ring",
-        back={ name="Ogma's cape",}
-    }
+        right_ring="Petrov Ring"
+    })
+
     --single hit, benefits from DA
-    sets.Cleave = { ammo="Seething Bomblet",
-        head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Zennaroi Earring",
-        body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
-        hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
-        back=capeStandard,waist="Fotia Belt",legs="Lustratio Subligar",feet="Herculean Boots"}
+    sets.Cleave = set_combine(sets.WS, { ammo="Seething Bomblet",
+        ring2="Petrov Ring",
+        back=capeStandard})
+
     --added effect
-    sets.Shockwave = { ammo="Falcon Eye",
-        head="Runeist's Bandeau +3",neck="Fotia Gorget",ear1="Cessance earring",ear2="Digni. Earring",
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Regal Ring",ring2="Niqmaddu Ring",
-        back=capeStandard,waist="Eschan Stone",legs="Ayanmo Cosciales +2",feet="Taeon Boots"} 
-    --Requiescat
-    sets.Req = { ammo="Seething Bomblet",
-        head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Moonshade Earring",
-        body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
-        hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
-        back=capeStandard,waist="Fotia Belt",legs="Taeon Tights",feet="Taeon Boots"} 
-    --crit based
-    sets.Vorp = {  ammo="Qirmiz Tathlum",
-        head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Moonshade Earring",
-        body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
-        hands="Herculean Gloves",ring1="Epona's Ring",ring2="Petrov Ring",
-        back=capeWSDex,waist="Fotia Belt",legs="Lustratio Subligar +1",feet="Herculean Boots"}
+    sets.Shockwave = set_combine(sets.WS, {
+        ear1="Cessance earring",ear2="Digni. Earring",
+        ring1="Regal Ring",ring2="Niqmaddu Ring",
+        back=capeStandard,waist="Eschan Stone"})
+
     --magic WS
-    sets.HercSlash = {  ammo="Seething Bomblet",
-        head="Highwing Helm",neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Shiva Ring +1",
-        back="Argochampsa Mantle",waist="Eschan Stone",legs="Limbo Trousers",feet="Adhemar Gamashes"}  
+    sets.HercSlash = set_combine(sets.WS, {})
      
     sets.Utility = {}   
     --full PDT set for when stunned, etc.
-    sets.Utility.PDT = { ammo="Vanir Battery",
-        head="Erilaz Galea +1",neck="Futhark Torque +2",ear1="Hearty Earring",ear2="Ethereal Earring",            
-        body="Futhark coat +1",hands="Erilaz Gauntlets +1",ring1="Patricius Ring",ring2="Defending Ring",       
-        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}       
+    sets.Utility.PDT = sets.Idle.DT      
     --full MDT set for when stunned, etc
-    sets.Utility.MDT = { ammo="Vanir Battery",
-        head="Dampening Tam",neck="Futhark Torque +2",ear1="Hearty Earring",ear2="Zennaroi Earring",          
-        body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Vengeful Ring",ring2="Defending Ring",             
-        back="Engulfer Cape +1",waist="Olseni Belt",legs="Runeist's Trousers +2",feet="Erilaz Greaves +1"}        
+    sets.Utility.MDT = sets.TP.MEva       
              
     --Job Ability Sets--
     sets.JA = {}
-    sets.JA.Lunge = {ammo="Seething Bomblet",
-        head="Highwing Helm",neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",      
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Shiva Ring +1",                         
-        back="Argochampsa Mantle",waist="Eschan Stone",legs="Limbo Trousers",feet="Adhemar Gamashes"}  
+    sets.JA.Lunge = set_combine(sets.WS, {ammo="Seething Bomblet",
+        neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",                        
+        waist="Eschan Stone"})
 
     sets.JA.Vallation = {body="Runeist's Coat +3",legs="Futhark Trousers +2"}       
     sets.JA.Gambit = {hands="Runeist's mitons +3"}
@@ -417,10 +376,10 @@ function get_sets()
     }  
 
     --Magic acc for enfeebles, handy for VW
-    sets.MagicAcc = {
-        head="Dampening Tam",ear1="Gwati Earring",
-        body="Samnuha Coat",hands="Leyline Gloves",ring1="Sangoma Ring",ring2="Kishar Ring",
-        waist="Salire Belt",legs="Runeist's Trousers +2"}
+    sets.MagicAcc = {}
+        -- head="Dampening Tam",ear1="Gwati Earring",
+        -- body="Samnuha Coat",hands="Leyline Gloves",ring1="Sangoma Ring",ring2="Kishar Ring",
+        -- waist="Salire Belt",legs="Runeist's Trousers +2"}
      
     --Toggle TP sets button, change if you want; currently ALT+F9 toggles forward, CTRL+F9 toggles backwards
     send_command('bind end send @others input /follow Magicmidget')

@@ -39,9 +39,11 @@ function get_sets()
 	    sub="Genmei Shield",
 	    range="Dunna",
 	    head="Jhakri Coronal +1",
-	    body="Jhakri Robe",
+	    -- body="Jhakri Robe",
+	    body="Nyame Mail",
 	    hands="Jhakri Cuffs +2",
-	    legs="Querkening Brais",
+	    -- legs="Querkening Brais",
+	    legs="Nyame Flanchard",
 	    feet="Battlecast Gaiters",
 	    neck="Clotharius Torque",
 	    waist="Cetl Belt",
@@ -127,7 +129,7 @@ function get_sets()
 	
 	sets.precast.FastCure = set_combine(sets.precast.FastCast, {
 		ring2="Rahab Ring", 
-		back="Disperser's Cape",
+		-- back="Disperser's Cape",
 		waist="Witful Belt",
 		legs="Geomancy Pants +1"
 	})
@@ -189,7 +191,8 @@ function get_sets()
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs="Azimuth Tights +1"})
 
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
-			head="Gendewitha Caubeen",neck="Fylgja Torque",lear="Novia Earring",
+			-- head="Gendewitha Caubeen",
+			neck="Fylgja Torque",lear="Novia Earring",
 			body="Annointed Kalasiris",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
 			back="Pahtli Cape",waist="Porous Rope",legs="Gyve Trousers",feet="Medium's Sabots"}
 		
@@ -207,9 +210,9 @@ function get_sets()
 	back="Nantosuelta's Cape"
 	}
 		
-	organizer_items = { main="Echo Drops", ranged="Cream Puff",
-			body="Trizek Ring", ear1="Reraise Earring",
-			ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
+	organizer_items = { main="Echo Drops",
+			ear1="Reraise Earring",
+			ring1="Warp Ring",ring2="Capacity Ring",
 			back="Mecistopins Mantle"}
 
 	send_command('bind f12 input /equip Feet "Geomancy Sandals +3"')
