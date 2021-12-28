@@ -162,10 +162,7 @@ function get_sets()
         feet="Oshosi Leggings"
     })
 
-
     sets.WS = {}
-
-
 
     sets.WS.Generic = { --Generic Physical WS
         head="Meghanada Visor +2",

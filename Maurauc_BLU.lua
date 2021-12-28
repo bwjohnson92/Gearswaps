@@ -84,12 +84,14 @@ function get_sets()
 
     sets.Idle.DT = {
         ammo="Staunch Tathlum +1",
-        head="Malignance Chapeau",
+        -- head="Malignance Chapeau",
+        head="Nyame Helm",
         body="Malignance Tabard",
         hands="Malignance Gloves",
         -- legs="Aya. Cosciales +2",
         legs="Carmine Cuisses +1",
-        feet="Malignance Boots",
+        -- feet="Malignance Boots",
+        feet="Nyame Sollerets",
         waist="Flume Belt +1",
         neck="Loricate Torque +1",
         left_ear="Novia Earring",
