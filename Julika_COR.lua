@@ -115,13 +115,13 @@ sets.Idle.DT = set_combine(sets.Idle.Standard, {
 
 sets.Melee = {
     head="Malignance chapeau",
-    neck="Loricate Torque +1",
+    neck="Iskur gorget",
     ear1="Telos Earring",
     ear2="Suppanomini",
     body="Adhemar jacket +1",
     hands="Adhemar Wristbands +1",
     ring1="Chirich Ring +1",
-    ring2="Defending Ring",
+    ring2="Ilabrat Ring",
     back=capeTPMelee,
     waist="Reiki Yotai",
     legs="Malignance tights",

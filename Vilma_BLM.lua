@@ -102,18 +102,11 @@ function get_sets()
 		body="Ea Houppelande +1",
 		legs="Ea Slops +1",
 		neck="Sorcerer's Stole",
-
-		
-
-
-
 		feet="Amalric Nails +1", --+50MAB
 		ring1="Locus Ring", 
-
 		-- feet="Spaekona's Sabots +3", --+50 MAcc
 		ear1="Regal Earring",
 		ring1="Freke Ring",
-
 		-- ring2="Mujin Band",
 		back=TaranusINT
 		-- ear2="Static Earring",
@@ -316,8 +309,6 @@ function handleNuke(spell)
 	end
 	-- add_to_chat(140, ..set)
 	return(use_obi(spell, set))
-	
-
 end
 
 -- --- MidCast ---
