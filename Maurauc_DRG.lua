@@ -37,9 +37,9 @@ function get_sets()
 	AFLegs = "Vishap Brais +1"
 	AFFeet = "Vishap Greaves +1"
 
-	CapeTP = {name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
+	-- CapeTP = {name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
 	    
-	CapeWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Damage taken-5%',}}
+	-- CapeWS = { name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Damage taken-5%',}}
 
 
 	areas = {}
@@ -54,38 +54,36 @@ function get_sets()
 	sets.TP.index = {'Standard', 'DT'}
 	TP_ind = 1
 	sets.TP.Standard = {
-	    ammo="Ginsen",
-	    head="Flam. Zucchetto +2",
-	    body="Valorous Mail",
---	    hands={ name="Odyssean Gauntlets", augments={'Accuracy+25 Attack+25','Weapon Skill Acc.+3','DEX+5','Accuracy+1','Attack+12',}},
---		hands="Emicho Gauntlets",
-		hands="Sulevia's Gauntlets +2",
-	    legs="Sulevia's Cuisses +2",
-	    feet="Flamma Gambieras +2",
+	    ammo="Coiste Bodhar",
+	    head="Hjarrandi Helm",
+	    body="Hjarrandi Breast.",
+	    hands="Nyame Gauntlets",
+	    legs="Nyame Flanchard",
+	    feet="Nyame Sollerets",
 	    neck="Lissome Necklace",
 	    right_ear="Brutal Earring",
 	    left_ear="Cessance Earring",
 	    left_ring="Flamma Ring",
 	    right_ring="Niqmaddu Ring",
 	    back=CapeTP,
-	    waist="Ioskeha Belt"
+	    waist="Ioskeha Belt +1"
 	}
 
-	sets.DT = {
-		ammo="Vanir Battery",
-	    head="Hjarrandi Helm",
-	    body="Hjarrandi Breast.",
-	    hands="Sulev. Gauntlets +2",
-	    legs="Pumm. Cuisses +3",
-	    feet="Pumm. Calligae +3",
-	    neck="Loricate Torque +1",
-	    waist="Ioskeha Belt",
-	    left_ear="Cessance Earring",
-	    right_ear="Brutal Earring",
-	    left_ring="Defending Ring",
-	    right_ring="Regal Ring",
-	    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
-	}
+	-- sets.DT = {
+	-- 	ammo="Vanir Battery",
+	--     head="Hjarrandi Helm",
+	--     body="Hjarrandi Breast.",
+	--     hands="Sulev. Gauntlets +2",
+	--     legs="Pumm. Cuisses +3",
+	--     feet="Pumm. Calligae +3",
+	--     neck="Loricate Torque +1",
+	--     waist="Ioskeha Belt +1",
+	--     left_ear="Cessance Earring",
+	--     right_ear="Brutal Earring",
+	--     left_ring="Defending Ring",
+	--     right_ring="Regal Ring",
+	--     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
+	-- }
 
 	sets.DT2 = {    
 		ammo="Staunch Tathlum",
@@ -95,7 +93,7 @@ function get_sets()
 	    legs="Pumm. Cuisses +3",
 	    feet="Pumm. Calligae +3",
 	    neck="War. Beads +1",
-	    waist="Ioskeha Belt",
+	    waist="Ioskeha Belt +1",
 	    left_ear="Cessance Earring",
 	    right_ear="Brutal Earring",
 	    left_ring="Defending Ring",
@@ -117,18 +115,18 @@ function get_sets()
 	--     ring1="Moonlight Ring",
 	--     ring2="Defending Ring",
 	--     back="Cichol's Mantle",
-	--     waist="Ioskeha Belt",
+	--     waist="Ioskeha Belt +1",
 	--     legs="Sulev. Cuisses +2",
 	--     feet="Pumm. Calligae +3"
 	-- }
 
 	sets.WS = {
 	    ammo="Knobkierrie",
-	    head="Flam. Zucchetto +2",
+	    head="Nyame Helm",
 	    body="Dagon Breast.",
-	    hands="Sulev. Gauntlets +2",
-	    legs="Sulevia's Cuisses +2",
-	    feet="Sulev. Leggings +2",
+	    hands="Nyame Gauntlets",
+	    legs="Nyame Flanchard",
+	    feet="Nyame Sollerets",
 	    neck="Fotia Gorget",
 	    waist="Fotia Belt",
 	    left_ear="Sherida Earring",
@@ -142,10 +140,11 @@ function get_sets()
 	    main="Shining One",
 	    sub="Utu Grip",
 	    ammo="Knobkierrie",
-	    head="Flam. Zucchetto +2",
+	    head="Nyame Helm",
 	    body="Dagon Breast.",
-	    hands="Sulev. Gauntlets +2",
-	    feet="Sulev. Leggings +2",
+	    hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
 	    neck="Fotia Gorget",
 	    waist="Metalsinger Belt",
 	    left_ear="Ishvara Earring",

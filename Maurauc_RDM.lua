@@ -101,13 +101,20 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	--	body="Artsieq Jubbah",hands="Umuthi Gloves", 
 	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
 		
-	sets.midcast.Enfeebling = {main=staff2,sub="Enki Strap",ammo="Regal Gem",
-		head="Vitiation Chapeau +3",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Snotra Earring",
+	sets.midcast.Enfeebling = {
+		-- main=staff2,sub="Enki Strap",
+		main="Crocea Mors",
+		sub="Ammurapi Shield",
+		-- ammo="Regal Gem",
+		ammo="",
+		ranged="Kaja Bow",
+		head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Malignance Earring",ear2="Snotra Earring",
 		body="Lethargy Sayon +1",hands="Kaykaus Cuffs +1",ring1="Stikini Ring",ring2="Kishar Ring",
 		back=SucellosINT,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
 	sets.midcast.Enfeebling.Acc = set_combine(sets.midcast.Enfeebling, {
-		main=staff2,
+		main="Crocea Mors",
+		sub="Ammurapi Shield",
 		ammo="",
 		ranged="Kaja Bow",
 		body="Atrophy Tabard +3",
@@ -143,7 +150,11 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	
 	sets.midcast.Stun = sets.midcast.Enfeebling
 
-	sets.Dispelga = {main="Daybreak",sub="Ammurapi Shield"}
+	sets.Dispel = set_combine(sets.midcast.Enfeebling.Acc, {
+		main="Crocea Mors", sub="Ammurapi Shield", neck="Duelist's Torque +1"
+	})
+	sets.midcast.Dispel = sets.Dispel
+	sets.Dispelga = {main="Daybreak",sub="Ammurapi Shield", neck="Duelist's Torque +1"}
 	sets.precast.Dispelga = set_combine(sets.precast.FastCast, sets.Dispelga)
 	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebling.Acc, sets.Dispelga)
 		
@@ -179,10 +190,10 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	--	body="Orison Bliaud +2",hands="Orison Mitts +2",
 	--	back="Swith Cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
 
-	sets.midcast.Cure = {main="Daybreak",sub="Sacro Bulwark",ammo="Hydrocera",
-			head="Amalric Coif +1",neck="Fylgja Torque",ear1="Novia Earring",
-			body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Weatherspoon Ring +1",ring2="Ephedra Ring",
-			back="Oretania's Cape",waist="Cascade Belt",legs="Atrophy Tights +1",feet="Medium's Sabots"}
+	sets.midcast.Cure = {main="Daybreak",sub="Sacro Bulwark",ammo="Regal Gem",
+			head="Atrophy Chapeau +3",neck="Fylgja Torque",ear1="Novia Earring",ear2="Regal Earring",
+			body="Vrikodara Jupon",hands="Kaykaus Cuffs +1",ring1="Sirona's Ring",ring2="Ephedra Ring",
+			back="Oretania's Cape",waist="Luminary Sash",legs="Atrophy Tights +1",feet="Medium's Sabots"}
 			
 			
 	sets.Saboteur = {hands="Lethargy Gantherots +1"}
@@ -467,6 +478,8 @@ end
 function midcast(spell)
 	if spell.english == 'Impact' then
 		equip(sets.midcast.Impact)
+	elseif spell.english == "Dispel" then
+		equip(sets.midcast.Dispel)
 	elseif spell.english == "Dispelga" then
 		equip(sets.midcast.Dispelga)
 	elseif spell.english == "Dia" or spell.english == "Bio" then
@@ -510,7 +523,6 @@ function midcast(spell)
 			-- elseif (spell.name == "Sleep") or (spell.name == "Sleep II") then
 			-- 	setToEquip = set_combine(setToEquip, sets.midcast.Enfeebling.Acc)
 			elseif (spell.name == "Sleepga") then
-				add_to_chat(140, "Sleepga")
 				setToEquip = set_combine(setToEquip, sets.midcast.Sleepga)
 			elseif (EnfeebSet) and not ((string.find(spell.english, 'Dia') or string.find(spell.english, 'Bio') or string.find(spell.english, 'Inundation'))) then
 				setToEquip = set_combine(setToEquip, sets.midcast.Enfeebling.Acc)

@@ -37,6 +37,7 @@ function get_sets()
     capeWSMAB={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+7','Weapon skill damage +10%',}}
     capeMeleeWS = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}}
     capeMeleeTP={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+    capeAGIWS={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Damage taken-5%',}}
     -- capeMeleeTP = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10',}}
     capeSnapshot = { name="Camulus's Mantle", augments={'"Snapshot"+10',}}
 
@@ -162,7 +163,10 @@ function get_sets()
         feet="Oshosi Leggings"
     })
 
+
     sets.WS = {}
+
+
 
     sets.WS.Generic = { --Generic Physical WS
         head="Meghanada Visor +2",
@@ -191,7 +195,8 @@ function get_sets()
         body="Laksamana's Frac +3",
         hands="Meg. Gloves +2",
         -- ring1="Rufescent Ring", --Shukuyu
-        ring1="Epaminondas's Ring",
+        -- ring1="Epaminondas's Ring",
+        ring1="Rufescent Ring",
         ring2="Regal Ring", --Rufescent 
         back=capeMeleeWS,
         waist="Sailfi Belt +1",
@@ -253,13 +258,17 @@ function get_sets()
 
     sets.WS.LastStand = set_combine(sets.RA.Enmity, {
         neck="Fotia Gorget",
+        -- neck="Commodore Charm +1",
         waist="Fotia Belt",
-        head="Meghanada Visor +2",
+        head="Nyame Helm",
         ear1="Moonshade Earring",
-        feet="Lanun Bottes +3",
-        ring1="Regal Ring",
-        ring2="Dingir Ring",
-        back=capeWSMAB
+        legs="Nyame Flanchard",
+        -- feet="Lanun Bottes +3",
+        feet="Nyame Sollerets",
+        ring1="Epaminondas's Ring",
+        ring2="Regal Ring",
+        ear2="Ishvara Earring",
+        back=capeAGIWS
     })
 
     sets.WS.LastStand.Standard = sets.WS.LastStand
@@ -268,12 +277,13 @@ function get_sets()
         head="Lanun Tricorne +1",
         neck="Fotia Gorget",
         ear1="Moonshade Earring",
-        ear2="Ishvara Earring",
+        -- ear2="Ishvara Earring",
+        ear2="Telos Earring",
         body="Meg. Cuirie +2",
         hands="Meg. Gloves +2",
         ring1="Dingir Ring",
         ring2="Apate Ring",
-        back="Camulus's Mantle",
+        back=capeAGIWS,
         waist="Fotia Belt",
         legs="Meg. Chausses +2",
         feet="Lanun Bottes +3"
@@ -413,14 +423,12 @@ function precast(spell)
 
     if spell.action_type == 'Ranged Attack' then
         equip(sets.preshot)
-    elseif spell.type:lower() == 'weaponskill' or spell.action_type == "WeaponSkill" then
+    elseif spell.type:lower() == 'weaponskill' then
         if (spell.english == "Leaden Salute") then
-        	-- equip(use_obi(spell, sets.WS.LeadenSalute[sets.WS.LeadenSalute.index[Leaden_Index]]))
-            equip(sets.WS.LeadenSalute.Standard)
+        	equip(use_obi(spell, sets.WS.LeadenSalute[sets.WS.LeadenSalute.index[Leaden_Index]]))
             add_to_chat(140, "Leaden Salute Index: "..sets.WS.LeadenSalute.index[Leaden_Index])
         elseif (spell.english == "Wildfire") then
-        	-- equip(sets.WS.LeadenSalute.index[sets.WS.LeadenSalute.index[Leaden_Index]])
-            equip(sets.WS.LeadenSalute.Standard)
+        	equip(sets.WS.LeadenSalute.index[sets.WS.LeadenSalute.index[Leaden_Index]])
         elseif (spell.english == "Last Stand") or (spell.english == "Detonator") then
         	equip(sets.WS.LastStand[sets.RA.index[Ranged_Index]])
         -- equip(sets.RA.Standard)

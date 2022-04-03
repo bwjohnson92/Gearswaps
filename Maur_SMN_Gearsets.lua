@@ -159,7 +159,7 @@ function get_sets()
         head="Cath Palug Crown",
         ring1="Varar Ring"
     })
-    sets.avatar.mb = set_combine(sets.avatar.mab,{hands="Glyphic Bracers +1"})
+    sets.avatar.mb = set_combine(sets.avatar.mab,{hands="Glyphic Bracers"})
     -- Hybrid
     sets.avatar.hybrid = set_combine(sets.avatar.skill,{
         head="Cath Palug Crown",

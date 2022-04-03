@@ -13,7 +13,7 @@ spells.STRVIT = S{'Quad. Continuum', 'Delta Thrust', 'Cannonball', 'Glutinous Da
 spells.STRMND = S{'Whirl of Rage'}
 spells.AGI = S{'Benthic Typhoon', 'Final Sting', 'Spiral Spin'}
 spells.INT = S{'Gates of Hades', 'Leafstorm', 'Firespit', 'Acrid Stream', 'Regurgitation', 'Corrosive Ooze', 'Thermal Pulse', 'Magic Hammer', 'Evryone. Grudge', 'Water Bomb', 'Dark Orb', 'Thunderbolt', 'Tem. Upheaval', 'Embalming Earth', 'Foul Waters', 'Rending Deluge', 'Droning Whirlwind', 'Subduction', 'Searing Tempest', 'Blinding Fulgor', 'Spectral Floe', 'Scouring Spate', 'Anvil Lightning', 'Entomb', 'Tenebral Crush', 'Palling Salvo', 'Atramentous Libations', 'Molting Plumage', 'Nectarous Deluge', 'Diffusion Ray'}
-spells.MagicAccuracy = S{ 'Silent Storm', 'Frightful Roar', "Cruel Joke", "Sheep Song", "Dream Flower", 'Blank Gaze', 'Geist Wall', 'Infrasonics', 'Barbed Crescent', 'Tourbillion', 'Cimicine Discharge', 'Sub-zero smash', 'Filamented Hold', 'Mind Blast', 'Sandspin', 'Hecatomb Wave', 'Cold Wave', 'Terror Touch'}
+spells.MagicAccuracy = S{ 'Mortal Ray','Silent Storm', 'Frightful Roar', "Cruel Joke", "Sheep Song", "Dream Flower", 'Blank Gaze', 'Geist Wall', 'Infrasonics', 'Barbed Crescent', 'Tourbillion', 'Cimicine Discharge', 'Sub-zero smash', 'Filamented Hold', 'Mind Blast', 'Sandspin', 'Hecatomb Wave', 'Cold Wave', 'Terror Touch'}
 spells.MagicAccuracyFast = S{ 'Feather Tickle', 'Reaving Wind' }
 spells.Cures = S{'Magic Fruit', 'Plenilune Embrace', 'Wild Carrot', 'Pollen', 'Cure III', 'Cure IV'}
 spells.WhiteWind = S{'White Wind'}
@@ -29,8 +29,10 @@ function get_sets()
     send_command('alias wop windsofpromy')
     send_command('bind f9 gs c toggle TP set')
     send_command('bind f10 gs c toggle Idle set')
-    send_command('bind f11 gs c toggle CDC set')
-    send_command('bind f12 gs c toggle Req set')
+    send_command('bind f11 gs c toggle main weapon')
+    send_command('bind f12 gs c toggle sub weapon')
+    send_command('bind ^f12 gs c equip current')
+    send_command('bind end send @others input "/follow Maurauc"')
     --send_command('bind !f12 gs c toggle Rea set')
 
     --send_command('bind !f11 gs c lock gear')
@@ -68,13 +70,25 @@ function get_sets()
     organizer_items = { main="Echo Drops", ranged="Sublime Sushi",
         grape="Grape Daifuku", rolanberry="Rolanberry Daifuku"
     }
+
+    sets.Weapons = {}
+    sets.Weapons.Main = {}
+    sets.Weapons.Offhand = {}
+
+    Weapon_ind = 1
+	sets.Weapons.index = { "Tizona", "Bunzi's Rod", "Maxentius"}
+
+    WeaponOff_ind = 1
+    sets.Weapons.Offhand.index = { "Machaera +2", "Bunzi's Rod", "Maxentius"}
+
+
     --Idle Sets--   
     sets.Idle = {}
     
     -- sets.Reive = {neck="Arciela's Grace +1"}
 
-    sets.Idle.index = {'Standard','DT'}
-    Idle_ind = 1                   
+    sets.Idle.index = {'Standard','DT', 'Evasion'}
+    Idle_ind = 2                   
 
     sets.Idle.Standard = {ammo="Coiste Bodhar",
         head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
@@ -100,6 +114,12 @@ function get_sets()
         right_ring="Defending Ring",
         back=DEXCape,
     }
+
+    sets.Idle.Evasion = set_combine(sets.Idle.DT, {
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        
+    })
 
     --TP Sets--
     sets.TP = {}
@@ -186,25 +206,25 @@ function get_sets()
     sets.WS.ExpSavage = {
         ammo="Floestone",
         head="Nyame Helm",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
-        body="Assimilator's Jubbah +3",hands="Jhakri Cuffs +2",ring1="Ilabrat Ring",ring2="Epaminondas's Ring",
-        back=STRCape,waist="Sailfi Belt +1",legs="Luhlaza Shalwar +3",feet="Nyame Sollerets"
+        body="Assimilator's Jubbah +3",hands="Nyame Gauntlets",ring1="Ilabrat Ring",ring2="Epaminondas's Ring",
+        back=STRCape,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"
     }
 
     --Blue Magic Sets--
     sets.BlueMagic = {}
 
     sets.BlueMagic.STR = {ammo="Floestone",
-        head="Lilitu Headpiece",neck="Caro Necklace",
+        head="Nyame Helm",neck="Caro Necklace",
         body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
     back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.STRDEX = {ammo="Jukukik Feather",
-        head="Lilitu Headpiece",neck="Caro Necklace",
+        head="Nyame Helm",neck="Caro Necklace",
         body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
     back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.STRVIT = {ammo="Mavi tathlum",
-        head="Lilitu Headpiece",neck="Caro Necklace",
+        head="Nyame Helm",neck="Caro Necklace",
         body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Petrov Ring",
     back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
@@ -240,10 +260,10 @@ function get_sets()
     sets.BlueMagic.ChargedWhisker = set_combine(sets.BlueMagic.INT, {})
 
     sets.BlueMagic.WhiteWind = {
-        head="Carmine Mask",neck="Dualism Collar",ear1="Etiolation Earring",
+        head="Nyame Helm",neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
         -- ear2="Thureous earring",
         body="Vrikodara Jupon",hands="Telchine Gloves",ring2="Ilabrat ring",ring1="Gelatinous Ring +1",
-    back="Oretania's cape", waist="Oneiros Belt",legs="Carmine Cuisses +1",feet="Medium's Sabots"}
+        back="Moonbeam Cape", waist="Gishdubar Sash",legs="Carmine Cuisses +1",feet="Skaoi Boots"}
 
     sets.BlueMagic.MagicAccuracy = {
         ammo="Pemphredo Tathlum",
@@ -340,9 +360,13 @@ function updateTable()
     addToTable("(F9) TP Set", sets.TP.index[TP_ind])
     -- addToTable("Enfeeble Potency", not EnfeebSet)
     addToTable("(F10) Idle Set", sets.Idle.index[Idle_ind])
-    addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
-    addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
-    addToTable("(END) Weapon Locked", weaponLocked)
+    addToTable("(F11) Main Weapon", sets.Weapons.index[Weapon_ind])
+    addToTable("(F12) Off-Weapon", sets.Weapons.Offhand.index[WeaponOff_ind])
+    addToTable("(DEL) Equip Current Gear", "")
+
+    -- addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
+    -- addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
+    -- addToTable("(END) Weapon Locked", weaponLocked)
     update_message()
 end
 
@@ -536,6 +560,10 @@ function status_change(new,old)
     end
 end
 
+function equip_weapons()
+    equip({main=sets.Weapons.index[Weapon_ind], sub=sets.Weapons.Offhand.index[WeaponOff_ind]})
+end
+
 function self_command(command)
     if command == 'toggle TP set' then
         TP_ind = TP_ind +1
@@ -547,19 +575,24 @@ function self_command(command)
         if Idle_ind > #sets.Idle.index then Idle_ind = 1 end
         send_command('@input /echo <----- Idle Set changed to '..sets.Idle.index[Idle_ind]..' ----->')
         equip(sets.Idle[sets.Idle.index[Idle_ind]])
-    elseif command == 'toggle Req set' then
+    elseif command == 'toggle main weapon' then
         equip_current()
-        -- Requiescat_ind = Requiescat_ind +1
-        -- if Requiescat_ind > #sets.Requiescat.index then Requiescat_ind = 1 end
-        -- send_command('@input /echo <----- Requiescat Set changed to '..sets.Requiescat.index[Requiescat_ind]..' ----->')
-    elseif command == 'toggle CDC set' then
-        ChantDuCygne_ind = ChantDuCygne_ind +1
-        if ChantDuCygne_ind > #sets.ChantDuCygne.index then ChantDuCygne_ind = 1 end
-        send_command('@input /echo <----- Chant du Cygne Set changed to '..sets.ChantDuCygne.index[ChantDuCygne_ind]..' ----->')
+        Weapon_ind = Weapon_ind +1
+        if Weapon_ind > #sets.Weapons.index then Weapon_ind = 1 end
+        send_command('@input /echo <----- Weapon changed to '..sets.Weapons.index[Weapon_ind]..' ----->')
+        equip_weapons()
+    elseif command == 'toggle sub weapon' then
+        equip_current()
+        WeaponOff_ind = WeaponOff_ind +1
+        if WeaponOff_ind > #sets.Weapons.Offhand.index then WeaponOff_ind = 1 end
+        send_command('@input /echo <----- Offhand changed to '..sets.Weapons.Offhand.index[WeaponOff_ind]..' ----->')
+        equip_weapons()
     elseif command == 'toggle Rea set' then
         Realmrazer_ind = Realmrazer_ind +1
         if Realmrazer_ind > #sets.Realmrazer.index then Realmrazer_ind = 1 end
         send_command('@input /echo <----- Realmrazer Set changed to '..sets.Realmrazer.index[Realmrazer_ind]..' ----->')
+    elseif command == 'equip current' then
+        equip_current()
     elseif command == 'equip TP set' then
         equip(sets.TP[sets.TP.index[TP_ind]])
     elseif command == 'equip Idle set' then

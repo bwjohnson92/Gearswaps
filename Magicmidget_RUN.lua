@@ -9,6 +9,7 @@ function get_sets()
     OgmaTank = { name="Ogma's cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}
     OgmaDEX = { name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Damage taken-5%',}}
     OgmaCasting = { name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}
+    OgmaEvasion = { name="Ogma's Cape", augments={'AGI+20','Eva.+20 /Mag. Eva.+20','Evasion+10','Enmity+10','Evasion+15',}}
 
    capeStandard = "Ogma's cape"
    capeWSDex = "Ogma's cape"
@@ -38,7 +39,7 @@ function get_sets()
         -- 'MagicDT'
         'Evasion'
     }
-    Idle_ind = 1
+    Idle_ind = 3
     --Idle Sets--
     sets.Idle.Standard = { --ammo="Homiliary",
         head="Nyame Helm",neck="Futhark Torque +2",ear1="Odnowa Earring +1", --ear2="Ethereal Earring",   
@@ -85,8 +86,9 @@ function get_sets()
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Moonbeam Ring",
-        right_ring="Vengeful Ring",
-        back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},
+        -- right_ring="Vengeful Ring",
+        right_ring="Defending Ring",
+        back=OgmaEvasion
     })
     --TP Sets--
     sets.TP = {}
@@ -98,7 +100,7 @@ function get_sets()
         'HP',
         'MEva'
     }
-    TP_ind = 1
+    TP_ind = 5
     --offensive melee set
     sets.TP.Standard = {
         -- ammo="Ginsen",
@@ -355,8 +357,6 @@ function get_sets()
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {
         ammo="Sapience Orb",
-        -- head="Rabid Visor",
-        -- neck="Moonbeam Necklace",
         neck="Futhark Torque +2",
         body={name="Emet Harness +1", priority=2},
         hands="Kurys Gloves",
@@ -468,7 +468,7 @@ function precast(spell,abil)
         --equips favorite weapon if disarmed
         equip_weapon()
         if spell.action_type == 'Magic' then 
-                equip(sets.Utility.PDT,sets.precast)            
+                equip(sets.Idle.Evasion,sets.precast)            
         end  
         if spell.skill == 'Enhancing Magic' then
                 equip({legs="Futhark Trousers +2"})
@@ -513,14 +513,17 @@ function precast(spell,abil)
         end
         if spell.name == 'Vivacious Pulse' then
                 equip(sets.Enmity,sets.JA.Pulse)
-                mid_obi(spell.element,spell.name)
+                -- mid_obi(spell.element,spell.name)
         end
         if spell.name == 'One for All' or spell.name == 'Embolden' or spell.name == 'Odyllic Subterfuge' or spell.name == 'Warcry' 
-        or spell.name == 'Swordplay' or spell.name == 'Rayke' or spell.name == 'Meditate' or spell.name == 'Provoke' then   
+        or spell.name == 'Swordplay' or spell.name == 'Rayke' or spell.name == 'Meditate' then
+            equip(sets.Idle.Evasion)
+        end        
+        if spell.name == 'Provoke' then   
                 equip(sets.Enmity)
         end
         if spell.name == 'Resolution' or spell.name == 'Ruinator'  then
-                equip(sets.Resolution)
+            equip(sets.Resolution)
         end
         if spell.name == 'Dimidiation' then
             equip(sets.Dimidiation)
@@ -534,7 +537,6 @@ function precast(spell,abil)
         end
         if spell.name == 'Shockwave' then
             equip(sets.Idle.Evasion)
-            -- equip(sets.Shockwave)
         end
         if spell.name == 'Fell Cleave' or spell.name == 'Circle Blade' then
                 equip(sets.Cleave)
@@ -564,10 +566,10 @@ end
   
 function midcast(spell,act,arg) 
         if spell.action_type == 'Magic' then 
-                equip(sets.Utility.PDT,{head="Runeist's bandeau +3",hands="Regal Gauntlets"})         
+                equip(sets.Idle.Evasion,{head="Runeist's bandeau +3",hands="Regal Gauntlets"})         
         end  
         if spell.skill == 'Enhancing Magic' then
-                equip({head="Erilaz Galea +1",legs="Futhark Trousers +2",hands="Regal Gaunlets"})
+                equip(sets.Idle.Evasion, {head="Erilaz Galea +1",legs="Futhark Trousers +2",hands="Regal Gaunlets"})
                 if spell.name == "Blink" or spell.name == "Stoneskin" or spell.name == "Aquaveil" or string.find(spell.name,'Utsusemi') then
                     equip(sets.Interrupt)
                 elseif string.find(spell.name,'Bar') or spell.name=="Temper" then
@@ -578,13 +580,13 @@ function midcast(spell,act,arg)
                 end 
         end
         if spell.name == 'Foil' or spell.name == 'Flash' or spell.name == "Stun" then 
-                equip(sets.Enmity,{head="Runeist's bandeau +3"})
+                equip(sets.Idle.Evasion, sets.Enmity,{head="Runeist's bandeau +3"})
         end 
         if spell.name == 'Phalanx' then
-                equip(sets.Phalanx.Potency)
+                equip(sets.Idle.Evasion,sets.Phalanx.Potency)
         end      
         if string.find(spell.name,'Regen') then
-                equip({head="Runeist's bandeau +3",neck='Sacro Gorget'})
+                equip(sets.Idle.Evasion, {head="Runeist's bandeau +3",neck='Sacro Gorget'})
         end
         if spell.name == "Repose" or spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
                 equip(sets.MagicAcc)

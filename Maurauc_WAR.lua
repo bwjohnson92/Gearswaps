@@ -209,7 +209,7 @@ function get_sets()
 	    legs="Sakpata's Cuisses",
 	    -- feet="Sulev. Leggings +2",
 	    feet="Nyame Sollerets",
-	    ring1="Niqmaddu Ring",
+	    ring1="Epaminondas's Ring",
 	    ring2="Regal Ring",
 	    back=CapeWS,
 	    -- back="Cichol's Mantle",
