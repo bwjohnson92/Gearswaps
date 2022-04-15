@@ -104,14 +104,17 @@ function get_sets()
 	    left_ear="Cessance Earring",
 	    right_ear="Brutal Earring",
 	    left_ring="Defending Ring",
-	    right_ring="Regal Ring",
+	    -- right_ring="Regal Ring",
+	    right_ring="Niqmaddu Ring",
 	    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
 	}
 
-	sets.TP.DT = sets.DT
+	-- sets.TP.DT = sets.DT
 
-	sets.TP.DT2 = set_combine(sets.TP.DT, {
+	sets.TP.DT = set_combine(sets.DT, {
 		ammo="Coiste Bodhar",
+		legs="Sakpata's Cuisses",
+		ammo="Seething Bomblet +1"
 		-- feet="Pummeler's Calligae +3"
 	})
 
@@ -135,7 +138,7 @@ function get_sets()
 	    neck="Fotia Gorget",
 	    waist="Fotia Belt",
 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	    right_ear="Ishvara Earring",
+	    right_ear="Thrud Earring",
 	    right_ring="Regal Ring",
 	    left_ring="Niqmaddu Ring",
 	}
@@ -144,18 +147,21 @@ function get_sets()
 	    main="Shining One",
 	    sub="Utu Grip",
 	    ammo="Knobkierrie",
-	    head={ name="Agoge Mask +2", augments={'Enhances "Savagery" effect',}},
-	    body="Pumm. Lorica +3",
-	    hands={ name="Odyssean Gauntlets", augments={'Attack+27','Accuracy+8','Weapon skill damage +6%','Mag. Acc.+19 "Mag.Atk.Bns."+19',}},
-	    -- legs={ name="Odyssean Cuisses", augments={'Potency of "Cure" effect received+3%','Weapon skill damage +4%','Accuracy+18 Attack+18',}},
+	    -- head={ name="Agoge Mask +2", augments={'Enhances "Savagery" effect',}},
+	    head="Nyame Helm",
+	    -- body="Pumm. Lorica +3",
+	    body="Hjarrandi Breastplate",
+	    -- hands={ name="Odyssean Gauntlets", augments={'Attack+27','Accuracy+8','Weapon skill damage +6%','Mag. Acc.+19 "Mag.Atk.Bns."+19',}},
+	    hands="Nyame Gauntlets",
 	    legs="Nyame Flanchard",
-	    feet="Sulev. Leggings +2",
+	    feet="Nyame Sollerets",
 	    neck="War. Beads +1",
-	    waist="Metalsinger Belt",
-	    left_ear="Ishvara Earring",
+	    -- waist="Metalsinger Belt",
+	    waist="Sailfi Belt +1",
+	    left_ear="Thrud Earring",
 	    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	    left_ring="Niqmaddu Ring",
-	    right_ring="Regal Ring",
+	    left_ring="Regal Ring",
+	    right_ring="Niqmaddu Ring",
 	    back=CapeWS
 	}
 
@@ -186,7 +192,7 @@ function get_sets()
 		-- hands="Odyssean Gauntlets",
 		-- legs="Odyssean Cuisses",
 		feet="Sulevia's Leggings +2",
-		ear2="Ishvara Earring"
+		ear2="Thrud Earring"
 	})
 
 	sets.WS.Upheaval.Mid = set_combine(sets.WS.Upheaval, {
@@ -264,8 +270,8 @@ function get_sets()
 	}
 
 
-	sets.Idle = set_combine(sets.DT, {
-		feet="Hermes' Sandals"
+	sets.Idle = set_combine(sets.TP.DT, {
+		-- feet="Hermes' Sandals"
 	})
 
 	windower.register_event('zone change', function()

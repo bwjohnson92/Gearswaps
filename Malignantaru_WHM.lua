@@ -52,7 +52,7 @@ function get_sets()
         head="Inyanga Tiara +1",
         body="Ayanmo Corazza +1",
         hands="Gendewitha Gages +1",
-        legs="Inyanga Shalwar +1",
+        legs="Inyanga Shalwar +2",
         feet="Ayanmo Gambieras +1",
         neck="Loricate Torque +1",
         waist="Lieutenant's sash",
@@ -67,7 +67,7 @@ function get_sets()
     
     sets.precast.FastCast = {ammo="Incantor Stone",
         head="Nahtirah Hat",neck="Cleric's Torque",ear2="Loquacious Earring",
-        body="Inyanga Jubbah +1",hands="Gendewitha Gages +1",ring2="Lebeche Ring",
+        body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring2="Lebeche Ring",
         back=AlaunusFC, waist="Witful Belt",feet="Regal Pumps +1"}
     
     sets.precast.FastCure = set_combine(sets.precast.FastCast, {
@@ -139,7 +139,7 @@ function get_sets()
 
     sets.Cure.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Hydrocera",
             head="Vanya Hood",neck="Cleric's Torque",ear1="Roundel Earring",ear2="Nourishing Earring",--10% 3%--
-            body="Inyanga Jubbah +1",hands="Inyanga Dastanas +1",ring1="Lebeche ring",ring2="Sirona's Ring", --13%--
+            body="Inyanga Jubbah +2",hands="Inyanga Dastanas +1",ring1="Lebeche ring",ring2="Sirona's Ring", --13%--
             back="Alaunus's Cape",waist="Cascade Belt",legs="Ebers Pantaloons +1",feet="Vanya Clogs"}
 
     sets.Curaga.Standard = set_combine(sets.Cure.Standard, {})

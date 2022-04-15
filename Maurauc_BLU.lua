@@ -76,7 +76,7 @@ function get_sets()
     sets.Weapons.Offhand = {}
 
     Weapon_ind = 1
-	sets.Weapons.index = { "Tizona", "Bunzi's Rod", "Maxentius"}
+	sets.Weapons.index = { "Tizona", "Naegling", "Bunzi's Rod", "Maxentius"}
 
     WeaponOff_ind = 1
     sets.Weapons.Offhand.index = { "Machaera +2", "Bunzi's Rod", "Maxentius"}

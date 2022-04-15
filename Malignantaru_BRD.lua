@@ -47,18 +47,25 @@ function get_sets()
     
     sets.precast.FastCast = {main="Kali",ammo="Incantor Stone",
         head="Nahtirah Hat",neck="Voltsurge Torque",ear2="Loquacious Earring",
-        body="Inyanga Jubbah +1",hands="Gendewitha Gages +1",ring1="Kishar Ring",ring2="Lebeche Ring",
+        body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring1="Kishar Ring",ring2="Lebeche Ring",
         waist="Witful Belt",legs="Doyen Pants", feet="Telchine Pigaches"}
+
+    sets.precast.Song = set_combine(sets.precast.FastCast, {
+        head="Fili Calot +1"
+    })
 
     sets.midcast.Song = {
         main="Kali",
         -- ranged="Gjallarhorn",
         -- body="Brioso Justacorps +1",
-        body="Aoidos' Hongreline +1",
+        head="Fili Calot +1",
+        body="Fili Hongreline +1",
+        hands="Fili Manchettes +1",
         neck="Moonbow Whistle",
         ear2="Darkside Earring",
-        legs="Inyanga Shalwar +1",
-        feet="Brioso Slippers +2"
+        legs="Inyanga Shalwar +2",
+        feet="Brioso Slippers +2",
+        back="Intarabus's Cape"
 
     }
 
