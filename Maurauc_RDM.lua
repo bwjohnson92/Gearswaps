@@ -41,6 +41,9 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 SucellosTP={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Mag. Evasion+15',}}
 SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20','MND+5','Weapon skill damage +10%',}}
 
+stikini1={name="Stikini Ring +1", bag="wardrobe2"}
+stikini2={name="Stikini Ring +1", bag="wardrobe3"}
+
 	sets.precast = {}
 	sets.midcast = {}
 	sets.Idle = {}
@@ -54,8 +57,8 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 
 	sets.Idle.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-		body="Atrophy Tabard +3",hands="Volte Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back="Repulse Mantle",waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet=RefreshFeet}
+		body="Atrophy Tabard +3",hands="Volte Gloves",ring1=stikini1,ring2=stikini2,
+		back=SucellosMND,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet=RefreshFeet}
 	
 	sets.Idle.PDT = set_combine(sets.Idle.Idle, {
 	    ammo="Homiliary",
@@ -79,7 +82,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 
 	sets.precast.FastCast = {
 		main="Crocea Mors",
-		sub="",
+		sub="Sacro Bulwark",
 		head={name="Atrophy Chapeau +3",priority=1},
 		neck="Voltsurge Torque",
 		ear2="Loquacious Earring",
@@ -88,6 +91,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		ring1="Kishar Ring",
 		ring2="Weatherspoon Ring +1",
 		back={name="Swith Cape",priority=15},
+		waist="Embla Sash",
 		legs="Psycloth Lappas",
 		feet="Merlinic Crackows"
 	}
@@ -102,15 +106,18 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
 		
 	sets.midcast.Enfeebling = {
-		-- main=staff2,sub="Enki Strap",
 		main="Crocea Mors",
 		sub="Ammurapi Shield",
-		-- ammo="Regal Gem",
-		ammo="",
-		ranged="Kaja Bow",
+		ammo="Regal Gem",
+		-- ranged="Kaja Bow",
 		head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Malignance Earring",ear2="Snotra Earring",
-		body="Lethargy Sayon +1",hands="Kaykaus Cuffs +1",ring1="Stikini Ring",ring2="Kishar Ring",
+		body="Lethargy Sayon +2",hands="Lethargy Gantherots +2",ring1=stikini1,ring2="Kishar Ring",
 		back=SucellosINT,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
+
+	sets.midcast.Enfeebling.Skill = set_combine(sets.midcast.Enfeebling, {
+		main="Contemplator +1",
+		sub="Mephitis Grip"
+	})
 
 	sets.midcast.Enfeebling.Acc = set_combine(sets.midcast.Enfeebling, {
 		main="Crocea Mors",
@@ -125,11 +132,11 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		})
 
 	sets.midcast.Sleepga = set_combine(sets.midcast.Enfeebling, {
-		body="Lethargy Sayon +1",
-		hands="Lethargy Gantherots +1",
-		legs="Lethargy Fuseau +1",
-		feet="Lethargy Houseaux +1",
-		neck="Duelist's Torque +1",
+		body="Lethargy Sayon +2",
+		hands="Lethargy Gantherots +2",
+		legs="Lethargy Fuseau +2",
+		feet="Lethargy Houseaux +2",
+		neck="Duelist's Torque +2",
 		ring2="Kishar Ring",
 		ammo="Regal Gem"
 	})
@@ -148,55 +155,60 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 		
 	sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak"})
 	
-	sets.midcast.Stun = sets.midcast.Enfeebling
+	sets.midcast.Stun = set_combine(sets.midcast.Enfeebling.Acc, {
+		
+	})
 
 	sets.Dispel = set_combine(sets.midcast.Enfeebling.Acc, {
-		main="Crocea Mors", sub="Ammurapi Shield", neck="Duelist's Torque +1"
+		main="Crocea Mors", sub="Ammurapi Shield", neck="Duelist's Torque +2"
 	})
 	sets.midcast.Dispel = sets.Dispel
-	sets.Dispelga = {main="Daybreak",sub="Ammurapi Shield", neck="Duelist's Torque +1"}
+	sets.Dispelga = {main="Daybreak",sub="Ammurapi Shield", neck="Duelist's Torque +2"}
 	sets.precast.Dispelga = set_combine(sets.precast.FastCast, sets.Dispelga)
 	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebling.Acc, sets.Dispelga)
-		
-	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj +1", sub="Ammurapi Shield",
-		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Lethargy Sayon +1",hands="Atrophy Gloves +3",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
-		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +1"}
-
-		
+			
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj +1", sub="Ammurapi Shield",
-		head="Befouled Crown",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Vitiation Tabard +3",hands="Vitiation Gloves +2",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
-		back="Ghostfyre Cape",waist="Gishdubar Sash",legs="Carmine Cuisses +1",feet="Lethargy Houseaux +1"}
+		head="Befouled Crown",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Lethargy Earring",
+		body="Vitiation Tabard +3",hands="Vitiation Gloves +3",ring1=stikini1,ring2=stikini2,
+		back="Ghostfyre Cape",waist="Embla Sash",legs="Carmine Cuisses +1",feet="Lethargy Houseaux +2"}
 
-	sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
-		neck="Duelist's Torque +1",
-		head="Telchine Cap", legs="Telchine Braconi", feet="Lethargy Houseaux +1",
-		hands="Atrophy Gloves +3"})
+	sets.midcast.EnhancingMagic.Duration = set_combine(sets.midcast.EnhancingMagic, {
+		main="Colada",
+		sub="Ammurapi Shield",
+		neck="Duelist's Torque +2",
+		head="Telchine Cap", 
+		hands="Atrophy Gloves +3",
+		legs="Telchine Braconi", 
+		feet="Lethargy Houseaux +2"})
 
-	sets.midcast.Refresh = set_combine(sets.precast.FastCast, {
-		main="Pukulatmuj +1", sub="Ammurapi Shield",
-		head="Amalric Coif +1", neck="Duelist's Torque +1",
+	sets.midcast.EnhancingMagic.Composure = {main="Colada", sub="Ammurapi Shield",
+		head="Lethargy Chappel +1",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring",
+		body="Lethargy Sayon +2",hands="Atrophy Gloves +3",ring1=stikini1,ring2=stikini2,
+		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +2",feet="Lethargy Houseaux +2"}
+
+	sets.midcast.EnhancingMagic.Gain = set_combine(sets.midcast.EnhancingMagic.Duration, {hands="Vitiation Gloves +3"})
+
+	sets.midcast.Refresh = set_combine(sets.midcast.EnhancingMagic.Duration, {
+		head="Amalric Coif +1", neck="Duelist's Torque +2",
 		body="Atrophy Tabard +3",hands="Atrophy Gloves +3",
-		back="Sucellos's Cape", waist="Gishdubar Sash", legs="Lethargy Fuseau +1", feet="Lethargy Houseaux +1"})
+		back="Sucellos's Cape", waist="Embla Sash", legs="Lethargy Fuseau +2", feet="Lethargy Houseaux +2"})
 
-	--sets.midcast.Cursna = {main="Beneficus",
-	--	head="Orison Cap +2",neck="Malison medallion", ear2="Loquacious Earring",
-	--	body="Orison Bliaud +2",hands="Orison Mitts +2",ring1="Ephedra ring", ring2="Sirona's ring",
-	--	back="Mending cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
-		
-	--sets.midcast.DebuffRemoval = {
-	--	head="Orison Cap +2",neck="Malison medallion",ear2="Loquacious Earring",
-	--	body="Orison Bliaud +2",hands="Orison Mitts +2",
-	--	back="Swith Cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
+	sets.midcast.Refresh.Self = set_combine(sets.midcast.Refresh, {
+		waist="Gishdubar Sash"
+	})
 
-	sets.midcast.Cure = {main="Daybreak",sub="Sacro Bulwark",ammo="Regal Gem",
-			head="Atrophy Chapeau +3",neck="Fylgja Torque",ear1="Novia Earring",ear2="Regal Earring",
-			body="Vrikodara Jupon",hands="Kaykaus Cuffs +1",ring1="Sirona's Ring",ring2="Ephedra Ring",
-			back="Oretania's Cape",waist="Luminary Sash",legs="Atrophy Tights +1",feet="Medium's Sabots"}
+	sets.midcast.Cursna = {
+		ear2="Loquacious Earring",
+		body="Vitiation Tabard +3",ring1="Ephedra ring", ring2="Sirona's ring",
+		feet='Gendewitha Galoshes'	}
+
+	sets.midcast.Cure = {main="Malignance Pole",sub="Sacro Bulwark",ammo="Regal Gem",
+			head="Kaykaus Mitra +1",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Regal Earring",
+			body="Bunzi's Robe",hands="Kaykaus Cuffs +1",ring1="Defending Ring",ring2=stikini2,
+			back=SucellosMND,waist="Flume Belt +1",legs="Kaykaus Tights +1",feet="Nyame Sollerets"}
 			
 			
-	sets.Saboteur = {hands="Lethargy Gantherots +1"}
+	sets.Saboteur = {hands="Lethargy Gantherots +2"}
 	
 	sets.Phalanx = {
 		head="Taeon Chapeau",
@@ -209,6 +221,8 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	sets.Paralyze = {feet="Vitiation Boots +3"}
 	
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
+
+	sets.midcast.CureDay = set_combine(sets.midcast.ElementalDay, {main="Chatoyant Staff", sub="Enki Strap"})
 	
 	organizer_items = { 
 		echo="Echo Drops", 
@@ -286,7 +300,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	sets.WS.BlackHalo = {
 	    ammo="Regal Gem",
 	    head="Viti. Chapeau +3",
-	    neck="Dls. Torque +1",
+	    neck="Duelist's Torque +2",
 	    ear1="Moonshade Earring",
 	    ear2="Sherida Earring",
 	    body="Viti. Tabard +3",
@@ -354,7 +368,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    --body="Vitiation Tabard +3",
 	    -- feet="Malignance Boots",
 	    body="Malignance Tabard",
-	    feet="Lethargy Houseaux +1"
+	    feet="Lethargy Houseaux +2"
 	}
 
 	sets.Melee.SingleWieldSB = {
@@ -375,7 +389,7 @@ SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20',
 	    --body="Vitiation Tabard +3",
 	    -- feet="Malignance Boots",
 	    body="Malignance Tabard",
-	    feet="Lethargy Houseaux +1"
+	    feet="Lethargy Houseaux +2"
 	}
 
 
@@ -485,9 +499,10 @@ function midcast(spell)
 	elseif spell.english == "Dia" or spell.english == "Bio" then
 		equip(set_combine(sets.midcast.Enfeebling, sets.Bio))
 	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
+
 		if string.find(spell.skill,'Healing Magic') then
-			if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
-				equip(sets.midcast.Cure)
+			if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then
+				equip(use_obi(spell, sets.midcast.Cure, sets.midcast.CureDay))
 			elseif string.find(spell.english,'Cursna') then
 				equip(sets.precast.FastCast)
 			elseif string.find(spell.english, 'na') then 
@@ -501,25 +516,37 @@ function midcast(spell)
 			end
 			
 		elseif string.find(spell.skill,'Enhancing Magic') then
+			-- Erase is Enhancing?!
 			if string.find(spell.english, 'Erase') then
 				equip(sets.precast.FastCast)
-			elseif string.find(spell.english,'Phalanx') and spell.target.name == player.name then
+				
+			--Spell-specific buff sets
+			elseif string.find(spell.english,'Phalanx') and spell.target.type == "SELF" then
 				add_to_chat(140, "Phalanx")
-				equip(set_combine(sets.midcast.EnhancingMagic, sets.Phalanx))
-			elseif string.find(spell.english,'Bar') or string.find(spell.english, "Gain") or string.find(spell.english, "Temper") or string.find(spell.english, "En") then
+				equip(set_combine(sets.midcast.EnhancingMagic.Duration, sets.Phalanx))
+			elseif string.find(spell.english, 'Gain') then
+				equip(sets.midcast.EnhancingMagic.Gain)
+			elseif string.find(spell.english,'Bar') or string.find(spell.english, "Temper") or string.find(spell.english, "En") then
 				equip(sets.midcast.EnhancingMagic)
 			elseif (string.find(spell.english, "Refresh")) then
-				equip(sets.midcast.Refresh)
-			elseif buffactive['composure'] and spell.target.type == 'PLAYER' and not spell.target.name == player.name then
+				if (spell.target.type == "SELF") then
+					equip(sets.midcast.Refresh.Self)
+				else
+					equip(sets.midcast.Refresh)
+				end
+
+			--Duration - affected by composure
+			elseif buffactive['composure'] and spell.target.type == 'PLAYER' then
 				add_to_chat(140,'PLAYER')
-				equip(sets.midcast.EnhancingMagicComposure)
+				equip(sets.midcast.EnhancingMagic.Composure)
 			else
-				equip(sets.midcast.EnhancingMagicDuration)
+				equip(sets.midcast.EnhancingMagic.Duration)
 			end	
+
 		elseif string.find(spell.skill,'Enfeebling Magic') or string.find(spell.skill, 'Divine Magic') then
 			setToEquip = {}
 			if (spell.name == "Dispel") then
-				setToEquip = set_combine(setToEquip, set_combine(sets.midcast.Enfeebling.Acc, {neck="Duelist's Torque +1"}))
+				setToEquip = set_combine(setToEquip, set_combine(sets.midcast.Enfeebling.Acc, {neck="Duelist's Torque +2"}))
 			-- elseif (spell.name == "Sleep") or (spell.name == "Sleep II") then
 			-- 	setToEquip = set_combine(setToEquip, sets.midcast.Enfeebling.Acc)
 			elseif (spell.name == "Sleepga") then
@@ -533,11 +560,12 @@ function midcast(spell)
 				setToEquip = set_combine(setToEquip, sets.Saboteur)
 			end
 			equip(setToEquip)
+
 		elseif string.find(spell.skill,'Elemental Magic') then
 			if(MPSet) then
-				equip(use_MB(use_obi(spell, sets.midcast.ElementalMagicMP)))
+				equip(use_MB(use_obi(spell, sets.midcast.ElementalMagicMP, sets.midcast.ElementalDay)))
 			else
-				equip(use_MB(use_obi(spell, sets.midcast.ElementalMagic)))
+				equip(use_MB(use_obi(spell, sets.midcast.ElementalMagic, sets.midcast.ElementalDay)))
 			end
 		elseif string.find(spell.name, "Stun") then
 			equip(sets.midcast.Stun)
@@ -603,7 +631,7 @@ function self_command(command)
 		end
 	elseif command == 'switch enf' then
 		EnfeebSet = not EnfeebSet
-		add_to_chat(140, 'Enfeebling Magic: '..(EnfeebSet and 'Acc' or 'EnfeebSkill'))
+		add_to_chat(140, 'Enfeebling Magic: '..(EnfeebSet and 'Acc' or 'Potency'))
 	elseif command == 'switch mb' then
 		if (MBSet) then
 			MBSet = false
@@ -664,7 +692,7 @@ function buff_change(buff, gain)
     end
 end
 
-function use_obi(spell, equip_set)
+function use_obi(spell, equip_set, combined_set)
     local use_obi = false
     -- first check to see if any elemental obi rule matches
     if(S{world.day_element, world.weather_element}:contains(spell.element)) then
@@ -685,7 +713,7 @@ function use_obi(spell, equip_set)
     end
  
     if (use_obi) then
-        equip_set = set_combine(equip_set, sets.midcast.ElementalDay)
+        equip_set = set_combine(equip_set, combined_set)
     end
  
     return equip_set

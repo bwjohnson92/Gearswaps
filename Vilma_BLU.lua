@@ -83,9 +83,9 @@ function get_sets()
     Idle_ind = 1   
 
     sets.Idle.Standard = {ammo="Ginsen",
-    head="Adhemar Bonnet +1",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
-    body="Amalric Doublet +1",hands="Serpentes cuffs",ring1="Dark ring",ring2="Defending ring",
-    back="Repulse mantle",waist="Fucho-no-obi",legs="Crimson cuisses",feet="Serpentes sabots"}
+    head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
+    body="Malignance Tabard",hands="Nyame Gauntlets",ring1="Dark ring",ring2="Defending ring",
+    back="Repulse mantle",waist="Fucho-no-obi",legs="Nyame Flanchard",feet="Malignance Boots"}
 
     sets.Idle.DT = {ammo="Ginsen",
         head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Ethereal earring", ear2="Heartseeker earring",
@@ -147,11 +147,11 @@ function get_sets()
     back=CapeWS,waist="Fotia Belt",legs="Samnuha Tights",feet=HercFeetTP}
 
     sets.WS.ExpSavage = {ammo="Ginsen",
-        head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
-        body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Rufescent ring",ring2="Metamorph ring +1",
+        head="Nyame Helm",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Metamorph ring +1",
         back=CapeWS,waist="Grunfeld Rope",
-        legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%','DEX+14','Accuracy+3','Attack+9',}},
-        feet={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
+        legs="Nyame Flanchard", feet="Nyame Sollerets",
+        back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
     }
 
 

@@ -76,7 +76,7 @@ function get_sets()
     sets.Idle.index = {"Standard", "DamageTaken", "PetRegen"}
 
 	sets.Idle.Standard = {main="Idris", sub="Genmei Shield", ranged="Dunna", 
-		head="Azimuth Hood +1", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Odnowa Earring +1", 
+		head="Azimuth Hood +2", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Odnowa Earring +1", 
 		body="Witching Robe", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Dark Ring", 
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
@@ -103,7 +103,7 @@ function get_sets()
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
-		head="Azimuth Hood +1",
+		head="Azimuth Hood +2",
 		neck="Bagua Charm +1",
 		-- body="Mallquis Saio +2", 
 		body="Nyame Mail",
@@ -122,10 +122,10 @@ function get_sets()
 	sets.precast = {}
 	sets.midcast = {}
 
-	sets.precast.FastCast = { main="Idris", sub="Genmei Shield", 
+	sets.precast.FastCast = { main="Solstice", sub="Genmei Shield", 
 		head="Merlinic Hood", neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Anhur Robe",hands="Repartie Gloves",ring1="Kishar Ring",ring2="Rahab Ring",
-		back="Lifestream Cape",waist="Witful Belt",legs="Geomancy Pants +1",feet="Merlinic Crackows"}
+		body="Merlinic Jubbah",hands="Repartie Gloves",ring1="Kishar Ring",ring2="Rahab Ring",
+		back={ name="Nantosuelta's Cape", augments={'"Fast Cast"+10',}},waist="Witful Belt",legs="Geomancy Pants +1",feet="Merlinic Crackows"}
 	
 	sets.precast.FastCure = set_combine(sets.precast.FastCast, {
 		ring2="Rahab Ring", 
@@ -184,9 +184,9 @@ function get_sets()
 
 		
 	sets.midcast.IndiSpells = {main="Idris",
-	head="Azimuth Hood +1", neck="Bagua Charm +1",
+	head="Azimuth Hood +2", neck="Bagua Charm +1",
 	body="Azimuth Coat +1",	hands="Azimuth Gloves +1", 
-	back="Lifestream Cape", legs="Bagua Pants +2",feet="Azimuth Gaiters +1"}
+	back="Lifestream Cape", legs="Bagua Pants +2",feet="Azimuth Gaiters +2"}
 	
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs="Azimuth Tights +1"})
 

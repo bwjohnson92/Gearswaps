@@ -25,7 +25,7 @@ defaults.bluelite_G = 60
 defaults.bluelite_B = 255
 
 defaults.pos_x = 0
-defaults.pos_y = 0
+defaults.pos_y = 1000
 defaults.font_size = 11
 defaults.bg_alpha = 255
 
@@ -95,8 +95,8 @@ function text_setup()
 
 	msg_settings = {}
 	msg_settings.pos = {}
-	msg_settings.pos.x = 1300
-	msg_settings.pos.y = 800
+	msg_settings.pos.x = 1750
+	msg_settings.pos.y = 1100
 	msg_settings.text = {}
 	msg_settings.text.font = "Consolas"
 	msg_settings.text.size = 11

@@ -284,7 +284,7 @@ function get_sets()
     sets.JA.Rayke = {feet="Futhark boots +1"}  
     sets.JA.Battuta = {head="Futhark bandeau +3"}      
     sets.JA.Pflug = {feet="Runeist bottes +1"}              
-    sets.JA.Pulse = {head="Erilaz Galea +1",legs="Runeist's Trousers +2"}
+    sets.JA.Pulse = {main="Morgelai",head="Erilaz Galea +1",legs="Runeist's Trousers +2"}
                     
     --Precast Sets--
     --Fast Cast set
@@ -356,6 +356,7 @@ function get_sets()
 
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {
+        -- main="Morgelai",
         ammo="Sapience Orb",
         neck="Futhark Torque +2",
         body={name="Emet Harness +1", priority=2},
@@ -372,7 +373,8 @@ function get_sets()
         waist="Trance Belt",
         legs={name="Erilaz Leg Guards +1",priority=1},
         -- feet="Erilaz Greaves +1"
-        feet={name="Carmine Greaves +1",priority=1}
+        -- feet={name="Carmine Greaves +1",priority=1}
+        feet="Ahosi Leggings"
     }  
 
     --Magic acc for enfeebles, handy for VW
@@ -586,7 +588,7 @@ function midcast(spell,act,arg)
                 equip(sets.Idle.Evasion,sets.Phalanx.Potency)
         end      
         if string.find(spell.name,'Regen') then
-                equip(sets.Idle.Evasion, {head="Runeist's bandeau +3",neck='Sacro Gorget'})
+                equip(sets.Idle.Evasion, {main="Morgelai",head="Runeist's bandeau +3",neck='Sacro Gorget'})
         end
         if spell.name == "Repose" or spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
                 equip(sets.MagicAcc)
@@ -627,53 +629,11 @@ end
 function equip_TP()
     equip(sets.TP[sets.TP.index[TP_ind]])
     equip_weapon()
-        -- --equips offensive gear despite being on defensive set if you have shadows
-        -- if TP_ind == 4 and ((buffactive['Copy Image (2)'] or buffactive['Copy Image (3)'] or buffactive['Copy Image (4+)']) or buffactive['Third Eye'] or buffactive['Blink']) then
-        --     equip(sets.TP.Accuracy)
-        -- end
-        -- --equips DW gear if using two weapons
-        -- if player.equipment.sub == "Tramontane Axe" or player.equipment.sub == "Pukulatmuj" or player.equipment.sub == "Anahera Sword" then
-        --     equip({ear2="Suppanomimi"})
-        -- end
-        -- --equips offensive gear and relic boots during Battuta
-        -- if buffactive.battuta then
-        --     --remains on defensive set if Avoidance Down is active
-        --     if buffactive['Avoidance Down'] then
-        --     else
-        --         if TP_ind == 4 then
-        --             equip(sets.TP.Accuracy)
-        --         end
-        --     equip({feet="Futhark Boots"})
-        --     end
-        -- end
-        -- --equip defensive gear when hit with terror/petrify/stun/sleep
-        -- if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
-        --         if TP_ind == 5 then
-        --         equip(sets.Utility.MDT) else
-        --         equip(sets.Utility.PDT)
-        --         end
-        -- end
-        -- --equip Frenzy Sallet (will wake you up) if engaged, slept, and over 100 HP
-        -- if buffactive.sleep and player.hp > 100 then 
-        --     equip({head="Frenzy Sallet"})
-        -- end
 end
  
 function equip_idle()
     equip(sets.Idle[sets.Idle.index[Idle_ind]])
-
-    -- equip(sets.Idle)
-    --     --equips extra refresh gear when MP is below 75%
-    --     if player.mpp < 75 then
-    --         equip({body="Runeist's Coat +3"})
-    --     end
-    --     --auto-equip defensive gear when hit with terror/petrify/stun/sleep
-    --     if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
-    --             if TP_ind == 4 then
-    --             equip(sets.Utility.MDT) else
-    --             equip(sets.Utility.PDT)
-    --             end
-    --     end
+    equip_weapon()
 end
  
 function buff_change(buff,gain)
@@ -698,7 +658,7 @@ function buff_change(buff,gain)
 end
  
  function equip_weapon() 
-    if player.equipment.main == "empty" or player.equipment.sub == "empty" then
+    if player.equipment.main == "empty" or player.equipment.main == "Morgelai" or player.equipment.sub == "empty" then
             equip({main="Epeolatry",sub="Utu Grip"})
     end
  end
@@ -733,6 +693,7 @@ function self_command(command)
                 send_command('@input /echo <----- Idle Set changed to '..sets.Idle.index[Idle_ind]..' ----->')
                 equip_current()
         elseif command == 'equip gear' then
+            -- equip({main="Epeolatry"})
             equip_current()
         end
 
