@@ -170,7 +170,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Befouled Crown",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Lethargy Earring",
 		body="Vitiation Tabard +3",hands="Vitiation Gloves +3",ring1=stikini1,ring2=stikini2,
-		back="Ghostfyre Cape",waist="Embla Sash",legs="Carmine Cuisses +1",feet="Lethargy Houseaux +2"}
+		back="Ghostfyre Cape",waist="Embla Sash",legs="Atrophy Tights +3",feet="Lethargy Houseaux +2"}
 
 	sets.midcast.EnhancingMagic.Duration = set_combine(sets.midcast.EnhancingMagic, {
 		main="Colada",
@@ -200,7 +200,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.midcast.Cursna = {
 		ear2="Loquacious Earring",
 		body="Vitiation Tabard +3",ring1="Ephedra ring", ring2="Sirona's ring",
-		feet='Gendewitha Galoshes'	}
+		legs="Atrophy Tights +3", feet='Gendewitha Galoshes'	}
 
 	sets.midcast.Cure = {main="Malignance Pole",sub="Sacro Bulwark",ammo="Regal Gem",
 			head="Kaykaus Mitra +1",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Regal Earring",

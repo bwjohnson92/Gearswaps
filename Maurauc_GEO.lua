@@ -1,5 +1,6 @@
 include('displayBox.lua')
 include('organizer-lib.lua')
+include('MaurMerlinic.lua')
 -- Local Settings, setting the zones prior to use
 toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","Periqia","Ilrusi Atoll",
         "Nyzul Isle","Bhaflau Remnants","Arrapago Remnants","Silver Sea Remnants","Zhayolm Remnants"}
@@ -24,6 +25,8 @@ Idle_Index = 1
 
 -- capeDT={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}}
 capeRegen ={ name="Nantosuelta's Cape", augments={'Pet: "Regen"+10','Pet: "Regen"+5',}}
+capeNuke = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+5','"Mag.Atk.Bns."+10',}}
+
 
 AF = {}
 AF.Head = "Geomancy Galero +2"
@@ -96,14 +99,14 @@ function get_sets()
 	    body="Jhakri Robe +2",
 	    hands="Volte Gloves",
 	    legs="Assid. Pants +1",
-	    feet="Telchine Pigaches",
+	    feet=AF.Feet,
 	    neck="Loricate Torque +1",
 	    waist="Sacro Cord",
 	    left_ear="Malignance Earring",
 	    right_ear="Barkaro. Earring",
 		ring1="Defending Ring", 
 		ring2="Gelatinous Ring +1",
-	    back="Nantosuelta's Cape"
+	    back=capeRegen
 	}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
@@ -125,7 +128,7 @@ function get_sets()
 		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 
 		hands="Telchine Gloves",
-    	back="Nantosuelta's Cape",
+    	back=capeRegen,
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
 		feet=Relic.Feet,
@@ -142,7 +145,7 @@ function get_sets()
 	sets.precast.FastCast = { main="Idris", sub="Genmei Shield", 
 		head="Nahtirah Hat", neck="Voltsurge Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Shango Robe",hands="Volte Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
-		back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Merlinic Crackows"}
+		back="Swith Cape",waist="Embla Sash",legs="Psycloth Lappas",feet="Merlinic Crackows"}
 	
 	sets.precast.FastCure = set_combine(sets.precast.FastCast, {	ear2="Loquacious Earring",
 		ring2="Rahab Ring",	back="Disperser's Cape",waist="Witful Belt",legs=AF.Legs})
@@ -170,9 +173,9 @@ function get_sets()
 	}
 
 	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap",
-		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
+		head=MerlinicHoodNuke,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Metamorph Ring +1",
-		back=SucellosINT,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Amalric Nails +1"
+		back=capeNuke,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Amalric Nails +1"
 	}
 	--sets.midcast.Stun = {main="Twebuliij",sub="Benthos Grip",ammo="Plumose Sachet",
 		--head="Atrophy Chapeau +1",neck="Voltsurge Torque",ear1="Lifestorm Earring",ear2="Psystorm Earring",

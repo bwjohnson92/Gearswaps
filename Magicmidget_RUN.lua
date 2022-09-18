@@ -138,7 +138,7 @@ function get_sets()
         head="Ayanmo Zucchetto +2",
         body="Ashera Harness",
         hands="Turms Mittens +1",
-        legs="Erilaz Leg Guards +1",
+        legs="Erilaz Leg Guards +2",
         feet="Turms Leggings +1",
         neck="Futhark Torque +2",
         -- waist="Windbuffet Belt +1",
@@ -157,7 +157,7 @@ function get_sets()
         ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
         body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonbeam Ring",ring2="Defending Ring",   
         back="Moonbeam Cape",waist="Flume Belt +1",
-        -- legs="Erilaz Leg Guards +1",
+        -- legs="Erilaz Leg Guards +2",
         legs="Nyame Flanchard",
         feet="Turms Leggings +1"}
 
@@ -165,7 +165,7 @@ function get_sets()
         head="Nyame Helm",
         body="Runeist's Coat +3",
         hands="Regal Gauntlets",
-        legs="Eri. Leg Guards +1",
+        legs="Eri. Leg Guards +2",
         feet="Erilaz Greaves +1",
         waist="Flume Belt +1",
         neck="Futhark Torque +2",
@@ -189,6 +189,7 @@ function get_sets()
         back=OgmaTank,
         waist="Flume Belt +1",
         legs="Nyame Flanchard",
+        -- legs="Erilaz Leg Guards +2",
         feet="Turms Leggings +1"
     }
 
@@ -284,7 +285,7 @@ function get_sets()
     sets.JA.Rayke = {feet="Futhark boots +1"}  
     sets.JA.Battuta = {head="Futhark bandeau +3"}      
     sets.JA.Pflug = {feet="Runeist bottes +1"}              
-    sets.JA.Pulse = {main="Morgelai",head="Erilaz Galea +1",legs="Runeist's Trousers +2"}
+    sets.JA.Pulse = {main="Morgelai",head="Erilaz Galea +2",legs="Runeist's Trousers +2"}
                     
     --Precast Sets--
     --Fast Cast set
@@ -371,7 +372,7 @@ function get_sets()
         back="Moonbeam Cape",
         -- waist="Sinew Belt",
         waist="Trance Belt",
-        legs={name="Erilaz Leg Guards +1",priority=1},
+        legs={name="Erilaz Leg Guards +2",priority=1},
         -- feet="Erilaz Greaves +1"
         -- feet={name="Carmine Greaves +1",priority=1}
         feet="Ahosi Leggings"
@@ -571,7 +572,7 @@ function midcast(spell,act,arg)
                 equip(sets.Idle.Evasion,{head="Runeist's bandeau +3",hands="Regal Gauntlets"})         
         end  
         if spell.skill == 'Enhancing Magic' then
-                equip(sets.Idle.Evasion, {head="Erilaz Galea +1",legs="Futhark Trousers +2",hands="Regal Gaunlets"})
+                equip(sets.Idle.Evasion, {head="Erilaz Galea +2",legs="Futhark Trousers +2",hands="Regal Gaunlets"})
                 if spell.name == "Blink" or spell.name == "Stoneskin" or spell.name == "Aquaveil" or string.find(spell.name,'Utsusemi') then
                     equip(sets.Interrupt)
                 elseif string.find(spell.name,'Bar') or spell.name=="Temper" then
