@@ -40,7 +40,7 @@ function get_sets()
     send_command('bind f9 gs c toggle TP set')
     send_command('bind f10 gs c toggle Idle set')
     send_command('bind f11 gs c toggle CDC set')
-    send_command('bind f12 gs c toggle Req set')
+    send_command('bind f12 gs c equip gear')
 
     function file_unload()
         send_command('unbind ^f9')
@@ -66,13 +66,6 @@ function get_sets()
         RREar="Reraise Earring",
         RRHair="Reraise Hairpin",
         InstRR="Instant Reraise",
-        Warp="Warp Ring",
-        WarpItem="Instant Warp",
-        CP="Trizek Ring",
-        Exp="Echad Ring",
-        CPMantle="Mecistopins Mantle",
-        Prism="Prism Powder",
-        Oils="Silent Oil",
         --Puffs="Cream Puffs",
     }
 
@@ -80,24 +73,24 @@ function get_sets()
     sets.Idle = {}
 
     sets.Idle.index = {'Standard','DT'}
-    Idle_ind = 1   
+    Idle_ind = 2   
 
     sets.Idle.Standard = {ammo="Coiste Bodhar",
     head="Adhemar Bonnet +1",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
     body="Amalric Doublet +1",hands="Serpentes cuffs",ring1="Dark ring",ring2="Defending ring",
-    back="Repulse mantle",waist="Fucho-no-obi",legs="Crimson cuisses",feet="Serpentes sabots"}
+    back="Repulse mantle",waist="Fucho-no-obi",legs="Nyame Flanchard",feet="Serpentes sabots"}
 
     sets.Idle.DT = {ammo="Coiste Bodhar",
-        head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Ethereal earring", ear2="Heartseeker earring",
-        body="Malignance Tabard",hands="Umuthi gloves",ring1="Dark ring",ring2="Defending ring",
-        back="Agema Cape",waist="Flume belt +1",legs="Herculean Trousers",feet="Malignance Boots"
+        head="Nyame Helm",neck="Loricate Torque +1", ear1="Ethereal earring", ear2="Heartseeker earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Dark ring",ring2="Defending ring",
+        back="Agema Cape",waist="Flume belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"
     }
     --TP Sets--
     sets.TP = {}
 
-    sets.TP.index = {'Standard', 'Accuracy',} --'Safe', 'AccuracyLite', 'AccuracyFull', 'AccuracyExtreme', 'DT', 'DTAccuracy'}
+    sets.TP.index = {'Standard', 'DT',} --'Safe', 'AccuracyLite', 'AccuracyFull', 'AccuracyExtreme', 'DT', 'DTAccuracy'}
     --1=Standard, 2=Solo, 3=Marches, 4=AccuracyLite, 5=AccuracyFull, 6=DT, 7=DTAccuracy--
-    TP_ind = 1
+    TP_ind = 2
 
     sets.TP.Standard = {
         -- main="Sequence",
@@ -118,9 +111,9 @@ function get_sets()
         back=CapeDEXTP,
     }
 
-    sets.TP.Accuracy = {ammo="Coiste Bodhar",
-    head="Adhemar Bonnet +1",neck="Sanctity Necklace", ear1="Telos earring", ear2="Dignitary's earring",
-    body=HercBodyTP,hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Patricius Ring",
+    sets.TP.DT = {ammo="Coiste Bodhar",
+    head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Telos earring", ear2="Dignitary's earring",
+    body="Malignance Tabard",hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Defending Ring",
     back=CapeDEXTP,waist="Windbuffet Belt +1",legs=HercLegsTP,feet="Malignance Boots"}
 
     --Weaponskill Sets--
@@ -147,11 +140,11 @@ function get_sets()
     back=CapeWS,waist="Fotia Belt",legs="Samnuha Tights",feet=HercFeetTP}
 
     sets.WS.ExpSavage = {ammo="Coiste Bodhar",
-        head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
-        body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Rufescent ring",ring2="Metamorph ring +1",
+        head="Nyame Helm",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Ilabrat ring",
         back=CapeWS,waist="Grunfeld Rope",
-        legs={ name="Herculean Trousers", augments={'Weapon skill damage +3%','DEX+14','Accuracy+3','Attack+9',}},
-        feet={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets"
     }
 
 
@@ -218,10 +211,10 @@ function get_sets()
 
     sets.BlueMagic.ChargedWhisker = set_combine(sets.BlueMagic.INT, {}) 
 
-    sets.BlueMagic.WhiteWind = {ammo="Mavi tathlum",
-    head="Luh. Keffiyeh +1",neck="Cuamiz collar",ear1="Upsurge Earring",ear2="Cassie earring",
-    body="Aetosaur jerkin",hands="Amalric Gages",ring1="Bomb queen ring",ring2="Janniston ring +1",
-    back="Oretania's cape",feet="Llwyd's clogs"}
+    sets.BlueMagic.WhiteWind = {ammo="Egoist's Tathlum",
+    head="Nyame Helm",neck="Sanctity necklace",ear1="Etiolation earring",ear2="Eabani Earring",
+    body="Nyame mail",hands="Nyame gauntlets",ring1="Etana ring",ring2="Gelatinous ring +1",
+    back="Reiki cloak",waist="Lieutenant's sash",legs="Nyame flanchard",feet="Nyame sollerets"}
 
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
     head="Malignance Chapeau",neck="Sanctity necklace",ear1="Dignitary's earring",ear2="Crepuscular earring",
@@ -293,7 +286,7 @@ function updateTable()
     -- addToTable("Enfeeble Potency", not EnfeebSet)
     addToTable("(F10) Idle Set", sets.Idle.index[Idle_ind])
     addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
-    addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
+    -- addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
     update_message()
 end
 
@@ -467,6 +460,14 @@ function aftercast(spell)
     end
 end
 
+function equip_current()
+    if player.status == 'Engaged' then
+        equip(sets.TP[sets.TP.index[TP_ind]])
+    else
+        equip(sets.Idle[sets.Idle.index[Idle_ind]])
+    end
+end
+
 function status_change(new,old)
     if new == 'Engaged' then
         equip(sets.TP[sets.TP.index[TP_ind]])
@@ -527,5 +528,6 @@ function self_command(command)
             add_to_chat(140,'Weapon is being unlocked')
         end
     end
+    equip_current()
     updateTable()
 end

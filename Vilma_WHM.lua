@@ -76,12 +76,12 @@ function get_sets()
     sets.Idle.Move = set_combine(sets.Idle.Standard,{feet="Herald's Gaiters"})
     
     sets.precast.FastCast = {main="Grioavolr", sub="Clerisy Strap",ammo="Incantor Stone",
-        head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquacious Earring",
+        head="Bunzi's Hat",neck="Cleric's torque +2",ear1="Malignance Earring",ear2="Loquacious Earring",
         body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring1="Kishar Ring",ring2="Prolix Ring",
-        back=AlaunusFC, waist="Embla Sash", legs="Chironic Hose", feet="Regal pumps +1"}
+        back=AlaunusFC, waist="Embla Sash", legs="Ayanmo cosciales +2", feet="Regal pumps +1"}
     
     sets.precast.FastCure = set_combine(sets.precast.FastCast, {
-        legs="Ebers Pantaloons +1",feet="Kaykaus Boots"}
+        legs="Ebers Pantaloons +1",feet="Kaykaus Boots +1"}
     )
 
     sets.midcast.EnfeeblingMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
@@ -122,7 +122,7 @@ function get_sets()
         
     sets.midcast.DebuffRemoval = {
         main="Yagrush",
-        head="Nahtirah Hat", neck="Cleric's Torque",ear2="Loquacious Earring",
+        head="Nahtirah Hat", neck="Cleric's Torque +2",ear2="Loquacious Earring",
         body="Ebers Bliaut +1",hands="Ebers Mitts +1",
         back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +3",feet='Regal pumps +1' }
 
@@ -130,7 +130,7 @@ function get_sets()
         hands="Ebers Mitts +1",
         back="Mending Cape"
     })
-
+ 
     sets.Cure = {}
     sets.Curaga = {}
     sets.Cure.index = {"Standard", "DT"}
@@ -138,7 +138,7 @@ function get_sets()
     sets.baseCureDT = {
 
         sub="Genmei Shield",
-        neck="Loricate Torque +1", 
+        neck="Cleric's Torque +2", 
         left_ring="Defending Ring",
         right_ring="Ayanmo Ring",
         back=AlaunusDT,
@@ -151,20 +151,20 @@ function get_sets()
         body="Bunzi's Robe",
         head="Bunzi's Hat",
         feet="Bunzi's Sabots",
-        right_ring="Lebeche ring",
+        right_ring="Defending ring",
         waist="Lieutenant's Sash",
         right_ear="Nourishing Earring"
         })
 
     sets.Cure.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
-            head="Ebers Cap +1",neck="Cleric's torque",ear1="Glorious Earring",ear2="Nourishing Earring",--10% 3%--
-            body="Ebers Bliaut +1",hands="Theophany Mitts +2",ring1="Janniston ring +1",ring2="Sirona's Ring", --13%--
-            back=AlaunusFC,waist="Cascade Belt",legs="Ebers Pantaloons +1",feet="Kaykaus Boots"}
+            head="Kaykaus mitra +1",neck="Cleric's torque +2",ear1="Glorious Earring",ear2="Nourishing Earring",--10% 3%--
+            body="Ebers Bliaut +1",hands="Theophany Mitts +3",ring1="Janniston ring +1",ring2="Sirona's Ring", --13%--
+            back=AlaunusFC,waist="Embla sash",legs="Ebers Pantaloons +2",feet="Kaykaus Boots +1"}
 
     sets.Curaga.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
-            head="Ebers Cap +1",neck="Nuna Gorget +1",ear1="Glorious Earring",--ear2="Sortiarius Earring",--10% 3%--
-            body="Theophany Bliaut +3",hands="Theophany Mitts +2",ring1="Aquasoul Ring",ring2="Sirona's Ring", --13%--
-            back=AlaunusFC,waist="Cascade Belt",legs="Ebers Pantaloons +1",feet="Kaykaus Boots"}
+            head="Ebers Cap +1",neck="Cleric's torque +2",ear1="Glorious Earring",--ear2="Sortiarius Earring",--10% 3%--
+            body="Theophany Bliaut +3",hands="Theophany Mitts +3",ring1="Aquasoul Ring",ring2="Sirona's Ring", --13%--
+            back=AlaunusFC,waist="Cascade Belt",legs="Ebers Pantaloons +2",feet="Kaykaus Boots +1"}
 
     sets.Cure.DT = set_combine(sets.Cure.Standard, sets.baseCureDT)
 
@@ -179,9 +179,9 @@ function get_sets()
 
     sets.midcast.Shellra = {legs="Piety Pantaloons +3"}
     
-    sets.midcast.Recast = {head="Nahtirah Hat",ear2="Loquacious Earring",
+    sets.midcast.Recast = {head="Bunzi's Hat",ear2="Loquacious Earring",
     hands="Fanatic Gloves",ring2="Prolix Ring",
-    back=AlaunusFC,waist="Witful Belt",legs="Piety Pantaloons +3",feet="Regal Pumps +1"}
+    back=AlaunusFC,waist="embla sash",legs="Piety Pantaloons +3",feet="Regal Pumps +1"}
     
     sets.cureWeather =  {back="Twilight Cape", waist="Hachirin-no-obi"}
     

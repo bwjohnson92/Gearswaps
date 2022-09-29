@@ -79,7 +79,7 @@ sets.TP.DT = set_combine(sets.TP.Standard, {
 
 sets.TP.Staff = {
     main="Malignance Pole",
-    sub="Tzacab Grip"
+    sub="Rigorous Grip +1"
 }
 
 sets.TP.H2H = {
@@ -269,7 +269,6 @@ sets.FastCast = {
         -- Prism="Prism Powder",
         -- Oils="Silent Oil",
         -- remedy="Remedy",
-        sushi="Sublime Sushi",
         daifuku="Grape Daifuku"
     }
 
