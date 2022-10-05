@@ -300,7 +300,7 @@ function get_sets()
     sets.roll.Short={
         head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
         body="Lanun Frac +3",
-        hands="Navarch's Gants +1",
+        hands="Chasseur's Gants +2",
         legs="Lanun Culottes",
         feet="Meg. Jam. +2",
         neck="Regal Necklace",

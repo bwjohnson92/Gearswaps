@@ -10,8 +10,10 @@ Nuke_Index = 1
 Idle_Index = 1
 
 MPSet = false
-MBSet = false
-AccSet = false
+
+Nuke_Index = 1
+Accuracy_Index = 1
+
 PDTSet = false
 capeLocked = false
 weaponLocked = false
@@ -38,7 +40,7 @@ function get_sets()
     MerlinicBodyBurst = {name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+29','Magic burst dmg.+7%','Mag. Acc.+9',}}
 
     -- MerlinicFeetBurst = {  name="Merlinic Crackows", augments={'Mag. Acc.+8','Magic burst dmg.+11%','MND+7','"Mag.Atk.Bns."+8',}}
-    MerlinicFeetBurst = MerlinicFeetNuke00000000000000000000000
+    MerlinicFeetBurst = MerlinicFeetNuke
     TaranusNuke = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}}
     TaranusMP = {name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
 
@@ -56,15 +58,15 @@ function get_sets()
         ammo = "Grioavolr"
     }
 
-    sets.Idle.PDT = {main="Earth Staff", ammo="Vanir Battery",
+    sets.Idle.PDT = {main="Malignance Pole", ammo="Vanir Battery",
         head="Befouled Crown", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="",
-        body="Vrikodara Jupon", hands="Amalric Gages +1", ring1="Defending Ring", ring2="Gelatinous Ring +1",
-        back=TaranusNuke,waist="Siegel Sash", legs="Merlinic Shalwar", feet="Wicce Sabots +1"}
+        body="Vrikodara Jupon", hands="Nyame Gauntlets", ring1="Defending Ring", ring2="Gelatinous Ring +1",
+        back=TaranusNuke,waist="Siegel Sash", legs="Nyame Flanchard", feet="Wicce Sabots +2"}
 
     sets.Idle.Standard = {
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-        body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-        back=TaranusNuke,waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Wicce Sabots +1"}
+        body="Jhakri Robe +2",hands="Volte Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+        back=TaranusNuke,waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Wicce Sabots +2"}
 
     sets.Idle.HighMP = set_combine(sets.Idle.Standard, { ammo="Strobilus",
         head="Pixie Hairpin +1", body="Amalric Doublet +1", hands="Amalric Gages +1", legs="Amalric Slops +1", feet="Amalric Nails +1",
@@ -74,9 +76,9 @@ function get_sets()
     sets.Idle.DeathIdle = set_combine(sets.Idle.Standard, {})
         
     sets.precast.FastCast = {
-        head="Nahtirah Hat" ,neck="Voltsurge Torque", ear1="Etiolation Earring", ear2="Loquacious Earring",
-        body="Eirene's Manteel",hands="Merlinic Dastanas", ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
-        back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas", feet=MerlinicFeetNuke}
+        head="Nahtirah Hat" ,neck="Voltsurge Torque", ear1="Malignance Earring", ear2="Loquacious Earring",
+        body="Shango Robe",hands="Volte Gloves", ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
+        back="Swith Cape",waist="Embla Sash",legs="Psycloth Lappas", feet="Amalric Nails +1"}
 
     sets.precast.FastCastHighMP = set_combine(sets.precast.FastCast, {
         body="Amalric Doublet +1",hands="Amalric Gages +1", ring2="Mephitas's Ring",back="Bane Cape",legs="Amalric Slops +1",waist="Mujin Obi"})
@@ -93,9 +95,16 @@ function get_sets()
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Freke Ring",
         back=TaranusNuke,waist="Sacro Cord",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
-    sets.midcast.ElementalMagicAcc = {
-        --main={  name="Grioavolr", augments={'Magic burst dmg.+9%','Mag. Acc.+27','"Mag.Atk.Bns."+21','Magic Damage +6',}},
-        sub="Enki Strap",ammo="Strobilus",
+    sets.midcast.ElementalMagic.index = {'Standard', 'Burst'}
+    sets.midcast.ElementalMagic.Acc = {}
+    sets.midcast.ElementalMagic.Acc.index = {'Damage', 'Accuracy'}
+
+
+    sets.midcast.ElementalMagic.Standard = sets.midcast.ElementalMagic
+
+    sets.midcast.ElementalMagic.Standard.Damage = sets.midcast.ElementalMagic.Standard
+    
+    sets.midcast.ElementalMagic.Standard.Accuracy = set_combine(sets.midcast.ElementalMagic.Standard.Damage, {
         head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
         body=MerlinicBodyNuke,
         hands="Ea Cuffs",
@@ -105,22 +114,35 @@ function get_sets()
         left_ear="Barkaro. Earring", right_ear="Digni. Earring",
         ring2="Weather. Ring +1",ring1="Stikini Ring",
         back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
-    }
+    })
+
+    sets.midcast.MagicBurst = {
+        neck="Mizukage-no-Kubikazari", --10
+        head=MerlinicHoodNuke,
+        body=MerlinicBodyBurst,
+        hands="Amalric Gages +1", 
+        ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
+        back=TaranusNuke, 
+        feet=MerlinicFeetNuke
+    } --5, 9 
+
+    sets.midcast.ElementalMagic.Burst = set_combine(sets.midcast.ElementalMagic.Standard, sets.midcast.MagicBurst)
+
+    sets.midcast.ElementalMagic.Burst.Damage = sets.midcast.ElementalMagic.Burst
+    
+    sets.midcast.ElementalMagic.Burst.Accuracy = set_combine(sets.midcast.ElementalMagic.Burst.Damage, {
+        hands="Ea Cuffs"
+    })
+
+    sets.midcast.NukeMPRestore = {body = "Spaekona's Coat +3"}
 
     sets.midcast.ElementalMagicHighMP = {sub="Enki Strap", ammo="Strobilus",
         head={ name="Arch. Petasos +3"}, neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Malignance Earring",
         body="Spaekona's Coat +3",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
 
-    sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Spaekona's Coat +3"})
 
     sets.midcast.Impact = set_combine(sets.midcast.ElementalMagicAcc, {head=empty, body="Twilight Cloak"})
-        
-    sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
-        head=MerlinicHoodNuke,
-        body=MerlinicBodyBurst,
-        hands="Amalric Gages +1", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
-        back=TaranusNuke, feet=MerlinicFeetNuke} --5, 9 
         
     sets.midcast.Stun = {
         -- main="Lathi",
@@ -172,7 +194,7 @@ function get_sets()
             
     sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
 
-    sets.ManaWall = {back=TaranusMP, feet="Wicce Sabots +1"}
+    sets.ManaWall = {back=TaranusMP, feet="Wicce Sabots +2"}
         
     sets.midcast.DeathMagicBurst = {
     main={ name="Lathi", augments={'MP+80', 'INT+20','"Mag.Atk.Bns."+20'}}, sub="Enki Strap",  ammo="Strobilus",
@@ -183,21 +205,21 @@ function get_sets()
     left_ring="Archon Ring",   right_ring="Mephitas's Ring +1",  back=TaranusMP}
 
     sets.superTank = {
-    main="Earth Staff",
-    sub="Enki Strap",
-    ammo="Strobilus",
-    head="Pixie Hairpin +1",
-    body={ name="Amalric Doublet +1"},
-    hands={ name="Amalric Gages +1"},
-    legs="Amalric Slops +1",
-    feet="Wicce Sabots +1",
-    neck="Loricate Torque +1",
-    waist="Sacro Cord",
-    left_ear="Etiolation Earring",
-    right_ear="Loquac. Earring",
-    left_ring="Mephitas's Ring +1",
-    right_ring="Defending Ring",
-    back={ name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
+        main="Malignance Pole",
+        sub="Enki Strap",
+        ammo="Strobilus",
+        head="Pixie Hairpin +1",
+        body={ name="Amalric Doublet +1"},
+        hands={ name="Amalric Gages +1"},
+        legs="Amalric Slops +1",
+        feet="Wicce Sabots +2",
+        neck="Loricate Torque +1",
+        waist="Sacro Cord",
+        left_ear="Etiolation Earring",
+        right_ear="Loquac. Earring",
+        left_ring="Mephitas's Ring +1",
+        right_ring="Defending Ring",
+        back={ name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
     }
             
     -- sets.midcast.OccultAcumen = {
@@ -229,14 +251,14 @@ function get_sets()
     }
 
     sets.midcast.Ja = {
-    	legs="Wicce Chausses +1"
+    	legs="Wicce Chausses +2"
 	}
 
-    send_command('bind f10 gs c switch MP')
+    send_command('bind f9 gs c switch MP')
+    send_command('bind f10 gs c acc')
     send_command('bind f11 gs c switch mb')
     send_command('bind f12 gs c switch pdt')
-    send_command('bind ^f11 gs c acc')
-    send_command('bind f9 gs c melee')
+    -- send_command('bind f9 gs c melee')
     --send_command('bind end gs c lockWeapon')
 
     text_setup()
@@ -247,11 +269,13 @@ end
 function addTextPairs()
     addTextColorPair("Standard", "green")
     addTextColorPair("HighMP", "yellow")
+    addTextColorPair("Accuracy", "yellow")
 end
 
 function updateTable()
-    addToTable("(F10) MP Body", MPSet)
-    addToTable("(F11) MB Set", MBSet)
+    addToTable("(F9) MP Body", MPSet)
+    addToTable("(F10) Dmg or Acc", sets.midcast.ElementalMagic.Acc.index[Accuracy_Index])
+    addToTable("(F11) MB Set", sets.midcast.ElementalMagic.index[Nuke_Index])
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
     addToTable("(END) Weapon Locked", weaponLocked)
     update_message()
@@ -287,13 +311,14 @@ else
     end
     if spell.english == 'Mana Wall' then
         equip(sets.JA.ManaWall)
-        disable("Feet")
-        disable("back")
     end
 end
 end
 -- --- MidCast ---
 function midcast(spell)
+    if spell.english == 'Mana Wall' then
+        return
+    end
     if (Idle_Index == 3) then
         if spell.english == 'Death' then
             if (MBSet == true) then
@@ -316,6 +341,7 @@ function midcast(spell)
         equip(sets.midcast.Impact)
     elseif spell.english == 'Death' then
         equip(set_combine(use_MB(use_obi(spell, sets.midcast.Death))), {head="Pixie Hairpin +1"})
+
     elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
         if string.find(spell.skill,'Healing Magic') then
             if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
@@ -332,11 +358,19 @@ function midcast(spell)
         elseif string.find(spell.skill,'Elemental Magic') then
             -- if DotDebuffs:contains(spell.english) then 
                 -- equip(set_combine(sets.midcast.EnfeeblingMagic, sets.ElementalDebuff))
+            set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]][sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]]
+
+            set = use_obi(spell, set)
+
             if (MPSet) then
-                equip(use_MB(use_acc(use_obi(spell, sets.midcast.ElementalMagicMP))))
-            else
-                equip(use_MB(use_acc(use_obi(spell, sets.midcast.ElementalMagic))))
+                set = set_combine(set, sets.midcast.NukeMPRestore)
             end
+
+            if(string.find(spell.english, 'ja')) then
+                set = set_combine(set, sets.midcast.Ja)
+            end
+            equip(set)
+
         elseif string.find(spell.skill, 'Dark Magic') then
             if spell.english ~= 'Stun' then
                 equip(sets.midcast.DrainAspir)
@@ -352,6 +386,12 @@ end
 -- --- Aftercast ---
 
 function aftercast(spell)
+    if spell.english == 'Mana Wall' then
+        equip(set_combine(sets.Idle[sets.Idle.index[Idle_Index]], {
+            back=sets.ManaWall.back, feet=sets.ManaWall.feet
+        }))
+        return
+    end
     if (spell.type == "WeaponSkill" or spell.action_type == "WeaponSkill") then
         if (spell.english ~= "Myrkr") then
             equip(sets.Melee)
@@ -402,32 +442,28 @@ function buff_change(buff, gain)
 end
 
 function self_command(command)
-    if command == 'test' then
-        -- print_table()
-        add_to_chat(140, Idle_Index)
-    end
     if command == 'switch MP' then
         MPSet = not MPSet
         add_to_chat(140, '<-- Nuking using '..(MPSet and 'MP Recovery' or 'Damage')..' Body -->')
+    
     elseif command == 'acc' then
-        AccSet = not AccSet
-        add_to_chat(140, 'Elemental Magic: '..(AccSet and 'Acc' or 'Damage'))
+        Accuracy_Index = Accuracy_Index +1
+        if Accuracy_Index > #sets.midcast.ElementalMagic.Acc.index then
+            Accuracy_Index = 1
+        end
+    
     elseif command == 'switch mb' then
-        MBSet = not MBSet
-        add_to_chat(140, '<-- Magic Burst Set: '..(MBSet and 'ON' or 'OFF')..'-->')
+        Nuke_Index = Nuke_Index +1
+        if Nuke_Index > #sets.midcast.ElementalMagic.index then
+            Nuke_Index = 1
+        end
+    
     elseif command == 'switch pdt' then
         Idle_Index = Idle_Index +1
         if Idle_Index > #sets.Idle.index then Idle_Index = 1 end
         add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
         equip(sets.Idle[sets.Idle.index[Idle_Index]])
-    elseif command == 'lockCape' then
-        capeLocked = not capeLocked
-        if capeLocked == true then
-            disable("Back")
-        else
-            enable("Back")
-        end
-        add_to_chat(140, '<----- Cape is now '..(capeLocked and 'locked' or 'unlocked')..' ----->')
+
     elseif command == 'lockWeapon' then
         weaponLocked = not weaponLocked
         if weaponLocked == true then
@@ -438,23 +474,18 @@ function self_command(command)
             enable("Sub")
         end
         add_to_chat(140, '<----- Weapon is now '..(weaponLocked and 'locked' or 'unlocked')..' ----->')
+
     elseif command == 'melee' then
         equip(sets.Melee)
         add_to_chat(140, "Equipping Melee set")
     end
+    
     updateTable()
 end
 
 function use_MB(equip_set)
     if (MBSet) then
         equip_set = set_combine(equip_set, sets.midcast.MagicBurst)
-    end
-    return equip_set
-end
-
-function use_acc(equip_set)
-    if (AccSet) then
-        equip_set = set_combine(equip_set, sets.midcast.ElementalMagicAcc)
     end
     return equip_set
 end

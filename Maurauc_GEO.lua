@@ -95,7 +95,7 @@ function get_sets()
 		main="Idris",
 	    sub="Genmei Shield",
 		range="Dunna",
-	    head="Telchine Cap",
+	    head="Azimuth Hood +2",
 	    body="Jhakri Robe +2",
 	    hands="Volte Gloves",
 	    legs="Assid. Pants +1",
@@ -111,7 +111,7 @@ function get_sets()
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
 		main="Malignance Pole",
-		head="Nyame Helm",
+		-- head="Nyame Helm",
 		sub="Alber Strap",
 		hands="Nyame Gauntlets",
 		waist="Slipor Sash",
@@ -123,8 +123,8 @@ function get_sets()
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
-		-- head="Azimuth Hood +1",
-		head="Telchine Cap",
+		head="Azimuth Hood +2",
+		-- head="Telchine Cap",
 		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 
 		hands="Telchine Gloves",
