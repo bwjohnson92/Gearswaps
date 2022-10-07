@@ -51,7 +51,7 @@ function get_sets()
         waist="Witful Belt",legs="Doyen Pants", feet="Telchine Pigaches"}
 
     sets.precast.Song = set_combine(sets.precast.FastCast, {
-        head="Fili Calot +1"
+        head="Fili Calot +1",ear1="Aoidos' Earring"
     })
 
     sets.midcast.Song = {
@@ -64,9 +64,13 @@ function get_sets()
         neck="Moonbow Whistle",
         ear2="Darkside Earring",
         legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +2",
+        feet="Brioso Slippers +3",
         back="Intarabus's Cape"
 
+    }
+
+    sets.HonorMarch = {
+        ranged="Marsyas"
     }
 
     send_command('bind end send @others input /follow Malignantaru')
@@ -89,6 +93,9 @@ end
 -- --- Precast ---
 
 function precast(spell)
+    if (string.find(spell.name,'Honor')) then
+        equip(sets.HonorMarch)
+    end
     if string.find(spell.type,'Song') or string.find(spell.type,'Magic') or string.find(spell.type,'Trust') then
         equip(sets.precast.FastCast)
     end
@@ -97,8 +104,12 @@ end
 function midcast(spell)
     if string.find(spell.type,'Magic') or string.find(spell.type,'BardSong')  then
         -- add_to_chat(140, sets.Instrument.Index[Instrument_Index])
+        inst = sets.Instrument.Index[Instrument_Index]
+        if (spell.name == "Honor March") then
+            inst = sets.HonorMarch.ranged
+        end
         equip(set_combine(sets.midcast.Song, {
-            ranged=sets.Instrument.Index[Instrument_Index]
+            ranged=inst
         }))
     end 
 end

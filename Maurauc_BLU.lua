@@ -92,7 +92,7 @@ function get_sets()
 
     sets.Idle.Standard = {ammo="Coiste Bodhar",
         head="Nyame Helm",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
-        body="Jhakri Robe +2",hands="Nyame Gauntlets",ring1="Gelatinous Ring +1",ring2="Defending ring",
+        body="Jhakri Robe +2",hands="Nyame Gauntlets",ring1={name="Stikini Ring +1", bag="Wardrobe2"},ring2={name="Stikini Ring +1", bag="Wardrobe3"},
         back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Nyame Sollerets"
     }
 
