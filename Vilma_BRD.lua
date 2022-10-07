@@ -43,7 +43,7 @@ function get_sets()
 	send_command('bind end gs c lockWeapon')
 	send_command('bind ^f11 gs c acc')
 
-	sets.aftercast_Idle = {main="Bolelabunga",sub="Genbu's Shield",
+	sets.aftercast_Idle = {main="Bolelabunga",sub="Genmei Shield",
 		head="Befouled Crown",neck="Sanctity Necklace",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Witching Robe",hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Assiduity pants +1",feet="Herald's Gaiters"}
@@ -69,17 +69,17 @@ function get_sets()
 		hands="Amalric Gages +1", ring2="Sangoma Ring",back="Bane Cape",})
 		
 	sets.midcast_EnfeeblingMagic = {main=currentWeapon,sub="Enki Strap",ammo="pemphredo tathlum",
-		head="Befouled Crown",neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
+		head="Befouled Crown",neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Crepuscular Earring",
 		body="Spaekona's Coat +2",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Kishar Ring",
 		back=TaranusINT,waist="Refoccilation Stone",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Skaoi Boots"}
 
 	sets.midcast_ElementalMagic = {main=currentWeapon,sub="Niobid Strap", ammo="Pemphredo Tathlum",
-		head="Archmage's Petasos +3",neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
+		head="Archmage's Petasos +3",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
 		back=TaranusINT,waist="Refoccilation Stone",legs="Amalric slops +1",feet="Amalric Nails +1"}
 		
 	sets.midcast_ElementalMagicHighMP = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
-		head=MerlinicHead, neck="Eddy Necklace",ear1="Etiolation Earring",ear2="Barkarole Earring",
+		head=MerlinicHead, neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Barkarole Earring",
 		body="Spaekona's Coat +2",hands="Spaekona's gloves +3",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
@@ -106,7 +106,7 @@ function get_sets()
 	sets.midcast_Impact = set_combine(sets.midcast_ElementalMagicAcc, {head=empty, body="Twilight Cloak", feet="Archmage's Sabots +2"})	
 		
 	sets.midcast_Stun = {main=currentWeapon,sub="Enki Strap",ammo="pemphredo tathlum",
-		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
+		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Crepuscular Earring",
 		body="Vanir Cotehardie",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Prolix Ring",
 		back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas",feet=MerlinicFeet}
 		
@@ -129,12 +129,12 @@ function get_sets()
 	sets.ManaWall = {back=TaranusMP, feet="Wicce Sabots +1"}
 	
 	sets.midcast_Death = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
-		head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Static Earring",
+		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Static Earring",
 		body="Ea Houppelande",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric slops +1",feet="Amalric Nails +1"}
 	
 	sets.midcast_DeathHighMP = {main=currentWeapon,sub="Niobid Strap", ammo="Strobilus",
-		head="Pixie Hairpin +1",neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
+		head="Pixie Hairpin +1",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 	
@@ -144,7 +144,7 @@ function get_sets()
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric slops +1",feet="Amalric Nails +1"}
 	
 	sets.midcast_DrainAspir = set_combine(sets.midcast_ElementalMagic, {
-	head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Gwati Earring", ear2="Barkarole Earring",	
+	head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Crepuscular Earring", ear2="Barkarole Earring",	
 	ring2="Archon Ring",back="Taranus's Cape", waist="Fucho-no-obi",feet=MerlinicFeet})
 	
 	sets.WS_Myrkr = set_combine(sets.aftercast_IdleHighMP, {})

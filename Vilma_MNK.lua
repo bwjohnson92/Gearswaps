@@ -47,7 +47,7 @@ sets.TP.index = {'Standard', 'Accuracy', 'DT'}
 TP_ind = 1
 
 sets.TP.Standard = {
-    ammo="Ginsen",
+    ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}},
     body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
     hands={ name="Adhemar Wristbands +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -79,7 +79,7 @@ sets.TP.DT = set_combine(sets.TP.Standard, {
 
 sets.TP.Staff = {
     main="Malignance Pole",
-    sub="Tzacab Grip"
+    sub="Rigorous Grip +1"
 }
 
 sets.TP.H2H = {
@@ -113,14 +113,15 @@ sets.WS.Generic.Acc = set_combine(sets.WS.Generic.Mid, {
 sets.WS["Victory Smite"] = set_combine(sets.WS.Generic.Standard, { --STR, Acc/Att, DA
     ammo="Knobkierrie",
     head="Adhemar Bonnet +1",
-    body="Kendatsuba Samue",
+    body="Tatenashi Haramaki +1", --Mpaca?
+    hands="Adhemar Wristbands +1",
+    legs="Mpaca's Hose",
     neck="Fotia Gorget",
-    waist="Moonbow Belt +1", --Moonbow Belt +1
+    waist="Moonbow Belt +1",
     ring1="Gere Ring",
     ring2="Niqmaddu Ring",
     ear1="Sherida Earring",
     ear2="Moonshade Earring",
-    hands="Ryuo Tekko"
 })
 
 sets.WS["Victory Smite"].Mid = set_combine(sets.WS["Victory Smite"].Standard, {
@@ -140,7 +141,7 @@ sets.WS["Shijin Spiral"] = set_combine(sets.WS.Generic.Standard, { --DEX, Acc/At
     feet="Kendatsuba Sune-ate",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1", --Moonbow Belt +1
-    ring1="Ilabrat Ring",
+    ring1="Gere Ring",
     ring2="Niqmaddu Ring",
     ear1="Sherida Earring",
     ear2="Mache Earring +1",
@@ -156,11 +157,11 @@ sets.WS["Shijin Spiral"].Acc = set_combine(sets.WS["Shijin Spiral"].Mid, {
 })
 
 sets.WS["Raging Fists"] = set_combine(sets.WS.Generic.Standard, {
-    head="Adhemar Bonnet +1",
+    head="Mpaca's Cap",
     body="Adhemar Jacket",
     hands="Adhemar Wristbands +1",
-    legs="Kendatsuba Hakama +1",
-    feet="Kendatsuba Sune-ate",
+    legs="Kendatsuba Hakama +1", --Tatenashi
+    feet="Nyame Sollerets",
     waist="Moonbow Belt +1",
     ear1="Sherida Earring",
     ear2="Moonshade Earring",
@@ -171,10 +172,11 @@ sets.WS["Raging Fists"] = set_combine(sets.WS.Generic.Standard, {
 
 sets.WS["Howling Fist"] = { 
     ammo="Knobkierrie",
-    -- head="Hesychast Crown +3",
-    body="Kendatsuba Samue",
-    hands={ name="Herculean Gloves", augments={'Accuracy+15','"Triple Atk."+2','STR+7','Attack+6',}},
-    feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},
+    head="Mpaca's Cap",
+    body="Tatenashi Haramaki +1", --Tatenashi
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Monk's Nodowa +1",
     waist="Moonbow Belt +1", 
     ring1="Gere Ring",
@@ -194,17 +196,17 @@ sets.WS["Shell Crusher"] = {
     neck="Sanctity Necklace",
     waist="Luminary Sash",
     ear1="Digni. Earring",
-    ear2="Gwati Earring",
+    ear2="Crepuscular Earring",
     ring1="Sangoma Ring",
     ring2="Etana Ring",
 
 }
  sets.WS["Tornado Kick"] = {
      ammo="Knobkierrie",
-    -- head="Hesychast Crown +3",
-    body="Kendatsuba Samue",
-    hands={ name="Herculean Gloves", augments={'Accuracy+15','"Triple Atk."+2','STR+7','Attack+6',}},
-    legs="Kendatsuba Hakama +1",
+    head="Mpaca's Cap",
+    body="Tatenashi Haramaki +1",
+    hands="Nyame Gauntlets",
+    legs="Mpaca's Hose",
     feet="Anchorite's Gaiters +3",
     neck="Monk's Nodowa +1",
     waist="Moonbow Belt +1", 
@@ -214,6 +216,8 @@ sets.WS["Shell Crusher"] = {
     ear2="Moonshade Earring",
     back=capeSTR
 }
+
+sets.WS["Dragon Kick"] = sets.WS["Tornado Kick"]
 
 --JA Sets
 sets.JA = {}
@@ -227,8 +231,6 @@ sets.JA.Chakra = {
     hands="Hesychast's Gloves +1",
     legs="Ken. Hakama +1",
     feet="Anch. Gaiters +3",
-    neck="Unmoving Collar +1",
-    waist="Caudata Belt",
     left_ear="Handler's Earring +1",
     right_ear="Odnowa Earring +1",
     left_ring="Niqmaddu Ring",
@@ -240,23 +242,34 @@ sets.Impetus = {
 }
 
 sets.FastCast = {
+    head="Herculean Helm",
+    body="Dread Jupon",
+    hands={ name="Leyline Gloves", augments={'Accuracy+7','Mag. Acc.+2',}},
+    legs="Limbo Trousers",
+    feet={ name="Taeon Boots", augments={'"Fast Cast"+4',}},
+    neck="Orunmila's Torque",
+    left_ear="Etiolation Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Prolix Ring",
+    right_ring="Lebeche Ring",
+    back={ name="Segomo's Mantle", augments={'"Fast Cast"+10',}},
 }
 
     organizer_items = {
         weapon="Godhands",
         -- echos="Echo Drops",
-        holy="Holy Water",
+        -- holy="Holy Water",
         RREar="Reraise Earring",
         InstRR="Instant Reraise",
         Warp="Warp Ring",
         WarpItem="Instant Warp",
-        CP="Trizek Ring",
-        Exp="Echad Ring",
-        CPMantle="Mecistopins Mantle",
-        Prism="Prism Powder",
-        Oils="Silent Oil",
-        remedy="Remedy",
-        sushi="Sublime Sushi"
+        -- CP="Trizek Ring",
+        -- Exp="Echad Ring",
+        -- CPMantle="Mecistopins Mantle",
+        -- Prism="Prism Powder",
+        -- Oils="Silent Oil",
+        -- remedy="Remedy",
+        daifuku="Grape Daifuku"
     }
 
     send_command('bind f9 gs c equip staff')
@@ -319,9 +332,16 @@ function precast(spell)
     elseif (spell.english == "Chakra") then
         equip(sets.JA.Chakra)
     end
+
+    if spell.skill == 'Ninjutsu' then
+        equip(sets.FastCast)
+    end
 end
 -- --- MidCast ---
 function midcast(spell)
+    if spell.skill == 'Ninjutsu' then
+        equip(sets.Idle.DT)
+    end
 end 
 
 -- --- Aftercast ---

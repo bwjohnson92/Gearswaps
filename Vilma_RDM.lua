@@ -64,7 +64,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    back=SucellosMND,
 	})		
 
-	--[[sets.aftercast.Idle = {main="Bolelabunga",sub="Genbu's Shield", ammo="Homiliary",
+	--[[sets.aftercast.Idle = {main="Bolelabunga",sub="Genmei Shield", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
 		body={name="Witching Robe", augments={'MP+5', '"Refresh"+1',}},hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Lengo Pants",feet="Serpentes Sabots"}]]--
@@ -78,7 +78,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	
 	sets.precast.FastCure = sets.precast.FastCast
 
-	--sets.Melee = {main="Buramenk'ah",sub="Genbu's Shield",
+	--sets.Melee = {main="Buramenk'ah",sub="Genmei Shield",
 	--	head="Umuthi Hat",neck="Asperity Necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
 	--	body="Artsieq Jubbah",hands="Umuthi Gloves", 
 	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
@@ -99,12 +99,12 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		})
 		
 	sets.midcast.ElementalMagic = {main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
+		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosMND,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +1"}	
 
 	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
-		head=MerlinicHoodAcc,neck="Eddy Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
+		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosMND,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +1"}	
 	
@@ -246,7 +246,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		ring1="Ilabrat Ring",
 		ring2="Petrov Ring",
 		waist="Olseni Belt",
-		ammo="Ginsen"
+		ammo="Coiste Bodhar"
 
 	}
 
@@ -529,13 +529,6 @@ function use_MB(equip_set)
 	return equip_set
 end
 
-function buff_change(buff, gain)
-    if (gain) then
-        add_to_chat(140, "Gained "..buff)
-    else
-        add_to_chat(140, "Lost "..buff)
-    end
-end
 
 function use_obi(spell, equip_set)
     local use_obi = false

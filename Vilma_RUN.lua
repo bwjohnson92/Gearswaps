@@ -258,7 +258,7 @@ function get_sets()
 
     --Magic acc for enfeebles, handy for VW
     sets.MagicAcc = {
-        head="Dampening Tam",ear1="Gwati Earring",
+        head="Dampening Tam",ear1="Crepuscular Earring",
         body="Samnuha Coat",hands="Leyline Gloves",ring1="Sangoma Ring",ring2="Kishar Ring",
         --waist="Salire Belt",
         legs="Runiest's Trousers +2"}

@@ -58,7 +58,7 @@ function get_sets()
 	sets.WS = {}
 	sets.Idle.index = {"Standard", "PDT", "HighMP"}
 
-	sets.Idle.Standard = {main="Bolelabunga",sub="Genbu's Shield",
+	sets.Idle.Standard = {main="Bolelabunga",sub="Genmei Shield",
 		head="Befouled Crown",neck="Sanctity Necklace",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Witching Robe",hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Assiduity pants +1",feet="Herald's Gaiters"}
@@ -90,7 +90,7 @@ function get_sets()
 	sets.midcast.EnfeeblingMagic = {
 	-- main=currentWeapon,sub="Enki Strap",
 		ammo="pemphredo tathlum",
-		head="Archmage's Petasos +3",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Digni. Earring",
+		head="Archmage's Petasos +3",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Digni. Earring",
 		body="Spaekona's Coat +3",hands="Spaekona's Gloves +3",ring1="Sangoma Ring",ring2="Kishar Ring",
 		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +3"}
 
@@ -101,19 +101,12 @@ function get_sets()
 		head="Ea hat +1",
 		body="Ea Houppelande +1",
 		legs="Ea Slops +1",
-		neck="Sorcerer's Stole",
-
-		
-
-
-
+		neck="Sorcerer's Stole +1",
 		feet="Amalric Nails +1", --+50MAB
 		ring1="Locus Ring", 
-
 		-- feet="Spaekona's Sabots +3", --+50 MAcc
 		ear1="Regal Earring",
 		ring1="Freke Ring",
-
 		-- ring2="Mujin Band",
 		back=TaranusINT
 		-- ear2="Static Earring",
@@ -123,14 +116,14 @@ function get_sets()
 	sets.midcast.ElementalMagic = {
 		-- main=currentWeapon,sub="Niobid Strap", 
 		ammo="Pemphredo Tathlum",
-		head="Archmage's Petasos +3",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Malignance Earring",
+		head="Archmage's Petasos +3",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Malignance Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Metamorph Ring +1",
 		back=TaranusINT,waist="Sacro Cord",legs="Amalric slops +1",feet="Amalric Nails +1"}
 		
 	sets.midcast.ElementalMagic.HighMP = {
 		-- main=currentWeapon,sub="Niobid Strap", 
 		ammo="Strobilus",
-		head=MerlinicHead, neck="Sorcerer's Stole",ear1="Etiolation Earring",ear2="Barkarole Earring",
+		head=MerlinicHead, neck="Sorcerer's Stole +1",ear1="Etiolation Earring",ear2="Barkarole Earring",
 		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 
@@ -143,7 +136,7 @@ function get_sets()
 	    hands="Spaekona's Gloves +3",
 	    legs="Spaekona's Tonban +3",
 	    feet="Spaekona's Sabots +3",
-	    neck="Sorcerer's Stole",
+	    neck="Sorcerer's Stole +1",
 	    waist="Sacro Cord",
 	    left_ear="Malignance Earring",
 	    right_ear="Regal Earring",
@@ -162,7 +155,7 @@ function get_sets()
 	sets.midcast.Stun = {
 	-- main=currentWeapon,sub="Enki Strap",
 	ammo="pemphredo tathlum",
-		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
+		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Crepuscular Earring",
 		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Sangoma Ring",ring2="Prolix Ring",
 		back="Swith Cape",waist="Witful Belt",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"}
 		
@@ -174,26 +167,26 @@ function get_sets()
 	sets.midcast.Death = {
 	-- main=currentWeapon,sub="Niobid Strap", 
 		ammo="Strobilus",
-		head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Static Earring",
+		head="Pixie Hairpin +1",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Static Earring",
 		body="Ea Houppelande",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Amalric Nails +1"}
 	
 	sets.midcast.DeathHighMP = {
 	-- main=currentWeapon,sub="Niobid Strap", 
 		ammo="Strobilus",
-		head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Friomisi Earring",
+		head="Pixie Hairpin +1",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Amalric Nails +1"}
 	
 	sets.midcast.DeathHighMPMB = {
 	-- main=currentWeapon,sub="Niobid Strap", 
 		ammo="Strobilus",
-		head="Pixie Hairpin +1",neck="Sorcerer's Stole",ear1="Barkarole Earring",ear2="Static Earring",
+		head="Pixie Hairpin +1",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Static Earring",
 		body="Ea Houppelande",hands="Spaekona's Gloves +3",ring1="Mephitas's Ring +1",ring2="Archon Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"}
 	
 	sets.midcast.DrainAspir = set_combine(sets.midcast.ElementalMagic, {
-	head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Gwati Earring", ear2="Barkarole Earring",	
+	head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Crepuscular Earring", ear2="Barkarole Earring",	
 	ring2="Archon Ring",back="Taranus's Cape", waist="Fucho-no-obi",feet=MerlinicFeet})
 	
 	sets.midcast.OccultAcumen = {
@@ -222,7 +215,7 @@ function get_sets()
 
 	sets.WS.Myrkr = set_combine(sets.Idle.HighMP, {})
 	sets.JA.ManaWall = {back=TaranusMP, feet="Wicce Sabots +1"}
-	sets.extra = {neck="Sorcerer's Stole"}
+	sets.extra = {neck="Sorcerer's Stole +1"}
 	sets.ElementalDebuff = {feet="Archmage's Sabots +2"}
 	organizer_items = organizerItems()
 
@@ -316,8 +309,6 @@ function handleNuke(spell)
 	end
 	-- add_to_chat(140, ..set)
 	return(use_obi(spell, set))
-	
-
 end
 
 -- --- MidCast ---
