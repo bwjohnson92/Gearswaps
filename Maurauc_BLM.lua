@@ -31,6 +31,8 @@ elements.use_on_single_conflict = false
 elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 
+DotDebuffs = S{"Burn", "Choke", "Shock", "Drown", "Frost", "Rasp"}
+
 -- Start Functions here
 -- Gear Sets
 function get_sets()
@@ -90,6 +92,13 @@ function get_sets()
         body="Amalric Doublet +1",hands="Jhakri Cuffs +2",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
         back=TaranusNuke,waist="Rumination Sash",legs="Psycloth Lappas",feet="Skaoi Boots"}
 
+    sets.ElementalDebuff = {
+        legs="Archmage's Tonban +3",
+        feet="Archmage's Sabots +3"
+    }
+
+    --NUKING
+
     sets.midcast.ElementalMagic = {sub="Enki Strap", ammo="Pemphredo Tathlum",
         head={ name="Arch. Petasos +3"},neck="Sorcerer's Stole",ear1="Malignance Earring",ear2="Barkarole Earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Freke Ring",
@@ -98,7 +107,6 @@ function get_sets()
     sets.midcast.ElementalMagic.index = {'Standard', 'Burst'}
     sets.midcast.ElementalMagic.Acc = {}
     sets.midcast.ElementalMagic.Acc.index = {'Damage', 'Accuracy'}
-
 
     sets.midcast.ElementalMagic.Standard = sets.midcast.ElementalMagic
 
@@ -133,6 +141,21 @@ function get_sets()
     sets.midcast.ElementalMagic.Burst.Accuracy = set_combine(sets.midcast.ElementalMagic.Burst.Damage, {
         hands="Ea Cuffs"
     })
+
+    sets.midcast.ElementalMagic.OccultAcumen = {
+        ammo="Seraphic Ampulla",
+        head="Mallquis Chapeau +1",
+        body="Spaekona's Coat +3",  
+        hands="Ea Cuffs",
+        legs="Perdition Slops",
+        feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
+        neck="Lissome Necklace",
+        waist="Oneiros Rope",
+        left_ear="Tripudio Earring",
+        right_ear="Telos Earring",
+        left_ring="Rajas Ring",
+        right_ring="Petrov Ring",
+    }
 
     sets.midcast.NukeMPRestore = {body = "Spaekona's Coat +3"}
 
@@ -221,21 +244,6 @@ function get_sets()
         right_ring="Defending Ring",
         back={ name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
     }
-            
-    -- sets.midcast.OccultAcumen = {
-    -- ammo="Seraphic Ampulla",
-    -- head="Mallquis Chapeau +1",
-    -- body="Spaekona's Coat +3",  
-    -- hands="Ea Cuffs",
-    -- legs="Perdition Slops",
-    -- feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
-    -- neck="Lissome Necklace",
-    -- waist="Oneiros Rope",
-    -- left_ear="Tripudio Earring",
-    -- right_ear="Telos Earring",
-    -- left_ring="Rajas Ring",
-    -- right_ring="Petrov Ring",
-    -- }
 
     sets.Melee = {    
         ammo="Vanir Battery",
@@ -258,6 +266,7 @@ function get_sets()
     send_command('bind f10 gs c acc')
     send_command('bind f11 gs c switch mb')
     send_command('bind f12 gs c switch pdt')
+    send_command('bind pause gs c nuke')
     -- send_command('bind f9 gs c melee')
     --send_command('bind end gs c lockWeapon')
 
@@ -356,9 +365,13 @@ function midcast(spell)
             equip(sets.midcast.EnfeeblingMagic) 
     
         elseif string.find(spell.skill,'Elemental Magic') then
-            -- if DotDebuffs:contains(spell.english) then 
-                -- equip(set_combine(sets.midcast.EnfeeblingMagic, sets.ElementalDebuff))
-            set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]][sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]]
+            if DotDebuffs:contains(spell.english) then 
+                equip(set_combine(sets.midcast.EnfeeblingMagic, sets.ElementalDebuff))
+                return
+            end
+
+                set = getNukeSet()
+
 
             set = use_obi(spell, set)
 
@@ -421,6 +434,16 @@ end
 function status_change(new,tab)
 end
 
+function getNukeSet()
+    set = {}
+    if (sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]][sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]]) then
+        set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]][sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]]
+    else 
+        set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]]
+    end
+    return set
+end
+
 function buff_change(buff, gain)
     if (gain) then
         add_to_chat(140, "Gained "..buff)
@@ -464,6 +487,8 @@ function self_command(command)
         add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
         equip(sets.Idle[sets.Idle.index[Idle_Index]])
 
+    elseif command == 'nuke' then
+        equip(getNukeSet())
     elseif command == 'lockWeapon' then
         weaponLocked = not weaponLocked
         if weaponLocked == true then
@@ -479,7 +504,7 @@ function self_command(command)
         equip(sets.Melee)
         add_to_chat(140, "Equipping Melee set")
     end
-    
+
     updateTable()
 end
 
