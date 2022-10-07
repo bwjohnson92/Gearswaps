@@ -43,11 +43,11 @@ Relic.Legs = "Bagua Pants +2"
 Relic.Feet = "Bagua Sandals +3"
 
 Empyrean = {}
-Empyrean.Head = "Azimuth Hood"
+Empyrean.Head = "Azimuth Hood +2"
 Empyrean.Body = "Azimuth Coat"
 Empyrean.Hands = "Azimuth Gloves"
 Empyrean.Legs = "Azimuth Tights"
-Empyrean.Feet = "Azimuth Gaiters"
+Empyrean.Feet = "Azimuth Gaiters +1"
 
 nukingStaff = "Raetic"
 
@@ -95,7 +95,7 @@ function get_sets()
 		main="Idris",
 	    sub="Genmei Shield",
 		range="Dunna",
-	    head="Azimuth Hood +2",
+	    head=Empyrean.Head
 	    body="Jhakri Robe +2",
 	    hands="Volte Gloves",
 	    legs="Assid. Pants +1",
@@ -123,7 +123,7 @@ function get_sets()
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
-		head="Azimuth Hood +2",
+		head=Empyrean.Head
 		-- head="Telchine Cap",
 		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 

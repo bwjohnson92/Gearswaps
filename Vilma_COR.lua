@@ -40,7 +40,7 @@ sets.Gun = {}
 sets.Gun.index = {
     -- "Death Penalty", 
     "Fomalhaut", 
-    -- "Anarchy"
+    "Anarchy"
 }
 sets.Gun["Death Penalty"] = {
     ranged="Death Penalty"

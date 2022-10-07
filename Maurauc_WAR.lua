@@ -249,7 +249,7 @@ function get_sets()
 
 	sets.JA["Berserk"] = {
 		body="Pummeler's Lorica +3",
-		feet="Agoge Calligae"
+		feet="Agoge Calligae +1"
 	} 
 
 	sets.JA["Mighty Strikes"] = {

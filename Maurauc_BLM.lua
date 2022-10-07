@@ -4,22 +4,15 @@ include('Grioavolr.lua')
 include('MaurMerlinic.lua')
 include('displayBox.lua')
 
--- Local Settings, setting the zones prior to use
-
-Nuke_Index = 1
 Idle_Index = 1
-
-MPSet = false
 
 Nuke_Index = 1
 Accuracy_Index = 1
 
+MPSet = false
 PDTSet = false
 capeLocked = false
 weaponLocked = false
-
-toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","Periqia","Ilrusi Atoll",
-        "Nyzul Isle","Bhaflau Remnants","Arrapago Remnants","Silver Sea Remnants","Zhayolm Remnants"}
 
 naSpells = S{"Paralyna","Silena","Viruna","Erase","Stona","Blindna","Poisona"}
 
@@ -370,9 +363,7 @@ function midcast(spell)
                 return
             end
 
-                set = getNukeSet()
-
-
+            set = getNukeSet()
             set = use_obi(spell, set)
 
             if (MPSet) then

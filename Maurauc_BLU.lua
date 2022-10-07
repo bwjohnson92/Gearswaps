@@ -91,9 +91,9 @@ function get_sets()
     Idle_ind = 2                   
 
     sets.Idle.Standard = {ammo="Coiste Bodhar",
-        head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
-        body="Jhakri Robe +2",hands="Malignance Gloves",ring1="Gelatinous Ring +1",ring2="Defending ring",
-        back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Malignance Boots"
+        head="Nyame Helm",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
+        body="Jhakri Robe +2",hands="Nyame Gauntlets",ring1="Gelatinous Ring +1",ring2="Defending ring",
+        back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Nyame Sollerets"
     }
 
     sets.Idle.DT = {
@@ -101,7 +101,7 @@ function get_sets()
         -- head="Malignance Chapeau",
         head="Nyame Helm",
         body="Malignance Tabard",
-        hands="Malignance Gloves",
+        hands="Nyame Gauntlets",
         -- legs="Aya. Cosciales +2",
         legs="Carmine Cuisses +1",
         -- feet="Malignance Boots",
@@ -109,8 +109,8 @@ function get_sets()
         waist="Flume Belt +1",
         neck="Loricate Torque +1",
         left_ear="Novia Earring",
-        right_ear="Telos Earring",
-        left_ring="Gelatinous Ring +1",
+        right_ear="Etiolation Earring",
+        left_ring="Stikini Ring +1",
         right_ring="Defending Ring",
         back=DEXCape,
     }
