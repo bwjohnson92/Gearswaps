@@ -271,11 +271,11 @@ function precast(spell)
 	else
 		if spell.english == 'Impact' then
 			equip(sets.precast.FastCastImpact)
-		elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
+		elseif spell.type:contains('WhiteMagic') or spell.type:contains('BlackMagic') then
 			equip(sets.precast.FastCast)
-			if string.find(spell.skill,'Enhancing Magic') then
+			if spell.skill:contains('Enhancing Magic') then
 				equip({waist="Siegel Sash"})
-				if string.find(spell.english,'Stoneskin') then
+				if spell.english:contains('Stoneskin') then
 					equip({head="Umuthi Hat"})
 				end
 			end
@@ -298,7 +298,7 @@ function handleHighMP(spell)
 		end
 	elseif spell.english == 'Myrkr' then
 		return(sets.WS.Myrkr)
-	elseif string.find(spell.type,'BlackMagic') then
+	elseif spell.type:contains('BlackMagic') then
 		return(sets.midcast.ElementalMagicHighMP)
 	else
 		return(sets.precast.FastCastHighMP)
@@ -326,7 +326,7 @@ function handleNuke(spell)
 		set = set_combine(set, sets.midcast.NukeMPRestore)
 	end
 
-	if(string.find(spell.english, 'ja')) then
+	if(spell.english:contains('ja')) then
 		set = set_combine(set, sets.midcast.Ja)
 	end
 	equip(set)
@@ -360,23 +360,27 @@ function midcast(spell)
 		return
 	end
 	
-	if (string.find(spell.skill,'Healing Magic')) then
-        if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
+	if (spell.skill == nil) then
+		return
+	end
+
+	if (spell.skill == 'Healing Magic') then
+        if spell.english:contains('Cura') or spell.english:contains('Cure') then 
             equip(sets.midcast.Cure)
         else
             equip(sets.precast.FastCast)
         end
-	elseif string.find(spell.skill,'Enhancing Magic') then
+	elseif spell.skill:contains('Enhancing Magic') then
 		equip(sets.midcast.EnhancingMagic)
 						
-	elseif string.find(spell.skill,'Enfeebling Magic') or string.find(spell.skill, 'Divine Magic') then
+	elseif spell.skill:contains('Enfeebling Magic') or spell.skill:contains('Divine Magic') then
 		equip(sets.midcast.EnfeeblingMagic)	
 	
-	elseif string.find(spell.skill,'Elemental Magic') then
+	elseif spell.skill:contains('Elemental Magic') then
 
 		equip(handleNuke(spell))
 	
-	elseif string.find(spell.skill, 'Dark Magic') then
+	elseif spell.skill:contains('Dark Magic') then
 		if spell.english ~= 'Stun' then
 			equip(sets.midcast.DrainAspir)
 		else
