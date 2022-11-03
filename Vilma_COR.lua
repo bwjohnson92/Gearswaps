@@ -161,6 +161,8 @@ sets.WS.SavageBlade.Accuracy = set_combine(sets.WS.SavageBlade, {
     ear1="Telos Earring",
     })
 
+sets.WS.Generic = sets.WS.SavageBlade
+
 sets.WS.LastStand = { --Generic Physical WS
     head="Lanun Tricorne +3",
     body="Nyame Mail",
@@ -209,6 +211,21 @@ sets.WS.Wildfire = {
     back=capeRangedWS,
 }
 
+sets.WS.Aeolian = {
+    head="Nyame Helm",
+    body="Lanun Frac +3",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Lanun Bottes +3",
+    neck="Commodore Charm +2",
+    waist="Eschan Stone",
+    left_ear="Moonshade Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Dingir Ring",
+    right_ring="Shiva Ring +1",
+    back=capeRangedWS,
+}
+
 
 sets.WS.LeadenSalute = {
 }
@@ -252,8 +269,6 @@ sets.WS.HotShot = {
     legs="Nyame Flanchard",
     feet="Lanun Bottes +3"
 }
-
-sets.WS["Split Shot"] = {head=empty,body=empty,hands=empty,legs=empty,feet=empty}
 
 sets.FastCast = {
     -- head="Carmine Mask",
@@ -445,6 +460,8 @@ function precast(spell)
             equip(sets.WS.LastStand[rangedSets[rangedIndex]])
         elseif (spell.english == "Hot Shot") then
             equip(sets.WS.HotShot)
+        elseif (spell.english == "Aeolian Edge") then
+            equip(sets.WS.Aeolian)
         elseif (sets.WS[spell.english]) then
             equip(sets.WS[spell.english])
         else
