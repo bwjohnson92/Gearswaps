@@ -163,9 +163,9 @@ function get_sets()
         head="Malignance Chapeau",
         neck="Sanctity Necklace", ear1="Dignitary's earring", ear2="Telos earring",
         -- ring1="Cacoethic ring",
-        ring2="Patricius Ring",
-        back=DEXCape,
-        waist="Olseni Belt"})
+        -- ring2="Patricius Ring",
+        back=DEXCape
+    })
 
         sets.TP["Subtle Blow"] = set_combine(sets.TP.Hybrid, {
             left_ear="Dignitary's Earring",
@@ -183,7 +183,7 @@ function get_sets()
     Requiescat_ind = 1
 
     sets.Requiescat.Attack = {ammo="Floestone",
-        head="Carmine Mask",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
+        head="Carmine Mask +1",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
         body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Epona's ring",ring2="Rufescent Ring",
     back="Rosmerta's Cape",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +1"}
 
@@ -215,26 +215,26 @@ function get_sets()
 
     sets.BlueMagic.STR = {ammo="Floestone",
         head="Nyame Helm",neck="Caro Necklace",
-        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Rajas ring",
     back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.STRDEX = {ammo="Jukukik Feather",
         head="Nyame Helm",neck="Caro Necklace",
-        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent Ring",ring2="Rajas ring",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Rajas ring",
     back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.STRVIT = {ammo="Mavi tathlum",
         head="Nyame Helm",neck="Caro Necklace",
-        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Petrov Ring",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Petrov Ring",
     back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.STRMND = {ammo="Mavi tathlum",
-        head="Carmine Mask",neck="Caro Necklace",
-        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Candent ring",ring2="Stikini Ring",
+        head="Carmine Mask +1",neck="Caro Necklace",
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Stikini Ring",
     back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.AGI = {ammo="Mavi tathlum",
-        head="Carmine Mask",neck="Caro Necklace",
+        head="Carmine Mask +1",neck="Caro Necklace",
         body="Dread Jupon",hands="Adhemar Wristbands +1",ring1="Apate ring",ring2="Petrov ring",
     back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
@@ -244,12 +244,12 @@ function get_sets()
     back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"}
 
     sets.BlueMagic.Cures = {ammo="Hydrocera",
-        head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
+        head="Carmine Mask +1",ear1="Loquac. earring",ear2="Novia earring",
         body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
     back="Oretania's cape",waist="Cascade Belt",legs="Psycloth Lappas",feet="Medium's Sabots"}
 
     sets.BlueMagic.SelfCures = {ammo="Hydrocera",
-        head="Carmine Mask",ear1="Loquac. earring",ear2="Novia earring",
+        head="Carmine Mask +1",ear1="Loquac. earring",ear2="Novia earring",
         body="Vrikodara Jupon",
         -- hands="Buremte Gloves",
         ring2="Weatherspoon Ring +1",
@@ -275,7 +275,7 @@ function get_sets()
         neck={ name="Mirage Stole +1", augments={'Path: A',}},
         waist="Sacro Cord",
         left_ear="Digni. Earring",
-        right_ear="Gwati Earring",
+        right_ear="Crepuscular Earring",
         left_ring="Defending Ring",
         right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
         back=INTCape
@@ -288,7 +288,7 @@ function get_sets()
     sets.BlueMagic.Stun = set_combine(sets.BlueMagic.MagicAccuracy, {})
 
     sets.BlueMagic.Skill = {ammo="Mavi tathlum",
-        head="Carmine Mask",ear1="Loquac. earring",
+        head="Carmine Mask +1",ear1="Loquac. earring",
         body="Assim. jubbah +3",
         
         ring1="Weatherspoon ring +1", ring2="Stikini Ring",
@@ -335,11 +335,11 @@ function get_sets()
 
     sets.precast.FC.Standard = 
     {
-        head="Carmine Mask", neck="Voltsurge Torque", ear1="Loquac. Earring", ear2="Etiolation Earring", 
+        head="Carmine Mask +1", neck="Voltsurge Torque", ear1="Loquac. Earring", ear2="Etiolation Earring", 
         body="Dread Jupon",hands="Leyline Gloves",ring1="Weatherspoon Ring +1", ring2="Kishar Ring",
-        back="Swith Cape",
+        back=INTCape,
         waist="Witful Belt",
-        legs="Psycloth Lappas",feet="Carmine Greaves"
+        legs="Psycloth Lappas",feet="Carmine Greaves +1"
     }
 
     sets.BlueMagic.SkillRecast = set_combine(sets.precast.FC.Standard, {})

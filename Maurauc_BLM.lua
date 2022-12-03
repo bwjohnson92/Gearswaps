@@ -107,7 +107,7 @@ function get_sets()
     
     sets.midcast.ElementalMagic.Standard.Accuracy = set_combine(sets.midcast.ElementalMagic.Standard.Damage, {
         head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
-        body=MerlinicBodyNuke,
+        body="Wicce Coat +2",
         hands="Ea Cuffs",
         legs=MerlinicLegsNuke,
         feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
@@ -164,7 +164,7 @@ function get_sets()
         -- main="Lathi",
         sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head=MerlinicHoodNuke,neck="Voltsurge Torque",ear1="Digni. Earring",ear2="Malignance Earring",
-        body=MerlinicBodyNuke,hands="Lurid Mitts",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
+        body="Wicce Coat +2",hands="Lurid Mitts",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
         back="Swith Cape",waist="Witful Belt",legs="Merlinic Shalwar",feet=MerlinicFeetNuke}
 
     sets.midcast.Cure = {main="Tamaxchi",sub="Genbu's Shield",ammo="Hydrocera",

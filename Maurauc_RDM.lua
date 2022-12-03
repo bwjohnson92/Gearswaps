@@ -111,7 +111,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		ammo="Regal Gem",
 		-- ranged="Kaja Bow",
 		head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Malignance Earring",ear2="Snotra Earring",
-		body="Lethargy Sayon +2",hands="Lethargy Gantherots +2",ring1=stikini1,ring2="Kishar Ring",
+		body="Lethargy Sayon +3",hands="Lethargy Gantherots +2",ring1=stikini1,ring2="Kishar Ring",
 		back=SucellosINT,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
 	sets.midcast.Enfeebling.Skill = set_combine(sets.midcast.Enfeebling, {
@@ -132,7 +132,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		})
 
 	sets.midcast.Sleepga = set_combine(sets.midcast.Enfeebling, {
-		body="Lethargy Sayon +2",
+		body="Lethargy Sayon +3",
 		hands="Lethargy Gantherots +2",
 		legs="Lethargy Fuseau +2",
 		feet="Lethargy Houseaux +2",
@@ -183,7 +183,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 
 	sets.midcast.EnhancingMagic.Composure = {main="Colada", sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring",
-		body="Lethargy Sayon +2",hands="Atrophy Gloves +3",ring1=stikini1,ring2=stikini2,
+		body="Lethargy Sayon +3",hands="Atrophy Gloves +3",ring1=stikini1,ring2=stikini2,
 		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +2",feet="Lethargy Houseaux +2"}
 
 	sets.midcast.EnhancingMagic.Gain = set_combine(sets.midcast.EnhancingMagic.Duration, {hands="Vitiation Gloves +3"})

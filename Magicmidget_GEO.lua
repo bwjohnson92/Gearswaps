@@ -186,7 +186,7 @@ function get_sets()
 	sets.midcast.IndiSpells = {main="Idris",
 	head="Azimuth Hood +2", neck="Bagua Charm +1",
 	body="Azimuth Coat +1",	hands="Azimuth Gloves +1", 
-	back="Lifestream Cape", legs="Bagua Pants +3",feet="Azimuth Gaiters +2"}
+	back="Lifestream Cape", legs="Bagua Pants +3",feet="Azimuth Gaiters +3"}
 	
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {head="Bagua Galero +2",legs="Azimuth Tights +1"})
 
@@ -277,7 +277,7 @@ function precast(spell)
 		equip(sets.precast['FastCast'])
 	end
 	if (string.find(spell.name,'Bolster')) then
-		equip({body="Bagua Tunic +1"})
+		equip({body="Bagua Tunic +2"})
 	end
 	if (spell.english == "Life Cycle") then 
 		equip(sets.LifeCycle)

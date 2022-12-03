@@ -43,21 +43,21 @@ function get_sets()
     --Idle Sets--
     sets.Idle.Standard = { --ammo="Homiliary",
         head="Nyame Helm",neck="Futhark Torque +2",ear1="Odnowa Earring +1", --ear2="Ethereal Earring",   
-        body="Nyame Mail",hands="Regal Gauntlets",ring1="Moonbeam Ring",ring2="Defending Ring",     
+        body="Nyame Mail",hands="Regal Gauntlets",ring1="Moonlight Ring",ring2="Defending Ring",     
         back=OgmaTank,waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Nyame Sollerets"}   
 
     sets.Idle.DT = {
-        ammo="Staunch Tathlum",          
+        ammo="Staunch Tathlum +1",          
         head="Nyame Helm",
         neck="Futhark Torque +2",
         ear1="Odnowa Earring +1",
         ear2="Sanare Earring",          
-        body="Nyame Mail",
+        body="Erilaz Surcoat +2",
         hands="Nyame Gauntlets",
-        ring1="Moonbeam Ring",ring2="Defending Ring",   
+        ring1="Moonlight Ring",ring2="Defending Ring",   
         back=OgmaTank,
         waist="Flume Belt +1",
-        legs="Nyame Flanchard",
+        legs="Erilaz Leg Guards +2",
         feet="Nyame Sollerets"
     }
 
@@ -67,8 +67,8 @@ function get_sets()
         -- right_ear="Dominance Earring +1",
         legs="Runeist's Trousers +2",
         -- body="Erilaz Surcoat +1",
-        feet="Erilaz Greaves +1",
-        hands="Erilaz Gauntlets +1"
+        feet="Erilaz Greaves +2",
+        hands="Erilaz Gauntlets +2"
     })
 
     sets.Idle.Evasion = set_combine(sets.Idle.DT, {
@@ -77,7 +77,7 @@ function get_sets()
         body="Nyame Mail",
         -- hands="Turms Mittens +1",
         hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
+        legs="Erilaz Leg Guards +2",
         -- feet="Turms Leggings +1",
         feet="Nyame Sollerets",
         neck="Bathy Choker +1",
@@ -85,7 +85,7 @@ function get_sets()
         waist="Sveltesse Gouriz +1",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         -- right_ring="Vengeful Ring",
         right_ring="Defending Ring",
         back=OgmaEvasion
@@ -116,7 +116,7 @@ function get_sets()
         left_ear="Telos Earring",
         right_ear="Sherida Earring",
         left_ring="Niqmaddu Ring",
-        right_ring="Moonbeam Ring",
+        right_ring="Moonlight Ring",
         back=OgmaSTR
     }
     --high accuracy/DT hybrid set
@@ -144,21 +144,21 @@ function get_sets()
         -- waist="Windbuffet Belt +1",
         left_ear="Sherida Earring",
         right_ear="Telos Earring",
-        left_ring="Moonbeam Ring",
+        left_ring="Moonlight Ring",
         right_ring="Defending Ring",
         back=OgmaTank
     }                        
     --full DT melee set
     sets.TP.DT = {
-        ammo="Staunch Tathlum",          
+        ammo="Staunch Tathlum +1",          
         -- head="Futhark Bandeau +3",
         head="Nyame Helm",
         neck="Futhark Torque +2",
         ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
-        body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonbeam Ring",ring2="Defending Ring",   
+        body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonlight Ring",ring2="Defending Ring",   
         back="Moonbeam Cape",waist="Flume Belt +1",
         -- legs="Erilaz Leg Guards +2",
-        legs="Nyame Flanchard",
+        legs="Erilaz Leg Guards +2",
         feet="Turms Leggings +1"}
 
     sets.TP.HP = {
@@ -166,7 +166,7 @@ function get_sets()
         body="Runeist's Coat +3",
         hands="Regal Gauntlets",
         legs="Eri. Leg Guards +2",
-        feet="Erilaz Greaves +1",
+        feet="Erilaz Greaves +2",
         waist="Flume Belt +1",
         neck="Futhark Torque +2",
         left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -182,14 +182,14 @@ function get_sets()
         ear1="Odnowa Earring +1",
         ear2="Odnowa Earring",
         head="Nyame Helm",
-        body="Nyame Mail",
+        -- body="Nyame Mail",
+        body="Erilaz Surcoat +2",
         hands="Turms Mittens +1",
-        ring1="Moonbeam Ring",
+        ring1="Moonlight Ring",
         ring2="Defending Ring",
         back=OgmaTank,
         waist="Flume Belt +1",
-        legs="Nyame Flanchard",
-        -- legs="Erilaz Leg Guards +2",
+        legs="Erilaz Leg Guards +2",
         feet="Turms Leggings +1"
     }
 
@@ -295,9 +295,9 @@ function get_sets()
         neck="Orunmila's Torque",
         ear1={name="Odnowa Earring +1",priority=1},
         ear2={name="Etiolation Earring",priority=1},
-        body="Dread Jupon",
+        body="Erilaz Surcoat +2",
         hands="Leyline Gloves",
-        ring1={name="Moonbeam Ring", priority=1},
+        ring1={name="Moonlight Ring", priority=1},
         ring2="Kishar Ring",
         -- back=OgmaCasting,
         back={name="Moonbeam Cape", priority=1},
@@ -306,7 +306,7 @@ function get_sets()
         feet={name="Carmine Greaves +1", priority=1}}
 
     sets.Phalanx = {
-        ammo="Staunch Tathlum",
+        ammo="Staunch Tathlum +1",
         head="Futhark bandeau +3",
         body={ name="Taeon Tabard", augments={'"Phalanx"+3',}},
         hands={ name="Taeon gloves", augments ={'"Phalanx"+3',}},
@@ -318,7 +318,7 @@ function get_sets()
         neck="Futhark Torque +2",
         -- legs="Futhark Trousers +2",
         waist="Flume Belt +1",
-        ring1="Moonbeam Ring",
+        ring1="Moonlight Ring",
         ring2="Defending Ring",
         feet={ name="Taeon boots", augments={'"Phalanx"+3',}}
     }
@@ -330,21 +330,17 @@ function get_sets()
 
     sets.Interrupt = set_combine(sets.Idle.DT, {
         -- Merits - 10
-        ammo="Staunch Tathlum", --10
-        head="Taeon Chapeau", --10
+        ammo="Staunch Tathlum +1", --10
+        head="Erilaz Galea +2", --20
+        body="Ashera Harness", --0
+        hands="Regal Gauntlets", --15
+        legs="Carmine Cuisses +1", --20
+        feet="Erilaz Greaves +2", --0
         neck="Moonbeam Necklace", --10
         ear2="Halasz Earring", --5 --Magnetic?
-        hands="Rawhide Gloves", --15
-        legs="Carmine Cuisses +1", --20
-        body="Ashera Harness", --0
-        feet="Erilaz Greaves +1", --0
         ring1="Gelatinous Ring +1", --0
-        waist="Rumination Sash", --10
+        waist="Audumbla Sash", --10
         back=OgmaCasting --10
-        -- hands="Regal Gauntlets", --10
-        -- ring1="Evanescence Ring", --5
-        -- feet={ name="Taeon Boots", augments={'Phalanx +3',}}, -- 10
-        -- body={ name="Taeon Tabard", augments={'Phalanx +3',}}, --10
     })
 
     sets.Taeon = {
@@ -366,17 +362,21 @@ function get_sets()
         ear2="Trux earring",    
         -- ring1="Supershear Ring",ring2="Petrov Ring",
         -- back=OgmaTank,
-        ring1="Moonbeam Ring", 
+        ring1="Moonlight Ring", 
         -- ring2={name="Supershear Ring", priority=1},
         ring2="Defending Ring",
         back="Moonbeam Cape",
         -- waist="Sinew Belt",
         waist="Trance Belt",
         legs={name="Erilaz Leg Guards +2",priority=1},
-        -- feet="Erilaz Greaves +1"
+        -- feet="Erilaz Greaves +2"
         -- feet={name="Carmine Greaves +1",priority=1}
-        feet="Ahosi Leggings"
+        feet="Erilaz Greaves +2"
     }  
+
+    sets.Regen = set_combine(sets.Idle.Evasion, {
+        main="Morgelai",head="Runeist's bandeau +3",neck='Sacro Gorget',ear2="Erilaz Earring"
+    })
 
     --Magic acc for enfeebles, handy for VW
     sets.MagicAcc = {}
@@ -589,7 +589,7 @@ function midcast(spell,act,arg)
                 equip(sets.Idle.Evasion,sets.Phalanx.Potency)
         end      
         if string.find(spell.name,'Regen') then
-                equip(sets.Idle.Evasion, {main="Morgelai",head="Runeist's bandeau +3",neck='Sacro Gorget'})
+                equip(sets.Regen)
         end
         if spell.name == "Repose" or spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
                 equip(sets.MagicAcc)

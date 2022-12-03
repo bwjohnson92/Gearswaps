@@ -347,11 +347,11 @@ function get_sets()
 
 
     sets.FastCast = {
-        head="Carmine Mask",
+        head="Carmine Mask +1",
         body="Taeon Tabard",
         hands="Leyline Gloves",
         legs="Carmine Cuisses +1",
-        feet="Carmine Greaves",
+        feet="Carmine Greaves +1",
         neck="Voltsurge Torque",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",

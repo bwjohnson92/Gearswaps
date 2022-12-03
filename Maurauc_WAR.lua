@@ -74,18 +74,15 @@ function get_sets()
 	TP_ind = 2
 	sets.TP.Standard = {
 	    ammo="Coiste Bodhar",
-	    head="Flam. Zucchetto +2",
-	    body="Valorous Mail",
---	    hands={ name="Odyssean Gauntlets", augments={'Accuracy+25 Attack+25','Weapon Skill Acc.+3','DEX+5','Accuracy+1','Attack+12',}},
---		hands="Emicho Gauntlets",
-		hands="Sulevia's Gauntlets +2",
+	    head="Hjarrandi Helm",
+	    body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
 	    legs="Pummeler's Cuisses +3",
 	    feet="Pummeler's Calligae +3",
-	    -- neck="Lissome Necklace",
 	    neck="Warrior's Bead Necklace +1",
-	    right_ear="Brutal Earring",
 	    left_ear="Cessance Earring",
-	    left_ring="Flamma Ring",
+	    right_ear="Brutal Earring",
+	    left_ring="Moonlight Ring",
 	    right_ring="Niqmaddu Ring",
 	    back=CapeTP,
 	    waist="Ioskeha Belt +1"
@@ -96,14 +93,14 @@ function get_sets()
 	    head="Sakpata's Helm",
 	    body="Sakpata's Plate",
 	    hands="Sakpata's Gauntlets",
-	    -- legs="Sakpata's Cuisses",
-	    legs="Pummeler's Cuisses +3",
+	    legs="Sakpata's Cuisses",
+	    -- legs="Pummeler's Cuisses +3",
 	    feet="Sakpata's Leggings",
 	    neck="War. Beads +1",
 	    waist="Ioskeha Belt +1",
 	    left_ear="Cessance Earring",
 	    right_ear="Brutal Earring",
-	    left_ring="Defending Ring",
+	    left_ring="Moonlight Ring",
 	    -- right_ring="Regal Ring",
 	    right_ring="Niqmaddu Ring",
 	    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
@@ -112,10 +109,7 @@ function get_sets()
 	-- sets.TP.DT = sets.DT
 
 	sets.TP.DT = set_combine(sets.DT, {
-		ammo="Coiste Bodhar",
-		legs="Sakpata's Cuisses",
-		ammo="Seething Bomblet +1"
-		-- feet="Pummeler's Calligae +3"
+		legs="Sakpata's Cuisses"
 	})
 
 	sets.TP.TH = set_combine(sets.DT, {

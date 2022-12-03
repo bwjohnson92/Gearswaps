@@ -95,7 +95,7 @@ function get_sets()
 		main="Idris",
 	    sub="Genmei Shield",
 		range="Dunna",
-	    head=Empyrean.Head
+	    head=Empyrean.Head,
 	    body="Jhakri Robe +2",
 	    hands="Volte Gloves",
 	    legs="Assid. Pants +1",
@@ -123,7 +123,7 @@ function get_sets()
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
-		head=Empyrean.Head
+		head=Empyrean.Head,
 		-- head="Telchine Cap",
 		neck="Bagua Charm +1",
 		body="Telchine Chasuble", 
