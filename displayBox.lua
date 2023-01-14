@@ -1,61 +1,52 @@
 
 defaults = T{}
-defaults.text_R = 255 --Color values are in RGB, ranging from 0 to 255
-defaults.text_G = 255
-defaults.text_B = 255
+cols = {}
+cols.white = {R=255,G=255,B=255}
+cols.green = {R=0,G=255,B=0}
+cols.red = {R=255,G=0,B=0}
+cols.yellow = {R=255,G=255,B=0}
+cols.blue = {R=0,G=0,B=255}
+cols.bluelite = {R=60,G=60,B=255}
 
-defaults.green_R = 0
-defaults.green_G = 255
-defaults.green_B = 0
-
-defaults.red_R = 255
-defaults.red_G = 0
-defaults.red_B = 0
-
-defaults.yellow_R = 255
-defaults.yellow_G = 255
-defaults.yellow_B = 0
-
-defaults.blue_R = 0
-defaults.blue_G = 0
-defaults.blue_B = 255
-
-defaults.bluelite_R = 60
-defaults.bluelite_G = 60
-defaults.bluelite_B = 255
-
-defaults.pos_x = 0
-defaults.pos_y = 1000
+defaults.pos_x = -300
+defaults.pos_y = -300
 defaults.font_size = 11
 defaults.bg_alpha = 255
 
-green_col = "\\cs("..tostring(defaults.green_R)..","..tostring(defaults.green_G)..","..tostring(defaults.green_B)..")"
-red_col = "\\cs("..tostring(defaults.red_R)..","..tostring(defaults.red_G)..","..tostring(defaults.red_B)..")"
-yellow_col = "\\cs("..tostring(defaults.yellow_R)..","..tostring(defaults.yellow_G)..","..tostring(defaults.yellow_B)..")"
-blue_col = "\\cs("..tostring(defaults.blue_R)..","..tostring(defaults.blue_G)..","..tostring(defaults.blue_B)..")"
-bluelite_col = "\\cs("..tostring(defaults.bluelite_R)..","..tostring(defaults.bluelite_G)..","..tostring(defaults.bluelite_B)..")"
+function makeColour(colour)
+	return "\\cs("..tostring(colour.R)..","..tostring(colour.G)..","..tostring(colour.B)..")"
+end
 
-white_col = "\\cs("..tostring(defaults.text_R)..","..tostring(defaults.text_G)..","..tostring(defaults.text_B)..")"
+green_col = makeColour(cols.green)
+red_col = makeColour(cols.red)
+yellow_col = makeColour(cols.yellow)
+blue_col = makeColour(cols.blue)
+bluelite_col = makeColour(cols.bluelite)
+
+white_col = makeColour(cols.white)
 
 
 msgKeys = {}
 msgTable = {}
 
-textColorKeys = {}
-textColorPairs = {}
+textColourKeys = {}
+textColourPairs = {}
 
-colorMaps = {}
+colourMaps = {}
 
-function setupColors()
-	colorMaps["yellow"] = yellow_col
-	colorMaps["green"] = green_col
-	colorMaps["red"] = red_col
-	colorMaps["blue"] = blue_col
-	colorMaps["bluelite"] = bluelite_col
-	colorMaps["white"] = white_col
+function setupColours()
+	colourMaps["yellow"] = yellow_col
+	colourMaps["green"] = green_col
+	colourMaps["red"] = red_col
+	colourMaps["blue"] = blue_col
+	colourMaps["bluelite"] = bluelite_col
+	colourMaps["white"] = white_col
 end
 
-function addToTable(key, value) 
+function addToTable(key, value)
+	if value == nil then
+		value = ""
+	end
 	if (noValue(key, msgKeys)) then
 		table.insert(msgKeys, key)
 	end
@@ -72,10 +63,14 @@ function clear_table()
 	end
 end
 
-function addTextColorPair(key, color)
-	if (noValue(key, textColorKeys)) then
-		table.insert(textColorKeys, key)
-		textColorPairs[key] = color
+function addTextColorPair(key, colour)
+	return addTextColourPair(key, colour)
+end
+
+function addTextColourPair(key, colour)
+	if (noValue(key, textColourKeys)) then
+		table.insert(textColourKeys, key)
+		textColourPairs[key] = colour
 	end
 end
 
@@ -88,21 +83,39 @@ function noValue(key, inputTable)
 	return true
 end
 
-function text_setup()
-	setupColors()
-	addTextColorPair("true", "green")
-	addTextColorPair("false", "red")
+function text_setup(settings)
+	setupColours()
+	addTextColourPair("true", "green")
+	addTextColourPair("false", "red")
+	addTextColorPair("HighMP", "blue")
+	addTextColorPair("PDT", "yellow")
+	addTextColorPair("DT", "yellow")
+	addTextColorPair("Standard", "green")
+
 
 	msg_settings = {}
 	msg_settings.pos = {}
-	msg_settings.pos.x = 1750
-	msg_settings.pos.y = 1100
+	msg_settings.pos.x = defaults.pos_x
+	msg_settings.pos.y = defaults.pos_y
 	msg_settings.text = {}
 	msg_settings.text.font = "Consolas"
 	msg_settings.text.size = 11
 	msg_settings.flags = {}
 
-	msg_box = texts.new('', msg_settings)
+	if (settings ~= nil) then
+		for k,v in pairs(settings) do
+			msg_settings[k] = v
+		end
+	end
+
+	if (msg_settings.pos.x < 0) then
+		msg_settings.flags.right = true
+	end
+	if (msg_settings.pos.y < 0) then
+		msg_settings.flags.bottom = true
+	end
+
+	msg_box = texts.new('displayBox', msg_settings)
 	msg_box:show()
 	update_message()
 end
@@ -110,8 +123,11 @@ end
 function update_message()
 	msg = ""
 	for _, k in ipairs(msgKeys) do
-		msg = msg..k..": "
-		msg = msg..colorMsg(msgTable[k])..'\n'
+		val = msgTable[k]
+		msg = msg..k
+		if (val ~= "") then
+			msg = msg..": "..colourMsg(val)..'\n'
+		end
 	end
 	msg_box:text(msg)
 
@@ -124,12 +140,14 @@ function print_table()
 	end
 end
 
-function colorMsg(msg)
+function colourMsg(msg)
 	if (type(msg) == "boolean") then
 		msg = string.format(msg and 'true' or 'false')
 	end
-	if (noValue(msg, textColorKeys) == false) then
-		return colorMaps[textColorPairs[msg]]..msg..colorMaps["white"]
+	if (noValue(msg, textColourKeys) == false) then
+		return colourMaps[textColourPairs[msg]]..msg..colourMaps["white"]
  	end
 	return msg
 end
+
+text_setup()
