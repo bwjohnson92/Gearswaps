@@ -91,7 +91,7 @@ function get_sets()
 
     sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
         head="Ebers Cap +1",neck="Colossus's Torque",
-        body="Ebers Bliaut +1",hands="Ebers Mitts +1",ring1="Kishar Ring",ring2="Stikini Ring",
+        body="Ebers Bliaut +2",hands="Ebers Mitts +1",ring1="Kishar Ring",ring2="Stikini Ring",
         waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Ebers Duckbills +1"}
     --sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Bliaut"})
 
@@ -117,13 +117,13 @@ function get_sets()
     
     sets.midcast.Cursna = {main="Yagrush",
         head="Nahtirah Hat",neck="debilis medallion", ear1= "Healing Earring", ear2="Beatific Earring",
-        body="Ebers Bliaut +1",hands="Fanatic Gloves",ring1="Menelaus's ring", ring2="Haoma's ring",
+        body="Ebers Bliaut +2",hands="Fanatic Gloves",ring1="Menelaus's ring", ring2="Haoma's ring",
         back=AlaunusFC,waist="Bishop's Sash",legs="Theophany Pantaloons +3",feet="Gendewitha Galoshes +1" }
         
     sets.midcast.DebuffRemoval = {
         main="Yagrush",
         head="Nahtirah Hat", neck="Cleric's Torque +2",ear2="Loquacious Earring",
-        body="Ebers Bliaut +1",hands="Ebers Mitts +1",
+        body="Ebers Bliaut +2",hands="Ebers Mitts +1",
         back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +3",feet='Regal pumps +1' }
 
     sets.midcast.DivineCaress = set_combine(sets.midcast.DebuffRemoval, {
@@ -158,7 +158,7 @@ function get_sets()
 
     sets.Cure.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
             head="Kaykaus mitra +1",neck="Cleric's torque +2",ear1="Glorious Earring",ear2="Nourishing Earring",--10% 3%--
-            body="Ebers Bliaut +1",hands="Theophany Mitts +3",ring1="Janniston ring +1",ring2="Sirona's Ring", --13%--
+            body="Ebers Bliaut +2",hands="Theophany Mitts +3",ring1="Janniston ring +1",ring2="Sirona's Ring", --13%--
             back=AlaunusFC,waist="Embla sash",legs="Ebers Pantaloons +2",feet="Kaykaus Boots +1"}
 
     sets.Curaga.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
