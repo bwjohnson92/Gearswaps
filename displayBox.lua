@@ -6,7 +6,7 @@ cols.green = {R=0,G=255,B=0}
 cols.red = {R=255,G=0,B=0}
 cols.yellow = {R=255,G=255,B=0}
 cols.blue = {R=0,G=0,B=255}
-cols.bluelite = {R=60,G=60,B=255}
+cols.bluelite = {R=120,G=120,B=255}
 
 defaults.pos_x = -300
 defaults.pos_y = -300
@@ -87,7 +87,7 @@ function text_setup(settings)
 	setupColours()
 	addTextColourPair("true", "green")
 	addTextColourPair("false", "red")
-	addTextColorPair("HighMP", "blue")
+	addTextColorPair("HighMP", "bluelite")
 	addTextColorPair("PDT", "yellow")
 	addTextColorPair("DT", "yellow")
 	addTextColorPair("Standard", "green")

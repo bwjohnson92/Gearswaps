@@ -7,11 +7,14 @@ include('organizeritems.lua')
 Nuke_Index = 1
 Idle_Index = 1
 Accuracy_Index = 1
+Weapon_Index = 0
+
 
 MPSet = false
 PDTSet = false
 capeLocked = false
-weaponLocked = false
+-- weaponLocked = false
+
 
 naSpells = S{"Paralyna","Silena","Viruna","Erase","Stona","Blindna","Poisona"}
 
@@ -25,11 +28,16 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 
 DotDebuffs = S{"Burn", "Choke", "Shock", "Drown", "Frost", "Rasp"}
 
-weaponLathi = { name="Lathi", augments={'MP+80','INT+20','"Mag.Atk.Bns."+20',}}
-weaponRaetic = { name="Raetic Staff +1" }
-weaponMarin = { name="Marin Staff +1" }
 
-currentWeapon = weaponRaetic
+sets.Weapons = {
+	-- Lathi = { name="Lathi", augments={'MP+80','INT+20','"Mag.Atk.Bns."+20',}},
+	Raetic = {main={ name="Raetic Staff +1"},sub="Enki Strap"},
+	Marin = {main={ name="Marin Staff +1"},sub="Enki Strap"}
+}
+
+sets.Weapons.index = {"Raetic", "Marin"}
+
+currentWeapon = weaponMarin
 
 TaranusINT = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}}
 TaranusMP = { name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
@@ -208,7 +216,7 @@ function get_sets()
 	}
 
 	sets.midcast.Cure = {
-		ammo="pemphredo tathlum",
+		ammo="Pemphredo Tathlum",
 		neck="Fylgja Torque +1",
 		body="Merlinic Jubbah",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Haoma's Ring",
 		waist="Cascade Belt",legs="Nares Trews",feet="Vanya Clogs"
@@ -233,18 +241,10 @@ function get_sets()
     send_command('bind pause gs c nuke')
 	send_command('bind end gs c lockWeapon')
 
-	text_setup()
-	addNewColors()
 	updateTable()
 
 	enable("main")
 	enable("sub")
-end
-
-function addNewColors()
-    addTextColorPair("Standard", "green")
-    addTextColorPair("HighMP", "yellow")
-    addTextColorPair("Accuracy", "yellow")
 end
 
 function updateTable()
@@ -252,8 +252,8 @@ function updateTable()
     addToTable("(F10) Dmg or Acc", sets.midcast.ElementalMagic.Acc.index[Accuracy_Index])
     addToTable("(F11) MB Set", sets.midcast.ElementalMagic.index[Nuke_Index])
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
-    addToTable("(END) Weapon Locked", weaponLocked)
-	addToTable("(PAUSE) Equip Nuke Set")
+    addToTable("(END) Weapon Locked", sets.Weapons.index[Weapon_Index] or "Off")
+	addToTable("(PAUSE) Equip Nuke Set     ")
 	update_message()
 end
 
@@ -319,7 +319,6 @@ function getNukeSet()
 end
 
 function handleNuke(spell)
-	add_to_chat(140, "nuke")
 
 	set = getNukeSet()
 	set = use_obi(spell, set)
@@ -466,15 +465,22 @@ function self_command(command)
     elseif command == 'nuke' then
         equip(getNukeSet())
     elseif command == 'lockWeapon' then
-        weaponLocked = not weaponLocked
-        if weaponLocked == true then
-            disable("Main")
-            disable("Sub")
-        else
-            enable("Main")
-            enable("Sub")
-        end
-        add_to_chat(140, '<----- Weapon is now '..(weaponLocked and 'locked' or 'unlocked')..' ----->')
+		enable("Main")
+		enable("Sub")
+		Weapon_Index = Weapon_Index + 1
+		if (Weapon_Index > #sets.Weapons.index) then
+			Weapon_Index = 0
+		end
+        if (Weapon_Index > 0) then
+			equip(sets.Weapons[sets.Weapons.index[Weapon_Index]])
+			disable("Main")
+			disable("Sub")
+		end
+		str = "Weapon is now "..(Weapon_Index>0 and 'locked' or 'unlocked')
+		if (Weapon_Index > 0) then
+			str = str..": "..sets.Weapons.index[Weapon_Index]
+		end
+        add_to_chat(140, '<----- '..str..' ----->')
 
     elseif command == 'melee' then
         equip(sets.Melee)
