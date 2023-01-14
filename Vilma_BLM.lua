@@ -231,6 +231,7 @@ function get_sets()
     send_command('bind f11 gs c switch mb')
     send_command('bind f12 gs c switch pdt')
     send_command('bind pause gs c nuke')
+	send_command('bind end gs c lockWeapon')
 
 	text_setup()
 	addNewColors()
@@ -252,6 +253,7 @@ function updateTable()
     addToTable("(F11) MB Set", sets.midcast.ElementalMagic.index[Nuke_Index])
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
     addToTable("(END) Weapon Locked", weaponLocked)
+	addToTable("(PAUSE) Equip Nuke Set")
 	update_message()
 end
 
@@ -323,7 +325,9 @@ function handleNuke(spell)
 	set = use_obi(spell, set)
 
 	if (MPSet) then
-		set = set_combine(set, sets.midcast.NukeMPRestore)
+		set = set_combine(set, {
+			body="Spaekona's Coat +3"
+		})
 	end
 
 	if(spell.english:contains('ja')) then

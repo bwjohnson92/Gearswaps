@@ -81,7 +81,7 @@ function get_sets()
 	    feet="Pummeler's Calligae +3",
 	    neck="Warrior's Bead Necklace +1",
 	    left_ear="Cessance Earring",
-	    right_ear="Brutal Earring",
+	    right_ear="Boii Earring",
 	    left_ring="Moonlight Ring",
 	    right_ring="Niqmaddu Ring",
 	    back=CapeTP,
@@ -99,7 +99,7 @@ function get_sets()
 	    neck="War. Beads +1",
 	    waist="Ioskeha Belt +1",
 	    left_ear="Cessance Earring",
-	    right_ear="Brutal Earring",
+	    right_ear="Boii Earring",
 	    left_ring="Moonlight Ring",
 	    -- right_ring="Regal Ring",
 	    right_ring="Niqmaddu Ring",
@@ -141,27 +141,24 @@ function get_sets()
 	    main="Shining One",
 	    sub="Utu Grip",
 	    ammo="Knobkierrie",
-	    -- head={ name="Agoge Mask +2", augments={'Enhances "Savagery" effect',}},
-	    head="Nyame Helm",
+	    head="Agoge Mask +3",
 	    -- body="Pumm. Lorica +3",
 	    body="Hjarrandi Breastplate",
-	    -- hands={ name="Odyssean Gauntlets", augments={'Attack+27','Accuracy+8','Weapon skill damage +6%','Mag. Acc.+19 "Mag.Atk.Bns."+19',}},
 	    hands="Nyame Gauntlets",
 	    legs="Nyame Flanchard",
 	    feet="Nyame Sollerets",
 	    neck="War. Beads +1",
-	    -- waist="Metalsinger Belt",
 	    waist="Sailfi Belt +1",
 	    left_ear="Thrud Earring",
 	    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	    left_ring="Regal Ring",
-	    right_ring="Niqmaddu Ring",
+	    right_ring="Epaminondas's Ring",
 	    back=CapeWS
 	}
 
 	sets.WS["Upheaval"] = {
 	    ammo="Knobkierrie",
-	    -- head="Agoge Mask +2",
+	    -- head="Agoge Mask +3",
 	    head="Nyame Helm",
 	    -- neck="Fotia Gorget",
 	    neck="Warrior's Bead Necklace +1",
@@ -199,7 +196,7 @@ function get_sets()
 
 	    ammo="Knobkierrie",
 	    -- head="Sakpata's Helm",
-	    -- head="Agoge Mask +2",
+	    -- head="Agoge Mask +3",
 	    neck="War. Beads +1",
 	    ear1="Telos Earring",
 	    ear2="Moonshade Earring",
@@ -251,16 +248,24 @@ function get_sets()
 	}
 
 	sets.JA["Warcry"] = {
-		head="Agoge Mask +2"
+		head="Agoge Mask +3"
 	}
 
 	sets.JA["Tomahawk"] = {
 		ammo="Throwing Tomahawk"
 	}
 
+	sets.JA["Blood Rage"] = {
+		body="Boii Lorica +1"
+	}
+
 	sets.Reraise = {
 		head="Twilight Helm",
 		body="Twilight Mail"
+	}
+
+	sets.Restraint = {
+		hands="Boii Mufflers +2"
 	}
 
 
@@ -299,22 +304,25 @@ end
 
 function precast(spell)
 	if spell.type:lower() == 'weaponskill' then
-
+		set = {}
 		if spell.english == 'Upheaval' then
 			if (player.tp < 1250) then 
-				equip(sets.WS.Upheaval)
+				set = sets.WS.Upheaval
 			else
-				equip(sets.WS.Upheaval.HighTP)
+				set = sets.WS.Upheaval.HighTP
 			end
 		
 		elseif (sets.WS[spell.english]) then
-			equip(sets.WS[spell.english])
+			set = sets.WS[spell.english]
 		
 		else
-			equip(sets.WS)
-		
+			set = sets.WS
 		end
 
+		-- if buffactive["Warcry"] then
+			-- set = set_combine(set, {head="Agoge Mask +3"})
+		-- end
+		equip(set)
 	elseif sets.JA[spell.english] then
         equip(sets.JA[spell.english])
     end
@@ -341,7 +349,11 @@ end
 
 function equip_TP()
 	equip(sets.Weapons[sets.Weapons.index[Weapon_Index]])
-	equip(sets.TP[sets.TP.index[TP_ind]])
+	tp_set = sets.TP[sets.TP.index[TP_ind]]
+	if buffactive["restraint"] then
+		tp_set = set_combine(tp_set, sets.Restraint)
+	end
+	equip(tp_set)
 end
 
 function equip_idle()

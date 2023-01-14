@@ -57,7 +57,7 @@ function get_sets()
         ring1="Moonlight Ring",ring2="Defending Ring",   
         back=OgmaTank,
         waist="Flume Belt +1",
-        legs="Erilaz Leg Guards +2",
+        legs="Erilaz Leg Guards +3",
         feet="Nyame Sollerets"
     }
 
@@ -77,7 +77,7 @@ function get_sets()
         body="Nyame Mail",
         -- hands="Turms Mittens +1",
         hands="Nyame Gauntlets",
-        legs="Erilaz Leg Guards +2",
+        legs="Erilaz Leg Guards +3",
         -- feet="Turms Leggings +1",
         feet="Nyame Sollerets",
         neck="Bathy Choker +1",
@@ -138,7 +138,7 @@ function get_sets()
         head="Ayanmo Zucchetto +2",
         body="Ashera Harness",
         hands="Turms Mittens +1",
-        legs="Erilaz Leg Guards +2",
+        legs="Erilaz Leg Guards +3",
         feet="Turms Leggings +1",
         neck="Futhark Torque +2",
         -- waist="Windbuffet Belt +1",
@@ -157,8 +157,8 @@ function get_sets()
         ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
         body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonlight Ring",ring2="Defending Ring",   
         back="Moonbeam Cape",waist="Flume Belt +1",
-        -- legs="Erilaz Leg Guards +2",
-        legs="Erilaz Leg Guards +2",
+        -- legs="Erilaz Leg Guards +3",
+        legs="Erilaz Leg Guards +3",
         feet="Turms Leggings +1"}
 
     sets.TP.HP = {
@@ -189,7 +189,7 @@ function get_sets()
         ring2="Defending Ring",
         back=OgmaTank,
         waist="Flume Belt +1",
-        legs="Erilaz Leg Guards +2",
+        legs="Erilaz Leg Guards +3",
         feet="Turms Leggings +1"
     }
 
@@ -368,7 +368,7 @@ function get_sets()
         back="Moonbeam Cape",
         -- waist="Sinew Belt",
         waist="Trance Belt",
-        legs={name="Erilaz Leg Guards +2",priority=1},
+        legs={name="Erilaz Leg Guards +3",priority=1},
         -- feet="Erilaz Greaves +2"
         -- feet={name="Carmine Greaves +1",priority=1}
         feet="Erilaz Greaves +2"

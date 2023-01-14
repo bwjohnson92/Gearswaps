@@ -46,9 +46,9 @@ function get_sets()
     sets.aftercast = {}
 
     sets.aftercast.Idle = {main="Bolelabunga",sub="Genmei Shield", ammo="Homiliary",
-        head="Befouled Crown",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-        body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-        back="Repulse Mantle",waist="Fucho-no-obi",legs="Lengo Pants",feet="Herald's Gaiters"}
+        head="Nyame Helm",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
+        body="Jhakri Robe +2",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Stikini Ring +1",
+        back="Repulse Mantle",waist="Fucho-no-obi",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
     sets.aftercast.PDT = {main="Earth Staff", ammo="Vanir Battery",
         head="Befouled Crown", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="",
@@ -65,9 +65,9 @@ function get_sets()
 
         
     sets.midcast.EnfeeblingMagic = {main="Contemplator +1",sub="Clerisy Strap",ammo="Hydrocera",
-        head="Merlinic Hood",neck="Imbodla Necklace",ear1="Dignitary's Earring",ear2="Barkarole Earring",
-        body="Vanya Robe",hands="Lurid Mitts", ring1="Kishar Ring", ring2="Weatherspoon Ring +1",
-        back="Ghostfyre Cape",waist="Rumination Sash",legs="Psycloth Lappas",feet="Medium's Sabots"}
+        head="Arbatel Bonnet +2",neck="Imbodla Necklace",ear1="Dignitary's Earring",ear2="Barkarole Earring",
+        body="Vanya Robe",hands="Arbatel Bracers +2", ring1="Stikini Ring +1", ring2="Weatherspoon Ring +1",
+        back="Ghostfyre Cape",waist="Rumination Sash",legs="Psycloth Lappas",feet="Arbatel Loafers +2"}
 
 --    sets.midcast.ElementalMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
 --        head=MerlinicHoodNuke,neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Malignance Earring",
@@ -92,15 +92,14 @@ function get_sets()
         main="Marin Staff +1",
         sub="Enki Strap",
         ammo="Pemphredo Tathlum",
-        head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
+        head="Arbatel Bonnet +2",
         body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        hands={ name="Amalric Gages +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -2%','CHR+8','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
-        -- feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
+        hands="Arbatel Bracers +2",
+        legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -2%','CHR+8','Mag. Acc.+9','"Mag.Atk.Bns."+14',}}, --Arbatel Legs
         feet="Arbatel Loafers +2",
         neck="Sanctity Necklace",
         waist="Sacro Cord",
-        left_ear="Barkaro. Earring",
+        left_ear="Regal Earring",
         right_ear="Malignance Earring",
         left_ring="Metamorph Ring +1",
         right_ring="Freke Ring",
@@ -161,22 +160,16 @@ function get_sets()
 
     send_command('bind f9 gs c switch sc')
     send_command('bind f11 gs c switch mb')
+    send_command('bind f12 gs c scnuke')
 
-	text_setup()
-	addNewColors()
 	updateTable()
-end
-
-function addNewColors()
-    addTextColorPair("HighMP", "blue")
-	addTextColorPair("PDT", "yellow")
-	addTextColorPair("Standard", "green")
 end
 
 function updateTable()
 	addToTable("(F9) Skillchain", skillchains.SC[skillchains.Index])
 	-- addToTable("(F10) MP Body", MPBodyEquipToggle)
 	addToTable("(F11) MB Set", MBSet)
+    addToTable("(F12) Start Skillchain")
 	-- addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
 	-- addToTable("(END) Weapon Locked", weaponLocked)
 	update_message()
@@ -254,7 +247,7 @@ function aftercast(spell)
     if (sc_state == 4) then
         sc_state = 0
     elseif (sc_state > 0 ) then
-        send_command('wait 1;gs c scnuke')
+        send_command('wait 1.5;gs c scnuke')
     end
 
     equip(sets.aftercast.Idle)

@@ -123,7 +123,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		main="Crocea Mors",
 		sub="Ammurapi Shield",
 		ammo="",
-		ranged="Kaja Bow",
+		ranged="Ullr",
 		body="Atrophy Tabard +3",
 		waist="Luminary Sash",
 		ring2="Weatherspoon Ring +1",
