@@ -81,7 +81,7 @@ function get_sets()
         back=AlaunusFC, waist="Embla Sash", legs="Ayanmo cosciales +2", feet="Regal pumps +1"}
     
     sets.precast.FastCure = set_combine(sets.precast.FastCast, {
-        legs="Ebers Pantaloons +1",feet="Kaykaus Boots +1"}
+        legs="Ebers Pantaloons +3",feet="Kaykaus Boots +1"}
     )
 
     sets.midcast.EnfeeblingMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
@@ -136,11 +136,11 @@ function get_sets()
     sets.Cure.index = {"Standard", "DT"}
 
     sets.baseCureDT = {
-
+        feet="Bunzi's Sabots",
         sub="Genmei Shield",
         neck="Cleric's Torque +2", 
-        left_ring="Defending Ring",
-        right_ring="Ayanmo Ring",
+        -- left_ring="Defending Ring",
+        right_ring="Defending Ring",
         back=AlaunusDT,
         ammo="Staunch Tathlum +1",
     }
@@ -159,12 +159,12 @@ function get_sets()
     sets.Cure.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
             head="Kaykaus mitra +1",neck="Cleric's torque +2",ear1="Glorious Earring",ear2="Nourishing Earring",--10% 3%--
             body="Ebers Bliaut +2",hands="Theophany Mitts +3",ring1="Janniston ring +1",ring2="Sirona's Ring", --13%--
-            back=AlaunusFC,waist="Embla sash",legs="Ebers Pantaloons +2",feet="Kaykaus Boots +1"}
+            back=AlaunusFC,waist="Embla sash",legs="Ebers Pantaloons +3",feet="Kaykaus Boots +1"}
 
     sets.Curaga.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
             head="Ebers Cap +1",neck="Cleric's torque +2",ear1="Glorious Earring",--ear2="Sortiarius Earring",--10% 3%--
             body="Theophany Bliaut +3",hands="Theophany Mitts +3",ring1="Aquasoul Ring",ring2="Sirona's Ring", --13%--
-            back=AlaunusFC,waist="Cascade Belt",legs="Ebers Pantaloons +2",feet="Kaykaus Boots +1"}
+            back=AlaunusFC,waist="Cascade Belt",legs="Ebers Pantaloons +3",feet="Kaykaus Boots +1"}
 
     sets.Cure.DT = set_combine(sets.Cure.Standard, sets.baseCureDT)
 
