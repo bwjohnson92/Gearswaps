@@ -37,7 +37,7 @@ sets.Weapons = {
 
 sets.Weapons.index = {"Raetic", "Marin"}
 
-currentWeapon = weaponMarin
+currentWeapon = sets.Weapons.Marin.main
 
 TaranusINT = { name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}}
 TaranusMP = { name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}
@@ -180,7 +180,7 @@ function get_sets()
 	sets.midcast.Death = {
 		ammo="Strobilus",
 		head="Pixie Hairpin +1",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Static Earring",
-		body="Ea Houppelande",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
+		body="Ea Houppelande +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Amalric Nails +1"}
 	
 	sets.midcast.DeathHighMP = {
@@ -192,7 +192,7 @@ function get_sets()
 	sets.midcast.DeathHighMPMB = {
 		ammo="Strobilus",
 		head="Pixie Hairpin +1",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Static Earring",
-		body="Ea Houppelande",hands="Spaekona's Gloves +3",ring1="Mephitas's Ring +1",ring2="Archon Ring",
+		body="Ea Houppelande +1",hands="Spaekona's Gloves +3",ring1="Mephitas's Ring +1",ring2="Archon Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"}
 
 	
@@ -230,6 +230,10 @@ function get_sets()
 	sets.ElementalDebuff = {legs="Archmage's Tonban +3",feet="Archmage's Sabots +3"}
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
 	sets.ElementalMagicMPBody = {body="Spaekona's Coat +3"}
+
+	sets.midcast.Ja = {
+		legs="Wicce Chausses +2"
+	}
 
 
 	organizer_items = organizerItems()
