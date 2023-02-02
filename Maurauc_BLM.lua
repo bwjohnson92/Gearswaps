@@ -106,11 +106,11 @@ function get_sets()
     sets.midcast.ElementalMagic.Standard.Damage = sets.midcast.ElementalMagic.Standard
     
     sets.midcast.ElementalMagic.Standard.Accuracy = set_combine(sets.midcast.ElementalMagic.Standard.Damage, {
-        head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
+        head="Archmage's Petasos +3",
         body="Wicce Coat +2",
         hands="Ea Cuffs",
-        legs=MerlinicLegsNuke,
-        feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
+        legs="Wicce Chausses +2",
+        feet="Wicce Sabots +2",
         neck="Sorcerer's Stole", waist="Sacro Cord",
         left_ear="Barkaro. Earring", right_ear="Digni. Earring",
         ring2="Weather. Ring +1",ring1="Stikini Ring",

@@ -2,25 +2,9 @@ require('closetCleaner')
 include('organizer-lib.lua')
 include('displayBox.lua')
 
--- Local Settings, setting the zones prior to use
-toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","Periqia","Ilrusi Atoll",
-        "Nyzul Isle","Bhaflau Remnants","Arrapago Remnants","Silver Sea Remnants","Zhayolm Remnants"}
-
-naSpells = S{"Paralyna","Silena","Viruna","Erase","Stona","Blindna","Poisona"}
-
-resSpells = S{"Barstonra","Barwatera","Baraera","Barfira","Barblizzara","Barthundra",
-	"Barstone","Barwater","Baraero","Barfire","Barblizzard","Barthunder"}
-
-elements = {}
-elements.use_on_single_conflict = false
-elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
-elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
-
 capeLocked = false
 weaponLocked = false
-Weapon_Index = 1
-
-
+Weapon_Index = 4
 
 -- Start Functions here
 -- Gear Sets
@@ -79,9 +63,9 @@ function get_sets()
 		hands="Sakpata's Gauntlets",
 	    legs="Pummeler's Cuisses +3",
 	    feet="Pummeler's Calligae +3",
-	    neck="Warrior's Bead Necklace +1",
+	    neck="Warrior's Bead Necklace +2",
 	    left_ear="Cessance Earring",
-	    right_ear="Boii Earring",
+	    right_ear="Boii Earring +1",
 	    left_ring="Moonlight Ring",
 	    right_ring="Niqmaddu Ring",
 	    back=CapeTP,
@@ -89,17 +73,18 @@ function get_sets()
 	}
 
 	sets.DT = {
-		ammo="Coiste Bodhar",
+		-- ammo="Coiste Bodhar",
+		ammo="Seething Bomblet +1",
 	    head="Sakpata's Helm",
 	    body="Sakpata's Plate",
 	    hands="Sakpata's Gauntlets",
 	    legs="Sakpata's Cuisses",
 	    -- legs="Pummeler's Cuisses +3",
 	    feet="Sakpata's Leggings",
-	    neck="War. Beads +1",
+	    neck="War. Beads +2",
 	    waist="Ioskeha Belt +1",
 	    left_ear="Cessance Earring",
-	    right_ear="Boii Earring",
+	    right_ear="Boii Earring +1",
 	    left_ring="Moonlight Ring",
 	    -- right_ring="Regal Ring",
 	    right_ring="Niqmaddu Ring",
@@ -119,6 +104,10 @@ function get_sets()
 	})
 
 
+	sets.Crit = {
+		feet="Boii Calligae +2"
+	}
+
 	sets.WS = {
 	    ammo="Knobkierrie",
 	    -- head="Sulevia's Mask +2",
@@ -128,7 +117,7 @@ function get_sets()
 	    -- legs="Sulevia's Cuisses +2",
 	    -- feet="Sulevia's Leggings +2",
 	    legs="Nyame Flanchard",
-	    feet="Nyame Sollerets",
+	    feet="Boii Calligae +2",
 	    neck="Fotia Gorget",
 	    waist="Fotia Belt",
 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -140,14 +129,15 @@ function get_sets()
 	sets.WS["Impulse Drive"] = {
 	    main="Shining One",
 	    sub="Utu Grip",
-	    ammo="Knobkierrie",
+	    ammo="Yetshila +1",
 	    head="Agoge Mask +3",
 	    -- body="Pumm. Lorica +3",
 	    body="Hjarrandi Breastplate",
-	    hands="Nyame Gauntlets",
+	    -- hands="Nyame Gauntlets",
+		hands="Boii Mufflers +2",
 	    legs="Nyame Flanchard",
 	    feet="Nyame Sollerets",
-	    neck="War. Beads +1",
+	    neck="War. Beads +2",
 	    waist="Sailfi Belt +1",
 	    left_ear="Thrud Earring",
 	    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -161,7 +151,7 @@ function get_sets()
 	    -- head="Agoge Mask +3",
 	    head="Nyame Helm",
 	    -- neck="Fotia Gorget",
-	    neck="Warrior's Bead Necklace +1",
+	    neck="Warrior's Bead Necklace +2",
 	    ear1="Moonshade Earring",
 	    ear2="Telos Earring",
 		-- body="Sakpata's Plate",		
@@ -179,7 +169,7 @@ function get_sets()
 	}
 
 	sets.WS.Upheaval.HighTP = set_combine(sets.WS.Upheaval, {
-		neck="War. Beads +1",
+		neck="War. Beads +2",
 		-- hands="Odyssean Gauntlets",
 		-- legs="Odyssean Cuisses",
 		feet="Sulevia's Leggings +2",
@@ -197,7 +187,7 @@ function get_sets()
 	    ammo="Knobkierrie",
 	    -- head="Sakpata's Helm",
 	    -- head="Agoge Mask +3",
-	    neck="War. Beads +1",
+	    neck="War. Beads +2",
 	    ear1="Telos Earring",
 	    ear2="Moonshade Earring",
 	    head="Nyame Helm",
@@ -240,7 +230,7 @@ function get_sets()
 
 	sets.JA["Berserk"] = {
 		body="Pummeler's Lorica +3",
-		feet="Agoge Calligae +1"
+		feet="Agoge Calligae +3"
 	} 
 
 	sets.JA["Mighty Strikes"] = {
@@ -265,7 +255,7 @@ function get_sets()
 	}
 
 	sets.Restraint = {
-		hands="Boii Mufflers +2"
+		-- hands="Boii Mufflers +2"
 	}
 
 
@@ -274,6 +264,7 @@ function get_sets()
 	})
 
 	windower.register_event('zone change', function()
+		enable("feet")
 		equip(customize_idle_set(sets.Idle))
 	end)
 
@@ -336,15 +327,32 @@ end
 
 
 function aftercast(spell)
-	equip_current()
+	equip_current(spell)
 end
 
-function equip_current()
+function equip_current(spell)
+	crit_set_check(spell)
     if player.status == 'Engaged' then
         equip_TP()
     else
         equip_idle()
     end
+end
+
+function crit_set_check(spell)
+	-- add_to_chat(140, spell.english)
+	if buffactive['blood rage'] or 
+		buffactive['mighty strikes'] or 
+		(spell ~= nil and 
+		(spell.english:lower() == "blood rage" or 
+		spell.english:lower() == "mighty strikes"))
+		then
+		add_to_chat(140, "locking feet because crit")
+		equip(sets.Crit)
+		disable("feet")
+	else
+		enable("feet")
+	end
 end
 
 function equip_TP()
@@ -372,11 +380,15 @@ end
 
 function customize_idle_set(idleSet)
     if areas.AdoulinCity:contains(world.area) then
-        idleSet = set_combine(idleSet, {body="Councilor's Garb"})
+        idleSet = set_combine(idleSet, {
+			-- body="Councilor's Garb"
+		})
     end
  
     return idleSet
 end
+
+
 
 function self_command(command)
 	 if command == 'toggle TP set' then
@@ -393,31 +405,4 @@ function self_command(command)
     end
     equip_current()
     updateTable()
-end
-
-function use_obi(spell, equip_set)
-    local use_obi = false
-    -- first check to see if any elemental obi rule matches
-    if(S{world.day_element, world.weather_element}:contains(spell.element)) then
-            -- If at least one matches, try to find out if there is also a weak element involved
-            if (world.weather_element == elements.weak_against[spell.element] ) then
-                -- If weak weather is involved, but it is only single weather, check to see if use_on_single_conflict is set to true
-                if (world.weather_id % 2 == 0 and elements.use_on_single_conflict) then
-                    use_obi = true
-                end
-            elseif (world.day_element == elements.weak_against[spell.element]) then
-                -- If weak day is involved check for double weather or single weather + use_on_single_conflict set to true
-                if (world.weather_id % 2 == 1 or ( elements[use_on_single_conflict] and world.weather_id % 2 == 0) ) then
-                    use_obi = true
-                end
-            else
-				use_obi = true
-			end
-    end
- 
-    if (use_obi) then
-        equip_set = set_combine(equip_set, { waist = "Hachirin-No-Obi"})
-    end
- 
-    return equip_set
 end

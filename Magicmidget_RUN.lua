@@ -65,7 +65,7 @@ function get_sets()
         neck="Futhark Torque +2",
         legs="Ayanmo Cosciales +2",
         -- right_ear="Dominance Earring +1",
-        legs="Runeist's Trousers +2",
+        legs="Runeist Trousers +2",
         -- body="Erilaz Surcoat +1",
         feet="Erilaz Greaves +2",
         hands="Erilaz Gauntlets +2"
@@ -163,9 +163,9 @@ function get_sets()
 
     sets.TP.HP = {
         head="Nyame Helm",
-        body="Runeist's Coat +3",
+        body="Runeist Coat +3",
         hands="Regal Gauntlets",
-        legs="Eri. Leg Guards +2",
+        legs="Eri. Leg Guards +3",
         feet="Erilaz Greaves +2",
         waist="Flume Belt +1",
         neck="Futhark Torque +2",
@@ -280,18 +280,18 @@ function get_sets()
         neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",                        
         waist="Eschan Stone"})
 
-    sets.JA.Vallation = {body="Runeist's Coat +3",legs="Futhark Trousers +2"}       
-    sets.JA.Gambit = {hands="Runeist's mitons +3"}
+    sets.JA.Vallation = {body="Runeist Coat +3",legs="Futhark Trousers +2"}       
+    sets.JA.Gambit = {hands="Runeist mitons +3"}
     sets.JA.Rayke = {feet="Futhark boots +1"}  
     sets.JA.Battuta = {head="Futhark bandeau +3"}      
     sets.JA.Pflug = {feet="Runeist bottes +1"}              
-    sets.JA.Pulse = {main="Morgelai",head="Erilaz Galea +2",legs="Runeist's Trousers +2"}
+    sets.JA.Pulse = {main="Morgelai",head="Erilaz Galea +2",legs="Runeist Trousers +2"}
                     
     --Precast Sets--
     --Fast Cast set
     sets.precast = {
         ammo="Sapience Orb",
-        head={name="Runeist's bandeau +3", priority=1},
+        head={name="Runeist bandeau +3", priority=1},
         neck="Orunmila's Torque",
         ear1={name="Odnowa Earring +1",priority=1},
         ear2={name="Etiolation Earring",priority=1},
@@ -375,14 +375,14 @@ function get_sets()
     }  
 
     sets.Regen = set_combine(sets.Idle.Evasion, {
-        main="Morgelai",head="Runeist's bandeau +3",neck='Sacro Gorget',ear2="Erilaz Earring"
+        main="Morgelai",head="Runeist bandeau +3",neck='Sacro Gorget',ear2="Erilaz Earring"
     })
 
     --Magic acc for enfeebles, handy for VW
     sets.MagicAcc = {}
         -- head="Dampening Tam",ear1="Gwati Earring",
         -- body="Samnuha Coat",hands="Leyline Gloves",ring1="Sangoma Ring",ring2="Kishar Ring",
-        -- waist="Salire Belt",legs="Runeist's Trousers +2"}
+        -- waist="Salire Belt",legs="Runeist Trousers +2"}
      
     --Toggle TP sets button, change if you want; currently ALT+F9 toggles forward, CTRL+F9 toggles backwards
     send_command('bind end send @others input /follow Magicmidget')
@@ -569,21 +569,21 @@ end
   
 function midcast(spell,act,arg) 
         if spell.action_type == 'Magic' then 
-                equip(sets.Idle.Evasion,{head="Runeist's bandeau +3",hands="Regal Gauntlets"})         
+                equip(sets.Idle.Evasion,{head="Runeist bandeau +3",hands="Regal Gauntlets"})         
         end  
         if spell.skill == 'Enhancing Magic' then
                 equip(sets.Idle.Evasion, {head="Erilaz Galea +2",legs="Futhark Trousers +2",hands="Regal Gaunlets"})
                 if spell.name == "Blink" or spell.name == "Stoneskin" or spell.name == "Aquaveil" or string.find(spell.name,'Utsusemi') then
                     equip(sets.Interrupt)
                 elseif string.find(spell.name,'Bar') or spell.name=="Temper" then
-                    equip({hands="Runeist's Mitons +3"})
+                    equip({hands="Runeist Mitons +3"})
                 end
                 if buffactive.embolden then
                     equip({back="Evasionist's Cape"})
                 end 
         end
         if spell.name == 'Foil' or spell.name == 'Flash' or spell.name == "Stun" then 
-                equip(sets.Idle.Evasion, sets.Enmity,{head="Runeist's bandeau +3"})
+                equip(sets.Idle.Evasion, sets.Enmity,{head="Runeist bandeau +3"})
         end 
         if spell.name == 'Phalanx' then
                 equip(sets.Idle.Evasion,sets.Phalanx.Potency)
