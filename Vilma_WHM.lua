@@ -43,8 +43,8 @@ function get_sets()
         waist="Fucho-no-Obi",
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
-        left_ring="Defending Ring",
-        right_ring="Inyanga Ring",
+        left_ring="Inyanga Ring",
+        right_ring="Defending Ring",
         back="Repulse Mantle"
     }
 
@@ -61,8 +61,8 @@ function get_sets()
         waist="Fucho-no-Obi",
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
-        left_ring="Defending Ring",
-        right_ring="Inyanga Ring",
+        left_ring="Inyanga Ring",
+        right_ring="Defending Ring",
         back={ name="Alaunus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},
     }
 
@@ -90,7 +90,7 @@ function get_sets()
         back="Alaunus's Cape",waist="Rumination Sash", legs="Chironic Hose",feet="Skaoi Boots"}
 
     sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
-        head="Ebers Cap +1",neck="Colossus's Torque",
+        head="Ebers Cap +2",neck="Colossus's Torque",
         body="Ebers Bliaut +2",hands="Ebers Mitts +1",ring1="Kishar Ring",ring2="Stikini Ring",
         waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Ebers Duckbills +1"}
     --sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Bliaut"})
@@ -136,10 +136,10 @@ function get_sets()
     sets.Cure.index = {"Standard", "DT"}
 
     sets.baseCureDT = {
+        head="Ebers Cap +2",
         feet="Bunzi's Sabots",
         sub="Genmei Shield",
         neck="Cleric's Torque +2", 
-        -- left_ring="Defending Ring",
         right_ring="Defending Ring",
         back=AlaunusDT,
         ammo="Staunch Tathlum +1",
@@ -151,7 +151,7 @@ function get_sets()
         body="Bunzi's Robe",
         head="Bunzi's Hat",
         feet="Bunzi's Sabots",
-        right_ring="Defending ring",
+        right_ring="Naji's Loop",
         waist="Lieutenant's Sash",
         right_ear="Nourishing Earring"
         })
@@ -162,7 +162,7 @@ function get_sets()
             back=AlaunusFC,waist="Embla sash",legs="Ebers Pantaloons +3",feet="Kaykaus Boots +1"}
 
     sets.Curaga.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
-            head="Ebers Cap +1",neck="Cleric's torque +2",ear1="Glorious Earring",--ear2="Sortiarius Earring",--10% 3%--
+            head="Ebers Cap +2",neck="Cleric's torque +2",ear1="Glorious Earring",--ear2="Sortiarius Earring",--10% 3%--
             body="Theophany Bliaut +3",hands="Theophany Mitts +3",ring1="Aquasoul Ring",ring2="Sirona's Ring", --13%--
             back=AlaunusFC,waist="Cascade Belt",legs="Ebers Pantaloons +3",feet="Kaykaus Boots +1"}
 
@@ -173,6 +173,7 @@ function get_sets()
     sets.Curaga.DT = set_combine(sets.Curaga.Standard, sets.curagaDT, {
         main="Daybreak",
         sub="Genmei Shield",
+        waist="Witful Belt"
         })
             
     sets.midcast.Stoneskin = {waist="Siegel Sash",}
@@ -195,7 +196,7 @@ function get_sets()
 
     send_command('bind f10 gs c toggle cure')
     send_command('bind f12 gs c toggle pdt')
-    send_command('exec mulera.txt')
+    -- send_command('exec mulera.txt')
     text_setup()
     addNewColors()
     updateTable()
@@ -210,9 +211,9 @@ function updateTable()
     addToTable("(F10) Cure Set", sets.Cure.index[Cure_Index])
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
     addToTable("", "")
-    addToTable("DEL", "Julika Ranged Attack")
-    addToTable("END", "Julika Leaden Salute")
-    addToTable("PGDown", "Julika Savage Blade")
+    -- addToTable("DEL", "Julika Ranged Attack")
+    -- addToTable("END", "Julika Leaden Salute")
+    -- addToTable("PGDown", "Julika Savage Blade")
     update_message()
 end
 -- --- Precast ---
