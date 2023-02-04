@@ -26,6 +26,9 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 
 DotDebuffs = S{"Burn", "Choke", "Shock", "Drown", "Frost", "Rasp"}
 
+stikini1={name="Stikini Ring +1", bag="wardrobe2"}
+stikini2={name="Stikini Ring +1", bag="wardrobe3"}
+
 -- Start Functions here
 -- Gear Sets
 function get_sets()
@@ -53,10 +56,10 @@ function get_sets()
         ammo = "Grioavolr"
     }
 
-    sets.Idle.PDT = {main="Malignance Pole", ammo="Vanir Battery",
-        head="Befouled Crown", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="",
-        body="Vrikodara Jupon", hands="Nyame Gauntlets", ring1="Defending Ring", ring2="Gelatinous Ring +1",
-        back=TaranusNuke,waist="Siegel Sash", legs="Nyame Flanchard", feet="Wicce Sabots +2"}
+    sets.Idle.PDT = {
+        head="Nyame Helm", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Sorcerer's Earring",
+        body="Vrikodara Jupon", hands="Nyame Gauntlets", ring1="Defending Ring", ring2=stikini2,
+        back=TaranusNuke,waist="Fucho-no-obi", legs="Nyame Flanchard", feet="Nyame Sollerets"}
 
     sets.Idle.Standard = {
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
