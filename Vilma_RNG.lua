@@ -54,7 +54,7 @@ end
 function user_setup()
         -- Options: Override default values
         state.OffenseMode:options('Normal', 'Melee')
-        state.RangedMode:options('Normal', 'Acc')
+        state.RangedMode:options('Normal', 'Acc', 'Crit')
         state.HybridMode:options('Normal', 'PDT')
         state.IdleMode:options('Normal', 'PDT')
         state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
@@ -86,6 +86,7 @@ function user_setup()
 
         BelenusTP = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Rng.Acc.+10','"Store TP"+10',}}
         BelenusDexCrit = { name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10',}}
+        BelenusAgiCrit = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Crit.hit rate+10','Phys. dmg. taken-10%',}}
         BelenusMagicWS = { name="Belenus's Cape", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%',}}
         BelenusPreshot = { name="Belenus's Cape", augments={'"Snapshot"+10',}}
         BelenusAgiWS = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}}
@@ -170,7 +171,7 @@ function init_gear_sets()
             hands="Amini Glovelettes +1",
             ring1="Ifrit Ring",
             ring2="Apate ring",
-            -- legs="Amini Brague +1" 
+            -- legs="Amini Bragues +2" 
             --feet="Arcadian Socks +1"
         })
         sets.precast.JA['Eagle Eye Shot'].Mid = set_combine(sets.precast.JA['Eagle Eye Shot'], {
@@ -260,7 +261,7 @@ function init_gear_sets()
             head={ name="Arcadian Beret +3", augments={'Enhances "Recycle" effect',}},
             body="Mummu jacket +2", 
             hands="Carmine Finger Gauntlets +1",
-            legs="Adhemar Kecks",
+            legs="Amini Bragues +2",
             feet="Orion socks +2",
             waist="Elanid Belt",
             neck="Iskur Gorget",
@@ -285,9 +286,20 @@ function init_gear_sets()
             neck= "Iskur Gorget",
             left_ring="Hajduk Ring",
             right_ring="Cacoethic Ring +1",
-            legs="Adhemar Kecks",
+            legs="Amini Bragues +2",
             waist="Kwahu Kachina Belt",
             })
+
+        sets.midcast.RA.Crit = set_combine(sets.midcast.RA, {
+            neck="Scout's Gorget +1",
+            hands="Mummu Wrists +2",
+            waist="Kwahu Kachina Belt",
+            feet="Oshosi Leggings +1",
+            left_ear="Odr Earring",
+            left_ring="Mummu Ring",
+            right_ring="Begrudging Ring",
+            back=BelenusAgiCrit
+        })
 
         sets.precast.WS = {
             head="Orion Beret +3",
@@ -371,7 +383,7 @@ function init_gear_sets()
             body="Meghanada Cuirie +2",
             hands="Kobo Kote",
             legs="Darraigner's Brais",
-            --legs="Amini Brague +1",
+            --legs="Amini Bragues +2",
             --feet={ name="Herculean Boots", augments={'Rng.Acc.+14 Rng.Atk.+14','Enmity-6','DEX+8','Rng.Acc.+13','Rng.Atk.+7',}},
             feet="Thereoid Greaves",
             neck="Fotia Gorget",
@@ -380,7 +392,7 @@ function init_gear_sets()
             right_ear="Sherida Earring",
             left_ring="Begrudging Ring",
             right_ring="Regal Ring",
-            back={ name="Belenus's Cape", augments={'DEX+20','Rng.Acc.+20 Rng.Atk.+20','Crit.hit rate+10',}},
+            back=BelenusDexCrit
         }
         sets.precast.WS['Jishnu\'s Radiance'] = set_combine(sets.precast.WS, sets.Jishnus)
         sets.precast.WS['Jishnu\'s Radiance'].Mid = set_combine(sets.precast.WS.Mid, sets.Jishnus)
@@ -522,7 +534,7 @@ function init_gear_sets()
             ring2="Regal Ring",
             back="Lutian Cape",
             waist="Kwahu Kachina Belt",
-            legs="Amini Brague +1", 
+            legs="Amini Bragues +2", 
             feet="Orion Socks +2"
         })
         sets.buff.Barrage.Mid = set_combine(sets.buff.Barrage, {})
