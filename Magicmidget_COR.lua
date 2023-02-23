@@ -14,19 +14,6 @@ current_roll = ""
 
 weaponLocked = false
 
-toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","Periqia","Ilrusi Atoll",
-        "Nyzul Isle","Bhaflau Remnants","Arrapago Remnants","Silver Sea Remnants","Zhayolm Remnants"}
-
-naSpells = S{"Paralyna","Silena","Viruna","Erase","Stona","Blindna","Poisona"}
-
-resSpells = S{"Barstonra","Barwatera","Baraera","Barfira","Barblizzara","Barthundra",
-    "Barstone","Barwater","Baraero","Barfire","Barblizzard","Barthunder"}
-
-elements = {}
-elements.use_on_single_conflict = false
-elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
-elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
-
 -- Start Functions here
 -- Gear Sets
 function get_sets()
@@ -53,10 +40,10 @@ function get_sets()
         ranged="Nusku Shield"
     }
 
-    sets.idle = {
-        main="Fettering Blade",
-        range="Compensator",
-        ammo="Eminent Bullet",
+    sets.Idle = {
+        main="Naegling",
+        range="Fomalhaut",
+        ammo="Chrono Bullet",
         -- head="Herculean Helm",
         head="Nyame Helm",
         body="Nyame Mail",
@@ -71,7 +58,7 @@ function get_sets()
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         left_ring="Luzaf's Ring",
-        right_ring="Barataria Ring",
+        right_ring="Defending Ring",
         back="Repulse Mantle",
     }
 
@@ -86,11 +73,14 @@ function get_sets()
     }
 
     sets.Melee = {
-        head={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}},
-        body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
-        hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
-        legs="Meg. Chausses +2",
-        feet={ name="Herculean Boots", augments={'Rng.Acc.+20','"Triple Atk."+4','STR+6','Accuracy+11',}},
+        -- head={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}},
+        -- body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+        -- hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck={ name="Loricate Torque +1", augments={'Path: A',}},
         waist="Reiki Yotai",
         left_ear="Telos Earring",
@@ -105,15 +95,15 @@ function get_sets()
 
     sets.RA.Standard = {
         ammo="Chrono Bullet",
-        head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-        body="Chasseur's Frac",
-        hands="Meghanada Gloves",
-        legs={ name="Lanun Culottes", augments={'Enhances "Snake Eye" effect',}},
-        feet="Meg. Jambeaux",
-        neck="Iqabi Necklace",
-        waist="Eschan Stone",
+        -- head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
+        -- body="Chasseur's Frac",
+        -- hands="Meghanada Gloves",
+        -- legs={ name="Lanun Culottes", augments={'Enhances "Snake Eye" effect',}},
+        -- feet="Meg. Jambeaux",
+        -- neck="Iqabi Necklace",
+        -- waist="Eschan Stone",
         left_ear="Digni. Earring",
-        right_ear="Pixie Earring",
+        -- right_ear="Pixie Earring",
     }
 
     sets.RA.Acc = set_combine(sets.RA, {})
@@ -202,17 +192,17 @@ function get_sets()
 
     sets.WS.LeadenSalute.Standard = { --AGI Weaponskill
         head="Pixie Hairpin +1",
-        body="Lanun Frac +3",
-        hands="Carmine Fin. Ga. +1",
-        legs={ name="Herculean Trousers", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Dbl.Atk."+3','Mag. Acc.+5','"Mag.Atk.Bns."+8',}},
-        feet="Lanun Bottes +3",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Sanctity Necklace",
         waist="Eschan Stone",
         left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
         right_ear="Friomisi Earring",
         left_ring="Dingir Ring",
         right_ring="Archon Ring",
-        back=capeWSMAB,
+        back="Gunslinger's Cape",
     }
 
     sets.WS.LeadenSalute.Enmity = set_combine(sets.WS.LeadenSalute.Standard, {

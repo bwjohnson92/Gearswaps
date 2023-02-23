@@ -136,7 +136,8 @@ function get_sets()
 	    -- hands="Nyame Gauntlets",
 		hands="Boii Mufflers +2",
 	    legs="Nyame Flanchard",
-	    feet="Nyame Sollerets",
+	    -- feet="Nyame Sollerets",
+		feet="Boii Calligae +2",
 	    neck="War. Beads +2",
 	    waist="Sailfi Belt +1",
 	    left_ear="Thrud Earring",
@@ -340,6 +341,7 @@ function equip_current(spell)
 end
 
 function crit_set_check(spell)
+	-- return
 	-- add_to_chat(140, spell.english)
 	if buffactive['blood rage'] or 
 		buffactive['mighty strikes'] or 

@@ -48,7 +48,7 @@ function get_sets()
     sets.midcast = {}
     sets.JA = {}
     sets.WS = {}    
-    sets.Idle.index = {"Standard", "PDT", "HighMP"}
+    sets.Idle.index = {"Standard", "PDT", "PDTMove", "HighMP"}
 
     sets.availableWeapons = {
         main = "Lathi",
@@ -60,6 +60,10 @@ function get_sets()
         head="Nyame Helm", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Sorcerer's Earring",
         body="Vrikodara Jupon", hands="Nyame Gauntlets", ring1="Defending Ring", ring2=stikini2,
         back=TaranusNuke,waist="Fucho-no-obi", legs="Nyame Flanchard", feet="Nyame Sollerets"}
+
+    sets.Idle.PDTMove = set_combine(sets.Idle.PDT, {
+        feet="Herald's Gaiters"
+    })
 
     sets.Idle.Standard = {
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
@@ -110,20 +114,21 @@ function get_sets()
     
     sets.midcast.ElementalMagic.Standard.Accuracy = set_combine(sets.midcast.ElementalMagic.Standard.Damage, {
         head="Archmage's Petasos +3",
-        body="Wicce Coat +2",
+        body="Wicce Coat +3",
         hands="Ea Cuffs",
         legs="Wicce Chausses +2",
         feet="Wicce Sabots +2",
         neck="Sorcerer's Stole", waist="Sacro Cord",
-        left_ear="Barkaro. Earring", right_ear="Digni. Earring",
-        ring2="Weather. Ring +1",ring1="Stikini Ring",
+        left_ear="Barkaro. Earring", right_ear="Malignance Earring",
+        ring1="Stikini Ring +1",
+        ring2="Metamorph Ring +1",
         back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
     })
 
     sets.midcast.MagicBurst = {
         neck="Mizukage-no-Kubikazari", --10
         head=MerlinicHoodNuke,
-        body=MerlinicBodyBurst,
+        -- body=MerlinicBodyBurst,
         hands="Amalric Gages +1", 
         ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
         back=TaranusNuke, 
@@ -167,7 +172,7 @@ function get_sets()
         -- main="Lathi",
         sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head=MerlinicHoodNuke,neck="Voltsurge Torque",ear1="Digni. Earring",ear2="Malignance Earring",
-        body="Wicce Coat +2",hands="Lurid Mitts",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
+        body="Wicce Coat +3",hands="Lurid Mitts",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
         back="Swith Cape",waist="Witful Belt",legs="Merlinic Shalwar",feet=MerlinicFeetNuke}
 
     sets.midcast.Cure = {main="Tamaxchi",sub="Genbu's Shield",ammo="Hydrocera",
@@ -262,6 +267,7 @@ function get_sets()
     send_command('bind f10 gs c acc')
     send_command('bind f11 gs c switch mb')
     send_command('bind f12 gs c switch pdt')
+    send_command('bind ^f12 gs c switch back')
     send_command('bind pause gs c nuke')
     -- send_command('bind f9 gs c melee')
     --send_command('bind end gs c lockWeapon')
@@ -478,6 +484,12 @@ function self_command(command)
     elseif command == 'switch pdt' then
         Idle_Index = Idle_Index +1
         if Idle_Index > #sets.Idle.index then Idle_Index = 1 end
+        add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
+        equip(sets.Idle[sets.Idle.index[Idle_Index]])
+
+    elseif command == 'switch back' then
+        Idle_Index = Idle_Index +-1
+        if Idle_Index < 0 then Idle_Index = #sets.Idle.index -1 end
         add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
         equip(sets.Idle[sets.Idle.index[Idle_Index]])
 
