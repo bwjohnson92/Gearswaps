@@ -319,6 +319,7 @@ function init_gear_sets()
         sets.precast.WS.Mid = set_combine(sets.precast.WS, {
             body="Orion Jerkin +2"
             })
+
         sets.precast.WS.Acc = set_combine(sets.precast.WS.Mid, {
             legs="Meghanada Chausses +2",
             ring2="Hajduk Ring"
@@ -585,10 +586,10 @@ function job_precast(spell, action, spellMap, eventArgs)
             end
         end
         -- Ammo checks
-	    if spell.action_type == 'Ranged Attack' or
-          (spell.type == 'WeaponSkill' and (spell.skill == 'Marksmanship' or spell.skill == 'Archery')) then
-            check_ammo(spell, action, spellMap, eventArgs)
-        end
+	    -- if spell.action_type == 'Ranged Attack' or
+        --   (spell.type == 'WeaponSkill' and (spell.skill == 'Marksmanship' or spell.skill == 'Archery')) then
+        --     check_ammo(spell, action, spellMap, eventArgs)
+        -- end
 end
  
 -- Run after the default precast() is done.
