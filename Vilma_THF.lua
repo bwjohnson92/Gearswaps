@@ -96,6 +96,19 @@ function get_sets()
         
     sets.WS.Exenterator.SATA = set_combine(sets.WS.TA.Exenterator, {})
     
+    sets.WS["Aeolian Edge"] = {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        left_ear="Friomisi Earring",
+        right_ear="Moonshade Earring",
+        left_ring="Dingir Ring",
+    }
+
+    sets.WS["Cyclone"] = sets.WS["Aeolian Edge"]
+
     Idle_Set_Names = {'Normal'}
     sets.Idle = {}
     sets.Idle.Normal = {head="Skulker's bonnet +1",neck="Loricate Torque +1",--ear1="Merman's Earring",ear2="Bladeborn Earring",
