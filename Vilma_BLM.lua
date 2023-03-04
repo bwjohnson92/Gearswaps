@@ -91,7 +91,7 @@ function get_sets()
 	
 	sets.midcast.EnfeeblingMagic = {
 		ammo="pemphredo tathlum",
-		head="Archmage's Petasos +3",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Digni. Earring",
+		head="Wicce Petasos +3",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Digni. Earring",
 		body="Spaekona's Coat +3",hands="Spaekona's Gloves +3",ring1="Sangoma Ring",ring2="Kishar Ring",
 		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +3"}
 
@@ -115,10 +115,10 @@ function get_sets()
 
 	sets.midcast.ElementalMagic.Standard.Accuracy = set_combine(sets.midcast.ElementalMagic.Standard.Damage, {
 	    ammo="Pemphredo Tathlum",
-	    head="Archmage's Petasos +3",
+	    head="Wicce Petasos +3",
 	    body="Spaekona's Coat +3",
 	    hands="Spaekona's Gloves +3",
-	    legs="Wicce Chausses +2",
+	    legs="Wicce Chausses +3",
 	    feet="Wicce Sabots +2",
 	    neck="Sorcerer's Stole +1",
 	    waist="Sacro Cord",
@@ -226,13 +226,13 @@ function get_sets()
 	
 	-- UTILITY PIECES 
 
-	sets.JA.ManaWall = {back=TaranusMP, feet="Wicce Sabots +2"}
+	sets.JA.ManaWall = {back=TaranusMP, feet="Wicce Sabots +3"}
 	sets.ElementalDebuff = {legs="Archmage's Tonban +3",feet="Archmage's Sabots +3"}
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
 	sets.ElementalMagicMPBody = {body="Spaekona's Coat +3"}
 
 	sets.midcast.Ja = {
-		legs="Wicce Chausses +2"
+		legs="Wicce Chausses +3"
 	}
 
 
