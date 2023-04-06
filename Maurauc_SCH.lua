@@ -78,7 +78,7 @@ function get_sets()
         sub="Enki Strap",ammo="Strobilus",
         ammo="Pemphredo Tathlum",
         head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
-        body="Merlinic Jubbah",
+        body={ name="Merlinic Jubbah", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','"Fast Cast"+1','MND+3','Mag. Acc.+11','"Mag.Atk.Bns."+14',}},
         hands="Jhakri Cuffs +2",
         legs="Merlinic Shalwar",
         feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
@@ -126,10 +126,14 @@ function get_sets()
         back="Oretania's Cape",waist="Cascade Belt",legs="Chironic Hose",feet="Medium's Sabots"}
 
     sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
-        head=MerlinicHoodBurst,
-        body=MerlinicBodyBurst,hands="Amalric Gages +1", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
-        back="Seshaw Cape", feet="Arbatel Loafers +2"} --5, 9 
+        head="Pedagogy Mortarboard +3",
+        body=MerlinicBodyBurst,hands="Arbatel Bracers +2", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
+        legs="Agwu's Slops",
+        feet="Arbatel Loafers +2"} --5, 9 
         
+        --Relic Head, AF Body, Empy Hands, Agwu Legs, Empy Feet
+
+
     sets.precast.Impact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
     sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak"}) 
     

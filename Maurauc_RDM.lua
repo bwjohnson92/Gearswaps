@@ -521,7 +521,7 @@ function midcast(spell)
 				equip(sets.precast.FastCast)
 				
 			--Spell-specific buff sets
-			elseif string.find(spell.english,'Phalanx') and spell.target.type == "SELF" then
+			elseif string.find(spell.english,'Phalanx') and spell.target.type == "SELF" and not buffactive['accession'] then
 				add_to_chat(140, "Phalanx")
 				equip(set_combine(sets.midcast.EnhancingMagic.Duration, sets.Phalanx))
 			elseif string.find(spell.english, 'Gain') then

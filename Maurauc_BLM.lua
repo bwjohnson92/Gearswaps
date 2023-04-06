@@ -106,17 +106,30 @@ function get_sets()
 
     sets.midcast.ElementalMagic.index = {'Standard', 'Burst'}
     sets.midcast.ElementalMagic.Acc = {}
-    sets.midcast.ElementalMagic.Acc.index = {'Damage', 'Accuracy'}
+    sets.midcast.ElementalMagic.Acc.index = {'Damage', 'MidAcc', 'Accuracy'}
 
     sets.midcast.ElementalMagic.Standard = sets.midcast.ElementalMagic
 
     sets.midcast.ElementalMagic.Standard.Damage = sets.midcast.ElementalMagic.Standard
     
+    sets.midcast.ElementalMagic.Standard.MidAcc = set_combine(sets.midcast.ElementalMagic.Standard.Damage, {
+        head="Archmage's Petasos +3",
+        body="Wicce Coat +3",
+        hands="Archmage's Gloves +3",
+        legs="Wicce Chausses +3",
+        feet="Wicce Sabots +2",
+        neck="Sorcerer's Stole", waist="Sacro Cord",
+        left_ear="Barkaro. Earring", right_ear="Malignance Earring",
+        ring1="Freke Ring",
+        ring2="Metamorph Ring +1",
+        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
+    })
+    
     sets.midcast.ElementalMagic.Standard.Accuracy = set_combine(sets.midcast.ElementalMagic.Standard.Damage, {
         head="Archmage's Petasos +3",
         body="Wicce Coat +3",
         hands="Ea Cuffs",
-        legs="Wicce Chausses +2",
+        legs="Wicce Chausses +3",
         feet="Wicce Sabots +2",
         neck="Sorcerer's Stole", waist="Sacro Cord",
         left_ear="Barkaro. Earring", right_ear="Malignance Earring",
@@ -138,6 +151,12 @@ function get_sets()
     sets.midcast.ElementalMagic.Burst = set_combine(sets.midcast.ElementalMagic.Standard, sets.midcast.MagicBurst)
 
     sets.midcast.ElementalMagic.Burst.Damage = sets.midcast.ElementalMagic.Burst
+
+    sets.midcast.ElementalMagic.Burst.MidAcc = set_combine(sets.midcast.ElementalMagic.Standard.MidAcc, {
+        neck="Mizukage-no-Kubikazari",
+        ring1="Mujin Band",
+        ring2="Locus Ring",
+    })
     
     sets.midcast.ElementalMagic.Burst.Accuracy = set_combine(sets.midcast.ElementalMagic.Burst.Damage, {
         hands="Ea Cuffs"
@@ -209,7 +228,7 @@ function get_sets()
         back=TaranusMP,waist="Sacro Cord",legs="Amalric slops +1",feet="Amalric Nails +1"}
         
     sets.midcast.DrainAspir = set_combine(sets.midcast.ElementalMagic, {
-    head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Gwati Earring", ear2="Malignance Earring",   
+    head="Pixie Hairpin +1",neck="Voltsurge Torque",  ear1="Dignitary's Earring", ear2="Malignance Earring",   
     back="Bane Cape", waist="Fucho-no-obi",feet=MerlinicFeetNuke, ring1="Archon Ring", ring2="Weatherspoon Ring +1"})
             
     sets.midcast.DarkMagic = set_combine(sets.midcast.ElementalMagic, {head="Pixie Hairpin +1"})
@@ -260,7 +279,7 @@ function get_sets()
     }
 
     sets.midcast.Ja = {
-    	legs="Wicce Chausses +2"
+    	legs="Wicce Chausses +3"
 	}
 
     send_command('bind f9 gs c switch MP')
@@ -295,7 +314,7 @@ end
 -- --- Precast ---
 
 function precast(spell)
-if (Idle_Index == 3) then
+if (sets.Idle.index[Idle_Index] == "HighMP") then
     if spell.english == 'Myrkr' then
         equip(sets.WS.Myrkr)
     else 
@@ -330,7 +349,7 @@ function midcast(spell)
     if spell.english == 'Mana Wall' then
         return
     end
-    if (Idle_Index == 3) then
+    if (sets.Idle.index[Idle_Index] == "HighMP") then
         if spell.english == 'Death' then
             if (MBSet == true) then
                 equip(use_obi(spell, sets.midcast.DeathHighMPMB))
@@ -436,11 +455,17 @@ end
 
 function getNukeSet()
     set = {}
-    if (sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]][sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]]) then
-        set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]][sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]]
+    nukeIndex = sets.midcast.ElementalMagic.index[Nuke_Index]
+    accIndex = sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]
+
+    -- add_to_chat(140, "Nuke Set "..nukeIndex.." and acc index "..accIndex)
+    if (sets.midcast.ElementalMagic[nukeIndex][accIndex]) then
+        add_to_chat(140, "Found nuke set")
+        set = sets.midcast.ElementalMagic[nukeIndex][accIndex]
     else 
-        set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]]
+        set = sets.midcast.ElementalMagic[nukeIndex]
     end
+
     return set
 end
 

@@ -6,9 +6,8 @@ include('organizeritems.lua')
 
 Nuke_Index = 1
 Idle_Index = 1
-Accuracy_Index = 1
+-- Accuracy_Index = 1
 Weapon_Index = 0
-
 
 MPSet = false
 PDTSet = false
@@ -53,8 +52,8 @@ function get_sets()
 	sets.Idle.index = {"Standard", "DT", "HighMP"}
 
 	sets.Idle.Standard = {main="Bolelabunga",sub="Genmei Shield",
-		head="Befouled Crown",neck="Sanctity Necklace",ear1="Novia Earring",ear2="Loquacious Earring",
-		body="Jhakri Robe +2",hands="Serpentes Cuffs",ring1={name="Stikini Ring +1", bag="Wardrobe4"},ring2={name="Stikini Ring +1", bag="Wardrobe5"},
+		head="Befouled Crown",neck="Sibyl Scarf",ear1="Novia Earring",ear2="Loquacious Earring",
+		body="Wicce Coat +3",hands="Serpentes Cuffs",ring1={name="Stikini Ring +1", bag="Wardrobe4"},ring2={name="Stikini Ring +1", bag="Wardrobe5"},
 		back=TaranusINT,waist="Fucho-no-obi",legs="Assiduity pants +1",feet="Herald's Gaiters"}
 		
 	sets.Idle.DT = set_combine(sets.Idle.Standard, {
@@ -100,65 +99,24 @@ function get_sets()
 	--NUKING SETS
 
 	sets.midcast.ElementalMagic = {
-		main=currentWeapon,sub="Enki Strap",ammo="Pemphredo Tathlum",
-		head="Archmage's Petasos +3",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Malignance Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Metamorph Ring +1",
-		back=TaranusINT,waist="Sacro Cord",legs="Amalric slops +1",feet="Amalric Nails +1"}
+		main=currentWeapon,sub="Enki Strap",ammo="Ghastly Tathlum +1",
+		head="Wicce Petasos +3",neck="Sorcerer's Stole +1",ear1="Regal Earring",ear2="Malignance Earring",
+		body="Wicce Coat +3",hands="Archmage's Gloves +3",ring1="Freke Ring",ring2="Metamorph Ring +1",
+		back=TaranusINT,waist="Sacro Cord",legs="Wicce Chausses +3",feet="Wicce Sabots +3"}
 		
 	sets.midcast.ElementalMagic.index = {'Standard', 'Burst'}
-	sets.midcast.ElementalMagic.Acc = {}
-	sets.midcast.ElementalMagic.Acc.index = {'Damage', 'Accuracy'}
-
 	sets.midcast.ElementalMagic.Standard = sets.midcast.ElementalMagic
 
-	sets.midcast.ElementalMagic.Standard.Damage = sets.midcast.ElementalMagic.Standard
-
-	sets.midcast.ElementalMagic.Standard.Accuracy = set_combine(sets.midcast.ElementalMagic.Standard.Damage, {
-	    ammo="Pemphredo Tathlum",
-	    head="Wicce Petasos +3",
-	    body="Spaekona's Coat +3",
-	    hands="Spaekona's Gloves +3",
-	    legs="Wicce Chausses +3",
-	    feet="Wicce Sabots +2",
-	    neck="Sorcerer's Stole +1",
-	    waist="Sacro Cord",
-	    left_ear="Malignance Earring",
-	    right_ear="Regal Earring",
-	    left_ring="Jhakri Ring",
-	    right_ring="Sangoma Ring",
-	    back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
-	})
-
 	sets.Burst = { 
-		ammo="Ghastly Tathlum +1",
 		head="Ea hat +1",
-		body="Ea Houppelande +1",
 		legs="Ea Slops +1",
-		neck="Sorcerer's Stole +1",
-		feet="Amalric Nails +1", --+50MAB
-		ring1="Locus Ring", 
-		feet="Spaekona's Sabots +3", --+50 MAcc
-		ear1="Regal Earring",
-		ring1="Freke Ring",
-		-- ring2="Mujin Band",
 		back=TaranusINT
-		-- ear2="Static Earring",
-		-- neck="Mizukage-no-Kubikazari", 
 	}
-
-	sets.midcast.MagicBurst = set_combine(sets.midcast.ElementalMagic, sets.Burst)
-
-	sets.midcast.ElementalMagic.Burst = set_combine(sets.midcast.ElementalMagic.Standard, sets.midcast.MagicBurst)
-
-    sets.midcast.ElementalMagic.Burst.Damage = sets.midcast.ElementalMagic.Burst
-    
-    sets.midcast.ElementalMagic.Burst.Accuracy = set_combine(sets.midcast.ElementalMagic.Burst.Damage, {
-        
-    })
+	sets.midcast.ElementalMagic.Burst = set_combine(sets.midcast.ElementalMagic.Standard, sets.Burst)
 
 	--DEBUFFY BITS
 
-	sets.midcast.Impact = set_combine(sets.midcast.ElementalMagicAcc, {head=empty, body="Twilight Cloak", feet="Archmage's Sabots +3"})	
+	sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak", feet="Archmage's Sabots +3"})	
 	-- sets.midcast.Impact = set_combine(sets.midcast.OccultAcumen, {head=empty, body="Twilight Cloak"})	
 		
 	sets.midcast.Stun = {
@@ -236,10 +194,15 @@ function get_sets()
 	}
 
 
+	sets.elements = {}
+
+	sets.elements["Earth"] = {
+		neck="Quanpur Necklace"
+	}
+
 	organizer_items = organizerItems()
 
     send_command('bind f9 gs c switch MP')
-    send_command('bind f10 gs c acc')
     send_command('bind f11 gs c switch mb')
     send_command('bind f12 gs c switch pdt')
     send_command('bind pause gs c nuke')
@@ -253,7 +216,6 @@ end
 
 function updateTable()
     addToTable("(F9) MP Body", MPSet)
-    addToTable("(F10) Dmg or Acc", sets.midcast.ElementalMagic.Acc.index[Accuracy_Index])
     addToTable("(F11) MB Set", sets.midcast.ElementalMagic.index[Nuke_Index])
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
     addToTable("(END) Weapon Locked", sets.Weapons.index[Weapon_Index] or "Off")
@@ -314,11 +276,7 @@ end
 
 function getNukeSet()
     set = {}
-    if (sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]][sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]]) then
-        set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]][sets.midcast.ElementalMagic.Acc.index[Accuracy_Index]]
-    else 
-        set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]]
-    end
+    set = sets.midcast.ElementalMagic[sets.midcast.ElementalMagic.index[Nuke_Index]]
     return set
 end
 
@@ -336,6 +294,11 @@ function handleNuke(spell)
 	if(spell.english:contains('ja')) then
 		set = set_combine(set, sets.midcast.Ja)
 	end
+
+	if(sets.elements[spell.element]) then
+		set = set_combine(set, sets.elements[spell.element])
+	end
+
 	equip(set)
 end
 
@@ -448,11 +411,11 @@ function self_command(command)
         MPSet = not MPSet
         add_to_chat(140, '<-- Nuking using '..(MPSet and 'MP Recovery' or 'Damage')..' Body -->')
     
-    elseif command == 'acc' then
-        Accuracy_Index = Accuracy_Index +1
-        if Accuracy_Index > #sets.midcast.ElementalMagic.Acc.index then
-            Accuracy_Index = 1
-        end
+    -- elseif command == 'acc' then
+    --     Accuracy_Index = Accuracy_Index +1
+    --     if Accuracy_Index > #sets.midcast.ElementalMagic.Acc.index then
+    --         Accuracy_Index = 1
+    --     end
     
     elseif command == 'switch mb' then
         Nuke_Index = Nuke_Index +1

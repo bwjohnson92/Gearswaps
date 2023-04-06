@@ -8,6 +8,7 @@ Savage_Index = 1
 Roll_Index = 2
 Gun_Index = 1
 Ranged_Index = 1
+QuickDraw_Index = 1
 current_roll = ""
 
 weaponLocked = false
@@ -84,14 +85,15 @@ function get_sets()
     }
 
     sets.preshot = { -- aim 60 Snapshot, then Rapid Shot
-        head="Taeon Chapeau",
+        head="Chasseur's Tricorne +1",
         body="Laksamana's frac +3", --Need
         body="Oshosi Vest",
-        hands="Carmine Finger Gauntlets +1",
+        hands="Lanun Gants +3",
         waist="Yemaya Belt",
         legs="Adhemar Kecks +1",
         feet="Meg. Jam. +2",
-        --back="Navarch's Mantle",
+        ring2="Crepuscular Ring",
+        back={ name="Camulus's Mantle", augments={'"Snapshot"+10',}},
         neck="Commodore Charm +1",
     }
 
@@ -123,16 +125,16 @@ function get_sets()
     sets.RA.Standard = { --RAcc and STP
         head="Malignance Chapeau",
         body="Malignance Tabard",
-        hands="Meghanada Gloves +2",
-        legs="Meghanada Chausses +2",
-        feet="Meg. Jam. +2",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
         neck="Iskur gorget",
         waist="Yemaya Belt",
         left_ear="Enervating Earring",
         right_ear="Telos Earring",
         back=capeTP,
-        ring1="Regal Ring",
-        ring2="Cacoethic Ring",
+        ring1="Ilabrat Ring",
+        ring2="Crepuscular Ring",
     }
 
     sets.RA.Acc = set_combine(sets.RA, { --RAcc and STP
@@ -149,24 +151,26 @@ function get_sets()
         waist="Yemaya Belt",
         left_ear="Enervating Earring",
         right_ear="Telos Earring",
-        left_ring="Cacoethic Ring",
-        right_ring="Regal Ring",
-        back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','"Store TP"+10',}},
+        left_ring="Regal Ring",
+        right_ring="Cacoethic Ring +1",
+        back=capeTP,
     })
 
     sets.RA.Enmity = set_combine(sets.RA.Standard, {
         body="Laksamana's Frac +3",
         legs="Laksamana's Trews +3",
-        ring1="Cacoethic Ring +1",
+        ring1="Cacoethic Ring",
+        ring2="Cacoethic Ring +1",
         waist="Elanid Belt",
         ear2="Novia Earring",
         feet="Oshosi Leggings"
     })
 
+    sets.TripleShot = {
+        body="Chasseur's Frac +2",
+    }
 
     sets.WS = {}
-
-
 
     sets.WS.Generic = { --Generic Physical WS
         head="Meghanada Visor +2",
@@ -234,10 +238,7 @@ function get_sets()
 
     --RANGED------------------
 
-    sets.WS.LeadenSalute = {}
-    sets.WS.LeadenSalute.index = {"Standard", "Enmity"}
-
-    sets.WS.LeadenSalute.Standard = { --AGI Weaponskill
+    sets.WS.LeadenSalute = {
         head="Pixie Hairpin +1",
         body="Lanun Frac +3",
         hands="Carmine Fin. Ga. +1",
@@ -251,6 +252,9 @@ function get_sets()
         right_ring="Archon Ring",
         back=capeWSMAB,
     }
+    sets.WS.LeadenSalute.index = {"Standard", "Enmity"}
+
+    sets.WS.LeadenSalute.Standard = sets.WS.LeadenSalute
 
     sets.WS.LeadenSalute.Enmity = set_combine(sets.WS.LeadenSalute.Standard, {
 
@@ -291,7 +295,22 @@ function get_sets()
 
     sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
 
-    }) 
+    })
+
+    sets.WS["Hot Shot"] = {
+        head="Nyame Helm",
+        neck="Fotia Gorget",
+        ear1="Friomisi Earring",
+        ear2="Moonshade Earring",
+        body="Lanun Frac +3",
+        hands="Chasseur's Gants +2",
+        ring1="Epaminondas's Ring",
+        ring2="Dingir Ring",
+        back=capeAGIWS,
+        waist="Fotia Belt",
+        legs="Nyame Flanchard",
+        feet="Lanun Bottes +3"
+    }
 
 
     sets.roll = {}
@@ -301,7 +320,7 @@ function get_sets()
         head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
         body="Lanun Frac +3",
         hands="Chasseur's Gants +2",
-        legs="Lanun Culottes",
+        legs="Lanun Trews",
         feet="Meg. Jam. +2",
         neck="Regal Necklace",
         waist="Chaac Belt",
@@ -315,11 +334,15 @@ function get_sets()
     sets.roll.Long = set_combine(sets.roll.Short, {left_ring="Luzaf's Ring"})
 
     sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
-    sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +1"}
-    sets.RandomDeal = {body="Lanun Frac +3"}
-    sets.Fold = {}--{hands="Lanun Gauntlets"}
-    sets.SnakeEye = {}--{legs="Lanun Culottes"}
-    sets.WildCard = {feet="Lanun Bottes +3"}
+    sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +2"}
+    sets.roll["Blitzer's Roll"] = {head="Chasseur's Tricorne +1"}
+
+    sets.JA = {}
+
+    sets.JA["Random Deal"] = {body="Lanun Frac +3"}
+    sets.JA["Fold"] = {hands="Lanun Gants +3"}
+    sets.JA["Snake Eye"] = {legs="Lanun Trews"}
+    sets.JA["Wild Card"] = {feet="Lanun Bottes +3"}
 
     organizer_items = {
         trump="Trump Card",
@@ -339,11 +362,23 @@ function get_sets()
     }
 
     sets.QuickDraw = set_combine(sets.WS.LeadenSalute, {
-        head="Laksamana's Tricorne",
-        feet="Navarch's Bottes +2",
+        head="Laksamana's Tricorne +3",
+        feet="Chasseur's Bottes +3",
         lear="Dignitary's Earring",
         ring2="Weatherspoon Ring +1"
     })
+
+    sets.QuickDraw.index = {'Damage', 'Accuracy', 'Recast'}
+
+    sets.QuickDraw.Damage = sets.QuickDraw
+
+    sets.QuickDraw.Accuracy = set_combine(sets.QuickDraw, {})
+
+    sets.QuickDraw.Recast = set_combine(sets.QuickDraw, {
+        body="Mirke Wardecors",
+        feet="Chasseur's Bottes +3"
+    })
+
 
 
     sets.FastCast = {
@@ -378,10 +413,10 @@ end
 
 function updateTable()
     addToTable("Ctrl+G  Gun Set", sets.Gun.index[Gun_Index])
-    addToTable("(F7)  Roll  Set", sets.roll.index[Roll_Index])
-    -- addToTable("(F9)  Savage Set", sets.WS.SavageBlade.index[Savage_Index])
-    addToTable("(F10) Ranged Set", sets.RA.index[Ranged_Index])
-    addToTable("(F11) Leaden Set", sets.WS.LeadenSalute.index[Leaden_Index])
+    addToTable("(F7)    Roll Set", sets.roll.index[Roll_Index])
+    addToTable("(F9)    QD Set", sets.QuickDraw.index[QuickDraw_Index])
+    addToTable("(F10)   Ranged Set", sets.RA.index[Ranged_Index])
+    addToTable("(F11)   Leaden Set", sets.WS.LeadenSalute.index[Leaden_Index])
     -- addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
     update_message()
 end
@@ -390,7 +425,7 @@ function user_setup()
     add_to_chat(140, "Loading Maurauc's Gearswap")
     send_command('bind ^g gs c toggle gun')
     send_command('bind f7 gs c toggle roll')
-    send_command('bind f9 gs c toggle savage')
+    send_command('bind f9 gs c toggle quickdraw')
     send_command('bind f10 gs c toggle RA set')
     send_command('bind f11 gs c toggle leaden')
     send_command('bind f12 gs c equip gear')
@@ -405,18 +440,12 @@ end
 
 function precast(spell)
     --JA--
-    if spell.english == 'Random Deal' then
-        equip(sets.RandomDeal)
-    elseif spell.english == 'Fold' then
-        equip(sets.Fold)
-    elseif spell.english == 'Snake Eye' then
-        equip(sets.SnakeEye)
-    elseif spell.english == 'Wild Card' then
-        equip(sets.WildCard)
+    if sets.JA[spell.english] then
+        equip(sets.JA[spell.english])
     elseif (spell.type == 'CorsairRoll') then
         current_roll = spell.english
         equip(set_combine(sets.roll[sets.roll.index[Roll_Index]], sets.roll[current_roll]))
-    elseif (spell.type == 'Double-Up') then
+    elseif (spell.english == 'Double-Up') then
         equip(set_combine(sets.roll[sets.roll.index[Roll_Index]], sets.roll[current_roll]))
     end
 
@@ -433,28 +462,36 @@ function precast(spell)
         	equip(sets.WS.LastStand[sets.RA.index[Ranged_Index]])
         -- equip(sets.RA.Standard)
         elseif (spell.english == "Savage Blade") then
-          -- equip(sets.WS.SavageBlade[sets.WS.SavageBlade.index[Savage_Index]])
           equip(sets.WS.SavageBlade)
         elseif (spell.english == "Evisceration") then
             equip(sets.WS.Evisceration)
         else
-        	-- equip(sets.WS.LastStand)
-            -- equip(sets.RA.Acc)
+            if(sets.WS[spell.english] ~= nil) then
+                add_to_chat(140, "Set WS found "..spell.english)
+                equip(sets.WS[spell.english])
+            else
+                equip(sets.WS.Generic)
+            end
         end
         add_to_chat(140, "Blah")
     end
-    if string.find(spell.english, ' Shot') then
-        equip(sets.QuickDraw)
+    if spell.type == "JobAbility" and string.find(spell.english, ' Shot') then
+        equip(getQuickDrawSet())
     end
     if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') or string.find(spell.type, "Ninjutsu") then
         add_to_chat(140, "Casting")
         equip(sets.FastCast)
     end
 end
+
 -- --- MidCast ---
 function midcast(spell)
     if spell.action_type == 'Ranged Attack' then
-        equip(sets.RA[sets.RA.index[Ranged_Index]])
+        ra_set = sets.RA[sets.RA.index[Ranged_Index]]
+        if (buffactive['triple shot']) then
+            ra_set = set_combine(ra_set, sets.TripleShot)
+        end
+        equip(ra_set)
     end
 end 
 
@@ -486,6 +523,10 @@ function equip_idle()
     equip(sets.Gun[sets.Gun.index[Gun_Index]])
 end
 
+function getQuickDrawSet()
+    return sets.QuickDraw[sets.QuickDraw.index[QuickDraw_Index]]
+end
+
 
 function self_command(command)
 
@@ -514,6 +555,10 @@ function self_command(command)
         Leaden_Index = Leaden_Index +1
         if Leaden_Index > #sets.WS.LeadenSalute.index then Leaden_Index = 1 end
         add_to_chat(140, '<----- Leaden Set changed to '..sets.WS.LeadenSalute.index[Leaden_Index]..' ----->') 
+    elseif command == 'toggle quickdraw' then
+        QuickDraw_Index = QuickDraw_Index +1
+        if QuickDraw_Index > #sets.QuickDraw.index then QuickDraw_Index = 1 end
+        add_to_chat(140, '<----- QuickDraw changed to '..sets.QuickDraw.index[QuickDraw_Index]..' ----->')
     elseif command == 'toggle savage' then
         Savage_Index = Savage_Index +1
         if Savage_Index > #sets.WS.SavageBlade.index then Savage_Index = 1 end
@@ -523,6 +568,9 @@ function self_command(command)
     end
 
     equip_current()
+    if command == 'equip qd' then
+        equip(getQuickDrawSet())
+    end
     updateTable()
 end
 

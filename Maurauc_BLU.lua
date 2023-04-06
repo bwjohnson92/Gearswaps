@@ -239,7 +239,7 @@ function get_sets()
     back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
-        head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Novio Earring",ear2="Friomisi earring",
+        head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Regal Earring",ear2="Friomisi earring",
         body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
     back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"}
 
@@ -299,7 +299,14 @@ function get_sets()
         head="Amalric Coif +1", waist="Gishdubar Sash"
     }
 
-    sets.WS.SanguineBlade = set_combine(sets.BlueMagic.INT, {})
+    sets.WS.SanguineBlade = set_combine(sets.BlueMagic.INT, {
+        head="Pixie Hairpin +1",
+        hands="Jhakri Cuffs +2",
+        legs="Luhlaza Shalwar +3",
+        feet="Nyame Sollerets",
+        ring1="Epaminondas's Ring",
+        ring2="Archon Ring"
+    })
 
     --Utility Sets--
 
