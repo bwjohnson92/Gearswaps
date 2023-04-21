@@ -912,6 +912,9 @@ end
 
 windower.register_event('postrender', function()
     local player = windower.ffxi.get_mob_by_target('me')
+    if not player then
+        return
+    end
     currentPosition.x = player.x
     currentPosition.y = player.y
     currentPosition.z = player.z
