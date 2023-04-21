@@ -44,9 +44,9 @@ function get_sets()
 	    hands="Jhakri Cuffs +2",
 	    -- legs="Querkening Brais",
 	    legs="Nyame Flanchard",
-	    feet="Battlecast Gaiters",
+	    -- feet="Battlecast Gaiters",
 	    neck="Clotharius Torque",
-	    waist="Cetl Belt",
+	    -- waist="Cetl Belt",
 	    left_ear="Digni. Earring",
 	    right_ear="Ishvara Earring",
 	    left_ring="Rajas Ring",
@@ -59,7 +59,8 @@ function get_sets()
 	    sub="Genmei Shield",
 	    range="Dunna",
 	    head="Jhakri Coronal +1",
-	    body="Jhakri Robe",
+	    -- body="Jhakri Robe +2",
+		body="Nyame Mail",
 	    hands="Jhakri Cuffs +2",
 	    legs="Jhakri Slops +1",
 	    feet="Jhakri Pigaches +2",
@@ -91,7 +92,8 @@ function get_sets()
 	    hands="Geo. Mitaines +3",
 	    -- legs={ name="Telchine Braconi", augments={'Mag. Acc.+23','Pet: "Regen"+3','Pet: Damage taken -4%',}},
 	    legs="Nyame Flanchard",
-	    feet="Nyame Sollerets",
+	    -- feet="Nyame Sollerets",
+		feet="Bagua Sandals +3",
 	    neck={ name="Bagua Charm +1", augments={'Path: A',}},
 	    waist="Isa Belt",
 	    left_ear="Etiolation Earring",
@@ -163,11 +165,11 @@ function get_sets()
 	    main="Grioavolr",
 	    sub="Niobid Strap",
 	    ammo="Pemphredo Tathlum",
-	    head={ name="Merlinic Hood", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+3','Mag. Acc.+11','"Mag.Atk.Bns."+10',}},
+	    head="Azimuth Hood +2",
 	    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+27','Attack+6','Quadruple Attack +2','Accuracy+4 Attack+4','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
 	    hands="Jhakri Cuffs +2",
 	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
-	    feet="Jhakri Pigaches +2",
+	    feet="Azimuth Gaiters +3",
 	    neck="Sanctity Necklace",
 	    waist="Refoccilation Stone",
 	    left_ear="Malignance Earring",
@@ -178,10 +180,12 @@ function get_sets()
 	}
 		
 	sets.midcast.EnhancingMagic = {
-		head="Befouled Crown",neck="Colossus's Torque",ear1="Lifestorm Earring",ear2="Loquacious Earring",
+		head="Befouled Crown",
+		-- neck="Colossus's Torque",ear1="Lifestorm Earring",
+		ear2="Loquacious Earring",
 		ring2="Rahab Ring",
-		waist="Cascade Belt"}
-
+		-- waist="Cascade Belt"
+	}
 		
 	sets.midcast.IndiSpells = {main="Idris",
 	head="Azimuth Hood +2", neck="Bagua Charm +1",
@@ -193,8 +197,11 @@ function get_sets()
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
 			-- head="Gendewitha Caubeen",
 			neck="Fylgja Torque",lear="Novia Earring",
-			body="Annointed Kalasiris",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
-			back="Pahtli Cape",waist="Porous Rope",legs="Gyve Trousers",feet="Medium's Sabots"}
+			body="Annointed Kalasiris",hands="Telchine Gloves",
+			-- ring1="Sirona's Ring",
+			ring2="Ephedra Ring",
+			-- back="Pahtli Cape",
+			waist="Porous Rope",legs="Gyve Trousers",feet="Medium's Sabots"}
 		
 	sets.TH = {waist="Chaac Belt"}
 
@@ -214,8 +221,6 @@ function get_sets()
 			ear1="Reraise Earring",
 			ring1="Warp Ring",ring2="Capacity Ring",
 			back="Mecistopins Mantle"}
-
-	send_command('bind f12 input /equip Feet "Geomancy Sandals +3"')
 
 	send_command('bind f9 gs c nextTH')
 	send_command('bind end send @others "input /follow Magicmidget"')

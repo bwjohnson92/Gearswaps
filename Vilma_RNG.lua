@@ -39,6 +39,10 @@ include('organizeritems.lua')
 --]]
  
 
+lastShotPosition = {x=0, y=0, z=0}
+currentPosition = {x=0, y=0, z=0}
+counter = 0;
+
 function get_sets()
         mote_include_version = 2
         -- Load and initialize the include file.
@@ -60,10 +64,11 @@ function user_setup()
         state.WeaponskillMode:options('Normal', 'Mid', 'Acc')
         state.PhysicalDefenseMode:options('PDT')
         state.MagicalDefenseMode:options('MDT')
- 
+
         state.Buff.Barrage = buffactive.Barrage or false
         state.Buff.Camouflage = buffactive.Camouflage or false
         state.Buff.Overkill = false
+        state.Buff.HoverShot = "Good"
 
         -- settings
         state.CapacityMode = M(false, 'Capacity Point Mantle')
@@ -105,7 +110,6 @@ function user_setup()
         send_command('bind ^f9 gs c cycle HybridMode')
         send_command('bind f10 gs c cycle WeaponskillMode')
         
-        --windower.register_event('incoming text', detect_cor_rolls)
     text_setup()
     addTextPairs()
     updateTable()
@@ -114,11 +118,18 @@ end
 function addTextPairs()
     addTextColorPair("Standard", "green")
     addTextColorPair("HighMP", "yellow")
+    addTextColorPair("Good", "green")
+    addTextColorPair("Bad", "yellow")
 end
 
 function updateTable()
     addToTable("(F9)  Ranged Mode", state.RangedMode.value)
     addToTable("(F10) Weaponskill Mode", state.WeaponskillMode.value)
+    addToTable("\n")
+    addToTable("Hover Shot", get_hover_shot_state())
+    -- addToTable("Player X", currentPosition.x)
+    -- addToTable("Player Y", currentPosition.y)
+    -- addToTable("Player Z", currentPosition.z)
     update_message()
 end
 
@@ -134,11 +145,15 @@ function file_unload()
     send_command('unbind ^-')
 end
  
+function get_hover_shot_state()
+    if not buffactive["Hover Shot"] then
+        return false
+    else
+        return state.Buff.HoverShot
+    end
+end
+
 function init_gear_sets()
-        -- Augmented gear
-        --TaeonHands = {}
-        --TaeonHands.TA = {name="Taeon Gloves", augments={'STR+9','Accuracy+17 Attack+17','"Triple Atk."+2'}}
-        --TaeonHands.DW = {name="Taeon Gloves", augments={'STR+3 VIT+3', 'Attack+22','"Dual Wield" +5'}}
 
         organizer_items = set_combine(organizerItems(), {
             gun1=gear.Gun,
@@ -585,11 +600,6 @@ function job_precast(spell, action, spellMap, eventArgs)
                 return
             end
         end
-        -- Ammo checks
-	    -- if spell.action_type == 'Ranged Attack' or
-        --   (spell.type == 'WeaponSkill' and (spell.skill == 'Marksmanship' or spell.skill == 'Archery')) then
-        --     check_ammo(spell, action, spellMap, eventArgs)
-        -- end
 end
  
 -- Run after the default precast() is done.
@@ -647,7 +657,12 @@ function job_aftercast(spell, action, spellMap, eventArgs)
     if state.Buff[spell.name] ~= nil then
         state.Buff[spell.name] = not spell.interrupted or buffactive[spell.english]
     end
-
+    if spell.action_type == 'Ranged Attack' then
+        local player = windower.ffxi.get_mob_by_target('me')
+        lastShotPosition["x"] = player.x
+        lastShotPosition["y"] = player.y
+        lastShotPosition["z"] = player.z
+    end
 end
  
 -- Called when a player gains or loses a buff.
@@ -685,6 +700,15 @@ function job_buff_change(buff, gain)
         else
             enable('body')
         end
+    end
+
+    if buff == "Hover Shot" then
+        if not gain then
+            state.Buff.HoverShot = false
+        else
+            state.Buff.HoverShot = "Good"
+        end
+        updateTable()
     end
 
     if buff == "Camouflage" or buff == "Overkill" or buff == "Samurai Roll" or buff == "Courser's Roll" then
@@ -882,6 +906,39 @@ end
 --    end
 --end
 -- Select default macro book on initial load or subjob change.
+
+
+
+
+windower.register_event('postrender', function()
+    local player = windower.ffxi.get_mob_by_target('me')
+    currentPosition.x = player.x
+    currentPosition.y = player.y
+    currentPosition.z = player.z
+
+    if (buffactive["Hover Shot"]) then
+        xDiff = currentPosition.x - lastShotPosition.x;
+        yDiff = currentPosition.y - lastShotPosition.y;
+        zDiff = currentPosition.z - lastShotPosition.z;
+        distance = math.sqrt(xDiff^2 + yDiff^2 + zDiff^2)
+        if (state.Buff.HoverShot == "Bad") then
+            if (distance > 1) then
+                state.Buff.HoverShot = "Good"
+                updateTable()
+            end
+        else
+            if (distance < 1) then
+                state.Buff.HoverShot = "Bad"
+                updateTable()
+            end
+        end
+    else
+        -- add_to_chat(140, "No Hover Shot here")
+    end
+    updateTable()
+end)
+
+
 function select_default_macro_book()
 	-- Default macro set/book
     set_macro_page(1, 9)

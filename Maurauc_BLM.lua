@@ -106,7 +106,7 @@ function get_sets()
 
     sets.midcast.ElementalMagic.index = {'Standard', 'Burst'}
     sets.midcast.ElementalMagic.Acc = {}
-    sets.midcast.ElementalMagic.Acc.index = {'Damage', 'MidAcc', 'Accuracy'}
+    sets.midcast.ElementalMagic.Acc.index = {'MidAcc', 'Accuracy'}
 
     sets.midcast.ElementalMagic.Standard = sets.midcast.ElementalMagic
 
