@@ -91,13 +91,13 @@ function get_sets()
 
     sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
         head="Ebers Cap +2",neck="Colossus's Torque",
-        body="Ebers Bliaut +2",hands="Ebers Mitts +1",ring1="Kishar Ring",ring2="Stikini Ring",
-        waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Ebers Duckbills +1"}
+        body="Ebers Bliaut +2",hands="Ebers Mitts +2",ring1="Kishar Ring",ring2="Stikini Ring",
+        waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Ebers Duckbills +2"}
     --sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Bliaut"})
 
     sets.midcast.EnhancingMagic = {main="Gada", sub="Ammurapi Shield", ammo="Incantor Stone",
         head="Befouled Crown",neck="Colossus's Torque",ear1="Mimir Earring",ear2="Andoaa Earring",
-        back=AlaunusFC,waist="Embla Sash",legs="Piety Pantaloons +3",feet="Ebers Duckbills +1"}
+        back=AlaunusFC,waist="Embla Sash",legs="Piety Pantaloons +3",feet="Ebers Duckbills +2"}
 
     sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
         head="Telchine Cap", 
@@ -108,12 +108,12 @@ function get_sets()
     sets.midcast.Regen = set_combine(sets.precast.FastCast, {
         main="Bolelabunga", sub="Ammurapi Shield",
         head="Inyanga Tiara +2",body="Piety Bliaut +3",
-        hands="Ebers Mitts +1",legs="Theophany pantaloons +3",
+        hands="Ebers Mitts +2",legs="Theophany pantaloons +3",
         -- feet="Telchine Pigaches"
         feet="Bunzi's Sabots"
     })
     
-    sets.midcast.Auspice = set_combine(sets.midcast.EnhancingMagic, {feet="Ebers Duckbills +1"})
+    sets.midcast.Auspice = set_combine(sets.midcast.EnhancingMagic, {feet="Ebers Duckbills +2"})
     
     sets.midcast.Cursna = {main="Yagrush",
         head="Nahtirah Hat",neck="debilis medallion", ear1= "Healing Earring", ear2="Beatific Earring",
@@ -123,11 +123,11 @@ function get_sets()
     sets.midcast.DebuffRemoval = {
         main="Yagrush",
         head="Nahtirah Hat", neck="Cleric's Torque +2",ear2="Loquacious Earring",
-        body="Ebers Bliaut +2",hands="Ebers Mitts +1",
+        body="Ebers Bliaut +2",hands="Ebers Mitts +2",
         back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +3",feet='Regal pumps +1' }
 
     sets.midcast.DivineCaress = set_combine(sets.midcast.DebuffRemoval, {
-        hands="Ebers Mitts +1",
+        hands="Ebers Mitts +2",
         back="Mending Cape"
     })
  

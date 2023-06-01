@@ -101,7 +101,7 @@ function get_sets()
 	sets.midcast.ElementalMagic = {
 		main=currentWeapon,sub="Enki Strap",ammo="Ghastly Tathlum +1",
 		head="Wicce Petasos +3",neck="Sorcerer's Stole +1",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Wicce Coat +3",hands="Archmage's Gloves +3",ring1="Freke Ring",ring2="Metamorph Ring +1",
+		body="Wicce Coat +3",hands="Wicce Gloves +3",ring1="Freke Ring",ring2="Metamorph Ring +1",
 		back=TaranusINT,waist="Sacro Cord",legs="Wicce Chausses +3",feet="Wicce Sabots +3"}
 		
 	sets.midcast.ElementalMagic.index = {'Standard', 'Burst'}
@@ -109,7 +109,7 @@ function get_sets()
 
 	sets.Burst = { 
 		head="Ea hat +1",
-		legs="Ea Slops +1",
+		--legs="Ea Slops +1",
 		back=TaranusINT
 	}
 	sets.midcast.ElementalMagic.Burst = set_combine(sets.midcast.ElementalMagic.Standard, sets.Burst)

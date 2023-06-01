@@ -169,7 +169,7 @@ function init_gear_sets()
         sets.gunAndAmmo.Crossbow = {ranged="Gastraphetes", ammo="Quelling Bolt", waist="Quelling Bolt Quiver"}
 
         -- Misc. Job Ability precasts
-        sets.precast.JA['Bounty Shot'] = {hands="Amini Glovelettes +1"}
+        sets.precast.JA['Bounty Shot'] = {hands="Amini Glovelettes +2"}
         sets.precast.JA['Double Shot'] = {head="Amini Gapette +1"}
         sets.precast.JA['Camouflage'] = {body="Orion Jerkin +2"}
         sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +2"}
@@ -183,7 +183,7 @@ function init_gear_sets()
             -- head="Uk'uxkaj Cap", 
             -- neck="Rancor Collar",
             -- back="Buquwik Cape",
-            hands="Amini Glovelettes +1",
+            hands="Amini Glovelettes +2",
             ring1="Ifrit Ring",
             ring2="Apate ring",
             -- legs="Amini Bragues +2" 
@@ -276,7 +276,7 @@ function init_gear_sets()
             head={ name="Arcadian Beret +3", augments={'Enhances "Recycle" effect',}},
             body="Mummu jacket +2", 
             hands="Carmine Finger Gauntlets +1",
-            legs="Amini Bragues +2",
+            legs="Amini Bragues +3",
             feet="Orion socks +2",
             waist="Elanid Belt",
             neck="Iskur Gorget",
@@ -301,7 +301,7 @@ function init_gear_sets()
             neck= "Iskur Gorget",
             left_ring="Hajduk Ring",
             right_ring="Cacoethic Ring +1",
-            legs="Amini Bragues +2",
+            legs="Amini Bragues +3",
             waist="Kwahu Kachina Belt",
             })
 
@@ -309,8 +309,9 @@ function init_gear_sets()
             neck="Scout's Gorget +1",
             hands="Mummu Wrists +2",
             waist="Kwahu Kachina Belt",
-            feet="Oshosi Leggings +1",
+            feet="Oshosi leggings",
             left_ear="Odr Earring",
+            right_ear="Amini earring +1",
             left_ring="Mummu Ring",
             right_ring="Begrudging Ring",
             back=BelenusAgiCrit
