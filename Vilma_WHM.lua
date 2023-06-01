@@ -140,25 +140,27 @@ function get_sets()
         feet="Bunzi's Sabots",
         sub="Genmei Shield",
         neck="Cleric's Torque +2", 
-        right_ring="Defending Ring",
+        left_ring="Defending Ring",
+        right_ring="Janniston Ring +1",
         back=AlaunusDT,
         ammo="Staunch Tathlum +1",
     }
 
     sets.curagaDT = set_combine(sets.baseCureDT, {
 
-        left_ring="Janniston Ring +1",
+        
         body="Bunzi's Robe",
         head="Bunzi's Hat",
         feet="Bunzi's Sabots",
         right_ring="Janniston Ring +1",
+        left_ring="Medada's Ring",
         waist="Lieutenant's Sash",
         right_ear="Nourishing Earring"
         })
 
     sets.Cure.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
             head="Kaykaus mitra +1",neck="Cleric's torque +2",ear1="Glorious Earring",ear2="Nourishing Earring",--10% 3%--
-            body="Ebers Bliaut +2",hands="Theophany Mitts +3",ring1="Janniston ring +1",ring2="Sirona's Ring", --13%--
+            body="Ebers Bliaut +2",hands="Theophany Mitts +3",ring1="Naji's Loop",ring2="Janniston ring +1", --13%--
             back=AlaunusFC,waist="Embla sash",legs="Ebers Pantaloons +3",feet="Kaykaus Boots +1"}
 
     sets.Curaga.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
