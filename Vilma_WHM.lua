@@ -77,7 +77,7 @@ function get_sets()
     
     sets.precast.FastCast = {main="Grioavolr", sub="Clerisy Strap",ammo="Incantor Stone",
         head="Bunzi's Hat",neck="Cleric's torque +2",ear1="Malignance Earring",ear2="Loquacious Earring",
-        body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring1="Kishar Ring",ring2="Prolix Ring",
+        body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring1="Medada's Ring",ring2="Kishar Ring",
         back=AlaunusFC, waist="Embla Sash", legs="Ayanmo cosciales +2", feet="Regal pumps +1"}
     
     sets.precast.FastCure = set_combine(sets.precast.FastCast, {
@@ -86,12 +86,12 @@ function get_sets()
 
     sets.midcast.EnfeeblingMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
         head="Theophany Cap +2",neck="Erra Pendant",ear1="Dignitary's Earring",ear2="Regal Earring",
-        body="Theophany Bliaut +3",hands="Inyanga Dastanas +2",ring1="Kishar Ring",ring2="Sangoma Ring",
+        body="Theophany Bliaut +3",hands="Inyanga Dastanas +2",ring1="Medada's Ring",ring2="Kishar Ring",
         back="Alaunus's Cape",waist="Rumination Sash", legs="Chironic Hose",feet="Skaoi Boots"}
 
     sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
         head="Ebers Cap +2",neck="Colossus's Torque",
-        body="Ebers Bliaut +2",hands="Ebers Mitts +2",ring1="Kishar Ring",ring2="Stikini Ring",
+        body="Ebers Bliaut +2",hands="Ebers Mitts +2",ring1="Medada's Ring",ring2="Stikini Ring",
         waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Ebers Duckbills +2"}
     --sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Bliaut"})
 
@@ -151,7 +151,7 @@ function get_sets()
         body="Bunzi's Robe",
         head="Bunzi's Hat",
         feet="Bunzi's Sabots",
-        right_ring="Naji's Loop",
+        right_ring="Janniston Ring +1",
         waist="Lieutenant's Sash",
         right_ear="Nourishing Earring"
         })
@@ -163,7 +163,7 @@ function get_sets()
 
     sets.Curaga.Standard = {main="Queller Rod",sub="Sors Shield", ammo="Pemphredo Tathlum",
             head="Ebers Cap +2",neck="Cleric's torque +2",ear1="Glorious Earring",--ear2="Sortiarius Earring",--10% 3%--
-            body="Theophany Bliaut +3",hands="Theophany Mitts +3",ring1="Aquasoul Ring",ring2="Sirona's Ring", --13%--
+            body="Theophany Bliaut +3",hands="Theophany Mitts +3",ring1="Medada's Ring",ring2="Janniston Ring +1", --13%--
             back=AlaunusFC,waist="Cascade Belt",legs="Ebers Pantaloons +3",feet="Kaykaus Boots +1"}
 
     sets.Cure.DT = set_combine(sets.Cure.Standard, sets.baseCureDT)
@@ -181,7 +181,7 @@ function get_sets()
     sets.midcast.Shellra = {legs="Piety Pantaloons +3"}
     
     sets.midcast.Recast = {head="Bunzi's Hat",ear2="Loquacious Earring",
-    hands="Fanatic Gloves",ring2="Prolix Ring",
+    hands="Fanatic Gloves",ring2="Medada's Ring",
     back=AlaunusFC,waist="embla sash",legs="Piety Pantaloons +3",feet="Regal Pumps +1"}
     
     sets.cureWeather =  {back="Twilight Cape", waist="Hachirin-no-obi"}

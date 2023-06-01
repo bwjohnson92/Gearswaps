@@ -35,23 +35,39 @@ function get_sets()
 	sets.Reive = {neck="Arciela's Grace +1"}
 	
 	sets.Melee = {
-	    main="Idris",
+	    main="Maxentius",
 	    sub="Genmei Shield",
 	    range="Dunna",
-	    head="Jhakri Coronal +1",
+	    head="Nyame Helm",
 	    -- body="Jhakri Robe",
 	    body="Nyame Mail",
-	    hands="Jhakri Cuffs +2",
+	    hands="Nyame Gauntlets",
 	    -- legs="Querkening Brais",
 	    legs="Nyame Flanchard",
-	    -- feet="Battlecast Gaiters",
-	    neck="Clotharius Torque",
+	    feet="Nyame Sollerets",
+	    neck="Bagua Charm +1",
+		waist="Grunfeld Rope",
 	    -- waist="Cetl Belt",
 	    left_ear="Digni. Earring",
-	    right_ear="Ishvara Earring",
-	    left_ring="Rajas Ring",
-	    right_ring="K'ayres Ring",
-	    back={ name="Lifestream Cape", augments={'Geomancy Skill +7','Indi. eff. dur. +17','Pet: Damage taken -4%',}},
+	    right_ear="Telos Earring",
+	    left_ring="Petrov Ring",
+	    right_ring="Chirich Ring +1",
+	    back={ name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+	}
+
+	sets.WS = {
+		head="Nyame Helm",
+	    body="Nyame Mail",
+	    hands="Nyame Gauntlets",
+	    legs="Nyame Flanchard",
+	    feet="Nyame Sollerets",
+		neck="Republican Platinum Medal",
+		waist="Grunfeld Rope",
+		ear1="Moonshade Earring",
+		ear2="Brutal Earring",
+		ring2="Apate Ring",
+		ammo="Oshasha's Treatise",
+		back={ name="Nantosuelta's Cape", augments={'MND+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}}
 	}
 
 	sets.Realmrazer = {
@@ -78,7 +94,7 @@ function get_sets()
 
 	sets.Idle.Standard = {main="Idris", sub="Genmei Shield", ranged="Dunna", 
 		head="Azimuth Hood +2", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Odnowa Earring +1", 
-		body="Witching Robe", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Dark Ring", 
+		body="Azimuth Coat +2", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Dark Ring", 
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
 
@@ -168,7 +184,7 @@ function get_sets()
 	    head="Azimuth Hood +2",
 	    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+27','Attack+6','Quadruple Attack +2','Accuracy+4 Attack+4','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
 	    hands="Jhakri Cuffs +2",
-	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
+	    legs="Azimuth Tights +2",
 	    feet="Azimuth Gaiters +3",
 	    neck="Sanctity Necklace",
 	    waist="Refoccilation Stone",
@@ -189,10 +205,10 @@ function get_sets()
 		
 	sets.midcast.IndiSpells = {main="Idris",
 	head="Azimuth Hood +2", neck="Bagua Charm +1",
-	body="Azimuth Coat +1",	hands="Azimuth Gloves +1", 
+	body="Azimuth Coat +2",	hands="Azimuth Gloves +1", 
 	back="Lifestream Cape", legs="Bagua Pants +3",feet="Azimuth Gaiters +3"}
 	
-	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {head="Bagua Galero +2",legs="Azimuth Tights +1"})
+	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {head="Bagua Galero +2",legs="Azimuth Tights +2"})
 
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
 			-- head="Gendewitha Caubeen",
@@ -293,8 +309,8 @@ function precast(spell)
 	if (spell.english == "Radial Arcana") then
 		equip(sets.RadialArcana)
 	end
-	if (spell.english == "Realmrazer") then
-		equip(sets.Realmrazer)
+	if ( spell.type:lower() == 'weaponskill') then
+		equip(sets.WS)
 	end
 end
 -- --- MidCast ---
@@ -353,9 +369,11 @@ end
 
 function aftercast(spell)
 
-    --if player.status == 'Engaged' then
-    --        equip(sets.Melee)
-    equip_idle()    
+    if player.status == 'Engaged' then
+           equip(sets.Melee)
+	else 
+		equip_idle()    
+	end
 	if spell.english == 'Sleep' or spell.english == 'Sleepga' then
 		send_command('@wait 50;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
 	elseif spell.english == 'Sleep II' or spell.english == 'Sleepga II' then
@@ -371,10 +389,10 @@ end
 
 function status_change(new,tab)
 	if new == 'Engaged' then
-	--	equip(sets['Melee'])
+		equip(sets['Melee'])
 		--disable("Main")
 	else
-		-- equip(sets.Idle['Standard'])
+		equip(sets.Idle['Standard'])
 		--enable("Main")
 	end
 end

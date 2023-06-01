@@ -46,57 +46,29 @@ function get_sets()
     sets.aftercast = {}
 
     sets.aftercast.Idle = {main="Bolelabunga",sub="Genmei Shield", ammo="Homiliary",
-        head="Nyame Helm",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-        body="Jhakri Robe +2",hands="Nyame Gauntlets",ring1="Defending Ring",ring2="Stikini Ring +1",
-        back="Repulse Mantle",waist="Fucho-no-obi",legs="Nyame Flanchard",feet="Nyame Sollerets"}
-
-    sets.aftercast.PDT = {main="Earth Staff", ammo="Vanir Battery",
-        head="Befouled Crown", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="",
-        body="Vrikodara Jupon", ring1="Defending Ring", ring2="Patricius Ring",
-        back="Repulse Mantle", waist="Siegel Sash", legs="Merlinic Shalwar", feet="Merlinic Crackows"}
+        head="Nyame Helm",neck="Sibyl Scarf",ear1="Etiolation Earring",ear2="Static Earring",
+        body="Arbatel Gown +2",hands="Volte Gloves",ring1="Defending Ring",ring2="Stikini Ring +1",
+        back="Moonbeam Cape",waist="Fucho-no-obi",legs="Nyame Flanchard",feet="Nyame Sollerets"}
         
     sets.precast.FastCast = {main="Marin Staff +1", sub="Clerisy Strap",ammo="Incantor Stone",
-        head="Nahtirah Hat" ,neck="Voltsurge Torque", ear1="Loquacious Earring", ear2="Malignance Earring",
+        head="Amalric Coif +1" ,neck="Voltsurge Torque", ear1="Loquacious Earring", ear2="Malignance Earring",
         body="Shango Robe", hands="Volte Gloves", ring1="Kishar Ring", ring2="Weatherspoon Ring +1",
         back="Fi Follet Cape +1",waist="Embla Sash",legs="Psycloth Lappas", feet="Amalric Nails +1"}
-    
-    sets.precast.FastCure = set_combine(sets.precast.FastCast, {
-        })
-
-        
+           
     sets.midcast.EnfeeblingMagic = {main="Contemplator +1",sub="Clerisy Strap",ammo="Hydrocera",
-        head="Arbatel Bonnet +2",neck="Imbodla Necklace",ear1="Dignitary's Earring",ear2="Barkarole Earring",
+        head="Arbatel Bonnet +3",neck="Imbodla Necklace",ear1="Dignitary's Earring",ear2="Barkarole Earring",
         body="Vanya Robe",hands="Arbatel Bracers +2", ring1="Stikini Ring +1", ring2="Weatherspoon Ring +1",
-        back="Ghostfyre Cape",waist="Rumination Sash",legs="Psycloth Lappas",feet="Arbatel Loafers +2"}
+        back="Ghostfyre Cape",waist="Rumination Sash",legs="Psycloth Lappas",feet="Arbatel Loafers +3"}
 
---    sets.midcast.ElementalMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
---        head=MerlinicHoodNuke,neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Malignance Earring",
---        body="Merlinic Jubbah",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
---        back="Lugh's Cape",waist="Sacro Cord",legs="Merlinic Shalwar",feet=MerlinicFeetNuke} 
-    sets.midcast.ElementalMagicAcc = {
-        main="Akademos",
-        sub="Enki Strap",ammo="Strobilus",
-        ammo="Pemphredo Tathlum",
-        head={ name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}},
-        body={ name="Merlinic Jubbah", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','"Fast Cast"+1','MND+3','Mag. Acc.+11','"Mag.Atk.Bns."+14',}},
-        hands="Jhakri Cuffs +2",
-        legs="Merlinic Shalwar",
-        feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
-        neck="Sanctity Necklace", waist="Sacro Cord",
-        left_ear="Barkaro. Earring", right_ear="Digni. Earring",
-        ring2="Freke Ring",ring1="Weatherspoon Ring +1",
-        back="Lugh's Cape"
-    }
-    
     sets.midcast.ElementalMagic = { 
         main="Marin Staff +1",
         sub="Enki Strap",
         ammo="Pemphredo Tathlum",
-        head="Arbatel Bonnet +2",
-        body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        head="Arbatel Bonnet +3",
+        body="Arbatel Gown +2",
         hands="Arbatel Bracers +2",
-        legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -2%','CHR+8','Mag. Acc.+9','"Mag.Atk.Bns."+14',}}, --Arbatel Legs
-        feet="Arbatel Loafers +2",
+        legs="Arbatel Pants +2",
+        feet="Arbatel Loafers +3",
         neck="Sanctity Necklace",
         waist="Sacro Cord",
         left_ear="Regal Earring",
@@ -110,26 +82,33 @@ function get_sets()
         
     sets.midcast.Stun = {main="Akademos",sub="Clerisy Strap",ammo="Hydrocera",
         head=MerlinicHoodNuke,neck="Voltsurge Torque",ear1="Dignitary's Earring",ear2="Barkarole Earring",
-        body="Merlinic Jubbah",hands="Lurid Mitts",ring1="Sangoma Ring",ring2="Weatherspoon Ring +1",
-        back="Ogapepo Cape",waist="Embla Sash",legs="Psycloth Lappas",feet="Merlinic Crackows"}
+        body="Merlinic Jubbah",
+        ring2="Weatherspoon Ring +1",
+        waist="Embla Sash",legs="Psycloth Lappas",feet="Merlinic Crackows"}
         
     sets.midcast.EnhancingMagic = {
         main="Bolelabunga", sub="Ammurapi Shield",
         head="Telchine Cap",neck="Colossus's Torque",ear1="Dignitary's Earring",ear2="Andoaa Earring",
-        hands="Telchine Gloves", ring1=stikini1, ring2=stikini2, 
+        body="Telchine Chasuble",hands="Telchine Gloves", ring1=stikini1, ring2=stikini2, 
         back="Fi Follet Cape +1",waist="Embla Sash",legs="Telchine Braconi",feet="Telchine Pigaches"}
 
-    sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
-        neck="Colossus's Torque",
-        body="Vrikodara Jupon",
-        hands="Telchine Gloves",ring1="Stikini Ring",ring2="Ephedra Ring",
-        back="Oretania's Cape",waist="Cascade Belt",legs="Chironic Hose",feet="Medium's Sabots"}
+    sets.Regen = set_combine(sets.midcast.EnhancingMagic,{
+        head="Arbatel Bonnet +3",
+        back="Lugh's Cape"
+    })
+
+    sets.midcast.Cure = {
+        main="Malignance Pole",sub="Khonsu",ammo="Hydrocera",
+        head="Kaykaus Mitra +1",neck="Loricate Torque +1",
+        body="Arbatel Gown +2",
+        hands="Kaykaus Cuffs +1",ring1="Stikini Ring +1",ring2="Naji's Loop",
+        back="Solemnity Cape",waist="Embla Sash",legs="Kaykaus Tights +1",feet="Medium's Sabots"}
 
     sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
         head="Pedagogy Mortarboard +3",
         body=MerlinicBodyBurst,hands="Arbatel Bracers +2", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
         legs="Agwu's Slops",
-        feet="Arbatel Loafers +2"} --5, 9 
+        feet="Arbatel Loafers +3"} --5, 9 
         
         --Relic Head, AF Body, Empy Hands, Agwu Legs, Empy Feet
 
@@ -137,21 +116,17 @@ function get_sets()
     sets.precast.Impact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
     sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak"}) 
     
-    sets.Regen = set_combine(sets.midcast.EnhancingMagic,{
-        head="Arbatel Bonnet +2",
-        back="Lugh's Cape"
-    })
     sets.TabulaRasa = {legs="Pedagogy Pants"}
     
     sets.Perpetuance = {hands="Arbatel Bracers +2"}
     
-    sets.Klimaform = {feet="Arbatel Loafers +2"}
+    sets.Klimaform = {feet="Arbatel Loafers +3"}
 
     sets.precast.TomePrecast = set_combine(sets.precast.FastCast, {
         head="Pedagogy Mortarboard +3"
     })
 
-    sets.Ebullience={head="Arbatel Bonnet +2"}
+    sets.Ebullience={head="Arbatel Bonnet +3"}
     
     sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
     
@@ -210,7 +185,7 @@ function midcast(spell)
     elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
         if string.find(spell.skill,'Healing Magic') then
             if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
-                equip(sets.midcast.Cure)
+                equip(correct_cure_set(spell, sets.midcast.Cure))
             elseif string.find(spell.english, 'Regen') then
                 equip(set_combine(sets.precast.FastCast, sets.Regen))
             else
@@ -231,7 +206,7 @@ function midcast(spell)
             if(MPSet) then
                 equip(use_MB(use_obi(spell, sets.midcast.ElementalMagicMP)))
             else
-                equip(use_MB(use_obi(spell, sets.midcast.ElementalMagicAcc)))
+                equip(use_MB(use_obi(spell, sets.midcast.ElementalMagic)))
             end
         else
             equip(sets.precast.FastCast)
@@ -349,25 +324,26 @@ function use_MB(equip_set)
     return equip_set
 end
 
-function use_obi(spell, equip_set)
-    local use_obi = false
-    -- first check to see if any elemental obi rule matches
-    if(S{world.day_element, world.weather_element}:contains(spell.element)) then
-            -- If at least one matches, try to find out if there is also a weak element involved
-            if (world.weather_element == elements.weak_against[spell.element] ) then
-                -- If weak weather is involved, but it is only single weather, check to see if use_on_single_conflict is set to true
-                if (world.weather_id % 2 == 0 and elements.use_on_single_conflict) then
-                    use_obi = true
-                end
-            elseif (world.day_element == elements.weak_against[spell.element]) then
-                -- If weak day is involved check for double weather or single weather + use_on_single_conflict set to true
-                if (world.weather_id % 2 == 1 or ( elements[use_on_single_conflict] and world.weather_id % 2 == 0) ) then
-                    use_obi = true
-                end
-            else
-                use_obi = true
-            end
+function correct_cure_set(spell, equip_set)
+    local use_obi = weather_check(spell)
+    elemental_day = set_combine(sets.midcast.ElementalDay, {
+        main="Chatoyant Staff", sub="Khonsu"
+    })
+
+    set = equip_set
+    if (use_obi) then
+        set = set_combine(set, elemental_day)
     end
+
+    return set
+end
+
+
+
+
+function use_obi(spell, equip_set)
+    local use_obi = weather_check(spell)
+    -- first check to see if any elemental obi rule matches
  
     if (use_obi) then
         equip_set = set_combine(equip_set, sets.midcast.ElementalDay)
@@ -379,4 +355,24 @@ function use_obi(spell, equip_set)
     end
  
     return equip_set
+end
+
+function weather_check(spell)
+    if(S{world.day_element, world.weather_element}:contains(spell.element)) then
+        -- If at least one matches, try to find out if there is also a weak element involved
+        if (world.weather_element == elements.weak_against[spell.element] ) then
+            -- If weak weather is involved, but it is only single weather, check to see if use_on_single_conflict is set to true
+            if (world.weather_id % 2 == 0 and elements.use_on_single_conflict) then
+                return true
+            end
+        elseif (world.day_element == elements.weak_against[spell.element]) then
+            -- If weak day is involved check for double weather or single weather + use_on_single_conflict set to true
+            if (world.weather_id % 2 == 1 or ( elements[use_on_single_conflict] and world.weather_id % 2 == 0) ) then
+                return true
+            end
+        else
+            return true
+        end
+    end
+    return false
 end

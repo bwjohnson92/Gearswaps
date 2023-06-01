@@ -77,9 +77,9 @@ sets.Idle.Standard = {
 }
 
 sets.Idle.DT = set_combine(sets.Idle.Standard, {
-    body="Lanun frac +2",
+    body="Lanun frac +3",
     legs="Mummu kecks +2",
-    feet="Lanun Bottes +2",
+    feet="Lanun Bottes +3",
     back=capeDT
 })
 
@@ -168,7 +168,7 @@ sets.WS.LastStand = { --Generic Physical WS
     body="Nyame Mail",
     hands="Nyame Gauntlets", --+2
     legs="Nyame Flanchard",
-    -- feet="Lanun Bottes +2",
+    -- feet="Lanun Bottes +3",
     -- feet="Nyame Sollerets",
     feet="Lanun Bottes +3",
     -- neck="Commodore Charm +2",
@@ -289,7 +289,7 @@ sets.roll.Short = {
     hands="Chasseur's Gants +2",
     feet="Meg. Jam. +2",
     neck="Regal Necklace",
-    waist="Flume Belt",
+    waist="Flume Belt +1",
     left_ear="Etiolation Earring",
     right_ear="Novia Earring",
     right_ring="Defending Ring",
@@ -312,14 +312,14 @@ sets.roll["Caster's Roll"] = {
 sets.roll["Tactician's Roll"] = {
     -- body="Chasseur's Frac"
 }
-sets.RandomDeal = {body="Lanun Frac +2"}
+sets.RandomDeal = {body="Lanun Frac +3"}
 sets.Fold = {
     -- hands="Lanun Gauntlets"
 }
 sets.SnakeEye = {
     -- legs="Lanun Culottes"
 }
-sets.WildCard = {feet="Lanun Bottes +2"}
+sets.WildCard = {feet="Lanun Bottes +3"}
 
 
 

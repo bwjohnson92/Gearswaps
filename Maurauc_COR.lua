@@ -72,8 +72,8 @@ function get_sets()
         -- hands="Carmine finger gauntlets +1",
         hands="Malignance Gloves",
         -- legs="Feast Hose",
-        -- legs="Carmine Cuisses +1",
-        legs="Malignance Tights",
+        legs="Carmine Cuisses +1",
+        -- legs="Malignance Tights",
         feet="Malignance Boots",
         neck="Loricate Torque +1",
         waist="Chaac Belt",
@@ -193,15 +193,18 @@ function get_sets()
         -- head="Lilitu Headpiece",
         head="Nyame Helm",
         -- neck="Caro Necklace",
-        neck="Commodore Charm +1",
+        -- neck="Commodore Charm +1",
+        neck="Republican Platinum Medal",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
         body="Laksamana's Frac +3",
-        hands="Meg. Gloves +2",
+        -- hands="Meg. Gloves +2",
+        hands="Chasseur's Gants +3",
         -- ring1="Rufescent Ring", --Shukuyu
         -- ring1="Epaminondas's Ring",
-        ring1="Rufescent Ring",
-        ring2="Regal Ring", --Rufescent 
+        -- ring1="Rufescent Ring",
+        ring1="Epaminondas's Ring",
+        ring2="Cornelia's Ring", --Rufescent 
         back=capeMeleeWS,
         waist="Sailfi Belt +1",
         -- legs="Meghanada Chausses +2",
@@ -303,7 +306,7 @@ function get_sets()
         ear1="Friomisi Earring",
         ear2="Moonshade Earring",
         body="Lanun Frac +3",
-        hands="Chasseur's Gants +2",
+        hands="Chasseur's Gants +3",
         ring1="Epaminondas's Ring",
         ring2="Dingir Ring",
         back=capeAGIWS,
@@ -319,7 +322,7 @@ function get_sets()
     sets.roll.Short={
         head={ name="Lanun Tricorne +1", augments={'Enhances "Winning Streak" effect',}},
         body="Lanun Frac +3",
-        hands="Chasseur's Gants +2",
+        hands="Chasseur's Gants +3",
         legs="Lanun Trews",
         feet="Meg. Jam. +2",
         neck="Regal Necklace",
@@ -363,6 +366,7 @@ function get_sets()
 
     sets.QuickDraw = set_combine(sets.WS.LeadenSalute, {
         head="Laksamana's Tricorne +3",
+        hands="Chasseur's Gants +3",
         feet="Chasseur's Bottes +3",
         lear="Dignitary's Earring",
         ring2="Weatherspoon Ring +1"
