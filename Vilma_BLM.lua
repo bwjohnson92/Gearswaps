@@ -71,7 +71,7 @@ function get_sets()
 
 	sets.precast.FastCast = {
 		head="Nahtirah Hat",neck="Orunmila's Torque", ear1="Malignance Earring", ear2="Loquacious Earring",
-		body=MerlinicBody, hands="Telchine Gloves", ring1="Kishar Ring", ring2="Prolix Ring",
+		body=MerlinicBody, hands="Telchine Gloves", ring1="Kishar Ring", ring2="Medada's Ring",
 		back="Swith Cape",waist="Embla Sash",legs="Psycloth Lappas",feet="Amalric Nails +1"}
 	
 	sets.Dispelga = { main="Daybreak", sub="Ammurapi Shield"}
@@ -91,7 +91,7 @@ function get_sets()
 	sets.midcast.EnfeeblingMagic = {
 		ammo="pemphredo tathlum",
 		head="Wicce Petasos +3",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Digni. Earring",
-		body="Spaekona's Coat +3",hands="Spaekona's Gloves +3",ring1="Sangoma Ring",ring2="Kishar Ring",
+		body="Spaekona's Coat +3",hands="Spaekona's Gloves +3",ring1="Kishar Ring",ring2="Medada's Ring",
 		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +3"}
 
 	sets.midcast.Dispelga = set_combine(sets.midcast.EnfeeblingMagic, sets.Dispelga)
@@ -101,7 +101,7 @@ function get_sets()
 	sets.midcast.ElementalMagic = {
 		main=currentWeapon,sub="Enki Strap",ammo="Ghastly Tathlum +1",
 		head="Wicce Petasos +3",neck="Sorcerer's Stole +1",ear1="Regal Earring",ear2="Malignance Earring",
-		body="Wicce Coat +3",hands="Wicce Gloves +3",ring1="Freke Ring",ring2="Metamorph Ring +1",
+		body="Wicce Coat +3",hands="Wicce Gloves +3",ring1="Freke Ring",ring2="Medada's Ring",
 		back=TaranusINT,waist="Sacro Cord",legs="Wicce Chausses +3",feet="Wicce Sabots +3"}
 		
 	sets.midcast.ElementalMagic.index = {'Standard', 'Burst'}
@@ -122,7 +122,7 @@ function get_sets()
 	sets.midcast.Stun = {
 		ammo="pemphredo tathlum",
 		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Crepuscular Earring",
-		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Sangoma Ring",ring2="Prolix Ring",
+		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Kishar Ring",ring2="Medada's Ring",
 		back="Swith Cape",waist="Witful Belt",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"
 	}
 		

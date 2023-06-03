@@ -126,7 +126,8 @@ function get_sets()
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Malignance Tights",
+        -- legs="Malignance Tights",
+        legs="Chasseur's Culottes +2",
         feet="Malignance Boots",
         neck="Iskur gorget",
         waist="Yemaya Belt",
@@ -336,7 +337,7 @@ function get_sets()
 
     sets.roll.Long = set_combine(sets.roll.Short, {left_ring="Luzaf's Ring"})
 
-    sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes"}
+    sets.roll["Caster's Roll"] = {legs="Chasseur's Culottes +2"}
     sets.roll["Tactician's Roll"] = {body="Chasseur's Frac +2"}
     sets.roll["Blitzer's Roll"] = {head="Chasseur's Tricorne +1"}
 

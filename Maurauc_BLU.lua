@@ -192,14 +192,14 @@ function get_sets()
     sets.ChantDuCygne.index = {'Attack','Accuracy'}
     ChantDuCygne_ind = 1
 
-    sets.ChantDuCygne.Attack = {ammo="Jukukik feather",
+    sets.ChantDuCygne.Attack = {
         head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
         body="Assimilator's Jubbah +3",hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Begrudging ring",
         back=DEXCape,
     waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Thereoid Greaves"}
 
     sets.ChantDuCygne.Accuracy = set_combine(sets.ChantDuCygne.Attack, {
-        waist="Olseni Belt"
+        -- waist="Olseni Belt"
     })
 
 
@@ -216,27 +216,27 @@ function get_sets()
     sets.BlueMagic.STR = {ammo="Floestone",
         head="Nyame Helm",neck="Caro Necklace",
         body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Rajas ring",
-    back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Nyame Sollerets"}
 
-    sets.BlueMagic.STRDEX = {ammo="Jukukik Feather",
+    sets.BlueMagic.STRDEX = {
         head="Nyame Helm",neck="Caro Necklace",
         body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Rajas ring",
-    back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    back="Cornflower cape",waist="Wanion belt",legs="Samnuha Tights",feet="Nyame Sollerets"}
 
-    sets.BlueMagic.STRVIT = {ammo="Mavi tathlum",
+    sets.BlueMagic.STRVIT = {  
         head="Nyame Helm",neck="Caro Necklace",
         body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Petrov Ring",
-    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Nyame Sollerets"}
 
-    sets.BlueMagic.STRMND = {ammo="Mavi tathlum",
+    sets.BlueMagic.STRMND = {  
         head="Carmine Mask +1",neck="Caro Necklace",
         body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Stikini Ring",
-    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Nyame Sollerets"}
 
-    sets.BlueMagic.AGI = {ammo="Mavi tathlum",
+    sets.BlueMagic.AGI = { 
         head="Carmine Mask +1",neck="Caro Necklace",
         body="Dread Jupon",hands="Adhemar Wristbands +1",ring1="Apate ring",ring2="Petrov ring",
-    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Luhlaza charuqs +1"}
+    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Nyame Sollerets"}
 
     sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
         head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Regal Earring",ear2="Friomisi earring",
@@ -287,12 +287,13 @@ function get_sets()
 
     sets.BlueMagic.Stun = set_combine(sets.BlueMagic.MagicAccuracy, {})
 
-    sets.BlueMagic.Skill = {ammo="Mavi tathlum",
+    sets.BlueMagic.Skill = {   
         head="Carmine Mask +1",ear1="Loquac. earring",
         body="Assim. jubbah +3",
         
         ring1="Weatherspoon ring +1", ring2="Stikini Ring",
-        back="Cornflower cape",waist="Twilight belt",legs="Mavi tayt +2",feet="Luhlaza charuqs +1"
+        back="Cornflower cape",waist="Twilight belt",
+        feet="Luhlaza charuqs +1"
     }
 
     sets.BlueMagic.BatteryCharge = {
@@ -329,7 +330,8 @@ function get_sets()
 
     --sets.JA.BurstAffinity = {feet="Mavi Basmak +2"}
 
-    -- sets.JA.Efflux = {legs="Mavi tayt +2"}
+    -- sets.JA.Efflux = {
+        -- }
 
     --sets.JA.AzureLore = {hands="Luh. bazubands +1"}
 
@@ -345,7 +347,7 @@ function get_sets()
         head="Carmine Mask +1", neck="Voltsurge Torque", ear1="Loquac. Earring", ear2="Etiolation Earring", 
         body="Dread Jupon",hands="Leyline Gloves",ring1="Weatherspoon Ring +1", ring2="Kishar Ring",
         back=INTCape,
-        waist="Witful Belt",
+        -- waist="Witful Belt",
         legs="Psycloth Lappas",feet="Carmine Greaves +1"
     }
 

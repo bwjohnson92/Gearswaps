@@ -82,12 +82,13 @@ function get_sets()
         feet="Nyame Sollerets",
         neck="Bathy Choker +1",
         -- waist="Flume Belt +1",
-        waist="Sveltesse Gouriz +1",
+        -- waist="Sveltesse Gouriz +1",
+        waist="Platinum Moogle Belt",
         left_ear="Eabani Earring",
         right_ear="Infused Earring",
         left_ring="Moonlight Ring",
         -- right_ring="Vengeful Ring",
-        right_ring="Defending Ring",
+        right_ring="Gurebu-Ogurebu's Ring",
         back=OgmaEvasion
     })
     --TP Sets--
@@ -301,7 +302,8 @@ function get_sets()
         ring2="Kishar Ring",
         -- back=OgmaCasting,
         back={name="Moonbeam Cape", priority=1},
-        waist="Rumination Sash",
+        -- waist="Rumination Sash",
+        waist="Platinum Moogle Belt",
         legs="Ayanmo Cosciales +2", 
         feet={name="Carmine Greaves +1", priority=1}}
 
