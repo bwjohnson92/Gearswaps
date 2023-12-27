@@ -42,29 +42,29 @@ function get_sets()
             body="Nyame Mail",
             hands="Nyame Gauntlets",
             legs="Nyame Flanchard",
-                              neck="Loricate torque +1",
-                              ring1="Gelatinous ring +1",ring2="Defending ring",
-                              feet="Danzo Sune-Ate"}
+            neck="Loricate torque +1",
+            ring2="Defending Ring",ring1="Karieyh ring",
+            feet="Danzo Sune-Ate"}
                                       
         --TP Sets--
         sets.TP = {main="Gekkei", sub="Utu Grip"}
         sets.Polearm = {main="Shining One"}
 
-        sets.TP.index = {'Standard', 'Accuracy'}
+        sets.TP.index = {'Standard', 'Accuracy', 'Zanhasso'}
         TP_ind = 1
     
         sets.TP.Standard = {
             -- ammo="Aurgelmir Orb",
             ammo="Coiste Bodhar",
             head="Flamma Zucchetto +2",
-            body="Tatenashi Haramaki +1",
+            body="Kasuga Domaru +3",
             hands="Wakido Kote +3",
-            legs="Tatenashi Haidate +1",
-            feet="Nyame Sollerets",
+            legs="Kasuga Haidate +3",
+            feet="Kasuga Sune-ate +2",
             neck="Sam. Nodowa +1",
             waist="Sailfi Belt +1",
-            ear1="Telos Earring",
-            ear2="Dedition Earring",
+            ear2="Telos Earring",
+            ear1="Dedition Earring",
             left_ring="Chirich Ring +1",
             right_ring="Niqmaddu Ring",
             back=backTP
@@ -74,18 +74,39 @@ function get_sets()
         sets.TP.Accuracy = set_combine(sets.TP.Standard, {
         })
 
+        sets.TP.Zanhasso = {
+            ammo="Aurgelmir Orb",
+            head="Fkanna Zucchetto +2", --Kasuga Kabuto
+            body="Kasuga Domaru +3",
+            hands="Valorous Mitts",
+            legs="Kasuga Haidate +3",
+            feet="Ryuo Sune-ate +1",
+            neck="Sam. Nodowa +1", --Moonbeam/light Nodowa
+            ear1="Dedition Earring",
+            ear2="Kasuga Earring", --HQ?
+            -- ring1="Defending Ring",
+            ring1="Chirich Ring +1",
+            ring2="Niqmaddu Ring",
+            back=backTP,
+            waist="Cornelia's Belt"
+
+        }
+
         --Weaponskill Sets--
 
         sets.WS = {
+            ammo="Knobkierrie",
             head="Mpaca's Cap",
             body="Nyame Mail",
-            hands="Nyame Gauntlets",
+            hands="Kasuga Kote +3",
             legs="Nyame Flanchard",
             feet="Nyame Sollerets",
             neck="Fotia Gorget",
             waist="Sailfi Belt +1",
             ear1="Thrud Earring",
             ear2="Moonshade Earring",
+            ring1="Karieyh Ring",
+            ring2="Ephramad's Ring",
             back=backWS
         }
 
@@ -104,25 +125,73 @@ function get_sets()
         sets.WS["Tachi: Yukikaze"] = sets.WS["Tachi: Fudo"]
 
         
-        setupBasicWSSet('Tachi: Shoha')
-        
-        sets.WS["Impulse Drive"] = sets.WS["Tachi: Shoha"]
-
-
-        setupBasicWSSet('Tachi: Kagero')
-        setupBasicWSSet('Tachi: Jinpu')
-        sets.WS["Tachi: Jinpu"] = set_combine(sets.WS["Tachi: Jinpu"], {
-            ear1="Friomisi Earring"
+        shoha = set_combine(sets.WS, {
+            
         })
+
+        rana = set_combine(shoha, {
+            head="Nyame Helm"
+        })
+
+        setupBasicWSSet('Tachi: Shoha', shoha)
+        setupBasicWSSet('Tachi: Rana', rana)
+        
+        sets.WS["Impulse Drive"] = sets.WS["Tachi: Fudo"]
+
+        hybridSet = {
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Nyame Flanchard",
+            feet="Nyame Sollerets",
+            neck="Fotia Gorget",
+            waist="Eschan Stone",
+            ear1="Friomisi Earring",
+            ear2="Moonshade Earring",
+            ring1="Karieyh Ring",
+            ring2="Ephramad's Ring",
+            back=backWS
+        }
+
+
+        setupBasicWSSet('Tachi: Kagero', hybridSet)
+        setupBasicWSSet('Tachi: Jinpu', hybridSet)
             
         --Job Ability Sets--
         sets.JA = {}
     
-        sets.JA.Meditate = {head="Wakido Kabuto",
+        sets.JA.Meditate = {head="Wakido Kabuto +1",
                             back="Smertrios's Mantle",
                             hands="Sakonji Kote +2"}
                             
         sets.JA.Meikyo = {feet="Sakonji sune-ate"}
+
+        sets.FastCast =     {
+            ammo="Sapience Orb",
+            head={ name="Nyame Helm", augments={'Path: B',}},
+            body={ name="Nyame Mail", augments={'Path: B',}},
+            hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+            legs={ name="Nyame Flanchard", augments={'Path: B',}},
+            feet="Kas. Sune-Ate +2",
+            neck="Voltsurge Torque",
+            waist="Cornelia's Belt",
+            left_ear="Loquac. Earring",
+            right_ear="Dedition Earring",
+            left_ring="Gurebu's Ring",
+            right_ring="Rahab Ring",
+            back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+        }
+
+        sets.Utility = {}
+
+        sets.Utility.Snapshot = {
+            head="Acro Helm",
+            body="Acro Surcoat",
+            hands="Acro Gauntlets",
+            legs="Acro Breeches",
+            feet="Acro Leggings",
+            waist="Yemaya Belt",
+        }
 
         organizer_items = organizerItems()
 
@@ -131,8 +200,11 @@ function get_sets()
         updateTable()
 end
 
-function setupBasicWSSet(name)
-    sets.WS[name] = set_combine(sets.WS, {})
+function setupBasicWSSet(name, set)
+    if (set == nil) then
+        set = sets.WS
+    end
+    sets.WS[name] = set_combine(set, {})
     
     sets.WS[name].Attack = set_combine(sets.WS[name], {})
     sets.WS[name].Accuracy = set_combine(sets.WS[name], {})
@@ -182,11 +254,15 @@ function precast(spell)
     if spell.name == "Ranged" then
         equip(sets.Utility.Snapshot)
     end
+
+    if (spell.action_type == 'Magic') then 
+        equip (sets.FastCast) 
+    end
 end     
 
 function midcast(spell,act)
     if spell.name == "Ranged" then
-        equip(sets.RangedTP[sets.RangedTP.index[RangedTP_ind]])
+        --equip(sets.RangedTP[sets.RangedTP.index[RangedTP_ind]])
     end
 end
 
@@ -203,6 +279,21 @@ function status_change(new,old)
         equip(sets.TP[sets.TP.index[TP_ind]])
     else
         equip(sets.Idle[sets.Idle.index[Idle_ind]])
+    end
+end
+
+function buff_change(buff, gain)
+    if (gain) then
+        add_to_chat(140, "Gained "..buff)
+    else
+        add_to_chat(140, "Lost "..buff)
+    end
+
+    if (buff == "Meikyo Shisui") then
+        if (gain) then
+        else
+            enable("feet")
+        end
     end
 end
 

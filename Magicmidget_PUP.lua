@@ -241,7 +241,7 @@ function init_gear_sets()
     Artifact_Foire.Feet_Repair_PMagic = "Foire Babouches +2"
 
     Relic_Pitre = {}
-    Relic_Pitre.Head_PRegen = "Pitre Taj +2" --Enhances Optimization
+    Relic_Pitre.Head_PRegen = "Pitre Taj +1" --Enhances Optimization
     Relic_Pitre.Body_PTP = "Pitre Tobe +2" --Enhances Overdrive
     Relic_Pitre.Hands_WSD = "Pitre Dastanas +2" --Enhances Fine-Tuning
     Relic_Pitre.Legs_PMagic = "Pitre Churidars +2" --Enhances Ventriloquy
@@ -399,7 +399,7 @@ function init_gear_sets()
 	    waist="Isa Belt",
 	    left_ear="Handler's Earring +1",
 	    right_ear="Enmerkar Earring",
-	    left_ring="Thurandaut Ring",
+	    left_ring="Varar Ring",
 	    right_ring="Overbearing Ring",
 	    back=Back_DT
     }
@@ -562,7 +562,7 @@ function init_gear_sets()
 		    waist="Isa Belt",
 		    left_ear="Handler's Earring +1",
 		    right_ear="Enmerkar Earring",
-		    left_ring="Thurandaut Ring",
+		    left_ring="Varar Ring",
 		    right_ring="Overbearing Ring",
 		    back=Back_DT
     }
@@ -587,7 +587,7 @@ function init_gear_sets()
 	    waist="Isa Belt",
 	    left_ear="Handler's Earring +1",
 	    right_ear="Enmerkar Earring",
-	    left_ring="Thurandaut Ring",
+	    left_ring="Varar Ring",
 	    right_ring="Overbearing Ring",
 	    back=Back_DT
     }
@@ -634,7 +634,7 @@ function init_gear_sets()
 		    waist="Isa Belt",
 		    left_ear="Handler's Earring +1",
 		    right_ear="Enmerkar Earring",
-		    left_ring="Thurandaut Ring",
+		    left_ring="Varar Ring",
 		    right_ring="Overbearing Ring",
 		    back=Back_DT
     }
@@ -656,15 +656,15 @@ function init_gear_sets()
 	    range="Animator P +1",
 	    ammo="Automat. Oil +3",
 	    head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Accuracy+3','Pet: Haste+5',}},
-	    body="Udug Jacket",
+	    body="Pitre Tobe +2",
 	    hands=Rao_Hands,
 	    legs="Tali'ah Sera. +2",
-	    feet=Rao_Feet,
-	    neck="Empath Necklace",
-	    waist="Isa Belt",
+	    feet="Mpaca's Boots",
+	    neck="Shulmanu Collar",
+	    waist="Incarnation Sash",
 	    left_ear="Handler's Earring +1",
 	    right_ear="Enmerkar Earring",
-	    left_ring="Thurandaut Ring",
+	    left_ring="Varar Ring",
 	    right_ring="Overbearing Ring",
 	    back=Back_DT
     }
@@ -687,7 +687,7 @@ function init_gear_sets()
 		    waist="Isa Belt",
 		    left_ear="Handler's Earring +1",
 		    right_ear="Enmerkar Earring",
-		    left_ring="Thurandaut Ring",
+		    left_ring="Varar Ring",
 		    right_ring="Overbearing Ring",
 		    back=Back_DT
 		}
@@ -710,7 +710,7 @@ function init_gear_sets()
 	    waist="Isa Belt",
 	    left_ear="Handler's Earring +1",
 	    right_ear="Enmerkar Earring",
-	    left_ring="Thurandaut Ring",
+	    left_ring="Varar Ring",
 	    right_ring="Overbearing Ring",
 	    back=Back_DT
     }
@@ -733,6 +733,16 @@ function init_gear_sets()
     ]]
     sets.midcast.Pet.WSNoFTP = {
         head = Empy_Karagoz.Head_PTPBonus,
+        body="Pitre Tobe +2",
+        hands="Mpaca's Gloves",
+        legs="Nyame Flanchard",
+        feet="Mpaca's Boots",
+        ear1="Domesticator's Earring",
+        ear2="Karagoz Earring",
+        neck="Shulmanu Collar",
+        waist="Incarnation Sash",
+        ring1="Varar Ring",
+        ring2="Cath Palug Ring"
        -- Add your set here
     }
 
@@ -742,6 +752,16 @@ function init_gear_sets()
     ]]
     sets.midcast.Pet.WSFTP = {
         head = Empy_Karagoz.Head_PTPBonus,
+        body="Pitre Tobe +2",
+        hands="Mpaca's Gloves",
+        legs="Nyame Flanchard",
+        feet="Mpaca's Boots",
+        ear1="Domesticator's Earring",
+        ear2="Karagoz Earring",
+        neck="Shulmanu Collar",
+        waist="Incarnation Sash",
+        ring1="Varar Ring",
+        ring2="Cath Palug Ring"
        -- Add your set here
     }
 
@@ -754,13 +774,14 @@ function init_gear_sets()
     --Chimera Ripper, String Clipper
     sets.midcast.Pet.WS["STR"] = set_combine(sets.midcast.Pet.WSNoFTP, {})
 
-    -- Bone crusher, String Shredder
+    -- Bone Crusher + String Shredder
     sets.midcast.Pet.WS["VIT"] =
         set_combine(
         sets.midcast.Pet.WSNoFTP,
         {
             -- Add your gear here that would be different from sets.midcast.Pet.WSNoFTP
-            head = Empy_Karagoz.Head_PTPBonus
+            head = Empy_Karagoz.Head_PTPBonus,
+
         }
     )
 

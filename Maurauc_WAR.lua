@@ -114,7 +114,7 @@ function get_sets()
 	    -- head="Sulevia's Mask +2",
 	    head="Nyame Helm",
 	    body="Dagon Breastplate",
-	    hands="Sulevia's Gauntlets +2",
+	    hands="Boii Mufflers +3",
 	    -- legs="Sulevia's Cuisses +2",
 	    -- feet="Sulevia's Leggings +2",
 	    legs="Nyame Flanchard",
@@ -136,7 +136,7 @@ function get_sets()
 	    body="Hjarrandi Breastplate",
 		-- body="Dagon Breastplate",
 	    -- hands="Nyame Gauntlets",
-		hands="Boii Mufflers +2",
+		hands="Boii Mufflers +3",
 		-- hands="Sakpata's Gauntlets",
 	    legs="Nyame Flanchard",
 	    feet="Nyame Sollerets",
@@ -253,7 +253,7 @@ function get_sets()
 	}
 
 	sets.JA["Blood Rage"] = {
-		body="Boii Lorica +1"
+		body="Boii Lorica +2"
 	}
 
 	sets.Reraise = {
@@ -262,7 +262,7 @@ function get_sets()
 	}
 
 	sets.Restraint = {
-		-- hands="Boii Mufflers +2"
+		-- hands="Boii Mufflers +3"
 	}
 
 

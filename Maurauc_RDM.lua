@@ -111,7 +111,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		ammo="Regal Gem",
 		-- ranged="Kaja Bow",
 		head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Malignance Earring",ear2="Snotra Earring",
-		body="Lethargy Sayon +3",hands="Lethargy Gantherots +2",ring1=stikini1,ring2="Kishar Ring",
+		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1=stikini1,ring2="Kishar Ring",
 		back=SucellosINT,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
 	sets.midcast.Enfeebling.Skill = set_combine(sets.midcast.Enfeebling, {
@@ -133,23 +133,20 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 
 	sets.midcast.Sleepga = set_combine(sets.midcast.Enfeebling, {
 		body="Lethargy Sayon +3",
-		hands="Lethargy Gantherots +2",
-		legs="Lethargy Fuseau +2",
-		feet="Lethargy Houseaux +2",
+		hands="Lethargy Gantherots +3",
+		legs="Lethargy Fuseau +3",
+		feet="Lethargy Houseaux +3",
 		neck="Duelist's Torque +2",
 		ring2="Kishar Ring",
 		ammo="Regal Gem"
 	})
 		
 	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
-		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosINT,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +3"}	
+		head=MerlinicHoodAcc,neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Friomisi Earring",
+		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Freke Ring",ring2="Shiva Ring +1",
+		back=SucellosINT,waist="Sacro Cord",legs="Lethargy Fuseau +3",feet="Vitiation Boots +3"}	
 
-	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosINT,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +3"}	
+	sets.midcast.ElementalMagicAcc = set_combine(sets.midcast.ElementalMagic, {})
 	
 	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
 		
@@ -170,7 +167,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj +1", sub="Ammurapi Shield",
 		head="Befouled Crown",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Lethargy Earring",
 		body="Vitiation Tabard +3",hands="Vitiation Gloves +3",ring1=stikini1,ring2=stikini2,
-		back="Ghostfyre Cape",waist="Embla Sash",legs="Atrophy Tights +3",feet="Lethargy Houseaux +2"}
+		back="Ghostfyre Cape",waist="Embla Sash",legs="Atrophy Tights +3",feet="Lethargy Houseaux +3"}
 
 	sets.midcast.EnhancingMagic.Duration = set_combine(sets.midcast.EnhancingMagic, {
 		main="Colada",
@@ -179,19 +176,19 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		head="Telchine Cap", 
 		hands="Atrophy Gloves +3",
 		legs="Telchine Braconi", 
-		feet="Lethargy Houseaux +2"})
+		feet="Lethargy Houseaux +3"})
 
 	sets.midcast.EnhancingMagic.Composure = {main="Colada", sub="Ammurapi Shield",
-		head="Lethargy Chappel +1",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring",
+		head="Lethargy Chappel +2",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring",
 		body="Lethargy Sayon +3",hands="Atrophy Gloves +3",ring1=stikini1,ring2=stikini2,
-		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +2",feet="Lethargy Houseaux +2"}
+		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +3",feet="Lethargy Houseaux +3"}
 
 	sets.midcast.EnhancingMagic.Gain = set_combine(sets.midcast.EnhancingMagic.Duration, {hands="Vitiation Gloves +3"})
 
 	sets.midcast.Refresh = set_combine(sets.midcast.EnhancingMagic.Duration, {
 		head="Amalric Coif +1", neck="Duelist's Torque +2",
 		body="Atrophy Tabard +3",hands="Atrophy Gloves +3",
-		back="Sucellos's Cape", waist="Embla Sash", legs="Lethargy Fuseau +2", feet="Lethargy Houseaux +2"})
+		back="Sucellos's Cape", waist="Embla Sash", legs="Lethargy Fuseau +3", feet="Lethargy Houseaux +3"})
 
 	sets.midcast.Refresh.Self = set_combine(sets.midcast.Refresh, {
 		waist="Gishdubar Sash"
@@ -208,7 +205,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 			back=SucellosMND,waist="Flume Belt +1",legs="Kaykaus Tights +1",feet="Nyame Sollerets"}
 			
 			
-	sets.Saboteur = {hands="Lethargy Gantherots +2"}
+	sets.Saboteur = {hands="Lethargy Gantherots +3"}
 	
 	sets.Phalanx = {
 		head="Taeon Chapeau",
@@ -242,7 +239,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.WS = {}
 
 	sets.WS.SeraphBlade = {
-	    ammo="Pemphredo Tathlum",
+	    ammo="Sroda Tathlum",
 	    head="Nyame Helm",
 	    ear1="Ishvara Earring",
 	    ear2="Moonshade Earring",
@@ -368,7 +365,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    --body="Vitiation Tabard +3",
 	    -- feet="Malignance Boots",
 	    body="Malignance Tabard",
-	    feet="Lethargy Houseaux +2"
+	    feet="Lethargy Houseaux +3"
 	}
 
 	sets.Melee.SingleWieldSB = {
@@ -389,7 +386,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    --body="Vitiation Tabard +3",
 	    -- feet="Malignance Boots",
 	    body="Malignance Tabard",
-	    feet="Lethargy Houseaux +2"
+	    feet="Lethargy Houseaux +3"
 	}
 
 

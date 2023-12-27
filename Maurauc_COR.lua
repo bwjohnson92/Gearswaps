@@ -103,11 +103,12 @@ function get_sets()
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Malignance Tights",
+        -- legs="Malignance Tights",
+        legs="Nyame Flanchard",
         -- hands="Adhemar Wristbands +1",
         -- legs="Adhemar Kecks +1",
         -- feet={ name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}},
-        feet="Malignance Boots",
+        feet="Nyame Sollerets",
         -- neck="Asperity Necklace",
         neck="Iskur Gorget",
         waist="Windbuffet Belt +1",
@@ -183,36 +184,27 @@ function get_sets()
         waist="Eschan Stone",
         left_ear="Digni. Earring",
         right_ear="Friomisi Earring",
-        ring1="Meghanada Ring",
-        -- ring2="Arvina Ringlet +1",
+        ring2="Cornelia's Ring",
         back=capeWSMAB,
     }
 
     --MELEE----------
 
     sets.WS.SavageBlade = {
-        -- head="Lilitu Headpiece",
         head="Nyame Helm",
-        -- neck="Caro Necklace",
-        -- neck="Commodore Charm +1",
         neck="Republican Platinum Medal",
         ear1="Moonshade Earring",
         ear2="Ishvara Earring",
         body="Laksamana's Frac +3",
-        -- hands="Meg. Gloves +2",
         hands="Chasseur's Gants +3",
-        -- ring1="Rufescent Ring", --Shukuyu
-        -- ring1="Epaminondas's Ring",
-        -- ring1="Rufescent Ring",
-        ring1="Epaminondas's Ring",
+        ring1="Defending Ring",
         ring2="Cornelia's Ring", --Rufescent 
         back=capeMeleeWS,
         waist="Sailfi Belt +1",
-        -- legs="Meghanada Chausses +2",
         legs="Nyame Flanchard",
-        -- feet=wsHerc,
         feet="Lanun Bottes +3"
     }
+    
     sets.WS.SavageBlade.index = { 'Standard' }
     sets.WS.SavageBlade.Standard = set_combine(sets.WS.SavageBlade, {
 
@@ -373,7 +365,7 @@ function get_sets()
         ring2="Weatherspoon Ring +1"
     })
 
-    sets.QuickDraw.index = {'Damage', 'Accuracy', 'Recast'}
+    sets.QuickDraw.index = {'TH4', 'Damage', 'Accuracy', 'Recast'}
 
     sets.QuickDraw.Damage = sets.QuickDraw
 
@@ -382,6 +374,11 @@ function get_sets()
     sets.QuickDraw.Recast = set_combine(sets.QuickDraw, {
         body="Mirke Wardecors",
         feet="Chasseur's Bottes +3"
+    })
+    
+    sets.QuickDraw.TreasureHunter = set_combine(sets.QuickDraw,  {
+        body="Volte Jupon",
+        hands={ name="Herculean Gloves", augments={'Magic Damage +5','Crit.hit rate+1','"Treasure Hunter"+2','Accuracy+15 Attack+15','Mag. Acc.+7 "Mag.Atk.Bns."+7',}},
     })
 
 

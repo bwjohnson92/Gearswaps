@@ -77,7 +77,8 @@ function get_sets()
         body="Nyame Mail",
         -- hands="Turms Mittens +1",
         hands="Nyame Gauntlets",
-        legs="Erilaz Leg Guards +3",
+        -- legs="Erilaz Leg Guards +3",
+        legs="Dashing Subligar",
         -- feet="Turms Leggings +1",
         feet="Nyame Sollerets",
         neck="Bathy Choker +1",
@@ -131,7 +132,7 @@ function get_sets()
         right_ear="Telos Earring",
         left_ring="Etana Ring",
         -- right_ring="Cacoethic Ring +1",
-        back={ name="Ogma's cape",}
+        back=OgmaSTR
     })
 
     sets.TP.Hybrid = {
@@ -155,7 +156,8 @@ function get_sets()
         -- head="Futhark Bandeau +3",
         head="Nyame Helm",
         neck="Futhark Torque +2",
-        ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
+        ear1="Odnowa Earring +1",
+        -- ear2="Odnowa Earring",          
         body="Ashera Harness",hands="Turms Mittens +1",ring1="Moonlight Ring",ring2="Defending Ring",   
         back="Moonbeam Cape",waist="Flume Belt +1",
         -- legs="Erilaz Leg Guards +3",
@@ -181,7 +183,8 @@ function get_sets()
         ammo="Staunch Tathlum +1",
         neck="Futhark Torque +2",
         ear1="Odnowa Earring +1",
-        ear2="Odnowa Earring",
+        -- ear2="Odnowa Earring",
+        ear2="Erilaz Earring",
         head="Nyame Helm",
         -- body="Nyame Mail",
         body="Erilaz Surcoat +3",
@@ -189,7 +192,8 @@ function get_sets()
         ring1="Moonlight Ring",
         ring2="Defending Ring",
         back=OgmaTank,
-        waist="Flume Belt +1",
+        -- waist="Flume Belt +1",
+        waist={name="Platinum Moogle Belt", priority=5},
         legs="Erilaz Leg Guards +3",
         feet="Turms Leggings +1"
     }
@@ -238,7 +242,7 @@ function get_sets()
         left_ear="Ishvara Earring",
         right_ear="Moonshade Earring",
         -- left_ring="Ilabrat Ring",
-        left_ring="Epaminondas's Ring",
+        -- left_ring="Epaminondas's Ring",
         right_ring="Regal Ring",
         back=OgmaDEX
     }
@@ -278,7 +282,9 @@ function get_sets()
     --Job Ability Sets--
     sets.JA = {}
     sets.JA.Lunge = set_combine(sets.WS, {ammo="Seething Bomblet",
-        neck="Deviant Necklace",ear1="Hecate's Earring",ear2="Friomisi earring",                        
+        neck="Deviant Necklace",
+        -- ear1="Hecate's Earring",
+        ear2="Friomisi earring",                        
         waist="Eschan Stone"})
 
     sets.JA.Vallation = {body="Runeist Coat +3",legs="Futhark Trousers +2"}       
@@ -292,18 +298,18 @@ function get_sets()
     --Fast Cast set
     sets.precast = {
         ammo="Sapience Orb",
-        head={name="Runeist bandeau +3", priority=1},
+        head={name="Runeist bandeau +3", priority=8},
         neck="Orunmila's Torque",
         ear1={name="Odnowa Earring +1",priority=1},
         ear2={name="Etiolation Earring",priority=1},
         body="Erilaz Surcoat +3",
         hands="Leyline Gloves",
-        ring1={name="Moonlight Ring", priority=1},
+        ring1={name="Moonlight Ring", priority=10},
         ring2="Kishar Ring",
-        -- back=OgmaCasting,
-        back={name="Moonbeam Cape", priority=1},
+        back=OgmaCasting,
+        -- back={name="Moonbeam Cape", priority=1},
         -- waist="Rumination Sash",
-        waist="Platinum Moogle Belt",
+        waist={name="Platinum Moogle Belt",priority=9},
         legs="Ayanmo Cosciales +2", 
         feet={name="Carmine Greaves +1", priority=1}}
 
@@ -358,21 +364,15 @@ function get_sets()
         -- main="Morgelai",
         ammo="Sapience Orb",
         neck="Futhark Torque +2",
-        body={name="Emet Harness +1", priority=2},
+        body={name="Emet Harness +1", priority=1},
         hands="Kurys Gloves",
-        ear1="Odnowa Earring +1",
+        ear1={name="Odnowa Earring +1",priority=1},
         ear2="Trux earring",    
-        -- ring1="Supershear Ring",ring2="Petrov Ring",
-        -- back=OgmaTank,
         ring1="Moonlight Ring", 
-        -- ring2={name="Supershear Ring", priority=1},
         ring2="Defending Ring",
-        back="Moonbeam Cape",
-        -- waist="Sinew Belt",
-        waist="Trance Belt",
+        back=OgmaTank,
+        waist={name="Platinum Moogle Belt",priority=10},
         legs={name="Erilaz Leg Guards +3",priority=1},
-        -- feet="Erilaz Greaves +2"
-        -- feet={name="Carmine Greaves +1",priority=1}
         feet="Erilaz Greaves +2"
     }  
 
@@ -394,6 +394,7 @@ function get_sets()
     send_command('bind f10 gs c toggle Idle set')
     send_command('bind ^f10 gs c reverse Idle set')
     send_command('bind f12 gs c equip gear')
+    send_command('bind f9 input /equip Legs "Carmine Cuisses +1"')
 
     send_command('bind numpad. shockwave')
     

@@ -38,7 +38,7 @@ function get_sets()
 
 sets.Gun = {}
 sets.Gun.index = {
-    -- "Death Penalty", 
+    "Death Penalty", 
     "Fomalhaut", 
     "Anarchy"
 }
