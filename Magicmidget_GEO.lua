@@ -100,16 +100,11 @@ function get_sets()
 		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
-	    -- main="Malignance Pole",
-	    -- sub="Alber Strap",
 	    range="Dunna",
 	    head="Nyame Helm",
-	    -- body="Mallquis Saio +2",
 	    body="Nyame Mail",
 	    hands="Geo. Mitaines +3",
-	    -- legs={ name="Telchine Braconi", augments={'Mag. Acc.+23','Pet: "Regen"+3','Pet: Damage taken -4%',}},
 	    legs="Nyame Flanchard",
-	    -- feet="Nyame Sollerets",
 		feet="Bagua Sandals +3",
 	    neck={ name="Bagua Charm +1", augments={'Path: A',}},
 	    waist="Isa Belt",
@@ -124,10 +119,8 @@ function get_sets()
 		main="Idris", sub="Genmei Shield",
 		head="Azimuth Hood +3",
 		neck="Bagua Charm +1",
-		-- body="Mallquis Saio +2", 
 		body="Nyame Mail",
 		hands="Telchine Gloves",
-	    -- back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
@@ -160,7 +153,7 @@ function get_sets()
 	    ammo="Pemphredo Tathlum",
 	    head={ name="Merlinic Hood", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+3','Mag. Acc.+11','"Mag.Atk.Bns."+10',}},
 	    body="Azimuth Coat +3",
-	    hands="Azimuth Gloves +2",
+	    hands="Azimuth Gloves +3",
 	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
 	    feet="Jhakri Pigaches +2",
 	    neck="Erra Pendant",
@@ -180,22 +173,19 @@ function get_sets()
 
 	sets.midcast.ElementalMagic = {
 	    main="Marin Staff +1",
-	    sub="Niobid Strap",
-	    ammo="Pemphredo Tathlum",
+	    sub="Enki Strap",
+	    ammo="Sroda Tathlum",
 	    head="Azimuth Hood +3",
 	    body="Azimuth Coat +3",
-	    hands="Azimuth Gloves +2",
-	    legs="Azimuth Tights +2",
+	    hands="Azimuth Gloves +3",
+	    legs="Azimuth Tights +3",
 	    feet="Azimuth Gaiters +3",
-	    -- neck="Sanctity Necklace",
 		neck="Sibyl Scarf",
-	    -- waist="Refoccilation Stone",
 		waist="Sacro Cord",
 	    left_ear="Malignance Earring",
-	    -- right_ear="Barkaro. Earring",
 		right_ear="Regal Earring",
 	    left_ring="Freke Ring",
-	    right_ring="Shiva Ring",
+	    right_ring="Metamorph Ring +1",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
 		
@@ -210,14 +200,14 @@ function get_sets()
 	sets.midcast.IndiSpells = {
 		-- main="Idris",
 	head="Azimuth Hood +3", neck="Bagua Charm +1",
-	body="Azimuth Coat +3",	hands="Azimuth Gloves +2", 
+	body="Azimuth Coat +3",	hands="Azimuth Gloves +3", 
 	back="Lifestream Cape", legs="Bagua Pants +3",feet="Azimuth Gaiters +3"}
 	
 		sets.midcast.IndiSelf = set_combine(sets.midcast.IndiSpells, {
 			main="Idris"
 		})
 
-	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSelf, {head="Bagua Galero +2",legs="Azimuth Tights +2"})
+	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSelf, {head="Bagua Galero +2",legs="Azimuth Tights +3"})
 
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
 			-- head="Gendewitha Caubeen",

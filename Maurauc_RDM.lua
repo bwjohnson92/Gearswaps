@@ -141,10 +141,29 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		ammo="Regal Gem"
 	})
 		
-	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
-		head=MerlinicHoodAcc,neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Friomisi Earring",
-		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosINT,waist="Sacro Cord",legs="Lethargy Fuseau +3",feet="Vitiation Boots +3"}	
+	sets.midcast.ElementalMagic = {
+		-- main="Marin Staff +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
+		-- head=MerlinicHoodAcc,neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Friomisi Earring",
+		-- body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Freke Ring",ring2="Shiva Ring +1",
+		-- back=SucellosINT,waist="Sacro Cord",legs="Lethargy Fuseau +3",feet="Vitiation Boots +3"
+		main="Marin Staff +1",
+		sub="Enki Strap",
+		ranged=Empty,
+		ammo="Sroda Tathlum",
+		head="Leth. Chappel +3",
+		body="Lethargy Sayon +3",
+		hands="Leth. Ganth. +3",
+		legs="Leth. Fuseau +3",
+		feet="Leth. Houseaux +3",
+		neck="Sibyl Scarf",
+		waist="Acuity Belt +1",
+		ear1="Malignance Earring",
+		ear2="Regal Earring",
+		ring1="Freke Ring",
+		ring2="Metamor. Ring +1",
+		back=SucellosINT,
+
+	}	
 
 	sets.midcast.ElementalMagicAcc = set_combine(sets.midcast.ElementalMagic, {})
 	
@@ -165,7 +184,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebling.Acc, sets.Dispelga)
 			
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj +1", sub="Ammurapi Shield",
-		head="Befouled Crown",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Lethargy Earring",
+		head="Befouled Crown",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Lethargy Earring +2",
 		body="Vitiation Tabard +3",hands="Vitiation Gloves +3",ring1=stikini1,ring2=stikini2,
 		back="Ghostfyre Cape",waist="Embla Sash",legs="Atrophy Tights +3",feet="Lethargy Houseaux +3"}
 
@@ -179,7 +198,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		feet="Lethargy Houseaux +3"})
 
 	sets.midcast.EnhancingMagic.Composure = {main="Colada", sub="Ammurapi Shield",
-		head="Lethargy Chappel +2",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring",
+		head="Lethargy Chappel +3",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring +2",
 		body="Lethargy Sayon +3",hands="Atrophy Gloves +3",ring1=stikini1,ring2=stikini2,
 		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +3",feet="Lethargy Houseaux +3"}
 
@@ -230,29 +249,45 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		antacid="Antacid"
 	}
 
-	sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
-		head="Merlinic Hood",
-		hands="Ea Cuffs", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
-		back="Seshaw Cape", feet="Merlinic Crackows"} --5, 9	
+	sets.midcast.MagicBurst = {
+		main="Bunzi's Rod",
+		sub="Ammurapi Shield",
+		ranged=Empty,
+		ammo="Sroda Tathlum",
+		head="Leth. Chappel +3",
+		body="Lethargy Sayon +3",
+		hands="Amalric Gages +1",
+		legs="Leth. Fuseau +3",
+		feet="Amalric Nails +1",
+		neck="Mizu. Kubikazari",
+		waist="Sacro Cord",
+		ear1="Static Earring",
+		ear2="Malignance Earring",
+		ring1="Freke Ring",
+		ring2="Mujin Band",
+		back=SucellosINT
+	}
 
 
 	sets.WS = {}
 
 	sets.WS.SeraphBlade = {
-	    ammo="Sroda Tathlum",
-	    head="Nyame Helm",
-	    ear1="Ishvara Earring",
-	    ear2="Moonshade Earring",
-	    body="Amalric Doublet +1",
-	    hands="Jhakri Cuffs +2",
-	    ring1="Freke Ring",
-	    ring2="Weather. Ring +1",
-	    back=SucellosWS,
-	    -- waist="Orpheus's Sash"
-	    neck="Sanctity Necklace",
-	    waist="Sacro Cord",
-	    legs="Amalric Slops +1",
-	    feet="Nyame Sollerets"
+		main="Crocea Mors",
+		sub="Ammurapi Shield",
+		ranged=Empty,
+		ammo="Sroda Tathlum",
+		head="Leth. Chappel +3",
+		body="Nyame Mail",
+		hands="Jhakri Cuffs +2",
+		legs="Leth. Fuseau +3",
+		feet="Leth. Houseaux +3",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		ear1="Moonshade Earring",
+		ear2="Malignance Earring",
+		ring1="Cornelia's ring",
+		ring2="Weather. Ring +1",
+		back=SucellosWS	
 	}
 
 	sets.WS.SanguineBlade = set_combine(sets.WS.SeraphBlade, {
@@ -367,28 +402,6 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    body="Malignance Tabard",
 	    feet="Lethargy Houseaux +3"
 	}
-
-	sets.Melee.SingleWieldSB = {
-		main="Crocea Mors",
-		sub="Ammurapi Shield",
-		ammo="Hasty Pinion +1",
-	    head="Umuthi Hat",
-	    neck="Bathy Choker",
-	    ear1="Digni. Earring",
-	    ear2="Andoaa Earring",
-	    hands="Aya. Manopolas +2",
-	    ring1="Chirich Ring +1",
-	    ring2="Chirich Ring +1",
-	    back="Ghostfyre Cape",
-	    waist="Orpheus's Sash",
-	    -- waist="Hachirin-no-obi",
-	    legs="Vitiation Tights +3",
-	    --body="Vitiation Tabard +3",
-	    -- feet="Malignance Boots",
-	    body="Malignance Tabard",
-	    feet="Lethargy Houseaux +3"
-	}
-
 
 	sets.Melee.Enspell = {
 		-- head="Umuthi Hat",

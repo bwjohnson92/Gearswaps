@@ -232,18 +232,14 @@ function get_sets()
         head="Nyame Helm",
         body="Nyame Mail",
         hands="Meg. Gloves +2",
-        -- legs="",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        -- feet={ name="Lustratio Leggings", augments={'HP+50','STR+10','DEX+10',}},
-        -- neck="Caro Necklace",
-        neck="Futhark Torque +2",
-        waist="Grunfeld Rope",
-        left_ear="Ishvara Earring",
+        neck="Fotia Gorget",
+        waist="Sailfi Belt +1",
+        left_ear="Sherida Earring",
         right_ear="Moonshade Earring",
-        -- left_ring="Ilabrat Ring",
-        -- left_ring="Epaminondas's Ring",
-        right_ring="Regal Ring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Ephramad's Ring",
         back=OgmaDEX
     }
 

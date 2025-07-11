@@ -57,19 +57,19 @@ function get_sets()
 	sets.TP.index = {'Standard', 'DT', 'TH', 'Subtle Blow'}
 	TP_ind = 2
 	sets.TP.Standard = {
-	    ammo="Coiste Bodhar",
-	    head="Hjarrandi Helm",
-	    body="Sakpata's Plate",
+		ammo="Coiste Bodhar",
+		head="Flam. Zucchetto +2",
+		body="Boii Lorica +3",
 		hands="Sakpata's Gauntlets",
-	    legs="Pummeler's Cuisses +3",
-	    feet="Pummeler's Calligae +3",
-	    neck="Warrior's Bead Necklace +2",
-	    left_ear="Cessance Earring",
-	    right_ear="Boii Earring +1",
-	    left_ring="Moonlight Ring",
-	    right_ring="Niqmaddu Ring",
+		legs="Pumm. Cuisses +3",
+		feet="Pumm. Calligae +3",
+		neck="War. Beads +2",
+		waist="Ioskeha Belt +1",
+		ear1="Telos Earring",
+		ear2="Boii Earring +1",
+		ring1="Petrov Ring",
+		ring2="Niqmaddu Ring",
 	    back=CapeTP,
-	    waist="Ioskeha Belt +1"
 	}
 
 	sets.DT = {
@@ -128,59 +128,69 @@ function get_sets()
 	}
 
 	sets.WS["Impulse Drive"] = {
-	    main="Shining One",
-	    sub="Utu Grip",
-	    ammo="Yetshila +1",
-	    head="Agoge Mask +3",
-	    -- body="Pumm. Lorica +3",
-	    body="Hjarrandi Breastplate",
-		-- body="Dagon Breastplate",
-	    -- hands="Nyame Gauntlets",
+		ammo="Yetshila +1",
+		head="Sakpata's Helm",
+		body="Sakpata's Plate",
+		hands="Sakpata's Gauntlets",
+		legs="Sakpata's Cuisses",
+		feet="Boii Calligae +3",
+		neck="War. Beads +2",
+		waist="Sailfi Belt +1",
+		ear1="Moonshade Earring",
+		ear2="Boii Earring +1",
+		ring1="Niqmaddu Ring",
+		ring2="Cornelia's ring",
+		back=CapeWS,		
+	}
+
+	sets.WS["Impulse Drive"].HighTP = { --2000 TP
+		ammo="Knobkierrie",
+		head="Agoge Mask +3",
+		body="Sakpata's Plate",
 		hands="Boii Mufflers +3",
-		-- hands="Sakpata's Gauntlets",
-	    legs="Nyame Flanchard",
-	    feet="Nyame Sollerets",
-		-- feet="Sakpata's Leggings",
-	    neck="War. Beads +2",
-		-- neck="Bathy Choker",
-	    waist="Sailfi Belt +1",
-	    left_ear="Moonshade Earring",
-	    right_ear="Boii Earring +1",
-	    left_ring="Regal Ring",
-	    right_ring="Epaminondas's Ring",
-		-- left_ring="Niqmaddu Ring",
-		-- right_ring="Chirich Ring +1",
-	    back=CapeWS
+		legs="Sakpata's Cuisses",
+		feet="Boii Calligae +3",
+		neck="War. Beads +2",
+		waist="Sailfi Belt +1",
+		ear1="Moonshade Earring",
+		ear2="Boii Earring +1",
+		ring1="Cornelia's ring",
+		ring2="Niqmaddu Ring",
+		back=CapeWS
 	}
 
 	sets.WS["Upheaval"] = {
-	    ammo="Knobkierrie",
-	    -- head="Agoge Mask +3",
-	    head="Nyame Helm",
-	    -- neck="Fotia Gorget",
-	    neck="Warrior's Bead Necklace +2",
-	    ear1="Moonshade Earring",
-	    ear2="Telos Earring",
-		-- body="Sakpata's Plate",		
-		body="Pummeler's Lorica +3",
-	    hands="Sakpata's Gauntlets",
-	    -- legs="Sakpata's Cuisses",
-	    legs="Nyame Flanchard",
-	    ring1="Niqmaddu Ring",
-	    ring2="Regal Ring",
-	    back=CapeWS,
-	    -- waist="Fotia Belt",
-	    waist="Sailfi Belt +1",
-	    -- feet="Pumm. Calligae +3"
-	    feet="Sulevia's Leggings +2"
+		ammo="Knobkierrie",
+		head="Sakpata's Helm",
+		body="Sakpata's Plate",
+		hands="Boii Mufflers +3",
+		legs="Sakpata's Cuisses",
+		feet="Sakpata's Leggings",
+		neck="War. Beads +2",
+		waist="Sailfi Belt +1",
+		ear1="Thrud Earring",
+		ear2="Moonshade Earring",
+		ring1="Niqmaddu Ring",
+		ring2="Cornelia's ring",
+		back=CapeWS
+		
 	}
 
 	sets.WS.Upheaval.HighTP = set_combine(sets.WS.Upheaval, {
+		ammo="Knobkierrie",
+		head="Sakpata's Helm",
+		body="Sakpata's Plate",
+		hands="Boii Mufflers +3",
+		legs="Sakpata's Cuisses",
+		feet="Sakpata's Leggings",
 		neck="War. Beads +2",
-		-- hands="Odyssean Gauntlets",
-		-- legs="Odyssean Cuisses",
-		feet="Sulevia's Leggings +2",
-		ear2="Thrud Earring"
+		waist="Sailfi Belt +1",
+		ear1="Thrud Earring",
+		ear2="Boii Earring +1",
+		ring1="Niqmaddu Ring",
+		ring2="Cornelia's ring",
+		back=CapeWS
+		
 	})
 
 	sets.WS.Upheaval.Mid = set_combine(sets.WS.Upheaval, {
@@ -191,24 +201,19 @@ function get_sets()
 
 	sets.WS["Savage Blade"] = {
 
-	    ammo="Knobkierrie",
-	    -- head="Sakpata's Helm",
-	    -- head="Agoge Mask +3",
-	    neck="War. Beads +2",
-	    ear1="Telos Earring",
-	    ear2="Moonshade Earring",
-	    head="Nyame Helm",
-	    body="Sakpata's Breastplate",
-	    hands="Sakpata's Gauntlets",
-	    legs="Sakpata's Cuisses",
-	    -- feet="Sulev. Leggings +2",
-	    feet="Nyame Sollerets",
-	    ring1="Epaminondas's Ring",
-	    ring2="Regal Ring",
-	    back=CapeWS,
-	    -- back="Cichol's Mantle",
-	    waist="Sailfi Belt +1",
-	    -- waist="Prosilio Belt +1"
+		ammo="Knobkierrie",
+		head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
+		body="Pumm. Lorica +3",
+		hands="Boii Mufflers +3",
+		legs={ name="Nyame Flanchard", augments={'Path: B',}},
+		feet={ name="Nyame Sollerets", augments={'Path: B',}},
+		neck={ name="War. Beads +2", augments={'Path: A',}},
+		waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+		left_ear="Thrud Earring",
+		right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+		left_ring="Cornelia's Ring",
+		right_ring="Regal Ring",
+		back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Damage taken-5%',}},
 	}
 
 	sets.WS["Judgment"] = sets.WS["Savage Blade"]
@@ -310,6 +315,14 @@ function precast(spell)
 				set = sets.WS.Upheaval.HighTP
 			end
 		
+		elseif spell.englihs == "Impulse Drive" then
+			if (player.tp < 1750) then
+				set = sets.WS["Impulse Drive"]
+			else
+				set = sets.WS["Impulse Drive"].HighTP
+			end
+
+
 		elseif (sets.WS[spell.english]) then
 			set = sets.WS[spell.english]
 		
