@@ -54,6 +54,10 @@ function get_sets()
 	sets.Reive = {neck="Arciela's Grace +1"}
 	
 	sets.Melee = {
+
+		main="Maxentius",
+		sub="Genmei Shield",
+
 	    head="Nyame Helm",
 	    body="Jhakri Robe +2",
 	    hands="Nyame Gauntlets",
@@ -172,7 +176,7 @@ function get_sets()
 
 		
 	sets.midcast.IndiSpells = {
-		main="Idris",range="Dunna",
+		main="Idris",sub="Genmei Shield",range="Dunna",
 		head=Empyrean.Head, neck="Bagua Charm +2",
 		body=Empyrean.Body,	hands=Empyrean.Hands, 
 		back="Lifestream Cape", legs=Relic.Legs,feet=Empyrean.Feet

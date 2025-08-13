@@ -291,10 +291,18 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	}
 
 	sets.WS.SanguineBlade = set_combine(sets.WS.SeraphBlade, {
-
-		ear1="Malignance Earring",
+		ammo="Sroda Tathlum",
 		head="Pixie Hairpin +1",
-		ring2="Archon Ring",
+		body="Lethargy Sayon +3",
+		hands="Jhakri Cuffs +2",
+		legs="Leth. Fuseau +3",
+		feet="Leth. Houseaux +3",
+		neck="Fotia Gorget",
+		waist="Sacro Cord",
+		ear1="Malignance Earring",
+		ear2="Regal Earring",
+		ring1="Archon Ring",
+		ring2="Cornelia's ring",		
 		back=SucellosWS,
 		-- feet="Amalric Nails +1",
 	})
@@ -389,16 +397,13 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    head="Umuthi Hat",
 	    neck="Bathy Choker",
 	    ear1="Digni. Earring",
-	    ear2="Andoaa Earring",
+	    ear2="Sherida Earring",
 	    hands="Aya. Manopolas +2",
 	    ring1="Chirich Ring +1",
 	    ring2="Chirich Ring +1",
 	    back="Ghostfyre Cape",
 	    waist="Orpheus's Sash",
-	    -- waist="Hachirin-no-obi",
 	    legs="Vitiation Tights +3",
-	    --body="Vitiation Tabard +3",
-	    -- feet="Malignance Boots",
 	    body="Malignance Tabard",
 	    feet="Lethargy Houseaux +3"
 	}
@@ -410,14 +415,12 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    hands="Aya. Manopolas +2",
 	    legs="Aya. Cosciales +2",
 	    feet={ name="Taeon Boots", augments={'Phalanx +3',}},
-	    -- neck="Anu Torque",
 	    neck="Lissome Necklace",
 	    waist="Chaac Belt",
 	    left_ear="Brutal Earring",
 	    right_ear="Sherida Earring",
 	    left_ring="Apate Ring",
 	    right_ring="Ilabrat Ring",
-	    -- back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +8','Enha.mag. skill +8','Mag. Acc.+7','Enh. Mag. eff. dur. +14',}}
 	    back="Ghostfyre Cape"
 	}
 
@@ -479,9 +482,9 @@ function precast(spell)
 		end
 	elseif string.find(spell.type,'WeaponSkill') then
 		if spell.english == "Seraph Blade"  then
-			equip(sets.WS.SeraphBlade)
+			equip(check_orpheus(sets.WS.SeraphBlade))
 		elseif spell.english == "Sanguine Blade" then	
-			equip(sets.WS.SanguineBlade)
+			equip(check_orpheus(sets.WS.SanguineBlade))
 		elseif spell.english == "Savage Blade" then
 			equip(sets.WS.SavageBlade)
 		elseif  spell.english == "Black Halo" then
@@ -532,7 +535,6 @@ function midcast(spell)
 				
 			--Spell-specific buff sets
 			elseif string.find(spell.english,'Phalanx') and spell.target.type == "SELF" and not buffactive['accession'] then
-				add_to_chat(140, "Phalanx")
 				equip(set_combine(sets.midcast.EnhancingMagic.Duration, sets.Phalanx))
 			elseif string.find(spell.english, 'Gain') then
 				equip(sets.midcast.EnhancingMagic.Gain)
@@ -547,7 +549,6 @@ function midcast(spell)
 
 			--Duration - affected by composure
 			elseif buffactive['composure'] and spell.target.type == 'PLAYER' then
-				add_to_chat(140,'PLAYER')
 				equip(sets.midcast.EnhancingMagic.Composure)
 			else
 				equip(sets.midcast.EnhancingMagic.Duration)
@@ -612,6 +613,13 @@ function equip_Idle()
     equip(sets.Idle[sets.Idle.index[Idle_ind]])
 end
 
+
+function check_orpheus(set)
+	if (player.inventory["Orpheus's Sash"]) then
+		return set_combine(set, {waist="Orpheus's Sash"})
+	end
+	return set
+end
 
 -- Status Change - ie. Resting
 function status_change(new,tab)
@@ -696,9 +704,9 @@ end
 
 function buff_change(buff, gain)
     if (gain) then
-        add_to_chat(140, "Gained "..buff)
+        windower.add_to_chat(30, "Gained "..buff)
     else
-        add_to_chat(140, "Lost "..buff)
+        windower.add_to_chat(28, "Lost "..buff)
     end
 end
 
