@@ -111,7 +111,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		ammo="Regal Gem",
 		-- ranged="Kaja Bow",
 		head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Malignance Earring",ear2="Snotra Earring",
-		body="Lethargy Sayon +3",hands="Lethargy Gantherots +2",ring1=stikini1,ring2="Kishar Ring",
+		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1=stikini1,ring2="Kishar Ring",
 		back=SucellosINT,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
 	sets.midcast.Enfeebling.Skill = set_combine(sets.midcast.Enfeebling, {
@@ -133,23 +133,39 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 
 	sets.midcast.Sleepga = set_combine(sets.midcast.Enfeebling, {
 		body="Lethargy Sayon +3",
-		hands="Lethargy Gantherots +2",
-		legs="Lethargy Fuseau +2",
-		feet="Lethargy Houseaux +2",
+		hands="Lethargy Gantherots +3",
+		legs="Lethargy Fuseau +3",
+		feet="Lethargy Houseaux +3",
 		neck="Duelist's Torque +2",
 		ring2="Kishar Ring",
 		ammo="Regal Gem"
 	})
 		
-	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
-		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosINT,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +3"}	
+	sets.midcast.ElementalMagic = {
+		-- main="Marin Staff +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
+		-- head=MerlinicHoodAcc,neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Friomisi Earring",
+		-- body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Freke Ring",ring2="Shiva Ring +1",
+		-- back=SucellosINT,waist="Sacro Cord",legs="Lethargy Fuseau +3",feet="Vitiation Boots +3"
+		main="Marin Staff +1",
+		sub="Enki Strap",
+		ranged=Empty,
+		ammo="Sroda Tathlum",
+		head="Leth. Chappel +3",
+		body="Lethargy Sayon +3",
+		hands="Leth. Ganth. +3",
+		legs="Leth. Fuseau +3",
+		feet="Leth. Houseaux +3",
+		neck="Sibyl Scarf",
+		waist="Acuity Belt +1",
+		ear1="Malignance Earring",
+		ear2="Regal Earring",
+		ring1="Freke Ring",
+		ring2="Metamor. Ring +1",
+		back=SucellosINT,
 
-	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosINT,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +3"}	
+	}	
+
+	sets.midcast.ElementalMagicAcc = set_combine(sets.midcast.ElementalMagic, {})
 	
 	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
 		
@@ -168,9 +184,9 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebling.Acc, sets.Dispelga)
 			
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj +1", sub="Ammurapi Shield",
-		head="Befouled Crown",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Lethargy Earring",
+		head="Befouled Crown",neck="Duelist's Torque +2",ear1="Andoaa Earring",ear2="Lethargy Earring +2",
 		body="Vitiation Tabard +3",hands="Vitiation Gloves +3",ring1=stikini1,ring2=stikini2,
-		back="Ghostfyre Cape",waist="Embla Sash",legs="Atrophy Tights +3",feet="Lethargy Houseaux +2"}
+		back="Ghostfyre Cape",waist="Embla Sash",legs="Atrophy Tights +3",feet="Lethargy Houseaux +3"}
 
 	sets.midcast.EnhancingMagic.Duration = set_combine(sets.midcast.EnhancingMagic, {
 		main="Colada",
@@ -179,19 +195,19 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		head="Telchine Cap", 
 		hands="Atrophy Gloves +3",
 		legs="Telchine Braconi", 
-		feet="Lethargy Houseaux +2"})
+		feet="Lethargy Houseaux +3"})
 
 	sets.midcast.EnhancingMagic.Composure = {main="Colada", sub="Ammurapi Shield",
-		head="Lethargy Chappel +1",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring",
+		head="Lethargy Chappel +3",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring +2",
 		body="Lethargy Sayon +3",hands="Atrophy Gloves +3",ring1=stikini1,ring2=stikini2,
-		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +2",feet="Lethargy Houseaux +2"}
+		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +3",feet="Lethargy Houseaux +3"}
 
 	sets.midcast.EnhancingMagic.Gain = set_combine(sets.midcast.EnhancingMagic.Duration, {hands="Vitiation Gloves +3"})
 
 	sets.midcast.Refresh = set_combine(sets.midcast.EnhancingMagic.Duration, {
 		head="Amalric Coif +1", neck="Duelist's Torque +2",
 		body="Atrophy Tabard +3",hands="Atrophy Gloves +3",
-		back="Sucellos's Cape", waist="Embla Sash", legs="Lethargy Fuseau +2", feet="Lethargy Houseaux +2"})
+		back="Sucellos's Cape", waist="Embla Sash", legs="Lethargy Fuseau +3", feet="Lethargy Houseaux +3"})
 
 	sets.midcast.Refresh.Self = set_combine(sets.midcast.Refresh, {
 		waist="Gishdubar Sash"
@@ -208,7 +224,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 			back=SucellosMND,waist="Flume Belt +1",legs="Kaykaus Tights +1",feet="Nyame Sollerets"}
 			
 			
-	sets.Saboteur = {hands="Lethargy Gantherots +2"}
+	sets.Saboteur = {hands="Lethargy Gantherots +3"}
 	
 	sets.Phalanx = {
 		head="Taeon Chapeau",
@@ -233,36 +249,60 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		antacid="Antacid"
 	}
 
-	sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
-		head="Merlinic Hood",
-		hands="Ea Cuffs", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
-		back="Seshaw Cape", feet="Merlinic Crackows"} --5, 9	
+	sets.midcast.MagicBurst = {
+		main="Bunzi's Rod",
+		sub="Ammurapi Shield",
+		ranged=Empty,
+		ammo="Sroda Tathlum",
+		head="Leth. Chappel +3",
+		body="Lethargy Sayon +3",
+		hands="Amalric Gages +1",
+		legs="Leth. Fuseau +3",
+		feet="Amalric Nails +1",
+		neck="Mizu. Kubikazari",
+		waist="Sacro Cord",
+		ear1="Static Earring",
+		ear2="Malignance Earring",
+		ring1="Freke Ring",
+		ring2="Mujin Band",
+		back=SucellosINT
+	}
 
 
 	sets.WS = {}
 
 	sets.WS.SeraphBlade = {
-	    ammo="Pemphredo Tathlum",
-	    head="Nyame Helm",
-	    ear1="Ishvara Earring",
-	    ear2="Moonshade Earring",
-	    body="Amalric Doublet +1",
-	    hands="Jhakri Cuffs +2",
-	    ring1="Freke Ring",
-	    ring2="Weather. Ring +1",
-	    back=SucellosWS,
-	    -- waist="Orpheus's Sash"
-	    neck="Sanctity Necklace",
-	    waist="Sacro Cord",
-	    legs="Amalric Slops +1",
-	    feet="Nyame Sollerets"
+		main="Crocea Mors",
+		sub="Ammurapi Shield",
+		ranged=Empty,
+		ammo="Sroda Tathlum",
+		head="Leth. Chappel +3",
+		body="Nyame Mail",
+		hands="Jhakri Cuffs +2",
+		legs="Leth. Fuseau +3",
+		feet="Leth. Houseaux +3",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		ear1="Moonshade Earring",
+		ear2="Malignance Earring",
+		ring1="Cornelia's ring",
+		ring2="Weather. Ring +1",
+		back=SucellosWS	
 	}
 
 	sets.WS.SanguineBlade = set_combine(sets.WS.SeraphBlade, {
-
-		ear1="Malignance Earring",
+		ammo="Sroda Tathlum",
 		head="Pixie Hairpin +1",
-		ring2="Archon Ring",
+		body="Lethargy Sayon +3",
+		hands="Jhakri Cuffs +2",
+		legs="Leth. Fuseau +3",
+		feet="Leth. Houseaux +3",
+		neck="Fotia Gorget",
+		waist="Sacro Cord",
+		ear1="Malignance Earring",
+		ear2="Regal Earring",
+		ring1="Archon Ring",
+		ring2="Cornelia's ring",		
 		back=SucellosWS,
 		-- feet="Amalric Nails +1",
 	})
@@ -357,41 +397,16 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    head="Umuthi Hat",
 	    neck="Bathy Choker",
 	    ear1="Digni. Earring",
-	    ear2="Andoaa Earring",
+	    ear2="Sherida Earring",
 	    hands="Aya. Manopolas +2",
 	    ring1="Chirich Ring +1",
 	    ring2="Chirich Ring +1",
 	    back="Ghostfyre Cape",
 	    waist="Orpheus's Sash",
-	    -- waist="Hachirin-no-obi",
 	    legs="Vitiation Tights +3",
-	    --body="Vitiation Tabard +3",
-	    -- feet="Malignance Boots",
 	    body="Malignance Tabard",
-	    feet="Lethargy Houseaux +2"
+	    feet="Lethargy Houseaux +3"
 	}
-
-	sets.Melee.SingleWieldSB = {
-		main="Crocea Mors",
-		sub="Ammurapi Shield",
-		ammo="Hasty Pinion +1",
-	    head="Umuthi Hat",
-	    neck="Bathy Choker",
-	    ear1="Digni. Earring",
-	    ear2="Andoaa Earring",
-	    hands="Aya. Manopolas +2",
-	    ring1="Chirich Ring +1",
-	    ring2="Chirich Ring +1",
-	    back="Ghostfyre Cape",
-	    waist="Orpheus's Sash",
-	    -- waist="Hachirin-no-obi",
-	    legs="Vitiation Tights +3",
-	    --body="Vitiation Tabard +3",
-	    -- feet="Malignance Boots",
-	    body="Malignance Tabard",
-	    feet="Lethargy Houseaux +2"
-	}
-
 
 	sets.Melee.Enspell = {
 		-- head="Umuthi Hat",
@@ -400,14 +415,12 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    hands="Aya. Manopolas +2",
 	    legs="Aya. Cosciales +2",
 	    feet={ name="Taeon Boots", augments={'Phalanx +3',}},
-	    -- neck="Anu Torque",
 	    neck="Lissome Necklace",
 	    waist="Chaac Belt",
 	    left_ear="Brutal Earring",
 	    right_ear="Sherida Earring",
 	    left_ring="Apate Ring",
 	    right_ring="Ilabrat Ring",
-	    -- back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +8','Enha.mag. skill +8','Mag. Acc.+7','Enh. Mag. eff. dur. +14',}}
 	    back="Ghostfyre Cape"
 	}
 
@@ -469,9 +482,9 @@ function precast(spell)
 		end
 	elseif string.find(spell.type,'WeaponSkill') then
 		if spell.english == "Seraph Blade"  then
-			equip(sets.WS.SeraphBlade)
+			equip(check_orpheus(sets.WS.SeraphBlade))
 		elseif spell.english == "Sanguine Blade" then	
-			equip(sets.WS.SanguineBlade)
+			equip(check_orpheus(sets.WS.SanguineBlade))
 		elseif spell.english == "Savage Blade" then
 			equip(sets.WS.SavageBlade)
 		elseif  spell.english == "Black Halo" then
@@ -522,7 +535,6 @@ function midcast(spell)
 				
 			--Spell-specific buff sets
 			elseif string.find(spell.english,'Phalanx') and spell.target.type == "SELF" and not buffactive['accession'] then
-				add_to_chat(140, "Phalanx")
 				equip(set_combine(sets.midcast.EnhancingMagic.Duration, sets.Phalanx))
 			elseif string.find(spell.english, 'Gain') then
 				equip(sets.midcast.EnhancingMagic.Gain)
@@ -537,7 +549,6 @@ function midcast(spell)
 
 			--Duration - affected by composure
 			elseif buffactive['composure'] and spell.target.type == 'PLAYER' then
-				add_to_chat(140,'PLAYER')
 				equip(sets.midcast.EnhancingMagic.Composure)
 			else
 				equip(sets.midcast.EnhancingMagic.Duration)
@@ -602,6 +613,13 @@ function equip_Idle()
     equip(sets.Idle[sets.Idle.index[Idle_ind]])
 end
 
+
+function check_orpheus(set)
+	if (player.inventory["Orpheus's Sash"]) then
+		return set_combine(set, {waist="Orpheus's Sash"})
+	end
+	return set
+end
 
 -- Status Change - ie. Resting
 function status_change(new,tab)
@@ -686,9 +704,9 @@ end
 
 function buff_change(buff, gain)
     if (gain) then
-        add_to_chat(140, "Gained "..buff)
+        windower.add_to_chat(30, "Gained "..buff)
     else
-        add_to_chat(140, "Lost "..buff)
+        windower.add_to_chat(28, "Lost "..buff)
     end
 end
 

@@ -29,8 +29,8 @@ nukingStaff = "Raetic"
 function get_sets()
 
 	sets.nukingStaves = {}
-	sets.nukingStaves.Raetic = "Raetic Staff +1"
-	sets.nukingStaves.Grioavolr = { name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}}
+	-- sets.nukingStaves.Raetic = {main="Raetic Staff +1"}
+	sets.nukingStaves.Grioavolr = { main={name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}}}
 
 	sets.Reive = {neck="Arciela's Grace +1"}
 	
@@ -64,7 +64,8 @@ function get_sets()
 		neck="Republican Platinum Medal",
 		waist="Grunfeld Rope",
 		ear1="Moonshade Earring",
-		ear2="Brutal Earring",
+		ear2="Ishvara Earring",
+		ring1="Petrov Ring",
 		ring2="Apate Ring",
 		ammo="Oshasha's Treatise",
 		back={ name="Nantosuelta's Cape", augments={'MND+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}}
@@ -93,40 +94,33 @@ function get_sets()
     sets.Idle.index = {"Standard", "DamageTaken", "PetRegen"}
 
 	sets.Idle.Standard = {main="Idris", sub="Genmei Shield", ranged="Dunna", 
-		head="Azimuth Hood +2", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Odnowa Earring +1", 
-		body="Azimuth Coat +2", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Dark Ring", 
+		head="Azimuth Hood +3", neck="Sibyl Scarf", ear1="Etiolation Earring", ear2="Odnowa Earring +1", 
+		body="Azimuth Coat +3", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Gelatinous Ring +1",
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
-	    -- main="Malignance Pole",
-	    -- sub="Alber Strap",
-	    range={ name="Dunna", augments={'MP+19','Mag. Acc.+9','"Fast Cast"+2',}},
+	    range="Dunna",
 	    head="Nyame Helm",
-	    -- body="Mallquis Saio +2",
 	    body="Nyame Mail",
 	    hands="Geo. Mitaines +3",
-	    -- legs={ name="Telchine Braconi", augments={'Mag. Acc.+23','Pet: "Regen"+3','Pet: Damage taken -4%',}},
 	    legs="Nyame Flanchard",
-	    -- feet="Nyame Sollerets",
 		feet="Bagua Sandals +3",
 	    neck={ name="Bagua Charm +1", augments={'Path: A',}},
 	    waist="Isa Belt",
 	    left_ear="Etiolation Earring",
 	    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 	    left_ring="Defending Ring",
-	    right_ring={ name="Dark Ring", augments={'Magic dmg. taken -3%','Breath dmg. taken -5%','Phys. dmg. taken -6%',}},
+	    right_ring="Gelatinous Ring +1",
 	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	})
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
-		head="Azimuth Hood +2",
+		head="Azimuth Hood +3",
 		neck="Bagua Charm +1",
-		-- body="Mallquis Saio +2", 
 		body="Nyame Mail",
 		hands="Telchine Gloves",
-	    -- back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
@@ -140,18 +134,17 @@ function get_sets()
 	sets.precast = {}
 	sets.midcast = {}
 
-	sets.precast.FastCast = { main="Solstice", sub="Genmei Shield", 
-		head="Merlinic Hood", neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Merlinic Jubbah",hands="Repartie Gloves",ring1="Kishar Ring",ring2="Rahab Ring",
-		back={ name="Nantosuelta's Cape", augments={'"Fast Cast"+10',}},waist="Witful Belt",legs="Geomancy Pants +1",feet="Merlinic Crackows"}
+	sets.precast.FastCast = { 
+		-- main="Solstice", 
+		main="Marin Staff +1",
+		sub="Clerisy Strap +1",
+		-- sub="Genmei Shield", 
+		-- head="Merlinic Hood", 
+		head="Nahtirah Hat",
+		neck="Orunmila's Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
+		body="Merlinic Jubbah",hands="Merlinic Dastanas",ring1="Kishar Ring",ring2="Rahab Ring",
+		back={ name="Nantosuelta's Cape", augments={'"Fast Cast"+10',}},waist="Witful Belt",legs="Geomancy Pants +3",feet="Merlinic Crackows"}
 	
-	sets.precast.FastCure = set_combine(sets.precast.FastCast, {
-		ring2="Rahab Ring", 
-		-- back="Disperser's Cape",
-		waist="Witful Belt",
-		legs="Geomancy Pants +1"
-	})
-
 	sets.precast.Dispelga = set_combine(sets.precast.FastCast, {main="Daybreak"})
 		
 	sets.midcast.EnfeeblingMagic = {
@@ -159,14 +152,15 @@ function get_sets()
 	    sub="Niobid Strap",
 	    ammo="Pemphredo Tathlum",
 	    head={ name="Merlinic Hood", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+3','Mag. Acc.+11','"Mag.Atk.Bns."+10',}},
-	    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+27','Attack+6','Quadruple Attack +2','Accuracy+4 Attack+4','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
-	    hands="Azimuth Gloves +1",
+	    body="Azimuth Coat +3",
+	    hands="Azimuth Gloves +3",
 	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
 	    feet="Jhakri Pigaches +2",
 	    neck="Erra Pendant",
 	    waist="Luminary Sash",
 	    left_ear="Digni. Earring",
-	    right_ear="Barkaro. Earring",
+	    -- right_ear="Barkaro. Earring",
+		right_ear="Regal Earring",
 	    left_ring="Kishar Ring",
 	    right_ring="Vertigo Ring",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
@@ -178,20 +172,20 @@ function get_sets()
 	})
 
 	sets.midcast.ElementalMagic = {
-	    main="Grioavolr",
-	    sub="Niobid Strap",
-	    ammo="Pemphredo Tathlum",
-	    head="Azimuth Hood +2",
-	    body={ name="Merlinic Jubbah", augments={'"Mag.Atk.Bns."+27','Attack+6','Quadruple Attack +2','Accuracy+4 Attack+4','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
-	    hands="Jhakri Cuffs +2",
-	    legs="Azimuth Tights +2",
+	    main="Marin Staff +1",
+	    sub="Enki Strap",
+	    ammo="Sroda Tathlum",
+	    head="Azimuth Hood +3",
+	    body="Azimuth Coat +3",
+	    hands="Azimuth Gloves +3",
+	    legs="Azimuth Tights +3",
 	    feet="Azimuth Gaiters +3",
-	    neck="Sanctity Necklace",
-	    waist="Refoccilation Stone",
+		neck="Sibyl Scarf",
+		waist="Sacro Cord",
 	    left_ear="Malignance Earring",
-	    right_ear="Barkaro. Earring",
+		right_ear="Regal Earring",
 	    left_ring="Freke Ring",
-	    right_ring="Shiva Ring",
+	    right_ring="Metamorph Ring +1",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
 		
@@ -203,12 +197,17 @@ function get_sets()
 		-- waist="Cascade Belt"
 	}
 		
-	sets.midcast.IndiSpells = {main="Idris",
-	head="Azimuth Hood +2", neck="Bagua Charm +1",
-	body="Azimuth Coat +2",	hands="Azimuth Gloves +1", 
+	sets.midcast.IndiSpells = {
+		-- main="Idris",
+	head="Azimuth Hood +3", neck="Bagua Charm +1",
+	body="Azimuth Coat +3",	hands="Azimuth Gloves +3", 
 	back="Lifestream Cape", legs="Bagua Pants +3",feet="Azimuth Gaiters +3"}
 	
-	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {head="Bagua Galero +2",legs="Azimuth Tights +2"})
+		sets.midcast.IndiSelf = set_combine(sets.midcast.IndiSpells, {
+			main="Idris"
+		})
+
+	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSelf, {head="Bagua Galero +2",legs="Azimuth Tights +3"})
 
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
 			-- head="Gendewitha Caubeen",
@@ -275,24 +274,7 @@ function precast(spell)
 		return
 	end
 	if string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') or string.find(spell.type, 'Geomancy') then
-		if string.find(spell.skill,'Healing Magic') then
-			if string.find(spell.english, 'Cur') then 
-				equip(sets.precast.FastCure)
-				--send_command('input /echo "Cure"')
-			else		
-				equip(sets.precast['FastCast'])
-				--send_command('input /echo "FC"')
-			end
-		else		
-			equip(sets.precast['FastCast'])
-			--send_command('input /echo "FC"')
-		end
-		if string.find(spell.skill,'Enhancing Magic') then
-			equip({waist="Siegel Sash"})
-			if string.find(spell.english,'Stoneskin') then
-				equip({head="Umuthi Hat"})
-			end
-		end
+		equip(sets.precast['FastCast'])
 	end
 	if (string.find(spell.type,'Trust')) then
 		equip(sets.precast['FastCast'])
@@ -351,7 +333,11 @@ function midcast(spell)
 		end
 	elseif string.find(spell.type, 'Geomancy') then
 		if string.find(spell.english, 'Indi') then
-			set = set_combine(sets.midcast.IndiSpells, {})
+			if (spell.target.type == "SELF") then
+				set = sets.midcast.IndiSelf
+			else 
+				set = set_combine(sets.midcast.IndiSpells, {})
+			end
 		else
 			set = set_combine(sets.midcast.GeoSpells, {})
 		end

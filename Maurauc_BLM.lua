@@ -51,7 +51,7 @@ function get_sets()
     sets.Idle.index = {"Standard", "PDT", "PDTMove", "HighMP"}
 
     sets.availableWeapons = {
-        main = "Lathi",
+        -- main = "Lathi",
         sub = "Marin Staff +1",
         ammo = "Grioavolr"
     }
@@ -72,7 +72,8 @@ function get_sets()
 
     sets.Idle.HighMP = set_combine(sets.Idle.Standard, { ammo="Strobilus",
         head="Pixie Hairpin +1", body="Amalric Doublet +1", hands="Amalric Gages +1", legs="Amalric Slops +1", feet="Amalric Nails +1",
-        neck="Dualism Collar", ear1="Etiolation Earring", ear2="Loquacious Earring", ring1="Mephitas's Ring +1", ring2="Mephitas's Ring",
+        -- neck="Dualism Collar", 
+        ear1="Etiolation Earring", ear2="Loquacious Earring", ring1="Mephitas's Ring +1", ring2="Mephitas's Ring",
         back="Bane Cape", waist="Sacro Cord"})
         
     sets.Idle.DeathIdle = set_combine(sets.Idle.Standard, {})
@@ -83,7 +84,9 @@ function get_sets()
         back="Swith Cape",waist="Embla Sash",legs="Psycloth Lappas", feet="Amalric Nails +1"}
 
     sets.precast.FastCastHighMP = set_combine(sets.precast.FastCast, {
-        body="Amalric Doublet +1",hands="Amalric Gages +1", ring2="Mephitas's Ring",back="Bane Cape",legs="Amalric Slops +1",waist="Mujin Obi"})
+        body="Amalric Doublet +1",hands="Amalric Gages +1", ring2="Mephitas's Ring",back="Bane Cape",legs="Amalric Slops +1",
+        -- waist="Mujin Obi"
+    })
     
     sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
 
@@ -163,18 +166,18 @@ function get_sets()
     })
 
     sets.midcast.ElementalMagic.OccultAcumen = {
-        ammo="Seraphic Ampulla",
-        head="Mallquis Chapeau +1",
-        body="Spaekona's Coat +3",  
-        hands="Ea Cuffs",
-        legs="Perdition Slops",
-        feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
-        neck="Lissome Necklace",
-        waist="Oneiros Rope",
-        left_ear="Tripudio Earring",
-        right_ear="Telos Earring",
-        left_ring="Rajas Ring",
-        right_ring="Petrov Ring",
+        -- ammo="Seraphic Ampulla",
+        -- head="Mallquis Chapeau +1",
+        -- body="Spaekona's Coat +3",  
+        -- hands="Ea Cuffs",
+        -- legs="Perdition Slops",
+        -- feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
+        -- neck="Lissome Necklace",
+        -- waist="Oneiros Rope",
+        -- left_ear="Tripudio Earring",
+        -- right_ear="Telos Earring",
+        -- left_ring="Rajas Ring",
+        -- right_ring="Petrov Ring",
     }
 
     sets.midcast.NukeMPRestore = {body = "Spaekona's Coat +3"}
@@ -191,8 +194,8 @@ function get_sets()
         -- main="Lathi",
         sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head=MerlinicHoodNuke,neck="Voltsurge Torque",ear1="Digni. Earring",ear2="Malignance Earring",
-        body="Wicce Coat +3",hands="Lurid Mitts",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
-        back="Swith Cape",waist="Witful Belt",legs="Merlinic Shalwar",feet=MerlinicFeetNuke}
+        body="Wicce Coat +3",hands="Volte Gloves",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
+        back="Swith Cape",waist="Cornelia's Belt",legs="Merlinic Shalwar",feet=MerlinicFeetNuke}
 
     sets.midcast.Cure = {main="Tamaxchi",sub="Genbu's Shield",ammo="Hydrocera",
         neck="Voltsurge Torque",ear2="Novia Earring",
@@ -240,7 +243,8 @@ function get_sets()
     sets.ManaWall = {back=TaranusMP, feet="Wicce Sabots +2"}
         
     sets.midcast.DeathMagicBurst = {
-    main={ name="Lathi", augments={'MP+80', 'INT+20','"Mag.Atk.Bns."+20'}}, sub="Enki Strap",  ammo="Strobilus",
+    -- main={ name="Lathi", augments={'MP+80', 'INT+20','"Mag.Atk.Bns."+20'}}, sub="Enki Strap",  
+    ammo="Strobilus",
     head="Pixie Hairpin +1",   body="Amalric Doublet +1",
     hands={ name="Amalric Gages +1"},  legs="Amalric Slops +1",
     feet=MerlinicFeetBurst,
@@ -267,15 +271,29 @@ function get_sets()
 
     sets.Melee = {    
         ammo="Vanir Battery",
-        head="Jhakri Coronal +2",
-        body="Onca Suit",
-        neck="Sanctity Necklace",
-        waist="Cetl Belt",
+        head="Nyame Helm",
+        body="Volte Jupon",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Lissome Necklace",
+        waist="Cornelia's Belt",
         left_ear="Telos Earring",
-        right_ear="Cessance Earring",
-        left_ring="Cacoethic Ring",
+        right_ear="Tripudio Earring",
+        left_ring="Chirich Ring +1",
         right_ring="Petrov Ring",
-        back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
+        -- back={ name="Taranus's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Damage taken-5%',}},
+    }
+
+    sets.WS = {
+        head="Nyame Helm",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        waist="Fotia Belt",
+        neck="Fotia Gorget",
+        ring1="Epaminondas's Ring",
+        ring2="Cornelia's Ring"
     }
 
     sets.midcast.Ja = {
@@ -314,6 +332,14 @@ end
 -- --- Precast ---
 
 function precast(spell)
+    if (spell.type == "WeaponSkill" or spell.action_type == "WeaponSkill") then
+        if spell.english == 'Myrkr' then
+            equip(sets.WS.Myrkr)
+        else
+            equip(sets.WS)
+        end
+        return
+    end
 if (sets.Idle.index[Idle_Index] == "HighMP") then
     if spell.english == 'Myrkr' then
         equip(sets.WS.Myrkr)
@@ -336,7 +362,7 @@ else
         if spell.english == 'Myrkr' then
             equip(sets.WS.Myrkr)
         else
-            equip(sets.Melee)
+            equip(sets.WS)
         end
     end
     if spell.english == 'Mana Wall' then
@@ -346,6 +372,9 @@ end
 end
 -- --- MidCast ---
 function midcast(spell)
+    if (spell.type == "WeaponSkill") then
+        return
+    end
     if spell.english == 'Mana Wall' then
         return
     end

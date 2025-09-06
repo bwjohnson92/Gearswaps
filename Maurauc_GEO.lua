@@ -33,7 +33,7 @@ AF.Head = "Geomancy Galero +2"
 AF.Body = "Geomancy Tunic +1"
 AF.Hands = "Geomancy Mitaines"
 AF.Legs = "Geomancy Pants"
-AF.Feet = "Geomancy Sandals +2"
+AF.Feet = "Geomancy Sandals +3"
 
 Relic = {}
 Relic.Head = "Bagua Galero +2"
@@ -43,40 +43,37 @@ Relic.Legs = "Bagua Pants +2"
 Relic.Feet = "Bagua Sandals +3"
 
 Empyrean = {}
-Empyrean.Head = "Azimuth Hood +2"
-Empyrean.Body = "Azimuth Coat"
-Empyrean.Hands = "Azimuth Gloves"
-Empyrean.Legs = "Azimuth Tights"
-Empyrean.Feet = "Azimuth Gaiters +1"
-
-nukingStaff = "Raetic"
+Empyrean.Head = "Azimuth Hood +3"
+Empyrean.Body = "Azimuth Coat +2"
+Empyrean.Hands = "Azimuth Gloves +2"
+Empyrean.Legs = "Azimuth Tights +3"
+Empyrean.Feet = "Azimuth Gaiters +3"
 
 function get_sets()
-
-	sets.nukingStaves = {}
-	sets.nukingStaves.Raetic = "Raetic Staff +1"
-	sets.nukingStaves.Grioavolr = { name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}}
 
 	sets.Reive = {neck="Arciela's Grace +1"}
 	
 	sets.Melee = {
+
+		main="Maxentius",
+		sub="Genmei Shield",
+
 	    head="Nyame Helm",
 	    body="Jhakri Robe +2",
 	    hands="Nyame Gauntlets",
 	    legs="Nyame Flanchard",
 	    feet="Nyame Sollerets",
 	    neck="Clotharius Torque",
-	    waist="Cetl Belt",
+	    waist="Cornelia's Belt",
 	    left_ear="Digni. Earring",
 	    right_ear="Ishvara Earring",
 	    left_ring="Rajas Ring",
-	    right_ring="K'ayres Ring",
-	    back={ name="Lifestream Cape", augments={'Geomancy Skill +7','Indi. eff. dur. +17','Pet: Damage taken -4%',}},
+	    right_ring="Petrov Ring",
 	}
 
 	sets.WS = {
 		head="Nyame Helm",
-	    body="Jhakri Robe +2",
+	    body="Nyame Mail",
 	    hands="Nyame Gauntlets",
 	    legs="Nyame Flanchard",
 	    feet="Nyame Sollerets",
@@ -85,7 +82,7 @@ function get_sets()
 		left_ear="Ishvara Earring",
 		right_ear="Cessance Earring",
 		left_ring="Metamorph Ring +1",
-		right_ring="Epaminondas's Ring"
+		right_ring="Cornelia's Ring"
 	}
 
 	sets.Idle = {}
@@ -124,15 +121,13 @@ function get_sets()
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
 		main="Idris", sub="Genmei Shield",
 		head=Empyrean.Head,
-		-- head="Telchine Cap",
-		neck="Bagua Charm +1",
+		neck="Bagua Charm +2",
 		body="Telchine Chasuble", 
 		hands="Telchine Gloves",
     	back=capeRegen,
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
 		feet=Relic.Feet,
-		feet="Telchine Pigaches",
 		lear="Handler's Earring +1",
 		rear="Handler's Earring"
 	})
@@ -142,40 +137,33 @@ function get_sets()
 	sets.precast = {}
 	sets.midcast = {}
 
-	sets.precast.FastCast = { main="Idris", sub="Genmei Shield", 
+	sets.precast.FastCast = { main="Grioavolr", sub="Clerisy Strap", 
 		head="Nahtirah Hat", neck="Voltsurge Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Shango Robe",hands="Volte Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
-		back="Swith Cape",waist="Embla Sash",legs="Psycloth Lappas",feet="Merlinic Crackows"}
-	
-	sets.precast.FastCure = set_combine(sets.precast.FastCast, {	ear2="Loquacious Earring",
-		ring2="Rahab Ring",	back="Disperser's Cape",waist="Witful Belt",legs=AF.Legs})
-
-	--sets.Melee = {main="Buramenk'ah",sub="Genmei Shield",
-	--	head="Umuthi Hat",neck="Asperity Necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-	--	body="Artsieq Jubbah",hands="Umuthi Gloves", 
-	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
+		back="Fi Follet Cape +1",waist="Embla Sash",legs="Psycloth Lappas",feet="Merlinic Crackows"}
 		
 	sets.midcast.EnfeeblingMagic = {
 	    main="Contemplator +1",
-	    sub="Niobid Strap",
+	    sub="Enki Strap",
 	    ammo="Pemphredo Tathlum",
-	    head="Amalric Coif +1",
-	    body="Amalric Doublet +1",
+	    head=Empyrean.Head,
+	    body=Empyrean.Body,
+		hands=Empyrean.Hands,
 	    legs="Psycloth Lappas",
-	    feet="Jhakri Pigaches +2",
-	    neck="Erra Pendant",
+	    feet=Relic.Feet,
+	    neck="Sanctity Necklace",
 	    waist="Luminary Sash",
 	    left_ear="Digni. Earring",
-	    right_ear="Barkaro. Earring",
+	    right_ear="Malignance Earring",
 	    left_ring="Kishar Ring",
 	    right_ring="Weatherspoon Ring +1",
-	    back="Pahtli Cape"
+	    back=capeNuke
 	}
 
 	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap",
-		head=MerlinicHoodNuke,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
-		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Metamorph Ring +1",
-		back=capeNuke,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Amalric Nails +1"
+		head=Empyrean.Head,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Regal Earring",
+		body=Empyrean.Body,hands=Empyrean.Hands,ring1="Freke Ring",ring2="Metamorph Ring +1",
+		back=capeNuke,waist="Sacro Cord",legs=Empyrean.Legs,feet=Empyrean.Feet
 	}
 	--sets.midcast.Stun = {main="Twebuliij",sub="Benthos Grip",ammo="Plumose Sachet",
 		--head="Atrophy Chapeau +1",neck="Voltsurge Torque",ear1="Lifestorm Earring",ear2="Psystorm Earring",
@@ -184,13 +172,12 @@ function get_sets()
 		
 	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",neck="Colossus's Torque",ear1="Lifestorm Earring",ear2="Loquacious Earring",
-		ring2="Rahab Ring",
 		waist="Cascade Belt"}
 
 		
 	sets.midcast.IndiSpells = {
-		main="Idris",range="Dunna",
-		head=Empyrean.Head, neck="Bagua Charm +1",
+		main="Idris",sub="Genmei Shield",range="Dunna",
+		head=Empyrean.Head, neck="Bagua Charm +2",
 		body=Empyrean.Body,	hands=Empyrean.Hands, 
 		back="Lifestream Cape", legs=Relic.Legs,feet=Empyrean.Feet
 	}
@@ -198,11 +185,11 @@ function get_sets()
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs=Empyrean.Legs})
 
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
-			head="Gendewitha Caubeen",neck="Fylgja Torque",lear="Novia Earring",
-			body="Annointed Kalasiris",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
-			back="Pahtli Cape",waist="Porous Rope",legs="Gyve Trousers",feet="Medium's Sabot"}
+			neck="Fylgja Torque",lear="Novia Earring",
+			body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
+			back="Pahtli Cape",waist="Luminary Sash",feet="Medium's Sabots"}
 		
-	sets.TH = {waist="Chaac Belt"}
+	sets.TH = {body="Volte Jupon",ammo="Perfect Lucky Egg",waist="Chaac Belt"}
 
 	sets.JA = {}
 	sets.JA["Bolster"] = {body=Relic.Body}
@@ -255,6 +242,7 @@ function addTextPairs()
 end
 
 function updateTable()
+	addToTable("(F9} TH Set\n")
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
     update_message()
 end
@@ -263,27 +251,11 @@ end
 function precast(spell)
 	if (spell.english == "Dispelga") then
 		equip(set_combine(sets.precast.FastCast, {main="Daybreak"}))
-	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') or string.find(spell.type, 'Geomancy') then
-		if string.find(spell.skill,'Healing Magic') then
-			if string.find(spell.english, 'Cur') then 
-				equip(sets.precast.FastCure)
-				--send_command('input /echo "Cure"')
-			else		
-				equip(sets.precast['FastCast'])
-				--send_command('input /echo "FC"')
-			end
-		else		
-			equip(sets.precast['FastCast'])
-			--send_command('input /echo "FC"')
-		end
-		if string.find(spell.skill,'Enhancing Magic') then
-			equip({waist="Siegel Sash"})
-			if string.find(spell.english,'Stoneskin') then
-				equip({head="Umuthi Hat"})
-			end
-		end
-	end
-	if (string.find(spell.type,'Trust')) then
+	elseif (string.find(spell.type,'WhiteMagic') 
+		or string.find(spell.type,'BlackMagic') 
+		or string.find(spell.type, 'Geomancy')
+		or string.find(spell.type,'Trust')) then
+		
 		equip(sets.precast['FastCast'])
 	end
 	if (string.find(spell.type:lower(), 'ability')) then
@@ -302,6 +274,8 @@ function midcast(spell)
 	set = {}
 	if (spell.english == "Dispelga") then
 		equip(set_combine(sets.midcast.EnfeeblingMagic, {main="Daybreak"}))
+	elseif (spell.english == "Flash") then
+		equip(sets.TH)
 	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
 		if string.find(spell.skill,'Healing Magic') then
 			if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
@@ -340,7 +314,7 @@ function midcast(spell)
 		
 	end
 	if nextTH then
-		equip(set_combine(set, {waist="Chaac Belt"}))
+		equip(set_combine(set, sets.TH))
 		nextTH = false
 	else
 		equip(set)
@@ -394,6 +368,9 @@ function self_command(command)
         if Idle_Index > #sets.Idle.index then Idle_Index = 1 end
         add_to_chat(140, '<----- Idle Set changed to '..sets.Idle.index[Idle_Index]..' ----->')
         equip_idle()
+	elseif command == 'nextTH' then
+		nextTH = true
+		add_to_chat(140, "TH active")
 	end
     updateTable()
 end

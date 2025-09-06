@@ -26,18 +26,34 @@ perpOn = false
 
 skillchains = {}
 skillchains.Index = 1
-skillchains.SC = {"Fusion", "Fragmentation", "Distortion", "Gravitation"}
+skillchains.Step = 0
+skillchains.SC = {
+    "Induration",
+    "Scission",
+    "ThreeStepFusion",
+    "Fusion",
+     "Fragmentation",
+     "Distortion",
+     "Gravitation"
+}
+-- skillchains.SC = {"Induration", "Fusion"}
 
-skillchains.Fusion = {"Fire", "Thunder"}
+
+currentSC = {}
+
+skillchains.ThreeStepFusion = {"Thunder", "Fire", "Ionohelix"}
+skillchains.Fusion = {"Fire", "Ionohelix"}
 skillchains.Fragmentation = {"Blizzard", "Water"}
 skillchains.Distortion = {"Luminohelix", "Stone"}
 skillchains.Gravitation = {"Aero", "Noctohelix"}
+skillchains.Induration = {"Water", "Blizzard"}
+skillchains.Scission = {"Aero", "Stone"}
 
-sc_state = 0
+
+sc_active = false
 
 stikini1={name="Stikini Ring +1", bag="wardrobe2"}
 stikini2={name="Stikini Ring +1", bag="wardrobe3"}
-
 
 function get_sets()
 
@@ -47,8 +63,11 @@ function get_sets()
 
     sets.aftercast.Idle = {main="Bolelabunga",sub="Genmei Shield", ammo="Homiliary",
         head="Nyame Helm",neck="Sibyl Scarf",ear1="Etiolation Earring",ear2="Static Earring",
-        body="Arbatel Gown +2",hands="Volte Gloves",ring1="Defending Ring",ring2="Stikini Ring +1",
-        back="Moonbeam Cape",waist="Fucho-no-obi",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+        body="Arbatel Gown +3",hands="Volte Gloves",ring1="Defending Ring",ring2="Stikini Ring +1",
+        back="Moonbeam Cape",waist="Fucho-no-obi",legs="Nyame Flanchard",
+        -- feet="Nyame Sollerets"
+        feet="Herald's Gaiters"
+    }
         
     sets.precast.FastCast = {main="Marin Staff +1", sub="Clerisy Strap",ammo="Incantor Stone",
         head="Amalric Coif +1" ,neck="Voltsurge Torque", ear1="Loquacious Earring", ear2="Malignance Earring",
@@ -57,17 +76,17 @@ function get_sets()
            
     sets.midcast.EnfeeblingMagic = {main="Contemplator +1",sub="Clerisy Strap",ammo="Hydrocera",
         head="Arbatel Bonnet +3",neck="Imbodla Necklace",ear1="Dignitary's Earring",ear2="Barkarole Earring",
-        body="Vanya Robe",hands="Arbatel Bracers +2", ring1="Stikini Ring +1", ring2="Weatherspoon Ring +1",
-        back="Ghostfyre Cape",waist="Rumination Sash",legs="Psycloth Lappas",feet="Arbatel Loafers +3"}
+        body="Vanya Robe",hands="Arbatel Bracers +3", ring1="Stikini Ring +1", ring2="Weatherspoon Ring +1",
+        back="Ghostfyre Cape",waist="Rumination Sash",legs="Arbatel Pants +3",feet="Arbatel Loafers +3"}
 
     sets.midcast.ElementalMagic = { 
         main="Marin Staff +1",
         sub="Enki Strap",
         ammo="Pemphredo Tathlum",
         head="Arbatel Bonnet +3",
-        body="Arbatel Gown +2",
-        hands="Arbatel Bracers +2",
-        legs="Arbatel Pants +2",
+        body="Arbatel Gown +3",
+        hands="Arbatel Bracers +3",
+        legs="Arbatel Pants +3",
         feet="Arbatel Loafers +3",
         neck="Sanctity Necklace",
         waist="Sacro Cord",
@@ -77,6 +96,19 @@ function get_sets()
         right_ring="Freke Ring",
         back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+5','"Mag.Atk.Bns."+10',}}
     }      
+
+    sets.midcast.MagicBurst = {
+        neck="Mizukage-no-Kubikazari", --10
+        head="Pedagogy Mortarboard +3",
+        hands="Arbatel Bracers +3", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
+        legs="Agwu's Slops",
+        feet="Arbatel Loafers +3"} --5, 9 
+
+    sets.TH = {
+        body="Volte Jupon",
+        ammo="Perfect Lucky Egg",
+        waist="Chaac Belt"
+    }
 
     sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
         
@@ -100,25 +132,16 @@ function get_sets()
     sets.midcast.Cure = {
         main="Malignance Pole",sub="Khonsu",ammo="Hydrocera",
         head="Kaykaus Mitra +1",neck="Loricate Torque +1",
-        body="Arbatel Gown +2",
+        body="Arbatel Gown +3",
         hands="Kaykaus Cuffs +1",ring1="Stikini Ring +1",ring2="Naji's Loop",
         back="Solemnity Cape",waist="Embla Sash",legs="Kaykaus Tights +1",feet="Medium's Sabots"}
-
-    sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
-        head="Pedagogy Mortarboard +3",
-        body=MerlinicBodyBurst,hands="Arbatel Bracers +2", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
-        legs="Agwu's Slops",
-        feet="Arbatel Loafers +3"} --5, 9 
-        
-        --Relic Head, AF Body, Empy Hands, Agwu Legs, Empy Feet
-
 
     sets.precast.Impact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
     sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak"}) 
     
     sets.TabulaRasa = {legs="Pedagogy Pants"}
     
-    sets.Perpetuance = {hands="Arbatel Bracers +2"}
+    sets.Perpetuance = {hands="Arbatel Bracers +3"}
     
     sets.Klimaform = {feet="Arbatel Loafers +3"}
 
@@ -139,7 +162,7 @@ function get_sets()
 
     send_command('bind f9 gs c switch sc')
     send_command('bind f11 gs c switch mb')
-    send_command('bind f12 gs c scnuke')
+    send_command('bind f12 gs c startsc')
 
 	updateTable()
 end
@@ -149,6 +172,7 @@ function updateTable()
 	-- addToTable("(F10) MP Body", MPBodyEquipToggle)
 	addToTable("(F11) MB Set", MBSet)
     addToTable("(F12) Start Skillchain")
+    addToTable("\nTH Set", "Poison")
 	-- addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
 	-- addToTable("(END) Weapon Locked", weaponLocked)
 	update_message()
@@ -182,6 +206,8 @@ end
 function midcast(spell)
     if (spell.name == "Impact") then
         equip(sets.midcast.Impact)
+    elseif (spell.name == "Poison")  then
+        equip(sets.TH)
     elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
         if string.find(spell.skill,'Healing Magic') then
             if string.find(spell.english, 'Cura') or string.find(spell.english, 'Cure') then 
@@ -203,11 +229,7 @@ function midcast(spell)
             equip(sets.midcast.EnfeeblingMagic) 
             
         elseif string.find(spell.skill,'Elemental Magic') then
-            if(MPSet) then
-                equip(use_MB(use_obi(spell, sets.midcast.ElementalMagicMP)))
-            else
-                equip(use_MB(use_obi(spell, sets.midcast.ElementalMagic)))
-            end
+            equip(use_MB(use_obi(spell, sets.midcast.ElementalMagic)))
         else
             equip(sets.precast.FastCast)
         end
@@ -220,13 +242,15 @@ end
 function aftercast(spell)
 
     if (spell.interrupted == true) then
-        sc_state = 0
+        sc_active = false
     end
 
-    if (sc_state == 4) then
-        sc_state = 0
-    elseif (sc_state > 0 ) then
-        send_command('wait 1.5;gs c scnuke')
+    if (sc_active) then
+        time = 1.2
+        if (spell.english ~= "Immanence") then
+            time = 3.2
+        end
+        send_command('wait '..time..';gs c scnuke')
     end
 
     equip(sets.aftercast.Idle)
@@ -274,40 +298,38 @@ function self_command(command)
     end
 
     if command == 'switch sc' then
+        sc_active = false
     	skillchains.Index = skillchains.Index +1
     	if skillchains.Index > #skillchains.SC then skillchains.Index = 1 end
     end
 
+    if string.find(command,'startsc') then
+        currentSC = {}
+        skillchain = skillchains[skillchains.SC[skillchains.Index]]
+        for index = 1, #skillchain do
+            table.insert(currentSC, "Immanence")
+            table.insert(currentSC, skillchain[index])
+        end
+        skillchains.Step = 1
+        command = 'scnuke'
+    end
+
     if string.find(command,'scnuke') then
         if (not (buffactive['Dark Arts'] or buffactive['Addendum: Black'])) then
+            add_to_chat(130, "Missing Dark Arts")
             return
         end
-        add_to_chat(140, "State of sc_state is "..sc_state)
-    	local nuke
-        if ((sc_state == 0 or sc_state == 2) and buffactive['immanence']) then
-            sc_state = sc_state + 1
-            add_to_chat(140, "Immanence active, moving to next step")
+        currentAction = table.remove(currentSC, 1)
+        if (currentAction == "Immanence") then 
+        else
+            send_command('input /p Skillchain - Step '..skillchains.Step)
+            skillchains.Step = skillchains.Step + 1
         end
-        if (sc_state == 0) then
-            send_command('input /ja "Immanence" <me>')
-            sc_state = sc_state + 1
-            return
+        send_command(currentAction)
+        sc_active = true
+        if (#currentSC == 0) then
+            sc_active = false
         end
-        if (sc_state == 2) then
-            send_command('wait 2;input /ja "Immanence" <me>')
-            sc_state = sc_state + 1
-            return
-        end
-    	if (sc_state == 1) then
-    		nuke = skillchains[skillchains.SC[skillchains.Index]][1]
-            sc_state = 2
-    	elseif (sc_state == 3) then
-    		nuke = skillchains[skillchains.SC[skillchains.Index]][2]
-            sc_state = 4
-    	else
-    		return
-    	end
-    	send_command('input /ma "'..nuke..'" <t>')    	
     end
 
     if (string.find(command,'state')) then

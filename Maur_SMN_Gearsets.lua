@@ -214,6 +214,11 @@ function get_sets()
         ammo="Sancus Sachet +1",
     }
     sets.me["Garland of Bliss"] = {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         ammo="Sancus Sachet +1",
     }
       
