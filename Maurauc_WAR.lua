@@ -315,7 +315,7 @@ function precast(spell)
 				set = sets.WS.Upheaval.HighTP
 			end
 		
-		elseif spell.englihs == "Impulse Drive" then
+		elseif spell.english == "Impulse Drive" then
 			if (player.tp < 1750) then
 				set = sets.WS["Impulse Drive"]
 			else

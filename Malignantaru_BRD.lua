@@ -17,6 +17,9 @@ allowWeaponSwap = true
 
 Instrument_Index = 1
 
+stikini1={name="Stikini Ring +1", bag="wardrobe2"}
+stikini2={name="Stikini Ring +1", bag="wardrobe3"}
+
 function get_sets()
 
     sets.Instrument = {}
@@ -32,13 +35,13 @@ function get_sets()
     sets.Idle.Standard =  {
         main="Kali",
         sub="Genmei Shield",
-        head="Inyanga Tiara +1",
+        head="Inyanga Tiara +2",
         neck="Loricate Torque +1",
-        -- ear1=""
+        ear1="Infused Earring",
         ear2="Genmei Earring",
-        body="Ayanmo Corazza +1",
-        hands="Ayanmo Manopolas",
-        feet="Ayanmo Gambieras +1",
+        body="Ayanmo Corazza +2",
+        hands="Ayanmo Manopolas +2",
+        feet="Fili Cothurnes +1",
         back="Repulse Mantle",
         waist="Flume Belt +1",
         ring1="Vocane Ring",
@@ -65,7 +68,6 @@ function get_sets()
         ear2="Darkside Earring",
         legs="Inyanga Shalwar +2",
         feet="Brioso Slippers +3",
-        back="Intarabus's Cape"
 
     }
 
@@ -73,7 +75,36 @@ function get_sets()
         ranged="Marsyas"
     }
 
-    send_command('bind end send @others input /follow Malignantaru')
+    sets.Songs = {}
+    sets.Songs.Carol = set_combine(sets.midcast.Song, {
+        hands="Mousai Gages"
+    })
+
+    sets.Songs.Scherzo = set_combine(sets.midcast.Song, {
+        feet="Fili Cothurnes +1"
+    })
+
+    sets.Songs.Madrigal = set_combine(sets.midcast.Song, {
+        back="Intarabus's Cape",
+        feet="Fili Cothurnes +1"
+    })
+
+    sets.Songs.Prelude = set_combine(sets.midcast.Song, {
+        back="Intarabus's Cape",
+        feet="Fili Cothurnes +1"
+    })
+
+    sets.Songs.Debuff = set_combine(sets.midcast.Song, {
+        head="Inyanga Tiara +2",
+        body="Inyanga Jubbah +2",
+        hands="Inyanga Dastanas +1",
+        legs="Inyanga Shalwar +2",
+        feet="Inyanga Crackows +1",
+        back="Intarabus's Cape",
+        ring1=stikini1,
+        ring2=stikini2
+    })
+
     send_command('bind f10 gs c instrument')
     text_setup()
     addNewColors()
@@ -108,6 +139,25 @@ function midcast(spell)
         if (spell.name == "Honor March") then
             inst = sets.HonorMarch.ranged
         end
+
+        set = sets.midcast.Song
+
+        if (spell.target.type == "MONSTER") then
+            set = sets.Songs.Debuff
+        end
+
+        if (string.find(spell.name, 'Carol')) then
+            set = sets.Songs.Carol
+        elseif (string.find(spell.name, 'Scherzo')) then
+            set = sets.Songs.Scherzo
+        elseif (string.find(spell.name, 'Prelude')) then
+            set = sets.Songs.Prelude
+        elseif (string.find(spell.name, 'Madrigal')) then
+            set = sets.Songs.Madrigal
+        end
+
+
+
         equip(set_combine(sets.midcast.Song, {
             ranged=inst
         }))
