@@ -169,11 +169,11 @@ function init_gear_sets()
         sets.gunAndAmmo.Crossbow = {ranged="Gastraphetes", ammo="Quelling Bolt", waist="Quelling Bolt Quiver"}
 
         -- Misc. Job Ability precasts
-        sets.precast.JA['Bounty Shot'] = {hands="Amini Glovelettes +2"}
-        sets.precast.JA['Double Shot'] = {head="Amini Gapette +1"}
+        sets.precast.JA['Bounty Shot'] = {hands="Amini Glovelettes +3"}
+        sets.precast.JA['Double Shot'] = {head="Amini Gapette +3"}
         sets.precast.JA['Camouflage'] = {body="Orion Jerkin +2"}
         sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +2"}
-        sets.precast.JA['Velocity Shot'] = {body="Amini Caban +1"}
+        sets.precast.JA['Velocity Shot'] = {body="Amini Caban +3"}
         sets.precast.JA['Scavenge'] = {feet="Orion Socks +2"}
         sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +2"}
 
@@ -183,7 +183,7 @@ function init_gear_sets()
             -- head="Uk'uxkaj Cap", 
             -- neck="Rancor Collar",
             -- back="Buquwik Cape",
-            hands="Amini Glovelettes +2",
+            hands="Amini Glovelettes +3",
             ring1="Ifrit Ring",
             ring2="Apate ring",
             -- legs="Amini Bragues +2" 
@@ -258,7 +258,7 @@ function init_gear_sets()
         -- Preshot / Snapshot sets
         ------------------------------------------------------------------
         sets.precast.RA = {
-            head="Amini Gapette +1", -- 5
+            head="Amini Gapette +3", -- 5
             neck="Scout's Gorget +1",
             body={name="Pursuer's Doublet", augments={'HP+50','Crit. hit rate+4%','"Snapshot"+6',}},-- 6
 			hands="Carmine Finger Gauntlets +1",
@@ -551,7 +551,7 @@ function init_gear_sets()
             ring2="Regal Ring",
             back="Lutian Cape",
             waist="Kwahu Kachina Belt",
-            legs="Amini Bragues +2", 
+            legs="Amini Bragues +3", 
             feet="Orion Socks +2"
         })
         sets.buff.Barrage.Mid = set_combine(sets.buff.Barrage, {})

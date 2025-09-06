@@ -38,7 +38,7 @@ function get_sets()
 
 sets.Gun = {}
 sets.Gun.index = {
-    -- "Death Penalty", 
+    "Death Penalty", 
     "Fomalhaut", 
     "Anarchy"
 }
@@ -140,15 +140,15 @@ sets.WS = {}
 
 sets.WS.SavageBlade = {
     head="Meghanada Visor +2",
-    neck="Caro Necklace",
+    neck="Republican platinum medal",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     ring1="Regal Ring", --Shukuyu
-    ring2="Ilabrat Ring", --Rufescent 
+    ring2="Epaminondas's ring", --Rufescent 
     back=capeMeleeWS,
-    waist="Grunfeld Rope", --Prosilio Belt
+    waist="Sailfi Belt", --Prosilio Belt
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
 }
@@ -189,7 +189,7 @@ sets.WS.LastStand.Accuracy = set_combine(sets.WS.LastStand, {
 })
 
 sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
-    legs="Laksamana's Trews +3",
+    legs="Laksamana's Trews +4",
     ring1="Cacoethic Ring +1", --+1
     ear1="Novia Earring",
     waist="Reiki Yotai"
@@ -251,7 +251,7 @@ sets.WS.LeadenSalute.Enmity = set_combine(sets.WS.LeadenSalute.Standard, {
     right_ear="Enervating Earring",
     left_ring="Resonance Ring",
     hands={ name="Taeon Gloves", augments={'"Mag.Atk.Bns."+19','Weapon skill damage +2%',}},
-    legs="Laksamana's Trews +3",
+    legs="Laksamana's Trews +4",
     waist="Reiki Yotai"
     })
 
@@ -286,13 +286,14 @@ sets.roll.index = {"Short", "Long", "ShortGun", "LongGun"}
 sets.roll.Short = {
     head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
     body="Lanun Frac +3",
-    hands="Chasseur's Gants +2",
+    hands="Chasseur's Gants +3",
     feet="Meg. Jam. +2",
     neck="Regal Necklace",
     waist="Flume Belt +1",
     left_ear="Etiolation Earring",
-    right_ear="Novia Earring",
+    right_ear="Novio Earring",
     right_ring="Defending Ring",
+    left_ring="Barataria Ring",    
     back=capeDT, --AMBUSCADE
 }
 
@@ -330,11 +331,7 @@ sets.WildCard = {feet="Lanun Bottes +3"}
         InstRR="Instant Reraise",
         Warp="Warp Ring",
         WarpItem="Instant Warp",
-        CP="Trizek Ring",
-        Exp="Echad Ring",
         CPMantle="Mecistopins Mantle",
-        Prism="Prism Powder",
-        Oils="Silent Oil",
         remedy="Remedy",
         Crepe="grape dafaiku",
         gun1="Fomalhaut",

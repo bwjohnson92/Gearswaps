@@ -72,8 +72,8 @@ function get_sets()
     --Idle Sets--  
     sets.Idle = {}
 
-    sets.Idle.index = {'Standard','DT'}
-    Idle_ind = 2   
+    sets.Idle.index = {'Standard','DT', "DTMove"}
+    Idle_ind = 3
 
     sets.Idle.Standard = {ammo="Ginsen",
     head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
@@ -85,29 +85,27 @@ function get_sets()
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Dark ring",ring2="Defending ring",
         back="Agema Cape",waist="Flume belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"
     }
+
+    sets.Idle.DTMove = set_combine(sets.Idle.DT, {legs="Carmine Cuisses +1"})
     --TP Sets--
     sets.TP = {}
 
-    sets.TP.index = {'Standard', 'DT',} --'Safe', 'AccuracyLite', 'AccuracyFull', 'AccuracyExtreme', 'DT', 'DTAccuracy'}
-    --1=Standard, 2=Solo, 3=Marches, 4=AccuracyLite, 5=AccuracyFull, 6=DT, 7=DTAccuracy--
+    sets.TP.index = {'Standard', 'DT',} 
     TP_ind = 2
 
     sets.TP.Standard = {
-        -- main="Sequence",
-        -- sub="Colada",
         ammo="Coiste Bodhar",
-        --head={ name="Dampening Tam", augments={'DEX+9','Accuracy+13','Mag. Acc.+14','Quadruple Attack +2',}},
-        head="Adhemar Bonnet +1",
-        body=HercBodyTP,
-        hands="Adhemar Wristbands +1",
-        legs="Samnuha Tights",
-        feet=HercFeetTP,
+        head="Malignance Chapeau",
+        body="Malignance Tabard",
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Malignance Boots",
         neck="Lissome Necklace",
         waist="Windbuffet Belt +1",
-        left_ear="Telos Earring",
-        right_ear="Brutal Earring",
+        left_ear="Suppanomimi",
+        right_ear="Telos Earring",
         left_ring="Epona's Ring",
-        right_ring="Petrov Ring",
+        right_ring="Defending Ring",
         back=CapeDEXTP,
     }
 
@@ -117,36 +115,31 @@ function get_sets()
     back=CapeDEXTP,waist="Windbuffet Belt +1",legs=HercLegsTP,feet="Malignance Boots"}
 
     --Weaponskill Sets--
-    sets.WS = {}
+    sets.WS = {
+        head="Nyame Helm",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Metamorph ring +1",
+        back=CapeWS,waist="Sailfi Belt +1",legs="Nyame Flanchard", feet="Nyame Sollerets",
+    }
 
-    sets.Requiescat = {}
+    sets.WS["Requiescat"] = {ammo="Cheruski needle",
+        head="Whirlpool mask",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
+        body="Telchine Chasuble",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Rufescent Ring",
+        back=CapeWS,waist="Fotia belt",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"
+    }
 
-    sets.Requiescat.index = {'Attack','Accuracy'}
-    Requiescat_ind = 1
-
-    sets.Requiescat.Attack = {ammo="Cheruski needle",
-    head="Whirlpool mask",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
-    body="Telchine Chasuble",hands="Qaaxo mitaines",ring1="Epona's ring",ring2="Rufescent Ring",
-    back=CapeWS,waist="Fotia belt",legs="Quiahuiz trousers",feet="Luhlaza charuqs +1"}
-
-    sets.ChantDuCygne = {}
-
-    sets.ChantDuCygne.index = {'Attack','Accuracy'}
-    ChantDuCygne_ind = 1
-
-    sets.ChantDuCygne.Attack = {ammo="Jukukik feather",
+    sets.WS["Chant Du Cygne"] = {ammo="Jukukik feather",
     head="Dampening Tam",neck="Fotia Gorget",ear1="Brutal earring",ear2="Moonshade earring",
     body=HercBodyTP,hands="Adhemar Wristbands",ring1="Epona's ring",ring2="Apate ring",
     back=CapeWS,waist="Fotia Belt",legs="Samnuha Tights",feet=HercFeetTP}
 
     sets.WS.ExpSavage = {ammo="Ginsen",
-        head="Nyame Helm",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
+        head="Nyame Helm",neck="Rep. Plat. Medal",ear1="Moonshade earring",ear2="Hashishin earring +1",
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Metamorph ring +1",
-        back=CapeWS,waist="Grunfeld Rope",
-        legs="Nyame Flanchard", feet="Nyame Sollerets",
-        back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10',}}
+        back=CapeWS,waist="Sailfi Belt +1",legs="Nyame Flanchard", feet="Nyame Sollerets",
     }
 
+    sets.WS["Expiacion"] = sets.WS.ExpSavage
+    sets.WS["Savage Blade"] = sets.WS.ExpSavage
 
     --Blue Magic Sets--
     sets.BlueMagic = {}
@@ -283,10 +276,7 @@ end
 
 function updateTable()
     addToTable("(F9) TP Set", sets.TP.index[TP_ind])
-    -- addToTable("Enfeeble Potency", not EnfeebSet)
     addToTable("(F10) Idle Set", sets.Idle.index[Idle_ind])
-    addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
-    -- addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
     update_message()
 end
 
@@ -299,36 +289,16 @@ function precast(spell)
         equip(sets.JA.AzureLore)
     end
 
-    if spell.english == 'Requiescat' then
-        equip(sets.Requiescat[sets.Requiescat.index[Requiescat_ind]])
-    end
-
-    if spell.english == 'Chant du Cygne' then
-        equip(sets.ChantDuCygne[sets.ChantDuCygne.index[ChantDuCygne_ind]])
-    end
-
-    if spell.english == 'Circle Blade' then
-        equip(sets.WS.CircleBlade)
-    end
-
-    if spell.english == 'Expiacion' or spell.english == 'Savage Blade' then
-        equip(sets.WS.ExpSavage)
-    end
-
-    if spell.english == 'Sanguine Blade' then
-        equip(sets.WS.SanguineBlade)
+    if spell.type:lower() == 'weaponskill' then
+        if (sets.WS[spell.english]) then
+            equip(sets.WS[spell.english])
+        else
+            equip(sets.WS)
+        end
     end
 
     if spell.english == 'Box Step' then
         equip(sets.Utility.Steps)
-    end
-
-    if spell.english == 'Realmrazer' then
-        equip(sets.Realmrazer[sets.Realmrazer.index[Realmrazer_ind]])
-    end
-
-    if spell.english == 'Flash Nova' then
-        equip(sets.WS.FlashNova)
     end
 end
 
@@ -455,7 +425,7 @@ function aftercast(spell)
         equip(sets.Idle[sets.Idle.index[Idle_ind]])
     end
 
-    if spell.action_type == 'Weaponskill' then
+    if spell.type:lower() == 'weaponskill' then
         add_to_chat(140,'TP Return: ['..tostring(player.tp)..']')
     end
 end
@@ -487,18 +457,6 @@ function self_command(command)
         if Idle_ind > #sets.Idle.index then Idle_ind = 1 end
         send_command('@input /echo <----- Idle Set changed to '..sets.Idle.index[Idle_ind]..' ----->')
         equip(sets.Idle[sets.Idle.index[Idle_ind]])
-    elseif command == 'toggle Req set' then
-        Requiescat_ind = Requiescat_ind +1
-        if Requiescat_ind > #sets.Requiescat.index then Requiescat_ind = 1 end
-        send_command('@input /echo <----- Requiescat Set changed to '..sets.Requiescat.index[Requiescat_ind]..' ----->')
-    elseif command == 'toggle CDC set' then
-        ChantDuCygne_ind = ChantDuCygne_ind +1
-        if ChantDuCygne_ind > #sets.ChantDuCygne.index then ChantDuCygne_ind = 1 end
-        send_command('@input /echo <----- Chant du Cygne Set changed to '..sets.ChantDuCygne.index[ChantDuCygne_ind]..' ----->')
-    elseif command == 'toggle Rea set' then
-        Realmrazer_ind = Realmrazer_ind +1
-        if Realmrazer_ind > #sets.Realmrazer.index then Realmrazer_ind = 1 end
-        send_command('@input /echo <----- Realmrazer Set changed to '..sets.Realmrazer.index[Realmrazer_ind]..' ----->')
     elseif command == 'equip TP set' then
         equip(sets.TP[sets.TP.index[TP_ind]])
     elseif command == 'equip Idle set' then

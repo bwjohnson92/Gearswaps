@@ -86,12 +86,13 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast.Enfeebling = {
 	main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 		head="Atrophy Chapeau +2",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
-		body="Lethargy Sayon +1",hands="Volte bracers",ring1="Stikini Ring",ring2="Kishar Ring",
+		body="Lethargy Sayon +1",hands="Volte bracers",ring1="Stikini Ring +1",ring2="Kishar Ring",
 		back=SucellosMND,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +1"}
 
 	sets.midcast.Enfeebling.Acc = set_combine(sets.midcast.Enfeebling, {
 		main=staff2,
-		ranged="Hydrocera",
+		ranged="Regal Gem",
+		ear2="Snotra earring",
 		body="Atrophy Tabard +2",
 		waist="Luminary Sash",
 		ring2="Metamorph Ring +1",
@@ -119,19 +120,20 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebling.Acc, sets.Dispelga)
 		
 	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj", sub="Ammurapi Shield",
-		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Lethargy Sayon +1",hands="Atrophy Gloves +1",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
+		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Lethargy Earring +1",
+		body="Lethargy Sayon +1",hands="Atrophy Gloves +1",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
 		back=SucellosMND,waist="Embla Sash",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +1"}
 
 		
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj", sub="Ammurapi Shield",
 		head="Befouled Crown",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Vitiation Tabard +3",hands="Vitiation Gloves +1",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
+		body="Telchine Chasuble",hands="Vitiation Gloves +1",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
 		back=SucellosMND,waist="Embla Sash",legs="Atrophy Tights +2",feet="Lethargy Houseaux +1"}
 
 	sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
 		neck="Duelist's Torque +1",
 		head="Telchine Cap", legs="Telchine Braconi", feet="Lethargy Houseaux +1",
+		ear2="Lethargy Earring +1",
 		hands="Atrophy Gloves +2"})
 
 	sets.midcast.Refresh = set_combine(sets.precast.FastCast, {
@@ -190,7 +192,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    ear2="Moonshade Earring",
 	    body="Jhakri Robe +2",
 	    hands="Jhakri Cuffs +2",
-	    ring1="Freke Ring",
+	    ring1="Epaminondas's Ring",
 	    ring2="Weather. Ring +1",
 	    back="Sucellos's Cape",
 	    -- waist="Orpheus's Sash",
@@ -216,17 +218,17 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 
 	sets.WS.SavageBlade = {
 	    head="Viti. Chapeau +3",
-	    neck="Caro Necklace",
+	    neck="Republican platinum medal",
 	    ear1="Moonshade Earring",
 	    ear2="Malignance Earring",
-	    body="Viti. Tabard +3",
-	    hands="Jhakri Cuffs +2",
-	    ring1="Apate Ring",
-	    ring2="Rufescent Ring",
+	    body="Nyame Mail",
+	    hands="Nyame Gaunlets",
+	    ring1="Epaminondas's Ring",
+	    ring2="Sroda Ring",
 	    -- back="Sucellos's Cape",
-	    waist="Metalsinger Belt",
-	    legs="Jhakri Slops +2",
-	    feet="Jhakri Pigaches +2"
+	    waist="Sailfi Belt",
+	    legs="Nyame Flanchard",
+	    feet="Nyame Sollerets"
 	}
 
 	sets.Melee = {}

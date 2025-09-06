@@ -1,6 +1,7 @@
 require('ClosetCleaner')
 include('organizer-lib.lua')
 include('organizeritems.lua')
+include('displayBox.lua')
 
 function get_sets()
 	send_command('bind f10 gs c toggle TP set')
@@ -56,7 +57,9 @@ function get_sets()
         hands="Plunderer's Armlets +3",
         waist="Chaac Belt",
         neck="Loricate Torque +1",
-        ring1="Defending Ring"
+        ring1="Defending Ring",
+        feet="Gleti's Boots",
+        ammo="Pefect lucky egg"
         })
 
     sets.TP['TH Acc'] = set_combine(sets.TP['TH'], {
@@ -120,7 +123,13 @@ function get_sets()
     --     back="Mollusca Mantle",waist="Wanion Belt",legs="Nahtirah Trousers",feet="Skadi's Jambeaux +1"}
 	
 	organizer_items = organizerItems()
+    updateTable()
     
+end
+
+function updateTable()
+    addToTable("(F10) TP Set", TP_Set_Names[TP_Index])
+    update_message()
 end
 
 function precast(spell)
@@ -193,4 +202,5 @@ function self_command(command)
             send_command('wait 2;gs c coffer')
         end
     end
+    updateTable()
 end

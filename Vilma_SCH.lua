@@ -35,34 +35,45 @@ skillchains.Fragmentation = {"Blizzard", "Water"}
 skillchains.Distortion = {"Luminohelix", "Stone"}
 skillchains.Gravitation = {"Aero", "Noctohelix"}
 
+skillchains.Elements = {}
+skillchains.Elements.Fusion = {"Fire", "Light"}
+skillchains.Elements.Fragmentation = {"Thunder", "Aero"}
+skillchains.Elements.Distortion = {"Ice", "Water"}
+skillchains.Elements.Gravitation = {"Stone", "Darkness"}
+
+Idle_Index = 1
+
 function get_sets()
 
     sets.precast = {}
     sets.midcast = {}
     sets.aftercast = {}
 
+    sets.Idle = {}
+
     -- AFTERCAST
 
-    sets.aftercast.Idle = {main="Bolelabunga",sub="Genmei Shield", ammo="Homiliary",
+    sets.Idle.Standard = {main="Bolelabunga",sub="Genmei Shield", ammo="Homiliary",
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-        body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-        back=capeFastCast,waist="Fucho-no-obi",legs="Assid. Pants +1",feet="Herald's Gaiters"}
+        body="Jhakri Robe +2",hands="Amalric Gages +1",ring1={name="Stikini Ring +1", bag="Wardrobe4"},ring2={name="Stikini Ring +1", bag="Wardrobe5"},
+        back=capeFastCast,waist="Embla Sash",legs="Assid. Pants +1",feet="Herald's Gaiters"}
 
-    sets.aftercast.PDT = {main="Malignance pole",sub="Mench strap", ammo="Staunch Tathlum +1",
-        head="Befouled Crown", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="",
-        body="Vrikodara Jupon", hands="Nyame Gauntlets",ring1="Defending Ring", ring2="Patricius Ring",
-        back="Repulse Mantle", waist="Siegel Sash", legs="Merlinic Shalwar", feet="Merlinic Crackows"}
+    sets.Idle.PDT = {main="Malignance pole",sub="Mensch strap", ammo="Homiliary",
+        head="Nyame Helm", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Genmei Earring",
+        body="Jhakri Robe +2", hands="Nyame Gauntlets",ring1={name="Stikini Ring +1", bag="Wardrobe4"},ring2={name="Stikini Ring +1", bag="Wardrobe5"},
+        back=capeNuke, waist="Embla Sash", legs="Nyame Flanchard", feet="Nyame Sollerets"}
         
+    sets.Idle.Index = {"Standard", "PDT"}
     -- PRECAST
 
     sets.precast.FastCast = {main="Grioavolr",sub="Clerisy Strap",ammo="Incantor Stone",
-        head="Nahtirah Hat" ,neck="Voltsurge Torque", ear1="Etiolation Earring", ear2="Loquacious Earring",
-        body="Merlinic Jubbah", hands="Academic's Bracers +1", ring1="Kishar Ring", ring2="Prolix Ring",
+        head="Nahtirah Hat" ,neck="Voltsurge Torque", ear1="Malignance Earring", ear2="Loquacious Earring",
+        body="Merlinic Jubbah", hands="Academic's Bracers +2", ring1="Kishar Ring", ring2="Medada's Ring",
         back=capeFastCast,waist="Embla Sash",legs="Psycloth Lappas", feet="Regal Pumps +1"}
     
      sets.precast.Grimoire = set_combine(sets.precast.FastCast, {
      	head="Pedagogy Mortarboard +2",
-     	feet="Academic's Loafers +1"
+     	feet="Academic's Loafers +2"
      	})
 
     sets.precast.FastCure = set_combine(sets.precast.FastCast, {})
@@ -90,13 +101,13 @@ function get_sets()
         waist="Sacro Cord",
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
-        left_ring="Shiva Ring +1",
-        right_ring="Freke Ring",
+        left_ring="Freke Ring",
+        right_ring="Medada's Ring",
         back=capeNuke
     }      
 
     sets.midcast.Helix = set_combine(sets.midcast.ElementalMagic, {
-    	-- neck="Argute Stole +1" -- When aug'd
+    	neck="Argute Stole +1" -- When aug'd
     })
 
     sets.midcast.Luminohelix = set_combine(sets.midcast.Helix, {
@@ -128,23 +139,31 @@ function get_sets()
 
     sets.midcast.EnhancingMagic = {
         main="Bolelabunga", sub="Ammurapi Shield",
-        head="Telchine Cap",neck="Colossus's Torque",ear1="Dignitary's Earring",ear2="Loquacious Earring",
-        hands="Telchine Gloves",hands="Telchine Gloves",ring2="Weatherspoon Ring +1",
+        head="Telchine Cap",neck="Incantor's Torque",ear1="Dignitary's Earring",ear2="Loquacious Earring",
+        hands="Telchine Gloves",hands="Telchine Gloves",
         back=capeFastCast,waist="Embla Sash",legs="Telchine Braconi",feet="Telchine Pigaches"}
 
     sets.midcast.Cure = {
 	    main="Bunzi's Rod",
-	    sub="Ammurapi Shield",
-	    ammo="Homiliary",
-	    head="Vanya Hood",
-	    body="Vrikodara Jupon",
+	    -- sub="Ammurapi Shield",
+        sub="Genmei Shield",
+        ammo="Staunch Tathlum +1",
+	    -- ammo="Homiliary",
+	    -- head="Vanya Hood",
+        head="Kaykaus Mitra +1",
+	    -- body="Vrikodara Jupon",
+        body="Nyame Mail",
 	    hands={ name="Telchine Gloves", augments={'"Fast Cast"+5','Enh. Mag. eff. dur. +7',}},
-	    legs={ name="Chironic Hose", augments={'Mag. Acc.+25','"Fast Cast"+5','CHR+1',}},
-	    neck="Orunmila's Torque",
+	    -- legs={ name="Chironic Hose", augments={'Mag. Acc.+25','"Fast Cast"+5','CHR+1',}},
+        legs="Nyame Flanchard",
+        feet="Kaykaus Boots +1",
+	    -- neck="Orunmila's Torque",
+        neck="Loricate Torque +1",
 	    waist="Bishop's Sash",
 	    left_ear="Beatific Earring",
 	    right_ear="Healing Earring",
-	    left_ring="Menelaus's Ring",
+	    -- left_ring="Naji's Loop",
+        left_ring="Defending Ring",
 	    right_ring="Janniston Ring +1"
 	}
 
@@ -154,9 +173,9 @@ function get_sets()
     	main="Bolelabunga",
     	sub="Ammurapi Shield",
     	ammo="Staunch Tathlum +1",
-	    head={ name="Telchine Cap", augments={'Enh. Mag. eff. dur. +10',}},
+	    head="Arbatel Bonnet +3",
 	    body={ name="Telchine Chas.", augments={'Enh. Mag. eff. dur. +10',}},
-	    hands="Arbatel Bracers +1",
+	    hands="Arbatel Bracers +3",
 	    legs={ name="Telchine Braconi", augments={'Enh. Mag. eff. dur. +10',}},
 	    feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +9',}},
 	    neck="Voltsurge Torque",
@@ -185,20 +204,20 @@ function get_sets()
 
     sets.JA["Tabula Rasa"] = {legs="Pedagogy Pants +1"}
     
-    sets.Perpetuance = {hands="Arbatel Bracers +1"}
+    sets.Perpetuance = {hands="Arbatel Bracers +3"}
     
-    sets.Klimaform = {feet="Arbatel Loafers +1"}
+    sets.Klimaform = {feet="Arbatel Loafers +3"}
 
-    sets.Ebullience={head="Arbatel Bonnet +1"}
+    sets.Ebullience={head="Arbatel Bonnet +3"}
     
     sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
     
-    sets.Sublimation = {head="Academic's Mortarboard +1", body="Pedagogy Gown +2", waist="Embla Sash"}
+    sets.Sublimation = {head="Academic's Mortarboard +2", body="Pedagogy Gown +2", waist="Embla Sash"}
     
     send_command('bind f9 gs c switch sc')
     send_command('bind f11 gs c switch mb')
     send_command('bind f10 gs c switch MP')
-    send_command('bind f12 gs c switch pdt')
+    send_command('bind f12 gs c switch dt')
 
 	text_setup()
 	addNewColors()
@@ -212,12 +231,27 @@ function addNewColors()
 end
 
 function updateTable()
-	addToTable("(F9) Skillchain", skillchains.SC[skillchains.Index])
+	addToTable("(F9) Skillchain", getSkillchainString())
 	-- addToTable("(F10) MP Body", MPBodyEquipToggle)
 	addToTable("(F11) MB Set", MBSet)
-	-- addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
+	addToTable("(F12) Idle Set", sets.Idle.Index[Idle_Index])
 	-- addToTable("(END) Weapon Locked", weaponLocked)
 	update_message()
+end
+
+function getSkillchainString()
+    length = 30
+    scType = skillchains.SC[skillchains.Index]
+    -- add_to_chat(140, scType)
+    scElements = skillchains.Elements[scType]
+    -- add_to_chat(140, scElements)
+    -- finalString = scType + " " + scElements[0] + "/" scElements r[1]
+    finalString = scType .. " (" .. scElements[1] .. "/" .. scElements[2] .. ")"
+    while (string.len(finalString) < length) do
+        finalString = finalString .. " "
+    end
+    return finalString
+
 end
 
 -- --- Precast ---
@@ -310,8 +344,7 @@ end
 -- --- Aftercast ---
 
 function aftercast(spell)
-
-        equip(sets.aftercast.Idle)
+        equip_idle()
 
         if spell.english == 'Sleep' or spell.english == 'Sleepga' then
             send_command('@wait 50;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
@@ -322,6 +355,10 @@ function aftercast(spell)
         elseif spell.english == 'Repose' then
             send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
         end
+end
+
+function equip_idle()
+    equip(sets.Idle[sets.Idle.Index[Idle_Index]])
 end
 
 -- Status Change - ie. Resting
@@ -335,6 +372,13 @@ function self_command(command)
 		MPBodyEquipToggle = not MPBodyEquipToggle
 		add_to_chat(140, '<-- Nuking using '..(MPBodyEquipToggle and 'MP Recovery' or 'Damage')..' Body -->')
 	end
+
+    if command == 'switch dt' then
+        Idle_Index = Idle_Index + 1
+        if Idle_Index > #sets.Idle.Index then Idle_Index = 1 end
+        equip_idle()
+    end
+
 	if command == 'switch mb' then
         if (MBSet) then
             MBSet = false

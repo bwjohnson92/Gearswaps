@@ -23,7 +23,7 @@ elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 
 elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 
 -- capeDEX={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10',}},
-capeDEX={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}} --Counter
+capeDEX={ name="Segomo's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 capeSTR={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}
 
 -- Start Functions here
@@ -46,20 +46,20 @@ sets.TP = {}
 sets.TP.index = {'Standard', 'Accuracy', 'DT'}
 TP_ind = 1
 
+
 sets.TP.Standard = {
     ammo="Coiste Bodhar",
-    head={ name="Adhemar Bonnet +1", augments={'STR+12','DEX+12','Attack+20',}},
-    body={ name="Herculean Vest", augments={'Accuracy+14 Attack+14','"Triple Atk."+4','DEX+3','Accuracy+11',}},
-    hands={ name="Adhemar Wristbands +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs="Hesychast's Hose +3",
-    -- feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},
-    feet="Anchorite's Gaiters +3",
-    neck="Monk's Nodowa +1",
+    head="Malignance Chapeau",
+    body="Tatena. Harama. +1",
+    hands="Adhemar Wrist. +1",
+    legs="Ken. Hakama +1",
+    feet="Tatena. Sune. +1",
+    neck="Mnk. Nodowa +1",
     waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Telos Earring",
-    left_ring="Gere Ring",
-    right_ring="Niqmaddu Ring",
+    ear1="Sherida Earring",
+    ear2="Dedition Earring",
+    ring1="Gere Ring",
+    ring2="Epona's Ring",
     back=capeDEX
 }
 
@@ -112,16 +112,18 @@ sets.WS.Generic.Acc = set_combine(sets.WS.Generic.Mid, {
 
 sets.WS["Victory Smite"] = set_combine(sets.WS.Generic.Standard, { --STR, Acc/Att, DA
     ammo="Knobkierrie",
-    head="Adhemar Bonnet +1",
-    body="Tatenashi Haramaki +1", --Mpaca?
-    hands="Adhemar Wristbands +1",
+    head="Mpaca's Cap",
+    body="Tatena. Harama. +1",
+    hands="Mpaca's Gloves",
     legs="Mpaca's Hose",
-    neck="Fotia Gorget",
+    feet="Mpaca's Boots",
+    neck="Mnk. Nodowa +1",
     waist="Moonbow Belt +1",
-    ring1="Gere Ring",
-    ring2="Niqmaddu Ring",
     ear1="Sherida Earring",
-    ear2="Moonshade Earring",
+    ear2="Bhikku Earring +1",
+    ring1="Niqmaddu Ring",
+    ring2="Gere Ring",
+    back="Segomo's Mantle",
 })
 
 sets.WS["Victory Smite"].Mid = set_combine(sets.WS["Victory Smite"].Standard, {
@@ -134,17 +136,17 @@ sets.WS["Victory Smite"].Acc = set_combine(sets.WS["Victory Smite"].Mid, {
 
 sets.WS["Shijin Spiral"] = set_combine(sets.WS.Generic.Standard, { --DEX, Acc/Att, DA
     ammo="Knobkierrie",
-    head="Kendatsuba Jinpachi",
-    body="Adhemar Jacket",
-    hands="Kendatsuba Tekko",
-    legs="Kendatsuba Hakama +1",
-    feet="Kendatsuba Sune-ate",
+    head="Adhemar Bonnet +1",
+    body="Bhikku Cyclas +3",
+    hands="Nyame Gauntlets",
+    legs="Hes. Hose +3",
+    feet="Mpaca's Boots",
     neck="Fotia Gorget",
-    waist="Moonbow Belt +1", --Moonbow Belt +1
-    ring1="Gere Ring",
-    ring2="Niqmaddu Ring",
-    ear1="Sherida Earring",
-    ear2="Mache Earring +1",
+    waist="Moonbow Belt +1",
+    ear1="Odr Earring",
+    ear2="Bhikku Earring +1",
+    ring1="Niqmaddu Ring",
+    ring2="Gere Ring",
     back=capeDEX
 })
 
@@ -157,33 +159,53 @@ sets.WS["Shijin Spiral"].Acc = set_combine(sets.WS["Shijin Spiral"].Mid, {
 })
 
 sets.WS["Raging Fists"] = set_combine(sets.WS.Generic.Standard, {
+    ammo="Knobkierrie",
     head="Mpaca's Cap",
-    body="Adhemar Jacket",
-    hands="Adhemar Wristbands +1",
-    legs="Kendatsuba Hakama +1", --Tatenashi
-    feet="Nyame Sollerets",
+    body="Bhikku Cyclas +3",
+    hands="Adhemar Wrist. +1",
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
+    neck="Fotia Gorget",
     waist="Moonbow Belt +1",
-    ear1="Sherida Earring",
-    ear2="Moonshade Earring",
-    ring1="Gere Ring",
-    ring2="Niqmaddu Ring",
-    back=capeSTR
+    ear1="Moonshade Earring",
+    ear2="Bhikku Earring +1",
+    ring1="Niqmaddu Ring",
+    ring2="Gere Ring",
+    back=capeSTR,
+
 })
 
 sets.WS["Howling Fist"] = { 
     ammo="Knobkierrie",
     head="Mpaca's Cap",
-    body="Tatenashi Haramaki +1", --Tatenashi
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Monk's Nodowa +1",
-    waist="Moonbow Belt +1", 
-    ring1="Gere Ring",
-    ring2="Niqmaddu Ring",
+    body="Tatena. Harama. +1",
+    hands="Malignance Gloves",
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
+    neck="Mnk. Nodowa +1",
+    waist="Moonbow Belt +1",
     ear1="Sherida Earring",
     ear2="Moonshade Earring",
-    back=capeDEX --VIT Cape + WSD
+    ring1="Niqmaddu Ring",
+    ring2="Gere Ring",
+    back=capeSTR
+}
+
+sets.WS["Asuran Fists"] = {
+    ammo="Knobkierrie",
+    head="Mpaca's Cap",
+    body="Bhikku Cyclas +3",
+    hands="Nyame Gauntlets",
+    legs="Hes. Hose +3",
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    ear1="Telos Earring",
+    ear2="Bhikku Earring +1",
+    ring1="Regal Ring",
+    ring2="Gere Ring",
+    back=capeSTR,
+
 }
 
 sets.WS["Shell Crusher"] = {
@@ -202,19 +224,38 @@ sets.WS["Shell Crusher"] = {
 
 }
  sets.WS["Tornado Kick"] = {
-     ammo="Knobkierrie",
+    ammo="Knobkierrie",
     head="Mpaca's Cap",
-    body="Tatenashi Haramaki +1",
+    body="Bhikku Cyclas +3",
     hands="Nyame Gauntlets",
     legs="Mpaca's Hose",
-    feet="Anchorite's Gaiters +3",
-    neck="Monk's Nodowa +1",
-    waist="Moonbow Belt +1", 
-    ring1="Gere Ring",
-    ring2="Niqmaddu Ring",
-    ear1="Sherida Earring",
-    ear2="Moonshade Earring",
+    feet="Mpaca's Boots",
+    neck="Mnk. Nodowa +1",
+    waist="Moonbow Belt +1",
+    ear1="Moonshade Earring",
+    ear2="Bhikku Earring +1",
+    ring2="Gere Ring",
+    ring1="Niqmaddu Ring",
+    back="Segomo's Mantle",
+
     back=capeSTR
+}
+
+sets.WS["Tornado Kick"].FootWork = {
+    ammo="Knobkierrie",
+    head="Mpaca's Cap",
+    body="Bhikku Cyclas +3",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Anch. Gaiters +3",
+    neck="Mnk. Nodowa +1",
+    waist="Moonbow Belt +1",
+    ear1="Moonshade Earring",
+    ear2="Bhikku Earring +1",
+    ring1="Niqmaddu Ring",
+    ring2="Gere Ring",
+    back="Segomo's Mantle",
+
 }
 
 sets.WS["Dragon Kick"] = sets.WS["Tornado Kick"]
@@ -228,7 +269,7 @@ sets.JA.HundredFists = {
 sets.JA.Chakra = {
     head="Ken. Jinpachi",
     body="Anch. Cyclas +2",
-    hands="Hesychast's Gloves +1",
+    hands="Hesychast's Gloves +3",
     legs="Ken. Hakama +1",
     feet="Anch. Gaiters +3",
     left_ear="Handler's Earring +1",
@@ -238,7 +279,7 @@ sets.JA.Chakra = {
 }
 
 sets.Impetus = {
-    body="Bhikku Cyclas +1"
+    body="Bhikku Cyclas +3"
 }
 
 sets.FastCast = {
@@ -314,7 +355,9 @@ function precast(spell)
 
     if spell.type:lower() == 'weaponskill' then
         if (sets.WS[spell.english]) then
-            if (sets.WS[spell.english][wsind]) then
+            if ((spell.english == "Tornado Kick" or spell.english == "Dragon Kick") and buffactive["footwork"]) then
+                equip(sets.WS["Tornado Kick"].FootWork)
+            elseif (sets.WS[spell.english][wsind]) then
                 if (spell.english == "Victory Smite") then
                     equip_with_impetus(sets.WS[spell.english][wsind])
                 else
@@ -327,6 +370,7 @@ function precast(spell)
         	equip(sets.WS.Generic[wsind])
         end
     end
+
     if (spell.english == "Hundred Fists") then
         equip(sets.JA.HundredFists)
     elseif (spell.english == "Chakra") then
