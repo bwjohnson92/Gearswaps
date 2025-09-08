@@ -328,3 +328,4 @@ end
 function file_unload()
     enable("ranged")
     enable("ammo")
+end
