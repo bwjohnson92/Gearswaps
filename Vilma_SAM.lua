@@ -9,7 +9,7 @@ function get_sets()
     sets.Relic = {}
     sets.Empyrean = {}
 
-    sets.AF.Feet = "Wakido Sune-Ate +2"
+    sets.AF.Feet = "Wakido Sune-Ate +2a"
     sets.AF.Legs = "Wakido Haidate"
     sets.AF.Hands = "Wakido Kote +2"
     sets.AF.Body = "Wakido Domaru"
@@ -35,7 +35,7 @@ function get_sets()
     send_command('bind f9 gs c toggle TP set')
     send_command('bind f10 gs c toggle WS set')
     send_command('bind f11 gs c toggle weapon')
-    send_command('bind f12 gs c toggle Idle set')
+    send_command('bind f12 gs c toggle ranged')
 
     --Idle Sets--
     sets.Idle = {}      
@@ -56,6 +56,8 @@ function get_sets()
     TP_ind = 1
     WS_ind = 1
     Weapon_ind = 1
+    Ranged_ind = 1
+
 
     sets.Idle.Standard = {
         neck="Loricate torque +1",
@@ -63,6 +65,9 @@ function get_sets()
         feet="Danzo Sune-Ate"
     }
     
+    sets.Ranged = {ranged="Yoichinoyumi", ammo="Yoichi's Arrow"}
+
+    sets.Ranged.index = {'Accessory', 'Yoichi Bow'}
     --TP Sets--
     
     sets.TP = {}
@@ -146,6 +151,8 @@ function get_sets()
     sets.WS["Tachi: Koki"] = set_combine(sets.WS["Tachi: Jinpu"])
     sets.WS["Tachi: Kagero"] = set_combine(sets.WS["Tachi: Jinpu"])
 
+    -- POLEARM --
+
     sets.WS["Impulse Drive"] = {
         ring1="Begrudging Ring"
     }
@@ -153,6 +160,9 @@ function get_sets()
     sets.WS["Impulse Drive"].Accuracy = set_combine(sets.WS["Impulse Drive"], {})
 
 
+    -- RANGED --
+    sets.WS["Namas Arrow"] = {}
+    sets.WS["Apex Arrow"] = {}
 
     --Job Ability Sets--
     sets.JA = {}
@@ -193,6 +203,7 @@ function updateTable()
     addToTable("(F9) TP Set", sets.TP.index[TP_ind])
     addToTable("(F10) WS Set", sets.WS.index[WS_ind])
     addToTable("(F11) Weapon", sets.Weapons.index[Weapon_ind])
+    addToTable("(F12) Ranged", sets.Ranged.index[Ranged_ind])
     update_message()
 end
 
@@ -293,6 +304,19 @@ function self_command(command)
 
         send_command('@input /echo <----- Weapon changed to '..sets.Weapons.index[Weapon_ind]..' ----->')
         equip(sets.Weapons[sets.Weapons.index[Weapon_ind]])
+    elseif command == 'toggle ranged' then
+        Ranged_ind = Ranged_ind + 1
+        if Ranged_ind > #sets.Ranged.index then Ranged_ind = 1 end
+        status = "disabled"
+        if Ranged_ind == 2 then
+            equip(sets.Ranged)
+            disable("ranged", "ammo")
+        else
+            status = "enabled"
+            enable("ranged", "ammo")
+        end
+
+        send_command('@input /echo <----- Ranged '..status..' ----->')
     elseif command == 'equip TP set' then
         equip(sets.TP[sets.TP.index[TP_ind]])
     elseif command == 'equip Idle set' then
@@ -300,3 +324,7 @@ function self_command(command)
     end
     updateTable()
 end
+
+function file_unload()
+    enable("ranged")
+    enable("ammo")
