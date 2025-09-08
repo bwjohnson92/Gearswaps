@@ -31,7 +31,7 @@ function get_sets()
     send_command('bind f10 gs c toggle Idle set')
     send_command('bind f11 gs c toggle main weapon')
     send_command('bind f12 gs c toggle sub weapon')
-    send_command('bind ^f12 gs c equip current')
+    send_command('bind del gs c equip current')
     send_command('bind end send @others input "/follow Maurauc"')
     --send_command('bind !f12 gs c toggle Rea set')
 
@@ -559,6 +559,7 @@ function equip_current()
     else
         equip(sets.Idle[sets.Idle.index[Idle_ind]])
     end
+    equip_weapons()
 end
 
 function status_change(new,old)
