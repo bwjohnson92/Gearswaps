@@ -9,11 +9,11 @@ function get_sets()
     sets.Relic = {}
     sets.Empyrean = {}
 
-    sets.AF.Feet = "Wakido Sune-Ate +2a"
+    sets.AF.Feet = "Wakido Sune-Ate +2"
     sets.AF.Legs = "Wakido Haidate"
     sets.AF.Hands = "Wakido Kote +2"
     sets.AF.Body = "Wakido Domaru"
-    sets.AF.Head = "Wakido Kabuto"
+    sets.AF.Head = "Wakido Kabuto +1"
 
     sets.Relic.Feet = "Sakonji Sune-Ate"
     sets.Relic.Legs = "Sakonji Haidate"
@@ -39,8 +39,6 @@ function get_sets()
 
     --Idle Sets--
     sets.Idle = {}      
-
-    sets.Ammo = {ammo="Tulfaire Arrow"}
 
     sets.Idle.index = {'Standard'}
 

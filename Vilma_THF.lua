@@ -11,8 +11,7 @@ function get_sets()
     sets.weapons = {}
     sets.weapons[1] ={main="Aeneas"}
     sets.weapons[2]={sub="Tauret"}
-    sets.weapons[3]={main="Odium"}
-    sets.weapons[4]={sub="Gleti's Knife"}
+    sets.weapons[3]={sub="Gleti's Knife"}
 
     
     sets.JA = {}
@@ -58,8 +57,8 @@ function get_sets()
         waist="Chaac Belt",
         neck="Loricate Torque +1",
         ring1="Defending Ring",
-        feet="Gleti's Boots",
-        ammo="Pefect lucky egg"
+        feet="Skulker's Poulaines +1",
+        ammo="Perfect lucky egg"
         })
 
     sets.TP['TH Acc'] = set_combine(sets.TP['TH'], {
@@ -93,7 +92,7 @@ function get_sets()
         body="Pillager's Vest +2",hands="Herculean Gloves",ring1="Ilabrat ring",ring2="Mummu Ring",
         back=capeWS,waist="Fotia Belt",legs="Nahtirah Trousers",feet="Mummu gamashes +2"}
 
-    sets.WS.Exenterator.TA = {ear1="Steelflash Earring",ear2="Bladeborn Earring", --head neck ring1
+    sets.WS.Exenterator.TA = {
         body="Pillager's Vest +2",ring2="Gere Ring", --hands
         back=capeWS,waist="Windbuffet Belt +1",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +1"}
         
@@ -116,7 +115,7 @@ function get_sets()
     sets.Idle = {}
     sets.Idle.Normal = {head="Skulker's bonnet +1",neck="Loricate Torque +1",--ear1="Merman's Earring",ear2="Bladeborn Earring",
         body="Emet Harness +1",hands="Plunderer's Armlets +3",ring1="Dark Ring",ring2="Defending Ring",
-        back=capeTP,waist="Chaac Belt",legs="Ighwa Trousers",feet="Skadi's Jambeaux +1"}
+        back=capeTP,waist="Chaac Belt",legs="Nyame Flanchard",feet="Skadi's Jambeaux +1"}
                 
     -- sets.Idle.MDT = {head="Skulker's bonnet +1",ear1="Merman's Earring",ear2="Bladeborn Earring",
     --     body="Avalon Breastplate",hands="Iuitl Wristbands +1",ring1="Defending Ring",ring2="Dark Ring",
