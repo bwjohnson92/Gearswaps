@@ -15,7 +15,7 @@ function get_sets()
     sets.AF.Body = "Wakido Domaru"
     sets.AF.Head = "Wakido Kabuto +1"
 
-    sets.Relic.Feet = "Sakonji Sune-Ate"
+    sets.Relic.Feet = "Sakonji Sune-Ate +1"
     sets.Relic.Legs = "Sakonji Haidate"
     sets.Relic.Hands = "Sakonji Kote"
     sets.Relic.Body = "Sakonji Domaru +1"
