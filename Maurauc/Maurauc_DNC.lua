@@ -125,6 +125,8 @@ function get_sets()
         -- back=DEXCape,
         waist="Olseni Belt", feet=HercBootsAcc})
   
+        sets.WS = {}
+
     sets.WS.ExpSavage = {
         ammo="Floestone",
         head="Jhakri Coronal +2",neck="Fotia Gorget",ear1="Ishvara Earring",ear2="Moonshade Earring",
@@ -183,10 +185,9 @@ function get_sets()
     sets.precast.FC.Acc = {}
 
     sets.precast.FC.PDTAcc = {}
-
-    sets.BlueMagic.SkillRecast = set_combine(sets.precast.FC.Standard, {})
        
     text_setup()
+    
     addTextPairs()
     updateTable()
 end

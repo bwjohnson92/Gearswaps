@@ -144,7 +144,7 @@ function updateTable()
     addToTable("Song Queue ("..queue_length()..") - (F10) Automatic", auto_song)
     addToTable("________________________________________\n")
     addToTable("Current", current.." ")
-    addToTable("--------------\n")
+    addToTable("----------------------------------------\n")
 
     if queue_length() == 0 then
         addToTable("Empty")

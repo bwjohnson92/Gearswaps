@@ -367,15 +367,11 @@ end
 
 function updateTable()
     addToTable("(F9) TP Set", sets.TP.index[TP_ind])
-    -- addToTable("Enfeeble Potency", not EnfeebSet)
     addToTable("(F10) Idle Set", sets.Idle.index[Idle_ind])
     addToTable("(F11) Main Weapon", sets.Weapons.index[Weapon_ind])
     addToTable("(F12) Off-Weapon", sets.Weapons.Offhand.index[WeaponOff_ind])
     addToTable("(DEL) Equip Current Gear", "")
 
-    -- addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
-    -- addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
-    -- addToTable("(END) Weapon Locked", weaponLocked)
     update_message()
 end
 

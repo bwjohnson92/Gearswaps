@@ -27,3 +27,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+export/
+displayBox/*.json

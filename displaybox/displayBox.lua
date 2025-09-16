@@ -1,6 +1,73 @@
 frame_time = 0
-config = require('config')
+json = require "displaybox/json_lib"
+files = require 'files'
 
+-- SETTINGS --
+
+default_settings = {}
+default_settings.interval = 5
+default_settings.pos = {}
+default_settings.pos.x = 1850
+default_settings.pos.y = 750
+default_settings.text = {}
+default_settings.text.font = "Consolas"
+default_settings.text.size = 11
+default_settings.flags = {} --bottom/right needed if negative pos? Unable to drag if so
+
+char_settings = {}
+settings = {}
+local_x = 0
+local_y = 0
+
+player = windower.ffxi.get_player()
+name = windower.ffxi.get_player().name
+job = player.main_job
+file_name = ""
+should_update = false
+setup = false
+
+function write_file_if_not_present()
+	job = player.main_job
+
+	file_name = "./data/displayBox/"..name..".json"
+	f = files.exists(file_name)
+	if not f then
+		add_to_chat(140, "File not found")
+		f = files.new(file_name)
+		char_settings[job] = default_settings
+		f:write(json.encode(char_settings))
+	end
+end
+
+function read_settings()
+	job = player.main_job
+
+	f = files.read(file_name)
+	if not f then
+		settings = default_settings
+		return
+	end
+	char_settings = json.decode(f)
+
+	if not char_settings[job] then
+		settings = default_settings
+		write_settings(job)
+	else
+		add_to_chat(140, "Found display box settings for "..job)
+	end
+
+	settings = char_settings[job]
+	local_x = settings.pos.x
+	local_y = settings.pos.y
+end
+
+function write_settings()
+	job = player.main_job
+
+	add_to_chat(140, "Writing settings")
+	char_settings[job] = settings
+	files.write(file_name, json.encode(char_settings))
+end
 
 -- COLOURS --
 
@@ -30,25 +97,9 @@ function default_colours()
 	add_text_colour_pair("Standard", "green")
 end
 
-
--- SETTINGS --
-
-default_settings = {}
-default_settings.interval = .2
-default_settings.pos = {}
-default_settings.pos.x = 1850
-default_settings.pos.y = 750
-default_settings.text = {}
-default_settings.text.font = "Consolas"
-default_settings.text.size = 11
-default_settings.flags = {} --bottom/right needed if negative pos? Unable to drag if so
-
-settings = config.load("./data/displayBox/settings.xml", default_settings)
-
-msg_box = texts.new('displayBox', settings)
-msg_box:show()
-
 -- INTERNALS --
+
+msg_box = {}
 
 msg_keys = {}
 msg_table = {}
@@ -104,36 +155,28 @@ function no_value(key, inputTable)
 end
 
 function text_setup()
-	setup_colours()
-	default_colours()
-
-	create_message_box()
-
-	update_message()
+	setup = false
+	job = player.main_job
+	coroutine.schedule(function ()
+		add_to_chat(140, "Setting up")
+		setup = true
+		job = windower.ffxi.get_player().main_job
+		write_file_if_not_present()
+		read_settings()	
+	
+		msg_box = texts.new('displayBox', settings)
+		msg_box:show()
+	
+		setup_colours()
+		default_colours()
+	
+		update_message()
+	end, 2)
 end
 
-function create_message_box()
-	msg_settings = {}
-	msg_settings.pos = {}
-	msg_settings.pos.x = settings.pos.x
-	msg_settings.pos.y = settings.pos.y
-	msg_settings.text = {}
-	msg_settings.text.font = "Consolas"
-	msg_settings.text.size = 11
-	msg_settings.flags = {}
-
-	if (msg_settings.pos.x < 0) then
-		msg_settings.flags.right = true
-	end
-	if (msg_settings.pos.y < 0) then
-		msg_settings.flags.bottom = true
-	end
-
-	msg_box = texts.new('displayBox', msg_settings)
-	msg_box:show()
-end
 
 function update_message()
+	if (setup == false) then return end
 	msg = ""
 	for _, k in ipairs(msg_keys) do
 		val = msg_table[k]
@@ -155,16 +198,31 @@ function colourMsg(msg)
 	return msg
 end
 
-windower.register_event('prerender', function()
-    local curr = os.clock()
+
+function prerender_func()
+	local curr = os.clock()
+
+	--Definitely don't want to try and save when we're not setup
+	if (setup == false) then 
+		frame_time = curr
+		return 
+	end
+	
+	pos_x, pos_y = texts.pos(msg_box)
+	if not (pos_x == local_x and pos_y == local_y) then 
+		local_x = pos_x
+		local_y = pos_y
+		should_update = true
+	end
     if curr > frame_time + settings.interval then
         frame_time = curr
-        update_message()
+		if (should_update) then
+			write_settings(player.main_job)
+			should_update = false
+		end
     end
-end)
-
-function save_settings()
-	config.save(settings, "all")
 end
+
+windower.register_event('prerender', prerender_func)
 
 text_setup()
