@@ -7,7 +7,7 @@ files = require 'files'
 default_settings = {}
 default_settings.interval = 5
 default_settings.pos = {}
-default_settings.pos.x = 1850
+default_settings.pos.x = 1250
 default_settings.pos.y = 750
 default_settings.text = {}
 default_settings.text.font = "Consolas"
@@ -21,18 +21,19 @@ local_y = 0
 
 player = windower.ffxi.get_player()
 name = windower.ffxi.get_player().name
-job = player.main_job
+job = windower.ffxi.get_player().main_job
 file_name = ""
 should_update = false
-setup = false
+setting_up = false
+setup_coroutine = nil
 
 function write_file_if_not_present()
-	job = player.main_job
+	job = windower.ffxi.get_player().main_job
 
 	file_name = "./data/displayBox/"..name..".json"
 	f = files.exists(file_name)
 	if not f then
-		add_to_chat(140, "File not found")
+		add_to_chat(140, "First time loading Display Box V2 for "..name..". Creating settings file.")
 		f = files.new(file_name)
 		char_settings[job] = default_settings
 		f:write(json.encode(char_settings))
@@ -40,7 +41,7 @@ function write_file_if_not_present()
 end
 
 function read_settings()
-	job = player.main_job
+	job = windower.ffxi.get_player().main_job
 
 	f = files.read(file_name)
 	if not f then
@@ -51,9 +52,7 @@ function read_settings()
 
 	if not char_settings[job] then
 		settings = default_settings
-		write_settings(job)
-	else
-		add_to_chat(140, "Found display box settings for "..job)
+		write_settings()
 	end
 
 	settings = char_settings[job]
@@ -62,9 +61,7 @@ function read_settings()
 end
 
 function write_settings()
-	job = player.main_job
-
-	add_to_chat(140, "Writing settings")
+	job = windower.ffxi.get_player().main_job
 	char_settings[job] = settings
 	files.write(file_name, json.encode(char_settings))
 end
@@ -79,15 +76,6 @@ colour_maps = {}
 textColourKeys = {}
 textColourPairs = {}
 
-function setup_colours()
-	colour_maps["yellow"] = make_colour({R=255,G=255,B=0})
-	colour_maps["green"] = make_colour({R=0,G=255,B=0})
-	colour_maps["red"] = make_colour({R=255,G=0,B=0})
-	colour_maps["blue"] = make_colour({R=0,G=0,B=255})
-	colour_maps["bluelite"] = make_colour({R=120,G=120,B=255})
-	colour_maps["white"] = make_colour({R=255,G=255,B=255})
-end
-
 function default_colours()
 	add_text_colour_pair("true", "green")
 	add_text_colour_pair("false", "red")
@@ -97,10 +85,21 @@ function default_colours()
 	add_text_colour_pair("Standard", "green")
 end
 
+function setup_colours()
+	colour_maps["yellow"] = make_colour({R=255,G=255,B=0})
+	colour_maps["green"] = make_colour({R=0,G=255,B=0})
+	colour_maps["red"] = make_colour({R=255,G=0,B=0})
+	colour_maps["blue"] = make_colour({R=0,G=0,B=255})
+	colour_maps["bluelite"] = make_colour({R=120,G=120,B=255})
+	colour_maps["white"] = make_colour({R=255,G=255,B=255})
+
+	default_colours()
+end
+
 -- INTERNALS --
 
+loading_box = {}
 msg_box = {}
-
 msg_keys = {}
 msg_table = {}
 
@@ -154,29 +153,38 @@ function no_value(key, inputTable)
 	return true
 end
 
+internal_setup = function ()
+	setting_up = false
+	job = windower.ffxi.get_player().main_job
+	write_file_if_not_present()
+	read_settings()	
+
+	msg_box = texts.new('displayBox', settings)
+	msg_box:show()
+	loading_box:hide()
+	loading_box = {}
+
+	setup_colours()
+	default_colours()
+
+	update_message()
+end
+
 function text_setup()
-	setup = false
-	job = player.main_job
-	coroutine.schedule(function ()
-		add_to_chat(140, "Setting up")
-		setup = true
-		job = windower.ffxi.get_player().main_job
-		write_file_if_not_present()
-		read_settings()	
-	
-		msg_box = texts.new('displayBox', settings)
-		msg_box:show()
-	
-		setup_colours()
-		default_colours()
-	
-		update_message()
-	end, 2)
+	if (setting_up == true) then 
+		return
+	end
+	job = "default"
+	loading_box = texts.new('loading box', default_settings)
+	loading_box:show()
+	loading_box:text("Loading Display Box.\nPlease wait.")
+	setting_up = true
+	setup_coroutine = coroutine.schedule(internal_setup, 2)
 end
 
 
 function update_message()
-	if (setup == false) then return end
+	if (setting_up == true) then return end
 	msg = ""
 	for _, k in ipairs(msg_keys) do
 		val = msg_table[k]
@@ -203,7 +211,7 @@ function prerender_func()
 	local curr = os.clock()
 
 	--Definitely don't want to try and save when we're not setup
-	if (setup == false) then 
+	if (setting_up == true) then 
 		frame_time = curr
 		return 
 	end
@@ -217,7 +225,7 @@ function prerender_func()
     if curr > frame_time + settings.interval then
         frame_time = curr
 		if (should_update) then
-			write_settings(player.main_job)
+			write_settings()
 			should_update = false
 		end
     end

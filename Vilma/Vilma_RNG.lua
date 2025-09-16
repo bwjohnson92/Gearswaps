@@ -816,6 +816,9 @@ end
 -- Utility functions specific to this job.
 -------------------------------------------------------------------------------------------------------------------
 function get_combat_form()
+    if not player or not player.equipment then
+        return
+    end
     if player.equipment.main == gear.Stave then
         state.CombatForm:set("Stave")
     else
