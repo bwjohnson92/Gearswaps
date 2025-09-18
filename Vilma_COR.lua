@@ -79,7 +79,7 @@ sets.Idle.Standard = {
 sets.Idle.DT = set_combine(sets.Idle.Standard, {
     body="Lanun frac +3",
     legs="Mummu kecks +2",
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +4",
     back=capeDT
 })
 
@@ -170,7 +170,7 @@ sets.WS.LastStand = { --Generic Physical WS
     legs="Nyame Flanchard",
     -- feet="Lanun Bottes +3",
     -- feet="Nyame Sollerets",
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +4",
     -- neck="Commodore Charm +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -201,7 +201,7 @@ sets.WS.Wildfire = {
     -- hands="Carmine finger gauntlets +1",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +4",
     neck="Commodore Charm +2",
     waist="Eschan Stone",
     left_ear="Moonshade Earring",
@@ -216,7 +216,7 @@ sets.WS.Aeolian = {
     body="Lanun Frac +3",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +4",
     neck="Commodore Charm +2",
     waist="Eschan Stone",
     left_ear="Moonshade Earring",
@@ -237,7 +237,7 @@ sets.WS.LeadenSalute.Standard = { --AGI Weaponskill
     body="Lanun Frac +3",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3",
+    feet="Lanun Bottes +4",
     neck="Commodore Charm +2",
     waist="Eschan Stone",
     left_ear="Moonshade Earring",
@@ -267,7 +267,7 @@ sets.WS.HotShot = {
     back=capeRangedWS,
     waist="Fotia Belt",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3"
+    feet="Lanun Bottes +4"
 }
 
 sets.FastCast = {
@@ -320,7 +320,7 @@ sets.Fold = {
 sets.SnakeEye = {
     -- legs="Lanun Culottes"
 }
-sets.WildCard = {feet="Lanun Bottes +3"}
+sets.WildCard = {feet="Lanun Bottes +4"}
 
 
 
