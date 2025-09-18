@@ -19,7 +19,6 @@ settings = {}
 local_x = 0
 local_y = 0
 
-player = windower.ffxi.get_player()
 name = windower.ffxi.get_player().name
 job = windower.ffxi.get_player().main_job
 file_name = ""
