@@ -159,6 +159,9 @@ end
 -- --- Precast ---
 
 function precast(spell)
+    if (busy == true) then
+        cancel_spell()
+    end
     busy = true
     set = {}
     if string.find(spell.type,'Song') or string.find(spell.type,'Magic') or string.find(spell.type,'Trust') then
@@ -258,7 +261,7 @@ function self_command(command)
 
     if (command == "auto") then
         auto_song = not auto_song
-        if (auto_song) then
+        if (auto_song and not busy) then
             command = "sing"
         end
     end

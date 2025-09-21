@@ -95,9 +95,9 @@ function get_sets()
 
 	sets.Idle.Standard = {main="Idris", sub="Genmei Shield", ranged="Dunna", 
 		head="Azimuth Hood +3", neck="Sibyl Scarf", ear1="Etiolation Earring", ear2="Odnowa Earring +1", 
-		body="Azimuth Coat +3", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Gelatinous Ring +1",
+		body="Azimuth Coat +3", hands="Geomancy Mitaines +4", ring1="Defending Ring", ring2="Gelatinous Ring +1",
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
-		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
+		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +4"}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
 	    range="Dunna",
@@ -129,7 +129,7 @@ function get_sets()
 		rear="Odnowa Earring +1"
 	})
 
-	sets.Speed = {feet="Geomancy Sandals +3"}	
+	sets.Speed = {feet="Geomancy Sandals +4"}	
 	
 	sets.precast = {}
 	sets.midcast = {}

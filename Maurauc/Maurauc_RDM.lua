@@ -57,7 +57,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 
 	sets.Idle.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-		body="Atrophy Tabard +3",hands="Volte Gloves",ring1=stikini1,ring2=stikini2,
+		body="Atrophy Tabard +4",hands="Volte Gloves",ring1=stikini1,ring2=stikini2,
 		back=SucellosMND,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet=RefreshFeet}
 	
 	sets.Idle.PDT = set_combine(sets.Idle.Idle, {
@@ -124,7 +124,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		sub="Ammurapi Shield",
 		ammo="",
 		ranged="Ullr",
-		body="Atrophy Tabard +3",
+		body="Atrophy Tabard +4",
 		waist="Luminary Sash",
 		ring2="Weatherspoon Ring +1",
 		ear1="Regal Earring",
@@ -206,7 +206,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 
 	sets.midcast.Refresh = set_combine(sets.midcast.EnhancingMagic.Duration, {
 		head="Amalric Coif +1", neck="Duelist's Torque +2",
-		body="Atrophy Tabard +3",hands="Atrophy Gloves +3",
+		body="Atrophy Tabard +4",hands="Atrophy Gloves +3",
 		back="Sucellos's Cape", waist="Embla Sash", legs="Lethargy Fuseau +3", feet="Lethargy Houseaux +3"})
 
 	sets.midcast.Refresh.Self = set_combine(sets.midcast.Refresh, {

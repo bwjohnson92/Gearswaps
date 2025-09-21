@@ -140,6 +140,7 @@ function get_sets()
 
     sets.WS["Expiacion"] = sets.WS.ExpSavage
     sets.WS["Savage Blade"] = sets.WS.ExpSavage
+    sets.WS["Black Halo"] = sets.WS.ExpSavage
 
     --Blue Magic Sets--
     sets.BlueMagic = {}
