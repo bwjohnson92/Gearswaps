@@ -123,12 +123,12 @@ sets.RA.Standard = { --RAcc and STP
     hands="Ikenga's Gloves",
     legs="Ikenga's Trousers",
     feet="Malignance Boots",
-    neck="Ocachi gorget",
-    waist="Yemaya Belt",
-    left_ear="Neritic Earring",
+    neck="Iskur Gorget",
+    waist="Kwahu Kachina Belt",
+    left_ear="Crepuscular Earring",
     right_ear="Telos Earring",
     back=capeTPRanged,
-    ring1="Dingir Ring",
+    ring1="Crepuscular Ring",
     ring2="Ilabrat Ring",
 }
 
@@ -166,7 +166,7 @@ sets.WS.Generic = sets.WS.SavageBlade
 sets.WS.LastStand = { --Generic Physical WS
     head="Lanun Tricorne +3",
     body="Nyame Mail",
-    hands="Nyame Gauntlets", --+2
+    hands="Chasseur's Gants +3", --+2
     legs="Nyame Flanchard",
     -- feet="Lanun Bottes +3",
     -- feet="Nyame Sollerets",
@@ -176,7 +176,7 @@ sets.WS.LastStand = { --Generic Physical WS
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear="Moonshade Earring",
-    ring1="Dingir Ring",
+    ring1="Epaminondas's Ring",
     ring2="Regal ring",
     back=capeRangedWS,
 }

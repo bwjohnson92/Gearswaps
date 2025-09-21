@@ -91,7 +91,7 @@ function get_sets()
 	sets.midcast.EnfeeblingMagic = {
 		ammo="pemphredo tathlum",
 		head="Wicce Petasos +3",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Digni. Earring",
-		body="Spaekona's Coat +3",hands="Spaekona's Gloves +3",ring1="Kishar Ring",ring2="Medada's Ring",
+		body="Spaekona's Coat +4",hands="Spaekona's Gloves +3",ring1="Kishar Ring",ring2="Medada's Ring",
 		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +3"}
 
 	sets.midcast.Dispelga = set_combine(sets.midcast.EnfeeblingMagic, sets.Dispelga)
@@ -122,7 +122,7 @@ function get_sets()
 	sets.midcast.Stun = {
 		ammo="pemphredo tathlum",
 		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Crepuscular Earring",
-		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Kishar Ring",ring2="Medada's Ring",
+		body="Spaekona's Coat +4",hands="Spaekona's gloves +3",ring1="Kishar Ring",ring2="Medada's Ring",
 		back="Swith Cape",waist="Witful Belt",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"
 	}
 		
@@ -132,7 +132,7 @@ function get_sets()
 	sets.midcast.ElementalMagic.HighMP = {
 		ammo="Strobilus",
 		head=MerlinicHead, neck="Sorcerer's Stole +1",ear1="Etiolation Earring",ear2="Barkarole Earring",
-		body="Spaekona's Coat +3",hands="Spaekona's gloves +3",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
+		body="Spaekona's Coat +4",hands="Spaekona's gloves +3",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 	
 	sets.midcast.Death = {
@@ -162,7 +162,7 @@ function get_sets()
 	
 	sets.midcast.OccultAcumen = {
 	    ammo="Pemphredo Tathlum",
-	    body="Spaekona's Coat +3",
+	    body="Spaekona's Coat +4",
 	    hands="Ea Cuffs",
 	    legs="Perdition Slops",
 	    neck="Lissome Necklace",
@@ -187,7 +187,7 @@ function get_sets()
 	sets.JA.ManaWall = {back=TaranusMP, feet="Wicce Sabots +3"}
 	sets.ElementalDebuff = {legs="Archmage's Tonban +3",feet="Archmage's Sabots +3"}
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
-	sets.ElementalMagicMPBody = {body="Spaekona's Coat +3"}
+	sets.ElementalMagicMPBody = {body="Spaekona's Coat +4"}
 
 	sets.midcast.Ja = {
 		legs="Wicce Chausses +3"
@@ -287,7 +287,7 @@ function handleNuke(spell)
 
 	if (MPSet) then
 		set = set_combine(set, {
-			body="Spaekona's Coat +3"
+			body="Spaekona's Coat +4"
 		})
 	end
 
