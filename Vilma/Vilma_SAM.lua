@@ -11,21 +11,21 @@ function get_sets()
 
     sets.AF.Feet = "Wakido Sune-Ate +2"
     sets.AF.Legs = "Wakido Haidate"
-    sets.AF.Hands = "Wakido Kote +2"
+    sets.AF.Hands = "Wakido Kote +3"
     sets.AF.Body = "Wakido Domaru"
     sets.AF.Head = "Wakido Kabuto +1"
 
     sets.Relic.Feet = "Sakonji Sune-Ate +1"
     sets.Relic.Legs = "Sakonji Haidate"
     sets.Relic.Hands = "Sakonji Kote"
-    sets.Relic.Body = "Sakonji Domaru +1"
+    sets.Relic.Body = "Sakonji Domaru +3"
     sets.Relic.Head = "Sakonji Kabuto"
 
     sets.Empyrean.Feet = "Kasuga Sune-Ate +1"
-    sets.Empyrean.Legs = "Kasuga Haidate +1"
+    sets.Empyrean.Legs = "Kasuga Haidate +2"
     sets.Empyrean.Hands = "Kasuga Kote +2"
     sets.Empyrean.Body = "Kasuga Domaru +2"
-    sets.Empyrean.Head = "Kasuga Kabuto +1"
+    sets.Empyrean.Head = "Kasuga Kabuto +2"
 
 
 
@@ -73,7 +73,7 @@ function get_sets()
 
     sets.TP.Standard = {
         ammo="Ginsen",
-        head="Flam. Zucchetto +2",
+        head=sets.Empyrean.Head,
         body=sets.Empyrean.Body,
         hands=sets.AF.Hands,
         legs=sets.Empyrean.Legs,
