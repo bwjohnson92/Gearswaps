@@ -40,7 +40,7 @@ function get_sets()
     waist="Fucho-no-Obi",
     left_ear="Etiolation Earring",
     right_ear="Enervating Earring",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring="Gelatinous Ring +1",
     back="Repulse Mantle",
 }
@@ -58,7 +58,7 @@ function get_sets()
 	    waist="Lieutenant's sash",
 	    left_ear="Etiolation Earring",
 	    right_ear="Genmei Earring",
-	    left_ring="Defending Ring",
+	    left_ring="Murky Ring",
 	    right_ring="Warden's Ring",
 	    back={ name="Alaunus's cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},
 	}
@@ -131,7 +131,7 @@ function get_sets()
 	sets.baseCureDT = {
 		sub="Genbu's Shield",
 		neck="Loricate Torque", 
-		left_ring="Defending Ring"
+		left_ring="Murky Ring"
 	}
 
 	sets.Cure.Standard = {

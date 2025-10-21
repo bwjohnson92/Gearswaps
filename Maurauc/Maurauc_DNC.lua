@@ -62,7 +62,7 @@ function get_sets()
    
     sets.Idle.Standard = {ammo="Ginsen",
       head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
-      body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Gelatinous Ring +1",ring2="Defending ring",
+      body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Gelatinous Ring +1",ring2="Murky Ring",
       back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Malignance Boots"}
                                              
     sets.Idle.DT = {
@@ -78,7 +78,7 @@ function get_sets()
         left_ear="Novia Earring",
         right_ear="Telos Earring",
         left_ring="Gelatinous Ring +1",
-        right_ring="Defending Ring",
+        right_ring="Murky Ring",
         back=INTCape,
     }
    

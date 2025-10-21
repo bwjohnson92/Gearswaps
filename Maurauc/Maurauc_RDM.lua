@@ -71,7 +71,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    waist="Fucho-no-Obi",
 	    left_ear="Etiolation Earring",
 	    right_ear="Loquac. Earring",
-	    left_ring="Defending Ring",
+	    left_ring="Murky Ring",
 	    right_ring="Ilabrat Ring",
 	    back=SucellosMND,
 	})
@@ -220,7 +220,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 
 	sets.midcast.Cure = {main="Malignance Pole",sub="Sacro Bulwark",ammo="Regal Gem",
 			head="Kaykaus Mitra +1",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Regal Earring",
-			body="Bunzi's Robe",hands="Kaykaus Cuffs +1",ring1="Defending Ring",ring2=stikini2,
+			body="Bunzi's Robe",hands="Kaykaus Cuffs +1",ring1="Murky Ring",ring2=stikini2,
 			back=SucellosMND,waist="Flume Belt +1",legs="Kaykaus Tights +1",feet="Nyame Sollerets"}
 			
 			

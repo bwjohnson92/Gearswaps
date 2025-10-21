@@ -63,7 +63,7 @@ function get_sets()
 
     sets.aftercast.Idle = {main="Bolelabunga",sub="Genmei Shield", ammo="Homiliary",
         head="Nyame Helm",neck="Sibyl Scarf",ear1="Etiolation Earring",ear2="Static Earring",
-        body="Arbatel Gown +3",hands="Volte Gloves",ring1="Defending Ring",ring2="Stikini Ring +1",
+        body="Arbatel Gown +3",hands="Volte Gloves",ring1="Murky Ring",ring2="Stikini Ring +1",
         back="Moonbeam Cape",waist="Fucho-no-obi",legs="Nyame Flanchard",
         -- feet="Nyame Sollerets"
         feet="Herald's Gaiters"

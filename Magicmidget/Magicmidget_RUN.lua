@@ -211,7 +211,7 @@ function get_sets()
         back=OgmaDEX
     }     
     --multi, carries FTP
-    sets.Resolution = {
+    sets.WS.Resolution = {
         ammo="Aurgelmir Orb",
         head="Adhemar Bonnet +1",
         body="Adhemar Jacket +1",
@@ -219,7 +219,7 @@ function get_sets()
         legs="Samnuha Tights",
         feet="Herculean Boots",
         neck="Fotia Gorget",
-        waist="Soil Belt",
+        waist="Sailfi Belt +1",
         left_ear="Sherida Earring",
         right_ear="Moonshade Earring",
         left_ring="Niqmaddu Ring",
@@ -227,14 +227,14 @@ function get_sets()
         back=OgmaSTR
     }
 
-    sets.Dimidiation = {
+    sets.WS.Dimidiation = {
         ammo="Knobkierrie",
         head="Nyame Helm",
         body="Nyame Mail",
-        hands="Meg. Gloves +2",
+        hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        neck="Fotia Gorget",
+        neck="Rep. Plat. Medal",
         waist="Sailfi Belt +1",
         left_ear="Sherida Earring",
         right_ear="Moonshade Earring",
@@ -525,10 +525,10 @@ function precast(spell,abil)
                 equip(sets.Enmity)
         end
         if spell.name == 'Resolution' or spell.name == 'Ruinator'  then
-            equip(sets.Resolution)
+            equip(sets.WS.Resolution)
         end
         if spell.name == 'Dimidiation' then
-            equip(sets.Dimidiation)
+            equip(sets.WS.Dimidiation)
         end
         if spell.name == 'Spinning Slash' 
         or spell.name == 'Ground Strike'

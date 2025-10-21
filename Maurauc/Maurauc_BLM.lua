@@ -58,7 +58,7 @@ function get_sets()
 
     sets.Idle.PDT = {
         head="Nyame Helm", neck="Loricate Torque +1", ear1="Etiolation Earring", ear2="Sorcerer's Earring",
-        body="Vrikodara Jupon", hands="Nyame Gauntlets", ring1="Defending Ring", ring2=stikini2,
+        body="Vrikodara Jupon", hands="Nyame Gauntlets", ring1="Murky Ring", ring2=stikini2,
         back=TaranusNuke,waist="Fucho-no-obi", legs="Nyame Flanchard", feet="Nyame Sollerets"}
 
     sets.Idle.PDTMove = set_combine(sets.Idle.PDT, {
@@ -67,7 +67,7 @@ function get_sets()
 
     sets.Idle.Standard = {
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-        body="Jhakri Robe +2",hands="Volte Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
+        body="Jhakri Robe +2",hands="Volte Gloves",ring1="Murky Ring",ring2="Gelatinous Ring +1",
         back=TaranusNuke,waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Wicce Sabots +2"}
 
     sets.Idle.HighMP = set_combine(sets.Idle.Standard, { ammo="Strobilus",
@@ -265,7 +265,7 @@ function get_sets()
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
         left_ring="Mephitas's Ring +1",
-        right_ring="Defending Ring",
+        right_ring="Murky Ring",
         back={ name="Taranus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
     }
 

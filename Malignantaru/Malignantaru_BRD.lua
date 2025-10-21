@@ -20,6 +20,7 @@ current = ""
 command_casting = false
 
 song_queue = {}
+time = 3.2
 
 stikini1={name="Stikini Ring", bag="wardrobe2"}
 stikini2={name="Stikini Ring", bag="wardrobe3"}
@@ -66,7 +67,7 @@ function get_sets()
         main="Kali",
         ranged="Gjallarhorn",
         head="Fili Calot +1",
-        body="Fili Hongreline +1",
+        body="Fili Hongreline +2",
         hands="Fili Manchettes +1",
         neck="Moonbow Whistle",
         ear2="Darkside Earring",
@@ -122,9 +123,18 @@ function get_sets()
     })
 
     sets.Songs.Lullaby = set_combine(sets.Songs.Debuff, {
+        body="Fili Hongreline +2",
+        hands="Brioso Cuffs +2",
+        legs="Inyanga Shalwar +2",
     })
 
+    sets.Songs["Foe Lullaby"] = set_combine(sets.Songs.Lullaby)
+    sets.Songs["Foe Lullaby II"] = set_combine(sets.Songs.Lullaby)
+    sets.Songs["Horde Lullaby"] = set_combine(sets.Songs.Lullaby)
+
     sets.Songs["Horde Lullaby II"] = set_combine(sets.Songs.Lullaby, {
+        -- hands="Inyanga Dastanas +2",
+        legs="Inyanga Shalwar +2",
         ranged="Daurdabla"
     })
 
@@ -159,15 +169,18 @@ end
 -- --- Precast ---
 
 function precast(spell)
-    if (busy == true) then
+    if (string.find(spell.type,'Song') and busy == true) then
+        add_to_chat(140, "Spell cancelled - "..spell.name)
         cancel_spell()
     end
     busy = true
     set = {}
-    if string.find(spell.type,'Song') or string.find(spell.type,'Magic') or string.find(spell.type,'Trust') then
-        set = sets.precast.FastCast
+    if string.find(spell.type,'Song') then
         current = spell.name
         updateTable()
+    end
+    if  string.find(spell.type,'Magic') or string.find(spell.type,'Trust')  or string.find(spell.type,'Song') then
+        set = sets.precast.FastCast
     end
     if (string.find(spell.name,'Honor')) then
         set = set_combine(set, sets.HonorMarch)
@@ -179,7 +192,7 @@ end
 -- --- MidCast ---
 function midcast(spell)
     busy = true
-    if string.find(spell.type,'Magic') or string.find(spell.type,'BardSong')  then
+    if string.find(spell.type,'Magic') or string.find(spell.type,'Song')  then
         set = sets.midcast.Song
         if (string.find(spell.name, 'Carol')) then
             set = sets.Songs.Carol
@@ -198,7 +211,9 @@ function midcast(spell)
         elseif (spell.name == "Knight's Minne") then
             set = sets.midcast.Song.Dummy
             inst = "Daurdabla"
-        elseif (spell.name == "Honor March") then
+        end
+        
+        if (spell.name == "Honor March") then
             inst = sets.HonorMarch.ranged
         end
 
@@ -206,7 +221,12 @@ function midcast(spell)
             set = sets.Songs.Debuff
         end
 
-        equip(set_combine(sets.midcast.Song, {
+        if (string.find(spell.name, "Lullaby")) then
+            set = sets.Songs[spell.name]
+            inst = sets.Songs[spell.name].ranged
+        end
+
+        equip(set_combine(set, {
             ranged=inst
         }))
     end 
@@ -220,6 +240,7 @@ function aftercast(spell)
     if (spell.interrupted == true and command_casting == true) then
         table.insert(song_queue, 1, spell.english)
     end
+    command_casting = false
     equip(sets.Idle.Standard)
 
     if (auto_song) then
@@ -267,6 +288,10 @@ function self_command(command)
     end
 
     if (command == "sing") then
+        if (busy) then
+            send_command('wait '..time..';gs c sing')
+            return
+        end
         if (queue_length() > 0) then
             song = table.remove(song_queue, 1)
 

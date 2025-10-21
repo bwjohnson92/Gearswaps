@@ -80,7 +80,7 @@ function get_sets()
 	--     waist="Ioskeha Belt +1",
 	--     left_ear="Cessance Earring",
 	--     right_ear="Brutal Earring",
-	--     left_ring="Defending Ring",
+	--     left_ring="Murky Ring",
 	--     right_ring="Regal Ring",
 	--     back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
 	-- }
@@ -96,7 +96,7 @@ function get_sets()
 	    waist="Ioskeha Belt +1",
 	    left_ear="Cessance Earring",
 	    right_ear="Brutal Earring",
-	    left_ring="Defending Ring",
+	    left_ring="Murky Ring",
 	    right_ring="Regal Ring",
 	    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}
 	}
@@ -113,7 +113,7 @@ function get_sets()
 	--     body="Souv. Cuirass +1",
 	--     hands="Sulev. Gauntlets +2",
 	--     ring1="Moonlight Ring",
-	--     ring2="Defending Ring",
+	--     ring2="Murky Ring",
 	--     back="Cichol's Mantle",
 	--     waist="Ioskeha Belt +1",
 	--     legs="Sulev. Cuisses +2",

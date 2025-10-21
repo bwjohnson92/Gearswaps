@@ -101,7 +101,7 @@ function get_sets()
 	    waist="Sacro Cord",
 	    left_ear="Malignance Earring",
 	    right_ear="Barkaro. Earring",
-		ring1="Defending Ring", 
+		ring1="Murky Ring", 
 		ring2="Gelatinous Ring +1",
 	    back=capeRegen
 	}

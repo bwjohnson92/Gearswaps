@@ -79,7 +79,7 @@ function get_sets()
         waist="Chaac Belt",
         left_ear="Etiolation Earring",
         right_ear="Loquac. Earring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         -- right_ring="Barataria Ring",
         back="Repulse Mantle",
     }
@@ -115,7 +115,7 @@ function get_sets()
         -- left_ear="Suppanomimi",
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Petrov Ring",
         back=capeMeleeTP
     }
@@ -197,7 +197,7 @@ function get_sets()
         ear2="Ishvara Earring",
         body="Laksamana's Frac +3",
         hands="Chasseur's Gants +3",
-        ring1="Defending Ring",
+        ring1="Murky Ring",
         ring2="Cornelia's Ring", --Rufescent 
         back=capeMeleeWS,
         waist="Sailfi Belt +1",

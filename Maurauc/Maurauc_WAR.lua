@@ -86,7 +86,7 @@ function get_sets()
 	    left_ear="Cessance Earring",
 	    right_ear="Boii Earring +1",
 	    -- left_ring="Moonlight Ring",
-		left_ring="Defending Ring",
+		left_ring="Murky Ring",
 	    -- right_ring="Regal Ring",
 	    right_ring="Niqmaddu Ring",
 	    back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Damage taken-5%',}}

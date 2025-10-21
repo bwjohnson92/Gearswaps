@@ -25,6 +25,8 @@ MBSet = false
 PDTSet = false
 capeLocked = false
 weaponLocked = false
+weapon = ""
+shield = ""
 
 -- Start Functions here
 -- Gear Sets
@@ -38,31 +40,13 @@ function get_sets()
 		sub="Ochain"
 	}
 
-	-- sets.aftercast.Idle = {
-	--     main="Naegling",
-	--     sub="Sacro Bulwark",
-	--     ammo="Incantor Stone",
-	--     head="Twilight Helm",
-	--     body="Twilight Mail",
-	--     hands="Sulev. Gauntlets +2",
-	--     legs={ name="Carmine Cuisses +1", augments={'MP+80','INT+12','MND+12',}},
-	--     feet="Sulev. Leggings +2",
-	--     neck="Loricate Torque +1",
-	--     waist="Cetl Belt",
-	--     left_ear="Etiolation Earring",
-	--     right_ear="Loquac. Earring",
-	--     left_ring="Defending Ring",
-	--     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-	--     back="Repulse Mantle",
-	-- }
-
 	sets.aftercast.Idle = {
 		head="Sakpata's Helm",
 	    body="Sakpata's Plate",
 	    hands="Sakpata's Gauntlets",
 	    legs="Carmine Cuisses +1",
 	    feet="Sakpata's Leggings",
-	    left_ring="Defending Ring",
+	    left_ring="Murky Ring",
 	    right_ring="Gelatinous Ring +1",
 	    waist="Flume Belt +1"
 
@@ -82,12 +66,22 @@ function get_sets()
 		back="Agema Cape"
 	}
 
-	sets.WS = {}
+	sets.Phalanx = {
+		head="Sakpata's Helm",
+		body="Sakpata's Plate",
+		legs = "Sakpata's Cuisses",
+		feet = "Souveran Schuhs",
+		back="Weard Mantle",
+		waist="Rumination Sash",
+	}
 
+	sets.PhalanxIdle = set_combine(sets.Phalanx, {
+		main="Sakpata's Sword",
+		sub="Priwen"
+	})
 
-
-	sets.Melee = {
-	    ammo="Ginsen",
+	sets.Engaged = {
+	    ammo="Eluder's Sachet",
 	    head={ name="Sakpata's Helm", augments={'Path: A',}},
 	    body="Sakpata's Plate",
 	    hands="Sakpata's Gauntlets",
@@ -102,14 +96,40 @@ function get_sets()
 	    left_ring="Petrov Ring",
 	    right_ring="Apate Ring",
 	    back={ name="Mecisto. Mantle", augments={'Cap. Point+48%','HP+28','DEF+10',}},
-
 	}
 
-	sets.WS.SavageBlade = set_combine(sets.Melee,{
+	sets.Engaged.Standard = set_combine(sets.Engaged)
+
+	sets.Engaged.Tank = set_combine(sets.Engaged, {
+		left_ring="Murky Ring",
+		right_ring="Defending Ring"
+	})
+
+	sets.WS = {
+		head="Nyame Helm",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Nyame Flanchard",
+		feet="Nyame Sollerets",
+		ear1="Moonshade Earring",
+		ear2="Thrud Earring",
+		neck="Fotia Gorget",
+		waist="Fotia Belt"
+	}
+
+	sets.WS["Savage Blade"] = set_combine(sets.WS, {
 		ear1="Moonshade Earring",
 		ear2="Ishvara Earring",
 		neck="Fotia Gorget",
 		waist="Fotia Belt"
+	})
+
+	sets.WS["Aeolian Edge"] = set_combine(sets.WS, {
+		ammo="Oshasha's Treatise",
+    	neck="Sibyl Scarf",
+		ring1={name="Shiva Ring +1",bag="Wardrobe"},
+		ring2={name="Shiva Ring +1",bag="Wardrobe4"},
+
 	})
 	
 end
@@ -127,7 +147,7 @@ function updateTable()
     -- addToTable("(F10) MP Body", MPSet)
     -- addToTable("(F11) MB Set", MBSet)
     -- addToTable("(F12) Idle Set", PDTSet and "PDT" or "Standard")
-    addToTable("(PGUP) TP Set", sets.Melee.index[Melee_Ind])
+    addToTable("(PGUP) TP Set", sets.Engaged.index[Melee_Ind])
     -- addToTable("(PGDN) Weapon Locked", weaponLocked)
     update_message()
 end
@@ -137,15 +157,30 @@ end
 function precast(spell)
 	if string.find(spell.type,'White') or string.find(spell.type,'Black') then
 		equip(sets.precast.FastCast)
-	elseif string.find(spell.name,'Savage Blade') then
-		equip(sets.WS.SavageBlade)
 	elseif string.find(spell.type,'Ability') then
 		equip(sets.Enmity)
 	end
 
+	if spell.type:lower() == 'weaponskill' then
+        if (sets.WS[spell.english]) then
+                set = sets.WS[spell.english]
+        else
+            set = sets.WS
+        end
+    end
+
 end
 -- --- MidCast ---
 function midcast(spell)
+	if (spell.name == "Phalanx") then
+		if player.in_combat then
+			equip(sets.Phalanx)
+		else
+			weapon = player.equipment.main
+			shield = player.equipment.sub
+			equip(sets.PhalanxIdle)
+		end
+	end
 	if string.find(spell.type,'White') then
 		equip(set_combine(sets.aftercast.Idle, sets.Enmity))
 	end
@@ -158,11 +193,16 @@ function aftercast(spell)
 	    equip_TP()
 	else
 		equip_Idle()
-	end	
+	end
+	if (weapon ~= "") then
+		equip({main=weapon, sub=shield})
+		weapon = ""
+		shield = ""
+	end
 end
 
 function equip_TP()
-	equip(sets.Melee)
+	equip(sets.Engaged)
 end
 
 function equip_Idle()
@@ -185,8 +225,8 @@ end
 function self_command(command)
 	if command == 'switch tp' then
         Melee_Ind = Melee_Ind +1
-        if Melee_Ind > #sets.Melee.index then Melee_Ind = 1 end
-        send_command('@input /echo <----- TP Set changed to '..sets.Melee.index[Melee_Ind]..' ----->')
+        if Melee_Ind > #sets.Engaged.index then Melee_Ind = 1 end
+        send_command('@input /echo <----- TP Set changed to '..sets.Engaged.index[Melee_Ind]..' ----->')
         equip_TP()
 	elseif command == 'switch MP' then
 		if (MPSet) then

@@ -41,7 +41,7 @@ function get_sets()
         ammo="Sancus Sachet +1",
         hands="Inyanga Dastanas +1",
         ear2="Cath Palug Earring",
-        ring1="Defending Ring",
+        ring1="Murky Ring",
         ring2="Gelatinous Ring +1",
         feet="Herald's Gaiters",
         neck="Loricate Torque +1"
