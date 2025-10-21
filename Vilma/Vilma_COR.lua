@@ -292,7 +292,7 @@ sets.roll.Short = {
     waist="Flume Belt +1",
     left_ear="Etiolation Earring",
     right_ear="Novio Earring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     left_ring="Barataria Ring",    
     back=capeDT, --AMBUSCADE
 }

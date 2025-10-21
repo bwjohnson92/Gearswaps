@@ -85,7 +85,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		
 	sets.midcast.Enfeebling = {
 	main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-		head="Atrophy Chapeau +2",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
+		head="Vitiation Chapeau +2",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
 		body="Lethargy Sayon +1",hands="Volte bracers",ring1="Stikini Ring +1",ring2="Kishar Ring",
 		back=SucellosMND,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +1"}
 

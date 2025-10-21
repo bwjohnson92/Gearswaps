@@ -9,9 +9,9 @@ function get_sets()
     sets.Relic = {}
     sets.Empyrean = {}
 
-    sets.AF.Feet = "Wakido Sune-Ate +2"
+    sets.AF.Feet = "Wakido Sune-Ate +4"
     sets.AF.Legs = "Wakido Haidate"
-    sets.AF.Hands = "Wakido Kote +3"
+    sets.AF.Hands = "Wakido Kote +4"
     sets.AF.Body = "Wakido Domaru"
     sets.AF.Head = "Wakido Kabuto +1"
 
@@ -102,8 +102,8 @@ function get_sets()
     --Weaponskill Sets--
     sets.WS = {
         head="Mpaca's Cap",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
+        body=sets.Relic.Body,
+        hands=sets.Empyrean.Hands,
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
         ear1="Moonshade Earring",
@@ -141,7 +141,6 @@ function get_sets()
                         
     sets.WS["Tachi: Jinpu"] = {
         head="Nyame Helm",
-        neck="Fotia Gorget",
         waist="Fotia Belt",
         ear2="Schere Earring",
         ring2="Niqmaddu Ring"

@@ -78,8 +78,8 @@ function get_sets()
 
     sets.WS["Rudra's Storm"] = { ammo="Cath Palug Stone",
         head="Pillager's Bonnet +2",neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
-        body="Meghanada cuirie +2",hands="Meghanada gloves +2",ring1="Ilabrat Ring",ring2="Regal ring",
-        back=capeWS,waist="Grunfeld Rope",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+        body="Meghanada cuirie +2",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Regal ring",
+        back=capeWS,waist="Kentarch Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
         Ammo="Cath Palug stone"
         
     sets.WS["Rudra's Storm"].SA = set_combine(sets.WS["Rudra's Storm"],
@@ -88,9 +88,9 @@ function get_sets()
         body="Pillager's Vest +2",hands="Raider's Armlets +2",legs="Nyame Flanchard", feet="Nyame Sollerets"}
     )
         
-    sets.WS.Exenterator = {head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Mache Earring +1",ear2="Sherida Earring",
-        body="Pillager's Vest +2",hands="Herculean Gloves",ring1="Ilabrat ring",ring2="Mummu Ring",
-        back=capeWS,waist="Fotia Belt",legs="Nahtirah Trousers",feet="Mummu gamashes +2"}
+    sets.WS.Exenterator = {head="Nyame helm",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Skulker's Earring",
+        body="Pillager's Vest +2",hands="Nyame gauntlets",ring1="Gere ring",ring2="Ilabrat Ring",
+        back=capeWS,waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
     sets.WS.Exenterator.TA = {
         body="Pillager's Vest +2",ring2="Gere Ring", --hands

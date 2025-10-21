@@ -44,7 +44,7 @@ function get_sets()
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
         left_ring="Inyanga Ring",
-        right_ring="Defending Ring",
+        right_ring="Murky Ring",
         back="Repulse Mantle"
     }
 
@@ -62,7 +62,7 @@ function get_sets()
         left_ear="Etiolation Earring",
         right_ear="Eabani Earring",
         left_ring="Inyanga Ring",
-        right_ring="Defending Ring",
+        right_ring="Murky Ring",
         back={ name="Alaunus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},
     }
 
@@ -140,7 +140,7 @@ function get_sets()
         feet="Bunzi's Sabots",
         sub="Genmei Shield",
         neck="Cleric's Torque +2", 
-        left_ring="Defending Ring",
+        left_ring="Murky Ring",
         right_ring="Janniston Ring +1",
         back=AlaunusDT,
         ammo="Staunch Tathlum +1",

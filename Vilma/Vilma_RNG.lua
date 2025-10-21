@@ -294,7 +294,7 @@ function init_gear_sets()
 		
             
         sets.midcast.RA.Acc = set_combine(sets.midcast.RA.Mid, {
-            head="Orion Beret +3",
+            head="Orion Beret +4",
             body="Orion Jerkin +2",
             hands="Orion Socks +2",
             feet="Orion Socks +2",
@@ -318,7 +318,7 @@ function init_gear_sets()
         })
 
         sets.precast.WS = {
-            head="Orion Beret +3",
+            head="Orion Beret +4",
             neck="Scout's Gorget +1",
             ear1="Moonshade Earring",
             ear2="Enervating Earring",
@@ -342,7 +342,7 @@ function init_gear_sets()
         })
 
         sets.LastStand = {
-            head="Orion Beret +3",
+            head="Orion Beret +4",
             body="Nyame Mail",
             -- hands="Meghanada Gloves +2",
             hands="Nyame Gauntlets",
@@ -442,7 +442,7 @@ function init_gear_sets()
             ear1="Ishvara Earring",
             ear2="Sherida Earring",
             hands="Meghanada Gloves +2",
-            head="Orion Beret +3",
+            head="Orion Beret +4",
             legs="Arcadian Braccae +3",
             body="Meghanada Cuirie +2",
             -- feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
@@ -456,7 +456,7 @@ function init_gear_sets()
         sets.precast.WS['Namas Arrow'].Acc = set_combine(sets.precast.WS.Acc, sets.NamasArrow)
 
         sets.Coronach = {
-            head="Orion Beret +3",
+            head="Orion Beret +4",
             neck="Scout's gorget +1",
             ear1="Sherida Earring",
             ear2="Ishvara Earring",
@@ -515,7 +515,7 @@ function init_gear_sets()
         sets.precast.WS["Detonator"].Acc = set_combine(sets.precast.WS.Acc, sets.Detonator)
 
         sets.SavageBlade = set_combine(sets.precast.WS, {
-            head="Orion Beret +3",
+            head="Orion Beret +4",
             -- neck="Fotia Gorget",
             neck="Scout's Gorget +1",
             ear1="Ishvara Earring",
@@ -541,7 +541,7 @@ function init_gear_sets()
         --sets.Kiting = {feet="Fajin Boots"}
        
         sets.buff.Barrage = set_combine(sets.midcast.RA, {
-            head="Orion Beret +3",
+            head="Orion Beret +4",
             neck="Iskur Gorget",
             ear1="Enervating Earring",
             ear2="Telos Earring",
