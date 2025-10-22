@@ -139,8 +139,8 @@ sets.RA.Accuracy = set_combine(sets.RA, { --RAcc and STP
 sets.WS = {}
 
 sets.WS.SavageBlade = {
-    head="Meghanada Visor +2",
-    neck="Republican platinum medal",
+    head="Nyame Helm",
+    neck="Republican Platinum Medal",
     ear1="Moonshade Earring",
     ear2="Ishvara Earring",
     body="Nyame Mail",
