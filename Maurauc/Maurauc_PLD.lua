@@ -142,11 +142,6 @@ function addTextPairs()
 end
 
 function updateTable()
-    -- addToTable("(F9) Enfeebling", EnfeebSet and "Accuracy" or "Potency")
-    -- addToTable("Enfeeble Potency", not EnfeebSet)
-    -- addToTable("(F10) MP Body", MPSet)
-    -- addToTable("(F11) MB Set", MBSet)
-    -- addToTable("(F12) Idle Set", PDTSet and "PDT" or "Standard")
     addToTable("(PGUP) TP Set", sets.Engaged.index[Melee_Ind])
     -- addToTable("(PGDN) Weapon Locked", weaponLocked)
     update_message()
@@ -163,10 +158,11 @@ function precast(spell)
 
 	if spell.type:lower() == 'weaponskill' then
         if (sets.WS[spell.english]) then
-                set = sets.WS[spell.english]
+			set = sets.WS[spell.english]
         else
             set = sets.WS
         end
+		equip(set)
     end
 
 end
