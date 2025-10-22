@@ -121,30 +121,40 @@ function get_sets()
     
     sets.WS.index = {'Attack', 'Accuracy'}
 
-    sets.WS["Tachi: Fudo"] = {}
-    sets.WS["Tachi: Mumei"] = {}
+    sets.WS["Tachi: Fudo"] = set_combine(sets.WS, {
 
-    sets.WS["Tachi: Shoha"] = {
+    })
+
+    sets.WS["Tachi: Mumei"] = set_combine(sets.WS, {
+
+    })
+
+    sets.WS["Tachi: Shoha"] = set_combine(sets.WS, {
         ring2="Niqmaddu Ring"
-    }
+    })
+
     sets.WS["Tachi: Shoha"].Accuracy = set_combine(sets.WS["Tachi: Shoha"], {
     })
 
-    sets.WS["Tachi: Fudo"] = {} -- Fudo, Rana                      
+    sets.WS["Tachi: Fudo"] = set_combine(sets.WS, {
+
+    })
+
     sets.WS["Tachi: Fudo"].Accuracy = set_combine(sets.WS["Tachi: Fudo"], {
 
     })
 
-    sets.WS["Tachi: Rana"] = {
+    sets.WS["Tachi: Rana"] = set_combine(sets.WS, {
         ear2="Schere Earring"
-    }
+    })
                         
-    sets.WS["Tachi: Jinpu"] = {
+    sets.WS["Tachi: Jinpu"] = set_combine(sets.WS, {
         head="Nyame Helm",
         waist="Fotia Belt",
         ear2="Schere Earring",
         ring2="Niqmaddu Ring"
-    }
+    })
+
     sets.WS["Tachi: Koki"] = set_combine(sets.WS["Tachi: Jinpu"])
     sets.WS["Tachi: Kagero"] = set_combine(sets.WS["Tachi: Jinpu"])
 
@@ -154,12 +164,19 @@ function get_sets()
         ring1="Begrudging Ring"
     }
 
-    sets.WS["Impulse Drive"].Accuracy = set_combine(sets.WS["Impulse Drive"], {})
+    sets.WS["Impulse Drive"].Accuracy = set_combine(sets.WS["Impulse Drive"], {
+        
+    })
 
 
     -- RANGED --
-    sets.WS["Namas Arrow"] = {}
-    sets.WS["Apex Arrow"] = {}
+    sets.WS["Namas Arrow"] = set_combine(sets.WS, {
+
+    })
+
+    sets.WS["Apex Arrow"] = set_combine(sets.WS, {
+
+    })
 
     --Job Ability Sets--
     sets.JA = {}
