@@ -122,17 +122,17 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj", sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Lethargy Earring +1",
 		body="Lethargy Sayon +1",hands="Atrophy Gloves +1",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
-		back=SucellosMND,waist="Embla Sash",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +1"}
+		back=SucellosMND,waist="Embla Sash",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +2"}
 
 		
 	sets.midcast.EnhancingMagic = {main="Pukulatmuj", sub="Ammurapi Shield",
 		head="Befouled Crown",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Telchine Chasuble",hands="Vitiation Gloves +1",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
-		back=SucellosMND,waist="Embla Sash",legs="Atrophy Tights +2",feet="Lethargy Houseaux +1"}
+		back=SucellosMND,waist="Embla Sash",legs="Atrophy Tights +2",feet="Lethargy Houseaux +2"}
 
 	sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
 		neck="Duelist's Torque +1",
-		head="Telchine Cap", legs="Telchine Braconi", feet="Lethargy Houseaux +1",
+		head="Telchine Cap", legs="Telchine Braconi", feet="Lethargy Houseaux +2",
 		ear2="Lethargy Earring +1",
 		hands="Atrophy Gloves +2"})
 
@@ -140,7 +140,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		main="Pukulatmuj", sub="Ammurapi Shield",
 		head="Amalric Coif +1", neck="Duelist's Torque +1",
 		body="Atrophy Tabard +2",hands="Atrophy Gloves +2",
-		back="Sucellos's Cape", waist="Witful Belt", legs="Lethargy Fuseau +1", feet="Lethargy Houseaux +1"})
+		back="Sucellos's Cape", waist="Witful Belt", legs="Lethargy Fuseau +1", feet="Lethargy Houseaux +2"})
 
 	--sets.midcast.Cursna = {main="Beneficus",
 	--	head="Orison Cap +2",neck="Malison medallion", ear2="Loquacious Earring",

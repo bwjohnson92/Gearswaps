@@ -15,7 +15,7 @@ function get_sets()
     sets.AF.Body = "Wakido Domaru"
     sets.AF.Head = "Wakido Kabuto +1"
 
-    sets.Relic.Feet = "Sakonji Sune-Ate +2"
+    sets.Relic.Feet = "Sakonji Sune-Ate +3"
     sets.Relic.Legs = "Sakonji Haidate"
     sets.Relic.Hands = "Sakonji Kote +2"
     sets.Relic.Body = "Sakonji Domaru +3"
@@ -121,30 +121,46 @@ function get_sets()
     
     sets.WS.index = {'Attack', 'Accuracy'}
 
-    sets.WS["Tachi: Fudo"] = {}
-    sets.WS["Tachi: Mumei"] = {}
+    sets.WS["Tachi: Fudo"] = set_combine(sets.WS, {
+        body="Sakonji Domaru +3",
+        legs="Wakido Haidate +3"
 
-    sets.WS["Tachi: Shoha"] = {
+    })
+
+    sets.WS["Tachi: Mumei"] = set_combine(sets.WS, {
+
+    })
+
+    sets.WS["Tachi: Shoha"] = set_combine(sets.WS, {
+        body="Nyame Mail",
         ring2="Niqmaddu Ring"
-    }
+    })
+
     sets.WS["Tachi: Shoha"].Accuracy = set_combine(sets.WS["Tachi: Shoha"], {
     })
 
-    sets.WS["Tachi: Fudo"] = {} -- Fudo, Rana                      
+    sets.WS["Tachi: Fudo"] = set_combine(sets.WS, {
+
+    })
+
     sets.WS["Tachi: Fudo"].Accuracy = set_combine(sets.WS["Tachi: Fudo"], {
 
     })
 
-    sets.WS["Tachi: Rana"] = {
-        ear2="Schere Earring"
-    }
-                        
-    sets.WS["Tachi: Jinpu"] = {
-        head="Nyame Helm",
-        waist="Fotia Belt",
+    sets.WS["Tachi: Rana"] = set_combine(sets.WS, {
         ear2="Schere Earring",
+        head="Nyame Helm"
+    })
+                        
+    sets.WS["Tachi: Jinpu"] = set_combine(sets.WS, {
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        waist="Fotia Belt",
+        ear2="Friomisi Earring",
         ring2="Niqmaddu Ring"
-    }
+    })
+
     sets.WS["Tachi: Koki"] = set_combine(sets.WS["Tachi: Jinpu"])
     sets.WS["Tachi: Kagero"] = set_combine(sets.WS["Tachi: Jinpu"])
 
@@ -154,12 +170,19 @@ function get_sets()
         ring1="Begrudging Ring"
     }
 
-    sets.WS["Impulse Drive"].Accuracy = set_combine(sets.WS["Impulse Drive"], {})
+    sets.WS["Impulse Drive"].Accuracy = set_combine(sets.WS["Impulse Drive"], {
+        
+    })
 
 
     -- RANGED --
-    sets.WS["Namas Arrow"] = {}
-    sets.WS["Apex Arrow"] = {}
+    sets.WS["Namas Arrow"] = set_combine(sets.WS, {
+
+    })
+
+    sets.WS["Apex Arrow"] = set_combine(sets.WS, {
+
+    })
 
     --Job Ability Sets--
     sets.JA = {}
