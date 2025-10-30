@@ -142,10 +142,6 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	})
 		
 	sets.midcast.ElementalMagic = {
-		-- main="Marin Staff +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
-		-- head=MerlinicHoodAcc,neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Friomisi Earring",
-		-- body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Freke Ring",ring2="Shiva Ring +1",
-		-- back=SucellosINT,waist="Sacro Cord",legs="Lethargy Fuseau +3",feet="Vitiation Boots +3"
 		main="Marin Staff +1",
 		sub="Enki Strap",
 		ranged=Empty,

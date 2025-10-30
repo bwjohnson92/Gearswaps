@@ -72,7 +72,7 @@ function get_sets()
         neck="Moonbow Whistle",
         ear2="Darkside Earring",
         legs="Inyanga Shalwar +2",
-        feet="Brioso Slippers +3",
+        feet="Brioso Slippers +4",
     }
 
     sets.midcast.Song.Dummy = set_combine(sets.Idle.Standard, {
@@ -113,7 +113,7 @@ function get_sets()
         body="Brioso Justau. +2",
         hands="Brioso Cuffs +2",
         legs="Brioso Cannions +2",
-        feet="Brioso Slippers +3",
+        feet="Brioso Slippers +4",
         back="Intarabus's Cape",
         ring1=stikini1,
         ring2=stikini2,
@@ -237,7 +237,7 @@ end
 function aftercast(spell)
     busy = false
     current = ""
-    if (spell.interrupted == true and command_casting == true) then
+    if (spell.interrupted == true and command_casting == true and string.find(spell.type,'Song') and not spell.target.type == "MONSTER") then
         table.insert(song_queue, 1, spell.english)
     end
     command_casting = false

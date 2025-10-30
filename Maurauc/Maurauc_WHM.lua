@@ -41,7 +41,7 @@ function get_sets()
     left_ear="Etiolation Earring",
     right_ear="Enervating Earring",
     left_ring="Murky Ring",
-    right_ring="Gelatinous Ring +1",
+    right_ring="Defending Ring",
     back="Repulse Mantle",
 }
 

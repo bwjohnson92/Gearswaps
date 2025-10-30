@@ -67,7 +67,7 @@ function get_sets()
 
     sets.Idle.Standard = {
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-        body="Jhakri Robe +2",hands="Volte Gloves",ring1="Murky Ring",ring2="Gelatinous Ring +1",
+        body="Jhakri Robe +2",hands="Volte Gloves",ring1="Murky Ring",ring2="Defending Ring",
         back=TaranusNuke,waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Wicce Sabots +2"}
 
     sets.Idle.HighMP = set_combine(sets.Idle.Standard, { ammo="Strobilus",

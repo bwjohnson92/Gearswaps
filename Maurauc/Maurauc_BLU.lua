@@ -71,6 +71,9 @@ function get_sets()
         grape="Grape Daifuku", rolanberry="Rolanberry Daifuku"
     }
 
+    stikini1 = {name="Stikini Ring +1", bag="Wardrobe2"}
+    stikini2 = {name="Stikini Ring +1", bag="Wardrobe3"}
+
     sets.Weapons = {}
     sets.Weapons.Main = {}
     sets.Weapons.Offhand = {}
@@ -93,25 +96,22 @@ function get_sets()
     sets.Idle.Standard = {
         ammo="Coiste Bodhar",
         head="Nyame Helm",neck="Loricate Torque +1", ear1="Loquacious earring", ear2="Moonshade earring",
-        body="Jhakri Robe +2",hands="Nyame Gauntlets",ring1={name="Stikini Ring +1", bag="Wardrobe2"},ring2={name="Stikini Ring +1", bag="Wardrobe3"},
+        body="Jhakri Robe +2",hands="Nyame Gauntlets",ring1=stikini1,ring2=stikini2,
         back=DEXCape,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Nyame Sollerets"
     }
 
     sets.Idle.DT = {
         ammo="Staunch Tathlum +1",
-        -- head="Malignance Chapeau",
         head="Nyame Helm",
         body="Malignance Tabard",
         hands="Nyame Gauntlets",
-        -- legs="Aya. Cosciales +2",
         legs="Carmine Cuisses +1",
-        -- feet="Malignance Boots",
         feet="Nyame Sollerets",
         waist="Flume Belt +1",
         neck="Loricate Torque +1",
         left_ear="Novia Earring",
         right_ear="Etiolation Earring",
-        left_ring="Stikini Ring +1",
+        left_ring=stikini1,
         right_ring="Murky Ring",
         back=DEXCape,
     }
@@ -191,9 +191,8 @@ function get_sets()
 
     sets.BlueMagic.STRMND = {  
         head="Carmine Mask +1",neck="Caro Necklace",
-        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2="Stikini Ring",
-        back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Nyame Sollerets"
-    }
+        body="Rawhide Vest",hands="Rawhide Gloves",ring1="Rufescent Ring",ring2=stikini2,
+    back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Nyame Sollerets"}
 
     sets.BlueMagic.AGI = { 
         head="Carmine Mask +1",neck="Caro Necklace",
@@ -201,17 +200,15 @@ function get_sets()
         back="Cornflower cape",waist="Latria Sash",legs="Samnuha Tights",feet="Nyame Sollerets"
     }
 
-    sets.BlueMagic.INT = {
-        ammo="Pemphredo Tathlum",
-        head="Jhakri Coronal +2",neck="Sanctity necklace",ear1="Regal Earring",ear2="Friomisi earring",
-        body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
-        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"
-    }
+    sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
+        head="Hashishin Kavuk +2",neck="Sibyl Scarf",ear1="Regal Earring",ear2="Friomisi earring",
+        body="Amalric Doublet +1",hands="Hashishin Bazubands +3",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
+    back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"}
 
     sets.BlueMagic.Cures = {
         ammo="Hydrocera",
         head="Carmine Mask +1",ear1="Loquac. earring",ear2="Novia earring",
-        body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Stikini Ring",ring2="Weatherspoon Ring +1",
+        body="Vrikodara Jupon",hands="Telchine Gloves",ring1=stikini1,ring2="Weatherspoon Ring +1",
         back="Oretania's cape",waist="Cascade Belt",legs="Psycloth Lappas",feet="Medium's Sabots"
     }
 
@@ -259,7 +256,7 @@ function get_sets()
         head="Carmine Mask +1",ear1="Loquac. earring",
         body="Assim. jubbah +3",
         
-        ring1="Weatherspoon ring +1", ring2="Stikini Ring",
+        ring1="Weatherspoon ring +1", ring2=stikini2,
         back="Cornflower cape",waist="Twilight belt",
         feet="Luhlaza charuqs +1"
     }
@@ -317,12 +314,11 @@ function get_sets()
     --Utility Sets--
 
     sets.Phalanx = {
-        -- main="Pukulatmuj +1",sub="Pukulatmuj",
-        head="Herculean Helm",neck="Melic torque",ear1="Loquac. earring",
-        -- ear2="Augment. earring",
+        main="Sakpata's Sword",ammo="Staunch Tathlum",
+        head="Herculean Helm",neck="Incanter's Torque",ear1="Loquac. earring",ear2="Andoaa Earring",
         body={ name="Herculean Vest", augments={'Pet: CHR+5','MND+1','Phalanx +5',}},
-        hands="Taeon Gloves",ring1="Stikini ring",
-        back="Swith cape",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
+        hands="Taeon Gloves",ring1=stikini1,ring2=stikini2,
+        back="Fi Follet Cape +1",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
     }
 
     --Job Ability Sets--
@@ -349,6 +345,7 @@ function get_sets()
 
     sets.precast.FC.Standard = 
     {
+        ammo="Staunch Tathlum",
         head="Carmine Mask +1", neck="Voltsurge Torque", ear1="Loquac. Earring", ear2="Etiolation Earring", 
         body="Dread Jupon",hands="Leyline Gloves",ring1="Weatherspoon Ring +1", ring2="Kishar Ring",
         back=INTCape,
@@ -524,6 +521,7 @@ end
 function aftercast(spell)
     if (spell.name == "Phalanx") then
         equip(set_combine(sets.Idle[sets.Idle.index[Idle_ind]]))
+        equip_weapons()
     elseif player.status == 'Engaged' then
         equip(sets.TP[sets.TP.index[TP_ind]])
     else

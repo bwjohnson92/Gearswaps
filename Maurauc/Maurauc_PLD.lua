@@ -40,6 +40,24 @@ function get_sets()
 		sub="Ochain"
 	}
 
+	-- sets.aftercast.Idle = {
+	--     main="Naegling",
+	--     sub="Sacro Bulwark",
+	--     ammo="Incantor Stone",
+	--     head="Twilight Helm",
+	--     body="Twilight Mail",
+	--     hands="Sulev. Gauntlets +2",
+	--     legs={ name="Carmine Cuisses +1", augments={'MP+80','INT+12','MND+12',}},
+	--     feet="Sulev. Leggings +2",
+	--     neck="Loricate Torque +1",
+	--     waist="Cetl Belt",
+	--     left_ear="Etiolation Earring",
+	--     right_ear="Loquac. Earring",
+	--     left_ring="Murky Ring",
+	--     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+	--     back="Repulse Mantle",
+	-- }
+
 	sets.aftercast.Idle = {
 		head="Sakpata's Helm",
 	    body="Sakpata's Plate",
@@ -47,7 +65,7 @@ function get_sets()
 	    legs="Carmine Cuisses +1",
 	    feet="Sakpata's Leggings",
 	    left_ring="Murky Ring",
-	    right_ring="Gelatinous Ring +1",
+	    right_ring="Defending Ring",
 	    waist="Flume Belt +1"
 
 	}
