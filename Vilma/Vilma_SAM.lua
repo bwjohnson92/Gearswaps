@@ -21,7 +21,7 @@ function get_sets()
     sets.Relic.Body = "Sakonji Domaru +3"
     sets.Relic.Head = "Sakonji Kabuto"
 
-    sets.Empyrean.Feet = "Kasuga Sune-Ate +1"
+    sets.Empyrean.Feet = "Kasuga Sune-Ate +2"
     sets.Empyrean.Legs = "Kasuga Haidate +2"
     sets.Empyrean.Hands = "Kasuga Kote +2"
     sets.Empyrean.Body = "Kasuga Domaru +2"
