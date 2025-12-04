@@ -18,12 +18,12 @@ function get_sets()
     sets.Relic.Feet = "Sakonji Sune-Ate +3"
     sets.Relic.Legs = "Sakonji Haidate"
     sets.Relic.Hands = "Sakonji Kote +2"
-    sets.Relic.Body = "Sakonji Domaru +3"
+    sets.Relic.Body = "Sakonji Domaru +4"
     sets.Relic.Head = "Sakonji Kabuto"
 
     sets.Empyrean.Feet = "Kasuga Sune-Ate +2"
     sets.Empyrean.Legs = "Kasuga Haidate +2"
-    sets.Empyrean.Hands = "Kasuga Kote +2"
+    sets.Empyrean.Hands = "Kasuga Kote +3"
     sets.Empyrean.Body = "Kasuga Domaru +2"
     sets.Empyrean.Head = "Kasuga Kabuto +2"
 
@@ -122,7 +122,7 @@ function get_sets()
     sets.WS.index = {'Attack', 'Accuracy'}
 
     sets.WS["Tachi: Fudo"] = set_combine(sets.WS, {
-        body="Sakonji Domaru +3",
+        body="Sakonji Domaru +4",
         legs="Wakido Haidate +3"
 
     })
