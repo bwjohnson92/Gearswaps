@@ -76,7 +76,7 @@ function get_sets()
     sets.Idle.Move = set_combine(sets.Idle.Standard,{feet="Herald's Gaiters"})
     
     sets.precast.FastCast = {main="Grioavolr", sub="Clerisy Strap",ammo="Incantor Stone",
-        head="Bunzi's Hat",neck="Cleric's torque +2",ear1="Malignance Earring",ear2="Loquacious Earring",
+        head="Ebers Cap +3",neck="Cleric's torque +2",ear1="Malignance Earring",ear2="Loquacious Earring",
         body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring1="Medada's Ring",ring2="Kishar Ring",
         back=AlaunusFC, waist="Embla Sash", legs="Ayanmo cosciales +2", feet="Regal pumps +1"}
     
