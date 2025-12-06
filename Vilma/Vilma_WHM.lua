@@ -84,9 +84,9 @@ function get_sets()
         legs="Ebers Pantaloons +3",feet="Kaykaus Boots +1"}
     )
 
-    sets.midcast.EnfeeblingMagic = {main="Grioavolr",sub="Enki Strap", ammo="Pemphredo Tathlum",
-        head="Theophany Cap +2",neck="Null Loop",ear1="Dignitary's Earring",ear2="Regal Earring",
-        body="Theophany Bliaut +4",hands="Inyanga Dastanas +2",ring1="Medada's Ring",ring2="Kishar Ring",
+    sets.midcast.EnfeeblingMagic = {main="Bunzi's Rod",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+        head="Theophany Cap +2",neck="Null Loop",ear1="Ebers Earring +1",ear2="Regal Earring",
+        body="Theophany Bliaut +4",hands="Theophany Mitts +4",ring1="Medada's Ring",ring2="Kishar Ring",
         back="Null Shawl",waist="Rumination Sash", legs="Chironic Hose",feet="Theophany Duckbills +2"}
 
     sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
