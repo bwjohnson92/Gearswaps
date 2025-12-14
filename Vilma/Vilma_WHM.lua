@@ -85,14 +85,14 @@ function get_sets()
     )
 
     sets.midcast.EnfeeblingMagic = {main="Bunzi's Rod",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
-        head="Theophany Cap +2",neck="Null Loop",ear1="Ebers Earring +1",ear2="Regal Earring",
+        head="Theophany Cap +4",neck="Null Loop",ear1="Ebers Earring +1",ear2="Regal Earring",
         body="Theophany Bliaut +4",hands="Theophany Mitts +4",ring1="Medada's Ring",ring2="Kishar Ring",
-        back="Null Shawl",waist="Rumination Sash", legs="Chironic Hose",feet="Theophany Duckbills +2"}
+        back="Null Shawl",waist="Rumination Sash", legs="Chironic Hose",feet="Theophany Duckbills +4"}
 
     sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
         head="Ebers Cap +3",neck="Sroda Necklace",
         body="Ebers Bliaut +3",hands="Ebers Mitts +3",ring1="Medada's Ring",ring2="Stikini Ring +1",
-        waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Theophany Duckbills +2"}
+        waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Theophany Duckbills +4"}
     --sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Bliaut"})
 
     sets.midcast.EnhancingMagic = {main="Gada", sub="Ammurapi Shield", ammo="Incantor Stone",
@@ -125,7 +125,7 @@ function get_sets()
         main="Yagrush",
         head="Nahtirah Hat", neck="Cleric's Torque +2",ear2="Loquacious Earring",
         body="Ebers Bliaut +3",hands="Ebers Mitts +3",
-        back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +3",feet='Regal pumps +1' }
+        back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +4",feet='Regal pumps +1' }
 
     sets.midcast.DivineCaress = set_combine(sets.midcast.DebuffRemoval, {
         hands="Ebers Mitts +3",
