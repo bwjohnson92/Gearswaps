@@ -288,6 +288,7 @@ sets.roll.Short = {
     body="Lanun Frac +3",
     hands="Chasseur's Gants +3",
     feet="Meg. Jam. +2",
+    legs="Desultor Tassets",
     neck="Regal Necklace",
     waist="Flume Belt +1",
     left_ear="Etiolation Earring",
