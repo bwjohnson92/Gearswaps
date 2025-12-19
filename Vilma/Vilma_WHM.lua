@@ -87,7 +87,7 @@ function get_sets()
     sets.midcast.EnfeeblingMagic = {main="Bunzi's Rod",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
         head="Theophany Cap +4",neck="Null Loop",ear1="Ebers Earring +1",ear2="Regal Earring",
         body="Theophany Bliaut +4",hands="Theophany Mitts +4",ring1="Medada's Ring",ring2="Kishar Ring",
-        back="Null Shawl",waist="Rumination Sash", legs="Chironic Hose",feet="Theophany Duckbills +4"}
+        back="Null Shawl",waist="Null Belt", legs="Chironic Hose",feet="Theophany Duckbills +4"}
 
     sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
         head="Ebers Cap +3",neck="Sroda Necklace",
