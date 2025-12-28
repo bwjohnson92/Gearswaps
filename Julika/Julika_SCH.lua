@@ -65,9 +65,9 @@ function get_sets()
     }
     
     sets.precast.FastCure = {
-        neck="Voltsurge Torque",ear2="Loquacious Earring",
-        body="Vanir Cotehardie",ring2="Metamorph Ring +1",
-        back="Pahtli Cape",waist="Witful Belt",legs="Psycloth Lappas"}
+        neck="Voltsurge Torque",ear1="Malignance Earring",ear2="Loquacious Earring",
+        body="Merlinic Jubbah",ring2="Metamorph Ring +1",
+        back="Swith Cape +1",waist="Embla Sash",legs="Psycloth Lappas",feet="Regal Pumps +1"}
 
         
     sets.midcast.EnfeeblingMagic = {main="Akademos",sub="Clerisy Strap",ammo="Hydrocera",
@@ -122,11 +122,12 @@ function get_sets()
         main="Bolelabunga", sub="Ammurapi Shield",
         head="Telchine Cap",neck="Colossus's Torque",ear1="Dignitary's Earring",ear2="Loquacious Earring",
         body="Telchine Chasuble",hands="Telchine Gloves",ring2="Metamorph Ring +1",
-        back="Toro Cape",waist="Cascade Belt",legs="Telchine Braconi",feet="Telchine Pigaches"}
+        back="Fi follet Cape",waist="Embla Sash",legs="Telchine Braconi",feet="Telchine Pigaches"}
 
     sets.midcast.Cure = {main="Tamaxchi",sub="Genmei Shield",ammo="Hydrocera",
         neck="Colossus's Torque",
         body="Vrikodara Jupon",
+        ear1="Mendicant's Earring",
         hands="Telchine Gloves",ring1="Stikini Ring",ring2="Ephedra Ring",
         back="Oretania's Cape",waist="Cascade Belt",legs="Chironic Hose",feet="Medium's Sabots"}
 
@@ -144,12 +145,12 @@ function get_sets()
     
     sets.Klimaform = {feet="Arbatel Loafers +1"}
         
-    sets.Regen = {head="Arbatel Bonnet +1", back="Lugh's Cape"}
+    sets.Regen = {head="Arbatel Bonnet +1", waist="Embla Sash", back="Lugh's Cape"}
     sets.Ebullience={head="Arbatel Bonnet +1"}
     
     sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
     
-    sets.Sublimation = {head="Academic's Mortarboard", body="Pedagogy Gown +1"}
+    sets.Sublimation = {head="Academic's Mortarboard", waist="Embla Sash", body="Pedagogy Gown +1"}
     
     organizer_items = { main="Echo Drops", ranged="Cream Puff", ammo="Pear Crepe",
         body="Trizek Ring", ear1="Reraise Earring",
