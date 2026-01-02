@@ -37,7 +37,8 @@ function get_sets()
         'Standard',
         'DT',
         -- 'MagicDT'
-        'Evasion'
+        'Evasion',
+        'EvasionMove',
     }
     Idle_ind = 3
     --Idle Sets--
@@ -73,12 +74,12 @@ function get_sets()
 
     sets.Idle.Evasion = set_combine(sets.Idle.DT, {
         ammo="Yamarang",
-        head="Nyame Helm",
+        head="Runeist Bandeau +4",
         body="Nyame Mail",
         -- hands="Turms Mittens +1",
         hands="Nyame Gauntlets",
-        -- legs="Erilaz Leg Guards +3",
-        legs="Dashing Subligar",
+        legs="Erilaz Leg Guards +3",
+        -- legs="Dashing Subligar",
         -- feet="Turms Leggings +1",
         feet="Nyame Sollerets",
         neck="Bathy Choker +1",
@@ -89,8 +90,12 @@ function get_sets()
         right_ear="Infused Earring",
         left_ring="Moonlight Ring",
         -- right_ring="Vengeful Ring",
-        right_ring="Gurebu-Ogurebu's Ring",
+        right_ring="Murky Ring",
         back=OgmaEvasion
+    })
+
+    sets.Idle.EvasionMove = set_combine(sets.Idle.Evasion, {
+        legs="Carmine Cuisses +1",
     })
     --TP Sets--
     sets.TP = {}
@@ -294,7 +299,7 @@ function get_sets()
     --Fast Cast set
     sets.precast = {
         ammo="Sapience Orb",
-        head={name="Runeist bandeau +3", priority=8},
+        head={name="Runeist bandeau +4", priority=8},
         neck="Orunmila's Torque",
         ear1={name="Odnowa Earring +1",priority=1},
         ear2={name="Etiolation Earring",priority=1},
@@ -373,7 +378,7 @@ function get_sets()
     }  
 
     sets.Regen = set_combine(sets.Idle.Evasion, {
-        main="Morgelai",head="Runeist bandeau +3",neck='Sacro Gorget',ear2="Erilaz Earring"
+        main="Morgelai",head="Runeist bandeau +4",neck='Sacro Gorget',ear2="Erilaz Earring"
     })
 
     --Magic acc for enfeebles, handy for VW
@@ -383,7 +388,6 @@ function get_sets()
         -- waist="Salire Belt",legs="Runeist Trousers +2"}
      
     --Toggle TP sets button, change if you want; currently ALT+F9 toggles forward, CTRL+F9 toggles backwards
-    send_command('bind end send @others input /follow Magicmidget')
     send_command('bind f11 gs c toggle TP set')
     send_command('bind ^f11 gs c reverse TP set')
 
@@ -568,7 +572,7 @@ end
   
 function midcast(spell,act,arg) 
         if spell.action_type == 'Magic' then 
-                equip(sets.Idle.Evasion,{head="Runeist bandeau +3",hands="Regal Gauntlets"})         
+                equip(sets.Idle.Evasion,{head="Runeist bandeau +4",hands="Regal Gauntlets"})         
         end  
         if spell.skill == 'Enhancing Magic' then
                 equip(sets.Idle.Evasion, {head="Erilaz Galea +2",legs="Futhark Trousers +2",hands="Regal Gaunlets"})
@@ -582,7 +586,7 @@ function midcast(spell,act,arg)
                 end 
         end
         if spell.name == 'Foil' or spell.name == 'Flash' or spell.name == "Stun" then 
-                equip(sets.Idle.Evasion, sets.Enmity,{head="Runeist bandeau +3"})
+                equip(sets.Idle.Evasion, sets.Enmity,{head="Runeist bandeau +4"})
         end 
         if spell.name == 'Phalanx' then
                 equip(sets.Idle.Evasion,sets.Phalanx.Potency)

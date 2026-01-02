@@ -142,8 +142,8 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	})
 		
 	sets.midcast.ElementalMagic = {
-		main="Marin Staff +1",
-		sub="Enki Strap",
+		main="Wizard's Rod",
+		sub="Ammurapi Shield",
 		ranged=Empty,
 		ammo="Sroda Tathlum",
 		head="Leth. Chappel +3",

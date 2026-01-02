@@ -28,10 +28,6 @@ nukingStaff = "Raetic"
 
 function get_sets()
 
-	sets.nukingStaves = {}
-	-- sets.nukingStaves.Raetic = {main="Raetic Staff +1"}
-	sets.nukingStaves.Grioavolr = { main={name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}}}
-
 	sets.Reive = {neck="Arciela's Grace +1"}
 	
 	sets.Melee = {
@@ -75,7 +71,7 @@ function get_sets()
 	    main="Idris",
 	    sub="Genmei Shield",
 	    range="Dunna",
-	    head="Jhakri Coronal +1",
+	    head="Jhakri Coronal +2",
 	    -- body="Jhakri Robe +2",
 		body="Nyame Mail",
 	    hands="Jhakri Cuffs +2",
@@ -103,7 +99,7 @@ function get_sets()
 	    range="Dunna",
 	    head="Nyame Helm",
 	    body="Nyame Mail",
-	    hands="Geo. Mitaines +3",
+	    hands="Geo. Mitaines +4",
 	    legs="Nyame Flanchard",
 		feet="Bagua Sandals +3",
 	    neck={ name="Bagua Charm +1", augments={'Path: A',}},
@@ -111,7 +107,7 @@ function get_sets()
 	    left_ear="Etiolation Earring",
 	    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
 	    left_ring="Defending Ring",
-	    right_ring="Gelatinous Ring +1",
+	    right_ring="Murky Ring",
 	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	})
 
@@ -148,21 +144,20 @@ function get_sets()
 	sets.precast.Dispelga = set_combine(sets.precast.FastCast, {main="Daybreak"})
 		
 	sets.midcast.EnfeeblingMagic = {
-	    main={ name="Grioavolr", augments={'INT+9','Mag. Acc.+20','"Mag.Atk.Bns."+28','Magic Damage +8',}},
-	    sub="Niobid Strap",
+	    main="Daybreak",
+	    sub="Ammurapi Shield",
 	    ammo="Pemphredo Tathlum",
-	    head={ name="Merlinic Hood", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Conserve MP"+3','Mag. Acc.+11','"Mag.Atk.Bns."+10',}},
+	    head="Azimuth Hood +3",
 	    body="Azimuth Coat +3",
 	    hands="Azimuth Gloves +3",
-	    legs={ name="Merlinic Shalwar", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','CHR+2','Mag. Acc.+13','"Mag.Atk.Bns."+9',}},
-	    feet="Jhakri Pigaches +2",
-	    neck="Erra Pendant",
+	    legs="Azimuth Tights +3",
+	    feet="Bagua Sandals +3",
+	    neck="Null Loop",
 	    waist="Luminary Sash",
 	    left_ear="Digni. Earring",
-	    -- right_ear="Barkaro. Earring",
 		right_ear="Regal Earring",
 	    left_ring="Kishar Ring",
-	    right_ring="Vertigo Ring",
+	    right_ring="Metamorph Ring +1",
 	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
 
@@ -191,21 +186,18 @@ function get_sets()
 		
 	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",
-		-- neck="Colossus's Torque",ear1="Lifestorm Earring",
 		ear2="Loquacious Earring",
-		ring2="Rahab Ring",
 		-- waist="Cascade Belt"
 	}
 		
 	sets.midcast.IndiSpells = {
-		-- main="Idris",
 	head="Azimuth Hood +3", neck="Bagua Charm +1",
 	body="Azimuth Coat +3",	hands="Azimuth Gloves +3", 
 	back="Lifestream Cape", legs="Bagua Pants +3",feet="Azimuth Gaiters +3"}
 	
-		sets.midcast.IndiSelf = set_combine(sets.midcast.IndiSpells, {
-			main="Idris"
-		})
+	sets.midcast.IndiSelf = set_combine(sets.midcast.IndiSpells, {
+		main="Idris"
+	})
 
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSelf, {head="Bagua Galero +2",legs="Azimuth Tights +3"})
 
@@ -238,7 +230,6 @@ function get_sets()
 			back="Mecistopins Mantle"}
 
 	send_command('bind f9 gs c nextTH')
-	send_command('bind end send @others "input /follow Magicmidget"')
 	send_command('bind f10 gs c changeStaff')
 
 	windower.register_event('zone change', function()

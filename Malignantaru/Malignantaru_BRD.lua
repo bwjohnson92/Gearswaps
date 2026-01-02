@@ -15,7 +15,6 @@ resSpells = S{"Barstonra","Barwatera","Baraera","Barfira","Barblizzara","Barthun
 -- Gear Sets
 allowWeaponSwap = true
 auto_song = false
-busy = false
 current = ""
 command_casting = false
 
@@ -24,6 +23,10 @@ time = 3.2
 
 stikini1={name="Stikini Ring", bag="wardrobe2"}
 stikini2={name="Stikini Ring", bag="wardrobe3"}
+
+castingCape = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+5',}}
+meleeCape = { name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
+wsCape = { name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
 
 
 function get_sets()
@@ -50,7 +53,7 @@ function get_sets()
         feet="Fili Cothurnes +2",
         back="Repulse Mantle",
         waist="Flume Belt +1",
-        ring1="Vocane Ring",
+        ring1="Murky Ring",
         ring2="Defending Ring"
     }
     
@@ -98,23 +101,23 @@ function get_sets()
     })
 
     sets.Songs.Madrigal = set_combine(sets.midcast.Song, {
-        back="Intarabus's Cape",
+        back=castingCape,
         feet="Fili Cothurnes +2"
     })
 
     sets.Songs.Prelude = set_combine(sets.midcast.Song, {
-        back="Intarabus's Cape",
+        back=castingCape,
         feet="Fili Cothurnes +2"
     })
 
     sets.Songs.Debuff = set_combine(sets.midcast.Song, {
         sub="Ammurapi Shield",
-        head="Brioso Roundlet +2",
+        head="Brioso Roundlet +3",
         body="Brioso Justau. +2",
-        hands="Brioso Cuffs +2",
+        hands="Brioso Cuffs +3",
         legs="Brioso Cannions +2",
         feet="Brioso Slippers +4",
-        back="Intarabus's Cape",
+        back=castingCape,
         ring1=stikini1,
         ring2=stikini2,
         ear1="",
@@ -124,7 +127,7 @@ function get_sets()
 
     sets.Songs.Lullaby = set_combine(sets.Songs.Debuff, {
         body="Fili Hongreline +2",
-        hands="Brioso Cuffs +2",
+        hands="Brioso Cuffs +3",
         legs="Inyanga Shalwar +2",
     })
 
@@ -138,9 +141,34 @@ function get_sets()
         ranged="Daurdabla"
     })
 
+    sets.Melee = {}
+    sets.Melee.Standard = {
+        main="Naegling",
+        sub="Genmei Shield",
+        range="Gjallarhorn",
+        head="Aya. Zucchetto +2",
+        body="Ayanmo Corazza +2",
+        hands="Aya. Manopolas +2",
+        legs="Aya. Cosciales +2",
+        feet="Aya. Gambieras +2",
+        neck={ name="Bard's Charm +1", augments={'Path: A',}},
+        waist="Sailfi Belt",
+        left_ear="Cessance Earring",
+        right_ear="Telos Earring",
+        left_ring="Murky Ring",
+        right_ring="Ilabrat Ring",
+        back=meleeCape
+    }
+
+    sets.WS = set_combine(sets.Melee.Standard, {
+        back=wsCape,
+        left_ear="Moonshade Earring"
+    })
+
     send_command('bind f10 gs c auto')
     send_command('bind f12 gs c sing')
     send_command('bind ^f12 gs c clear')
+    send_command('bind !f12 gs c reset')
     send_command('bind ^f11 gs c removefront')
     send_command('bind !f11 gs c removeback')
     updateTable()
@@ -150,6 +178,7 @@ function updateTable()
     clear_table()
     addToTable("(Ctrl/Alt + F11)", "Remove First/Last")
     addToTable("(Ctrl + F12)", "Clear Queue")
+    addToTable("(Alt + F12)", "Reset Busy")
     addToTable("(F12)", "Sing Next")
     addToTable("Song Queue ("..queue_length()..") - (F10) Automatic", auto_song)
     addToTable("________________________________________\n")
@@ -169,13 +198,18 @@ end
 -- --- Precast ---
 
 function precast(spell)
-    if (string.find(spell.type,'Song') and busy == true) then
+    if (string.find(spell.type,'Song') and midaction()) then
         add_to_chat(140, "Spell cancelled - "..spell.name)
         cancel_spell()
+        return
     end
-    busy = true
+
+    if (command_casting == true) then
+        song_queue[1] = spell.english
+    end
+    
     set = {}
-    if string.find(spell.type,'Song') then
+    if string.find(spell.type,'Song') and (spell.target.type == "PLAYER" or spell.target.type == "SELF") then
         current = spell.name
         updateTable()
     end
@@ -191,7 +225,6 @@ function precast(spell)
 end
 -- --- MidCast ---
 function midcast(spell)
-    busy = true
     if string.find(spell.type,'Magic') or string.find(spell.type,'Song')  then
         set = sets.midcast.Song
         if (string.find(spell.name, 'Carol')) then
@@ -235,18 +268,17 @@ end
 -- --- Aftercast ---
 
 function aftercast(spell)
-    busy = false
     current = ""
-    if (spell.interrupted == true and command_casting == true and string.find(spell.type,'Song') and not spell.target.type == "MONSTER") then
-        table.insert(song_queue, 1, spell.english)
+    if (spell.interrupted == false and song_queue[1] == spell.english) then
+        table.remove(song_queue, 1)
     end
     command_casting = false
     equip(sets.Idle.Standard)
 
     if (auto_song) then
-        time = 1.2
-        if (string.find(spell.type,'Song')) then
-            time = 3.2
+        time = 1.3
+        if (string.find(spell.action_type,'Magic')) then
+            time = 3
         end
         send_command('wait '..time..';gs c sing')
     end
@@ -258,15 +290,26 @@ end
 
 function self_command(command)
     if string.sub(command:lower(),1,3)=="add" and string.len(command) > 3 then
+        move_to_auto = false
+        if (queue_length() == 0 and auto_song) then
+            move_to_auto = true
+        end        
 
         spell = string.sub(command,5,string.len(command))
         
         table.insert(song_queue, spell)
         song_queue = remove_duplicates(song_queue)
-        if (auto_song and not busy) then
+        if (move_to_auto) then
             command = "sing"
         end
 
+    end
+
+    if (command == "reset") then
+        current = ""
+        if (auto_song) then
+            command = "sing"
+        end
     end
     
     if (command == "removefront") then
@@ -282,28 +325,24 @@ function self_command(command)
 
     if (command == "auto") then
         auto_song = not auto_song
-        if (auto_song and not busy) then
+        if (auto_song and not midaction()) then
             command = "sing"
         end
     end
 
     if (command == "sing") then
-        if (busy) then
-            send_command('wait '..time..';gs c sing')
-            return
-        end
         if (queue_length() > 0) then
-            song = table.remove(song_queue, 1)
+            song = song_queue[0] or song_queue[1]
 
             action = ""
             if (string.sub(song,1,3) == "(p)") then
                 action = "Pianissimo"
                 song = string.sub(song,5,string.len(song))
-                table.insert(song_queue, 1, song)
+                table.insert(song_queue, 2, song)
             elseif (string.sub(song,1,3) == "(m)") then
                 action = "Marcato"
                 song = string.sub(song,5,string.len(song))
-                table.insert(song_queue, 1,song)
+                table.insert(song_queue, 2,song)
             else
                 action = song
             end

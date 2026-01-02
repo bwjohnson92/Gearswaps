@@ -160,8 +160,9 @@ function get_sets()
 	    back=capeNuke
 	}
 
-	sets.midcast.ElementalMagic = {main="Marin Staff +1",sub="Enki Strap",
-		head=Empyrean.Head,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Regal Earring",
+	sets.midcast.ElementalMagic = {
+		main="Wizard's Rod",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+		head=Empyrean.Head,neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Regal Earring",
 		body=Empyrean.Body,hands=Empyrean.Hands,ring1="Freke Ring",ring2="Metamorph Ring +1",
 		back=capeNuke,waist="Sacro Cord",legs=Empyrean.Legs,feet=Empyrean.Feet
 	}
@@ -217,7 +218,6 @@ function get_sets()
 
 
 	send_command('bind f9 gs c nextTH')
-	send_command('bind end send @others "input /follow Maurauc"')
 	send_command('bind f10 gs c changeStaff')
 
 	windower.register_event('zone change', function()

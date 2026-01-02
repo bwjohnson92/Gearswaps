@@ -12,7 +12,8 @@ spells.STRDEX = S{'Disseverment', 'Hysteric Barrage', 'Frenetic Rip', 'Seedspray
 spells.STRVIT = S{'Quad. Continuum', 'Delta Thrust', 'Cannonball', 'Glutinous Dart'}
 spells.STRMND = S{'Whirl of Rage'}
 spells.AGI = S{'Benthic Typhoon', 'Final Sting', 'Spiral Spin'}
-spells.INT = S{'Gates of Hades', 'Leafstorm', 'Firespit', 'Acrid Stream', 'Regurgitation', 'Corrosive Ooze', 'Thermal Pulse', 'Magic Hammer', 'Evryone. Grudge', 'Water Bomb', 'Dark Orb', 'Thunderbolt', 'Tem. Upheaval', 'Embalming Earth', 'Foul Waters', 'Rending Deluge', 'Droning Whirlwind', 'Subduction', 'Searing Tempest', 'Blinding Fulgor', 'Spectral Floe', 'Scouring Spate', 'Anvil Lightning', 'Entomb', 'Tenebral Crush', 'Palling Salvo', 'Atramentous Libations', 'Molting Plumage', 'Nectarous Deluge', 'Diffusion Ray'}
+spells.INT = S{'Gates of Hades', 'Leafstorm', 'Firespit', 'Acrid Stream', 'Regurgitation', 'Corrosive Ooze', 'Thermal Pulse', 'Magic Hammer', 'Evryone. Grudge', 'Water Bomb', 'Dark Orb', 'Thunderbolt', 'Tem. Upheaval', 'Embalming Earth', 'Foul Waters', 'Rending Deluge', 'Droning Whirlwind', 'Subduction', 'Searing Tempest', 'Blinding Fulgor', 'Spectral Floe', 'Scouring Spate', 'Anvil Lightning', 'Tenebral Crush', 'Palling Salvo', 'Atramentous Libations', 'Molting Plumage', 'Nectarous Deluge', 'Diffusion Ray'}
+spells.VIT = S{'Entomb'}
 spells.MagicAccuracy = S{ 'Mortal Ray','Silent Storm', 'Frightful Roar', "Cruel Joke", "Sheep Song", "Dream Flower", 'Blank Gaze', 'Geist Wall', 'Infrasonics', 'Barbed Crescent', 'Tourbillion', 'Cimicine Discharge', 'Sub-zero smash', 'Filamented Hold', 'Mind Blast', 'Sandspin', 'Hecatomb Wave', 'Cold Wave', 'Terror Touch'}
 spells.MagicAccuracyFast = S{ 'Feather Tickle', 'Reaving Wind' }
 spells.Cures = S{'Magic Fruit', 'Plenilune Embrace', 'Wild Carrot', 'Pollen', 'Cure III', 'Cure IV'}
@@ -20,8 +21,7 @@ spells.WhiteWind = S{'White Wind'}
 spells.Stun = S{'Head Butt', 'Sudden Lunge', 'Blitzstrahl'}
 spells.HeavyStrike = S{'Heavy Strike'}
 spells.ChargedWhisker = S{'Charged Whisker'}
-spells.SkillRecast = S{'MP Drainkiss', 'Digest', 'Blood Saber', 'Blood Drain', 'Osmosis', 'Occultation', 'Magic Barrier', 'Diamondhide', 'Metallic Body', 'Retinal Glare'}
-spells.SkillRecast2 = S{'Cocoon', 'Harden Shell', 'Animating Wail', 'Battery Charge', 'Nat. Meditation', 'Carcharian Verve', 'O. Counterstance', 'Barrier Tusk', 'Saline Coat', 'Regeneration', 'Erratic Flutter', 'Mighty Guard'}
+spells.SkillMidcast = S{'MP Drainkiss', 'Digest', 'Blood Saber', 'Blood Drain', 'Osmosis', 'Occultation', 'Magic Barrier', 'Diamondhide', 'Metallic Body', 'Retinal Glare','Cocoon', 'Harden Shell', 'Animating Wail', 'Battery Charge', 'Nat. Meditation', 'Carcharian Verve', 'O. Counterstance', 'Barrier Tusk', 'Saline Coat', 'Regeneration', 'Erratic Flutter', 'Mighty Guard'}
 
 function get_sets()
     send_command('alias mf magicfruit')
@@ -32,7 +32,6 @@ function get_sets()
     send_command('bind f11 gs c toggle main weapon')
     send_command('bind f12 gs c toggle sub weapon')
     send_command('bind del gs c equip current')
-    send_command('bind end send @others input "/follow Maurauc"')
     --send_command('bind !f12 gs c toggle Rea set')
 
     --send_command('bind !f11 gs c lock gear')
@@ -58,10 +57,6 @@ function get_sets()
 
     HercLegsAcc = {name="Herculean Trousers", augments={'Accuracy+20 Attack+20','"Dual Wield"+3','Accuracy+15',}}
     HercLegsTA = { name="Herculean Trousers", augments={'Accuracy+13 Attack+13','"Triple Atk."+4','DEX+3','Attack+13',}}
-
-    -- HercBootsAcc = "Jhakri Pigaches +2"
-    HercBootsWS = { name="Herculean Boots", augments={'Accuracy+1','Pet: DEX+4','Weapon skill damage +7%','Accuracy+13 Attack+13','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
-    HercBootsTA = { name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}}
 
     DEXCape = { name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Damage taken-5%',}}
     STRCape = { name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}}
@@ -101,7 +96,7 @@ function get_sets()
     }
 
     sets.Idle.DT = {
-        ammo="Staunch Tathlum +1",
+        ammo="Staunch Tathlum",
         head="Nyame Helm",
         body="Malignance Tabard",
         hands="Nyame Gauntlets",
@@ -203,7 +198,13 @@ function get_sets()
     sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
         head="Hashishin Kavuk +2",neck="Sibyl Scarf",ear1="Regal Earring",ear2="Friomisi earring",
         body="Amalric Doublet +1",hands="Hashishin Bazubands +3",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
-    back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"}
+        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"
+    }
+
+    sets.BlueMagic.VIT = set_combine(sets.BlueMagic.INT, {
+        
+        feet="Hashishin Basmak +2",
+    })
 
     sets.BlueMagic.Cures = {
         ammo="Hydrocera",
@@ -225,9 +226,9 @@ function get_sets()
     sets.BlueMagic.ChargedWhisker = set_combine(sets.BlueMagic.INT, {})
 
     sets.BlueMagic.WhiteWind = {
-        head="Nyame Helm",neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Odnowa Earring +1",
-        body="Vrikodara Jupon",hands="Telchine Gloves",ring2="Ilabrat ring",ring1="Gelatinous Ring +1",
-        back="Moonbeam Cape", waist="Gishdubar Sash",legs="Carmine Cuisses +1",feet="Skaoi Boots"
+        head="Pinga Crown",neck="Unmoving Collar +1",ear1="Odnowa Earring +1",ear2="Alabaster Earring",
+        body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Gelatinous Ring +1",ring2="Ilabrat ring",
+        back="Moonbeam Cape", waist="Platinum Moogle Belt",legs="Carmine Cuisses +1",feet="Skaoi Boots"
     }
 
     sets.BlueMagic.MagicAccuracy = {
@@ -293,8 +294,8 @@ function get_sets()
 
     sets.WS.ExpSavage = {
         ammo="Floestone",
-        head="Nyame Helm",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
-        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Ilabrat Ring",ring2="Epaminondas's Ring",
+        head="Hashishin Kavuk +2",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Cornelia's Ring",
         back=STRCape,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"
     }
 
@@ -307,15 +308,15 @@ function get_sets()
         hands="Jhakri Cuffs +2",
         legs="Luhlaza Shalwar +3",
         feet="Nyame Sollerets",
-        ring1="Epaminondas's Ring",
+        ring1="Cornelia's Ring",
         ring2="Archon Ring"
     })
 
     --Utility Sets--
 
     sets.Phalanx = {
-        main="Sakpata's Sword",ammo="Staunch Tathlum",
-        head="Herculean Helm",neck="Incanter's Torque",ear1="Loquac. earring",ear2="Andoaa Earring",
+        main="Sakpata's Sword",sub="Colada",ammo="Staunch Tathlum",
+        head="Herculean Helm",neck="Incanter's Torque",ear1="Mimir Earring",ear2="Andoaa Earring",
         body={ name="Herculean Vest", augments={'Pet: CHR+5','MND+1','Phalanx +5',}},
         hands="Taeon Gloves",ring1=stikini1,ring2=stikini2,
         back="Fi Follet Cape +1",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
@@ -326,13 +327,15 @@ function get_sets()
     sets.JA = {}
 
     sets.JA.ChainAffinity = {
+        head="Hashishin Kavuk +2",
         feet="Assim. charuqs +1"
     }
 
-    --sets.JA.BurstAffinity = {feet="Mavi Basmak +2"}
+    sets.JA.BurstAffinity = {feet="Hashishin Basmak +2"}
 
-    -- sets.JA.Efflux = {
-        -- }
+    sets.JA.Efflux = {
+        legs="Hashishin Tayt +1",
+    }
 
     --sets.JA.AzureLore = {hands="Luh. bazubands +1"}
 
@@ -353,7 +356,13 @@ function get_sets()
         legs="Psycloth Lappas",feet="Carmine Greaves +1"
     }
 
-    sets.BlueMagic.SkillRecast = set_combine(sets.precast.FC.Standard, {})
+    sets.precast.FC.BlueMagic = set_combine(sets.precast.FC.Standard, {
+        body="Hashishin Mintan +2"
+    })
+
+    sets.BlueMagic.SkillMidcast = set_combine(sets.precast.FC.Standard, {
+        
+    })
 
     text_setup()
     addTextPairs()
@@ -379,7 +388,11 @@ end
 
 function precast(spell)
     if spell.action_type == 'Magic' then
-        equip(sets.precast.FC.Standard)
+        if (spell.type == "BlueMagic") then
+            equip(sets.precast.FC.BlueMagic)
+        else
+            equip(sets.precast.FC.Standard)
+        end
     end
 
     if spell.english == 'Azure Lore' then
@@ -392,6 +405,7 @@ function precast(spell)
         else
             set = sets.WS
         end
+        equip(set)
     end
 
 
@@ -493,24 +507,17 @@ function midcast(spell,act)
         equip(sets.BlueMagic.MagicAccuracyFast)
     end
 
-    if spells.SkillRecast:contains(spell.name) then
-        equip(sets.BlueMagic.SkillRecast)
-        if buffactive['Diffusion'] then
-            equip(sets.JA.Diffusion)
-        end
-    end
-
-    if spells.SkillRecast2:contains(spell.name) then
+    if spells.SkillMidcast:contains(spell.name) then
+        equip(sets.BlueMagic.SkillMidcast)
         if (spell.english == 'Battery Charge') then
             equip(sets.BlueMagic.BatteryCharge)
-        end
-        if buffactive['Diffusion'] then
-            equip(sets.JA.Diffusion)
         end
         if (spell.english == "Carcharian Verve") then
             equip({head="Amalric Coif +1"})
         end
-
+        if buffactive['Diffusion'] then
+            equip(sets.JA.Diffusion)
+        end
     end
 
     if spell.english == "Phalanx" then
@@ -567,14 +574,26 @@ function self_command(command)
         equip(sets.Idle[sets.Idle.index[Idle_ind]])
     elseif command == 'toggle main weapon' then
         equip_current()
+        
         Weapon_ind = Weapon_ind +1
         if Weapon_ind > #sets.Weapons.index then Weapon_ind = 1 end
+        while (sets.Weapons.index[Weapon_ind] == sets.Weapons.Offhand.index[WeaponOff_ind]) do
+            Weapon_ind = Weapon_ind +1
+            if Weapon_ind > #sets.Weapons.index then Weapon_ind = 1 end
+        end
+
         send_command('@input /echo <----- Weapon changed to '..sets.Weapons.index[Weapon_ind]..' ----->')
         equip_weapons()
     elseif command == 'toggle sub weapon' then
         equip_current()
         WeaponOff_ind = WeaponOff_ind +1
         if WeaponOff_ind > #sets.Weapons.Offhand.index then WeaponOff_ind = 1 end
+        
+        while (sets.Weapons.index[Weapon_ind] == sets.Weapons.Offhand.index[WeaponOff_ind]) do
+            WeaponOff_ind = WeaponOff_ind +1
+            if WeaponOff_ind > #sets.Weapons.Offhand.index then WeaponOff_ind = 1 end
+        end
+
         send_command('@input /echo <----- Offhand changed to '..sets.Weapons.Offhand.index[WeaponOff_ind]..' ----->')
         equip_weapons()
     elseif command == 'toggle Rea set' then

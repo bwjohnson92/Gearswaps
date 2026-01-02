@@ -175,8 +175,8 @@ function user_setup()
     -- send_command("bind home gs c toggle setftp")
     send_command("bind PAGEUP gs c toggle autodeploy")
     -- send_command("bind PAGEDOWN gs c hide keybinds")
-    send_command("bind end gs c toggle CP") 
-    send_command("bind = gs c clear")
+    -- send_command("bind end gs c toggle CP") 
+    -- send_command("bind = gs c clear")
 
     select_default_macro_book()
 
@@ -199,7 +199,7 @@ function file_unload()
     send_command("unbind home")
     send_command("unbind PAGEUP")
     send_command("unbind PAGEDOWN")       
-    send_command("unbind end")
+    -- send_command("unbind end")
     send_command("unbind =")
 end
 
@@ -622,18 +622,18 @@ function init_gear_sets()
         Hybrid Mode = Normal
     ]]
     sets.idle.Pet.Engaged = {
-		    main="Denouements",
+		    main="Ohtas",
 		    range="Animator P +1",
 		    ammo="Automat. Oil +3",
 		    head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Accuracy+3','Pet: Haste+5',}},
-		    body="Udug Jacket",
+		    body="Pitre Tobe +2",
 		    hands=Rao_Hands,
 		    legs="Tali'ah Sera. +2",
-		    feet=Rao_Feet,
-		    neck="Empath Necklace",
+		    feet="Mpaca's Boots",
+		    neck="Shulmanu Collar",
 		    waist="Isa Belt",
-		    left_ear="Handler's Earring +1",
-		    right_ear="Enmerkar Earring",
+		    left_ear="Enmerkar Earring",
+		    right_ear="Karagoz Earring",
 		    left_ring="Varar Ring",
 		    right_ring="Overbearing Ring",
 		    back=Back_DT
@@ -652,7 +652,7 @@ function init_gear_sets()
         Hybrid Mode = TP
     ]]
     sets.idle.Pet.Engaged.TP = {
-		main="Denouements",
+		main="Ohtas",
 	    range="Animator P +1",
 	    ammo="Automat. Oil +3",
 	    head={ name="Anwig Salade", augments={'Attack+3','Pet: Damage taken -10%','Accuracy+3','Pet: Haste+5',}},
@@ -662,8 +662,8 @@ function init_gear_sets()
 	    feet="Mpaca's Boots",
 	    neck="Shulmanu Collar",
 	    waist="Incarnation Sash",
-	    left_ear="Handler's Earring +1",
-	    right_ear="Enmerkar Earring",
+	    left_ear="Enmerkar Earring",
+	    right_ear="Karagoz Earring",
 	    left_ring="Varar Ring",
 	    right_ring="Overbearing Ring",
 	    back=Back_DT
@@ -685,8 +685,8 @@ function init_gear_sets()
 		    feet=Rao_Feet,
 		    neck="Empath Necklace",
 		    waist="Isa Belt",
-		    left_ear="Handler's Earring +1",
-		    right_ear="Enmerkar Earring",
+            left_ear="Enmerkar Earring",
+            right_ear="Karagoz Earring",
 		    left_ring="Varar Ring",
 		    right_ring="Overbearing Ring",
 		    back=Back_DT
@@ -817,6 +817,24 @@ function init_gear_sets()
     -- Resting sets
     sets.resting = {
        -- Add your set here
+    }
+
+    sets.Ambuscade = {
+        main="Ohtas",
+        range="Animator P +1",
+        ammo="Automat. Oil +3",
+        head="Kara. Cappello +1",
+        body="Kara. Farsetto +1",
+        hands="Foire Dastanas +2",
+        legs="Tali'ah Sera. +2",
+        feet="Mpaca's Boots",
+        neck="Shulmanu Collar",
+        waist="Incarnation Sash",
+        left_ear="Enmerkar Earring",
+        right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+8','Mag. Acc.+8',}},
+        left_ring="Varar Ring",
+        right_ring="C. Palug Ring",
+        back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: Haste+10','Magic dmg. taken-10%',}},
     }
 
     sets.defense.MasterDT = sets.idle.MasterDT

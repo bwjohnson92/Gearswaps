@@ -179,7 +179,6 @@ function get_sets()
         CPMantle="Mecistopins Mantle",
     }
 
-    send_command('bind end send @others input /follow Malignantaru')
     send_command('bind f10 gs c toggle cure')
     send_command('bind f12 gs c toggle pdt')
     send_command('lua u equipviewer')

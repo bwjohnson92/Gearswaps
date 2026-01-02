@@ -40,8 +40,6 @@ function get_sets()
     HercLegsAcc = {name="Herculean Trousers", augments={'Accuracy+20 Attack+20','"Dual Wield"+3','Accuracy+15',}}
     HercLegsTA = { name="Herculean Trousers", augments={'Accuracy+13 Attack+13','"Triple Atk."+4','DEX+3','Attack+13',}}
 
-    HercBootsWS = { name="Herculean Boots", augments={'Accuracy+1','Pet: DEX+4','Weapon skill damage +7%','Accuracy+13 Attack+13','Mag. Acc.+17 "Mag.Atk.Bns."+17',}}
-    HercBootsTA = { name="Herculean Boots", augments={'"Triple Atk."+4','DEX+4','Accuracy+8','Attack+13',}}
 
     DEXCape = { name="Senuna's Mantle" }
     STRCape = { name="Senuna's Mantle" }
@@ -52,7 +50,7 @@ function get_sets()
         pizza="Marinara Slice",
         ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
         back="Mecistopins Mantle"}
-    --Idle Sets--   
+    --Idle Sets--
     sets.Idle = {}
     
     -- sets.Reive = {neck="Arciela's Grace +1"}
@@ -77,8 +75,8 @@ function get_sets()
         neck="Loricate Torque +1",
         left_ear="Novia Earring",
         right_ear="Telos Earring",
-        left_ring="Gelatinous Ring +1",
-        right_ring="Defending Ring",
+        left_ring="Defending Ring",
+        right_ring="Murky Ring",
         back=INTCape,
     }
    

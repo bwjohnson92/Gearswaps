@@ -36,18 +36,17 @@ skillchains.SC = {
      "Distortion",
      "Gravitation"
 }
--- skillchains.SC = {"Induration", "Fusion"}
 
 
 currentSC = {}
 
-skillchains.ThreeStepFusion = {"Thunder", "Fire", "Ionohelix"}
+skillchains.ThreeStepFusion = {"Thunder", "Pyrohelix", "Fire IV", "Ionohelix"}
 skillchains.Fusion = {"Fire", "Ionohelix"}
-skillchains.Fragmentation = {"Blizzard", "Water"}
-skillchains.Distortion = {"Luminohelix", "Stone"}
+skillchains.Fragmentation = {"Blizzard", "Hydrohelix"}
+skillchains.Distortion = {"Luminohelix", "Geohelix"}
 skillchains.Gravitation = {"Aero", "Noctohelix"}
-skillchains.Induration = {"Water", "Blizzard"}
-skillchains.Scission = {"Aero", "Stone"}
+skillchains.Induration = {"Water", "Cryohelix"}
+skillchains.Scission = {"Aero", "Geohelix"}
 
 
 sc_active = false
@@ -80,15 +79,15 @@ function get_sets()
         back="Ghostfyre Cape",waist="Rumination Sash",legs="Arbatel Pants +3",feet="Arbatel Loafers +3"}
 
     sets.midcast.ElementalMagic = { 
-        main="Marin Staff +1",
-        sub="Enki Strap",
+        main="Wizard's Rod",
+        sub="Ammurapi Shield",
         ammo="Pemphredo Tathlum",
         head="Arbatel Bonnet +3",
         body="Arbatel Gown +3",
         hands="Arbatel Bracers +3",
         legs="Arbatel Pants +3",
         feet="Arbatel Loafers +3",
-        neck="Sanctity Necklace",
+        neck="Sibyl Scarf",
         waist="Sacro Cord",
         left_ear="Regal Earring",
         right_ear="Malignance Earring",
@@ -100,8 +99,9 @@ function get_sets()
     sets.midcast.MagicBurst = {
         neck="Mizukage-no-Kubikazari", --10
         head="Pedagogy Mortarboard +3",
-        hands="Arbatel Bracers +3", ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
-        legs="Agwu's Slops",
+        hands="Arbatel Bracers +3", 
+        ring1="Mujin Band", ring2="Locus Ring", --9,(5),(5),5 
+        -- legs="Agwu's Slops",
         feet="Arbatel Loafers +3"} --5, 9 
 
     sets.TH = {
@@ -169,12 +169,9 @@ end
 
 function updateTable()
 	addToTable("(F9) Skillchain", skillchains.SC[skillchains.Index])
-	-- addToTable("(F10) MP Body", MPBodyEquipToggle)
 	addToTable("(F11) MB Set", MBSet)
     addToTable("(F12) Start Skillchain")
     addToTable("\nTH Set", "Poison")
-	-- addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
-	-- addToTable("(END) Weapon Locked", weaponLocked)
 	update_message()
 end
 
@@ -229,7 +226,14 @@ function midcast(spell)
             equip(sets.midcast.EnfeeblingMagic) 
             
         elseif string.find(spell.skill,'Elemental Magic') then
-            equip(use_MB(use_obi(spell, sets.midcast.ElementalMagic)))
+            set = use_MB(use_obi(spell, sets.midcast.ElementalMagic))
+            if buffactive["Ebullience"] then
+                set = set_combine(set, sets.Ebullience)
+            end
+            if buffactive["Immanence"] and string.find(spell.name, "Helix") and not string.find(spell.name, "II") then
+                set = set_combine(set, {main=empty})
+            end
+            equip(set)
         else
             equip(sets.precast.FastCast)
         end
@@ -246,9 +250,9 @@ function aftercast(spell)
     end
 
     if (sc_active) then
-        time = 1.2
+        time = 1.1
         if (spell.english ~= "Immanence") then
-            time = 3.2
+            time = 2.5
         end
         send_command('wait '..time..';gs c scnuke')
     end
@@ -307,7 +311,10 @@ function self_command(command)
         currentSC = {}
         skillchain = skillchains[skillchains.SC[skillchains.Index]]
         for index = 1, #skillchain do
-            table.insert(currentSC, "Immanence")
+            spell = skillchain[index]
+            if (string.find(spell, "helix") or spell == "Thunder" or spell == "Fire" or spell == "Water" or spell == "Aero" or spell == "Blizzard" or spell == "Stone") then
+                table.insert(currentSC, "Immanence")
+            end
             table.insert(currentSC, skillchain[index])
         end
         skillchains.Step = 1
@@ -321,9 +328,11 @@ function self_command(command)
         end
         currentAction = table.remove(currentSC, 1)
         if (currentAction == "Immanence") then 
-        else
             send_command('input /p Skillchain - Step '..skillchains.Step)
             skillchains.Step = skillchains.Step + 1
+            if buffactive["Immanence"] then
+                currentAction = table.remove(currentSC, 1)
+            end
         end
         send_command(currentAction)
         sc_active = true
