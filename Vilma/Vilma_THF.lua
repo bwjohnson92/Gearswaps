@@ -35,30 +35,30 @@ function get_sets()
     sets.TP = {}
 
     sets.TP['Low Haste'] = {ammo="Yamarang",
-        head="Malignance Chapeau",neck="Erudition Necklace",ear2="Eabani Earring",ear1="Suppanomimi",
-        body="Malignance Tabard",hands="Adhemar Wristbands +1",ring1="Moonbeam Ring",ring2="Gere Ring",
-        back=capeTP,waist="Patentia Sash",legs="Samnuha Tights",
-        feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},} --I think it goes in here and party and acc?
+        head="Skulker's bonnet +2",neck="Erudition Necklace",ear2="Eabani Earring",ear1="Sherida Earring",
+        body="Malignance Tabard",hands="Malignant Gloves",ring1="Moonbeam Ring",ring2="Gere Ring",
+        back=capeTP,waist="Reiki Yotai",legs="Gleti's Breeches",
+        feet="Skulker's Poulaines +2"} 
          
 	sets.TP['High Haste'] = {range="Raider's Bmrng.",
-        head="Adhemar bonnet +1", neck="Erudition Necklace",ear1="Sherida Earring",ear2="Brutal Earring",
+        head="Skulker's bonnet +2", neck="Erudition Necklace",ear1="Sherida Earring",ear2="Brutal Earring",
         body="Herculean Vest",hands="Adhemar Wristbands +1",ring1="Epona's Ring",ring2="Gere Ring",
         back=capeTP,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
     
     sets.TP['Acc'] = {ammo="Yamarang",
-        head="Meghanada visor +2",neck="Erudition Necklace",ear1="Sherida Earring",ear2="Telos Earring",
-        body="Pillager's Vest +2",hands="Meghanada Gloves +2",ring1="Petrov Ring",ring2="Gere Ring",
-        back="Toutatis's Cape",waist="Kentarch Belt +1",legs="Pill. Culottes +1",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
+        head="Skulker's bonnet +2",neck="Null Loop",ear1="Sherida Earring",ear2="Telos Earring",
+        body="Pillager's Vest +2",hands="Meghanada Gloves +2",ring1="Moonbeam Ring",ring2="Gere Ring",
+        back=capeTP,waist="Windbuffet Belt +1",
+        back="Toutatis's Cape",waist="Kentarch Belt +1",legs="Gleti's Breeches",feet="Skulker's poulaines +2",}
 
 	sets.TP['TH'] = set_combine(sets.TP['Low Man'], {
         head="Malignance Chapeau",
         body="Malignance Tabard",
-        hands="Plunderer's Armlets +3",
+        hands="Malignance Gloves",
         waist="Chaac Belt",
-        neck="Loricate Torque +1",
-        ring1="Defending Ring",
-        feet="Skulker's Poulaines +1",
-        ammo="Perfect lucky egg"
+        neck="Erudition Necklace",
+        ring1="Moonbeam Ring",
+        feet="Skulker's Poulaines +2",
         })
 
     sets.TP['TH Acc'] = set_combine(sets.TP['TH'], {
@@ -77,9 +77,9 @@ function get_sets()
     sets.WS.Evisceration.SA = set_combine(sets.WS.Evisceration,{hands="Raider's Armlets +2"})
 
     sets.WS["Rudra's Storm"] = { ammo="Cath Palug Stone",
-        head="Pillager's Bonnet +2",neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
-        body="Meghanada cuirie +2",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Regal ring",
-        back=capeWS,waist="Kentarch Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
+        head="Pillager's Bonnet +3",neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
+        body="Skulker's Vest +1",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Regal ring",
+        back=capeWS,waist="Kentarch Belt +1",legs="Plunder's Culottes +3",feet="Nyame Sollerets"}
         Ammo="Cath Palug stone"
         
     sets.WS["Rudra's Storm"].SA = set_combine(sets.WS["Rudra's Storm"],

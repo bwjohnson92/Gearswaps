@@ -25,7 +25,7 @@ function get_sets()
 	sets.precast_FastCast = {ammo="Incantor Stone",
 		head="Nahtirah Hat",neck="Orison Locket",ear2="Loquacious Earring",
 		body="Inyanga Jubbah",hands="Fanatic Gloves",ring1="Weatherspoon Ring",ring2="Prolix Ring",
-		back="Alaunus's Cape", waist="Witful Belt"}
+		back="Alaunus's Cape", waist="Embla Sash"}
 	
 	sets.precast_FastCure = set_combine(sets.precast_FastCast, 
 	{back="Pahtli Cape",legs="Ebers Pantaloons +1",feet="Hygieia Clogs"})
@@ -48,7 +48,7 @@ function get_sets()
 	sets.midcast_EnhancingMagic = {main="Kirin's Pole",ammo="Incantor Stone",
 		head="Befouled Crown",neck="Colossus's Torque",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Gendewitha Bliaut",hands="Inyanga Dastanas",ring2="Prolix Ring",
-		back="Swith Cape",waist="Cascade Belt",legs="Cleric's Pantaloons +2",feet="Orison Duckbills +1"}
+		back="Swith Cape",waist="Embla Sash",legs="Cleric's Pantaloons +2",feet="Orison Duckbills +1"}
 
 	sets.midcast_Regen = set_combine(sets.precast_FastCast, {
 		main="Bolelabunga",
