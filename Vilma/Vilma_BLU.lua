@@ -105,19 +105,19 @@ function get_sets()
         left_ear="Suppanomimi",
         right_ear="Telos Earring",
         left_ring="Epona's Ring",
-        right_ring="Defending Ring",
+        right_ring="Chirich Ring +1",
         back=CapeDEXTP,
     }
 
     sets.TP.DT = {ammo="Coiste Bodhar",
     head="Malignance Chapeau",neck="Loricate Torque +1", ear1="Telos earring", ear2="Dignitary's earring",
-    body="Malignance Tabard",hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Defending Ring",
+    body="Malignance Tabard",hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Murky Ring",
     back=CapeDEXTP,waist="Windbuffet Belt +1",legs=HercLegsTP,feet="Malignance Boots"}
 
     --Weaponskill Sets--
     sets.WS = {
         head="Nyame Helm",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
-        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Metamorph ring +1",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Epaminondas's Ring",
         back=CapeWS,waist="Sailfi Belt +1",legs="Nyame Flanchard", feet="Nyame Sollerets",
     }
 
@@ -134,7 +134,7 @@ function get_sets()
 
     sets.WS.ExpSavage = {ammo="Ginsen",
         head="Nyame Helm",neck="Rep. Plat. Medal",ear1="Moonshade earring",ear2="Hashishin earring +1",
-        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Metamorph ring +1",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Epaminondas's Ring",
         back=CapeWS,waist="Sailfi Belt +1",legs="Nyame Flanchard", feet="Nyame Sollerets",
     }
 
