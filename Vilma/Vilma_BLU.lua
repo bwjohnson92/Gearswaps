@@ -101,7 +101,7 @@ function get_sets()
         legs="Nyame Flanchard",
         feet="Malignance Boots",
         neck="Lissome Necklace",
-        waist="Windbuffet Belt +1",
+        waist="Sailfi Belt +1",
         left_ear="Suppanomimi",
         right_ear="Telos Earring",
         left_ring="Epona's Ring",
@@ -186,15 +186,15 @@ function get_sets()
         back=CapeINT,
     }
 
-    sets.BlueMagic.Cures = {ammo="Aqua sachet",
-    head="Uk'uxkaj cap",neck="Aife's medal",ear1="Loquac. earring",ear2="Novia earring",
-    body="Assim. jubbah +1",hands="Weath. cuffs +1",ring1="Levia. ring",ring2="Janniston ring +1",
-    back="Oretania's cape",waist="Pythia sash +1",legs="Quiahuiz trousers",feet="Skaoi Boots"}
+    sets.BlueMagic.Cures = {ammo="Staunch Tathlum +1",
+    head="Nyame Helm",neck="Colossus's Torque",ear1="Loquac. earring",ear2="Beatific earring",
+    body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Menelaus's ring",ring2="Janniston ring +1",
+    back="Swith Cape cape",waist="Bishop's Sash",legs="Carmine cuisses +1",feet="Skaoi Boots"}
 
-    sets.BlueMagic.SelfCures = {ammo="Aqua sachet",
-    head="Uk'uxkaj cap",neck="Aife's medal",ear1="Loquac. earring",ear2="Novia earring",
-    body="Assim. jubbah +1",hands="Buremte Gloves",ring1="Levia. ring",ring2="Janniston Ring +1",
-    back="Oretania's cape",waist="Chuq'aba Belt",legs="Quiahuiz trousers",feet="Skaoi Boots"}
+    sets.BlueMagic.SelfCures = {ammo="Staunch Tathlum +1",
+    head="Nyame Helm",neck="Colossus's Torque",ear1="Loquac. earring",ear2="Beatific earring",
+    body="Vrikodara Jupon",hands="Telchine Gloves Gloves",ring1="Menelaus's ring",ring2="Janniston Ring +1",
+    back="Swith Cape",waist="Bishop's Sash",legs="Carmine cuisses +1",feet="Skaoi Boots"}
 
     sets.BlueMagic.Stun = {ammo="Mavi tathlum",
     head="Assim. keffiyeh",neck="Sanctity necklace",ear1="Loquac. earring",
