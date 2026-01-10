@@ -87,15 +87,16 @@ function get_sets()
     sets.TP = {}
 
     sets.TP.index = {'Standard', 'DT',} 
+    TP_ind = 2
     
     sets.TP.Standard = {
         ammo="Coiste Bodhar",
         head="Malignance Chapeau",
         body="Malignance Tabard",
         hands="Malignance Gloves",
-        legs="Malignance Tights",
+        legs="Gleti's Breeches",
         feet="Malignance Boots",
-        neck="Lissome Necklace",
+        neck="Null Loop",
         waist="Sailfi Belt +1",
         left_ear="Suppanomimi",
         right_ear="Telos Earring",
@@ -103,8 +104,8 @@ function get_sets()
         right_ring="Chirich Ring +1",
         back=CapeDEXTP,
     }
-
-    sets.TP.DT = {ammo="Coiste Bodhar",
+     sets.TP.DT = {
+    ammo="Coiste Bodhar",
     head="Nyame Helm",neck="Loricate Torque +1", ear1="Dignitary's earring", ear2="Telos earring",
     body="Malignance Tabard",hands="Nyame Gauntlets",ring1="Epona's ring",ring2="Murky Ring",
     back=CapeDEXTP,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
