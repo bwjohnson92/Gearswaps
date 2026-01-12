@@ -166,7 +166,7 @@ function get_sets()
 	    hands="Ea Cuffs",
 	    legs="Perdition Slops",
 	    neck="Lissome Necklace",
-	    waist="Oneiros Rope",
+	    waist="Embla Sash",
 	    left_ear="Telos Earring",
 	    right_ear="Dedition Earring",
 	    left_ring="K'ayres Ring",
@@ -177,7 +177,7 @@ function get_sets()
 		ammo="Pemphredo Tathlum",
 		neck="Fylgja Torque +1",
 		body="Merlinic Jubbah",hands="Telchine Gloves",ring1="Sirona's Ring",ring2="Haoma's Ring",
-		waist="Cascade Belt",legs="Nares Trews",feet="Vanya Clogs"
+		waist="Cascade Belt",legs="Merlinic Shalwar",feet="Vanya Clogs"
 	}
 
 	sets.WS.Myrkr = set_combine(sets.Idle.HighMP, {})

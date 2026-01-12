@@ -84,7 +84,7 @@ function get_sets()
 
     sets.midcast.EnfeeblingMagic = {main="Daybreak",sub="Ammurapi Shield",ammo="Pemphredo tathlum",
         head="",neck="Argute Stole +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
-        body="Cohort Cloak +1",hands="Jhakri Cuffs +2", ring1="Stikini Ring", ring2="Stikini Ring",
+        body="Cohort Cloak +1",hands="Jhakri Cuffs +2", ring1="Stikini Ring +1", ring2="Stikini Ring +1",
         back=capeNuke,waist="Luminary Sash",legs="Chironic hose",feet="Nyame sollerets"}
 
     
@@ -118,11 +118,11 @@ function get_sets()
 
     })
 
-    sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
+    sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Witching Robe"})
         
     sets.midcast.Stun = {main="Akademos",sub="Clerisy Strap",ammo="Hydrocera",
         head=MerlinicHoodNuke,neck="Voltsurge Torque",ear1="Dignitary's Earring",ear2="Barkarole Earring",
-        body="Merlinic Jubbah",hands="Lurid Mitts",ring1="Sangoma Ring",
+        body="Merlinic Jubbah",hands="Agwu's Gages",ring1="Sangoma Ring",
         waist="Witful Belt",legs="Psycloth Lappas",feet="Merlinic Crackows"}
         
     sets.midcast.MagicBurst = {
@@ -139,7 +139,7 @@ function get_sets()
 
     sets.midcast.EnhancingMagic = {
         main="Bolelabunga", sub="Ammurapi Shield",
-        head="Telchine Cap",neck="Incantor's Torque",ear1="Dignitary's Earring",ear2="Loquacious Earring",
+        head="Telchine Cap",neck="Incanter's Torque",ear1="Dignitary's Earring",ear2="Loquacious Earring",
         hands="Telchine Gloves",hands="Telchine Gloves",
         back=capeFastCast,waist="Embla Sash",legs="Telchine Braconi",feet="Telchine Pigaches"}
 
@@ -182,7 +182,7 @@ function get_sets()
 	    waist="Embla Sash",
 	    left_ear="Augment. Earring",
 	    right_ear="Mimir Earring",
-	    left_ring="Stikini Ring",
+	    left_ring="Stikini Ring +1",
 	    right_ring="Prolix Ring",
 	    back=capeFastCast
 
@@ -197,7 +197,7 @@ function get_sets()
     
 	sets.Chatoyant ={
 		main="Chatoyant Staff",
-		sub="Achad Grip"
+		sub="Enki Strap"
 	}
 
     sets.JA = {}

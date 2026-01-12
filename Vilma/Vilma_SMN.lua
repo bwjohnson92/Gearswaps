@@ -41,17 +41,12 @@ function get_sets()
     organizer_items = {
         echos="Echo Drops",
         holy="Holy Water",
-        RREar="Reraise Earring",
         InstRR="Instant Reraise",
         Warp="Warp Ring",
         WarpItem="Instant Warp",
-        CP="Trizek Ring",
-        Exp="Echad Ring",
         CPMantle="Mecistopins Mantle",
-        Prism="Prism Powder",
-        Oils="Silent Oil",
-        Puffs="Cream Puffs",
-        Crepe="Pear Crepe",
+    
+
     }
   
     -- My formatting is very easy to follow. All sets that pertain to my character doing things are under 'me'.

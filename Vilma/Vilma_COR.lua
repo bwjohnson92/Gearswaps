@@ -69,16 +69,16 @@ sets.Idle.Standard = {
     neck="Loricate Torque +1",
     waist="Flume Belt +1",
     left_ear="Etiolation Earring",
-    right_ear="Hearty Earring",
+    right_ear="Eabani Earring",
     left_ring="Gelatinous Ring +1",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back=capeDT,
     -- back="Repulse Mantle",
 }
 
 sets.Idle.DT = set_combine(sets.Idle.Standard, {
     body="Lanun frac +3",
-    legs="Mummu kecks +2",
+    legs="Nyame Flanchard",
     feet="Lanun Bottes +4",
     back=capeDT
 })
@@ -148,7 +148,7 @@ sets.WS.SavageBlade = {
     ring1="Regal Ring", --Shukuyu
     ring2="Epaminondas's ring", --Rufescent 
     back=capeMeleeWS,
-    waist="Sailfi Belt", --Prosilio Belt
+    waist="Sailfi Belt +1", --Prosilio Belt
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
 }
@@ -192,11 +192,11 @@ sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
     legs="Laksamana's Trews +4",
     ring1="Cacoethic Ring +1", --+1
     ear1="Novia Earring",
-    waist="Reiki Yotai"
+    waist="Fotia Belt",
 })
 
 sets.WS.Wildfire = {
-    head={ name="Herculean Helm", augments={'Mag. Acc.+15,"Mag.Atk.Bns."+30','"Fast Cast"+2%',}},
+    head="Nyame Helm",
     body="Lanun Frac +3",
     -- hands="Carmine finger gauntlets +1",
     hands="Nyame Gauntlets",
@@ -249,10 +249,7 @@ sets.WS.LeadenSalute.Standard = { --AGI Weaponskill
 
 sets.WS.LeadenSalute.Enmity = set_combine(sets.WS.LeadenSalute.Standard, {
     right_ear="Enervating Earring",
-    left_ring="Resonance Ring",
-    hands={ name="Taeon Gloves", augments={'"Mag.Atk.Bns."+19','Weapon skill damage +2%',}},
     legs="Laksamana's Trews +4",
-    waist="Reiki Yotai"
     })
 
 sets.WS.HotShot = {
@@ -277,7 +274,7 @@ sets.FastCast = {
     neck="Voltsurge Torque",
     left_ear="Etiolation Earring",
     right_ear="Loquac. Earring",
-    right_ring="Weather. Ring",
+    right_ring="Medada's Ring",
 }
 
 

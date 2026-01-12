@@ -35,7 +35,7 @@ function get_sets()
         sub="Genmei Shield",
         ammo="Homiliary",
         head="Inyanga Tiara +2",
-        body="Ebers Bilaut +3",
+        body="Ebers Bliaut +3",
         hands="Inyanga Dastanas +2",
         legs="Assid. Pants +1",
         feet="Herald's Gaiters",
@@ -107,7 +107,7 @@ function get_sets()
 
     sets.midcast.Regen = set_combine(sets.precast.FastCast, {
         main="Bolelabunga", sub="Ammurapi Shield",
-        head="Inyanga Tiara +2",body="Piety Bilaut +3",
+        head="Inyanga Tiara +2",body="Piety Bliaut +3",
         waist="Embla Sash",
         hands="Ebers Mitts +3",legs="Theophany pantaloons +3",
         -- feet="Telchine Pigaches"
@@ -125,7 +125,7 @@ function get_sets()
         main="Yagrush",
         head="Nahtirah Hat", neck="Cleric's Torque +2",ear2="Loquacious Earring",
         body="Ebers Bliaut +3",hands="Ebers Mitts +3",
-        back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +4",feet='Regal pumps +1' }
+        back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +3",feet='Regal pumps +1' }
 
     sets.midcast.DivineCaress = set_combine(sets.midcast.DebuffRemoval, {
         hands="Ebers Mitts +3",
