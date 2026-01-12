@@ -70,27 +70,21 @@ function get_sets()
 	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
 	}
 
-	sets.Idle.Standard = {main="Idris",sub="Genbu's Shield",ranged="Dunna",
-		head="Befouled Crown",neck="Loricate torque +1",ear1="Etiolation Earring",ear2="Hearty Earring",
-	main="Solstice",
-    sub="Genmei Shield",
-    head="Azimuth Hood +1",
-    body={ name="Telchine Chas.", augments={'Pet: DEF+5','Pet: "Regen"+2',}},
-    hands="Geomancy Mitaines +1",
-    legs={ name="Telchine Braconi", augments={'Pet: "Regen"+3',}},
-    feet={ name="Bagua Sandals +1", augments={'Enhances "Radial Arcana" effect',}},
-    neck="Twilight Torque",
-    waist="Isa Belt",
-    left_ear="Handler's Earring +1",
-    left_ring="Defending Ring",
-    right_ring="Warden's Ring",
-    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
-}
-
-	sets.Idle.Standard = {main="Solstice",sub="Genbu's Shield",ranged="Dunna",
-		head="Befouled Crown",neck="Sanctity necklace",ear1="Etiolation Earring",ear2="Hearty Earring",
-		body=EmpyBody,hands=RelicHands,ring1="Defending Ring",ring2="Warden's Ring",
-		back="Lifestream Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet=AFFeet}
+	sets.Idle.Standard = {
+		main="Idris",
+		sub="Genmei Shield",
+		head="Azimuth Hood +1",
+		body={ name="Telchine Chas.", augments={'Pet: DEF+5','Pet: "Regen"+2',}},
+		hands="Geomancy Mitaines +1",
+		legs={ name="Telchine Braconi", augments={'Pet: "Regen"+3',}},
+		feet={ name="Bagua Sandals +1", augments={'Enhances "Radial Arcana" effect',}},
+		neck="Twilight Torque",
+		waist="Isa Belt",
+		left_ear="Handler's Earring +1",
+		left_ring="Defending Ring",
+		right_ring="Warden's Ring",
+		back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
+	}
 
 	sets.Idle.DamageTaken = {}
 
@@ -102,7 +96,7 @@ function get_sets()
 		back="Lifestream Cape",waist="Witful Belt",legs=AFLegs,feet="Merlinic Crackows"}
 	
 	sets.precast.FastCure = set_combine(sets.precast.FastCast,{ ear2="Loquacious Earring",
-		ring2="Weatherspoon Ring",	back="Disperser's Cape",waist="Witful Belt",legs=AFLegs})
+			back="Disperser's Cape",waist="Witful Belt",legs=AFLegs})
 
 	--sets.Melee = {main="Idris",sub="Genbu's Shield",
 	--	head="Umuthi Hat",neck="Asperity Necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
@@ -135,16 +129,6 @@ function get_sets()
 	back="Lifestream Cape", legs=RelicLegs,feet=EmpyFeet}
 	
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs=EmpyLegs})
-	
-	--sets.midcast.Cursna = {main="Beneficus",
-	--	head="Orison Cap +2",neck="Malison medallion", ear2="Loquacious Earring",
-	--	body="Orison Bliaud +2",hands="Orison Mitts +2",ring1="Ephedra ring", ring2="Sirona's ring",
-	--	back="Mending cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
-		
-	--sets.midcast.DebuffRemoval = {	
-	--	head="Orison Cap +2",neck="Malison medallion",ear2="Loquacious Earring",
-	--	body="Orison Bliaud +2",hands="Orison Mitts +2",
-	--	back="Swith Cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
 
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genbu's Shield",ammo="Hydrocera",
 			head="Vanya Hood",neck="Incanter's torque",ear1="Etiolation earring",ear2="Loquacious earring",

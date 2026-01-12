@@ -30,7 +30,7 @@ skillchains.Step = 0
 skillchains.SC = {
     "Induration",
     "Scission",
-    "ThreeStepFusion",
+    "Three Step Fusion",
     "Fusion",
      "Fragmentation",
      "Distortion",
@@ -40,7 +40,7 @@ skillchains.SC = {
 
 currentSC = {}
 
-skillchains.ThreeStepFusion = {"Thunder", "Pyrohelix", "Fire IV", "Ionohelix"}
+skillchains["Three Step Fusion"] = {"Thunder", "Pyrohelix", "Fire IV", "Ionohelix"}
 skillchains.Fusion = {"Fire", "Ionohelix"}
 skillchains.Fragmentation = {"Blizzard", "Hydrohelix"}
 skillchains.Distortion = {"Luminohelix", "Geohelix"}
@@ -231,7 +231,11 @@ function midcast(spell)
                 set = set_combine(set, sets.Ebullience)
             end
             if buffactive["Immanence"] and string.find(spell.name, "Helix") and not string.find(spell.name, "II") then
-                set = set_combine(set, {main=empty})
+                set = set_combine(set, {
+                    head=empty,body=empty,hands=empty,legs=empty,feet=empty,
+                    neck=empty,ear1=empty,ear2=empty,ring1=empty,ring2=empty,
+                    back=empty,waist=empty
+                })
             end
             equip(set)
         else
@@ -328,7 +332,11 @@ function self_command(command)
         end
         currentAction = table.remove(currentSC, 1)
         if (currentAction == "Immanence") then 
-            send_command('input /p Skillchain - Step '..skillchains.Step)
+            string = 'Skillchain - Step'..skillchains.Step
+            if skillchains.Step == 1 then
+                string = skillchains.SC[skillchains.Index]..': '..string
+            end
+            send_command('input /p '..string)
             skillchains.Step = skillchains.Step + 1
             if buffactive["Immanence"] then
                 currentAction = table.remove(currentSC, 1)

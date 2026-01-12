@@ -114,7 +114,7 @@ function get_sets()
         sub="Ammurapi Shield",
         head="Brioso Roundlet +3",
         body="Brioso Justau. +2",
-        hands="Brioso Cuffs +3",
+        hands="Brioso Cuffs +4",
         legs="Brioso Cannions +2",
         feet="Brioso Slippers +4",
         back=castingCape,
@@ -127,7 +127,7 @@ function get_sets()
 
     sets.Songs.Lullaby = set_combine(sets.Songs.Debuff, {
         body="Fili Hongreline +2",
-        hands="Brioso Cuffs +3",
+        hands="Brioso Cuffs +4",
         legs="Inyanga Shalwar +2",
     })
 
@@ -286,8 +286,15 @@ function aftercast(spell)
     updateTable()
 end
 
--- Status Change - ie. Resting
+function status_change(new,old)
+    if new == 'Engaged' then
+        equip(sets.Melee.Standard)
+    else
+        equip(sets.Idle.Standard)
+    end
+end
 
+-- Status Change - ie. Resting
 function self_command(command)
     if string.sub(command:lower(),1,3)=="add" and string.len(command) > 3 then
         move_to_auto = false
