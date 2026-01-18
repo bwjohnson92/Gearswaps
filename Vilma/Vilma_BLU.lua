@@ -253,7 +253,7 @@ function get_sets()
 
     sets.BlueMagic.Skill = {ammo="Mavi tathlum",
     head="Nyame Helm",neck="Incanter's Torque",ear1="Loquac. earring",ear2="Hashishin earring +1",
-    body="Assim. jubbah +1",hands="Rawhide Gloves",ring1="Prolix ring",
+    body="Assim. jubbah +2",hands="Rawhide Gloves",ring1="Prolix ring",
     back="Cornflower cape",waist="Twilight belt",legs="Mavi tayt +2",feet="Luhlaza charuqs +1"}
 
     sets.BlueMagic.SkillRecast = {ammo="Mavi tathlum",

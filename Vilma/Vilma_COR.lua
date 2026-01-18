@@ -67,12 +67,12 @@ sets.Idle.Standard = {
     legs="Carmine Cuisses +1",
     feet="Nyame Sollerets",
     neck="Loricate Torque +1",
-    waist="Flume Belt +1",
+    waist="Lieutenant's Sash",
     left_ear="Etiolation Earring",
     right_ear="Eabani Earring",
-    left_ring="Gelatinous Ring +1",
+    left_ring="Dark Ring",
     right_ring="Murky Ring",
-    back=capeDT,
+    back="Null Shawl"
     -- back="Repulse Mantle",
 }
 
@@ -85,15 +85,15 @@ sets.Idle.DT = set_combine(sets.Idle.Standard, {
 
 sets.Melee = {
     head="Malignance Chapeau",
-    neck="Iskur Gorget",
-    ear1="Telos Earring",
-    ear2="Brutal Earring",
+    neck="Null Loop",
+    ear1="Suppanomimi",
+    ear2="Eabani Earring",
     body="Malignance Tabard",
     hands="Nyame Gauntlets",
-    ring1="Petrov Ring",
-    ring2="Epona's Ring",
+    ring1="Murky Ring",
+    ring2="Chirich Ring +1",
     back=capeTPMelee,
-    waist="Windbuffet Belt +1",
+    waist="Sailfi Belt +1",
     legs="Nyame Flanchard",
     feet="Malignance Boots"
     -- feet="Herculean Boots",
@@ -320,22 +320,6 @@ sets.SnakeEye = {
 }
 sets.WildCard = {feet="Lanun Bottes +4"}
 
-
-
-    organizer_items = {
-        echos="Echo Drops",
-        holy="Holy Water",
-        RREar="Reraise Earring",
-        InstRR="Instant Reraise",
-        Warp="Warp Ring",
-        WarpItem="Instant Warp",
-        CPMantle="Mecistopins Mantle",
-        remedy="Remedy",
-        Crepe="grape dafaiku",
-        gun1="Fomalhaut",
-        gun2="Death Penalty",
-        -- gun1="Doomsday",
-    }
 
     user_setup()
     equip_current()
