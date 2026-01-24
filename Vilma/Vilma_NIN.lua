@@ -87,12 +87,21 @@ function get_sets()
 
 	-- HYBRID WS --
 	sets.WS["Blade: Chi"] = set_combine(sets.WS, {
+		ammo="Seething Bomblet +1",
+		right_ring="Epamindondas's Ring",
+		left_ring="Gere Ring"
 
 	})
 	sets.WS["Blade: To"] = set_combine(sets.WS, {
+		ammo="Seething Bomblet +1",
+		right_ring="Epamindondas's Ring",
+		left_ring="Gere Ring"
 
 	})
 	sets.WS["Blade: Teki"] = set_combine(sets.WS, {
+		ammo="Seething Bomblet +1",
+		right_ring="Epamindondas's Ring",
+		left_ring="Gere Ring"
 
 	})
 
