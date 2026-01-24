@@ -119,12 +119,32 @@ function get_sets()
 
 	})
 	sets.WS["Blade: Kamu"] = set_combine(sets.WS, {
+		head="Hachiya Hatsuburi +4",
+		body="Nyame Mail",
+		hands="Nyame Gauntlets",
+		legs="Mpaca's Hose",
+		feet="Nyame Sollerets",
+		neck="Ninja Nodowa +1",
+		waist="Sailfi Belt +1",
+		back="Andartia's Mantle",
+		ammo="Crepuscular Pebble"
 
 	})
 	sets.WS["Blade: Hi"] = set_combine(sets.WS, {
 
 	})
 	sets.WS["Blade: Shun"] = set_combine(sets.WS, {
+		head="Mpaca's Cap",
+		body="Malignance Tabard",
+		hands="Malignance Gloves",
+		legs="Mpaca's Hose",
+		feet="Hattori Kyahan +1",
+		neck="Fotia Gorget",
+		waist="Fotia Belt",
+		right_ring="Gere Ring",
+		left_ring="Regal Ring",
+		ammo="Coiste Bodhar",
+		left_ear="Hattori Earring +2"
 
 	})
 
