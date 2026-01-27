@@ -147,7 +147,7 @@ function get_sets()
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
-		feet="Hattori Kyahan +1",
+		feet="Hattori Kyahan +2",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		right_ring="Gere Ring",
