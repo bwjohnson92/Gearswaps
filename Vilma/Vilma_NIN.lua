@@ -25,7 +25,7 @@ function get_sets()
 
 	gear = {}
     gear.Artifact = {}
-    gear.Artifact.head  = { name="Hachi. Hatsu. +3" }
+    gear.Artifact.head  = { name="Hachi. Hatsu. +4" }
     gear.Artifact.body  = { name="Hachiya Chainmail +3"}
     gear.Artifact.hands = { name="Hachiya Tekko +3"}
     gear.Artifact.legs  = { name="Hachiya Hakama +3"}
@@ -85,6 +85,16 @@ function get_sets()
 	    left_ring="Niqmaddu Ring"
 	}
 
+	sets.WS ["Savage Blade"] = {
+		neck="Repulican Platinum Medal",
+		body="Nyame Mail",
+	    hands="Nyame Gauntlets",
+	    legs="Nyame Flanchard",
+	    feet="Hattori Kyahan +3",
+		waist="Sailfi Belt +1",
+		ammo="Seething Bomblet +1"
+	}
+	
 	-- HYBRID WS --
 	sets.WS["Blade: Chi"] = set_combine(sets.WS, {
 		ammo="Seething Bomblet +1",
@@ -147,7 +157,7 @@ function get_sets()
 		body="Malignance Tabard",
 		hands="Malignance Gloves",
 		legs="Mpaca's Hose",
-		feet="Hattori Kyahan +2",
+		feet="Hattori Kyahan +3",
 		neck="Fotia Gorget",
 		waist="Fotia Belt",
 		right_ring="Gere Ring",
