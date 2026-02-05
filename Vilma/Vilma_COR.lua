@@ -60,7 +60,7 @@ sets.Idle.Standard = {
 
     --range="Compensator",
     -- ammo="Eminent Bullet",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     -- legs="Feast Hose",
@@ -77,7 +77,7 @@ sets.Idle.Standard = {
 }
 
 sets.Idle.DT = set_combine(sets.Idle.Standard, {
-    body="Lanun frac +3",
+    body="Lanun Frac +3",
     legs="Nyame Flanchard",
     feet="Lanun Bottes +4",
     back=capeDT
