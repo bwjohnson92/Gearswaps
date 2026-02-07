@@ -86,7 +86,8 @@ function get_sets()
 	}
 
 	sets.WS ["Savage Blade"] = {
-		neck="Repulican Platinum Medal",
+		head="Hachiya Hatsuburi +4",
+		neck="Republican Platinum Medal",
 		body="Nyame Mail",
 	    hands="Nyame Gauntlets",
 	    legs="Nyame Flanchard",
