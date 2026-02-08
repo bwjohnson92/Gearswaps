@@ -38,7 +38,7 @@ function get_sets()
         head="Skulker's bonnet +2",neck="Erudition Necklace",ear2="Eabani Earring",ear1="Sherida Earring",
         body="Malignance Tabard",hands="Malignant Gloves",ring1="Moonbeam Ring",ring2="Gere Ring",
         back=capeTP,waist="Reiki Yotai",legs="Gleti's Breeches",
-        feet="Skulker's Poulaines +2"} 
+        feet="Skulker's Poulaines +2",} 
          
 	sets.TP['High Haste'] = {range="Raider's Bmrng.",
         head="Skulker's bonnet +2", neck="Erudition Necklace",ear1="Sherida Earring",ear2="Brutal Earring",
