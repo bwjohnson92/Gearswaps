@@ -145,7 +145,7 @@ function get_sets()
 
 	sets.WS["Impulse Drive"].HighTP = { --2000 TP
 		ammo="Knobkierrie",
-		head="Agoge Mask +3",
+		head="Agoge Mask +4",
 		body="Sakpata's Plate",
 		hands="Boii Mufflers +3",
 		legs="Sakpata's Cuisses",
@@ -202,7 +202,7 @@ function get_sets()
 	sets.WS["Savage Blade"] = {
 
 		ammo="Knobkierrie",
-		head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
+		head={ name="Agoge Mask +4", augments={'Enhances "Savagery" effect',}},
 		body="Pumm. Lorica +3",
 		hands="Boii Mufflers +3",
 		legs={ name="Nyame Flanchard", augments={'Path: B',}},
@@ -250,7 +250,7 @@ function get_sets()
 	}
 
 	sets.JA["Warcry"] = {
-		head="Agoge Mask +3"
+		head="Agoge Mask +4"
 	}
 
 	sets.JA["Tomahawk"] = {
@@ -331,7 +331,7 @@ function precast(spell)
 		end
 
 		-- if buffactive["Warcry"] then
-			-- set = set_combine(set, {head="Agoge Mask +3"})
+			-- set = set_combine(set, {head="Agoge Mask +4"})
 		-- end
 		equip(set)
 	elseif sets.JA[spell.english] then

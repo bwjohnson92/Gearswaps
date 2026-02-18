@@ -201,13 +201,14 @@ function updateTable()
     addToTable("(F9) TP Set", sets.TP.index[TP_ind])
     -- addToTable("Enfeeble Potency", not EnfeebSet)
     addToTable("(F10) Idle Set", sets.Idle.index[Idle_ind])
-    addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
-    addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
+--     addToTable("(F11) CDC Set", sets.ChantDuCygne.index[ChantDuCygne_ind])
+--     addToTable("(F12) Req Set", sets.Requiescat.index[Requiescat_ind])
     addToTable("(END) Weapon Locked", weaponLocked)
     update_message()
 end
 
 function precast(spell)
+        add_to_chat(140, spell.english)
         if spell.action_type == 'Magic' then
                 equip(sets.precast.FC.Standard)
         end

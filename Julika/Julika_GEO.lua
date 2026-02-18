@@ -77,7 +77,7 @@ function get_sets()
 		body={ name="Telchine Chas.", augments={'Pet: DEF+5','Pet: "Regen"+2',}},
 		hands="Geomancy Mitaines +1",
 		legs={ name="Telchine Braconi", augments={'Pet: "Regen"+3',}},
-		feet={ name="Bagua Sandals +1", augments={'Enhances "Radial Arcana" effect',}},
+		feet="Geomancy Sandals",
 		neck="Twilight Torque",
 		waist="Isa Belt",
 		left_ear="Handler's Earring +1",

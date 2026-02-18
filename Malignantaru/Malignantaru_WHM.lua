@@ -181,7 +181,6 @@ function get_sets()
 
     send_command('bind f10 gs c toggle cure')
     send_command('bind f12 gs c toggle pdt')
-    send_command('lua u equipviewer')
     text_setup()
     addNewColors()
     updateTable()

@@ -13,15 +13,6 @@ current_roll = ""
 
 weaponLocked = false
 
-
-toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","Periqia","Ilrusi Atoll",
-        "Nyzul Isle","Bhaflau Remnants","Arrapago Remnants","Silver Sea Remnants","Zhayolm Remnants"}
-
-naSpells = S{"Paralyna","Silena","Viruna","Erase","Stona","Blindna","Poisona"}
-
-resSpells = S{"Barstonra","Barwatera","Baraera","Barfira","Barblizzara","Barthundra",
-    "Barstone","Barwater","Baraero","Barfire","Barblizzard","Barthunder"}
-
 elements = {}
 elements.use_on_single_conflict = false
 elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}

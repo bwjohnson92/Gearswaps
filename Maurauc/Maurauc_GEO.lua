@@ -31,8 +31,8 @@ capeNuke = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dm
 AF = {}
 AF.Head = "Geomancy Galero +2"
 AF.Body = "Geomancy Tunic +1"
-AF.Hands = "Geomancy Mitaines"
-AF.Legs = "Geomancy Pants"
+AF.Hands = "Geomancy Mitaines +2"
+AF.Legs = "Geomancy Pants +1"
 AF.Feet = "Geomancy Sandals +3"
 
 Relic = {}
@@ -57,7 +57,6 @@ function get_sets()
 
 		main="Maxentius",
 		sub="Genmei Shield",
-
 	    head="Nyame Helm",
 	    body="Jhakri Robe +2",
 	    hands="Nyame Gauntlets",
@@ -197,7 +196,7 @@ function get_sets()
 	sets.JA["Radial Arcana"] = {feet=Relic.Feet}
 	sets.JA["Mending Halation"] = {legs=Relic.Legs}
 	sets.JA["Full Circle"] = {hands=Relic.Hands} --Curative Recantation
-	sets.JA["Life Cycle"] = {back=capeRegen}
+	sets.JA["Life Cycle"] = { body=Relic.Body, back=capeRegen}
 
 
 	sets.WS = {

@@ -42,14 +42,15 @@ function get_sets()
     sets.Idle = {}
     sets.Idle.Index = {"Standard", "DT", "Move"}
     sets.Idle.Standard =  {
-        main="Kali",
+        main="Sangoma",
         sub="Genmei Shield",
-        head="Inyanga Tiara +2",
+        head="Fili Calot +2",
         neck="Loricate Torque +1",
+        -- neck="Bard's Charm +1",
         ear1="Infused Earring",
         ear2="Genmei Earring",
-        body="Ayanmo Corazza +2",
-        hands="Ayanmo Manopolas +2",
+        body="Fili Hongreline +3",
+        hands="Fili Manchettes +2",
         feet="Fili Cothurnes +2",
         back="Repulse Mantle",
         waist="Flume Belt +1",
@@ -60,18 +61,18 @@ function get_sets()
     sets.precast.FastCast = {main="Kali",ammo="Incantor Stone",
         head="Nahtirah Hat",neck="Voltsurge Torque",ear2="Loquacious Earring",
         body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring1="Kishar Ring",
-        waist="Witful Belt",legs="Doyen Pants", feet="Fili Cothurnes +2"}
+        waist="Embla Sash",legs="Doyen Pants", feet="Fili Cothurnes +2"}
 
     sets.precast.Song = set_combine(sets.precast.FastCast, {
-        head="Fili Calot +1",ear1="Aoidos' Earring"
+        head="Fili Calot +2",ear1="Aoidos' Earring"
     })
 
     sets.midcast.Song = {
-        main="Kali",
+        main="Carnwenhan",
         ranged="Gjallarhorn",
-        head="Fili Calot +1",
-        body="Fili Hongreline +2",
-        hands="Fili Manchettes +1",
+        head="Fili Calot +2",
+        body="Fili Hongreline +3",
+        hands="Fili Manchettes +2",
         neck="Moonbow Whistle",
         ear2="Darkside Earring",
         legs="Inyanga Shalwar +2",
@@ -111,6 +112,7 @@ function get_sets()
     })
 
     sets.Songs.Debuff = set_combine(sets.midcast.Song, {
+        main="Carnwenhan",
         sub="Ammurapi Shield",
         head="Brioso Roundlet +3",
         body="Brioso Justau. +2",
@@ -126,7 +128,7 @@ function get_sets()
     })
 
     sets.Songs.Lullaby = set_combine(sets.Songs.Debuff, {
-        body="Fili Hongreline +2",
+        body="Fili Hongreline +3",
         hands="Brioso Cuffs +4",
         legs="Inyanga Shalwar +2",
     })
@@ -138,6 +140,7 @@ function get_sets()
     sets.Songs["Horde Lullaby II"] = set_combine(sets.Songs.Lullaby, {
         -- hands="Inyanga Dastanas +2",
         legs="Inyanga Shalwar +2",
+        feet="Bihu Slippers +3",
         ranged="Daurdabla"
     })
 
@@ -145,7 +148,7 @@ function get_sets()
     sets.Melee.Standard = {
         main="Naegling",
         sub="Genmei Shield",
-        range="Gjallarhorn",
+        range="Linos",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
         hands="Aya. Manopolas +2",
@@ -162,8 +165,19 @@ function get_sets()
 
     sets.WS = set_combine(sets.Melee.Standard, {
         back=wsCape,
-        left_ear="Moonshade Earring"
+        left_ear="Moonshade Earring",
+        head="Bihu Roundlet +3",
+        body="Bihu Justaucorps +3",
+        hands="Bihu Cuffs +3",
+        legs="Bihu Cannions +3",
+        feet="Bihu Slippers +3",
+        waist="Fotia Belt"
     })
+
+    sets.JA = {}
+    sets.JA["Nightingale"] = {feet="Bihu Slippers +3"}
+    sets.JA["Troubadour"] = {body="Bihu Justaucorps +3"}
+    sets.JA["Soul Voice"] = {legs="Bihu Cannions +3"}
 
     send_command('bind f10 gs c auto')
     send_command('bind f12 gs c sing')
@@ -216,9 +230,16 @@ function precast(spell)
     if  string.find(spell.type,'Magic') or string.find(spell.type,'Trust')  or string.find(spell.type,'Song') then
         set = sets.precast.FastCast
     end
+    
+    if sets.JA[spell.name] then
+        set = sets.JA[spell.name]
+    end
+
     if (string.find(spell.name,'Honor')) then
         set = set_combine(set, sets.HonorMarch)
     end
+
+
 
     equip(set)
 
@@ -273,7 +294,12 @@ function aftercast(spell)
         table.remove(song_queue, 1)
     end
     command_casting = false
-    equip(sets.Idle.Standard)
+    if player.status == 'Engaged' then
+        equip(sets.Melee.Standard)
+    else
+        equip(sets.Idle.Standard)
+    end
+    
 
     if (auto_song) then
         time = 1.3

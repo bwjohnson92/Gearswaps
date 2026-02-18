@@ -520,7 +520,7 @@ function midcast(spell,act)
         end
     end
 
-    if spell.english == "Phalanx" then
+    if spell.name:match("Phalanx") then
         equip(sets.Phalanx)
     end
 end
