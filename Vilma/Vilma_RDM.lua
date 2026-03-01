@@ -87,7 +87,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 		head="Vitiation Chapeau +2",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
 		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Stikini Ring +1",ring2="Kishar Ring",
-		back=SucellosMND,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +2"}
+		back=SucellosMND,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
 	sets.midcast.Enfeebling.Acc = set_combine(sets.midcast.Enfeebling, {
 		main=staff2,
@@ -102,12 +102,12 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast.ElementalMagic = {main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosMND,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +2"}	
+		back=SucellosMND,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +3"}	
 
 	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
 		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosMND,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +2"}	
+		back=SucellosMND,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +3"}	
 	
 	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
 		
@@ -195,7 +195,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    -- waist="Orpheus's Sash",
 	    waist="Sacro Cord",
 	    legs="Amalric Slops +1",
-	    feet="Vitiation Boots +2"
+	    feet="Vitiation Boots +3"
 	}
 
 	sets.WS.PhysicalWS = {
