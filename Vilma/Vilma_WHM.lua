@@ -7,9 +7,10 @@ toau_zones = S{"Leujaoam Sanctum","Mamool Ja Training Grounds","Lebros Cavern","
 
 naSpells = S{"Paralyna","Silena","Viruna","Erase","Stona","Blindna","Poisona"}
 
-resSpells = S{"Barstonra","Barwatera","Baraera","Barfira","Barblizzara","Barthundra",
+barResSpells = S{"Barstonra","Barwatera","Baraera","Barfira","Barblizzara","Barthundra",
     "Barstone","Barwater","Baraero","Barfire","Barblizzard","Barthunder"}
 
+barStatusSpells = S{"Baramnesia", "Baramnesra","Barvirus", "Barvira", "Barparalyze", "Barparalyzra", "Barsilence", "Barsilencera", "Barpetrify", "Barpetra", "Barpoison", "Barpoisonra", "Barlind", "Barblindra", "Barsleep", "Barsleepra"}
 
 -- Start Functions here
 -- Gear Sets
@@ -89,11 +90,10 @@ function get_sets()
         body="Theophany Bliaut +4",hands="Theophany Mitts +4",ring1="Medada's Ring",ring2="Kishar Ring",
         back="Null Shawl",waist="Null Belt", legs="Chironic Hose",feet="Theophany Duckbills +4"}
 
-    sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
+    sets.midcast.BarSpells = {main="Beneficus", sub="Ammurapi Shield",
         head="Ebers Cap +3",neck="Sroda Necklace",ear1-"Andoaa Earring",ear2="Mimir Earring",
         body="Ebers Bliaut +3",hands="Ebers Mitts +3",ring1="Medada's Ring",ring2="Stikini Ring +1",
         waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Theophany Duckbills +4"}
-    --sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Bliaut"})
 
     sets.midcast.BarStatus = set_combine(sets.midcast['Enhancing Magic'], {neck="Sroda Necklace"})
 
@@ -216,9 +216,6 @@ function updateTable()
     addToTable("(F10) Cure Set", sets.Cure.index[Cure_Index])
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_Index])
     addToTable("", "")
-    -- addToTable("DEL", "Julika Ranged Attack")
-    -- addToTable("END", "Julika Leaden Salute")
-    -- addToTable("PGDown", "Julika Savage Blade")
     update_message()
 end
 -- --- Precast ---
@@ -276,8 +273,10 @@ function midcast(spell)
             equip(sets['midcast_Stoneskin'])
             
         elseif string.find(spell.skill,'Enhancing Magic') then
-            if string.find(spell.english,'Bar') then
-                equip(sets.midcast.BarSpells_Solace)
+            if barResSpells:contains(spell.english) then
+                equip(sets.midcast.BarSpells)
+            elseif barStatusSpells:contains(spell.english) then
+                equip(sets.midcast.BarStatus)
             elseif string.find(spell.english, 'Regen') then 
                 equip(sets.midcast.Regen)
             elseif string.find(spell.english, 'Boost') then
