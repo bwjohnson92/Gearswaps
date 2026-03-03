@@ -74,10 +74,10 @@ function get_sets()
     sets.Weapons.Offhand = {}
 
     Weapon_ind = 1
-	sets.Weapons.index = { "Tizona", "Naegling", "Bunzi's Rod", "Maxentius"}
+	sets.Weapons.index = { "Tizona", "Bunzi's Rod", "Naegling", "Maxentius"}
 
     WeaponOff_ind = 1
-    sets.Weapons.Offhand.index = { "Machaera +2", "Bunzi's Rod", "Maxentius"}
+    sets.Weapons.Offhand.index = { "Machaera +2", "Sakpata's Sword"}
 
 
     --Idle Sets--   
@@ -98,7 +98,7 @@ function get_sets()
     sets.Idle.DT = {
         ammo="Staunch Tathlum",
         head="Nyame Helm",
-        body="Malignance Tabard",
+        body="Hashishin Mintan +3",
         hands="Nyame Gauntlets",
         legs="Carmine Cuisses +1",
         feet="Nyame Sollerets",
@@ -107,7 +107,7 @@ function get_sets()
         left_ear="Novia Earring",
         right_ear="Etiolation Earring",
         left_ring=stikini1,
-        right_ring="Murky Ring",
+        right_ring=stikini2,
         back=DEXCape,
     }
 
@@ -196,14 +196,22 @@ function get_sets()
     }
 
     sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
-        head="Hashishin Kavuk +2",neck="Sibyl Scarf",ear1="Regal Earring",ear2="Friomisi earring",
-        body="Amalric Doublet +1",hands="Hashishin Bazubands +3",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
-        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Amalric Nails +1"
+        head="Hashishin Kavuk +3",neck="Sibyl Scarf",ear1="Regal Earring",ear2="Friomisi earring",
+        body="Hashishin Mintan +3",hands="Hashishin Bazubands +3",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
+        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Hashishin Basmak +3"
     }
 
+    sets.BlueMagic["Tenebral Crush"] = set_combine(sets.BlueMagic.INT, {
+        head="Pixie Hairpin +1",
+        ring1="Archon Ring"
+    })
+
     sets.BlueMagic.VIT = set_combine(sets.BlueMagic.INT, {
-        
-        feet="Hashishin Basmak +2",
+        feet="Hashishin Basmak +3",
+    })
+
+    sets.BlueMagic["Entomb"] = set_combine(sets.BlueMagic.VIT, {
+        neck="Quanpur Necklace",
     })
 
     sets.BlueMagic.Cures = {
@@ -254,12 +262,10 @@ function get_sets()
     sets.BlueMagic.Stun = set_combine(sets.BlueMagic.MagicAccuracy, {})
 
     sets.BlueMagic.Skill = {   
-        head="Carmine Mask +1",ear1="Loquac. earring",
-        body="Assim. jubbah +3",
-        
-        ring1="Weatherspoon ring +1", ring2=stikini2,
-        back="Cornflower cape",waist="Twilight belt",
-        feet="Luhlaza charuqs +1"
+        head="Luhlaza Keffiyeh +1",neck="Mirage Stole +1",ear1="Alabaster Earring",ear2="Hashishin Earring +1",
+        body="Assim. jubbah +3",hands="Rawhide Gloves",ring1=stikini1, ring2=stikini2,
+        back="Cornflower cape",waist="Platinum Moogle Belt",
+        feet="Luhlaza charuqs +3"
     }
 
     sets.BlueMagic.BatteryCharge = {
@@ -282,7 +288,7 @@ function get_sets()
         ammo="Floestone",
         head="Carmine Mask +1",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
         body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Epona's ring",ring2="Rufescent Ring",
-        back="Rosmerta's Cape",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +1"
+        back="Rosmerta's Cape",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +2"
     }
 
     sets.WS["Chant Du Cygne"] = {
@@ -294,7 +300,7 @@ function get_sets()
 
     sets.WS.ExpSavage = {
         ammo="Floestone",
-        head="Hashishin Kavuk +2",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
+        head="Hashishin Kavuk +3",neck="Mirage Stole +1",ear1="Ishvara Earring",ear2="Moonshade Earring",
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Cornelia's Ring",
         back=STRCape,waist="Sailfi Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"
     }
@@ -305,6 +311,7 @@ function get_sets()
 
     sets.WS["Sanguine Blade"] = set_combine(sets.BlueMagic.INT, {
         head="Pixie Hairpin +1",
+        body="Nyame Mail",
         hands="Jhakri Cuffs +2",
         legs="Luhlaza Shalwar +3",
         feet="Nyame Sollerets",
@@ -315,11 +322,13 @@ function get_sets()
     --Utility Sets--
 
     sets.Phalanx = {
-        main="Sakpata's Sword",sub="Colada",ammo="Staunch Tathlum",
+        main="Colada",sub="Sakpata's Sword",ammo="Staunch Tathlum",
         head="Herculean Helm",neck="Incanter's Torque",ear1="Mimir Earring",ear2="Andoaa Earring",
         body={ name="Herculean Vest", augments={'Pet: CHR+5','MND+1','Phalanx +5',}},
         hands="Taeon Gloves",ring1=stikini1,ring2=stikini2,
-        back="Fi Follet Cape +1",waist="Cascade Belt",legs="Taeon Tights",feet="Taeon Boots"
+        back="Fi Follet Cape +1",waist="Cascade Belt",
+        legs={ name="Herculean Trousers", augments={'INT+12','STR+5','Phalanx +4','Accuracy+14 Attack+14',}},
+        feet={ name="Herculean Boots", augments={'Pet: Phys. dmg. taken -2%','DEX+9','Phalanx +4',}},
     }
 
     --Job Ability Sets--
@@ -327,11 +336,11 @@ function get_sets()
     sets.JA = {}
 
     sets.JA.ChainAffinity = {
-        head="Hashishin Kavuk +2",
+        head="Hashishin Kavuk +3",
         feet="Assim. charuqs +1"
     }
 
-    sets.JA.BurstAffinity = {feet="Hashishin Basmak +2"}
+    sets.JA.BurstAffinity = {feet="Hashishin Basmak +3"}
 
     sets.JA.Efflux = {
         legs="Hashishin Tayt +1",
@@ -339,7 +348,7 @@ function get_sets()
 
     --sets.JA.AzureLore = {hands="Luh. bazubands +1"}
 
-    sets.JA.Diffusion = {feet="Luhlaza Charuqs +1"}
+    sets.JA.Diffusion = {feet="Luhlaza Charuqs +2"}
 
     --Precast Sets--
     sets.precast = {}
@@ -357,7 +366,7 @@ function get_sets()
     }
 
     sets.precast.FC.BlueMagic = set_combine(sets.precast.FC.Standard, {
-        body="Hashishin Mintan +2"
+        body="Hashishin Mintan +3"
     })
 
     sets.BlueMagic.SkillMidcast = set_combine(sets.precast.FC.Standard, {
@@ -416,7 +425,12 @@ end
 
 function midcast(spell,act)
 
-    if spells.STR:contains(spell.name) then
+    if (sets.BlueMagic[spell.english]) then
+        equip(sets.BlueMagic[spell.english])
+        if buffactive['Burst Affinity'] then
+            equip(sets.JA.BurstAffinity)
+        end
+    elseif spells.STR:contains(spell.name) then
         equip(sets.BlueMagic.STR)
         if buffactive['Chain Affinity'] then
             equip(sets.JA.ChainAffinity)
@@ -424,9 +438,7 @@ function midcast(spell,act)
         if buffactive['Efflux'] then
             equip(sets.JA.Efflux)
         end
-    end
-
-    if spells.STRDEX:contains(spell.name) then
+    elseif spells.STRDEX:contains(spell.name) then
         equip(sets.BlueMagic.STRDEX)
         if buffactive['Chain Affinity'] then
             equip(sets.JA.ChainAffinity)
@@ -434,9 +446,7 @@ function midcast(spell,act)
         if buffactive['Efflux'] then
             equip(sets.JA.Efflux)
         end
-    end
-
-    if spells.STRVIT:contains(spell.name) then
+    elseif spells.STRVIT:contains(spell.name) then
         equip(sets.BlueMagic.STRVIT)
         if buffactive['Chain Affinity'] then
             equip(sets.JA.ChainAffinity)
@@ -444,9 +454,7 @@ function midcast(spell,act)
         if buffactive['Efflux'] then
             equip(sets.JA.Efflux)
         end
-    end
-
-    if spells.STRMND:contains(spell.name) then
+    elseif spells.STRMND:contains(spell.name) then
         equip(sets.BlueMagic.STRMND)
         if buffactive['Chain Affinity'] then
             equip(sets.JA.ChainAffinity)
@@ -454,9 +462,7 @@ function midcast(spell,act)
         if buffactive['Efflux'] then
             equip(sets.JA.Efflux)
         end
-    end
-
-    if spells.AGI:contains(spell.name) then
+    elseif spells.AGI:contains(spell.name) then
         equip(sets.BlueMagic.AGI)
         if buffactive['Chain Affinity'] then
             equip(sets.JA.ChainAffinity)
@@ -464,50 +470,32 @@ function midcast(spell,act)
         if buffactive['Efflux'] then
             equip(sets.JA.Efflux)
         end
-    end
-
-    if spells.INT:contains(spell.name) then
+    elseif spells.INT:contains(spell.name) then
         equip(sets.BlueMagic.INT)
         if buffactive['Burst Affinity'] then
             equip(sets.JA.BurstAffinity)
         end
-    end
-
-    if spells.Cures:contains(spell.name) then
+    elseif spells.Cures:contains(spell.name) then
         equip(sets.BlueMagic.Cures)
         if spell.target.name == player.name then
             equip(sets.BlueMagic.SelfCures)
         end
-    end
-
-    if spells.WhiteWind:contains(spell.name) then
+    elseif spells.WhiteWind:contains(spell.name) then
         equip(sets.BlueMagic.WhiteWind)
-    end
-
-    if spells.Stun:contains(spell.name) then
+    elseif spells.Stun:contains(spell.name) then
         equip(sets.BlueMagic.Stun)
-    end
-
-    if spells.HeavyStrike:contains(spell.name) then
+    elseif spells.HeavyStrike:contains(spell.name) then
         equip(sets.BlueMagic.HeavyStrike)
-    end
-
-    if spells.ChargedWhisker:contains(spell.name) then
+    elseif spells.ChargedWhisker:contains(spell.name) then
         equip(sets.BlueMagic.ChargedWhisker)
         if buffactive['Burst Affinity'] then
             equip(sets.JA.BurstAffinity)
         end
-    end
-
-    if spells.MagicAccuracy:contains(spell.name) then
+    elseif spells.MagicAccuracy:contains(spell.name) then
         equip(sets.BlueMagic.MagicAccuracy)
-    end
-
-    if spells.MagicAccuracyFast:contains(spell.name) then
+    elseif spells.MagicAccuracyFast:contains(spell.name) then
         equip(sets.BlueMagic.MagicAccuracyFast)
-    end
-
-    if spells.SkillMidcast:contains(spell.name) then
+    elseif spells.SkillMidcast:contains(spell.name) then
         equip(sets.BlueMagic.SkillMidcast)
         if (spell.english == 'Battery Charge') then
             equip(sets.BlueMagic.BatteryCharge)
@@ -518,9 +506,7 @@ function midcast(spell,act)
         if buffactive['Diffusion'] then
             equip(sets.JA.Diffusion)
         end
-    end
-
-    if spell.name:match("Phalanx") then
+    elseif spell.name:match("Phalanx") then
         equip(sets.Phalanx)
     end
 end

@@ -37,7 +37,7 @@ function get_sets()
         'Evasion',
         'EvasionMove',
     }
-    Idle_ind = 1
+    Idle_ind = 2
     --Idle Sets--
     sets.Idle.Standard = { --ammo="Homiliary",
         head="Nyame Helm",neck="Futhark Torque +2",ear1="Odnowa Earring +1", --ear2="Ethereal Earring",   
@@ -76,6 +76,8 @@ function get_sets()
     })
 
     sets.Idle.EvasionMove = set_combine(sets.Idle.Evasion, {
+        head="Null Masque",
+        ear2="Alabaster Earring",
         legs="Carmine Cuisses +1",
     })
     --TP Sets--

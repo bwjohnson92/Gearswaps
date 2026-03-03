@@ -58,25 +58,39 @@ end
 
 function aftercast(spell)
 	equip(sets.Idle)
-    send_command('wait 3;gs c next_action')
+    send_command('wait 4;gs c next_action')
 end
 
 function next_action()
-    elemental_magic()
+    -- elemental_magic()
+    enfeebling_magic()
+    -- geomancy()
 end
 
 function elemental_magic()
-    -- if not buffactive["Food"] then
-        -- send_command('input /item "B.E.W. Pitaru" <me>')
-    if not buffactive["Colure Active"] then
+    if not buffactive["Food"] then
+        send_command('input /item "B.E.W. Pitaru" <me>')
+    elseif not buffactive["Colure Active"] then
         queue("Indi-Refresh")
     else
         queue("Stone")
     end
 end
 
+function enfeebling_magic()
+    if not buffactive["Food"] then
+        send_command('input /item "B.E.W. Pitaru" <me>')
+    elseif not buffactive["Colure Active"] then
+        queue("Indi-Refresh")
+    else
+        queue("Dia")
+    end
+end
+
 function geomancy()
-    if not buffactive["Colure Active"] then
+    if not buffactive["Food"] then
+        send_command('input /item "B.E.W. Pitaru" <me>')
+    elseif not buffactive["Colure Active"] then
         queue("Indi-Refresh")
     elseif (hasPet) then
         full_circle()

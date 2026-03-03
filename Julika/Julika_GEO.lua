@@ -27,7 +27,7 @@ RelicHands = "Bagua Mitaines"
 RelicLegs = "Bagua Pants"
 RelicFeet = "Bagua Sandals +1 "
 
-EmpyHead = "Azimuth Hood +1"
+EmpyHead = "Azimuth Hood +2"
 EmpyBody = "Azimuth Coat +1"
 EmpyHands = "Azimuth Gloves +1"
 EmpyLegs = "Azimuth Tights +1"
@@ -57,7 +57,7 @@ function get_sets()
 		main="Idris",
 		ranged="Dunna",
 	    sub="Genmei Shield",
-	    head="Azimuth Hood +1",
+	    head="Azimuth Hood +2",
 	    body=TelchineBody,
 	    hands=TelchineHands,
 	    legs=TelchineLegs,
@@ -73,7 +73,7 @@ function get_sets()
 	sets.Idle.Standard = {
 		main="Idris",
 		sub="Genmei Shield",
-		head="Azimuth Hood +1",
+		head="Azimuth Hood +2",
 		body={ name="Telchine Chas.", augments={'Pet: DEF+5','Pet: "Regen"+2',}},
 		hands="Geomancy Mitaines +1",
 		legs={ name="Telchine Braconi", augments={'Pet: "Regen"+3',}},

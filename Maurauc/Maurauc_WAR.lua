@@ -272,7 +272,7 @@ function get_sets()
 
 
 	sets.Idle = set_combine(sets.TP.DT, {
-		-- feet="Hermes' Sandals"
+		feet="Hermes' Sandals"
 	})
 
 	windower.register_event('zone change', function()

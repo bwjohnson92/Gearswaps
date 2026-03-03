@@ -155,12 +155,12 @@ function get_sets()
         legs="Aya. Cosciales +2",
         feet="Aya. Gambieras +2",
         neck={ name="Bard's Charm +1", augments={'Path: A',}},
-        waist="Sailfi Belt",
+        waist="Sailfi Belt +1",
         left_ear="Cessance Earring",
         right_ear="Telos Earring",
         left_ring="Murky Ring",
         right_ring="Ilabrat Ring",
-        back=meleeCape
+        back="Null Shawl"
     }
 
     sets.WS = set_combine(sets.Melee.Standard, {
@@ -373,9 +373,15 @@ function self_command(command)
                 song = string.sub(song,5,string.len(song))
                 table.insert(song_queue, 2, song)
             elseif (string.sub(song,1,3) == "(m)") then
-                action = "Marcato"
+                local recasts = windower.ffxi.get_ability_recasts()
                 song = string.sub(song,5,string.len(song))
-                table.insert(song_queue, 2,song)
+                if recasts[48] > 0 then
+                    add_to_chat(140, "Marcato is on cooldown, skipping")
+                    action = song
+                else
+                    action = "Marcato"
+                    table.insert(song_queue, 2, song)
+                end
             else
                 action = song
             end

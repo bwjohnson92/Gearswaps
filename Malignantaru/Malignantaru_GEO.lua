@@ -51,38 +51,28 @@ function get_sets()
 	}
 
 	sets.WS = {
-		head="Nyame Helm",
-	    body="Nyame Mail",
-	    hands="Nyame Gauntlets",
-	    legs="Nyame Flanchard",
-	    feet="Nyame Sollerets",
+		-- head="Nyame Helm",
+	    -- body="Nyame Mail",
+	    -- hands="Nyame Gauntlets",
+	    -- legs="Nyame Flanchard",
+	    -- feet="Nyame Sollerets",
 		neck="Republican Platinum Medal",
 		waist="Grunfeld Rope",
 		ear1="Moonshade Earring",
 		ear2="Ishvara Earring",
-		ring1="Petrov Ring",
-		ring2="Apate Ring",
+		-- ring1="Petrov Ring",
+		-- ring2="Apate Ring",
 		ammo="Oshasha's Treatise",
 		back={ name="Nantosuelta's Cape", augments={'MND+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%',}}
 	}
 
-	sets.Realmrazer = set_combine(sets.WS, {
-	    main="Idris",
-	    sub="Genmei Shield",
-	    neck="Imbodla Necklace",
-	    waist="Luminary Sash",
-	    left_ear="Digni. Earring",
-	    right_ear="Ishvara Earring",
-	    left_ring="Rajas Ring",
-	    right_ring="K'ayres Ring",
-	    back={ name="Lifestream Cape", augments={'Geomancy Skill +7','Indi. eff. dur. +17','Pet: Damage taken -4%',}},
-	})
+	sets.Realmrazer = set_combine(sets.WS, {})
 
 	sets.Idle = {}
     sets.Idle.index = {"Standard", "DamageTaken", "PetRegen"}
 
 	sets.Idle.Standard = {main="Daybreak", sub="Genmei Shield", ranged="Dunna", 
-		head="Azimuth Hood", neck="Loricate Torque +1", ear1="Genmei Earring", ear2="Hearty Earring", 
+		head="Azimuth Hood +2", neck="Loricate Torque +1", ear1="Genmei Earring", ear2="Hearty Earring", 
 		body="Geomancy Tunic +3", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Murky Ring",
 	    -- back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		back="Repulse Mantle",
@@ -105,11 +95,12 @@ function get_sets()
 	})
 
 	sets.Idle.PetRegen = set_combine(sets.Idle.DamageTaken, {
-		main="Idris", sub="Genmei Shield",
-		head="Azimuth Hood",
+		main="Solstice", sub="Genmei Shield",
+		head="Azimuth Hood +2",
 		neck="Bagua Charm",
-		body="Nyame Mail",
-		hands="Telchine Gloves",
+		body="Telchine Chasuble",
+		-- hands="Telchine Gloves",
+		hands="Geomancy Mitaines +3",
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
@@ -161,18 +152,21 @@ function get_sets()
 	    main="Daybreak",
 	    sub="Ammurapi Shield",
 	    ammo="Sroda Tathlum",
-	    head="Merlinic Hood",
+	    head="Azimuth Hood +2",
 	    body="Merlinic Jubbah",
-	    hands="Geomancy Mitaines +3",
-	    legs="Geomancy Pants +3",
-	    feet="Azimuth Gaiters",
+	    hands="Volte Gloves",
+	    legs="Azimuth Tights +2",
+	    -- feet="Azimuth Gaiters",
+		feet="Geomancy Sandals +3",
 		neck="Sibyl Scarf",
 		waist="Porous Rope",
-	    left_ear="Malignance Earring",
-		right_ear="Regal Earring",
-	    left_ring="Vertigo Ring",
-	    right_ring="Metamorph Ring +1",
-	    back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
+	    left_ear="Barkarole Earring",
+		right_ear="Friomisi Earring",
+	    left_ring="Medada's Ring",
+	    -- right_ring="Metamorph Ring +1",
+		right_ring="Freke Ring",
+		back="Toro Cape",
+	    -- back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10',}},
 	}
 		
 	sets.midcast.EnhancingMagic = {
@@ -183,8 +177,8 @@ function get_sets()
 		
 	sets.midcast.IndiSpells = {
 		main="Solstice", sub="Genmei Shield",
-		head="Azimuth Hood", neck="Bagua Charm",
-		body="Bagua Tunic",	hands="Azimuth Gloves", ring1=stikini1, ring2=stikini2,
+		head="Azimuth Hood +2", neck="Bagua Charm",
+		body="Bagua Tunic",	hands="Azimuth Gloves +1", ring1=stikini1, ring2=stikini2,
 		back="Lifestream Cape", legs="Bagua Pants +1",feet="Azimuth Gaiters"
 	}
 	
@@ -193,7 +187,7 @@ function get_sets()
 	})
 
 	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSelf, {
-		head="Azimth Hood",legs="Azimuth Tights"
+		head="Azimuth Hood +2",legs="Azimuth Tights +2"
 	})
 
 	sets.midcast.Cure = {
