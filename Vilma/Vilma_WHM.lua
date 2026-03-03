@@ -91,7 +91,7 @@ function get_sets()
         back="Null Shawl",waist="Null Belt", legs="Chironic Hose",feet="Theophany Duckbills +4"}
 
     sets.midcast.BarSpells = {main="Beneficus", sub="Ammurapi Shield",
-        head="Ebers Cap +3",neck="Sroda Necklace",ear1-"Andoaa Earring",ear2="Mimir Earring",
+        head="Ebers Cap +3",neck="Sroda Necklace",ear1="Andoaa Earring",ear2="Mimir Earring",
         body="Ebers Bliaut +3",hands="Ebers Mitts +3",ring1="Medada's Ring",ring2="Stikini Ring +1",
         waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Theophany Duckbills +4"}
 

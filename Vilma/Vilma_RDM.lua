@@ -64,11 +64,6 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    back=SucellosMND,
 	})		
 
-	--[[sets.aftercast.Idle = {main="Bolelabunga",sub="Genmei Shield", ammo="Homiliary",
-		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-		body={name="Witching Robe", augments={'MP+5', '"Refresh"+1',}},hands="Serpentes Cuffs",ring1="Defending Ring",ring2="Dark Ring",
-		back="Repulse Mantle",waist="Fucho-no-obi",legs="Lengo Pants",feet="Serpentes Sabots"}]]--
-
 	sets.precast.FastCast = {
 			head="Atrophy Chapeau +2",neck="Voltsurge Torque", ear1="Malignance Earring", ear2="Loquacious Earring",
 		body="Merlinic Jubbah",hands="Leyline Gloves",ring1="Prolix Ring",ring2="Kishar Ring",
@@ -77,11 +72,6 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
 	
 	sets.precast.FastCure = sets.precast.FastCast
-
-	--sets.Melee = {main="Buramenk'ah",sub="Genmei Shield",
-	--	head="Umuthi Hat",neck="Asperity Necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-	--	body="Artsieq Jubbah",hands="Umuthi Gloves", 
-	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
 		
 	sets.midcast.Enfeebling = {
 	main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
@@ -142,16 +132,6 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		head="Amalric Coif +1", neck="Duelist's Torque +1",
 		body="Atrophy Tabard +2",hands="Atrophy Gloves +3",
 		back="Sucellos's Cape", waist="Witful Belt", legs="Lethargy Fuseau +1", feet="Lethargy Houseaux +2"})
-
-	--sets.midcast.Cursna = {main="Beneficus",
-	--	head="Orison Cap +2",neck="Malison medallion", ear2="Loquacious Earring",
-	--	body="Orison Bliaud +2",hands="Orison Mitts +2",ring1="Ephedra ring", ring2="Sirona's ring",
-	--	back="Mending cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
-		
-	--sets.midcast.DebuffRemoval = {
-	--	head="Orison Cap +2",neck="Malison medallion",ear2="Loquacious Earring",
-	--	body="Orison Bliaud +2",hands="Orison Mitts +2",
-	--	back="Swith Cape",waist="Cetl Belt",legs="Orison Pantaloons +2",feet='Gendewitha Galoshes'	}
 
 	sets.midcast.Cure = {main="Chatoyant Staff",sub="Achaq Grip",ammo="Hydrocera",
 			head="Atrophy Chapeau +2",neck="Fylgja Torque",ear1="Novia Earring",
@@ -246,7 +226,6 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		ring2="Petrov Ring",
 		waist="Olseni Belt",
 		ammo="Coiste Bodhar"
-
 	}
 
 	sets.Melee.Enspell = {
