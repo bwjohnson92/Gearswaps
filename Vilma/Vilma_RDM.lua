@@ -42,8 +42,6 @@ SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast = {}
 	sets.aftercast = {}
 
-	sets.desperation = {body="Seidr Cotehardie"}
-
 	sets.aftercast.Idle = {
 		main="Daybreak",sub="Genmei Shield", ammo="Homiliary",
 		head="Null Masque",neck="Sibyl Scarf",ear1="Novia Earring",ear2="Alabaster Earring",
@@ -182,7 +180,7 @@ SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.
 	    body="Jhakri Robe +2",
 	    hands="Jhakri Cuffs +2",
 	    ring1="Epaminondas's Ring",
-	    ring2="Weather. Ring +1",
+	    ring2="Rufescent Ring",
 	    back="Sucellos's Cape",
 	    -- waist="Orpheus's Sash",
 	    waist="Sacro Cord",
