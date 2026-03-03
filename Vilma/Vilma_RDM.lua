@@ -1,6 +1,5 @@
 require('closetCleaner')
 include('organizer-lib.lua')
-include('Grioavolr.lua')
 include('MaurMerlinic.lua')
 
 include('displayBox/displayBox.lua')
@@ -26,16 +25,18 @@ PDTSet = false
 capeLocked = false
 weaponLocked = false
 
+stikini1 = {name="Stikini Ring +1", bag="wardrobe7"}
+stikini2 = {name="Stikini Ring +1", bag="wardrobe8"}
+
 -- Start Functions here
 -- Gear Sets
 function get_sets()
 
 staff1="Raetic Staff +1"
-staff2=GrioavolrEnfeeble
 
 MerlinicHoodAcc={name="Merlinic Hood"}
 SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Cure" potency +10%','Damage taken-5%',}}
-SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
+-- SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
 
 	sets.precast = {}
 	sets.midcast = {}
@@ -43,16 +44,17 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 
 	sets.desperation = {body="Seidr Cotehardie"}
 
-	sets.aftercast.Idle = {main="Daybreak",sub="Genmei Shield", ammo="Homiliary",
-		head="Null Masque",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Alabaster Earring",
-		body="Lethargy Sayon +2",hands="Volte Gloves",ring1="Murky Ring",ring2="Gelatinous Ring +1",
+	sets.aftercast.Idle = {
+		main="Daybreak",sub="Genmei Shield", ammo="Homiliary",
+		head="Null Masque",neck="Sibyl Scarf",ear1="Novia Earring",ear2="Alabaster Earring",
+		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Murky Ring",ring2=stikini2,
 		back="Repulse Mantle",waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Malignance Boots"}
 	
 	sets.aftercast.PDT = set_combine(sets.aftercast.Idle, {
 	    ammo="Homiliary",
 	    head="Malignance Chapeau",
 	    body="Malignance Tabard",
-	    hands="Volte Gloves",
+	    hands="Lethargy Gantherots +3",
 	    legs="Carmine Cuisses +1",
 	    feet="Malignance Boots",
 	    neck="Loricate Torque +1",
@@ -76,7 +78,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast.Enfeebling = {
 	main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 		head="Vitiation Chapeau +2",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
-		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Stikini Ring +1",ring2="Kishar Ring",
+		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1=stikini1,ring2="Kishar Ring",
 		back=SucellosMND,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
 	sets.midcast.Enfeebling.Acc = set_combine(sets.midcast.Enfeebling, {
@@ -89,12 +91,14 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		back=SucellosMND
 		})
 		
-	sets.midcast.ElementalMagic = {main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+	sets.midcast.ElementalMagic = {
+		main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosMND,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +3"}	
 
-	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
+	sets.midcast.ElementalMagicAcc = {
+		main="Daybreak",sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
 		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
 		back=SucellosMND,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +3"}	
@@ -105,19 +109,25 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	
 	sets.midcast.Stun = sets.midcast.Enfeebling
 
-	sets.Dispelga = {main="Daybreak",sub="Ammurapi Shield"}
+	sets.Dispelga = {
+		main="Daybreak",sub="Ammurapi Shield"
+	}
 	sets.precast.Dispelga = set_combine(sets.precast.FastCast, sets.Dispelga)
 	sets.midcast.Dispelga = set_combine(sets.midcast.Enfeebling.Acc, sets.Dispelga)
 		
-	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj", sub="Ammurapi Shield",
+	sets.midcast.EnhancingMagicComposure = {
+		main="Daybreak",
+		sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Lethargy Earring +1",
-		body="Lethargy Sayon +3",hands="Atrophy Gloves +3",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
+		body="Lethargy Sayon +3",hands="Atrophy Gloves +3",ring1=stikini1,ring2=stikini2,
 		back=SucellosMND,waist="Embla Sash",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +2"}
 
 		
-	sets.midcast.EnhancingMagic = {main="Pukulatmuj", sub="Ammurapi Shield",
+	sets.midcast.EnhancingMagic = {
+		main="Daybreak",
+		sub="Ammurapi Shield",
 		head="Befouled Crown",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Vitiation tabard +3",hands="Vitiation Gloves +1",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
+		body="Vitiation tabard +3",hands="Vitiation Gloves +1",ring1=stikini1,ring2=stikini2,
 		back=SucellosMND,waist="Embla Sash",legs="Atrophy Tights +2",feet="Lethargy Houseaux +2"}
 
 	sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
@@ -127,29 +137,31 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		body="Vitiation tabard +3",
 		hands="Atrophy Gloves +3"})
 
-	sets.midcast.Refresh = set_combine(sets.precast.FastCast, {
-		main="Pukulatmuj", sub="Ammurapi Shield",
-		head="Amalric Coif +1", neck="Duelist's Torque +1",
+	sets.midcast.Refresh = set_combine(sets.precast.FastCast, sets.midcast.EnhancingMagicDuration,{
+		main="Daybreak",
+		sub="Ammurapi Shield",
+		-- head="Amalric Coif +1",  -- +2 Refresh
+		neck="Duelist's Torque +1",
 		body="Atrophy Tabard +2",hands="Atrophy Gloves +3",
 		back="Sucellos's Cape", waist="Witful Belt", legs="Lethargy Fuseau +1", feet="Lethargy Houseaux +2"})
 
 	sets.midcast.Cure = {main="Chatoyant Staff",sub="Achaq Grip",ammo="Hydrocera",
-			head="Atrophy Chapeau +2",neck="Fylgja Torque",ear1="Novia Earring",
-			body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Weatherspoon Ring +1",ring2="Ephedra Ring",
-			back=SucellosMND,waist="Cascade Belt",legs="Atrophy Tights +2",feet="Kaykaus Sabots"}
+			head="Atrophy Chapeau +2",neck="Fylgja Torque +1",ear1="Novia Earring",
+			body="Vrikodara Jupon",hands="Telchine Gloves",ring1="Janniston Ring +1",
+			ring2="Naji's Loop",
+			back=SucellosMND,waist="Cascade Belt",legs="Atrophy Tights +2",feet="Kaykaus Boots +1"}
 			
 			
 	sets.Saboteur = {hands="Lethargy Gantherots +3"}
 	
 	sets.Phalanx = {
 		head="Taeon Chapeau", 
-		body={ name="Taeon Tabard", augments={'Phalanx +3',}},
-    hands={ name="Taeon Gloves", augments={'Phalanx +3',}},
-    legs={ name="Taeon Tights", augments={'Phalanx +3',}},
-    feet={ name="Taeon Boots", augments={'Phalanx +3',}},
+		body={ name="Taeon Tabard", augments={'Phalanx +2',}},
+    	hands={ name="Taeon Gloves", augments={'Phalanx +3',}},
+    	legs={ name="Taeon Tights", augments={'Phalanx +3',}},
+    	feet={ name="Taeon Boots", augments={'Phalanx +3',}},
 	}
 	
-	sets.Paralyze = {feet="Vitiation Boots +1"}
 	
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
 	
@@ -164,7 +176,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 
 	sets.WS.SeraphBlade = {
 	    ammo="Pemphredo Tathlum",
-	    head="Jhakri Coronal +2",
+		head="Nyame Helm",
 	    ear1="Ishvara Earring",
 	    ear2="Moonshade Earring",
 	    body="Jhakri Robe +2",
@@ -185,12 +197,13 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    legs="Aya. Cosciales +2",
 	    feet="Thereoid Greaves",
 	    neck="Caro Necklace",
-	    waist="Metalsinger Belt",
+	    waist="Sailfi Belt +1",
 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	    right_ear="Sherida Earring",
 	    left_ring="Rufescent Ring",
 	    right_ring="Petrov Ring",
-	    back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
+	    -- back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
+		back="Null Shawl",
 	}
 
 	sets.WS.SavageBlade = {
@@ -199,9 +212,10 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    ear1="Moonshade Earring",
 	    ear2="Malignance Earring",
 	    body="Nyame Mail",
-	    hands="Nyame Gaunlets",
+	    hands="Nyame Gauntlets",
 	    ring1="Epaminondas's Ring",
-	    ring2="Sroda Ring",
+	    -- ring2="Sroda Ring",
+		-- ring2=""
 	    -- back="Sucellos's Cape",
 	    waist="Sailfi Belt +1",
 	    legs="Nyame Flanchard",
@@ -232,7 +246,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		-- head="Umuthi Hat",
 		head="Ayanmo Zucchetto +2",
 	    body="Volte Jupon",
-	    hands="Aya. Manopolas +2",
+	    -- hands="Aya. Manopolas +2",
 	    legs="Aya. Cosciales +2",
 	    feet={ name="Taeon Boots", augments={'Phalanx +3',}},
 	    -- neck="Anu Torque",
@@ -271,7 +285,7 @@ end
 function updateTable()
     addToTable("(F9) Enfeebling", EnfeebSet and "Accuracy" or "Potency")
     -- addToTable("Enfeeble Potency", not EnfeebSet)
-    addToTable("(F10) MP Body", MPSet)
+    addToTable("(F10) MP Body", "Disabled")
     addToTable("(F11) MB Set", MBSet)
     addToTable("(F12) Idle Set", PDTSet and "PDT" or "Standard")
     addToTable("(PGUP) TP Set", sets.Melee.index[Melee_Ind])
@@ -437,13 +451,14 @@ function self_command(command)
         send_command('@input /echo <----- TP Set changed to '..sets.Melee.index[Melee_Ind]..' ----->')
         equip_TP()
 	elseif command == 'switch MP' then
-		if (MPSet) then
-			MPSet = false
-			add_to_chat(140,'Elemental Magic: Damage')
-		else
-			MPSet = true
-			add_to_chat(140,'Elemental Magic: MP')
-		end
+		return
+		-- if (MPSet) then
+		-- 	MPSet = false
+		-- 	add_to_chat(140,'Elemental Magic: Damage')
+		-- else
+		-- 	MPSet = true
+		-- 	add_to_chat(140,'Elemental Magic: MP')
+		-- end
 	elseif command == 'switch enf' then
 		EnfeebSet = not EnfeebSet
 		add_to_chat(140, 'Enfeebling Magic: '..(EnfeebSet and 'Acc' or 'EnfeebSkill'))
