@@ -90,10 +90,12 @@ function get_sets()
         back="Null Shawl",waist="Null Belt", legs="Chironic Hose",feet="Theophany Duckbills +4"}
 
     sets.midcast.BarSpells_Solace = {main="Beneficus", sub="Ammurapi Shield",
-        head="Ebers Cap +3",neck="Sroda Necklace",
+        head="Ebers Cap +3",neck="Sroda Necklace",ear1-"Andoaa Earring",ear2="Mimir Earring",
         body="Ebers Bliaut +3",hands="Ebers Mitts +3",ring1="Medada's Ring",ring2="Stikini Ring +1",
         waist="Cascade Belt",legs="Piety Pantaloons +3",feet="Theophany Duckbills +4"}
     --sets.midcast.Barspells_noSolace = set_combine(sets.midcast.BarSpells_Solace,{body="Blessed Bliaut"})
+
+    sets.midcast.BarStatus = set_combine(sets.midcast['Enhancing Magic'], {neck="Sroda Necklace"})
 
     sets.midcast.EnhancingMagic = {main="Gada", sub="Ammurapi Shield", ammo="Incantor Stone",
         head="Befouled Crown",neck="Colossus's Torque",ear1="Mimir Earring",ear2="Andoaa Earring",

@@ -44,16 +44,16 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.desperation = {body="Seidr Cotehardie"}
 
 	sets.aftercast.Idle = {main="Daybreak",sub="Genmei Shield", ammo="Homiliary",
-		head="Befouled Crown",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-		body="Jhakri Robe +2",hands="Volte Gloves",ring1="Defending Ring",ring2="Gelatinous Ring +1",
-		back="Repulse Mantle",waist="Fucho-no-obi",legs="Crimson Cuisses",feet="Malignance Boots"}
+		head="Null Masque",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Alabaster Earring",
+		body="Lethargy Sayon +2",hands="Volte Gloves",ring1="Murky Ring",ring2="Gelatinous Ring +1",
+		back="Repulse Mantle",waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet="Malignance Boots"}
 	
 	sets.aftercast.PDT = set_combine(sets.aftercast.Idle, {
 	    ammo="Homiliary",
 	    head="Malignance Chapeau",
 	    body="Malignance Tabard",
 	    hands="Volte Gloves",
-	    legs="Crimson Cuisses",
+	    legs="Carmine Cuisses +1",
 	    feet="Malignance Boots",
 	    neck="Loricate Torque +1",
 	    waist="Fucho-no-Obi",
@@ -86,8 +86,8 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast.Enfeebling = {
 	main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 		head="Vitiation Chapeau +2",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
-		body="Lethargy Sayon +1",hands="Volte bracers",ring1="Stikini Ring +1",ring2="Kishar Ring",
-		back=SucellosMND,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +1"}
+		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1="Stikini Ring +1",ring2="Kishar Ring",
+		back=SucellosMND,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
 	sets.midcast.Enfeebling.Acc = set_combine(sets.midcast.Enfeebling, {
 		main=staff2,
@@ -102,12 +102,12 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	sets.midcast.ElementalMagic = {main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
 		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosMND,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +1"}	
+		back=SucellosMND,waist="Sacro Cord",legs="Merlinic Shalwar",feet="Vitiation Boots +3"}	
 
 	sets.midcast.ElementalMagicAcc = {main="Daybreak",sub="Ammurapi Shield", ammo="Ghastly Tathlum +1",
 		head=MerlinicHoodAcc,neck="Sanctity Necklace",ear1="Malignance Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Freke Ring",ring2="Shiva Ring +1",
-		back=SucellosMND,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +1"}	
+		back=SucellosMND,waist="Sacro Cord",legs="Amalric Slops +1",feet="Vitiation Boots +3"}	
 	
 	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
 		
@@ -121,7 +121,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 		
 	sets.midcast.EnhancingMagicComposure = {main="Pukulatmuj", sub="Ammurapi Shield",
 		head="Lethargy Chappel +1",neck="Duelist's Torque +1",ear1="Etiolation Earring",ear2="Lethargy Earring +1",
-		body="Lethargy Sayon +1",hands="Atrophy Gloves +3",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
+		body="Lethargy Sayon +3",hands="Atrophy Gloves +3",ring1="Stikini Ring +1",ring2="Weatherspoon Ring +1",
 		back=SucellosMND,waist="Embla Sash",legs="Lethargy Fuseau +1",feet="Lethargy Houseaux +2"}
 
 		
@@ -159,7 +159,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 			back=SucellosMND,waist="Cascade Belt",legs="Atrophy Tights +2",feet="Kaykaus Sabots"}
 			
 			
-	sets.Saboteur = {hands="Lethargy Gantherots +1"}
+	sets.Saboteur = {hands="Lethargy Gantherots +3"}
 	
 	sets.Phalanx = {
 		head="Taeon Chapeau", 
@@ -173,10 +173,6 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	
 	sets.midcast.ElementalDay = {back="Twilight Cape", waist="Hachirin-no-obi",}
 	
-	organizer_items = { main="Echo Drops", ranged="Cream Puff", sub="Pear Crepe", ammo="Crepe B. Helene",
-			body="Trizek Ring", ear1="Reraise Earring",
-			ring1="Warp Ring",ring2="Capacity Ring", ear2="Echad Ring",
-			back="Mecistopins Mantle"}
 
 	sets.midcast.MagicBurst = {neck="Mizukage-no-Kubikazari", --10
 		head="Merlinic Hood",
@@ -203,7 +199,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	}
 
 	sets.WS.PhysicalWS = {
-	    head={ name="Viti. Chapeau +3"},
+	    head={ name="Viti. Chapeau +2"},
 	    body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
 	    hands="Jhakri Cuffs +2",
 	    legs="Aya. Cosciales +2",
@@ -218,7 +214,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	}
 
 	sets.WS.SavageBlade = {
-	    head="Viti. Chapeau +3",
+	    head="Viti. Chapeau +2",
 	    neck="Republican platinum medal",
 	    ear1="Moonshade Earring",
 	    ear2="Malignance Earring",
@@ -227,7 +223,7 @@ SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.
 	    ring1="Epaminondas's Ring",
 	    ring2="Sroda Ring",
 	    -- back="Sucellos's Cape",
-	    waist="Sailfi Belt",
+	    waist="Sailfi Belt +1",
 	    legs="Nyame Flanchard",
 	    feet="Nyame Sollerets"
 	}
