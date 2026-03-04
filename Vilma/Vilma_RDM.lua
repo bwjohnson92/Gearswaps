@@ -74,13 +74,12 @@ SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.
 	sets.precast.FastCure = sets.precast.FastCast
 		
 	sets.midcast.Enfeebling = {
-	main="Daybreak",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
+		main="Contemplator +1",sub="Enki Strap", ammo="Pemphredo Tathlum",
 		head="Vitiation Chapeau +2",neck="Duelist's Torque +1",ear1="Malignance Earring",ear2="Dignitary's Earring",
 		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1=stikini1,ring2="Kishar Ring",
 		back=SucellosMND,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
 
 	sets.midcast.Enfeebling.Acc = set_combine(sets.midcast.Enfeebling, {
-		main=staff2,
 		ranged="Regal Gem",
 		ear2="Snotra earring",
 		body="Atrophy Tabard +2",

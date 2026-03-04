@@ -159,7 +159,7 @@ function get_sets()
 	    -- feet="Azimuth Gaiters",
 		feet="Geomancy Sandals +3",
 		neck="Sibyl Scarf",
-		waist="Porous Rope",
+		waist="Sacro Cord",
 	    left_ear="Barkarole Earring",
 		right_ear="Friomisi Earring",
 	    left_ring="Medada's Ring",
