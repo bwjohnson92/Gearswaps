@@ -179,7 +179,7 @@ sets.WS["Howling Fist"] = {
     ammo="Knobkierrie",
     head="Mpaca's Cap",
     body="Bhikku Cyclas +3",
-    hands="Bhikku Glove +2",
+    hands="Bhikku Gloves +3",
     legs="Mpaca's Hose",
     feet="Nyame Sollerets",
     neck="Mnk. Nodowa +1",
@@ -296,22 +296,7 @@ sets.FastCast = {
     back={ name="Segomo's Mantle", augments={'"Fast Cast"+10',}},
 }
 
-    organizer_items = {
-        weapon="Godhands",
-        -- echos="Echo Drops",
-        -- holy="Holy Water",
-        RREar="Reraise Earring",
-        InstRR="Instant Reraise",
-        Warp="Warp Ring",
-        WarpItem="Instant Warp",
-        -- CP="Trizek Ring",
-        -- Exp="Echad Ring",
-        -- CPMantle="Mecistopins Mantle",
-        -- Prism="Prism Powder",
-        -- Oils="Silent Oil",
-        -- remedy="Remedy",
-        daifuku="Grape Daifuku"
-    }
+    
 
     send_command('bind f9 gs c equip staff')
     send_command('bind f10 gs c toggle TP set')
