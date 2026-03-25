@@ -91,7 +91,7 @@ function get_sets()
 	sets.midcast.EnfeeblingMagic = {
 		ammo="pemphredo tathlum",
 		head="Wicce Petasos +3",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Digni. Earring",
-		body="Spaekona's Coat +4",hands="Spaekona's Gloves +3",ring1="Kishar Ring",ring2="Medada's Ring",
+		body="Spaekona's Coat +4",hands="Spaekona's Gloves +4",ring1="Kishar Ring",ring2="Medada's Ring",
 		back=TaranusINT,waist="Rumination Sash",legs={ name="Psycloth Lappas", augments={'MP+80','Mag. Acc.+15','"Fast Cast"+7'}},feet="Spaekona's Sabots +3"}
 
 	sets.midcast.Dispelga = set_combine(sets.midcast.EnfeeblingMagic, sets.Dispelga)
@@ -109,7 +109,7 @@ function get_sets()
 
 	sets.Burst = { 
 		head="Ea hat +1",
-		--legs="Ea Slops +1",
+		ring2="Mujin Band",
 		back=TaranusINT
 	}
 	sets.midcast.ElementalMagic.Burst = set_combine(sets.midcast.ElementalMagic.Standard, sets.Burst)
@@ -123,7 +123,7 @@ function get_sets()
 		ammo="pemphredo tathlum",
 		head=MerlinicHead,neck="Voltsurge Torque",ear1="Barkarole Earring",ear2="Crepuscular Earring",
 		body="Spaekona's Coat +4",hands="Spaekona's gloves +3",ring1="Kishar Ring",ring2="Medada's Ring",
-		back="Swith Cape",waist="Witful Belt",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"
+		back="Swith Cape",waist="Witful Belt",legs="Spaekona's Tonban +4",feet="Spaekona's Sabots +4"
 	}
 		
 
@@ -132,26 +132,26 @@ function get_sets()
 	sets.midcast.ElementalMagic.HighMP = {
 		ammo="Strobilus",
 		head=MerlinicHead, neck="Sorcerer's Stole +1",ear1="Etiolation Earring",ear2="Barkarole Earring",
-		body="Spaekona's Coat +4",hands="Spaekona's gloves +3",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
+		body="Spaekona's Coat +4",hands="Spaekona's gloves +4",ring1="Mephitas's Ring +1",ring2="Sangoma Ring",
 		back=TaranusMP,waist="Yamabuki-no-obi",legs="Amalric Slops +1",feet="Amalric Nails +1"}
 	
 	sets.midcast.Death = {
 		ammo="Strobilus",
 		head="Pixie Hairpin +1",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Static Earring",
 		body="Ea Houppelande +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
-		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Amalric Nails +1"}
+		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +4",feet="Amalric Nails +1"}
 	
 	sets.midcast.DeathHighMP = {
 		ammo="Strobilus",
 		head="Pixie Hairpin +1",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Friomisi Earring",
 		body="Amalric Doublet +1",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Archon Ring",
-		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Amalric Nails +1"}
+		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +4",feet="Amalric Nails +1"}
 	
 	sets.midcast.DeathHighMPMB = {
 		ammo="Strobilus",
 		head="Pixie Hairpin +1",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Static Earring",
 		body="Ea Houppelande +1",hands="Spaekona's Gloves +3",ring1="Mephitas's Ring +1",ring2="Archon Ring",
-		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +3",feet="Spaekona's Sabots +3"}
+		back=TaranusMP,waist="Yamabuki-no-obi",legs="Spaekona's Tonban +4",feet="Spaekona's Sabots +3"}
 
 	
 	

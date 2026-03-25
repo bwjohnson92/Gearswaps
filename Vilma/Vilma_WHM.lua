@@ -111,7 +111,7 @@ function get_sets()
         main="Bolelabunga", sub="Ammurapi Shield",
         head="Inyanga Tiara +2",body="Piety Bliaut +3",
         waist="Embla Sash",
-        hands="Ebers Mitts +3",legs="Theophany pantaloons +3",
+        hands="Ebers Mitts +3",legs="Theophany pantaloons +4",
         -- feet="Telchine Pigaches"
         feet="Bunzi's Sabots"
     })
@@ -121,13 +121,13 @@ function get_sets()
     sets.midcast.Cursna = {main="Yagrush",
         head="Nahtirah Hat",neck="debilis medallion", ear1= "Healing Earring", ear2="Beatific Earring",
         body="Ebers Bliaut +3",hands="Fanatic Gloves",ring1="Menelaus's ring", ring2="Haoma's ring",
-        back=AlaunusFC,waist="Bishop's Sash",legs="Theophany Pantaloons +3",feet="Gendewitha Galoshes +1" }
+        back=AlaunusFC,waist="Bishop's Sash",legs="Theophany Pantaloons +4",feet="Gendewitha Galoshes +1" }
         
     sets.midcast.DebuffRemoval = {
         main="Yagrush",
         head="Nahtirah Hat", neck="Cleric's Torque +2",ear2="Loquacious Earring",
         body="Ebers Bliaut +3",hands="Ebers Mitts +3",
-        back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +3",feet='Regal pumps +1' }
+        back=AlaunusFC,waist="Witful Belt",legs="Theophany Pantaloons +4",feet='Regal pumps +1' }
 
     sets.midcast.DivineCaress = set_combine(sets.midcast.DebuffRemoval, {
         hands="Ebers Mitts +3",
