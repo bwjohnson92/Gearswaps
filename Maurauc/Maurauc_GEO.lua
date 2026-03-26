@@ -18,7 +18,6 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 capeLocked = false
 weaponLocked = false
 nextTH = false
-hasPet = false
 Idle_Index = 1
 -- Start Functions here
 -- Gear Sets
@@ -220,7 +219,6 @@ function get_sets()
 	send_command('bind f10 gs c changeStaff')
 
 	windower.register_event('zone change', function()
-		hasPet = false
 		equip(sets.Idle.Standard)
 		end)
 
@@ -349,15 +347,20 @@ function status_change(new,tab)
 end
 
 function equip_idle()
-	equip(sets.Idle[sets.Idle.index[Idle_Index]])
+	if (not pet.isvalid and sets.Idle.index[Idle_Index] == "PetRegen") then
+		add_to_chat(123, 'Equipping '..sets.Idle.index[1])
+		equip(sets.Idle[sets.Idle.index[1]])
+	else
+		equip(sets.Idle[sets.Idle.index[Idle_Index]])
+		add_to_chat(123, 'Equipping '..sets.Idle.index[Idle_Index])
+
+	end
 end
 
 function pet_change(pet,gain_or_loss)
 	status_change(player.status)
-	hasPet = gain_or_loss
 	if not gain_or_loss then
 		add_to_chat(123,'Your luopan has vanished.')
-		windower.play_sound('C:/Filepath/Filename.wav') --must be a .wav--
 	end
 end
 
@@ -375,13 +378,6 @@ function self_command(command)
 end
 
 function buff_change(buff, gain)
-    -- Unlock feet when Mana Wall buff is lost.
-    if buff == "Reive Mark" and gain then
-        equip(sets.Reive)
-		disable("neck")
-	elseif buff == "Reive Mark" and not gain then
-		enable("neck")
-    end
 end
 
 

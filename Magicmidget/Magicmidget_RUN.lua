@@ -158,12 +158,12 @@ function get_sets()
     }     
     --multi, carries FTP
     sets.WS.Resolution = {
-        ammo="Aurgelmir Orb",
-        head="Adhemar Bonnet +1",
-        body="Adhemar Jacket +1",
-        hands="Adhemar Wristbands +1",
-        legs="Samnuha Tights",
-        feet="Herculean Boots",
+        ammo="Coiste Bodhar",
+        head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Erilaz Gauntlets +3",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
         neck="Fotia Gorget",
         waist="Sailfi Belt +1",
         left_ear="Sherida Earring",

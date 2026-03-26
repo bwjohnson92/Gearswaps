@@ -68,7 +68,7 @@ function get_sets()
     sets.precast.FastCast = {ammo="Incantor Stone",
         head="Nahtirah Hat",neck="Cleric's Torque",ear2="Loquacious Earring",
         body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring2="Lebeche Ring",
-        back=AlaunusFC, waist="Witful Belt",feet="Regal Pumps +1"}
+        back="Fi Follet Cape +1", waist="Witful Belt",feet="Regal Pumps +1"}
     
     sets.precast.FastCure = set_combine(sets.precast.FastCast, {
         neck="Aceso's Choker +1",ear2="Nourishing Earring",

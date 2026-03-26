@@ -17,7 +17,6 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 capeLocked = false
 weaponLocked = false
 nextTH = false
-hasPet = false
 Idle_Index = 1
 -- Start Functions here
 -- Gear Sets
@@ -227,7 +226,6 @@ function get_sets()
 	send_command('bind f10 gs c changeStaff')
 
 	windower.register_event('zone change', function()
-		hasPet = false
 		equip(sets.Idle.Standard)
 		end)
 
@@ -363,14 +361,13 @@ function status_change(new,tab)
 		equip(sets['Melee'])
 		--disable("Main")
 	else
-		equip(sets.Idle['Standard'])
+		equip_idle()
 		--enable("Main")
 	end
 end
 
 function equip_idle()
-
-	if (not hasPet and sets.Idle.index[Idle_Index] == "PetRegen") then
+	if (not pet.isvalid and sets.Idle.index[Idle_Index] == "PetRegen") then
 		add_to_chat(123, 'Equipping '..sets.Idle.index[1])
 		equip(sets.Idle[sets.Idle.index[1]])
 	else
@@ -382,10 +379,8 @@ end
 
 function pet_change(pet,gain_or_loss)
 	status_change(player.status)
-	hasPet = gain_or_loss
 	if not gain_or_loss then
 		add_to_chat(123,'Your luopan has vanished.')
-		windower.play_sound('C:/Filepath/Filename.wav') --must be a .wav--
 	end
 end
 

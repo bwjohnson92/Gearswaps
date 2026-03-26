@@ -61,7 +61,7 @@ function get_sets()
     sets.precast.FastCast = {main="Kali",ammo="Incantor Stone",
         head="Nahtirah Hat",neck="Voltsurge Torque",ear2="Loquacious Earring",
         body="Inyanga Jubbah +2",hands="Gendewitha Gages +1",ring1="Kishar Ring",
-        waist="Embla Sash",legs="Doyen Pants", feet="Fili Cothurnes +2"}
+        back="Fi Follet Cape +1",waist="Embla Sash",legs="Doyen Pants", feet="Fili Cothurnes +2"}
 
     sets.precast.Song = set_combine(sets.precast.FastCast, {
         head="Fili Calot +2",ear1="Aoidos' Earring"
@@ -163,6 +163,11 @@ function get_sets()
         back="Null Shawl"
     }
 
+    sets.Melee.DualWield = set_combine(sets.Melee.Standard, {
+        main="Naegling",
+        sub="Sangoma" --lol
+    })
+
     sets.WS = set_combine(sets.Melee.Standard, {
         back=wsCape,
         left_ear="Moonshade Earring",
@@ -171,7 +176,7 @@ function get_sets()
         hands="Bihu Cuffs +3",
         legs="Bihu Cannions +3",
         feet="Bihu Slippers +3",
-        waist="Fotia Belt"
+        waist="Sailfi Belt +1"
     })
 
     sets.JA = {}
@@ -295,7 +300,7 @@ function aftercast(spell)
     end
     command_casting = false
     if player.status == 'Engaged' then
-        equip(sets.Melee.Standard)
+        equip_melee()
     else
         equip(sets.Idle.Standard)
     end
@@ -312,9 +317,17 @@ function aftercast(spell)
     updateTable()
 end
 
+function equip_melee()
+    if player.sub_job == "DNC" or player.sub_job == "NIN" then
+        equip(sets.Melee.DualWield)
+    else
+        equip(sets.Melee.Standard)
+    end
+end
+
 function status_change(new,old)
     if new == 'Engaged' then
-        equip(sets.Melee.Standard)
+        equip_melee()
     else
         equip(sets.Idle.Standard)
     end

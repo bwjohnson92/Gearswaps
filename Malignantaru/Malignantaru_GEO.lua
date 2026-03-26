@@ -17,7 +17,6 @@ elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Th
 capeLocked = false
 weaponLocked = false
 nextTH = false
-hasPet = false
 Idle_Index = 1
 -- Start Functions here
 -- Gear Sets
@@ -115,13 +114,11 @@ function get_sets()
 	sets.midcast = {}
 
 	sets.precast.FastCast = { 
-		-- main="Solstice", 
-		main="Marin Staff +1",
-		sub="Clerisy Strap +1",
+		main="Solstice", ranged="Dunna",
 		head="Nahtirah Hat",
 		neck="Voltsurge Torque",ear1="Etiolation Earring",ear2="Loquacious Earring",
 		body="Merlinic Jubbah",hands="Volte Gloves",ring1="Kishar Ring",ring2="Rahab Ring",
-		back="Lifestream Cape",waist="Witful Belt",legs="Geomancy Pants +3",feet="Regal Pumps +1"}
+		back="Fi Follet Cape +1",waist="Embla Sash",legs="Geomancy Pants +3",feet="Regal Pumps +1"}
 	
 	sets.precast.Dispelga = set_combine(sets.precast.FastCast, {main="Daybreak"})
 		
@@ -172,6 +169,7 @@ function get_sets()
 	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",
 		ear2="Loquacious Earring",
+		back="Fi Follet Cape +1"
 		-- waist="Cascade Belt"
 	}
 		
@@ -221,9 +219,8 @@ function get_sets()
 	send_command('bind f10 gs c changeStaff')
 
 	windower.register_event('zone change', function()
-		hasPet = false
 		equip(sets.Idle.Standard)
-		end)
+	end)
 
 	sets.Aspir = set_combine(sets.midcast.EnfeeblingMagic, {ring1="Archon Ring"})
 
@@ -333,20 +330,10 @@ end
 -- --- Aftercast ---
 
 function aftercast(spell)
-
     if player.status == 'Engaged' then
            equip(sets.Melee)
 	else 
 		equip_idle()    
-	end
-	if spell.english == 'Sleep' or spell.english == 'Sleepga' then
-		send_command('@wait 50;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-	elseif spell.english == 'Sleep II' or spell.english == 'Sleepga II' then
-		send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-	elseif spell.english == 'Break' or spell.english == 'Breakga' then
-		send_command('@wait 20;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
-	elseif spell.english == 'Repose' then
-		send_command('@wait 80;input /echo ------- '..spell.english..' is wearing off in 10 seconds -------')
 	end
 end
 
@@ -357,14 +344,14 @@ function status_change(new,tab)
 		equip(sets['Melee'])
 		--disable("Main")
 	else
-		equip(sets.Idle['Standard'])
+		-- equip(sets.Idle['Standard'])
+		equip_idle()
 		--enable("Main")
 	end
 end
 
 function equip_idle()
-
-	if (not hasPet and sets.Idle.index[Idle_Index] == "PetRegen") then
+	if (not pet.isvalid and sets.Idle.index[Idle_Index] == "PetRegen") then
 		add_to_chat(123, 'Equipping '..sets.Idle.index[1])
 		equip(sets.Idle[sets.Idle.index[1]])
 	else
@@ -376,10 +363,8 @@ end
 
 function pet_change(pet,gain_or_loss)
 	status_change(player.status)
-	hasPet = gain_or_loss
 	if not gain_or_loss then
 		add_to_chat(123,'Your luopan has vanished.')
-		windower.play_sound('C:/Filepath/Filename.wav') --must be a .wav--
 	end
 end
 
@@ -394,13 +379,6 @@ function self_command(command)
 end
 
 function buff_change(buff, gain)
-    -- Unlock feet when Mana Wall buff is lost.
-    if buff == "Reive Mark" and gain then
-        equip(sets.Reive)
-		disable("neck")
-	elseif buff == "Reive Mark" and not gain then
-		enable("neck")
-    end
 end
 
 

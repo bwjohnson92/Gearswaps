@@ -116,7 +116,9 @@ savedMode = "perp"
     if (spell.type == 'BloodPactRage' or spell.type == 'BloodPactWard') and not (buffactive['Astral Conduit'] or buffactive['Apogee']) then
      
         equip(sets.precast.bp)
-         
+        if (spell.name == "Mewing Lullaby") then
+            send_command('input /p Mewing Lullaby')
+        end
     elseif spell.type == 'SummonerPact' then
      
         -- This chunk of code handles Elemental Siphon. It will look at the current day and weather and cancel the spell to summon
