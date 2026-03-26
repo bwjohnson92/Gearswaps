@@ -226,10 +226,10 @@ sets.WS["Shell Crusher"] = {
  sets.WS["Tornado Kick"] = {
     ammo="Knobkierrie",
     head="Mpaca's Cap",
-    body="Bhikku Cyclas +3",
+    body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Mpaca's Hose",
-    feet="Mpaca's Boots",
+    feet="Nyame Sollerets",
     neck="Mnk. Nodowa +1",
     waist="Moonbow Belt +1",
     ear1="Moonshade Earring",
@@ -247,7 +247,7 @@ sets.WS["Tornado Kick"].FootWork = {
     body="Bhikku Cyclas +3",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Anch. Gaiters +3",
+    feet="Anch. Gaiters +4",
     neck="Mnk. Nodowa +1",
     waist="Moonbow Belt +1",
     ear1="Moonshade Earring",
@@ -296,7 +296,22 @@ sets.FastCast = {
     back={ name="Segomo's Mantle", augments={'"Fast Cast"+10',}},
 }
 
-    
+    organizer_items = {
+        weapon="Godhands",
+        -- echos="Echo Drops",
+        -- holy="Holy Water",
+        RREar="Reraise Earring",
+        InstRR="Instant Reraise",
+        Warp="Warp Ring",
+        WarpItem="Instant Warp",
+        -- CP="Trizek Ring",
+        -- Exp="Echad Ring",
+        -- CPMantle="Mecistopins Mantle",
+        -- Prism="Prism Powder",
+        -- Oils="Silent Oil",
+        -- remedy="Remedy",
+        daifuku="Grape Daifuku"
+    }
 
     send_command('bind f9 gs c equip staff')
     send_command('bind f10 gs c toggle TP set')
