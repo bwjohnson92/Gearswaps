@@ -96,7 +96,7 @@ function get_sets()
     -- sub="Mensch Strap", 
     ammo="Staunch Tathlum +1",          
         head="Futhark Bandeau +3",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
-        body="Erilaz Surcoat +1",hands="Erilaz Gauntlets +1",ring1="Gelatinous Ring",ring2="Defending Ring",   
+        body="Erilaz Surcoat +2",hands="Erilaz Gauntlets +1",ring1="Gelatinous Ring +1",ring2="Defending Ring",   
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}                                          
     --MDT melee set
     sets.TP.MDTacc = {
@@ -108,8 +108,8 @@ function get_sets()
     sets.TP.HP = {
         -- sub="Balarama Grip",
         ammo="Aqreqaq Bomblet",
-        head="Erilaz Galea +1",neck="Sanctity Necklace",ear1="Odnowa Earring",ear2="Odnowa Earring +1", --Halitus Helm
-        body="Erilaz Surcoat +1",hands="Runeist mitons +1",ring1="K'ayres Ring",ring2="Etana Ring",
+        head="Erilaz Galea +2",neck="Sanctity Necklace",ear1="Odnowa Earring",ear2="Odnowa Earring +1", --Halitus Helm
+        body="Erilaz Surcoat +2",hands="Runeist mitons +1",ring1="K'ayres Ring",ring2="Etana Ring",
         back="Agema Cape",waist="Oneiros Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1" --Reiki Cloak, Runeist Bottes
     }
     --Weaponskill Sets--
@@ -200,9 +200,9 @@ function get_sets()
     sets.Utility = {}   
     --full PDT set for when stunned, etc.
     sets.Utility.PDT = { --ammo="Vanir Battery",
-        head="Erilaz Galea +1",neck="loricate torque +1",
+        head="Erilaz Galea +2",neck="loricate torque +1",
         --ear1="Hearty Earring",ear2="Ethereal Earring", --MISSING  
-        body="Futhark coat +2",hands="Erilaz Gauntlets +1",ring1="Gelatinous Ring",ring2="Defending Ring",       
+        body="Futhark coat +2",hands="Erilaz Gauntlets +1",ring1="Gelatinous Ring +1",ring2="Defending Ring",       
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}       
     --full MDT set for when stunned, etc
     sets.Utility.MDT = { --ammo="Vanir Battery",
@@ -230,7 +230,7 @@ function get_sets()
     sets.JA.Pflug = {
     -- feet="Runeist bottes +2"
     }              
-    sets.JA.Pulse = {head="Erilaz Galea +1",legs="Runiest's Trousers +2"}
+    sets.JA.Pulse = {head="Erilaz Galea +2",legs="Runiest's Trousers +2"}
                     
     --Precast Sets--
     --Fast Cast set
@@ -245,14 +245,14 @@ function get_sets()
     hands={ name="Taeon gloves", augments ={'"Phalanx"+3',}},
     right_ear="Augmenting earring",
     left_ear="Andoaa earring",
-    right_ring="Stikini ring",
-    left_ring="Stikini ring",
+    right_ring="Stikini ring +1",
+    left_ring="Stikini ring +1",
     legs={ name="Taeon Tights", augments={'"Phalanx"+3',}},
     feet={ name="Taeon boots", augments={'"Phalanx"+3',}}}
 
     --Enmity set for high hate generating spells and JAs                
     sets.Enmity =  {ammo="Aqreqaq bomblet",
-        head="Halitus Helm",neck="Unmoving Collar +1",ear1="Cryptic Earring",ear2="Friomisi earring",         
+        head="Halitus Helm",neck="Unmoving Collar +1",ear1="Cryptic Earring",ear2="Trux Earring",         
         body="Emet Harness +1",hands="Nilas Gloves",ring1="Provocare Ring",ring2="Petrov Ring",
         back="Agema Cape",waist="Trance Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}  
 
