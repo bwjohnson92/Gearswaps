@@ -18,8 +18,8 @@ function get_sets()
         head="Futhark Bandeau +3",neck="Loricate Torque +1",
         --ear1="Hearty Earring",
         --ear2="Ethereal Earring",   
-        body="Futhark coat +2",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",     
-        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Skadi's Jambeaux +1"}   
+        body="Futhark coat +2",hands="Erilaz Gauntlets +2",ring1="Moonbeam Ring",ring2="Defending Ring",     
+        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +2",feet="Skadi's Jambeaux +1"}   
 
     --TP Sets--
     sets.TP = {}
@@ -79,7 +79,7 @@ function get_sets()
         body="Ayanmo Corazza +2",
         hands="Turms Mittens +1",
         -- legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
-        legs="Erilaz Leg Guards +1",
+        legs="Erilaz Leg Guards +2",
         feet="Turms Leggings",
         -- neck="Anu Torque",
         neck="Anu Torque",
@@ -96,21 +96,21 @@ function get_sets()
     -- sub="Mensch Strap", 
     ammo="Staunch Tathlum +1",          
         head="Futhark Bandeau +3",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
-        body="Erilaz Surcoat +2",hands="Erilaz Gauntlets +1",ring1="Gelatinous Ring +1",ring2="Defending Ring",   
-        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}                                          
+        body="Erilaz Surcoat +2",hands="Erilaz Gauntlets +2",ring1="Gelatinous Ring +1",ring2="Defending Ring",   
+        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +2",feet="Erilaz Greaves +2"}                                          
     --MDT melee set
     sets.TP.MDTacc = {
     -- sub="Mensch Strap", 
     ammo="Yamarang",          
         head="Futhark Bandeau +3",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
-        body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Moonbeam Ring",ring2="Defending Ring",         
+        body="Rawhide Vest",hands="Erilaz Gauntlets +2",ring1="Moonbeam Ring",ring2="Defending Ring",         
         back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runiest's Trousers +2",feet="Taeon Boots"}         
     sets.TP.HP = {
         -- sub="Balarama Grip",
         ammo="Aqreqaq Bomblet",
         head="Erilaz Galea +2",neck="Sanctity Necklace",ear1="Odnowa Earring",ear2="Odnowa Earring +1", --Halitus Helm
         body="Erilaz Surcoat +2",hands="Runeist mitons +1",ring1="K'ayres Ring",ring2="Etana Ring",
-        back="Agema Cape",waist="Oneiros Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1" --Reiki Cloak, Runeist Bottes
+        back="Agema Cape",waist="Oneiros Belt",legs="Erilaz Leg Guards +2",feet="Erilaz Greaves +2" --Reiki Cloak, Runeist Bottes
     }
     --Weaponskill Sets--
     sets.WS = {}     
@@ -202,14 +202,14 @@ function get_sets()
     sets.Utility.PDT = { --ammo="Vanir Battery",
         head="Erilaz Galea +2",neck="loricate torque +1",
         --ear1="Hearty Earring",ear2="Ethereal Earring", --MISSING  
-        body="Futhark coat +2",hands="Erilaz Gauntlets +1",ring1="Gelatinous Ring +1",ring2="Defending Ring",       
-        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}       
+        body="Futhark coat +2",hands="Erilaz Gauntlets +2",ring1="Gelatinous Ring +1",ring2="Defending Ring",       
+        back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +2",feet="Erilaz Greaves +2"}       
     --full MDT set for when stunned, etc
     sets.Utility.MDT = { --ammo="Vanir Battery",
         head="Dampening Tam",neck="loricate torque +1",
         --ear1="Hearty Earring",ear2="Zennaroi Earring", --MISSING          
-        body="Rawhide Vest",hands="Erilaz Gauntlets +1",ring1="Vengeful Ring",ring2="Defending Ring",             
-        back="Engulfer Cape +1",waist="Olseni Belt",legs="Runiest's Trousers +2",feet="Erilaz Greaves +1"}        
+        body="Rawhide Vest",hands="Erilaz Gauntlets +2",ring1="Vengeful Ring",ring2="Defending Ring",             
+        back="Engulfer Cape +1",waist="Olseni Belt",legs="Runiest's Trousers +2",feet="Erilaz Greaves +2"}        
              
     --Job Ability Sets--
     sets.JA = {}
@@ -226,7 +226,7 @@ function get_sets()
     sets.JA.Vallation = {body="Runeist's Coat +2",legs="Futhark Trousers"}       
     sets.JA.Gambit = {hands="Runeist mitons +1"}
     sets.JA.Rayke = {feet="Futhark boots"}  
-    sets.JA.Battuta = {head="Futhark bandeau +3",legs="Erilaz Leg Guards +1",feet="Turms Leggings"}      
+    sets.JA.Battuta = {head="Futhark bandeau +3",legs="Erilaz Leg Guards +2",feet="Turms Leggings"}      
     sets.JA.Pflug = {
     -- feet="Runeist bottes +2"
     }              
@@ -254,7 +254,7 @@ function get_sets()
     sets.Enmity =  {ammo="Aqreqaq bomblet",
         head="Halitus Helm",neck="Unmoving Collar +1",ear1="Cryptic Earring",ear2="Trux Earring",         
         body="Emet Harness +1",hands="Nilas Gloves",ring1="Provocare Ring",ring2="Petrov Ring",
-        back="Agema Cape",waist="Trance Belt",legs="Erilaz Leg Guards +1",feet="Erilaz Greaves +1"}  
+        back="Agema Cape",waist="Trance Belt",legs="Erilaz Leg Guards +2",feet="Erilaz Greaves +2"}  
 
     --Magic acc for enfeebles, handy for VW
     sets.MagicAcc = {
@@ -447,7 +447,7 @@ function midcast(spell,act,arg)
                 equip(sets.Utility.PDT,{head="Runeist bandeau +2"})         
         end  
         if spell.skill == 'Enhancing Magic' then
-                equip({head="Erilaz Galea +1",legs="Futhark Trousers"})
+                equip({head="Erilaz Galea +2",legs="Futhark Trousers"})
                 if spell.name == "Blink" or spell.name == "Stoneskin" or string.find(spell.name,'Utsusemi') then
                     equip(sets.Utility.PDT,{head="Runeist bandeau +2",hands="Leyline Gloves"})
                 elseif string.find(spell.name,'Bar') or spell.name=="Temper" then
