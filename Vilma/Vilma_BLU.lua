@@ -248,8 +248,8 @@ function get_sets()
 
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
     head="Hashishin Kavuk +2",neck="Null Loop",ear1="Dignitary's earring",ear2="Crepuscular earring",
-    body="Malignance Tabard",hands="Jhakri Cuffs +2",ring1="Stikini ring +1",ring2="Metamorph ring +1",
-    back=CapeINT,waist="Null Belt",legs="Ayanmo Cosciales +2",feet="Malignance Boots"}
+    body="Malignance Tabard",hands="Malignance Gloves",ring1="Stikini ring +1",ring2="Metamorph ring +1",
+    back=CapeINT,waist="Null Belt",legs="Malignance Tights",feet="Malignance Boots"}
 
     sets.BlueMagic.Skill = {ammo="Mavi tathlum",
     head="Nyame Helm",neck="Incanter's Torque",ear1="Loquac. earring",ear2="Hashishin earring +1",

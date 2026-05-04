@@ -13,7 +13,56 @@ function get_sets()
    capeWSDex = { name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}}
 
     organizer_items = organizerItems()
+
     --Idle Sets--
+    sets.Idle = {}
+    sets.Idle.index = {
+        'Evasion',
+        'EvasionMove',
+    }
+    Idle_ind = 2
+    --Idle Sets--
+    sets.Idle.Standard = { --ammo="Homiliary",
+        head="Nyame Helm",neck="Futhark Torque +2",ear1="Odnowa Earring +1", --ear2="Ethereal Earring",   
+        body="Nyame Mail",hands="Regal Gauntlets",ring1="Moonlight Ring",ring2="Defending Ring",     
+        back=OgmaTank,waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Nyame Sollerets"}   
+
+    sets.Idle.DT = {
+        ammo="Staunch Tathlum +1",          
+        head="Nyame Helm",
+        neck="Futhark Torque +2",
+        ear1="Odnowa Earring +1",
+        ear2="Sanare Earring",          
+        body="Erilaz Surcoat +3",
+        hands="Nyame Gauntlets",
+        ring1="Moonlight Ring",ring2="Defending Ring",   
+        back=OgmaTank,
+        waist="Flume Belt +1",
+        legs="Erilaz Leg Guards +3",
+        feet="Nyame Sollerets"
+    }
+
+    sets.Idle.Evasion = set_combine(sets.Idle.DT, {
+        ammo="Yamarang",
+        head="Runeist Bandeau +4",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Erilaz Leg Guards +3",
+        feet="Nyame Sollerets",
+        neck="Bathy Choker +1",
+        waist="Platinum Moogle Belt",
+        left_ear="Eabani Earring",
+        right_ear="Infused Earring",
+        left_ring="Moonlight Ring",
+        right_ring="Murky Ring",
+        back=OgmaEvasion
+    })
+
+    sets.Idle.EvasionMove = set_combine(sets.Idle.Evasion, {
+        head="Null Masque",
+        ear2="Alabaster Earring",
+        legs="Carmine Cuisses +1",
+    })
     sets.Idle = { ammo="Homiliary",
         head="Futhark Bandeau +3",neck="Loricate Torque +1",
         --ear1="Hearty Earring",
