@@ -44,7 +44,7 @@ function get_sets()
 
     sets.Idle.Evasion = set_combine(sets.Idle.DT, {
         ammo="Yamarang",
-        head="Runeist Bandeau +4",
+        head="Runeist Bandeau +2",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Erilaz Leg Guards +3",
@@ -129,7 +129,7 @@ function get_sets()
         hands="Turms Mittens +1",
         -- legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
         legs="Erilaz Leg Guards +2",
-        feet="Turms Leggings",
+        feet="Turms Leggings +1",
         -- neck="Anu Torque",
         neck="Anu Torque",
         waist="Flume Belt +1",
@@ -158,7 +158,7 @@ function get_sets()
         -- sub="Balarama Grip",
         ammo="Aqreqaq Bomblet",
         head="Erilaz Galea +2",neck="Sanctity Necklace",ear1="Odnowa Earring",ear2="Odnowa Earring +1", --Halitus Helm
-        body="Erilaz Surcoat +2",hands="Runeist mitons +1",ring1="K'ayres Ring",ring2="Etana Ring",
+        body="Erilaz Surcoat +2",hands="Runeist Mitons +1",ring1="K'ayres Ring",ring2="Etana Ring",
         back="Agema Cape",waist="Oneiros Belt",legs="Erilaz Leg Guards +2",feet="Erilaz Greaves +2" --Reiki Cloak, Runeist Bottes
     }
     --Weaponskill Sets--
@@ -275,7 +275,7 @@ function get_sets()
     sets.JA.Vallation = {body="Runeist's Coat +2",legs="Futhark Trousers"}       
     sets.JA.Gambit = {hands="Runeist mitons +1"}
     sets.JA.Rayke = {feet="Futhark boots"}  
-    sets.JA.Battuta = {head="Futhark bandeau +3",legs="Erilaz Leg Guards +2",feet="Turms Leggings"}      
+    sets.JA.Battuta = {head="Futhark bandeau +3",legs="Erilaz Leg Guards +2",feet="Turms Leggings +1"}      
     sets.JA.Pflug = {
     -- feet="Runeist bottes +2"
     }              
