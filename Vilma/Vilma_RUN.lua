@@ -23,14 +23,14 @@ function get_sets()
     Idle_ind = 2
     --Idle Sets--
     sets.Idle.Standard = { --ammo="Homiliary",
-        head="Nyame Helm",neck="Futhark Torque +2",ear1="Odnowa Earring +1", --ear2="Ethereal Earring",   
+        head="Nyame Helm",neck="Futhark Torque +1",ear1="Odnowa Earring +1", --ear2="Ethereal Earring",   
         body="Nyame Mail",hands="Regal Gauntlets",ring1="Moonlight Ring",ring2="Defending Ring",     
         back=OgmaTank,waist="Flume Belt +1",legs="Carmine Cuisses +1",feet="Nyame Sollerets"}   
 
     sets.Idle.DT = {
         ammo="Staunch Tathlum +1",          
         head="Nyame Helm",
-        neck="Futhark Torque +2",
+        neck="Futhark Torque +1",
         ear1="Odnowa Earring +1",
         ear2="Sanare Earring",          
         body="Erilaz Surcoat +3",
@@ -44,7 +44,7 @@ function get_sets()
 
     sets.Idle.Evasion = set_combine(sets.Idle.DT, {
         ammo="Yamarang",
-        head="Runeist Bandeau +2",
+        head="Runeist Bandeau +3",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Erilaz Leg Guards +3",
@@ -144,14 +144,14 @@ function get_sets()
     sets.TP.DT = {
     -- sub="Mensch Strap", 
     ammo="Staunch Tathlum +1",          
-        head="Futhark Bandeau +3",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
+        head="Futhark Bandeau +4",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Odnowa Earring",          
         body="Erilaz Surcoat +2",hands="Erilaz Gauntlets +2",ring1="Gelatinous Ring +1",ring2="Defending Ring",   
         back="Evasionist's Cape",waist="Flume Belt +1",legs="Erilaz Leg Guards +2",feet="Erilaz Greaves +2"}                                          
     --MDT melee set
     sets.TP.MDTacc = {
     -- sub="Mensch Strap", 
     ammo="Yamarang",          
-        head="Futhark Bandeau +3",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
+        head="Futhark Bandeau +4",neck="Loricate Torque +1",ear1="Odnowa Earring +1",ear2="Etiolation Earring",         
         body="Rawhide Vest",hands="Erilaz Gauntlets +2",ring1="Moonbeam Ring",ring2="Defending Ring",         
         back="Engulfer Cape +1",waist="Lieutenant's sash",legs="Runiest's Trousers +2",feet="Taeon Boots"}         
     sets.TP.HP = {
@@ -272,10 +272,10 @@ function get_sets()
     --    feet="Adhemar Gamashes"
     }  
 
-    sets.JA.Vallation = {body="Runeist's Coat +2",legs="Futhark Trousers"}       
+    sets.JA.Vallation = {body="Runeist's Coat +2",legs="Futhark Trousers +3"}       
     sets.JA.Gambit = {hands="Runeist mitons +1"}
     sets.JA.Rayke = {feet="Futhark boots"}  
-    sets.JA.Battuta = {head="Futhark bandeau +3",legs="Erilaz Leg Guards +2",feet="Turms Leggings +1"}      
+    sets.JA.Battuta = {head="Futhark bandeau +4",legs="Erilaz Leg Guards +2",feet="Turms Leggings +1"}      
     sets.JA.Pflug = {
     -- feet="Runeist bottes +2"
     }              
@@ -289,13 +289,14 @@ function get_sets()
         back="Ogma's Cape",waist="Rumination Sash",legs="Ayanmo cosciales +2"}
 
     sets.Phalanx = {
-    head="Futhark bandeau +3",
+    head="Futhark bandeau +4",
     body={ name="Taeon Tabard", augments={'"Phalanx"+3',}},
     hands={ name="Taeon gloves", augments ={'"Phalanx"+3',}},
-    right_ear="Augmenting earring",
+    right_ear="Mimir earring",
     left_ear="Andoaa earring",
     right_ring="Stikini ring +1",
     left_ring="Stikini ring +1",
+    waist="Platinum Moogle Belt",
     legs={ name="Taeon Tights", augments={'"Phalanx"+3',}},
     feet={ name="Taeon boots", augments={'"Phalanx"+3',}}}
 
@@ -395,7 +396,7 @@ function precast(spell,abil)
                 equip(sets.Utility.PDT,sets.precast)            
         end  
         if spell.skill == 'Enhancing Magic' then
-                equip({legs="Futhark Trousers"})
+                equip({legs="Futhark Trousers +3"})
         end
         if string.find(spell.name,'Utsusemi') then
                 equip({neck="Magoraga Beads"})
@@ -493,12 +494,12 @@ end
   
 function midcast(spell,act,arg) 
         if spell.action_type == 'Magic' then 
-                equip(sets.Utility.PDT,{head="Runeist bandeau +2"})         
+                equip(sets.Utility.PDT,{head="Runeist bandeau +4"})         
         end  
         if spell.skill == 'Enhancing Magic' then
-                equip({head="Erilaz Galea +2",legs="Futhark Trousers"})
+                equip({head="Erilaz Galea +2",legs="Futhark Trousers +3"})
                 if spell.name == "Blink" or spell.name == "Stoneskin" or string.find(spell.name,'Utsusemi') then
-                    equip(sets.Utility.PDT,{head="Runeist bandeau +2",hands="Leyline Gloves"})
+                    equip(sets.Utility.PDT,{head="Runeist bandeau +4",hands="Leyline Gloves"})
                 elseif string.find(spell.name,'Bar') or spell.name=="Temper" then
                     equip({hands="Runeist Mitons +1"})
                 end
@@ -507,13 +508,13 @@ function midcast(spell,act,arg)
                 end 
         end
         if spell.name == 'Foil' or spell.name == 'Flash' or spell.name == "Stun" then 
-                equip(sets.Enmity,{head="Runeist bandeau +2"})
+                equip(sets.Enmity,{head="Runeist bandeau +4"})
         end 
         if spell.name == 'Phalanx' then
                 equip(sets.Phalanx)
         end      
         if string.find(spell.name,'Regen') then
-                equip({head="Runeist bandeau +2"})
+                equip({head="Runeist bandeau +4"})
         end
         if spell.name == "Repose" or spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
                 equip(sets.MagicAcc)
