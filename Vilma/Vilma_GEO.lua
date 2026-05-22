@@ -232,10 +232,7 @@ function get_sets()
 	back="Nantosuelta's Cape"
 	}
 		
-	organizer_items = { main="Echo Drops",
-			ear1="Reraise Earring",
-			ring1="Warp Ring",ring2="Capacity Ring",
-			back="Mecistopins Mantle"}
+	
 
 	send_command('bind f9 gs c nextTH')
 	send_command('bind end send @others "input /follow Magicmidget"')

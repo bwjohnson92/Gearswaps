@@ -247,9 +247,9 @@ function get_sets()
     back="Reiki cloak",waist="Lieutenant's Sash",legs="Nyame flanchard",feet="Nyame sollerets"}
 
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
-    head="Hashishin Kavuk +2",neck="Null Loop",ear1="Dignitary's earring",ear2="Crepuscular earring",
-    body="Malignance Tabard",hands="Malignance Gloves",ring1="Stikini ring +1",ring2="Metamorph ring +1",
-    back=CapeINT,waist="Null Belt",legs="Malignance Tights",feet="Malignance Boots"}
+    head="Hashishin Kavuk +3",neck="Null Loop",ear1="Dignitary's earring",ear2="Crepuscular earring",
+    body="Hashishin Mintan +3",hands="Hashinshin Bazuebands +3",ring1="Stikini ring +1",ring2="Metamorph ring +1",
+    back=CapeINT,waist="Null Belt",legs="Hashishin Tayt +2",feet="Hashishin Basmak +2"}
 
     sets.BlueMagic.Skill = {ammo="Mavi tathlum",
     head="Nyame Helm",neck="Incanter's Torque",ear1="Loquac. earring",ear2="Hashishin earring +1",
