@@ -44,7 +44,7 @@ function get_sets()
 
     sets.Idle.Evasion = set_combine(sets.Idle.DT, {
         ammo="Yamarang",
-        head="Runeist Bandeau +3",
+        head="Runeist Bandeau +4",
         body="Nyame Mail",
         hands="Nyame Gauntlets",
         legs="Erilaz Leg Guards +3",
@@ -64,7 +64,7 @@ function get_sets()
         legs="Carmine Cuisses +1",
     })
     sets.Idle = { ammo="Homiliary",
-        head="Futhark Bandeau +3",neck="Loricate Torque +1",
+        head="Futhark Bandeau +4",neck="Loricate Torque +1",
         --ear1="Hearty Earring",
         --ear2="Ethereal Earring",   
         body="Futhark coat +2",hands="Erilaz Gauntlets +2",ring1="Moonbeam Ring",ring2="Defending Ring",     
@@ -272,7 +272,7 @@ function get_sets()
     --    feet="Adhemar Gamashes"
     }  
 
-    sets.JA.Vallation = {body="Runeist's Coat +2",legs="Futhark Trousers +3"}       
+    sets.JA.Vallation = {body="Runeist Coat +2",legs="Futhark Trousers +3"}       
     sets.JA.Gambit = {hands="Runeist mitons +1"}
     sets.JA.Rayke = {feet="Futhark boots"}  
     sets.JA.Battuta = {head="Futhark bandeau +4",legs="Erilaz Leg Guards +2",feet="Turms Leggings +1"}      
@@ -284,7 +284,7 @@ function get_sets()
     --Precast Sets--
     --Fast Cast set
     sets.precast = {
-        head="Runeist's bandeau +2",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
+        head="Runeist bandeau +4",neck="Orunmila's Torque",ear1="Loquacious Earring",ear2="Etiolation Earring",
         body="Dread Jupon",hands="Leyline Gloves",ring1="Prolix Ring",
         back="Ogma's Cape",waist="Rumination Sash",legs="Ayanmo cosciales +2"}
 
@@ -583,7 +583,7 @@ function equip_idle()
     equip(sets.Idle)
         --equips extra refresh gear when MP is below 75%
         if player.mpp < 75 then
-            equip({body="Runeist's Coat +2"})
+            equip({body="Runeist Coat +2"})
         end
         --auto-equip defensive gear when hit with terror/petrify/stun/sleep
         if buffactive['terror'] or buffactive['petrification'] or buffactive['stun'] or buffactive['sleep'] then
