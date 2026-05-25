@@ -514,7 +514,7 @@ function midcast(spell,act,arg)
                 equip(sets.Phalanx)
         end      
         if string.find(spell.name,'Regen') then
-                equip({head="Runeist bandeau +4"})
+                equip({head="Runeist bandeau +4",neck="Sacro Gorget",waist="Sroda Belt",right_ear="Erilaz Earring +1",legs="Furthark Trousers +3"})
         end
         if spell.name == "Repose" or spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
                 equip(sets.MagicAcc)
