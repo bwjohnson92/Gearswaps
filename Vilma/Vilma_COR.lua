@@ -77,7 +77,7 @@ sets.Idle.Standard = {
 }
 
 sets.Idle.DT = set_combine(sets.Idle.Standard, {
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
     legs="Nyame Flanchard",
     feet="Lanun Bottes +4",
     back=capeDT
@@ -164,7 +164,7 @@ sets.WS.SavageBlade.Accuracy = set_combine(sets.WS.SavageBlade, {
 sets.WS.Generic = sets.WS.SavageBlade
 
 sets.WS.LastStand = { --Generic Physical WS
-    head="Lanun Tricorne +3",
+    head="Lanun Tricorne +4",
     body="Nyame Mail",
     hands="Chasseur's Gants +3", --+2
     legs="Nyame Flanchard",
@@ -197,7 +197,7 @@ sets.WS.LastStand.Enmity = set_combine(sets.WS.LastStand, {
 
 sets.WS.Wildfire = {
     head="Nyame Helm",
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
     -- hands="Carmine finger gauntlets +1",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -213,7 +213,7 @@ sets.WS.Wildfire = {
 
 sets.WS.Aeolian = {
     head="Nyame Helm",
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Lanun Bottes +4",
@@ -234,7 +234,7 @@ sets.WS.LeadenSalute.index = {"Standard", "Enmity"}
 sets.WS.LeadenSalute.Standard = { --AGI Weaponskill
     -- ammo=MABullet,
     head="Pixie Hairpin +1",
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Lanun Bottes +4",
@@ -281,8 +281,8 @@ sets.FastCast = {
 sets.roll = {}
 sets.roll.index = {"Short", "Long", "ShortGun", "LongGun"}
 sets.roll.Short = {
-    head={ name="Lanun Tricorne +3", augments={'Enhances "Winning Streak" effect',}},
-    body="Lanun Frac +3",
+    head={ name="Lanun Tricorne +4", augments={'Enhances "Winning Streak" effect',}},
+    body="Lanun Frac +4",
     hands="Chasseur's Gants +3",
     feet="Meg. Jam. +2",
     legs="Desultor Tassets",
@@ -311,7 +311,7 @@ sets.roll["Caster's Roll"] = {
 sets.roll["Tactician's Roll"] = {
     -- body="Chasseur's Frac"
 }
-sets.RandomDeal = {body="Lanun Frac +3"}
+sets.RandomDeal = {body="Lanun Frac +4"}
 sets.Fold = {
     -- hands="Lanun Gauntlets"
 }
