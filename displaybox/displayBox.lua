@@ -25,6 +25,8 @@ file_name = ""
 should_update = false
 setting_up = false
 setup_coroutine = nil
+--set to true if you want to fully disable this file
+disable = false
 
 function write_file_if_not_present()
 	job = windower.ffxi.get_player().main_job
@@ -153,6 +155,9 @@ function no_value(key, inputTable)
 end
 
 internal_setup = function ()
+	if (disable == true) then
+		return
+	end
 	setting_up = false
 	job = windower.ffxi.get_player().main_job
 	write_file_if_not_present()
@@ -170,7 +175,7 @@ internal_setup = function ()
 end
 
 function text_setup()
-	if (setting_up == true) then 
+	if (disable == true or setting_up == true) then 
 		return
 	end
 	job = "default"
@@ -183,7 +188,7 @@ end
 
 
 function update_message()
-	if (setting_up == true) then return end
+	if (disable == true or setting_up == true) then return end
 	msg = ""
 	for _, k in ipairs(msg_keys) do
 		val = msg_table[k]
@@ -207,6 +212,7 @@ end
 
 
 function prerender_func()
+	if (disable == true) then return end
 	local curr = os.clock()
 
 	--Definitely don't want to try and save when we're not setup
