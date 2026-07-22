@@ -134,8 +134,8 @@ function get_sets()
         --Relic Head, AF Body, Empy Hands, Agwu Legs, Empy Feet
 
 
-    sets.precast.Impact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
-    sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak"}) 
+    sets.precast.Impact = set_combine(sets.precast.FastCast, {head=empty, body="Crepuscular Cloak"})
+    sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Crepuscular Cloak"}) 
     
     sets.TabulaRasa = {legs="Pedagogy Pants"}
     

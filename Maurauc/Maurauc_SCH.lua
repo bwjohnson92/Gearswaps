@@ -136,8 +136,8 @@ function get_sets()
         hands="Kaykaus Cuffs +1",ring1="Stikini Ring +1",ring2="Naji's Loop",
         back="Solemnity Cape",waist="Embla Sash",legs="Kaykaus Tights +1",feet="Medium's Sabots"}
 
-    sets.precast.Impact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
-    sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak"}) 
+    sets.precast.Impact = set_combine(sets.precast.FastCast, {head=empty, body="Crepuscular Cloak"})
+    sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Crepuscular Cloak"}) 
     
     sets.TabulaRasa = {legs="Pedagogy Pants"}
     

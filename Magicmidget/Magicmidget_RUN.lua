@@ -230,7 +230,7 @@ function get_sets()
         waist="Eschan Stone"})
 
     sets.JA.Vallation = {body="Runeist Coat +3",legs="Futhark Trousers +2"}       
-    sets.JA.Gambit = {hands="Runeist mitons +3"}
+    sets.JA.Gambit = {hands="Runeist mitons +4"}
     sets.JA.Rayke = {feet="Futhark boots +1"}  
     sets.JA.Battuta = {head="Futhark bandeau +3"}      
     sets.JA.Pflug = {feet="Runeist bottes +1"}              
@@ -453,7 +453,7 @@ function precast(spell,abil)
                 equip(sets.Enmity,sets.JA.Pflug)
         end      
         if spell.name == 'Elemental Sforzo' or spell.name == 'Liement' then
-                equip(sets.Enmity,{body="Futhark Coat +1"})
+                equip(sets.Enmity,{body="Futhark Coat +3"})
         end      
         if spell.name == 'Gambit' then
                 equip(sets.Enmity,sets.JA.Gambit)
@@ -526,7 +526,7 @@ function midcast(spell,act,arg)
                 if spell.name == "Blink" or spell.name == "Stoneskin" or spell.name == "Aquaveil" or string.find(spell.name,'Utsusemi') then
                     equip(sets.Interrupt)
                 elseif string.find(spell.name,'Bar') or spell.name=="Temper" then
-                    equip({hands="Runeist Mitons +3"})
+                    equip({hands="Runeist Mitons +4"})
                 end
                 if buffactive.embolden then
                     equip({back="Evasionist's Cape"})

@@ -114,7 +114,7 @@ function get_sets()
     sets.Songs.Debuff = set_combine(sets.midcast.Song, {
         main="Carnwenhan",
         sub="Ammurapi Shield",
-        head="Brioso Roundlet +3",
+        head="Brioso Roundlet +4",
         body="Brioso Justau. +2",
         hands="Brioso Cuffs +4",
         legs="Brioso Cannions +2",
@@ -151,9 +151,9 @@ function get_sets()
         range="Linos",
         head="Aya. Zucchetto +2",
         body="Ayanmo Corazza +2",
-        hands="Aya. Manopolas +2",
-        legs="Aya. Cosciales +2",
-        feet="Aya. Gambieras +2",
+        hands="Bihu Cuffs +3",
+        legs="Fili Rhingrave +2",
+        feet="Bihu Slippers +3",
         neck={ name="Bard's Charm +1", augments={'Path: A',}},
         waist="Sailfi Belt +1",
         left_ear="Cessance Earring",
@@ -172,7 +172,7 @@ function get_sets()
         back=wsCape,
         left_ear="Moonshade Earring",
         head="Bihu Roundlet +3",
-        body="Bihu Justaucorps +3",
+        body="Bihu Justaucorps +4",
         hands="Bihu Cuffs +3",
         legs="Bihu Cannions +3",
         feet="Bihu Slippers +3",
@@ -181,7 +181,7 @@ function get_sets()
 
     sets.JA = {}
     sets.JA["Nightingale"] = {feet="Bihu Slippers +3"}
-    sets.JA["Troubadour"] = {body="Bihu Justaucorps +3"}
+    sets.JA["Troubadour"] = {body="Bihu Justaucorps +4"}
     sets.JA["Soul Voice"] = {legs="Bihu Cannions +3"}
 
     send_command('bind f10 gs c auto')
