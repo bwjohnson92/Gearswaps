@@ -198,7 +198,7 @@ function get_sets()
     sets.BlueMagic.INT = {ammo="Pemphredo Tathlum",
         head="Hashishin Kavuk +3",neck="Sibyl Scarf",ear1="Regal Earring",ear2="Friomisi earring",
         body="Hashishin Mintan +3",hands="Hashishin Bazubands +3",ring1="Shiva Ring +1",ring2="Metamorph Ring +1",
-        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +3",feet="Hashishin Basmak +3"
+        back=INTCape,waist="Sacro Cord",legs="Luhlaza Shalwar +4",feet="Hashishin Basmak +3"
     }
 
     sets.BlueMagic["Tenebral Crush"] = set_combine(sets.BlueMagic.INT, {
@@ -284,19 +284,35 @@ function get_sets()
 
     sets.WS["Circle Blade"] = set_combine(sets.WS, {})
 
-    sets.WS["Requiescat"] = {
-        ammo="Floestone",
-        head="Carmine Mask +1",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
-        body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Epona's ring",ring2="Rufescent Ring",
-        back="Rosmerta's Cape",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +2"
-    }
+    -- sets.WS["Requiescat"] = {
+    --     ammo="Floestone",
+    --     head="Carmine Mask +1",neck="Fotia gorget",ear1="Brutal earring",ear2="Moonshade earring",
+    --     body="Jhakri Robe +2",hands="Jhakri Cuffs +2",ring1="Epona's ring",ring2="Rufescent Ring",
+    --     back="Rosmerta's Cape",waist="Fotia belt",legs="Carmine Cuisses +1",feet="Luhlaza charuqs +2"
+    -- }
 
     sets.WS["Chant Du Cygne"] = {
         head="Adhemar Bonnet +1",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
         body="Assimilator's Jubbah +3",hands="Adhemar Wristbands +1",ring1="Epona's ring",ring2="Begrudging ring",
-        back=DEXCape, waist="Fotia Belt",legs="Luhlaza Shalwar +3",feet="Thereoid Greaves"
+        back=DEXCape, waist="Fotia Belt",legs="Luhlaza Shalwar +4",feet="Thereoid Greaves"
     }
 
+    sets.WS["Burning Blade"] = {
+        head=empty, neck=empty,
+        body=empty,hands=empty,
+        legs=empty,feet=empty
+    }
+
+    sets.WS["Requiescat"] = {
+        head=empty, neck=empty,
+        body=empty,hands=empty,
+        legs=empty,feet=empty
+    }
+    sets.WS["Shining Blade"] = {
+        head=empty, neck=empty,
+        body=empty,hands=empty,
+        legs=empty,feet=empty
+    }
 
     sets.WS.ExpSavage = {
         ammo="Floestone",
@@ -313,7 +329,7 @@ function get_sets()
         head="Pixie Hairpin +1",
         body="Nyame Mail",
         hands="Jhakri Cuffs +2",
-        legs="Luhlaza Shalwar +3",
+        legs="Luhlaza Shalwar +4",
         feet="Nyame Sollerets",
         ring1="Cornelia's Ring",
         ring2="Archon Ring"

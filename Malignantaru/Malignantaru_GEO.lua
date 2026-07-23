@@ -72,17 +72,18 @@ function get_sets()
 
 	sets.Idle.Standard = {main="Daybreak", sub="Genmei Shield", ranged="Dunna", 
 		head="Azimuth Hood +2", neck="Loricate Torque +1", ear1="Genmei Earring", ear2="Hearty Earring", 
-		body="Geomancy Tunic +3", hands="Geomancy Mitaines +3", ring1="Defending Ring", ring2="Murky Ring",
+		body="Geomancy Tunic +3", hands="Geomancy Mitaines +4", ring1="Defending Ring", ring2="Murky Ring",
 	    -- back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		back="Repulse Mantle",
-		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +3"}
+		waist="Fucho-no-obi", legs="Assiduity Pants +1", feet="Geomancy Sandals +4"}
 
 	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
 	    range="Dunna",
 	    head="Nyame Helm",
 	    body="Nyame Mail",
-	    hands="Geomancy Mitaines +3",
-	    legs="Nyame Flanchard",
+	    hands="Geomancy Mitaines +4",
+	    -- legs="Nyame Flanchard",
+		legs="Azimuth Tights +2",
 		feet="Bagua Sandals +1",
 	    neck={ name="Bagua Charm", augments={'Path: A',}},
 	    waist="Isa Belt",
@@ -99,7 +100,7 @@ function get_sets()
 		neck="Bagua Charm",
 		body="Telchine Chasuble",
 		-- hands="Telchine Gloves",
-		hands="Geomancy Mitaines +3",
+		hands="Geomancy Mitaines +4",
 	    back={ name="Nantosuelta's Cape", augments={'Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},	
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
@@ -108,7 +109,7 @@ function get_sets()
 		rear="Odnowa Earring +1"
 	})
 
-	sets.Speed = {feet="Geomancy Sandals +3"}	
+	sets.Speed = {feet="Geomancy Sandals +4"}	
 	
 	sets.precast = {}
 	sets.midcast = {}
@@ -128,9 +129,9 @@ function get_sets()
 	    ammo="Pemphredo Tathlum",
 	    head="Geomancy Galero +3",
 	    body="Geomancy Tunic +3",
-	    hands="Geomancy Mitaines +3",
+	    hands="Geomancy Mitaines +4",
 	    legs="Geomancy Pants +3",
-	    feet="Geomancy Sandals +3",
+	    feet="Geomancy Sandals +4",
 	    neck="Null Loop",
 	    waist="Luminary Sash",
 	    left_ear="Digni. Earring",
@@ -153,8 +154,8 @@ function get_sets()
 	    body="Merlinic Jubbah",
 	    hands="Volte Gloves",
 	    legs="Azimuth Tights +2",
-	    -- feet="Azimuth Gaiters",
-		feet="Geomancy Sandals +3",
+	    -- feet="Azimuth Gaiters +1",
+		feet="Geomancy Sandals +4",
 		neck="Sibyl Scarf",
 		waist="Sacro Cord",
 	    left_ear="Barkarole Earring",
@@ -176,8 +177,8 @@ function get_sets()
 	sets.midcast.IndiSpells = {
 		main="Solstice", sub="Genmei Shield",
 		head="Azimuth Hood +2", neck="Bagua Charm",
-		body="Bagua Tunic",	hands="Azimuth Gloves +1", ring1=stikini1, ring2=stikini2,
-		back="Lifestream Cape", legs="Bagua Pants +1",feet="Azimuth Gaiters"
+		body="Bagua Tunic +1",	hands="Azimuth Gloves +1", ring1=stikini1, ring2=stikini2,
+		back="Lifestream Cape", legs="Bagua Pants +1",feet="Azimuth Gaiters +1"
 	}
 	
 	sets.midcast.IndiSelf = set_combine(sets.midcast.IndiSpells, {
@@ -256,7 +257,7 @@ function precast(spell)
 		equip(sets.precast['FastCast'])
 	end
 	if (string.find(spell.name,'Bolster')) then
-		equip({body="Bagua Tunic"})
+		equip({body="Bagua Tunic +1"})
 	end
 	if (spell.english == "Life Cycle") then 
 		equip(sets.LifeCycle)

@@ -88,7 +88,7 @@ function get_sets()
         -- waist="Mujin Obi"
     })
     
-    sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
+    sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Crepuscular Cloak"})
 
     sets.midcast.EnfeeblingMagic = {sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head=MerlinicHoodNuke,neck="Sorcerer's Stole",ear1="Digni. Earring",ear2="Malignance Earring",
@@ -168,7 +168,7 @@ function get_sets()
     sets.midcast.ElementalMagic.OccultAcumen = {
         -- ammo="Seraphic Ampulla",
         -- head="Mallquis Chapeau +1",
-        -- body="Spaekona's Coat +3",  
+        -- body="Spaekona's Coat +4",  
         -- hands="Ea Cuffs",
         -- legs="Perdition Slops",
         -- feet={ name="Merlinic Crackows", augments={'Mag. Acc.+25 "Mag.Atk.Bns."+25','"Occult Acumen"+3','MND+4','Mag. Acc.+15','"Mag.Atk.Bns."+10',}},
@@ -180,15 +180,15 @@ function get_sets()
         -- right_ring="Petrov Ring",
     }
 
-    sets.midcast.NukeMPRestore = {body = "Spaekona's Coat +3"}
+    sets.midcast.NukeMPRestore = {body = "Spaekona's Coat +4"}
 
     sets.midcast.ElementalMagicHighMP = {sub="Enki Strap", ammo="Strobilus",
         head={ name="Arch. Petasos +3"}, neck="Sanctity Necklace",ear1="Etiolation Earring",ear2="Malignance Earring",
-        body="Spaekona's Coat +3",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
+        body="Spaekona's Coat +4",hands="Amalric Gages +1",ring1="Mephitas's Ring +1",ring2="Mephitas's Ring",
         back=TaranusMP,waist="Sacro Cord",legs="Amalric Slops +1",feet=MerlinicFeetNuke}
 
 
-    sets.midcast.Impact = set_combine(sets.midcast.ElementalMagicAcc, {head=empty, body="Twilight Cloak"})
+    sets.midcast.Impact = set_combine(sets.midcast.ElementalMagicAcc, {head=empty, body="Crepuscular Cloak"})
         
     sets.midcast.Stun = {
         -- main="Lathi",

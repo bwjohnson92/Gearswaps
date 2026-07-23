@@ -57,7 +57,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 
 	sets.Idle.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
 		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
-		body="Atrophy Tabard +4",hands="Volte Gloves",ring1=stikini1,ring2=stikini2,
+		body="Atrophy Tabard +4",hands="Lethargy Gantherots +3",ring1="Murky Ring",ring2="Defending Ring",
 		back=SucellosMND,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet=RefreshFeet}
 	
 	sets.Idle.PDT = set_combine(sets.Idle.Idle, {
@@ -96,7 +96,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		feet="Merlinic Crackows"
 	}
 	
-	sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Twilight Cloak"})
+	sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Crepuscular Cloak"})
 	
 	sets.precast.FastCure = sets.precast.FastCast
 
@@ -165,7 +165,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	
 	sets.midcast.ElementalMagicMP = set_combine(sets.midcast.ElementalMagic, {body = "Seidr Cotehardie"})
 		
-	sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Twilight Cloak"})
+	sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic, {head=empty, body="Crepuscular Cloak"})
 	
 	sets.midcast.Stun = set_combine(sets.midcast.Enfeebling.Acc, {
 		
@@ -189,20 +189,20 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		sub="Ammurapi Shield",
 		neck="Duelist's Torque +2",
 		head="Telchine Cap", 
-		hands="Atrophy Gloves +3",
+		hands="Atrophy Gloves +4",
 		legs="Telchine Braconi", 
 		feet="Lethargy Houseaux +3"})
 
 	sets.midcast.EnhancingMagic.Composure = {main="Colada", sub="Ammurapi Shield",
 		head="Lethargy Chappel +3",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring +2",
-		body="Lethargy Sayon +3",hands="Atrophy Gloves +3",ring1=stikini1,ring2=stikini2,
+		body="Lethargy Sayon +3",hands="Atrophy Gloves +4",ring1=stikini1,ring2=stikini2,
 		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +3",feet="Lethargy Houseaux +3"}
 
 	sets.midcast.EnhancingMagic.Gain = set_combine(sets.midcast.EnhancingMagic.Duration, {hands="Vitiation Gloves +3"})
 
 	sets.midcast.Refresh = set_combine(sets.midcast.EnhancingMagic.Duration, {
 		head="Amalric Coif +1", neck="Duelist's Torque +2",
-		body="Atrophy Tabard +4",hands="Atrophy Gloves +3",
+		body="Atrophy Tabard +4",hands="Atrophy Gloves +4",
 		back="Sucellos's Cape", waist="Embla Sash", legs="Lethargy Fuseau +3", feet="Lethargy Houseaux +3"})
 
 	sets.midcast.Refresh.Self = set_combine(sets.midcast.Refresh, {
@@ -324,7 +324,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    ear1="Moonshade Earring",
 	    ear2="Malignance Earring",
 	    body="Viti. Tabard +3",
-	    hands="Atrophy Gloves +3",
+	    hands="Atrophy Gloves +4",
 	    ring1="Apate Ring",
 	    ring2="Rufescent Ring",
 	    back=SucellosWS,
@@ -340,7 +340,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    ear1="Moonshade Earring",
 	    ear2="Sherida Earring",
 	    body="Viti. Tabard +3",
-	    hands="Atrophy Gloves +3",
+	    hands="Atrophy Gloves +4",
 	    ring1="Rufescent Ring",
 	    ring2="Apate Ring",
 	    back=SucellosWS,
@@ -356,7 +356,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	    ear2="Moonshade Earring",
 	    ear1="Sherida Earring",
 	    body="Ayanmo Corazza +2",
-	    hands="Atrophy Gloves +3",
+	    hands="Atrophy Gloves +4",
 	    ring1="Begrudging Ring",
 	    ring2="Ilabrat Ring",
 	    back=SucellosWS,

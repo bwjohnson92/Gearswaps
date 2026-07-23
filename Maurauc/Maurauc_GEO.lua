@@ -121,7 +121,7 @@ function get_sets()
 		head=Empyrean.Head,
 		neck="Bagua Charm +2",
 		body="Telchine Chasuble", 
-		hands="Telchine Gloves",
+		hands=AF.Hands,
     	back=capeRegen,
 		waist="Isa Belt", 
 		legs="Telchine Braconi", 
@@ -140,6 +140,8 @@ function get_sets()
 		body="Shango Robe",hands="Volte Gloves",ring1="Kishar Ring",ring2="Weatherspoon Ring +1",
 		back="Fi Follet Cape +1",waist="Embla Sash",legs="Psycloth Lappas",feet="Merlinic Crackows"}
 		
+	sets.precast.FastCastImpact = set_combine(sets.precast.FastCast, {head=empty, body="Crepuscular Cloak"})
+
 	sets.midcast.EnfeeblingMagic = {
 	    main="Contemplator +1",
 	    sub="Enki Strap",
@@ -157,6 +159,10 @@ function get_sets()
 	    right_ring="Weatherspoon Ring +1",
 	    back=capeNuke
 	}
+
+	sets.midcast.Impact = set_combine(sets.midcast.ElementalMagic,
+		{head=empty, body="Crepuscular Cloak"}
+	)
 
 	sets.midcast.ElementalMagic = {
 		main="Wizard's Rod",sub="Ammurapi Shield", ammo="Pemphredo Tathlum",
@@ -252,8 +258,12 @@ function precast(spell)
 		or string.find(spell.type,'BlackMagic') 
 		or string.find(spell.type, 'Geomancy')
 		or string.find(spell.type,'Trust')) then
-		
-		equip(sets.precast['FastCast'])
+		if (spell.english == "Impact") then
+			equip(sets.precast.FastCastImpact)
+		else
+			equip(sets.precast['FastCast'])
+		end
+
 	end
 	if (string.find(spell.type:lower(), 'ability')) then
 		equip(sets.JA[spell.name])
@@ -296,7 +306,11 @@ function midcast(spell)
 			set = set_combine(sets.midcast.EnfeeblingMagic, {})
 			
 		elseif string.find(spell.skill,'Elemental Magic') then
-			set = use_obi(spell, sets.midcast.ElementalMagic)
+			if (spell.english == "Impact") then
+				set = sets.midcast.Impact
+			else
+				set = use_obi(spell, sets.midcast.ElementalMagic)
+			end
 		elseif string.find(spell.skill,'Dark Magic') then
 			set = use_obi(spell, sets.Aspir, {})
 		else

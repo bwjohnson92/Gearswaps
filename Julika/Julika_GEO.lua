@@ -1,4 +1,4 @@
- include('organizer-lib.lua')
+include('organizer-lib.lua')
 include('displayBox/displayBox.lua')
 
 -- Local Settings, setting the zones prior to use
@@ -15,23 +15,29 @@ elements.use_on_single_conflict = false
 elements.strong_against = {['Fire'] = 'Ice', ['Earth'] = 'Thunder', ['Water'] = 'Fire', ['Wind'] = 'Earth', ['Ice'] = 'Wind', ['Thunder'] = 'Water', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 elements.weak_against = {['Fire'] = 'Water', ['Earth'] = 'Wind', ['Water'] = 'Thunder', ['Wind'] = 'Ice', ['Ice'] = 'Fire', ['Thunder'] = 'Earth', ['Light'] = 'Dark', ['Dark'] = 'Light'}
 
-AFHead = "Geomancy Galero"
-AFBody = "Geomancy Tunic"
-AFHands = "Geomancy Mitaines +1"
-AFLegs = "Geomancy Pants"
-AFFeet = "Geomancy Sandals"
+AF = {}
+AF.Head = "Geomancy Galero +3"
+AF.Body = "Geomancy Tunic +3"
+AF.Hands = "Geomancy Mitaines +4"
+AF.Legs = "Geomancy Pants +3"
+AF.Feet = "Geomancy Sandals +3"
 
-RelicHead = "Bagua "
-RelicBody = "Bagua Tunic"
-RelicHands = "Bagua Mitaines"
-RelicLegs = "Bagua Pants"
-RelicFeet = "Bagua Sandals +1 "
+Relic = {}
+Relic.Head = "Bagua Galero"
+Relic.Body = "Bagua Tunic +1"
+Relic.Hands = "Bagua Mitaines"
+Relic.Legs = "Bagua Pants +1"
+Relic.Feet = "Bagua Sandals +3 "
 
-EmpyHead = "Azimuth Hood +2"
-EmpyBody = "Azimuth Coat +1"
-EmpyHands = "Azimuth Gloves +1"
-EmpyLegs = "Azimuth Tights +1"
-EmpyFeet = "Azimuth Gaiters +1"
+Empy = {}
+Empy.Head = "Azimuth Hood +3"
+Empy.Body = "Azimuth Coat +2"
+Empy.Hands = "Azimuth Gloves +2"
+Empy.Legs = "Azimuth Tights +2"
+Empy.Feet = "Azimuth Gaiters +2"
+
+stikini1={name="Stikini Ring", bag="wardrobe3"}
+stikini2={name="Stikini Ring", bag="wardrobe4"}
 
 TelchineBody={ name="Telchine Chas.", augments={'Pet: DEF+5','Pet: "Regen"+3','Pet: Damage taken -4%',}}
 TelchineHands={ name="Telchine Gloves", augments={'Pet: DEF+4','Pet: "Regen"+2','Pet: Damage taken -4%',}}
@@ -57,61 +63,66 @@ function get_sets()
 		main="Idris",
 		ranged="Dunna",
 	    sub="Genmei Shield",
-	    head="Azimuth Hood +2",
+	    head=Empy.Head,
 	    body=TelchineBody,
-	    hands=TelchineHands,
-	    legs=TelchineLegs,
-	    feet={ name="Bagua Sandals +1", augments={'Enhances "Radial Arcana" effect',}},
+	    -- hands=TelchineHands,
+		hands=AF.Hands,
+	    -- legs=TelchineLegs,
+		legs="WN Braccae +1",
+	    feet=Relic.Feet,
 	    neck="Bagua Charm +1",
 	    waist="Isa Belt",
 	    left_ear="Handler's Earring +1",
 	    left_ring="Defending Ring",
-	    right_ring="Warden's Ring",
+	    right_ring="Murky Ring",
 	    back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
 	}
 
 	sets.Idle.Standard = {
 		main="Idris",
 		sub="Genmei Shield",
-		head="Azimuth Hood +2",
-		body={ name="Telchine Chas.", augments={'Pet: DEF+5','Pet: "Regen"+2',}},
-		hands="Geomancy Mitaines +1",
-		legs={ name="Telchine Braconi", augments={'Pet: "Regen"+3',}},
-		feet="Geomancy Sandals",
-		neck="Twilight Torque",
+		head=Empy.Head,
+		body=Empy.Body,
+		hands=AF.Hands,
+		legs="WN Braccae +1",
+		feet=AF.Feet,
+		neck="Sibyl Scarf",
 		waist="Isa Belt",
 		left_ear="Handler's Earring +1",
 		left_ring="Defending Ring",
-		right_ring="Warden's Ring",
+		right_ring="Murky Ring",
 		back={ name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}},
 	}
 
-	sets.Idle.DamageTaken = {}
+	sets.Idle.DamageTaken = set_combine(sets.Idle.Standard, {
+		feet=Empy.Feet,
+		heck="Null Loop"
+	})
 
-	sets.Speed = {feet="Geomancy Sandals"}	
+	sets.Speed = {feet=AF.Feet}	
 		
 	sets.precast.FastCast = { main="Idris", sub="Genbu's Shield", 
-		head="Merlinic Hood", ear1="Etiolation Earring",ear2="Loquacious Earring",
-		body="Helios Jacket",hands="Repartie Gloves",ring2="Prolix Ring",
-		back="Lifestream Cape",waist="Witful Belt",legs=AFLegs,feet="Merlinic Crackows"}
+		head="Merlinic Hood", ear1="Enchanter's Earring +1",ear2="Loquacious Earring",
+		body="Merlinic Jubbah",hands="Repartie Gloves",ring2="Kishar Ring",
+		back="Lifestream Cape",waist="Witful Belt",legs=AF.Legs,feet="Merlinic Crackows"}
 	
 	sets.precast.FastCure = set_combine(sets.precast.FastCast,{ ear2="Loquacious Earring",
-			back="Disperser's Cape",waist="Witful Belt",legs=AFLegs})
+		waist="Witful Belt",legs=AF.Legs})
 
 	--sets.Melee = {main="Idris",sub="Genbu's Shield",
 	--	head="Umuthi Hat",neck="Asperity Necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
 	--	body="Artsieq Jubbah",hands="Umuthi Gloves", 
 	--	back="Atheling Mantle",waist="Cetl Belt", legs="Hagondes Pants",feet="Umbani Boots"}	
 		
-	sets.midcast.EnfeeblingMagic = {main="Grioavolr",sub="Clerisy Strap",ammo="Hydrocera",
-		head="Merlinic Hood",neck="Incanter's torque",ear1="Enchanter Earring +1",ear2="Gwati Earring",
-		body="Merlinic Jubbah",hands=EmpyHands,ring1="Stikini Ring",ring2="Stikini Ring",
-		back="Lifestream Cape",waist="Yamabuki-no-Obi",legs=EmpyLegs,feet="Merlinic Crackows"}
+	sets.midcast.EnfeeblingMagic = {main="Idris",sub="Ammurapi Shield",ammo="Hydrocera",
+		head=Empy.Head,neck="Null Loop",ear1="Malignance Earring",ear2="Barkarole Earring",
+		body="Merlinic Jubbah",hands=Empy.Hands,ring1=stikini1,ring2=stikini2,
+		back="Lifestream Cape",waist="Null Belt",legs=Empy.Legs,feet=Empy.Feet}
 
-	sets.midcast.ElementalMagic = {main="Grioavolr",sub="Niobid Strap", ammo="Hydrocera",
-		head="Merlinic Hood",neck="Eddy necklace",ear1="Malignance Earring",ear2="Barkarole Earring",
-		body="Merlinic Jubbah",hands="Amalric Gages",ring1="Freke Ring",ring2="Shiva Ring",
-		back="Toro Cape",waist="Yamabuki-no-Obi",legs=EmpyLegs,feet="Merlinic Crackows"}	
+	sets.midcast.ElementalMagic = {main="Idris",sub="Ammurapi Shield", ammo="Hydrocera",
+		head=Empy.Head,neck="Sibyl Scarf",ear1="Malignance Earring",ear2="Barkarole Earring",
+		body=Empy.Body,hands=Empy.Hands,ring1="Freke Ring",ring2="Shiva Ring",
+		back="Toro Cape",waist="Yamabuki-no-Obi",legs=Empy.Legs,feet=Empy.Feet}	
 		
 	--sets.midcast.Stun = {main="Twebuliij",sub="Benthos Grip",ammo="Plumose Sachet",
 		--head="Atrophy Chapeau +1",neck="Voltsurge Torque",ear1="Lifestorm Earring",ear2="Psystorm Earring",
@@ -120,38 +131,47 @@ function get_sets()
 		
 	sets.midcast.EnhancingMagic = {
 		head="Befouled Crown",neck="Incanter's Torque",ear1="Lifestorm Earring",ear2="Loquacious Earring",
-		ring2="Weatherspoon Ring", hands="Telchine gloves", back="Fi Follet cape",
+		ring2=stikini1, hands="Telchine gloves", back="Fi Follet cape",
 		waist="Cascade Belt"}
 
 		
-	sets.midcast.IndiSpells = {main="Idris",
-	head=EmpyHead, 	body=EmpyBody,	hands=AFHands, 
-	back="Lifestream Cape", legs=RelicLegs,feet=EmpyFeet}
+	sets.midcast.IndiSpells = {
+		main="Idris",
+		head=Empy.Head,
+		body=Empy.Body,	
+		hands=AF.Hands, 
+		back="Lifestream Cape", 
+		legs=Relic.Legs,
+		feet=Empy.Feet
+	}
 	
-	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs=EmpyLegs})
+	sets.midcast.GeoSpells = set_combine(sets.midcast.IndiSpells, {legs=Empy.Legs})
 
 	sets.midcast.Cure = {main="Tamaxchi",sub="Genbu's Shield",ammo="Hydrocera",
 			head="Vanya Hood",neck="Incanter's torque",ear1="Etiolation earring",ear2="Loquacious earring",
-			hands="Telchine gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",body="Helios Jacket",
-			back="Pahtli cape",waist="Cascade belt",legs="Doyen pants",feet="Vanya Clogs"}
+			hands="Telchine gloves",ring1="Sirona's Ring",ring2="Ephedra Ring",
+			body="Vrikodara Jupon",
+			waist="Cascade belt",legs="Doyen pants",feet="Vanya Clogs"}
 		
 	sets.TH = {waist="Chaac Belt"}
 
 		
-	organizer_items = { 	echos="Echo Drops",
-	holy="Holy Water",
-	RREar="Reraise Earring",
-	RRHair="Reraise Hairpin",
-	InstRR="Instant Reraise",
-	Warp="Warp Ring",
-	WarpItem="Instant Warp",
-	CP="Trizek Ring",
-	Exp="Echad Ring",
-	CPMantle="Mecistopins Mantle",
-	Prism="Prism Powder",
-	Oils="Silent Oil",}
+	organizer_items = { 	
+		echos="Echo Drops",
+		holy="Holy Water",
+		RREar="Reraise Earring",
+		RRHair="Reraise Hairpin",
+		InstRR="Instant Reraise",
+		Warp="Warp Ring",
+		WarpItem="Instant Warp",
+		CP="Trizek Ring",
+		Exp="Echad Ring",
+		CPMantle="Mecistopins Mantle",
+		Prism="Prism Powder",
+		Oils="Silent Oil",
+	}
 
-	send_command('bind f12 input /equip Feet "Geomancy Sandals"')
+	send_command('bind f12 gs c switch pdt')
 
 	send_command('bind f9 gs c nextTH')
 	send_command('bind pause send @others "input /follow Julika"')
@@ -208,13 +228,13 @@ function precast(spell)
 		equip(sets.precast['FastCast'])
 	end
 	if (string.find(spell.name,'Bolster')) then
-		equip({body="Bagua Tunic"})
+		equip({body=Relic.Body})
 	end
 	if (spell.english == "Life Cycle") then 
-		equip({body="Geomancy Tunic"})
+		equip({body=AF.Body})
 	end
 	if (spell.english == "Radial Arcana") then
-		equip({Feet="Bagua Sandals +1"})
+		equip({Feet=Relic.Feet})
 	end
 end
 -- --- MidCast ---
