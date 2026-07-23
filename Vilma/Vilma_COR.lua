@@ -264,7 +264,7 @@ sets.WS.HotShot = {
     back=capeRangedWS,
     waist="Fotia Belt",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +4"
+    feet="Nyame Sollerets"
 }
 
 sets.FastCast = {

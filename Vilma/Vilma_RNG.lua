@@ -329,7 +329,7 @@ function init_gear_sets()
             ring2="Petrov Ring",
             back=BelenusDexCrit,
             waist="Fotia Belt",
-            legs="Arcadian Braccae +3", 
+            legs="Arcadian Braccae +4", 
             feet="Nyame Sollerets"
         }
         sets.precast.WS.Mid = set_combine(sets.precast.WS, {
@@ -443,7 +443,7 @@ function init_gear_sets()
             ear2="Sherida Earring",
             hands="Meghanada Gloves +2",
             head="Orion Beret +4",
-            legs="Arcadian Braccae +3",
+            legs="Arcadian Braccae +4",
             body="Meghanada Cuirie +2",
             -- feet={ name="Herculean Boots", augments={'Rng.Atk.+7','Weapon skill damage +5%','AGI+4','Rng.Acc.+14',}},
             feet="Nyame Sollerets",
@@ -480,7 +480,7 @@ function init_gear_sets()
             
             -- legs="Nyame Flanchard", --wsd
             hands="Nyame Gauntlets",
-            legs="Arcadian Braccae +3",
+            legs="Arcadian Braccae +4",
             feet="Nyame Sollerets", --wsd
             waist="Fotia Belt"
 

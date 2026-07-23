@@ -59,7 +59,7 @@ function get_sets()
 
     sets.Idle.Standard = {
         neck="Loricate torque +1",
-        ring1="Gelatinous ring +1",ring2="Defending ring",
+        ring1="Gelatinous ring +1",ring2="Murky ring",
         feet="Danzo Sune-Ate"
     }
     
@@ -96,7 +96,7 @@ function get_sets()
         hands="Nyame Gauntlets",
         legs="Nyame Flanchard",
         feet="Nyame Sollerets",
-        ring2="Defending Ring",
+        ring2="Murky Ring",
     })
 
     --Weaponskill Sets--
