@@ -1,4 +1,3 @@
-require('ClosetCleaner')
 include('VilMerlinic.lua')
 include('displayBox/displayBox.lua')
 include('organizeritems.lua')
@@ -440,8 +439,8 @@ function self_command(command)
 		end
         if (Weapon_Index > 0) then
 			equip(sets.Weapons[sets.Weapons.index[Weapon_Index]])
-			disable("Main")
-			disable("Sub")
+			disable("main")
+			disable("sub")
 		end
 		str = "Weapon is now "..(Weapon_Index>0 and 'locked' or 'unlocked')
 		if (Weapon_Index > 0) then
