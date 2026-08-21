@@ -76,10 +76,10 @@ function get_sets()
     body="Jhakri Robe +2",hands="Nyame Gauntlets",ring1="Stikini ring +1",ring2="Murky ring",
     back="Repulse Mantle",waist="Flume Belt +1",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
-    sets.Idle.DT = {ammo="Coiste Bodhar",
-        head="Nyame Helm",neck="Sibyl Scarf", ear1="Ebani Earring", ear2="Novia Earring",
-        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Defending ring",ring2="Murky ring",
-        back=CapeDEXTP,waist="Null Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"
+    sets.Idle.DT = {ammo="Staunch Tathlum +1",
+        head="Null Masque",neck="Sibyl Scarf", ear1="Eabani Earring", ear2="Etiolation Earring",
+        body="Nyame Mail",hands="Nyame Gauntlets",ring1="Dark ring",ring2="Murky ring",
+        back="Null Shawl",waist="Null Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"
     }
 
     sets.Idle.DTMove = set_combine(sets.Idle.DT, {legs="Carmine Cuisses +1"})
@@ -98,7 +98,7 @@ function get_sets()
         feet="Malignance Boots",
         neck="Mirage Stole +1",
         waist="Sailfi Belt +1",
-        left_ear="Suppanomimi",
+        left_ear="Crepuscular Earring",
         right_ear="Telos Earring",
         left_ring="Epona's Ring",
         right_ring="Chirich Ring +1",
@@ -151,7 +151,7 @@ function get_sets()
 
     --Weaponskill Sets--
     sets.WS = {
-        head="Hashishin Kavuk +2",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
+        head="Hashishin Kavuk +3",neck="Fotia Gorget",ear1="Moonshade earring",ear2="Ishvara earring",
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Epaminondas's Ring",
         back=CapeWS,waist="Sailfi Belt +1",legs="Nyame Flanchard", feet="Nyame Sollerets",
     }
@@ -168,8 +168,8 @@ function get_sets()
     body=HercBodyTP,hands="Adhemar Wristbands",ring1="Epona's ring",ring2="Apate ring",
     back=CapeWS,waist="Fotia Belt",legs="Samnuha Tights",feet=HercFeetTP}
 
-    sets.WS.ExpSavage = {ammo="Ginsen",
-        head="Hashishin Kavuk +2",neck="Rep. Plat. Medal",ear1="Moonshade earring",ear2="Hashishin earring +1",
+    sets.WS.ExpSavage = {ammo="Coiste Bodhar",
+        head="Hashishin Kavuk +3",neck="Rep. Plat. Medal",ear1="Moonshade earring",ear2="Hashishin earring +1",
         body="Nyame Mail",hands="Nyame Gauntlets",ring1="Rufescent ring",ring2="Epaminondas's Ring",
         back=CapeWS,waist="Sailfi Belt +1",legs="Nyame Flanchard", feet="Nyame Sollerets",
     }
@@ -208,7 +208,7 @@ function get_sets()
 
     sets.BlueMagic.INT ={
         ammo="Pemphredo Tathlum",
-        head="Hashishin Kavuk +2",
+        head="Hashishin Kavuk +3",
         body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
         hands={ name="Amalric Gages +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
         legs={ name="Amalric Slops +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
@@ -249,7 +249,7 @@ function get_sets()
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
     head="Hashishin Kavuk +3",neck="Null Loop",ear1="Dignitary's earring",ear2="Crepuscular earring",
     body="Hashishin Mintan +3",hands="Hashinshin Bazuebands +3",ring1="Stikini ring +1",ring2="Metamorph ring +1",
-    back=CapeINT,waist="Null Belt",legs="Hashishin Tayt +3",feet="Hashishin Basmak +2"}
+    back=CapeINT,waist="Null Belt",legs="Hashishin Tayt +3",feet="Hashishin Basmak +3"}
 
     sets.BlueMagic.Skill = {ammo="Mavi tathlum",
     head="Nyame Helm",neck="Incanter's Torque",ear1="Loquac. earring",ear2="Hashishin earring +1",
