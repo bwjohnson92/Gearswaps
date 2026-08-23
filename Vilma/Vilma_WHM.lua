@@ -104,7 +104,7 @@ function get_sets()
     sets.midcast.EnhancingMagicDuration = set_combine(sets.midcast.EnhancingMagic, {
         head="Telchine Cap", 
         body="Telchine Chasuble", hands="Telchine Gloves",
-        legs="Telchine Braconi", feet="Telchine Pigaches"
+        legs="Telchine Braconi", feet="Theophany Duckbills +4"
         })
 
     sets.midcast.Regen = set_combine(sets.precast.FastCast, {

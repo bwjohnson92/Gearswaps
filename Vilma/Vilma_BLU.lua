@@ -248,7 +248,7 @@ function get_sets()
 
     sets.BlueMagic.MagicAccuracy = {ammo="Pemphredo Tathlum",
     head="Hashishin Kavuk +3",neck="Null Loop",ear1="Dignitary's earring",ear2="Crepuscular earring",
-    body="Hashishin Mintan +3",hands="Hashinshin Bazuebands +3",ring1="Stikini ring +1",ring2="Metamorph ring +1",
+    body="Hashishin Mintan +3",hands="Hashishin Bazubands +3",ring1="Stikini ring +1",ring2="Metamorph ring +1",
     back=CapeINT,waist="Null Belt",legs="Hashishin Tayt +3",feet="Hashishin Basmak +3"}
 
     sets.BlueMagic.Skill = {ammo="Mavi tathlum",
