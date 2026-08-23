@@ -32,17 +32,36 @@ weaponLocked = false
 -- Gear Sets
 function get_sets()
 
-staff1="Raetic Staff +1"
-staff2="Contemplator +1"
+	staff1="Raetic Staff +1"
+	staff2="Contemplator +1"
 
-MerlinicHoodAcc={name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}}
-SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Cure" potency +10%','Damage taken-5%',}}
-SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
-SucellosTP={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Mag. Evasion+15',}}
-SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20','MND+5','Weapon skill damage +10%',}}
+	MerlinicHoodAcc={name="Merlinic Hood", augments={'Mag. Acc.+22 "Mag.Atk.Bns."+22','Magic burst dmg.+4%','INT+9','Mag. Acc.+9','"Mag.Atk.Bns."+14',}}
+	SucellosMND={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Cure" potency +10%','Damage taken-5%',}}
+	SucellosINT={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
+	SucellosTP={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dual Wield"+10','Mag. Evasion+15',}}
+	SucellosWS={ name="Sucellos's Cape", augments={'MND+20','Accuracy+20 Attack+20','MND+5','Weapon skill damage +10%',}}
 
-stikini1={name="Stikini Ring +1", bag="wardrobe2"}
-stikini2={name="Stikini Ring +1", bag="wardrobe3"}
+	stikini1={name="Stikini Ring +1", bag="wardrobe2"}
+	stikini2={name="Stikini Ring +1", bag="wardrobe3"}
+
+	chirich1={name="chirich Ring +1", bag="wardrobe2"}
+	chirich2={name="chirich Ring +1", bag="wardrobe4"}
+
+	melee_sets = {
+		crocea_sw = {main="Crocea Mors", sub="Ammurapi Shield"},
+		crocea_dw = {main="Crocea Mors", sub="Sakpata's Sword"},
+		crocea_gleti = {main="Crocea Mors", sub="Gleti's Knife"},
+		crocea_seraph = {main="Crocea Mors", sub="Daybreak"},
+		full_enspell = {main="Crocea Mors", sub="Pukulatmuj +1"},
+		naegling_sw = {main="Naegling", sub="Ammurapi Shield"},
+		naegling_tp_bonus = {main="Naegling", sub="Machaera +2"},
+		naegling_gleti = {main="Naegling", sub="Gleti's Knife"},
+		maxentius_sw = {main="Maxentius", sub="Ammurapi Shield"},
+		maxentius_dw = {main="Maxentius", sub="Machaera +2"},
+	}
+
+	melee_indexes = {'crocea_sw', 'crocea_dw', 'crocea_gleti', 'crocea_seraph', 'naegling_sw', 'naegling_tp_bonus', 'naegling_gleti', 'maxentius_sw', 'maxentius_dw'}
+	melee_index = 1
 
 	sets.precast = {}
 	sets.midcast = {}
@@ -56,7 +75,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.Crocea = {main="Crocea Mors"}
 
 	sets.Idle.Idle = {main="Daybreak",sub="Sacro Bulwark", ammo="Homiliary",
-		head="Vitiation Chapeau +3",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
+		head="Vitiation Chapeau +4",neck="Loricate Torque +1",ear1="Novia Earring",ear2="Loquacious Earring",
 		body="Atrophy Tabard +4",hands="Lethargy Gantherots +3",ring1="Murky Ring",ring2="Defending Ring",
 		back=SucellosMND,waist="Fucho-no-obi",legs="Carmine Cuisses +1",feet=RefreshFeet}
 	
@@ -110,9 +129,15 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		sub="Ammurapi Shield",
 		ammo="Regal Gem",
 		-- ranged="Kaja Bow",
-		head="Vitiation Chapeau +3",neck="Duelist's Torque +2",ear1="Malignance Earring",ear2="Snotra Earring",
+		head="Vitiation Chapeau +4",neck="Duelist's Torque +2",ear1="Malignance Earring",ear2="Snotra Earring",
 		body="Lethargy Sayon +3",hands="Lethargy Gantherots +3",ring1=stikini1,ring2="Kishar Ring",
 		back=SucellosINT,waist="Rumination Sash",legs="Chironic Hose",feet="Vitiation Boots +3"}
+
+
+	sets.midcast["Frazzle III"] = set_combine(sets.midcast.Enfeebling, { --Need to hit 625 to cap potency - this gets 617. Need ML/Obstinate Sash
+		main="Contemplator +1", sub="Enki Strap"})
+
+	sets.midcast["Distract III"] = sets.midcast["Frazzle III"]
 
 	sets.midcast.Enfeebling.Skill = set_combine(sets.midcast.Enfeebling, {
 		main="Contemplator +1",
@@ -196,7 +221,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.midcast.EnhancingMagic.Composure = {main="Colada", sub="Ammurapi Shield",
 		head="Lethargy Chappel +3",neck="Duelist's Torque +2",ear1="Etiolation Earring",ear2="Lethargy Earring +2",
 		body="Lethargy Sayon +3",hands="Atrophy Gloves +4",ring1=stikini1,ring2=stikini2,
-		back="Ghostfyre Cape",waist="Cascade Belt",legs="Lethargy Fuseau +3",feet="Lethargy Houseaux +3"}
+		back="Ghostfyre Cape",waist="Embla Sash",legs="Lethargy Fuseau +3",feet="Lethargy Houseaux +3"}
 
 	sets.midcast.EnhancingMagic.Gain = set_combine(sets.midcast.EnhancingMagic.Duration, {hands="Vitiation Gloves +3"})
 
@@ -268,17 +293,17 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	sets.WS = {}
 
 	sets.WS.SeraphBlade = {
-		main="Crocea Mors",
-		sub="Ammurapi Shield",
+		-- main="Crocea Mors",
+		-- sub="Ammurapi Shield",
 		ranged=Empty,
 		ammo="Sroda Tathlum",
 		head="Leth. Chappel +3",
 		body="Nyame Mail",
-		hands="Jhakri Cuffs +2",
-		legs="Leth. Fuseau +3",
+		hands="Leth. Ganth. +3",
+		legs="Nyame Flanchard",
 		feet="Leth. Houseaux +3",
 		neck="Fotia Gorget",
-		waist="Fotia Belt",
+		waist="Orpheus's Sash",
 		ear1="Moonshade Earring",
 		ear2="Malignance Earring",
 		ring1="Cornelia's ring",
@@ -294,48 +319,50 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		legs="Leth. Fuseau +3",
 		feet="Leth. Houseaux +3",
 		neck="Fotia Gorget",
-		waist="Sacro Cord",
-		ear1="Malignance Earring",
-		ear2="Regal Earring",
-		ring1="Archon Ring",
-		ring2="Cornelia's ring",		
+		waist="Orpheus's Sash",
+		ear1="Regal Earring",
+		ear2="Malignance Earring",
+		ring1="Cornelia's ring",		
+		ring2="Archon Ring",
 		back=SucellosWS,
 		-- feet="Amalric Nails +1",
 	})
 
 	sets.WS.PhysicalWS = {
-	    head={ name="Viti. Chapeau +3"},
+		ammo="Coiste Bodhar",
+	    head={ name="Viti. Chapeau +4"},
 	    body={ name="Viti. Tabard +3", augments={'Enhances "Chainspell" effect',}},
 	    hands="Jhakri Cuffs +2",
 	    legs="Aya. Cosciales +2",
 	    feet="Thereoid Greaves",
-	    neck="Caro Necklace",
-	    waist="Metalsinger Belt",
+	    neck="Republican Platinum Medal",
+	    waist="Sailfi Belt +1",
 	    left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	    right_ear="Sherida Earring",
-	    left_ring="Rufescent Ring",
+	    left_ring="Cornelia's Ring",
 	    right_ring="Petrov Ring",
 	    back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+9','"Mag.Atk.Bns."+10',}}
 	}
 
 	sets.WS.SavageBlade = {
-	    head="Viti. Chapeau +3",
-	    neck="Caro Necklace",
+		ammo="Coiste Bodhar",
+	    head="Viti. Chapeau +4",
+	    neck="Republican Platinum Medal",
 	    ear1="Moonshade Earring",
-	    ear2="Malignance Earring",
-	    body="Viti. Tabard +3",
+	    ear2="Lethargy Earring +2",
+	    body="Nyame Mail",
 	    hands="Atrophy Gloves +4",
-	    ring1="Apate Ring",
-	    ring2="Rufescent Ring",
+	    ring1="Cornelia's Ring",
+	    ring2="Epaminondas's Ring",
 	    back=SucellosWS,
-	    waist="Metalsinger Belt",
-	    legs="Jhakri Slops +2",
-	    feet="Jhakri Pigaches +2"
+	    waist="Sailfi Belt +1",
+	    legs="Nyame Flanchard",
+	    feet="Lethargy Houseaux +3"
 	}
 
 	sets.WS.BlackHalo = {
 	    ammo="Regal Gem",
-	    head="Viti. Chapeau +3",
+	    head="Viti. Chapeau +4",
 	    neck="Duelist's Torque +2",
 	    ear1="Moonshade Earring",
 	    ear2="Sherida Earring",
@@ -375,20 +402,19 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 		hands="Malignance Gloves",
 		legs="Malignance Tights",
 		feet="Malignance Boots",
-		neck="Lissome Necklace",
-		back=SucellosTP,
+		neck="Null Loop",
+		back="Null Shawl",
+		-- back=SucellosTP,
 		ear1="Telos Earring",
 		ear2="Sherida Earring",
-		ring1="Ilabrat Ring",
-		ring2="Petrov Ring",
+		ring1=chirich1,
+		ring2=chirich2,
 		waist="Windbuffet Belt +1",
 		ammo="Coiste Bodhar"
 
 	}
 
 	sets.Melee.SingleWieldSB = {
-		main="Crocea Mors",
-		sub="Ammurapi Shield",
 		ammo="Hasty Pinion +1",
 	    head="Umuthi Hat",
 	    neck="Bathy Choker",
@@ -435,7 +461,7 @@ stikini2={name="Stikini Ring +1", bag="wardrobe3"}
 	send_command('bind f11 gs c switch mb')
 	send_command('bind f12 gs c switch pdt')
 	send_command('bind pageup gs c switch tp')
-	send_command('bind pagedown gs c lockWeapon')
+	send_command('bind pagedown gs c weaponSet')
 
     text_setup()
     addTextPairs()
@@ -456,7 +482,7 @@ function updateTable()
     addToTable("(F11) MB Set", MBSet)
     addToTable("(F12) Idle Set", sets.Idle.index[Idle_ind])
     addToTable("(PGUP) TP Set", sets.Melee.index[Melee_Ind])
-    addToTable("(PGDN) Weapon Locked", weaponLocked)
+    addToTable("(PGDN) Weapon Set", melee_indexes[melee_index])
     update_message()
 end
 
@@ -499,12 +525,8 @@ function precast(spell)
 end
 -- --- MidCast ---
 function midcast(spell)
-	if spell.english == 'Impact' then
-		equip(sets.midcast.Impact)
-	elseif spell.english == "Dispel" then
-		equip(sets.midcast.Dispel)
-	elseif spell.english == "Dispelga" then
-		equip(sets.midcast.Dispelga)
+	if (sets.midcast[spell.english]) then
+		equip(sets.midcast[spell.english])
 	elseif spell.english == "Dia" or spell.english == "Bio" then
 		equip(set_combine(sets.midcast.Enfeebling, sets.Bio))
 	elseif string.find(spell.type,'WhiteMagic') or string.find(spell.type,'BlackMagic') then
@@ -545,8 +567,10 @@ function midcast(spell)
 
 			--Duration - affected by composure
 			elseif buffactive['composure'] and spell.target.type == 'PLAYER' then
+				-- add_to_chat(140, 'Composure active, duration set equipped')
 				equip(sets.midcast.EnhancingMagic.Composure)
 			else
+				-- add_to_chat(140, 'Duration set equipped')
 				equip(sets.midcast.EnhancingMagic.Duration)
 			end	
 
@@ -602,10 +626,15 @@ end
 
 function equip_TP()
 	equip(sets.Melee[sets.Melee.index[Melee_Ind]])
+	equip_melee_weapons()
 end
 
-function equip_Idle()
+function equip_melee_weapons()
+	equip(melee_sets[melee_indexes[melee_index]])
+end
 
+
+function equip_Idle()
     equip(sets.Idle[sets.Idle.index[Idle_ind]])
 end
 
@@ -621,11 +650,8 @@ end
 function status_change(new,tab)
 	if new == 'Engaged' then
 		equip_TP()
-		--disable("Main")
 	else
 		equip_Idle()
-		-- equip(sets['idle.Idle'])
-		--enable("Main")
 	end
 end
 
@@ -670,23 +696,10 @@ function self_command(command)
 			enable("back")
 			add_to_chat(140,'Back is being unlocked')
 		end
-	elseif command == 'lockWeapon' then
-		if weaponLocked == false then
-			weaponLocked = true
-			--equip{{back="Mecistopins Mantle"}}
-			disable("Main")
-			disable("Sub")
-			disable('Ranged')
-			disable('Ammo')
-			add_to_chat(140,'Weapon is being locked')
-		else
-			weaponLocked = false
-			enable("Main")
-			enable("Sub")
-			enable('Ranged')
-			enable('Ammo')
-			add_to_chat(140,'Weapon is being unlocked')
-		end
+	elseif command == 'weaponSet' then
+		melee_index = melee_index + 1
+		if melee_index > #melee_indexes then melee_index = 1 end
+		equip_melee_weapons()
 	end
 	updateTable()
 end
