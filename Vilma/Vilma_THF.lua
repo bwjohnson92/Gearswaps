@@ -21,6 +21,8 @@ function get_sets()
     sets.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
     sets.JA.Steal = {feet="Rogue's Poulaines"}
     sets.JA.Flee = {feet="Rogue's Poulaines"}
+    sets.JA['Assassin's Charge'] = {feet="Plunderer's Poulaines +3"}
+    
 --    sets.JA.Despoil = {legs="Raider's Culottes +2",feet="Raider's Poulaines +2"}
 --    sets.JA.Mug = {head="Assassin's Bonnet +2"}
     -- sets.JA.Waltz = {head="",neck="Dualism Collar +1",body="Iuitl Vest",hands="Slither Gloves +1",ring1="Valseur's Ring",ring2="Carbuncle Ring +1",
@@ -94,7 +96,7 @@ function get_sets()
 
     sets.WS.Exenterator.TA = {
         body="Pillager's Vest +2",ring2="Gere Ring", --hands
-        back=capeWS,waist="Windbuffet Belt +1",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +1"}
+        back=capeWS,waist="Windbuffet Belt +1",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +3"}
         
     sets.WS.Exenterator.SATA = set_combine(sets.WS.TA.Exenterator, {})
     
