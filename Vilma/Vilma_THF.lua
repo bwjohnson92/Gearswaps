@@ -15,15 +15,15 @@ function get_sets()
 
     
     sets.JA = {}
---    sets.JA.Conspirator = {body="Raider's Vest +2"}
---    sets.JA.Accomplice = {head="Raider's Bonnet +2"}
---    sets.JA.Collaborator = {head="Raider's Bonnet +2"}
+    sets.JA.Conspirator = {body="Skulker's Vest +2"}
+    sets.JA.Accomplice = {head="Skulker's Bonnet +3"}
+    sets.JA.Collaborator = {head="Skulker's Bonnet +3"}
     sets.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
     sets.JA.Steal = {feet="Rogue's Poulaines"}
     sets.JA.Flee = {feet="Rogue's Poulaines"}
     sets.JA['Assassin's Charge'] = {feet="Plunderer's Poulaines +3"}
     
---    sets.JA.Despoil = {legs="Raider's Culottes +2",feet="Raider's Poulaines +2"}
+    sets.JA.Despoil = {legs="Raider's Culottes +2",feet="Raider's Poulaines +2"}
 --    sets.JA.Mug = {head="Assassin's Bonnet +2"}
     -- sets.JA.Waltz = {head="",neck="Dualism Collar +1",body="Iuitl Vest",hands="Slither Gloves +1",ring1="Valseur's Ring",ring2="Carbuncle Ring +1",
     --     waist="Aristo Belt",legs="Desultor Tassets",feet="Dance Shoes"}
@@ -37,18 +37,18 @@ function get_sets()
     sets.TP = {}
 
     sets.TP['Low Haste'] = {ammo="Yamarang",
-        head="Skulker's bonnet +2",neck="Erudition Necklace",ear2="Eabani Earring",ear1="Sherida Earring",
+        head="Skulker's bonnet +3",neck="Erudition Necklace",ear2="Eabani Earring",ear1="Sherida Earring",
         body="Malignance Tabard",hands="Malignant Gloves",ring1="Moonbeam Ring",ring2="Gere Ring",
         back=capeTP,waist="Reiki Yotai",legs="Gleti's Breeches",
         feet="Skulker's Poulaines +2",} 
          
 	sets.TP['High Haste'] = {range="Raider's Bmrng.",
-        head="Skulker's bonnet +2", neck="Erudition Necklace",ear1="Sherida Earring",ear2="Brutal Earring",
+        head="Skulker's bonnet +3", neck="Erudition Necklace",ear1="Sherida Earring",ear2="Brutal Earring",
         body="Herculean Vest",hands="Adhemar Wristbands +1",ring1="Epona's Ring",ring2="Gere Ring",
         back=capeTP,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet={ name="Herculean Boots", augments={'Rng.Acc.+21','"Triple Atk."+4','STR+5','Accuracy+12','Attack+2',}},}
     
     sets.TP['Acc'] = {ammo="Yamarang",
-        head="Skulker's bonnet +2",neck="Null Loop",ear1="Sherida Earring",ear2="Telos Earring",
+        head="Skulker's bonnet +3",neck="Null Loop",ear1="Sherida Earring",ear2="Telos Earring",
         body="Pillager's Vest +2",hands="Meghanada Gloves +2",ring1="Moonbeam Ring",ring2="Gere Ring",
         back=capeTP,waist="Windbuffet Belt +1",
         back="Toutatis's Cape",waist="Kentarch Belt +1",legs="Gleti's Breeches",feet="Skulker's poulaines +2",}
@@ -80,7 +80,7 @@ function get_sets()
 
     sets.WS["Rudra's Storm"] = { ammo="Cath Palug Stone",
         head="Pillager's Bonnet +3",neck="Caro Necklace",ear1="Moonshade Earring",ear2="Sherida Earring",
-        body="Skulker's Vest +1",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Regal ring",
+        body="Skulker's Vest +2",hands="Nyame Gauntlets",ring1="Epaminondas's Ring",ring2="Regal ring",
         back=capeWS,waist="Kentarch Belt +1",legs="Plunder's Culottes +3",feet="Nyame Sollerets"}
         Ammo="Cath Palug stone"
         
@@ -90,7 +90,7 @@ function get_sets()
         body="Pillager's Vest +2",hands="Raider's Armlets +2",legs="Nyame Flanchard", feet="Nyame Sollerets"}
     )
         
-    sets.WS.Exenterator = {head="Nyame helm",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Skulker's Earring",
+    sets.WS.Exenterator = {head="Nyame helm",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Skulker's Earring +1",
         body="Pillager's Vest +2",hands="Nyame gauntlets",ring1="Gere ring",ring2="Ilabrat Ring",
         back=capeWS,waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
@@ -115,11 +115,11 @@ function get_sets()
 
     Idle_Set_Names = {'Normal'}
     sets.Idle = {}
-    sets.Idle.Normal = {head="Skulker's bonnet +1",neck="Loricate Torque +1",--ear1="Merman's Earring",ear2="Bladeborn Earring",
+    sets.Idle.Normal = {head="Skulker's bonnet +3",neck="Loricate Torque +1",--ear1="Merman's Earring",ear2="Bladeborn Earring",
         body="Emet Harness +1",hands="Plunderer's Armlets +3",ring1="Dark Ring",ring2="Defending Ring",
         back=capeTP,waist="Chaac Belt",legs="Nyame Flanchard",feet="Skadi's Jambeaux +1"}
                 
-    -- sets.Idle.MDT = {head="Skulker's bonnet +1",ear1="Merman's Earring",ear2="Bladeborn Earring",
+    -- sets.Idle.MDT = {head="Skulker's bonnet +3",ear1="Merman's Earring",ear2="Bladeborn Earring",
     --     body="Avalon Breastplate",hands="Iuitl Wristbands +1",ring1="Defending Ring",ring2="Dark Ring",
     --     back="Mollusca Mantle",waist="Wanion Belt",legs="Nahtirah Trousers",feet="Skadi's Jambeaux +1"}
 	
