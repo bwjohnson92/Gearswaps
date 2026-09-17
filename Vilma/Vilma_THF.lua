@@ -49,9 +49,9 @@ function get_sets()
     
     sets.TP['Acc'] = {ammo="Yamarang",
         head="Skulker's bonnet +3",neck="Null Loop",ear1="Sherida Earring",ear2="Telos Earring",
-        body="Pillager's Vest +2",hands="Meghanada Gloves +2",ring1="Moonbeam Ring",ring2="Gere Ring",
+        body="Pillager's Vest +3",hands="Malignance Gloves",ring1="Moonbeam Ring",ring2="Gere Ring",
         back=capeTP,waist="Windbuffet Belt +1",
-        back="Toutatis's Cape",waist="Kentarch Belt +1",legs="Gleti's Breeches",feet="Skulker's poulaines +2",}
+        back="Toutatis's Cape",waist="Kentarch Belt +1",legs="Malignance Tights",feet="Plunderer's poulaines +4",}
 
 	sets.TP['TH'] = set_combine(sets.TP['Low Man'], {
         head="Malignance Chapeau",
@@ -87,15 +87,15 @@ function get_sets()
     sets.WS["Rudra's Storm"].SA = set_combine(sets.WS["Rudra's Storm"],
         {
         -- head="Imperial Wing Hairpin",
-        body="Pillager's Vest +2",hands="Raider's Armlets +2",legs="Nyame Flanchard", feet="Nyame Sollerets"}
+        body="Pillager's Vest +3",hands="Raider's Armlets +2",legs="Nyame Flanchard", feet="Nyame Sollerets"}
     )
         
     sets.WS.Exenterator = {head="Nyame helm",neck="Fotia Gorget",ear1="Sherida Earring",ear2="Skulker's Earring +1",
-        body="Pillager's Vest +2",hands="Nyame gauntlets",ring1="Gere ring",ring2="Ilabrat Ring",
+        body="Pillager's Vest +3",hands="Nyame gauntlets",ring1="Gere ring",ring2="Ilabrat Ring",
         back=capeWS,waist="Fotia Belt",legs="Nyame Flanchard",feet="Nyame Sollerets"}
 
     sets.WS.Exenterator.TA = {
-        body="Pillager's Vest +2",ring2="Gere Ring", --hands
+        body="Pillager's Vest +3",ring2="Gere Ring", --hands
         back=capeWS,waist="Windbuffet Belt +1",legs="Pillager's Culottes +1",feet="Plunderer's Poulaines +3"}
         
     sets.WS.Exenterator.SATA = set_combine(sets.WS.TA.Exenterator, {})
